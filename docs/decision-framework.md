@@ -70,7 +70,7 @@ Apply these questions **sequentially** after passing the BXT assessment. Each qu
 
 Identify the primary place people will engage with the agent. The interaction surface immediately narrows the candidate technologies.
 
-- **M365 apps** (Teams, Outlook, Word) → Stay inside the Microsoft 365 trust boundary with built-in agents, Copilot Studio M365 channels, or Graph connectors.
+- **M365 apps** (Copilot Chat, Teams, Office Apps) → Stay inside the Microsoft 365 trust boundary with built-in agents, Copilot Studio M365 channels, or Graph connectors.
 - **Custom or multi-channel** (web, mobile, SMS, email) → Use M365 Agents SDK, Azure AI Foundry, or Logic Apps to reach every endpoint consistently. Pair Agent Framework with the AG-UI protocol when you need streaming UI, shared state, or human-in-the-loop approvals in bespoke web/mobile experiences.[^agui-overview]
 - **API/headless** workloads → Design for services that call the agent as a capability rather than a UI.
 

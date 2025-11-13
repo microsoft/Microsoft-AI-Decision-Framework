@@ -1,0 +1,6 @@
+{% if site.logo %}
+  <img src="{{ site.logo | relative_url }}" alt="{{ site.title }}" class="site-logo-img" />
+  <span class="site-title-text">{{ site.title }}</span>
+{% else %}
+  {{ site.title }}
+{% endif %}

@@ -1,0 +1,75 @@
+# Site settings
+title: Microsoft AI Decision Framework
+description: Comprehensive guide to navigating Microsoft's AI technology portfolio
+baseurl: "/Microsoft-AI-Decision-Framework" # the subpath of your site, e.g. /blog
+url: "https://microsoft.github.io" # the base hostname & protocol for your site
+
+# Theme
+# For GitHub Pages (production):
+remote_theme: just-the-docs/just-the-docs
+
+# For local testing (uncomment the line below and comment out remote_theme):
+# theme: just-the-docs
+
+# Color scheme options:
+# - nil (default with light/dark toggle)
+# - "dark" (dark mode only)
+# - "light" (light mode only)
+color_scheme: dark
+
+# Logo (optional - add your logo to /images/ folder)
+# Using official Microsoft logo SVG from Wikimedia Commons (vector format, scales perfectly)
+logo: "/images/microsoft-logo.svg"
+
+# Favicon - high-quality 256x256px icon at root (browsers auto-detect /favicon.ico)
+# Leave unset to use /favicon.ico automatically
+# favicon_ico: "/favicon.ico"
+
+# Search
+search_enabled: true
+search:
+  heading_level: 2
+  previews: 3
+  preview_words_before: 5
+  preview_words_after: 10
+  tokenizer_separator: /[\s/]+/
+  rel_url: true
+  button: false
+
+# Mermaid diagrams support
+# Using latest stable version from https://github.com/mermaid-js/mermaid/releases
+# Last verified: November 2025
+mermaid:
+  version: "11.12.1"
+
+# Navigation
+nav_sort: case_sensitive
+
+# Footer content
+footer_content: "Copyright &copy; 2025. This documentation is based on official Microsoft sources and best practices."
+
+# External links
+aux_links:
+  "View on GitHub":
+    - "//github.com/microsoft/Microsoft-AI-Decision-Framework"
+
+# Quick links in header
+aux_links_new_tab: true
+
+# Enable/disable components
+heading_anchors: true
+back_to_top: true
+back_to_top_text: "Back to top"
+
+# Kramdown settings
+kramdown:
+  syntax_highlighter_opts:
+    block:
+      line_numbers: false
+
+# Plugins
+plugins:
+  - jekyll-seo-tag
+  - jekyll-github-metadata
+  - jekyll-include-cache
+  - jekyll-remote-theme

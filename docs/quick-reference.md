@@ -1,0 +1,233 @@
+---
+layout: default
+title: Quick Reference
+nav_order: 10
+description: "Fast lookup table for Microsoft AI technologies"
+---
+
+# Quick Reference: Technology by Need
+
+{: .note }
+This page provides fast-lookup tables for common scenarios. For detailed decision logic, see the [Decision Framework]({{ '/docs/decision-framework' | relative_url }}).
+
+---
+
+## Table of contents
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
+
+---
+
+## Technology by User Experience
+
+| **Where Users Interact** | **Recommended Technologies** | **Use When** |
+|---------------------------|------------------------------|--------------|
+| **Microsoft 365 Apps** | M365 Copilot + Declarative Agents (pinned/@mentioned agents), Graph Connectors | Need managed Copilot experiences embedded in Word, Excel, Outlook, or Teams meetings with agent pinning and static meeting tabs |
+| **Microsoft Teams Only** | Copilot Studio, M365 Agents SDK | Teams-centric chat or calling scenarios where admins may enforce "only during the call" retention |
+| **Custom Web/Mobile App** | Azure AI Foundry, Azure AI Agent Service (Standard setup) | Building standalone applications while keeping files, search, and thread storage in customer-owned Azure resources |
+| **Multiple Channels** | M365 Agents SDK | Deliver one agent across Microsoft 365 Copilot, Teams, web, email, SMS, and other channels |
+| **Power Platform** | Copilot Studio, AI Builder | Integrated with low-code Power Apps/Power Automate workloads |
+| **Enterprise Workflows** | Azure Logic Apps AI Agents (Preview), MCP Server | Workflow automation that needs autonomous/conversational agent patterns with Easy Auth guardrails |
+| **Developer Tools** | GitHub Copilot Extensions | IDE and development workflow integration |
+
+**Sources:**
+
+- [Microsoft 365 Copilot release notes — October 28, 2025](https://learn.microsoft.com/en-us/copilot/microsoft-365/release-notes?tabs=all#october-28-2025) (Updated: 2025-10-28)
+- [Built-in enterprise readiness with standard agent setup](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/concepts/standard-agent-setup) (Updated: 2025-06-16)
+- [Workflows with AI agents and models in Azure Logic Apps (Preview)](https://learn.microsoft.com/en-us/azure/logic-apps/agent-workflows-concepts) (Updated: 2025-10-09)
+- [Microsoft 365 Agents Toolkit](https://learn.microsoft.com/en-us/microsoft-365/developer/overview-m365-agents-toolkit) (Updated: 2025-05-30)
+
+**Confidence Level:** High (all technologies GA except Logic Apps AI Agents Preview)
+
+---
+
+## Agent Development Approach Comparison
+
+| **Approach** | **Declarative Agents** | **Custom Engine Agents** |
+|--------------|------------------------|--------------------------|
+| **Definition** | Microsoft-managed orchestration where you supply instructions, knowledge, actions | Bring your own orchestration, models, and tooling for bespoke agents |
+| **Best For** | Rapid delivery of guided experiences in M365 apps | Advanced workflows, multi-agent patterns, or non-M365 channels |
+| **Development Model** | Low-code (Copilot Studio) or pro-code via Agents Toolkit scaffolding | Pro-code using Agents SDK, Teams AI Library, or custom frameworks |
+| **Orchestration** | Microsoft 365 Copilot orchestrator handles planning and grounding | You decide orchestration (Semantic Kernel, LangChain, Teams AI action planner, etc.) |
+| **M365 Integration** | Native to Microsoft 365 Copilot UI and Teams | Requires explicit integration via M365 Agents SDK or Teams AI Library |
+| **Typical Timeline** | Days to a few weeks | Weeks to months |
+| **Skill Level** | Makers or full-stack developers | Professional developers |
+
+**Sources:**
+
+- [Declarative agents for Microsoft 365 Copilot overview](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-declarative-agent) (Updated: 2025-09-11)
+- [Custom engine agents for Microsoft 365 overview](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-custom-engine-agent) (Updated: 2025-09-12)
+
+**Confidence Level:** High (official Microsoft guidance)
+
+---
+
+## Custom Engine Agent Tool Comparison
+
+| **Tool** | **Copilot Studio** | **Teams AI Library** | **M365 Agents SDK** |
+|----------|---------------------|----------------------|---------------------|
+| **Primary Use Case** | Managed SaaS for custom agents with built-in governance | Collaborative agents inside Teams | Pro-code agents running across M365 and third-party channels |
+| **Orchestration** | Copilot Studio-managed orchestrator | Built-in Teams AI action planner | Bring your own orchestration (Semantic Kernel, LangChain, custom) |
+| **Supported Channels** | Microsoft 365 Copilot, Teams, partner apps, mobile apps, custom websites | Microsoft 365 Copilot, Teams | Microsoft 365 Copilot, Teams, web, email, SMS, Office add-ins, custom sites |
+| **Development Experience** | Low-code UI with Power Platform controls | Visual Studio/VS Code libraries for C#, TS/JS, Python | Agents Toolkit scaffolding for .NET/JS with multi-channel deployment |
+| **Ideal Team** | Makers or fusion dev teams | Teams-focused pro dev squads | Professional developers delivering enterprise-scale agents |
+| **Status** | GA | GA | GA |
+
+**Sources:**
+
+- [Custom engine agents for Microsoft 365 overview](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-custom-engine-agent) (Updated: 2025-09-12)
+- [Microsoft 365 Agents Toolkit](https://learn.microsoft.com/en-us/microsoft-365/developer/overview-m365-agents-toolkit) (Updated: 2025-05-30)
+- [Teams AI Library overview](https://learn.microsoft.com/en-us/microsoftteams/platform/bots/how-to/teams-conversational-ai/teams-conversation-ai-overview) (Updated: 2025-07-01)
+
+**Confidence Level:** High (all GA, official Microsoft documentation)
+
+---
+
+## Data Grounding Pattern by Source
+
+| **Data Source Type** | **Recommended Approach** | **Technologies** |
+|----------------------|--------------------------|------------------|
+| **SharePoint/OneDrive** | Graph Connectors | Microsoft Graph Connectors SDK, Copilot Studio connectors |
+| **External Structured Data** | Graph Connectors (inside M365) or Azure AI Search (Agent Service standard setup) | Microsoft Graph Connectors, Azure AI Search |
+| **Unstructured Documents** | Vector search with chunking | Azure AI Search, Azure OpenAI Embeddings |
+| **Real-Time Transactional Data** | API-based grounding | API plugins, Functions, Logic Apps agent workflows |
+| **Multimodal Content** | Azure AI Content Understanding (Preview) | Process documents, images, audio, video with reasoning |
+| **Database Vectors** | AI-capable databases with managed embeddings | Azure Cosmos DB for NoSQL (standard setup: 3 × 1000 RU containers), PostgreSQL (GA), SQL Server 2025 (Preview) |
+| **Microsoft Fabric Platform** | Direct data access | Lakehouse (Delta tables), Warehouse (T-SQL), OneLake (ADLS Gen2 APIs), SQL analytics endpoint |
+| **Microsoft Fabric via Agent** | Conversational data layer | Fabric Data Agents (Preview) with Copilot Studio or Azure AI Agent Service |
+
+**Sources:**
+
+- [Microsoft Graph Connectors](https://learn.microsoft.com/en-us/graph/connecting-external-content-connectors-overview) (Updated: 2025-09-20)
+- [Retrieval-augmented generation with Azure AI Search](https://learn.microsoft.com/en-us/azure/search/retrieval-augmented-generation-overview) (Updated: 2025-10-12)
+- [Azure AI Content Understanding](https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview) (Updated: 2025-10-28)
+- [Built-in enterprise readiness with standard agent setup](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/concepts/standard-agent-setup) (Updated: 2025-06-16)
+- [Azure Cosmos DB integration with Azure AI Agents Service](https://learn.microsoft.com/en-us/azure/cosmos-db/gen-ai/azure-agent-service) (Updated: 2025-08-26)
+- [Workflows with AI agents and models in Azure Logic Apps (Preview)](https://learn.microsoft.com/en-us/azure/logic-apps/agent-workflows-concepts) (Updated: 2025-10-09)
+- [Microsoft Fabric overview](https://learn.microsoft.com/en-us/fabric/fundamentals/microsoft-fabric-overview) (Updated: 2025-11-03)
+- [Azure AI Foundry FAQ](https://learn.microsoft.com/en-us/azure/ai-foundry/faq) (Updated: 2025-11-03)
+
+**Confidence Level:** High for GA technologies, Medium for Preview (Fabric Data Agents, Content Understanding)
+
+---
+
+## Memory & Analytics by Technology
+
+{: .note }
+**Common Customer Confusion**: Grounding (RAG) ≠ Memory ≠ Analytics
+
+| Technology | 📋 Grounding (RAG) | 💾 Memory / Thread Storage | 📊 Analytics / Transcripts | Admin Access | Retention Control |
+|------------|-------------------|------------------------------|----------------------------|--------------|-------------------|
+| **M365 Copilot** | ✅ M365 content per request | ❌ No tenant-wide memory export; user history lives in mailbox/Graph | ⚠️ Copilot activity history, Teams call summaries if policy allows | ⚠️ Purview/eDiscovery only | ✅ Purview retention policies; Teams calling policy can force "only during the call" |
+| **Copilot Studio** | ✅ M365 data, Dataverse, connectors | ⚠️ Dataverse variables per conversation | ✅ Session reports, transcript downloads, ROI analytics | ✅ Transcript Viewer role required | ✅ Toggle Dataverse save, default 30-day retention, bulk delete |
+| **Azure AI Agent Service** | ✅ Azure AI Search, Cosmos DB, Fabric, tools | ✅ BYO thread storage in Cosmos DB (standard setup) | ⚠️ Custom telemetry (App Insights, OpenTelemetry) | ✅ Customer RBAC on Azure resources | ✅ Customer deletes threads/files in own storage |
+| **M365 Agents SDK** | ✅ Custom (developer implements) | ⚠️ Custom (developer implements thread storage) | ⚠️ Custom (Application Insights, custom logging) | ⚠️ Custom (developer implements) | ⚠️ Custom (developer implements) |
+
+**Key Compliance Questions:**
+
+- **Where is conversation history stored?** → M365 Copilot (user mailbox/Purview), Copilot Studio (Dataverse), Agent Service (customer Cosmos DB), SDK (customer datastore)
+- **How long is it retained?** → M365 Copilot (Purview retention or user deletion), Copilot Studio (policy configurable, 30-day default), Agent Service (customer-defined lifecycle), SDK (custom)
+- **Who can query chat logs?** → M365 Copilot (admins via eDiscovery, users see activity history), Copilot Studio (admins with Transcript Viewer role), Agent Service (Azure RBAC), SDK (custom controls)
+- **Can we scrub PII?** → Agent Service (customer deletes in Cosmos/Storage), Studio (bulk delete transcripts), M365 Copilot (user clears activity history, Purview retention)
+- **Can we run without saved transcripts?** → Teams calling "Only during the call" mode keeps speech-to-text transient; Copilot Studio toggle stops Dataverse saving.
+
+**Sources:**
+
+- [Data, privacy, and security for Microsoft 365 Copilot](https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-privacy) (Updated: 2025-09-05)
+- [Control transcript access and retention](https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-transcript-controls) (Updated: 2025-03-07)
+- [Manage Microsoft 365 Copilot in Teams calls](https://learn.microsoft.com/en-us/microsoftteams/copilot-teams-calling-transcription) (Updated: 2025-07-01)
+- [Built-in enterprise readiness with standard agent setup](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/concepts/standard-agent-setup) (Updated: 2025-06-16)
+- [Azure Cosmos DB integration with Azure AI Agents Service](https://learn.microsoft.com/en-us/azure/cosmos-db/gen-ai/azure-agent-service) (Updated: 2025-08-26)
+
+**Confidence Level:** High (all technologies GA)
+
+---
+
+## Orchestration Complexity Decision Matrix
+
+| **Complexity Level** | **Characteristics** | **Recommended Technologies** |
+|----------------------|---------------------|------------------------------|
+| **Simple (Q&A)** | Single-turn conversations, basic RAG | Declarative Agents (Copilot Studio or M365 Agents Toolkit) |
+| **Moderate (Task Execution)** | Multi-turn, 1-5 actions, simple branching | Declarative Agents with API plugins, Azure AI Agent Service |
+| **Complex (Workflows)** | Sequential workflows, conditional logic | Declarative Agents + Power Automate, Agent Framework workflows |
+| **Advanced (Multi-Agent)** | Agent-to-agent delegation, parallel execution | Copilot Studio multi-agent, Azure AI Agent Service, Agent Framework |
+| **Expert (Custom Reasoning)** | Custom orchestration logic, model selection | Custom engine agents with Microsoft 365 Agents SDK, Teams AI Library, or Azure AI Agent Service |
+
+**Sources:**
+
+- [Agent Framework orchestration patterns](https://learn.microsoft.com/en-us/azure/ai-services/agents/concepts/agent-framework) (Updated: 2025-07-18)
+- [Custom engine agents for Microsoft 365 overview](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-custom-engine-agent) (Updated: 2025-09-12)
+- [Microsoft 365 Agents Toolkit](https://learn.microsoft.com/en-us/microsoft-365/developer/overview-m365-agents-toolkit) (Updated: 2025-05-30)
+
+**Confidence Level:** High (official patterns documented)
+
+---
+
+## Budget & Timeline Quick Guide
+
+| **Scenario** | **Fastest Path** | **Most Cost-Effective (Long-Term)** |
+|--------------|------------------|-------------------------------------|
+| **Extend M365 Copilot (Knowledge Only)** | Graph Connectors (days) | Graph Connectors (no additional cost) |
+| **Extend M365 Copilot (Knowledge + Actions)** | Declarative Agent (Copilot Studio, 1-2 weeks) | Declarative Agent (M365 Agents Toolkit, 2-4 weeks) |
+| **Custom Multi-Channel Agent** | M365 Agents SDK with templates (2-4 weeks) | Azure AI Foundry (consumption-based, 4-8 weeks) |
+| **Multi-Agent Orchestration** | Copilot Studio (low-code, 2-4 weeks) | Azure AI Agent Service (managed, 4-8 weeks) |
+| **Enterprise Workflow Automation** | Azure Logic Apps AI Agents Preview (1-2 weeks) | Azure AI Foundry + Agent Framework (4-8 weeks) |
+
+**Key Budget Considerations:**
+
+- **M365-Centric:** Per-user licensing (Copilot Studio, M365 Copilot)
+- **Azure-Native:** Consumption-based (Azure OpenAI tokens, AI Search queries, compute)
+- **Hybrid:** Mix of per-user and consumption models
+
+**Sources:**
+
+- [Copilot Studio Pricing](https://www.microsoft.com/en-us/microsoft-copilot/microsoft-copilot-studio#Plans) (Updated: 2024-10-01)
+- [Azure AI Services Pricing](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/) (Updated: 2024-10-15)
+
+**Confidence Level:** Medium (pricing models subject to change)
+
+---
+
+## Governance Decision Quick Reference
+
+| **Requirement** | **M365 Trust Boundary** | **Azure Workload Boundary** |
+|-----------------|-------------------------|------------------------------|
+| **Data Residency** | M365 tenant region | Azure region selection |
+| **Identity Management** | Entra ID (automatic) | Entra ID + Azure RBAC |
+| **Approval Workflows** | M365 admin center (Integrated Apps) | Azure custom workflows |
+| **Audit Logging** | Purview + M365 audit logs | Azure Monitor + Log Analytics |
+| **Data Classification** | Purview DLP policies | Azure Policy + custom tagging |
+| **Deployment Control** | IT admin approval (tenant-wide settings) | Azure DevOps, CI/CD pipelines |
+| **Real-Time Meeting/Call Transcripts** | Teams calling policy can enforce "Only during the call" to avoid post-call storage | Build ephemeral transcript handling or disable logging in custom stack |
+
+{: .note }
+**Copilot Studio compliance snapshot:** Covered under HIPAA BAA, HITRUST CSF, FedRAMP High, SOC, ISO 9001/20000-1/22301/27001/27017/27018/27701, PCI DSS, CSA STAR, UK G-Cloud, OSPAR, K-ISMS, Singapore MTCS Level 3, and Spain ENS High (audit artifacts via the Microsoft Service Trust Portal). (Updated: 2024-12-20)
+
+**Best For:**
+
+- **M365 Trust Boundary:** Organizations with strong Microsoft 365 governance already in place
+- **Azure Workload Boundary:** Organizations requiring granular control, custom policies, or Azure-native compliance
+
+**Sources:**
+
+- [Data, privacy, and security for Microsoft 365 Copilot](https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-privacy) (Updated: 2025-09-05)
+- [Manage Microsoft 365 Copilot in Teams calls](https://learn.microsoft.com/en-us/microsoftteams/copilot-teams-calling-transcription) (Updated: 2025-07-01)
+- [Azure AI Services security and compliance](https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/security) (Updated: 2025-06-20)
+- [Ensure compliance with Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-certification) (Updated: 2024-12-20)
+
+**Confidence Level:** High (official Microsoft compliance documentation)
+
+---
+
+{: .note-title }
+> Quick Navigation
+>
+> - For decision logic behind these recommendations, see [Decision Framework]({{ '/docs/decision-framework' | relative_url }})
+> - For detailed architecture patterns, see [Implementation Patterns]({{ '/docs/implementation-patterns' | relative_url }})
+> - For real-world examples, see [Scenarios]({{ '/docs/scenarios' | relative_url }})
+
+---
+
+**Next:** [Resources]({{ '/docs/resources' | relative_url }}) - Official Microsoft references to keep research evidence-backed

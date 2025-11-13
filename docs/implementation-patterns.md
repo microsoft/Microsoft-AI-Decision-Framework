@@ -13,8 +13,13 @@ These patterns represent proven approaches for implementing Microsoft AI solutio
 ## Table of contents
 {: .no_toc .text-delta }
 
-1. TOC
-{:toc}
+- [Pattern 1 – Start in Studio, Scale with Azure](#pattern-1-start-in-studio-scale-with-azure)
+- [Pattern 2 – Pro-Code First, Surface in Copilot](#pattern-2-pro-code-first-surface-in-copilot)
+- [Pattern 3 – Microsoft 365 Knowledge Grounding](#pattern-3-microsoft-365-knowledge-grounding)
+- [Pattern 4 – Multi-Channel Custom Engine Agent with M365 Agents SDK](#pattern-4-multi-channel-custom-engine-agent-with-m365-agents-sdk)
+- [Pattern 5 – Multi-Agent Workflows with Microsoft Agent Framework](#pattern-5-multi-agent-workflows-with-microsoft-agent-framework)
+- [Pattern Selection Guide](#pattern-selection-guide)
+- [Pattern Decision Tree](#pattern-decision-tree)
 
 ---
 
@@ -61,19 +66,101 @@ These patterns represent proven approaches for implementing Microsoft AI solutio
 
 ---
 
-{: .note-title }
-> Related Resources
->
-> - For technology comparison tables, see [Quick Reference]({{ '/docs/quick-reference' | relative_url }})
-> - For real-world applications of these patterns, see [Scenarios]({{ '/docs/scenarios' | relative_url }})
-> - For evaluation criteria, see [Evaluation Criteria]({{ '/docs/evaluation-criteria' | relative_url }})
-> - For guardrail guidance, see [Action Safety Guardrail Playbook]({{ '/docs/evaluation-criteria#action-safety-guardrail-playbook' | relative_url }})
+## Pattern 2: Pro-Code First, Surface in Copilot
+
+**Approach:**
+
+1. Design and build in **Azure AI Foundry** or Azure AI Agent Service to control model selection, prompt flow evaluations, and custom toolchains.[^agentservice-overview]
+2. Implement RAG with Azure AI Search, Cosmos DB, or SQL vector features depending on data gravity.[^feature-comparison]
+3. Host the agent in Azure services you already operate (Container Apps, App Service, AKS) so networking, logging, and secrets align with your landing zone standards.[^evaluation-governance]
+4. Expose the experience inside Microsoft 365 through API plugins or custom engine agents created with the Microsoft 365 Agents SDK.[^api-plugins][^agentsdk-overview]
+
+**Strengths:**
+
+- Full control over orchestration, latency budgets, and data residency; ideal for **high/very high complexity** use cases in the Evaluation Criteria.
+- Reuses existing Azure engineering investments (policy, monitoring, private endpoints).
+- Flexible channel reach—web, mobile, Microsoft 365, or bespoke user interfaces—using the Agents SDK as a distribution layer.[^agentsdk-overview]
+
+**Trade-offs:**
+
+- Requires dedicated engineering capacity (pro developers, DevOps) and longer lead time (weeks → months).
+- Azure consumption costs accumulate across hosting, vector stores, and observability; financial modeling is required up front.
+- Teams must implement Responsible AI controls (content safety, approvals) themselves or integrate Azure services such as AI Content Safety.
+
+**Signals this fits:**
+
+- You already operate an Azure landing zone with security/compliance guardrails.
+- Teams have the **pro developer** profile in Evaluation Criteria, including infrastructure ownership.
+- Use case demands deterministic orchestration, custom metrics, or hybrid channel support.
+
+**When to pivot:** If the pilot stalls due to skill or budget constraints, return to Pattern 1 to validate scope, or move to Pattern 4 when multi-channel distribution is required but you can partner with product teams for shared orchestration.
+
+**Sources:**
+
+- [Azure AI Agent Service overview](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/overview)[^agentservice-overview]
+- [Microsoft AI Feature Comparison]({{ '/docs/feature-comparison' | relative_url }})[^feature-comparison]
+- [Evaluation Criteria – Governance & Compliance]({{ '/docs/evaluation-criteria#governance--compliance' | relative_url }})[^evaluation-governance]
+- [API plugins for Microsoft 365 Copilot](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-api-plugins)[^api-plugins]
+- [Microsoft 365 Agents SDK overview](https://learn.microsoft.com/en-us/microsoft-365/agents-sdk/agents-sdk-overview)[^agentsdk-overview]
+
+**Status:** Recommended when enterprise teams lead with Azure-first architecture
+**Confidence Level:** High (official Microsoft guidance + internal comparison tables)
 
 ---
 
-**Next:** [Technologies]({{ '/docs/technologies' | relative_url }}) - Deep dive into technical specifications
+## Pattern 3: Microsoft 365 Knowledge Grounding
 
-[^studio-overview]: Microsoft Copilot Studio overview, Microsoft Learn. Retrieved: 2025-11-11. [https://learn.microsoft.com/en-us/microsoft-copilot-studio/overview-what-is-copilot-studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/overview-what-is-copilot-studio)
+**Approach:**
+
+1. Add SharePoint, OneDrive, and Teams knowledge sources directly in Copilot Studio so the agent grounds answers in tenant-secured content with security trimming.[^knowledge-sharepoint]
+2. Configure a **declarative agent** (Copilot Studio or Microsoft 365 Agents Toolkit) that references those knowledge sources and provides conversation starters aligned to business vernacular.[^declarative-agents]
+3. Extend coverage with Microsoft Graph connectors when you need external line-of-business or third-party content indexed into Microsoft 365 Search and Copilot experiences.[^graph-connectors]
+4. Optionally attach **API plugins** for light actions (create tickets, file requests) while keeping the agent primarily read-oriented.[^api-plugins]
+5. Publish to Microsoft 365 Copilot or Teams to meet users where they already work; analytics and governance stay inside Microsoft 365.[^studio-publish]
+
+**Strengths:**
+
+- Safest path for **read-only** experiences; inherits Microsoft 365 identity, compliance, and data loss prevention controls without extra infrastructure.[^knowledge-sharepoint]
+- Minimal build effort—aligns with **low complexity / low budget** profiles in Evaluation Criteria while improving search and retrieval outcomes.
+- Scales rapidly because indexing, security trimming, and citations are handled by Microsoft 365 knowledge services.
+
+**Trade-offs:**
+
+- Limited to knowledge sources supported by Copilot Studio and Microsoft Graph connectors; large unstructured repositories may require Azure AI Search (Pattern 2).
+- Declarative agents rely on prompt engineering rather than custom orchestration; cannot enforce complex workflows without escalating to Patterns 1 or 4.
+- Actions via API plugins introduce consent prompts and require ongoing API management.
+
+**Signals this fits:**
+
+- Goal is improved knowledge discovery, policy lookup, or FAQ automation.
+- Users will consume the agent inside Microsoft 365 applications.
+- Governance stakeholders need confidence that the agent cannot mutate records without explicit approvals.
+- Business owners want to keep delivery within the Microsoft 365 licensing boundary before investing in Azure infrastructure.
+
+**When to pivot:** Add Pattern 1 when you need richer Power Platform actions, or Pattern 2 when integrating large non-Microsoft 365 datasets or when RAG precision/latency must be tuned outside Microsoft Search.
+
+**Sources:**
+
+- [Add SharePoint as a knowledge source](https://learn.microsoft.com/en-us/microsoft-copilot-studio/knowledge-add-sharepoint)[^knowledge-sharepoint]
+- [Add knowledge sources to declarative agents](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/copilot-studio-lite-knowledge)[^knowledge-sources]
+- [Microsoft Graph connectors overview](https://learn.microsoft.com/en-us/graph/connecting-external-content-connectors-overview)[^graph-connectors]
+- [Declarative agents for Microsoft 365 Copilot overview](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-declarative-agent)[^declarative-agents]
+- [API plugins for Microsoft 365 Copilot](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-api-plugins)[^api-plugins]
+- [Add custom Copilot Studio agents to Microsoft 365](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/publish)[^studio-publish]
+
+**Status:** Recommended for M365-centric knowledge scenarios
+**Confidence Level:** High (official Microsoft guidance)
+
+---
+
+## Pattern 4: Multi-Channel Custom Engine Agent with M365 Agents SDK
+
+**Approach:**
+
+1. Scaffold a custom engine agent with the **Microsoft 365 Agents Toolkit** in Visual Studio/VS Code so you get channel adapters, debugging playground, and deployment templates out of the box.[^agents-toolkit]
+2. Implement orchestration inside the agent container—prefer **Microsoft Agent Framework** (Preview) for multi-agent workflows, or plug in your existing orchestrator through the SDK’s activity pipeline.[^agent-framework][^agentsdk-overview]
+3. Connect enterprise knowledge and actions by wiring Azure AI Search, Azure OpenAI, Microsoft Graph connectors, or first-party APIs behind secured tool handlers.[^agentsdk-build]
+4. Configure channel reach and authentication using the Agents SDK adapters (Copilot, Teams, custom web, Direct Line) and align identity with Entra ID scopes.[^agentsdk-overview]
 5. Deploy the agent to your Azure landing zone (Container Apps, App Service, AKS) and publish through the Agents Toolkit so Microsoft 365 users can discover it in Copilot while other apps call the same endpoint.[^agents-toolkit][^bring-agents]
 
 **Strengths:**
@@ -193,89 +280,6 @@ These patterns represent proven approaches for implementing Microsoft AI solutio
 
 [^pattern1-actions]: Microsoft 365 Copilot release notes — August 19, 2025, Microsoft Learn. Updated: 2025-08-19. [https://learn.microsoft.com/en-us/copilot/microsoft-365/release-notes#august-19,-2025](https://learn.microsoft.com/en-us/copilot/microsoft-365/release-notes#august-19,-2025)
 [^pattern2-4-procode]: Microsoft 365 Agents SDK overview, Microsoft Learn. Retrieved: 2025-11-11. [https://learn.microsoft.com/en-us/microsoft-365/agents-sdk/agents-sdk-overview](https://learn.microsoft.com/en-us/microsoft-365/agents-sdk/agents-sdk-overview)
-
----
-
-## Pattern 6: Identity & Permissions Architecture
-
-**Approach:**
-
-1. **Map identity boundaries** for every surface (M365 Copilot, Copilot Studio, Azure AI Foundry, Agents SDK) so you know which services are inherently user-scoped and which require custom design.[^copilot-privacy][^studio-authentication][^foundry-rbac][^agentsdk-auth]
-2. **Choose delegated vs application scopes** early, preferring delegated consent for user-driven actions and reserving service principals for automation that cannot run under a user identity.[^agentsdk-permissions][^graph-permissions]
-3. **Configure authentication flows** using the native controls for each platform—Copilot Studio manual auth, Azure AI Foundry managed identities, and MSAL providers in the Agents SDK.[^studio-authentication][^foundry-managed-identity][^msal-config]
-4. **Enforce least privilege and RBAC** by assigning the minimum Entra ID roles, Graph scopes, and project-level permissions required for the workload; document any elevated service accounts.[^foundry-rbac][^graph-permissions]
-5. **Enable centralized auditing** in Microsoft Purview and Dataverse so prompts, responses, and service-account executions are captured for compliance reviews.[^copilot-audit][^studio-audit]
-
-**Strengths:**
-
-
-**Trade-offs:**
-
-
-**Signals this fits:**
-
-
-**When to pivot:** Use Patterns 1–3 for short-lived pilots with trusted users, or pause the rollout if your organization cannot yet operate service principals or Purview-based auditing.
-
-
-[^copilot-privacy]: Data, privacy, and security for Microsoft 365 Copilot, Microsoft Learn. Retrieved: 2025-01-14. [https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-privacy](https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-privacy)
-[^copilot-audit]: Microsoft 365 Copilot reporting options for admins, Microsoft Learn. Retrieved: 2025-01-14. [https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-reports-for-admins](https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-reports-for-admins)
-[^studio-authentication]: Configure user authentication in Copilot Studio, Microsoft Learn. Retrieved: 2025-01-14. [https://learn.microsoft.com/en-us/microsoft-copilot-studio/configuration-end-user-authentication](https://learn.microsoft.com/en-us/microsoft-copilot-studio/configuration-end-user-authentication)
-[^studio-audit]: Audit Copilot Studio activities in Microsoft Purview, Microsoft Learn. Retrieved: 2025-01-14. [https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-logging-copilot-studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-logging-copilot-studio)
-[^foundry-rbac]: Role-based access control for Azure AI Foundry (hub-focused), Microsoft Learn. Retrieved: 2025-01-14. [https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/hub-rbac-azure-ai-foundry](https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/hub-rbac-azure-ai-foundry)
-[^foundry-managed-identity]: How to use Azure AI Foundry Agent Service with OpenAPI specified tools — Authenticating with managed identity, Microsoft Learn. Retrieved: 2025-01-14. [https://learn.microsoft.com/en-us/azure/ai-foundry/agents/how-to/tools/openapi-spec#authenticating-with-managed-identity-microsoft-entra-id](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/how-to/tools/openapi-spec#authenticating-with-managed-identity-microsoft-entra-id)
-[^agentsdk-auth]: Configure authentication in a .NET agent (Microsoft 365 Agents SDK), Microsoft Learn. Retrieved: 2025-01-14. [https://learn.microsoft.com/en-us/microsoft-365/agents-sdk/microsoft-authentication-library-configuration-options](https://learn.microsoft.com/en-us/microsoft-365/agents-sdk/microsoft-authentication-library-configuration-options)
-[^msal-config]: Configure authentication in a .NET agent (Microsoft 365 Agents SDK), Microsoft Learn. Retrieved: 2025-01-14. [https://learn.microsoft.com/en-us/microsoft-365/agents-sdk/microsoft-authentication-library-configuration-options](https://learn.microsoft.com/en-us/microsoft-365/agents-sdk/microsoft-authentication-library-configuration-options)
-[^agentsdk-permissions]: Manage permissions for Microsoft 365 Copilot agents, Microsoft Learn. Retrieved: 2025-01-14. [https://learn.microsoft.com/en-us/microsoft-365/admin/manage/manage-agents-permissions](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/manage-agents-permissions)
-[^graph-permissions]: Overview of Microsoft Graph permissions, Microsoft Learn. Retrieved: 2025-01-14. [https://learn.microsoft.com/en-us/graph/permissions-overview](https://learn.microsoft.com/en-us/graph/permissions-overview)
-
-### Identity Architecture Matrix
-
-| Technology | Default Identity Mode | Service Accounts Supported? | Primary Configuration Controls | Audit Surface |
-|------------|----------------------|-----------------------------|--------------------------------|---------------|
-| **M365 Copilot** | Always runs as the signed-in user | ❌ No | Tenant privacy & data access posture | Microsoft Purview audit logs[^copilot-audit] |
-| **Copilot Studio** | User or service account depending on authentication setting | ✅ Yes (manual auth) | Agent authentication mode + connection references | Microsoft Purview + Dataverse transcripts[^studio-authentication][^studio-audit] |
-| **Azure AI Foundry / Agent Service** | Configurable (API key, Entra ID, managed identity) | ✅ Yes | Azure RBAC assignments + managed identity role bindings | Azure Monitor / Diagnostic logs |
-| **M365 Agents SDK** | Developer-defined (delegated, app-only, managed identity) | ✅ Yes | MSAL profile configuration + Graph scopes | Custom logging + Purview via channel integration[^msal-config][^agentsdk-permissions] |
-
----
-
-### Microsoft 365 Copilot: User-Scoped by Design
-
-- Runs entirely under the requesting user’s identity and respects existing SharePoint, Exchange, and Teams permissions—“it only sees what you can see” is an architectural guarantee.[^copilot-privacy]
-- All prompts and responses flow into Microsoft Purview audit logs and activity explorer, enabling retention and eDiscovery without extra configuration.[^copilot-audit]
-- Best choice when compliance teams require individual attribution with zero additional setup.
-
----
-
-### Copilot Studio: Configurable Delegated or Service Accounts
-
-- Makers select **Authenticate with Microsoft** for delegated access (Teams channel only) or **Authenticate manually** to wire up Entra ID, federated credentials, or other OAuth providers.[^studio-authentication]
-- Connection references decide whether each action uses the caller’s identity or a pre-authorized service account—document every elevated credential and pair destructive flows with approvals.[^studio-authentication]
-- Purview auditing of maker and end-user interactions is GA (Jan 2025), and Dataverse conversation tables retain transcripts for 30+ days with configurable retention, giving you a complete audit trail.[^studio-audit]
-- Ideal when you need to mix user-scoped reads with selective elevation for enterprise systems (for example, HR ticket creation under a bot account).
-
----
-
-### Azure AI Foundry & Agent Service: RBAC + Managed Identity First
-
-- Replace static API keys with Microsoft Entra authentication and assign built-in roles (Azure AI User, Azure AI Project Manager, Cognitive Services OpenAI User) to enforce least privilege.[^foundry-rbac]
-- Enable the project’s system-assigned managed identity and grant it scoped access (for example, Storage Blob Data Reader) so hosted agents can call downstream services without secrets.[^foundry-managed-identity]
-- Use role assignments and diagnostic logging to trace every inference or tool call back to a user principal or managed identity—required for production-grade workloads.
-- Suits pro-code teams that already operate Azure landing zones and need fine-grained control.
-
----
-
-### Microsoft 365 Agents SDK: Bring Your Own Authentication
-
-- The SDK ships MSAL-based providers that can issue access tokens via delegated consent, client credentials, or managed identities; profiles are defined in configuration, not hard-coded.[^msal-config]
-- Pair the SDK with Entra ID app registrations that request only the Graph scopes you need, and use the Admin Center’s Permissions tab to review delegated vs application grants.[^agentsdk-permissions][^graph-permissions]
-- Implement custom logging (Application Insights, Purview activity events) to record the initiating user, token type, and downstream actions—security teams will expect this evidence.
-- Choose this path when you require full control over token exchange, multi-channel adapters, and integration with existing identity middleware.
-
----
-
----
 
 ---
 

@@ -23,7 +23,7 @@ This framework integrates Microsoft's [Business-Experience-Technology (BXT) Fram
 
 ## Phase 1: Business Impact Assessment (BXT Framework)
 
-Before evaluating technology options, validate the use case through three dimensions. **All three must score medium-high to proceed.**
+Microsoft's official [Business-Experience-Technology (BXT) framework](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/business-envisioning) requires every AI initiative to prove **Business viability**, **Experience desirability**, and **Technology feasibility** before you fund build work. Use this phase to quantify value, adoption, and delivery readiness up front—if any dimension falls short, pause or reshape the scenario before moving to technology choices.
 
 ### 1. Viability (Business)
 {: .no_toc }

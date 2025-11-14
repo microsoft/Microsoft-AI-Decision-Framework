@@ -21,7 +21,7 @@ Assess your situation before selecting Microsoft AI technologies.
 
 ## Purpose
 
-Use this framework to evaluate your organization's readiness and requirements before choosing Microsoft AI technologies.
+This module anchors the broader Microsoft AI Decision Framework by teaching how to score readiness across complexity, skills, budget, and governance before you dive into detailed technology choices. Treat the scenarios and recommendations below as illustrative patterns that reinforce the concepts explained in the rest of the repo—not turnkey prescriptions.
 
 ---
 
@@ -61,23 +61,33 @@ Use this framework to evaluate your organization's readiness and requirements be
 
 ### Budget Assessment
 
-| Budget | Setup | Ongoing | Technologies |
-|--------|-------|---------|--------------|
-| **< $500/mo** | Minimal | M365 licenses | M365 Copilot, Graph Connectors |
-| **$500-$2K/mo** | Low | Messages, credits | Copilot Studio, AI Builder |
-| **$2K-$10K/mo** | Medium | Azure services | Azure AI Foundry, M365 SDK |
-| **$10K+/mo** | High | Enterprise scale | Full Azure AI stack |
+Budget decisions need to capture total cost of ownership—per-user Microsoft 365 licensing, Copilot Studio credits, Azure consumption, and the engineering hours required to build, test, and operate the stack. Use the groupings in [Decision Framework – Question 2 (Build Style)]({{ '/docs/decision-framework#question-2-build-style--control-level' | relative_url }}) and the blueprints in [Implementation Patterns]({{ '/docs/implementation-patterns' | relative_url }}) to determine which layers you will combine before picking a band.[^copilot-cost][^copilot-credits][^foundry-cost]
+
+Mix-and-match approaches (for example, a Copilot Studio front door that delegates orchestration to Azure AI Foundry or Agent Service) let you shift costs between licensing and Azure meters as the solution matures—plan for that runway instead of assuming a static stack.[^studio-byom]
+
+| Budget Band | Typical Stack | Primary Cost Drivers | Mix & Match Considerations |
+|-------------|---------------|----------------------|----------------------------|
+| **< $500/mo** | Microsoft 365 Copilot Chat, Graph connectors, declarative agents | Existing per-user licensing, tenant governance time, light maker effort | Keep workloads inside Layer 1–2 to defer Azure consumption; extend later by reusing connectors in Copilot Studio or Azure AI Foundry |
+| **$500-$2K/mo** | Copilot Studio Lite/Full, AI Builder, Power Automate approvals | Copilot Credits for generative answers and agent flows, connector usage, part-time maker/developer capacity[^copilot-credits] | Start with Studio and add targeted Azure APIs only when custom logic is required; budget for approval flows and DLP policy design |
+| **$2K-$10K/mo** | Copilot Studio front door + Azure AI Foundry/Agent Service, M365 Agents SDK pilots | Azure OpenAI tokens, App Service or Functions hosting, vector stores, CI/CD + observability effort[^copilot-cost][^foundry-cost] | Split workloads so Studio handles UX/governance while Azure hosts orchestration; shift spend toward Azure as more automation moves out of Studio |
+| **$10K+/mo** | Full Azure AI stack (Agent Framework, Logic Apps, Azure AI Agent Service) with enterprise data plane | Dedicated AI/ML teams, Azure landing zone hardening, custom evaluations, agent telemetry pipelines[^foundry-cost] | Expect blended spend: Studio or M365 endpoints for front doors plus Azure services for workflows, memory, and safety tooling |
+
+> **Note:** These dollar ranges illustrate relative investment levels rather than contractual pricing. Always reconcile them with your actual licensing agreements, Copilot Credit allocations, Azure consumption forecasts, and staffing models.
 
 ---
 
 ### Time to Production
 
-| Timeline | Feasibility | Approach | Tradeoffs |
-|----------|-------------|----------|-----------|
-| **Days** | Simple only | M365 + Graph Connectors | Limited customization |
-| **1-2 Weeks** | Low-code | Copilot Studio templates | Medium customization |
-| **1-2 Months** | Custom agents | Studio + custom actions | Good balance |
-| **3-6 Months** | Complex | Azure AI Foundry | Full customization |
+Time-to-production is also multi-track: it is common to land a Copilot Studio or Microsoft 365 Copilot pilot in days while Azure AI Foundry foundations (data ingestion, landing zones, evaluations) progress in parallel. Blend these tracks to shrink overall runway rather than treating each technology choice as mutually exclusive.[^studio-byom][^foundry-cost]
+
+| Timeline | Representative Path | Key Activities | Levers & Tradeoffs |
+|----------|---------------------|---------------|--------------------|
+| **Days** | Enable Microsoft 365 Copilot + Graph connectors pilot | Approve licenses, scope data sources, run adoption enablement | Fastest path to value but limited customization/action automation; great for validating demand before deeper investment |
+| **1-2 Weeks** | Launch Copilot Studio template with governed connectors and approvals | Configure Copilot Credits capacity, attach Power Automate approvals, enforce DLP policies | Low-code build speed; customization increases timeline only slightly because Studio handles hosting and security[^copilot-credits] |
+| **1-2 Months** | Keep Copilot Studio as the front door while adding custom actions, BYOM prompts, or Azure AI Foundry orchestration | Build APIs or Azure AI Agent Service skills, set up CI/CD, connect to private data via gateways | Perfect for hybrid stacks—Studio pilots stay live while Azure capabilities roll in; schedule time for testing, observability, and managed gateway setup[^studio-byom][^foundry-cost] |
+| **3-6 Months** | Productionize pro-code agents (M365 Agents SDK, Agent Framework, Azure AI Foundry) with enterprise landing zone controls | Provision VNets/private endpoints, implement tool guardrails, run evaluations, harden telemetry + governance | Highest control and autonomy; longer runway driven by infra changes, compliance evidence, and multi-environment DevOps. Parallel pilots in Studio/M365 keep users engaged during the build |
+
+> **Note:** These timeframes are directional examples spanning pilots through production handoff. Actual schedules depend on compliance reviews, procurement, existing Azure landing zones, and how many layers (M365, Copilot Studio, Azure) you run in parallel.
 
 ---
 
@@ -384,6 +394,10 @@ Many organizations use both platforms - Copilot Studio for rapid deployment with
 **Last Updated:** November 10, 2025  
 **Next:** [Scenarios]({{ '/docs/scenarios' | relative_url }}) - See how the scoring framework guides real-world choices
 
+[^copilot-cost]: *Cost considerations for extending Microsoft 365 Copilot*, Microsoft Learn. Updated 2025-05-19.
+[^copilot-credits]: *Copilot Studio requirements, billing, and Copilot Credits*, Microsoft Learn. Updated 2025-11-05.
+[^foundry-cost]: *Manage costs in Azure AI Foundry*, Microsoft Learn. Updated 2025-10-17.
+[^studio-byom]: *Bring your own Azure AI Foundry models to Copilot Studio prompts*, Microsoft Learn. Updated 2025-11-13.
 [^m365reactive-ec]: *Privacy and protections*, Microsoft Learn. Updated 2025-08-15.
 [^copilotstudioevent-ec]: *Create automated copilots triggered by events*, Microsoft Learn. GA 2025-03-24.
 [^logicappstrigger-ec]: *Trigger an agent by using Logic Apps (preview)*, Microsoft Learn. Updated 2025-06-30.

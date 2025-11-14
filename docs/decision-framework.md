@@ -23,7 +23,7 @@ This framework integrates Microsoft's [Business-Experience-Technology (BXT) Fram
 
 ## Phase 1: Business Impact Assessment (BXT Framework)
 
-Before evaluating technology options, validate the use case through three dimensions. **All three must score medium-high to proceed.**
+Microsoft's official [Business-Experience-Technology (BXT) framework](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/business-envisioning) requires every AI initiative to prove **Business viability**, **Experience desirability**, and **Technology feasibility** before you fund build work. Use this phase to quantify value, adoption, and delivery readiness up front—if any dimension falls short, pause or reshape the scenario before moving to technology choices.
 
 ### 1. Viability (Business)
 {: .no_toc }
@@ -70,7 +70,7 @@ Apply these questions **sequentially** after passing the BXT assessment. Each qu
 
 Identify the primary place people will engage with the agent. The interaction surface immediately narrows the candidate technologies.
 
-- **M365 apps** (Teams, Outlook, Word) → Stay inside the Microsoft 365 trust boundary with built-in agents, Copilot Studio M365 channels, or Graph connectors.
+- **M365 apps** (Copilot Chat, Teams, Office Apps) → Stay inside the Microsoft 365 trust boundary with built-in agents, Copilot Studio M365 channels, or Graph connectors.
 - **Custom or multi-channel** (web, mobile, SMS, email) → Use M365 Agents SDK, Azure AI Foundry, or Logic Apps to reach every endpoint consistently. Pair Agent Framework with the AG-UI protocol when you need streaming UI, shared state, or human-in-the-loop approvals in bespoke web/mobile experiences.[^agui-overview]
 - **API/headless** workloads → Design for services that call the agent as a capability rather than a UI.
 
@@ -83,9 +83,9 @@ Identify the primary place people will engage with the agent. The interaction su
 
 Decide how much engineering control you need versus how fast you must ship.
 
-- **Low-code / managed** – Copilot Studio, AI Builder, declarative agents. Makers and developers can deliver in days when declarative orchestration is enough.
+- **Low-code / managed** – Copilot Studio Full, AI Builder, Copilot Studio Lite. Makers and developers can deliver in days when declarative orchestration is enough.
 - **Pro-code / customizable** – M365 Agents SDK, Azure AI Foundry, Microsoft Agent Framework, AG-UI protocol (Preview), Teams AI Library. Full control over orchestration, hosting, and integrations while surfacing agents in any UI channel.[^agui-overview]
-- **Hybrid** – Start in Copilot Studio for speed, bring in Azure AI Foundry or Agent Framework when custom logic or private hosting is required.
+- **Hybrid** – Start in Copilot Studio for speed, then bring in Azure AI Foundry or Agent Framework when custom logic or private hosting is required.
 
 🧭 For side-by-side capabilities, see the development approach matrices in [Quick Reference]({{ '/docs/quick-reference' | relative_url }}) and [Technologies]({{ '/docs/technologies' | relative_url }}).
 

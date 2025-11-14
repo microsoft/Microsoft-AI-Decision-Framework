@@ -8,7 +8,7 @@ description: "Understanding Microsoft's AI portfolio through five capability lay
 # Five-Layer Capability Model
 {: .no_toc }
 
-Microsoft's AI portfolio is organized into **five capability layers**. Understanding this structure helps you select the right technology for your requirements.
+Microsoft's five-layer capability model distills the official "adopt → extend → build" journey from [Adopt, extend and build Copilot experiences across the Microsoft Cloud](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/overview), expands it with the hands-on tiers from the [Explore the Copilot stack](https://learn.microsoft.com/en-us/training/modules/explore-copilot-stack/) module and the Copilot stack view in [Creating Generative AI Experiences with the Microsoft Cloud](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/isv-extensibility-story#scenarios-and-approaches), and grounds it in Azure's [Application design for AI workloads](https://learn.microsoft.com/en-us/azure/well-architected/ai/application-design#application-layer-architecture). The result is a single progression—from turnkey Microsoft 365 copilots, to governed extensibility, to Copilot Studio and Azure AI Foundry platforms, to shared Azure AI services, to specialized domain copilots—that helps you decide whether to infuse AI into an existing experience or build agents and orchestration when the scenario demands more control.
 
 
 ## Table of contents
@@ -25,11 +25,12 @@ Ready-to-use AI experiences for immediate productivity.
 
 | Feature | Description | Documentation |
 |---------|-------------|---------------|
-| **Microsoft 365 Copilot** | Integrated assistant across Word, Excel, Teams, Outlook with tenant security | [Docs](https://learn.microsoft.com/en-us/microsoft-365-copilot/) |
+| **Microsoft 365 Copilot Chat** | Secure chat surface (m365copilot.com, Teams, Outlook, Edge) that delivers web-grounded prompts, Copilot Pages, file uploads, image creation, and pay-as-you-go agents with enterprise controls—available with any eligible Microsoft 365 license. | [Overview](https://learn.microsoft.com/en-us/copilot/overview#microsoft-365-copilot-chat-copilot-chat) |
+| **Microsoft 365 Copilot** | Premium add-on that unlocks work-grounded Copilot Chat plus embedded assistants across Word, Excel, Outlook, Teams, and analytics, grounding responses in Microsoft Graph data directly inside the user’s workflow. | [Overview](https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-overview) |
 | **Built-in Agents** | Researcher, Analyst, Visual Creator, Prompt Coach, Idea Coach, Writing Coach | [Docs](https://learn.microsoft.com/en-us/training/modules/explore-prebuilt-microsoft-365-copilot-agents/) |
 | **Agent Store** | Discover, acquire, and manage Copilot agents through the in-app Microsoft 365 store (Word and PowerPoint; Excel coming) | [Release notes](https://learn.microsoft.com/en-us/copilot/microsoft-365/release-notes) |
 
-**When to use:** Broad productivity gains, existing M365 licenses, no custom development needed
+**When to use:** Reach for Layer 1 when the use case is satisfied by turnkey Microsoft 365 experiences—give users immediate productivity gains with Copilot Chat and in-app copilots, even if you plan to layer on extensibility, custom platforms, or infrastructure later.
 
 ---
 
@@ -44,7 +45,7 @@ Extend M365 Copilot with organizational knowledge and actions.
 | **Teams Message Extensions** | Extend Copilot with Teams-based actions | [Docs](https://learn.microsoft.com/en-us/microsoftteams/platform/messaging-extensions/what-are-messaging-extensions) |
 | **Declarative Agents** | Configure agents with instructions, knowledge sources, and actions | [Docs](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/build-declarative-agents) |
 
-**When to use:** Extend M365 Copilot with company data, add custom skills, stay within M365 trust boundary
+**When to use:** Start (or graduate to) Layer 2 anytime the use case demands company data or governed actions that turnkey copilots can’t reach—connect repositories, expose APIs, and assemble declarative agents while staying inside the Microsoft 365 trust boundary.
 
 ---
 
@@ -62,7 +63,7 @@ Platforms for building agents with varying levels of control and complexity.
 | **Azure AI Agent Service** | Managed runtime for building, hosting, and scaling agent experiences | Built-in memory management, tool calling, secure connectors, catalog samples | [Docs](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/overview) |
 | **LangChain Ecosystem (Third-party)** | OSS framework for LLM applications (Python/JS) | **LangChain**: Azure integrations, prompt flow; **LangGraph**: agent workflows, state management; **LangSmith**: tracing & observability | [LangChain Docs](https://learn.microsoft.com/en-us/azure/machine-learning/prompt-flow/how-to-integrate-with-langchain) \| [LangGraph Docs](https://learn.microsoft.com/en-us/azure/developer/javascript/ai/langchain-agent-on-azure) \| [LangSmith Docs](https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/develop/trace-agents-sdk) |
 
-**When to use:** Custom business logic, multi-channel requirements, complex orchestration, Azure-native infrastructure
+**When to use:** Choose Layer 3 when your scenario requires bespoke logic, orchestration, or channel reach that low-code extensibility can’t deliver—this is where pro-code teams build custom agents (and you can enter here directly if the use case demands it).
 
 ---
 
@@ -87,7 +88,7 @@ Foundational services that power agents across all platforms.
 | **SQL Server 2025 (Preview)** | Enterprise database with native AI capabilities | VECTOR data type (float32/float16), vector functions & indexes (DiskANN), external AI model management, Copilot in SSMS | [Docs](https://learn.microsoft.com/en-us/sql/sql-server/what-s-new-in-sql-server-2025) |
 | **Microsoft Fabric** | Unified analytics platform with AI capabilities | **Platform:** Lakehouse (Delta tables), Warehouse (T-SQL), OneLake (unified storage), SQL analytics endpoint, Azure AI Foundry integration. **AI Layer:** Copilot in Fabric (data science, factory, warehouse, Power BI, Real-Time Intelligence), Fabric Data Agents (Preview) | [Docs](https://learn.microsoft.com/en-us/fabric/fundamentals/microsoft-fabric-overview) |
 
-**When to use:** Reusable infrastructure across multiple agents, advanced RAG patterns, custom evaluations, governance, enterprise workflow automation, vector storage & search, AI-powered data analytics
+**When to use:** Prioritize Layer 4 when the use case hinges on shared AI infrastructure (vector storage, automation, governance, evaluations) or strict compliance/scale requirements—even if higher layers are still in-flight, these building blocks keep every copilot sustainable.
 
 ---
 
@@ -104,7 +105,7 @@ Purpose-built AI assistants for specific workflows and industries.
 | **Azure SRE Agent (Preview)** | AI-powered site reliability engineering assistant | Incident automation, explainable RCA, proactive monitoring, natural language Azure resource insights | [Docs](https://learn.microsoft.com/en-us/azure/sre-agent/overview) |
 | **GitHub Copilot Coding Agent** | Agentic multi-file editing and autonomous issue resolution | Assigned GitHub issues create PRs; workspace-wide edits; Azure MCP Server integration | [Docs](https://learn.microsoft.com/en-us/azure/developer/azure-mcp-server/how-to/github-copilot-coding-agent) |
 
-**When to use:** Domain expertise required, integrated with specialized platforms, industry-specific workflows
+**When to use:** Enter at Layer 5 when a Microsoft or partner copilot already addresses the domain outcome (developer, security, CRM, analytics); deploy it for fast impact, then supplement with lower layers only where gaps remain.
 
 ---
 
@@ -160,3 +161,9 @@ Manage all agents (Studio, SDK, declarative) from Microsoft 365 admin center (GA
 **Layer 5:**
 - [Azure SRE Agent Overview](https://learn.microsoft.com/en-us/azure/sre-agent/overview) (Preview, Updated: 2025)
 - [GitHub Copilot Coding Agent - Azure MCP Integration](https://learn.microsoft.com/en-us/azure/developer/azure-mcp-server/how-to/github-copilot-coding-agent) (Updated: 2025)
+
+**Model Overview:**
+- [Adopt, extend and build Copilot experiences across the Microsoft Cloud](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/overview) (Updated: 2025)
+- [Explore the Copilot stack - Training Module](https://learn.microsoft.com/en-us/training/modules/explore-copilot-stack/) (Updated: 2025)
+- [Creating Generative AI Experiences with the Microsoft Cloud: A Guide for ISVs](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/isv-extensibility-story#scenarios-and-approaches) (Updated: 2025)
+- [Application design for AI workloads on Azure](https://learn.microsoft.com/en-us/azure/well-architected/ai/application-design#application-layer-architecture) (Updated: 2025)

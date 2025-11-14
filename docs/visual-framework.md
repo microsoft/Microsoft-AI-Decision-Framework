@@ -553,7 +553,7 @@ flowchart TD
 | Timeline | Use Case | Example Scenario |
 |----------|----------|------------------|
 | **Days** | M365 built-in features, no development | [(scenarios)](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview) |
-| **1-2 Weeks** | Low-code platforms (Copilot Studio, Logic Apps) | [(HR Knowledge Base scenario)]({{ '/docs/scenarios' | relative_url }}) |
+| **1-2 Weeks** | Low-code platforms (Copilot Studio Employee Self-Service, Logic Apps) | [(HR Knowledge Base scenario)]({{ '/docs/scenarios' | relative_url }}) |
 | **1-3 Months** | Custom agents with SDKs, moderate complexity | [(Customer Support scenario)]({{ '/docs/scenarios' | relative_url }}) |
 | **3-6 Months** | Azure AI Foundry custom solutions, complex orchestration | [(evaluation-criteria)]({{ '/docs/evaluation-criteria#time-to-production' | relative_url }}) |
 | **6+ Months** | Enterprise-scale with PTU, fine-tuning, advanced patterns | |

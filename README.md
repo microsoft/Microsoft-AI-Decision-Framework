@@ -21,7 +21,9 @@ Master the art of selecting the right Microsoft AI technology for your business 
 
 Microsoft's AI portfolio includes **M365 Copilot, Copilot Studio, Azure AI Foundry, Agent Service, SDKs, and more**. Each technology serves different needs, and choosing the wrong one wastes time and money.
 
-**This guide solves that problem** by teaching you a systematic framework for evaluating and selecting the right tool for your specific requirements.
+Enterprise AI decisions also have countless edge cases—data boundaries, orchestration models, compliance controls, channel requirements—so a single static decision tree oversimplifies reality. This guide is intentionally **Level 300-400** material: it teaches you how to think, model tradeoffs, and construct your own decision trees for any use case instead of memorizing ours.
+
+**This guide solves that problem** by teaching you a systematic framework (BXT + capability model + evaluation criteria) for evaluating and selecting the right tool for your specific requirements, then adapting the framework as Microsoft ships new capabilities.
 
 ---
 
@@ -38,6 +40,17 @@ By following this framework, you'll gain:
 ✅ **Mastery** - Deep technical knowledge of each technology's capabilities  
 
 ---
+
+## Who This Framework Serves
+
+This content assumes readers can reason across business, experience, and technology concerns and want a reusable evaluation pattern rather than a shortcut. Expect to synthesize enterprise constraints, justify architecture choices, and extend the framework to new Microsoft releases.
+
+- **Technical decision makers & strategists** – AI program sponsors, product owners, security/compliance leads, and other executives accountable for cross-functional alignment and governance.
+- **Architects (AI, application, integration)** – AI solution architects, application/platform architects, and integration leads who design landing zones, data boundaries, and orchestration models.
+- **Pro-code engineering teams** – Software engineers, data engineers, ML engineers, and agent developers responsible for building, instrumenting, and operating custom copilots or services.
+- **Makers & fusion teams** – Product managers, subject-matter experts, Power Platform makers, IT admins, and frontline innovators who partner with engineering to deliver governed AI outcomes.
+
+If you match these personas, this framework will help you design your own decision flows, facilitate architecture reviews, and explain rationale to stakeholders.
 
 ## Your Learning Journey
 

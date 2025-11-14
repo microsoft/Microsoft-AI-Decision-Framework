@@ -35,7 +35,7 @@ Each scenario follows this structure:
 ### Business Context
 {: #scenario1-business-context .no_toc }
 
-Employees need instant answers to HR questions (policies, benefits, PTO) without waiting for HR staff responses. HR team maintains documentation in SharePoint.
+Employees need instant answers to HR questions (policies, benefits, PTO) without waiting for HR staff responses. HR team maintains documentation in SharePoint but also depends on Workday and ServiceNow to view status or create tickets.
 
 ### Key Requirements
 {: #scenario1-key-requirements .no_toc }
@@ -43,74 +43,70 @@ Employees need instant answers to HR questions (policies, benefits, PTO) without
 - Access company HR policies and procedures
 - Available in Microsoft Teams (where employees work)
 - Stay within M365 trust boundary (sensitive HR data)
+- Connect HR knowledge with Workday/ServiceNow/SAP workflows
 - No coding resources available (HR team manages)
 - Quick time to production (weeks not months)
 
 ### Recommended Technologies
 {: #scenario1-recommended .no_toc }
 
-**Primary Solution:** Copilot Studio + Copilot connectors (SharePoint)
+**Primary Solution:** Employee Self-Service agent for Microsoft 365 Copilot
 
 | Component | Technology | Purpose |
 |-----------|------------|---------|
-| **Agent Platform** | Copilot Studio | Low-code agent builder, M365 integration |
-| **Knowledge Source** | Copilot connectors for SharePoint | Index SharePoint HR site into Microsoft Graph |
-| **Deployment** | M365 Copilot | Appears in Teams, Outlook, M365 apps |
+| **Agent Platform** | Employee Self-Service managed solution in Copilot Studio | Prebuilt HR + IT agent with guardrails, instructions, telemetry |
+| **Knowledge Sources** | SharePoint knowledge connectors with filtering | Serve curated HR policies and official answers |
+| **HR/IT Transactions** | Workday, ServiceNow, SAP SuccessFactors extension packs | Read/write employee data and tickets with packaged Power Platform flows |
+| **Deployment** | Microsoft 365 Copilot (Teams, Outlook) | Keeps experiences inside M365 tenant and Entra ID |
+| **Governance** | Power Platform ALM (dev/test/prod) | Enforces DLP, approvals, and monitoring
 
 **Why This Stack:**
 
-- Copilot Studio: HR team can build/maintain without developers while selecting GPT-4.1+ models ([What's new in Copilot Studio, Oct 2025](https://learn.microsoft.com/en-us/microsoft-copilot-studio/whats-new#notable-changes))
-- Copilot connectors: Directly index SharePoint content with SharePoint knowledge source support ([Add enterprise data with new graph connections, Mar 5, 2025](https://learn.microsoft.com/en-us/power-platform/release-plan/2024wave2/microsoft-copilot-studio/add-enterprise-data-new-graph-connections))
-- M365 Copilot deployment: Employees access in familiar apps
-- M365 trust boundary: Data never leaves M365 tenant
+- Employee Self-Service (ESS) combines Copilot Studio hosting, knowledge sources, and out-of-box HR/IT instructions so makers can configure without code while staying in Microsoft 365 Copilot ([An introduction to Employee Self-Service, Nov 5 2025](https://learn.microsoft.com/en-us/copilot/microsoft-365/employee-self-service/overview)).
+- Extension packs expose managed flows and connectors for Workday, ServiceNow, and SAP SuccessFactors so agents can retrieve employee context or open tickets instead of staying knowledge-only ([Integrate Workday with your Employee Self-Service deployment, Nov 12 2025](https://learn.microsoft.com/en-us/copilot/microsoft-365/employee-self-service/workday); [Integrate ServiceNow HRSD and ITSM with Employee Self-Service, Nov 5 2025](https://learn.microsoft.com/en-us/copilot/microsoft-365/employee-self-service/servicenow-hrsd-itsm)).
+- Governance guidance (official-source badging, SharePoint filtering, telemetry, ALM) helps HR own the solution within the M365 trust boundary while still allowing third-party APIs through allowlisted connectors ([Customize the Employee Self-Service agent, Nov 5 2025](https://learn.microsoft.com/en-us/copilot/microsoft-365/employee-self-service/customize); [SharePoint advanced filtering for Employee Self-Service, Nov 5 2025](https://learn.microsoft.com/en-us/copilot/microsoft-365/employee-self-service/sharepoint-filtering)).
+- Licensing is straightforward: employees with Microsoft 365 Copilot can use ESS at no extra cost, while other audiences draw from Copilot Studio prepaid or Pay-as-you-go meters (plan this during prerequisites) ([Prerequisites to deploy the Employee Self-Service agent, Nov 5 2025](https://learn.microsoft.com/en-us/copilot/microsoft-365/employee-self-service/prerequisites)).
 
 ### Implementation Steps
 {: #scenario1-implementation .no_toc }
 
-1. **Prepare Knowledge Base** (1-2 days)
-   - Audit SharePoint HR site for accuracy and completeness
-   - Ensure consistent document structure
-   - Add metadata for better searchability
+1. **Prepare Environment & Prerequisites** (1-2 days)
+   - Confirm Microsoft 365 Copilot licensing or Copilot Studio prepaid/Pay-as-you-go coverage
+   - Provision dev/test/prod Power Platform environments and allow required connectors per DLP policies
+   - Assign Global Admin, Power Platform Admin, security, and HR owners for the rollout ([Prerequisites to deploy the Employee Self-Service agent, Nov 5 2025](https://learn.microsoft.com/en-us/copilot/microsoft-365/employee-self-service/prerequisites))
 
-2. **Configure Copilot connector** (1 day)
-   - Use SharePoint connector (built-in)
-   - Configure indexing scope (specific site/library)
-   - Test search results in M365 search
+2. **Install Employee Self-Service Solution** (1 day)
+   - Import ESS managed solution from Copilot Studio into dev
+   - Add Workday/ServiceNow/SAP extension packs as needed to unlock packaged flows ([An introduction to Employee Self-Service, Nov 5 2025](https://learn.microsoft.com/en-us/copilot/microsoft-365/employee-self-service/overview))
+   - Connect to Microsoft 365 Copilot channel in Teams for testing
 
-3. **Build Copilot Studio Agent** (2-3 days)
-   - Create new agent with "Employee Support" template
-   - Add SharePoint as a knowledge source for generative answers ([Configure SharePoint knowledge source, GA Mar 24, 2025](https://learn.microsoft.com/en-us/power-platform/release-plan/2024wave2/microsoft-copilot-studio/enable-makers-configure-sharepoint-as-knowledge-source-agents))
-   - Add specific topics for common questions
-   - Set up fallback to escalate to HR
+3. **Configure Knowledge & Systems** (3-4 days)
+   - Audit SharePoint HR site, tag authoritative pages, and configure knowledge sources with KQL filtering ([SharePoint advanced filtering for Employee Self-Service, Nov 5 2025](https://learn.microsoft.com/en-us/copilot/microsoft-365/employee-self-service/sharepoint-filtering))
+   - Configure Workday reports (RaaS), ServiceNow OAuth apps, and SAP credentials for the extension packs ([Integrate Workday with your Employee Self-Service deployment, Nov 12 2025](https://learn.microsoft.com/en-us/copilot/microsoft-365/employee-self-service/workday); [Integrate ServiceNow HRSD and ITSM with Employee Self-Service, Nov 5 2025](https://learn.microsoft.com/en-us/copilot/microsoft-365/employee-self-service/servicenow-hrsd-itsm))
+   - Customize instructions, welcome experience, and official-source badges for HR tone ([Customize the Employee Self-Service agent, Nov 5 2025](https://learn.microsoft.com/en-us/copilot/microsoft-365/employee-self-service/customize))
 
-4. **Test & Refine** (3-5 days)
-   - Test with HR team
-   - Pilot with small employee group
-   - Review analytics and refine prompts
-   - Add missing topics based on usage
+4. **Test & Govern** (3-5 days)
+   - Build golden prompts, regression suites, and telemetry dashboards
+   - Pilot with HR stewards, validate ticket creation, and review safety rails
+   - Document handoff procedures for sensitive topics or low confidence responses ([Customize the Employee Self-Service agent, Nov 5 2025](https://learn.microsoft.com/en-us/copilot/microsoft-365/employee-self-service/customize))
 
-5. **Deploy** (1 day)
-   - Publish to M365 Copilot
-   - Announce to employees via Teams/email
-   - Monitor usage and satisfaction
+5. **Deploy & Monitor** (1 day)
+   - Promote managed solution to production via ALM pipeline ([Employee Self-Service agent deployment overview, Nov 5 2025](https://learn.microsoft.com/en-us/copilot/microsoft-365/employee-self-service/deploy-overview-alm))
+   - Publish to Microsoft 365 Copilot, announce in Teams, and watch telemetry for the first 30 days
 
-**Time to Production:** 2-3 weeks  
-**Ongoing Maintenance:** HR team updates SharePoint, agent stays current
+**Time to Production:** 2-3 weeks (depends on connector entitlement)  
+**Ongoing Maintenance:** HR team updates SharePoint content, monitors connectors, and evolves prompts via ESS telemetry
 
 ### Alternative Approaches
 {: #scenario1-alternatives .no_toc }
 
-**If you have developers:**
+**If you cannot adopt ESS yet:**
 
-- Use M365 Agents SDK with custom orchestration
-- More control over conversation flow
-- Can add custom integrations (HRIS systems)
+- Stay with Copilot Studio + SharePoint knowledge connectors for a knowledge-only bot, then graduate to ESS once Power Platform environments and connector allowlists are ready.
 
-**If data is outside SharePoint:**
+**If you need bespoke orchestration:**
 
-- Use Azure AI Search with knowledge agents and custom indexers ([Agentic retrieval preview, May 2025](https://learn.microsoft.com/en-us/azure/search/agentic-retrieval-overview))
-- Connect via BYOK in Copilot Studio or Microsoft 365 agent APIs
-- Supports broader enterprise data sources and retrieval plans
+- Use M365 Agents SDK or Azure AI Foundry Agent Service for custom routing, non-supported HRIS integrations, or multi-channel experiences beyond Microsoft 365 Copilot. Incorporate Azure AI Search BYOK when data spans on-premises or third-party stores ([Agentic retrieval overview, May 2025](https://learn.microsoft.com/en-us/azure/search/agentic-retrieval-overview)).
 
 ---
 
@@ -289,7 +285,7 @@ Support team handles 1,000+ tickets per month with repetitive questions. Company
 
 | Scenario | Complexity | Time to Prod | Skill Level | Key Technology |
 |----------|-----------|--------------|-------------|----------------|
-| HR Knowledge Base | Low | 2-3 weeks | Maker | Copilot Studio + Copilot connectors |
+| HR Knowledge Base | Low | 2-3 weeks | Maker | Employee Self-Service + Workday/ServiceNow packs |
 | Invoice Processing | Low-Medium | 3-4 weeks | Maker | AI Builder + Power Automate |
 | Customer Support | Medium | 6-8 weeks | Professional dev | Copilot Studio + Azure AI Search (agentic retrieval) |
 

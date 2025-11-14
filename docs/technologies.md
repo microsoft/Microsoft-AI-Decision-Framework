@@ -415,10 +415,43 @@ This section provides a comprehensive overview of Microsoft's AI technology stac
 
 ---
 
-## AG-UI Protocol Integration
+## AG-UI Protocol Ecosystem (Community)
 {: .tech-heading }
 
-**Description:** Open protocol that streams Microsoft Agent Framework runs, tool calls, and state changes to web or native clients using Server-Sent Events (SSE). Ships with ASP.NET Core hosting extensions and Python FastAPI adapters for full-stack agent experiences.  
+**Description:** Vendor-neutral specification stewarded by the AG-UI Protocol open-source project. Defines the event contract that client frameworks, agent runtimes, and tooling ecosystems use to exchange agent state, UI intents, and multimodal payloads. Microsoft Agent Framework is one of several first-party integrations.  
+**Official Docs:** [AG-UI Overview](https://docs.ag-ui.com/introduction)  
+**Status:** Community-governed (Open Specification)
+
+**Key Building Blocks:**
+
+- **Streaming chat + interrupts:** Long-running conversations stream tokens, events, and cancellation hooks so users can pause, edit, or escalate flows without losing state. ([AG-UI Overview](https://docs.ag-ui.com/introduction#building-blocks-today--upcoming) — Retrieved: 2025-11-12)
+- **Generative UI (static + declarative):** Agents emit typed components or constrained UI trees that applications validate before rendering. ([AG-UI Overview](https://docs.ag-ui.com/introduction#building-blocks-today--upcoming) — Retrieved: 2025-11-12)
+- **Shared + predictive state:** Event-sourced diffs synchronize read/write state between agents and clients while predictive updates keep UI latency low. ([AG-UI Overview](https://docs.ag-ui.com/introduction#building-blocks-today--upcoming) — Retrieved: 2025-11-12)
+- **Frontend & backend tool rendering:** Typed tool handoffs let clients execute local actions and visualize remote tool outputs in real time. ([AG-UI Overview](https://docs.ag-ui.com/introduction#building-blocks-today--upcoming) — Retrieved: 2025-11-12)
+- **Protocol position:** Complements MCP (tools) and agent-to-agent protocols by explicitly focusing on the agent-to-user surface. ([AG-UI Overview](https://docs.ag-ui.com/introduction#the-ai-protocol-landscape) — Retrieved: 2025-11-12)
+
+**Supported SDKs & Clients (Community-maintained):**
+
+- **Server/Integration SDKs:** LangGraph, Google ADK, CrewAI, Mastra, Pydantic AI, Agno, LlamaIndex, AG2, AWS Bedrock Agents (in progress), AWS Strands Agents (in progress). ([AG-UI Overview](https://docs.ag-ui.com/introduction#supported-integrations) — Retrieved: 2025-11-12)
+- **Language SDKs:** Kotlin, Go, Dart, Java, Rust (GA); .NET, Nim, Flowise, Langflow (in progress). ([AG-UI Overview](https://docs.ag-ui.com/introduction#sdks) — Retrieved: 2025-11-12)
+- **UI Clients:** CopilotKit (first-party), Terminal + Agent starter, React Native (help wanted). ([AG-UI Overview](https://docs.ag-ui.com/introduction#clients) — Retrieved: 2025-11-12)
+
+**Why it matters here:**
+
+- **Cross-ecosystem adoption:** Highlights that Microsoft’s AG-UI integration interoperates with non-Microsoft agent stacks, aiding architects planning hybrid environments.
+- **Reference implementations:** AG-UI Dojo provides live demos and starter code across frameworks, useful during proof-of-concept work. ([AG-UI Overview](https://docs.ag-ui.com/introduction#ag-ui-in-action) — Retrieved: 2025-11-12)
+- **Specification-first design:** Enables enterprise teams to audit the open spec, contribute via GitHub, and track roadmap items like multimodal payloads or additional SDKs. ([AG-UI Overview](https://docs.ag-ui.com/introduction#contributing) — Retrieved: 2025-11-12)
+
+**Sources:**
+
+- [AG-UI Overview](https://docs.ag-ui.com/introduction) (Retrieved: 2025-11-12)
+
+---
+
+## AG-UI Protocol Integration - Agent Framework
+{: .tech-heading }
+
+**Description:** Support for integrating Agent Framework Agents, tool calls, and state changes to AG-UI clients. Ships with ASP.NET Core hosting extensions and Python FastAPI adapters for full-stack agent experiences.
 **Official Docs:** [AG-UI Integration](https://learn.microsoft.com/en-us/agent-framework/integrations/ag-ui/)  
 **Status:** Public Preview (ASP.NET Core + Python extras)
 
@@ -450,36 +483,23 @@ This section provides a comprehensive overview of Microsoft's AI technology stac
 
 ---
 
-## AG-UI Protocol Ecosystem (Community)
+## DevUI
 {: .tech-heading }
 
-**Description:** Vendor-neutral specification stewarded by the AG-UI Protocol open-source project. Defines the event contract that client frameworks, agent runtimes, and tooling ecosystems use to exchange agent state, UI intents, and multimodal payloads. Microsoft Agent Framework is one of several first-party integrations.  
-**Official Docs:** [AG-UI Overview](https://docs.ag-ui.com/introduction)  
-**Status:** Community-governed (Open Specification)
+**Description:** DevUI is an opinionated web interface that provides out of the box tooling for testing and debugging AI agents during development.
+**Official Docs:** [DevUI for .NET](https://github.com/microsoft/agent-framework/blob/main/dotnet/src/Microsoft.Agents.AI.DevUI/README.md) and [DevUI for Python](https://github.com/microsoft/agent-framework/blob/main/python/packages/devui/README.md)
+**Status:** Public Preview (Requires using OpenAI Conversations and OpenAI Responses API)
 
-**Key Building Blocks:**
+**Key Features:**
 
-- **Streaming chat + interrupts:** Long-running conversations stream tokens, events, and cancellation hooks so users can pause, edit, or escalate flows without losing state. ([AG-UI Overview](https://docs.ag-ui.com/introduction#building-blocks-today--upcoming) — Retrieved: 2025-11-12)
-- **Generative UI (static + declarative):** Agents emit typed components or constrained UI trees that applications validate before rendering. ([AG-UI Overview](https://docs.ag-ui.com/introduction#building-blocks-today--upcoming) — Retrieved: 2025-11-12)
-- **Shared + predictive state:** Event-sourced diffs synchronize read/write state between agents and clients while predictive updates keep UI latency low. ([AG-UI Overview](https://docs.ag-ui.com/introduction#building-blocks-today--upcoming) — Retrieved: 2025-11-12)
-- **Frontend & backend tool rendering:** Typed tool handoffs let clients execute local actions and visualize remote tool outputs in real time. ([AG-UI Overview](https://docs.ag-ui.com/introduction#building-blocks-today--upcoming) — Retrieved: 2025-11-12)
-- **Protocol position:** Complements MCP (tools) and agent-to-agent protocols by explicitly focusing on the agent-to-user surface. ([AG-UI Overview](https://docs.ag-ui.com/introduction#the-ai-protocol-landscape) — Retrieved: 2025-11-12)
-
-**Supported SDKs & Clients (Community-maintained):**
-
-- **Server/Integration SDKs:** LangGraph, Google ADK, CrewAI, Mastra, Pydantic AI, Agno, LlamaIndex, AG2, AWS Bedrock Agents (in progress), AWS Strands Agents (in progress). ([AG-UI Overview](https://docs.ag-ui.com/introduction#supported-integrations) — Retrieved: 2025-11-12)
-- **Language SDKs:** Kotlin, Go, Dart, Java, Rust (GA); .NET, Nim, Flowise, Langflow (in progress). ([AG-UI Overview](https://docs.ag-ui.com/introduction#sdks) — Retrieved: 2025-11-12)
-- **UI Clients:** CopilotKit (first-party), Terminal + Agent starter, React Native (help wanted). ([AG-UI Overview](https://docs.ag-ui.com/introduction#clients) — Retrieved: 2025-11-12)
-
-**Why it matters here:**
-
-- **Cross-ecosystem adoption:** Highlights that Microsoft’s AG-UI integration interoperates with non-Microsoft agent stacks, aiding architects planning hybrid environments.
-- **Reference implementations:** AG-UI Dojo provides live demos and starter code across frameworks, useful during proof-of-concept work. ([AG-UI Overview](https://docs.ag-ui.com/introduction#ag-ui-in-action) — Retrieved: 2025-11-12)
-- **Specification-first design:** Enables enterprise teams to audit the open spec, contribute via GitHub, and track roadmap items like multimodal payloads or additional SDKs. ([AG-UI Overview](https://docs.ag-ui.com/introduction#contributing) — Retrieved: 2025-11-12)
+- **Event Log:** Event timeline view that shows the history of events through a conversation with an AI agent.
+- **Agent Debugging:** Detailed debugging of multi-agent systems that shows prompts, results, and workflows in a visual layer in combination with request/response logs to help developers understand where systems are failing.
+![DevUI Screenshot](../images/devuiscreen.png)
 
 **Sources:**
-
-- [AG-UI Overview](https://docs.ag-ui.com/introduction) (Retrieved: 2025-11-12)
+- [DevUI Python Samples](https://github.com/microsoft/agent-framework/tree/main/python/samples/getting_started/devui)
+- [DevUI .NET Samples](https://github.com/microsoft/agent-framework/tree/main/dotnet/samples/GettingStarted/DevUI)
+- [DevUI Demo](https://www.youtube.com/watch?v=NBkB8faHS9w)
 
 ---
 

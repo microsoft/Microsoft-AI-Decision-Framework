@@ -286,7 +286,7 @@ Many organizations use both platforms - Copilot Studio for rapid deployment with
 - **Channel limits:** Includes support for Teams, Microsoft 365, Sharepoint, Web (Direct Line), Mobile, Azure Bot Service, and numerous third-party channels
 - **Power Platform requests:** 250K/24h for standard subscription (flows triggered by agents)
 - **Cost predictability:** Prepaid packs or PAYG ($0.01/Copilot Credit)
-- **Increase limits:** Allowed 25% overage of pooled credits; purchase addtional credit packs or enable pay-as-you-Go for overages
+- **Increase limits:** Allowed 25% overage of pooled credits; purchase additional credit packs or enable pay-as-you-Go for overages
 - **Best for:** Predictable workloads, call centers, internal use cases with capacity planning
 
 **Azure AI Foundry / Agent Service:**

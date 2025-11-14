@@ -474,7 +474,7 @@ flowchart TD
     Q1 -->|$5K+/mo| Enterprise[Enterprise Budget]
     
     M365Only --> M365T{Timeline?}
-    M365T -->|Days| M365_Fast[M365 Copilot Chat<br/>$0 add'l + M365 license<br/>Instruction-based agents]
+    M365T -->|Days| M365_Fast[M365 Copilot Chat<br/>$0 add'l (included with M365)<br/>Instruction-based agents]
     M365T -->|1-2 Weeks| M365_Med[M365 Copilot + Graph<br/>$0 add'l<br/>Knowledge grounding]
     M365T -->|1 Month+| M365_Slow[Declarative Agents<br/>$0 add'l or PAYG<br/>Custom instructions + data]
     
@@ -516,7 +516,7 @@ flowchart TD
 
 | Solution | Monthly Cost | Documentation |
 |----------|--------------|---------------|
-| **M365 Copilot Chat** | Included with M365 subscription | Web-grounded chat and instruction-based agents [(docs)](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/cost-considerations#licensing-options-for-microsoft-365-copilot) |
+| **M365 Copilot Chat** | Free (included) with eligible M365 subscription | Web-grounded chat and instruction-based agents [(docs)](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/cost-considerations#licensing-options-for-microsoft-365-copilot) |
 | **M365 Copilot + Graph Connectors** | $30/user/month M365 Copilot license | Graph Connectors included at no extra charge [(docs)](https://learn.microsoft.com/en-us/microsoft-copilot-studio/billing-licensing#copilot-studio-use-rights-included-with-microsoft-365-copilot-license) |
 | **Declarative Agents** | $0 or PAYG | Instruction-based or public-web grounded = $0; shared tenant data = PAYG [(docs)](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/cost-considerations#agents-in-copilot) |
 

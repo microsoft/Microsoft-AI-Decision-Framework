@@ -68,9 +68,9 @@ Apply these questions **sequentially** after passing the BXT assessment. Each qu
 ### Question 1: User Experience Location
 {: .no_toc }
 
-Identify the primary place people will engage with the agent. The interaction surface immediately narrows the candidate technologies.
+Identify the primary place people will engage with the agent. Start with the free, included **Microsoft 365 Copilot Chat** surface (m365copilot.com, Teams, Outlook, Edge) for every eligible user, then layer in the premium **Microsoft 365 Copilot** add-on or custom channels when scenarios demand work-grounded data or embedded copilots.[^copilotforall]
 
-- **M365 apps** (Copilot Chat, Teams, Office Apps) → Stay inside the Microsoft 365 trust boundary with built-in agents, Copilot Studio M365 channels, or Graph connectors.
+- **M365 apps** (Copilot Chat, Teams, Word, Excel, Outlook) → Default to the free Copilot Chat surface for web-grounded or PAYG agent experiences, then graduate to Microsoft 365 Copilot when you need Graph-grounded answers and in-app copilots. Stay inside the Microsoft 365 trust boundary with built-in agents, Copilot Studio M365 channels, or Graph connectors.
 - **Custom or multi-channel** (web, mobile, SMS, email) → Use M365 Agents SDK, Azure AI Foundry, or Logic Apps to reach every endpoint consistently. Pair Agent Framework with the AG-UI protocol when you need streaming UI, shared state, or human-in-the-loop approvals in bespoke web/mobile experiences.[^agui-overview]
 - **API/headless** workloads → Design for services that call the agent as a capability rather than a UI.
 
@@ -134,9 +134,9 @@ Answer “Where does my data go, and who can act on it?” before choosing a pla
 ### Question 6: Scale and Cost Requirements
 {: .no_toc }
 
-Model the usage pattern and budget envelope early so you can select the right consumption model.
+Model the usage pattern and budget envelope early so you can select the right consumption model—remember Microsoft 365 Copilot Chat is free (included), while Microsoft 365 Copilot remains a premium add-on.
 
-- **Predictable spend** – M365 Copilot per-user licensing or Copilot Studio prepaid capacity packs.
+- **Predictable spend** – Free (included) Copilot Chat for baseline pilots, Microsoft 365 Copilot per-user licensing when you need Graph grounding and in-app copilots, or Copilot Studio prepaid capacity packs for governed makers.
 - **Variable spend with guardrails** – Azure AI Foundry/Agent Service pay-per-token, Copilot Studio PAYG metering, with rate limits and budget alerts to control spikes.
 - **Custom throttling** – M365 Agents SDK or Agent Framework solutions where you own auto-scaling and rate limiting.
 
@@ -203,6 +203,7 @@ Determine whether the agent is purely reactive or must trigger events on its own
 [^agentservicega]: *What's new in Azure AI Foundry Agent Service*, Microsoft Learn. Updated 2025-05-15.
 [^copilotstudioevent]: *Create automated copilots triggered by events*, Microsoft Learn. GA 2025-03-24.
 [^agui-overview]: *AG-UI integration with Agent Framework*, Microsoft Learn. Preview, Updated 2025-11-11.
+[^copilotforall]: *Copilot for all: Introducing Microsoft 365 Copilot Chat*, Microsoft 365 Blog. Updated 2025-01-15.
 
 ## Phase 3: Scenario-Specific Selection
 

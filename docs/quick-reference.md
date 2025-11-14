@@ -24,7 +24,7 @@ This page provides fast-lookup tables for common scenarios. For detailed decisio
 
 | **Where Users Interact** | **Recommended Technologies** | **Use When** |
 |---------------------------|------------------------------|--------------|
-| **Microsoft 365 Apps** | M365 Copilot + Declarative Agents (pinned/@mentioned agents), Graph Connectors | Need managed Copilot experiences embedded in Word, Excel, Outlook, or Teams meetings with agent pinning and static meeting tabs |
+| **Microsoft 365 Apps** | **Free** Microsoft 365 Copilot Chat (included) + Graph Connectors for baseline pilots; Microsoft 365 Copilot add-on + declarative agents for work-grounded copilots | Need managed copilots embedded in Word, Excel, Outlook, or Teams with tenant-level governance—start with the free chat surface and graduate to the hero add-on when Graph grounding or in-app assistants are required |
 | **Microsoft Teams Only** | Copilot Studio, M365 Agents SDK | Teams-centric chat or calling scenarios where admins may enforce "only during the call" retention |
 | **Custom Web/Mobile App** | Azure AI Foundry, Azure AI Agent Service (Standard setup) | Building standalone applications while keeping files, search, and thread storage in customer-owned Azure resources |
 | **Custom Web/Mobile UI with streaming** | Microsoft Agent Framework + AG-UI protocol (Preview) | Need Server-Sent Events streaming, backend tool rendering, shared state, and human approvals in bespoke front-ends |
@@ -35,7 +35,8 @@ This page provides fast-lookup tables for common scenarios. For detailed decisio
 
 **Sources:**
 
-- [Microsoft 365 Copilot release notes — October 28, 2025](https://learn.microsoft.com/en-us/copilot/microsoft-365/release-notes?tabs=all#october-28-2025) (Updated: 2025-10-28)
+- [Copilot for all: Introducing Microsoft 365 Copilot Chat](https://www.microsoft.com/en-us/microsoft-365/blog/2025/01/15/copilot-for-all-introducing-microsoft-365-copilot-chat/) (Updated: 2025-01-15)
+- [Microsoft 365 Copilot release notes — November 12, 2025](https://learn.microsoft.com/en-us/copilot/microsoft-365/release-notes?tabs=all#november-12-2025)
 - [Built-in enterprise readiness with standard agent setup](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/concepts/standard-agent-setup) (Updated: 2025-06-16)
 - [Workflows with AI agents and models in Azure Logic Apps (Preview)](https://learn.microsoft.com/en-us/azure/logic-apps/agent-workflows-concepts) (Updated: 2025-10-09)
 - [Microsoft 365 Agents Toolkit](https://learn.microsoft.com/en-us/microsoft-365/developer/overview-m365-agents-toolkit) (Updated: 2025-05-30)

@@ -25,12 +25,12 @@ Ready-to-use AI experiences for immediate productivity.
 
 | Feature | Description | Documentation |
 |---------|-------------|---------------|
-| **Microsoft 365 Copilot Chat** | Secure chat surface (m365copilot.com, Teams, Outlook, Edge) that delivers web-grounded prompts, Copilot Pages, file uploads, image creation, and pay-as-you-go agents with enterprise controls—available with any eligible Microsoft 365 license. | [Overview](https://learn.microsoft.com/en-us/copilot/overview#microsoft-365-copilot-chat-copilot-chat) |
-| **Microsoft 365 Copilot** | Premium add-on that unlocks work-grounded Copilot Chat plus embedded assistants across Word, Excel, Outlook, Teams, and analytics, grounding responses in Microsoft Graph data directly inside the user’s workflow. | [Overview](https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-overview) |
+| **Microsoft 365 Copilot Chat** | **Free (included)**, enterprise-secure chat surface (m365copilot.com, Teams, Outlook, Edge) that delivers GPT-4o web-grounded prompts, Copilot Pages, file uploads, image creation, and optional pay-as-you-go agents under IT control—available to every Microsoft 365 commercial customer with eligible licensing and zero incremental license cost. | [Overview](https://learn.microsoft.com/en-us/copilot/overview#microsoft-365-copilot-chat-copilot-chat) · [Copilot for all announcement](https://www.microsoft.com/en-us/microsoft-365/blog/2025/01/15/copilot-for-all-introducing-microsoft-365-copilot-chat/) |
+| **Microsoft 365 Copilot** | Paid hero add-on that unlocks work-grounded Copilot Chat (Graph data, multi-turn reasoning), in-app copilots across Word, Excel, Outlook, Teams, and advanced analytics with continuous feature drops (e.g., RSVP search, multi-turn image editing). | [Overview](https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-overview) · [Nov 12 2025 release notes](https://learn.microsoft.com/en-us/copilot/microsoft-365/release-notes?tabs=all#november-12-2025) |
 | **Built-in Agents** | Researcher, Analyst, Visual Creator, Prompt Coach, Idea Coach, Writing Coach | [Docs](https://learn.microsoft.com/en-us/training/modules/explore-prebuilt-microsoft-365-copilot-agents/) |
 | **Agent Store** | Discover, acquire, and manage Copilot agents through the in-app Microsoft 365 store (Word and PowerPoint; Excel coming) | [Release notes](https://learn.microsoft.com/en-us/copilot/microsoft-365/release-notes) |
 
-**When to use:** Reach for Layer 1 when the use case is satisfied by turnkey Microsoft 365 experiences—give users immediate productivity gains with Copilot Chat and in-app copilots, even if you plan to layer on extensibility, custom platforms, or infrastructure later.
+**When to use:** Reach for Layer 1 when the use case is satisfied by turnkey Microsoft 365 experiences—give users immediate productivity gains with the free Copilot Chat surface and in-app copilots, even if you plan to layer on extensibility, custom platforms, or infrastructure later.
 
 ---
 
@@ -137,8 +137,9 @@ Manage all agents (Studio, SDK, declarative) from Microsoft 365 admin center (GA
 ## Sources
 
 **Layer 1 & 2:**
+- [Copilot for all: Introducing Microsoft 365 Copilot Chat](https://www.microsoft.com/en-us/microsoft-365/blog/2025/01/15/copilot-for-all-introducing-microsoft-365-copilot-chat/) (Updated: January 2025)
 - [M365 Copilot Extensibility](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview) (Updated: September 2025)
-- [M365 Release Notes](https://learn.microsoft.com/en-us/copilot/microsoft-365/release-notes) (Updated: September 2025)
+- [M365 Release Notes](https://learn.microsoft.com/en-us/copilot/microsoft-365/release-notes) (Updated: November 12, 2025)
 
 **Layer 3:**
 - [Azure AI Foundry Agent Service](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/whats-new) (Updated: April 2025)

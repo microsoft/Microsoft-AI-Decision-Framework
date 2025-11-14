@@ -293,10 +293,10 @@ Many organizations use both platforms - Copilot Studio for rapid deployment with
   - General messages: 8,000 requests per minute (RPM) per Dataverse environment
   - Generative AI: 50-100+ RPM / 1,000-2,000+ requests per hour (RPH) (scales with capacity packs: 50 RPM/1K RPH for 1-10 packs, up to 100 RPM/2K RPH for 51+ packs or PAYG)
 - **Shared across agents:** All agents in environment share quota pool
-- **Channel limits:** Channels include Teams, Web (Direct Line), Mobile, WhatsApp, Facebook, Azure Bot Service channels
+- **Channel limits:** Includes support for Teams, Microsoft 365, SharePoint, Web (Direct Line), Mobile, Azure Bot Service, and numerous third-party channels
 - **Power Platform requests:** 250K/24h for standard subscription (flows triggered by agents)
 - **Cost predictability:** Prepaid packs or PAYG ($0.01/Copilot Credit)
-- **Increase limits:** Contact Support for rate limit increases (PAYG environments only)
+- **Increase limits:** Allowed 25% overage of pooled credits; purchase additional credit packs or enable pay-as-you-Go for overages
 - **Best for:** Predictable workloads, call centers, internal use cases with capacity planning
 
 **Azure AI Foundry / Agent Service:**
@@ -334,7 +334,7 @@ Many organizations use both platforms - Copilot Studio for rapid deployment with
 | Situation | Start | Path |
 |-----------|-------|------|
 | Makers, low budget, M365 data | M365 + Graph Connectors | → Studio |
-| Makers, workflows | Studio + AI Builder | → Add BYOK |
+| Makers, workflows | Copilot Studio + AI Builder | → Add BYOK |
 | Devs, multi-channel | M365 SDK + Studio | → Azure AI Foundry |
 | Devs, custom models | Azure AI Foundry | → Add Agent Framework |
 | Data scientists | Foundry + Agent Framework | → BYOM |

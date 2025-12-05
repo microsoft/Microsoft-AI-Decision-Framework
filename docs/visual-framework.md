@@ -33,6 +33,7 @@ Use these diagrams after working through the [Decision Framework]({{ '/docs/deci
 | **5. Budget & Timeline** | Cost and time-to-production paths | [Evaluation Criteria: Budget & Time]({{ '/docs/evaluation-criteria#budget-assessment' | relative_url }}) |
 | **6. Governance & Compliance** | Security and compliance requirements | [Evaluation Criteria: Governance]({{ '/docs/evaluation-criteria#governance--compliance' | relative_url }}) |
 | **7. Multi-Agent Orchestration** | Multi-agent patterns and frameworks | [Quick Reference: Orchestration Complexity]({{ '/docs/quick-reference#orchestration-complexity-decision-matrix' | relative_url }}) |
+| **8. Upgrade Paths** | Migration and progressive enhancement | [Implementation Patterns: Progressive Enhancement]({{ '/docs/implementation-patterns#progressive-enhancement-pattern' | relative_url }}) |
 
 ---
 
@@ -58,7 +59,7 @@ flowchart TD
     Q4 -->|Azure-centric| Q4Azure{Need custom UI<br/>protocol?}
 
     Q4Azure -->|Yes| AGUI[Agent Framework + AG-UI<br/><i>Preview</i>]
-    Q4Azure -->|No| Foundry[Azure AI Foundry]
+    Q4Azure -->|No| Foundry[Microsoft Foundry (Azure)]
     
     Auto_Path --> Q5{Build approach?}
     Q5 -->|Low-code| StudioAuto[Copilot Studio<br/>with Event Triggers]
@@ -68,8 +69,9 @@ flowchart TD
     Q6 -->|Custom orchestration| Foundry
     
     API_Path --> Q7{Hosting preference?}
-    Q7 -->|Managed PaaS| AgentService[Azure AI Agent Service]
+    Q7 -->|Managed PaaS| AgentService[Foundry Agent Service]
     Q7 -->|Self-hosted| Foundry
+    Q7 -->|Local/Edge| WinAI[Microsoft Foundry (Windows)<br/><i>Local</i>]
     
     M365 --> DataQ{Need custom data?}
     Studio --> DataQ
@@ -121,6 +123,7 @@ flowchart TD
     style AGUI fill:#5C2D91,color:#fff
     style LogicApps fill:#0078D4,color:#fff
     style AgentService fill:#D83B01,color:#fff
+    style WinAI fill:#0078D4,color:#fff
 ```
 
 ### Validation Summary
@@ -136,7 +139,7 @@ flowchart TD
 | **M365 Copilot** | 🔒 User-in-the-loop always | 🔄 Reactive only | Conversational chat in M365 apps [(docs)](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/) |
 | **Copilot Studio** | ⚠️ Actions can execute (add approval workflows) | 🔄 Reactive (conversational) or **✅ Autonomous (event triggers)** | Low-code, 13+ channels [(docs)](https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-what-is-copilot-studio) |
 | **M365 Agents SDK** | ⚠️ Custom action safety design | ✅ Proactive capable | Pro-code, 10+ channels, C#/JS/Python, BYO orchestrator [(docs)](https://learn.microsoft.com/en-us/microsoft-365/agents-sdk/agents-sdk-overview) |
-| **Azure AI Foundry** | ⚠️ Autonomous planning loops | ✅ Proactive capable | Custom UI deployment [(docs)](https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/use-web-app) |
+| **Microsoft Foundry (Azure)** | ⚠️ Autonomous planning loops | ✅ Proactive capable | Custom UI deployment [(docs)](https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/use-web-app) |
 | **Agent Framework + AG-UI** (Preview) | ⚠️ Approvals via AG-UI middleware | ✅ Proactive capable (inherits host orchestration) | Protocol bridges agents to web/mobile UI with SSE streaming, backend tool rendering, shared state, and CopilotKit components [(docs)](https://learn.microsoft.com/en-us/agent-framework/integrations/ag-ui/) |
 
 #### Autonomous Agents
@@ -146,15 +149,15 @@ flowchart TD
 |------------|---------------|-----------|-------------|
 | **Copilot Studio** (with event triggers) | ⚠️ Actions can execute | ✅ Autonomous (event-driven) | Event triggers: SharePoint, OneDrive, Planner, Recurrence [(docs)](https://learn.microsoft.com/en-us/microsoft-copilot-studio/authoring-triggers-about) |
 | **Logic Apps AI Agent Workflows** (Preview) | ⚠️ Autonomous execution | ✅ Proactive (event-driven) | 1,400+ connectors [(docs)](https://learn.microsoft.com/en-us/azure/logic-apps/agent-workflows-concepts) |
-| **Azure AI Foundry Agent Service** | ⚠️ Autonomous planning loops | ✅ Proactive capable | Custom orchestration [(docs)](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/overview) |
+| **Microsoft Foundry (Azure) Agent Service** | ⚠️ Autonomous planning loops | ✅ Proactive capable | Custom orchestration [(docs)](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/overview) |
 
 #### API/Headless Services (GA)
 {: .no_toc }
 
 | Technology | Action Safety | Proactive | Description |
 |------------|---------------|-----------|-------------|
-| **Azure AI Agent Service** | ⚠️ Autonomous planning loops | ✅ Proactive capable | REST API, managed PaaS [(docs)](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/quickstart) |
-| **Azure AI Foundry** | ⚠️ Autonomous planning loops | ✅ Proactive capable | REST API deployment [(docs)](https://learn.microsoft.com/en-us/rest/api/aifoundry/) |
+| **Foundry Agent Service** | ⚠️ Autonomous planning loops | ✅ Proactive capable | REST API, managed PaaS [(docs)](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/quickstart) |
+| **Microsoft Foundry (Azure)** | ⚠️ Autonomous planning loops | ✅ Proactive capable | REST API deployment [(docs)](https://learn.microsoft.com/en-us/rest/api/aifoundry/) |
 
 #### Vector Databases
 {: .no_toc }
@@ -183,7 +186,7 @@ flowchart TD
     Maker -->|Occasional help| MakerPlus[Studio + Custom Actions]
     
     Dev -->|M365 integration| DevM365[M365 Agents SDK]
-    Dev -->|Azure services| DevAzure[Azure AI Foundry]
+    Dev -->|Azure services| DevAzure[Microsoft Foundry (Azure)]
     Dev -->|Multi-agent orchestration| DevOrch[Agent Framework<br/><i>Public Preview</i>]
     Dev -->|Multi-platform| DevChoice{Skill level?}
     Dev -->|Autonomous agents| DevAuto{Event-driven?}
@@ -193,7 +196,7 @@ flowchart TD
     DevChoice -->|Senior| DevSDK[M365 SDK or Foundry]
     
     DevAuto -->|Yes| DevLogic[Logic Apps<br/>AI Agent Workflows<br/><i>Preview</i>]
-    DevAuto -->|Custom orchestration| DevFoundry[Azure AI Foundry<br/>+ Agent Service]
+    DevAuto -->|Custom orchestration| DevFoundry[Microsoft Foundry (Azure)<br/>+ Agent Service]
     
     DS -->|Analytics/BI| DSFabric[Fabric Data Agents<br/><i>Preview</i>]
     DS -->|ML/Custom models| DSFoundry[Azure AI Foundry]
@@ -372,7 +375,7 @@ flowchart TD
 
 | Technology | Capabilities | Documentation |
 |------------|--------------|---------------|
-| **Azure AI Agent Service File Search Tool** | Built-in file search with automatic parsing, chunking (800 tokens/400 overlap), embedding (text-embedding-3-large), keyword + semantic search, reranking. Supports up to 10,000 files per vector store (max 512 MB/file). Two modes: Basic (Microsoft-managed) vs Standard (BYO Azure AI Search + Blob Storage). Supported formats: .doc, .docx, .pdf, .pptx, .py, .md, .txt, .json, .html, .java, .cs, .cpp, and more. Service handles entire ingestion automatically. | [Agent Service File Search](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/how-to/tools/file-search) |
+| **Foundry Agent Service File Search Tool** | Built-in file search with automatic parsing, chunking (800 tokens/400 overlap), embedding (text-embedding-3-large), keyword + semantic search, reranking. Supports up to 10,000 files per vector store (max 512 MB/file). Two modes: Basic (Microsoft-managed) vs Standard (BYO Azure AI Search + Blob Storage). Supported formats: .doc, .docx, .pdf, .pptx, .py, .md, .txt, .json, .html, .java, .cs, .cpp, and more. Service handles entire ingestion automatically. | [Agent Service File Search](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/how-to/tools/file-search) |
 | **Copilot Studio Knowledge Base** | File upload from local/OneDrive/SharePoint. Supports .doc, .docx, .ppt, .pptx, .pdf, .xls, .xlsx, .txt, .md, .html, .csv, .xml. Max 512 MB per file. Direct uploads allow up to 500 files per agent, while SharePoint/OneDrive document sources now support up to 1,000 files (GA Oct 6, 2025). Automatic chunking and vectorization into Dataverse with semantic indexing. OneDrive/SharePoint: Auto-sync (updates reflected automatically) vs Upload: Static files. SharePoint: User-scoped permissions (only files user has access to). | [Copilot Studio Knowledge](https://learn.microsoft.com/en-us/microsoft-copilot-studio/knowledge-unstructured-data) \| [File Upload](https://learn.microsoft.com/en-us/microsoft-copilot-studio/knowledge-add-file-upload) \| [SharePoint Files](https://learn.microsoft.com/en-us/microsoft-copilot-studio/knowledge-add-unstructured-data) \| [Use up to 1000 files](https://learn.microsoft.com/en-us/power-platform/release-plan/2025wave1/microsoft-copilot-studio/use-up-1000-files-per-agent-sharepoint-onedrive-uploads) |
 
 #### Document Processing - Production Scale (GA)
@@ -404,7 +407,7 @@ flowchart TD
 | Technology | Status | Capabilities | Documentation |
 |------------|--------|--------------|---------------|
 | **Microsoft Fabric Platform** | GA | Direct knowledge source access via Lakehouse (Delta tables, Spark), Warehouse (T-SQL), OneLake (ADLS Gen2 APIs), KQL databases. Azure AI Foundry integration for RAG | [Fabric Overview](https://learn.microsoft.com/en-us/fabric/fundamentals/microsoft-fabric-overview) \| [AI Foundry Fabric Integration](https://learn.microsoft.com/en-us/azure/ai-foundry/faq) |
-| **Fabric Data Agents** | Preview | Analytics data grounding (warehouses, lakehouses, Power BI semantic models, KQL databases), Copilot Studio connected agents, Azure AI Agent Service integration | [Fabric Data Agents](https://learn.microsoft.com/en-us/fabric/data-science/concept-data-agent) \| [Copilot Studio Integration](https://learn.microsoft.com/en-us/fabric/data-science/data-agent-microsoft-copilot-studio) |
+| **Fabric Data Agents** | Preview | Analytics data grounding (warehouses, lakehouses, Power BI semantic models, KQL databases), Copilot Studio connected agents, Foundry Agent Service integration | [Fabric Data Agents](https://learn.microsoft.com/en-us/fabric/data-science/concept-data-agent) \| [Copilot Studio Integration](https://learn.microsoft.com/en-us/fabric/data-science/data-agent-microsoft-copilot-studio) |
 
 #### MCP Integration (Preview)
 {: .no_toc }
@@ -659,12 +662,12 @@ flowchart TD
 flowchart TD
     Start([Need Multi-Agent?]) --> Q1{Pattern Type?}
     
-    Q1 -->|Connected agents<br/>sub-agents| Connected[Connected/Sub-Agent Pattern]
+    Q1 -->|Connected agents<br/>Mesh (A2A)| Connected[Connected/Mesh Pattern]
     Q1 -->|Sequential/Parallel<br/>workflows| Workflows[Agent Workflow Orchestration]
     Q1 -->|Event triggers| EventDriven[Event-Driven Agents]
     
     Connected --> C_Platform{Platform?}
-    C_Platform -->|Low-code| C_Studio[Copilot Studio Preview<br/>Connected agents<br/>Child agents<br/>Handoffs]
+    C_Platform -->|Low-code| C_Studio[Copilot Studio Preview<br/>Agent2Agent (A2A)<br/>Decentralized Mesh]
     C_Platform -->|Azure| C_Foundry[Azure AI Foundry GA<br/>Connected agents<br/>Sub-agent delegation]
     
     Workflows --> W_Framework{Framework?}
@@ -706,7 +709,7 @@ flowchart TD
 
 | Technology | Status | Capabilities | Documentation |
 |------------|--------|--------------|---------------|
-| **Copilot Studio** | Preview | Connected agents (Copilot Studio + Fabric Data Agents), child agents, handoffs | [Connected Agents](https://learn.microsoft.com/microsoft-copilot-studio/advanced-connected-agents) |
+| **Copilot Studio** | Preview | Agent2Agent (A2A) decentralized mesh, Connected agents, child agents, handoffs | [Connected Agents](https://learn.microsoft.com/microsoft-copilot-studio/advanced-connected-agents) |
 | **Azure AI Foundry Agent Service** | GA | Connected agents with natural language sub-agent delegation | [Connected Agents](https://learn.microsoft.com/azure/ai-services/agents/concepts/connected-agents) |
 | **Fabric Data Agents** | Preview | Consumed by other agents for data grounding (NOT orchestrator) | [Fabric Integration](https://learn.microsoft.com/fabric/data-activator/data-agent-copilot-studio-integration) |
 
@@ -730,9 +733,48 @@ flowchart TD
 | **Event Grid + Foundry** | GA | Event routing to trigger agents independently (NOT orchestration) | [Azure Event Grid](https://learn.microsoft.com/azure/event-grid/) |
 
 **Key Distinctions:**
-- **Connected/Sub-Agent:** Agents collaborate or delegate to specialized sub-agents
+- **Connected/Mesh:** Agents discover and invoke each other (A2A) or delegate to sub-agents
 - **Workflow Orchestration:** Sequential/parallel/concurrent agent coordination patterns
 - **Event-Driven:** Single agent triggered by events (NOT multi-agent orchestration)
+
+---
+
+## Upgrade Paths
+
+```mermaid
+flowchart TD
+    Start([Start: Low-Code Agent]) --> Q1{Need more<br/>capability?}
+    
+    Q1 -->|No| Stay[Copilot Studio<br/>Standard]
+    Q1 -->|Yes| Q2{What kind of<br/>capability?}
+    
+    Q2 -->|Better Reasoning/LLM| Path1[**Enhance**<br/>BYO Model (Foundry)<br/><i>Preview</i>]
+    Q2 -->|Complex Orchestration| Path2[**Extend**<br/>Handoff to Agent Service<br/><i>Preview</i>]
+    Q2 -->|Custom UI/Protocol| Path3[**Migrate**<br/>M365 Agents SDK<br/>or Foundry]
+    
+    Path1 --> Result1([Copilot Studio<br/>+ Specialized Model])
+    Path2 --> Result2([Copilot Studio UI<br/>+ Azure Agent Brain])
+    Path3 --> Result3([Full Pro-Code<br/>Solution])
+    
+    style Stay fill:#0078D4,color:#fff
+    style Path1 fill:#FFB900,color:#000
+    style Path2 fill:#D83B01,color:#fff
+    style Path3 fill:#5C2D91,color:#fff
+```
+
+### Validation Summary: Upgrade Paths
+{: .no_toc }
+
+**Last Validated:** May 2025
+
+#### Progressive Enhancement Mechanisms
+{: .no_toc }
+
+| Mechanism | Status | Description | Documentation |
+|-----------|--------|-------------|---------------|
+| **BYO Model** | Preview | Swap default Copilot Studio model for a specialized Foundry model (1,900+ options) | [BYO Model](https://learn.microsoft.com/microsoft-copilot-studio/advanced-generative-actions) |
+| **Agent Handoff** | Preview | Copilot Studio delegates to Foundry Agent Service for complex tasks | [Agent Handoff](https://learn.microsoft.com/azure/ai-foundry/agents/how-to/handoff-copilot) |
+| **Shared Knowledge** | GA | Both Copilot Studio and Custom Apps can consume the same Azure AI Search index | [Azure AI Search](https://learn.microsoft.com/azure/search/) |
 
 ---
 

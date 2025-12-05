@@ -22,7 +22,7 @@ Detailed side-by-side comparisons of Microsoft AI technologies. For decision gui
 
 ## Comprehensive Platform Comparison
 
-| Feature | M365 Copilot | Copilot Studio | Azure AI Foundry | **Microsoft Agent Framework** | **AG-UI Protocol (Preview)** | Azure AI Agent Service | M365 Agents SDK | **Azure Logic Apps** |
+| Feature | M365 Copilot | Copilot Studio | Microsoft Foundry (Azure) | **Microsoft Agent Framework** | **AG-UI Protocol (Preview)** | Foundry Agent Service | M365 Agents SDK | **Azure Logic Apps** |
 |---------|--------------|----------------|------------------|------------------------------|----------------------------|------------------------|-----------------|----------------------|
 | **User Experience** | M365 apps | Custom channels | Custom apps | Embedded in apps | Protocol-based web/mobile UI | Custom apps | Copilot/Teams/Web | **Custom/Conversational** |
 | **Build Approach** | No-build (consume) | Low-code to pro-code | Code-first | Pro-code (orchestration SDK) | Pro-code protocol integration (ASP.NET Core, FastAPI) | Code-first | Pro-code | **Visual designer + code** |
@@ -43,24 +43,26 @@ Detailed side-by-side comparisons of Microsoft AI technologies. For decision gui
 | **Infrastructure Model** | Microsoft-managed | SaaS (managed) | PaaS (self-managed) | SDK (self-managed) | SDK bridging host + client | PaaS (self-managed) | SDK (self-managed) | PaaS (self-managed) |
 | **Best For** | Broad productivity | Custom agents | Custom AI apps | **Workflow orchestration** | Custom branded experiences and generative UI atop Agent Framework | Managed agents | Pro-code extensions | **Enterprise integration + AI** |
 
-[^aafs-triggers]: *What's new in Azure AI Foundry Agent Service*, Microsoft Learn. May 2025 GA update includes Azure Logic Apps triggers for agents.
+[^aafs-triggers]: *What's new in Microsoft Foundry (Azure) Agent Service*, Microsoft Learn. May 2025 GA update includes Azure Logic Apps triggers for agents.
 [^logicapps-agents]: *Workflows with AI agents and models in Azure Logic Apps (Preview)*, Microsoft Learn. Retrieved: 2025-11-10.
-[^aafs-mcp]: *What's new in Azure AI Foundry Agent Service*, Microsoft Learn. June 2025 update announces the MCP tool.
+[^aafs-mcp]: *What's new in Microsoft Foundry (Azure) Agent Service*, Microsoft Learn. June 2025 update announces the MCP tool.
 [^logicapps-mcp]: *Set up Standard logic apps as remote MCP servers (Preview)*, Microsoft Learn. Retrieved: 2025-11-10.
 
-**Sources:**
-- [Microsoft 365 Copilot overview](https://learn.microsoft.com/en-us/microsoft-365-copilot/microsoft-365-copilot-overview) (Retrieved: 2025-11-10)
-- [Copilot Studio overview](https://learn.microsoft.com/en-us/microsoft-copilot-studio/overview-what-is-copilot-studio) (Retrieved: 2025-11-10)
-- [Azure AI Foundry Agent Service overview](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/overview) (Updated: 2025-05-29)
-- [Microsoft Agent Framework workflows overview](https://learn.microsoft.com/en-us/agent-framework/user-guide/workflows/overview) (Updated: 2025-09-12)
-- [AG-UI integration with Agent Framework](https://learn.microsoft.com/en-us/agent-framework/integrations/ag-ui/) (Preview, Updated: 2025-11-11)
-- [Azure AI Agent Service docs](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/overview) (Updated: 2025-05-29)
-- [M365 Agents SDK overview](https://learn.microsoft.com/en-us/microsoft-365/agents-sdk/agents-sdk-overview) (Updated: 2025-09-23)
-- [Logic Apps agent workflows concepts](https://learn.microsoft.com/en-us/azure/logic-apps/agent-workflows-concepts) (Retrieved: 2025-11-10)
-- [Logic Apps MCP server guidance](https://learn.microsoft.com/en-us/azure/logic-apps/set-up-model-context-protocol-server-standard) (Retrieved: 2025-11-10)
+---
 
-**Last Updated:** 2025-11-10
-**Confidence Level:** High (all sources official Microsoft documentation)
+## Developer Agent Comparison
+{: .tech-heading }
+
+| Feature | GitHub Copilot Coding Agent | Azure SRE Agent | GitHub Copilot App Modernization |
+|---------|-----------------------------|-----------------|----------------------------------|
+| **Primary Role** | Autonomous Developer | Site Reliability Engineer | Migration Specialist |
+| **Trigger** | GitHub Issue | Azure Monitor Alert | Manual Invocation |
+| **Action Space** | Codebase (Read/Write), Tests | Azure Resources (Read/Action), Logs | Codebase (Mass Refactor) |
+| **Output** | Pull Request | RCA Report, Fix PR | Upgrade Plan, PR |
+| **Human Loop** | PR Review | Alert Acknowledgment | Plan Approval, PR Review |
+| **Underlying Model** | Optimized Coding Models | Specialized SRE Models | Migration-Tuned Models |
+| **Context Window** | Repository-aware | Log/Metric-aware | Dependency-aware |
+| **Status** | Preview | Preview | Preview |
 
 ---
 
@@ -77,7 +79,7 @@ Detailed side-by-side comparisons of Microsoft AI technologies. For decision gui
 | **Architecture** | Graph-based (Executors + Edges) | Workflow designer + connectors | Workflow designer + connectors |
 | **Checkpointing** | ✅ Yes (built-in) | ✅ Yes (state management) | ❌ No |
 | **Type Safety** | ✅ Yes (compile-time) | ⚠️ Partial (schema validation) | ⚠️ Partial (schema validation) |
-| **AI Integration** | Native (\IChatClient\) | Azure OpenAI, Azure AI Foundry, Agent Service | Azure OpenAI, Azure AI Foundry, Agent Service |
+| **AI Integration** | Native (\IChatClient\) | Azure OpenAI, Microsoft Foundry (Azure), Agent Service | Azure OpenAI, Microsoft Foundry (Azure), Agent Service |
 | **Connectors** | Custom code (any API) | 1,400+ connectors + custom code | 1,000+ (Power Platform) |
 | **Hosting** | Self-managed (Azure) | Azure Portal | Microsoft SaaS (managed) |
 | **Licensing** | Open-source (free SDK) | Azure consumption/Standard | Copilot Studio Credits |

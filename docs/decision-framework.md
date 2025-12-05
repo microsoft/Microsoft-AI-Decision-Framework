@@ -96,9 +96,9 @@ Decide how much engineering control you need versus how fast you must ship.
 
 Separate how you ground answers from how you persist history or analytics.
 
-- **Grounding (RAG)** – Retrieve the right files or records per request (Microsoft Graph, Azure AI Search, Cosmos DB, PostgreSQL, SQL Server 2025). Standard agent setup provisions customer-owned Azure Storage, Azure AI Search, and Cosmos DB containers for thread data.[^standardsetup]
-- **Memory** – Decide if conversations should persist (Copilot Studio Dataverse variables, Azure AI Agent Service thread stores, custom implementations).
-- **Analytics** – Plan transcript retention, telemetry, and review processes before launch.
+- **Grounding (RAG)** – Retrieve the right files or records per request (Microsoft Graph, Azure AI Search, Cosmos DB, PostgreSQL, SQL Server 2025). Use **Fabric Data Agents** for conversational analytics over OneLake. Standard agent setup provisions customer-owned Azure Storage, Azure AI Search, and Cosmos DB containers for thread data.[^standardsetup]
+- **Memory** – Decide if conversations should persist (Copilot Studio Dataverse variables, Foundry Agent Service thread stores in Cosmos DB, custom implementations).
+- **Analytics** – Plan transcript retention, telemetry, and review processes before launch. Use **Translytical Task Flows** in Fabric to trigger actions directly from analytical reports.
 
 🧩 See [Implementation Patterns]({{ '/docs/implementation-patterns#pattern-3-microsoft-365-knowledge-grounding' | relative_url }}) for ingestion blueprints and [Evaluation Criteria]({{ '/docs/evaluation-criteria#6-memory-analytics--conversation-history' | relative_url }}) for scoring considerations.
 
@@ -111,7 +111,8 @@ Match orchestration tooling to conversation and workflow depth.
 
 - **Simple Q&A** – Declarative agents, Copilot Studio’s generative orchestration, built-in M365 Copilot experiences.
 - **Deterministic workflows** – Copilot Studio Agent Flows, Azure Logic Apps, or Agent Framework workflows when you need checkpoints or human approval steps.
-- **Multi-agent or custom logic** – Azure AI Agent Service connected agents, Agent Framework, or custom engines via M365 Agents SDK when collaboration or advanced reasoning is required.
+- **Centralized Multi-Agent** – Foundry Agent Service or Agent Framework (Hub-and-Spoke) when you need a managed runtime to coordinate specialized agents.
+- **Decentralized (Mesh) Multi-Agent** – Copilot Studio Agent2Agent (A2A) when independent agents need to discover and invoke each other without a central orchestrator.
 
 🧠 The orchestration comparison tables in [Feature Comparison]({{ '/docs/feature-comparison' | relative_url }}) highlight the trade-offs.
 
@@ -139,6 +140,7 @@ Model the usage pattern and budget envelope early so you can select the right co
 - **Predictable spend** – Free (included) Copilot Chat for baseline pilots, Microsoft 365 Copilot per-user licensing when you need Graph grounding and in-app copilots, or Copilot Studio prepaid capacity packs for governed makers.
 - **Variable spend with guardrails** – Azure AI Foundry/Agent Service pay-per-token, Copilot Studio PAYG metering, with rate limits and budget alerts to control spikes.
 - **Custom throttling** – M365 Agents SDK or Agent Framework solutions where you own auto-scaling and rate limiting.
+- **Zero marginal cost (Local)** – Windows AI Foundry / Edge AI (Phi-4-mini) for high-frequency, privacy-sensitive tasks where you trade cloud reasoning power for zero inference cost.
 
 📊 See [Evaluation Criteria]({{ '/docs/evaluation-criteria#scale--performance' | relative_url }}) for capacity planning guidance and [Technologies]({{ '/docs/technologies' | relative_url }}) for service-specific quota references.
 
@@ -162,7 +164,7 @@ Clarify action safety expectations and determine whether humans must remain in t
 
 Select a platform your organization can build and sustain.
 
-- **Makers / fusion teams** – Copilot Studio, AI Builder, Power Platform templates.[^copilotstudio][^aibuilderoverview]
+- **Makers / fusion teams** – Copilot Studio, AI Builder, Power Apps Plan Designer (AI-assisted architecture).[^copilotstudio][^aibuilderoverview]
 - **Professional developers** – M365 Agents SDK, Azure AI Foundry, Agent Framework, Teams AI Library, with full CI/CD ownership.[^declarativecomparison][^agentstoolkitoverview][^foundryoverview]
 - **AI/ML engineers** – Azure AI Foundry and Azure Machine Learning for custom models and evaluations.[^aiarchitecture]
 - **Integration architects** – Logic Apps, API Management, Power Automate for enterprise workflows and connector governance.[^logicappsoverview]
@@ -231,7 +233,7 @@ Determine whether the agent is purely reactive or must trigger events on its own
 
 - Azure AI Foundry + custom development
 - M365 Agents SDK + Agent Framework (complex orchestration)
-- Azure AI Agent Service (managed PaaS for enterprise-scale)
+- Foundry Agent Service (managed PaaS for enterprise-scale)
 
 💡 **Cross-reference:** [Scenarios]({{ '/docs/scenarios' | relative_url }})
 
@@ -244,7 +246,7 @@ Determine whether the agent is purely reactive or must trigger events on its own
 
 - Microsoft 365 Copilot (fully managed)
 - Copilot Studio (SaaS platform)
-- Azure AI Agent Service (managed agent runtime)
+- Foundry Agent Service (managed agent runtime)
 
 **Self-Managed (Infrastructure Control):**
 
@@ -278,7 +280,7 @@ Determine whether the agent is purely reactive or must trigger events on its own
 
 **High Complexity (Multi-agent, custom orchestration, advanced evals):**
 
-- Azure AI Foundry + Azure AI Agent Service
+- Azure AI Foundry + Foundry Agent Service
 - M365 Agents SDK + Agent Framework (checkpointing, workflow orchestration)
 - Custom solutions with Agent Framework
 
@@ -306,7 +308,7 @@ Determine whether the agent is purely reactive or must trigger events on its own
 **Azure Consumption:**
 
 - Azure AI Foundry (token-based pricing)
-- Azure AI Agent Service (compute + storage)
+- Foundry Agent Service (compute + storage)
 - Azure Logic Apps (execution-based)
 
 💡 **Cross-reference:** [Evaluation Criteria]({{ '/docs/evaluation-criteria' | relative_url }}) - Budget Considerations
@@ -348,7 +350,7 @@ Determine whether the agent is purely reactive or must trigger events on its own
 
 **Need Multi-Agent Collaboration?**
 
-- **Azure AI Agent Service** (connected agents, managed orchestration)
+- **Foundry Agent Service** (connected agents, managed orchestration)
 - **Copilot Studio** (child agents + connected agents, supports Fabric data agents)
 - **Agent Framework** (Handoff/Magentic patterns)
 

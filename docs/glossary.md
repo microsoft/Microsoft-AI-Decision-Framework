@@ -24,8 +24,14 @@ Quick reference for key terms used throughout the Microsoft AI Decision Tree.
 **Agent**  
 An AI system that uses an LLM to interpret user inputs, plan, call tools or MCP servers, and return responses, with optional threads, memory, and middleware to enrich interactions ([Microsoft Agent Framework](https://learn.microsoft.com/en-us/agent-framework/overview/agent-framework-overview), updated 2025-10-09).
 
+**Agent2Agent (A2A)**  
+A protocol enabling secure, peer-to-peer communication between AI agents, allowing them to discover peers, negotiate tasks, and collaborate without centralized intermediaries ([Advanced development tools for Teams](https://news.microsoft.com/build-2025-book-of-news/), updated 2025-05-19).
+
 **Agent Framework**  
 An open-source development kit for .NET and Python that unifies Semantic Kernel and AutoGen concepts, adding stateful workflows and multi-agent orchestration for production-grade AI solutions ([Microsoft Agent Framework](https://learn.microsoft.com/en-us/agent-framework/overview/agent-framework-overview), updated 2025-10-09).
+
+**Azure AI Foundry**  
+*See [Microsoft Foundry](#m).* The cloud-based implementation of the Microsoft Foundry ecosystem (formerly known as Azure AI Foundry).
 
 ## B
 
@@ -43,6 +49,11 @@ A Business, Experience, and Technology evaluation that scores strategic fit, use
 **Declarative Agent**  
 Microsoft 365 Copilot extension that packages instructions, knowledge, and optional plugins in a manifest-driven app so organizations deliver scoped Copilot experiences while inheriting Copilot security and governance controls ([Declarative agents for Microsoft 365 Copilot overview](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-declarative-agent), updated 2025-09-11).
 
+## F
+
+**Foundry Local**  
+A component of Windows AI Foundry that brings Azure AI Foundry models and capabilities to local devices (Windows 11, MacOS), enabling offline inferencing and hybrid AI scenarios ([Azure AI Foundry Local](https://news.microsoft.com/build-2025-book-of-news/), updated 2025-05-19).
+
 ## G
 
 **Graph Connector**  
@@ -51,7 +62,18 @@ Copilot connector that ingests external content into Microsoft Graph’s semanti
 ## M
 
 **MCP (Model Context Protocol)**  
-An open protocol that lets Agent Framework apps invoke remote tools hosted on MCP servers, securely passing headers and integrating third-party capabilities into agent runs ([Model Context Protocol](https://learn.microsoft.com/en-us/agent-framework/user-guide/model-context-protocol/), updated 2025-10-01).
+An open standard that lets AI agents securely connect to data and systems. It replaces proprietary plugin architectures with a universal protocol for tools and resources, supported natively across Microsoft's AI ecosystem ([Model Context Protocol](https://news.microsoft.com/build-2025-book-of-news/), updated 2025-05-19).
+
+**Microsoft Discovery**  
+An enterprise agentic platform designed to accelerate scientific research and discovery through hypothesis formulation, candidate generation, and simulation orchestration ([Microsoft Discovery](https://news.microsoft.com/build-2025-book-of-news/), updated 2025-05-19).
+
+**Microsoft Foundry**  
+The unified brand for Microsoft's AI development and management platforms, spanning Cloud (formerly Azure AI Foundry), Client (Windows AI Foundry), and Edge (Foundry Local). It provides a consistent toolchain for model selection, agent orchestration, and observability across all environments ([Azure AI Foundry: Your AI App and agent factory](https://news.microsoft.com/build-2025-book-of-news/), updated 2025-05-19).
+
+## N
+
+**NLWeb**  
+An open project where web endpoints act as MCP servers, allowing websites to provide conversational interfaces and be easily discoverable by AI agents ([NLWeb](https://news.microsoft.com/build-2025-book-of-news/), updated 2025-05-19).
 
 ## O
 
@@ -59,6 +81,12 @@ An open protocol that lets Agent Framework apps invoke remote tools hosted on MC
 Coordinating agents, workflows, and function calls to execute multi-step solutions, often implemented with Agent Framework workflows that provide routing, state management, and human-in-the-loop checkpoints ([Microsoft Agent Framework](https://learn.microsoft.com/en-us/agent-framework/overview/agent-framework-overview), updated 2025-10-09).
 
 ## P
+
+**Planetary Computer Pro**  
+A managed platform for geospatial insights that allows customers to ingest, manage, and analyze private geospatial data within Azure, integrating with Fabric and third-party tools ([Microsoft Planetary Computer Pro](https://news.microsoft.com/build-2025-book-of-news/), updated 2025-05-19).
+
+**Plugin**  
+A term largely superseded by **Tool** or **MCP Server**. Originally referred to extensions for ChatGPT/Copilot; the ecosystem has shifted toward the Model Context Protocol (MCP) for standardized interoperability.
 
 **Prompt Flow**  
 Azure AI Foundry’s visual DAG environment for orchestrating LLMs, prompts, and Python tools, comparing prompt variants, collaborating across teams, and deploying flows as managed endpoints ([Prompt flow in Azure AI Foundry portal](https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/prompt-flow), updated 2025-06-30).

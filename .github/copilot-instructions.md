@@ -70,6 +70,12 @@ The documentation follows a **progressive learning flow** designed to build know
 
 ## Core Methodology & Validation Rules
 
+### The Constitution (Governing Philosophy)
+
+This repository is governed by a set of immutable principles defined in **[`CONSTITUTION.md`](../CONSTITUTION.md)**. This document serves as the "Supreme Law" for the project, establishing the philosophical guardrails that prevent scope creep and ensure the framework remains a *decision engine*, not just a product catalog.
+
+**Agent Instruction:** You MUST review and adhere to `CONSTITUTION.md` when making decisions. It defines the "Why" and "How" of this framework, ensuring we teach a *mindset* rather than just listing features.
+
 ### Source-Backed Research Principle
 
 **CRITICAL:** All technology capabilities, features, and status annotations (GA/Preview/Experimental) MUST be validated against official Microsoft Learn documentation.
@@ -101,6 +107,24 @@ The documentation follows a **progressive learning flow** designed to build know
 3. Verify the specific capability claimed in the diagram
 4. Document validation with source URLs and dates
 5. Add validation summary to diagram section
+
+### Guardrails for Core Files (Constitutional Mandate)
+
+**CRITICAL:** The following files have **Immutable Intent** defined in `CONSTITUTION.md`. Do not dilute their purpose with product inventories or marketing content.
+
+1.  **`docs/capability-model.md` (The "What")**
+    *   **Purpose:** Defines abstract capabilities (e.g., "Orchestration"), NOT a product list.
+    *   **Rule:** Only use products as *examples* of a capability. Do not add "New Product X" as a new layer or capability unless it fundamentally changes the *abstract model*.
+
+2.  **`docs/decision-framework.md` (The "How")**
+    *   **Purpose:** Defines the *methodology* (BXT, 9 Questions) for choosing.
+    *   **Rule:** Do not add technology specifications here. This file teaches the *mindset* of decision-making. If a new technology changes *how* we decide (e.g., "Fine-tuning vs. RAG"), update the *question*, not the product list.
+
+3.  **`docs/evaluation-criteria.md` (The "Measure")**
+    *   **Purpose:** Defines *metrics* (Complexity, Governance, Skills).
+    *   **Rule:** Do not add product comparison tables here. This file defines the *ruler*, not the objects being measured.
+
+**Violation Check:** If you are adding a list of features to any of these files, you are likely violating the Constitution. Put that content in `docs/technologies.md` or `docs/feature-comparison.md` instead.
 
 ### Mermaid Diagram Standards
 

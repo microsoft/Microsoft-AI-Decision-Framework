@@ -80,6 +80,7 @@ This section provides a comprehensive overview of Microsoft's AI technology stac
 - **Real-time data connectors:** Makers can ground agents with structured data from Microsoft and selected third-party systems for live responses. (Microsoft 365 Copilot release notes — Updated: 2025-08-05)
 - **Expanded knowledge capacity:** Agents can use up to 1000 SharePoint or OneDrive files with grouped instructions for precise responses. (Use up to 1000 files per agent — GA: 2025-10-06)
 - **MCP tool integration:** Agents can call remote Model Context Protocol servers to reach external tools securely. (What's new in Copilot Studio — Updated: 2025-10-31)
+- **Agent2Agent (A2A) Protocol:** Publish agents as skills that can be discovered and invoked by other agents in a decentralized mesh. (Preview: 2025-05-21)
 - **Channel reach:** Publish agents to Microsoft 365 Copilot, Teams, web, and messaging channels including WhatsApp via Azure Communications Service. (Publish agents to WhatsApp — GA: 2025-09-08)
 - **Orchestration modes:** Generative orchestration (default) handles multi-intent planning; makers can switch to Classic NLU/Classic NLU+ for deterministic topic routing or connect Azure AI Language (CLU) for advanced entity extraction when licensing allows. (Natural language understanding overview — Updated: 2025-09-12; Create and edit topics — Updated: 2025-09-12)
 
@@ -117,10 +118,28 @@ This section provides a comprehensive overview of Microsoft's AI technology stac
 
 ---
 
-## Azure AI Foundry
+## Power Apps Plan Designer
 {: .tech-heading }
-**Description:** Code-first environment for building, evaluating, and deploying AI solutions with Azure OpenAI, open-source, and custom models. Integrates with workforce tools such as Azure AI Agent Service, prompt flow, and safety guardrails.  
-**Official Docs:** [Azure AI Foundry Documentation](https://learn.microsoft.com/en-us/azure/ai-foundry/)  
+**Description:** AI-assisted solution architect that generates Dataverse tables, security roles, and app structures from natural language descriptions. Accelerates the "Feasibility" phase of development.  
+**Official Docs:** [Power Apps AI Overview](https://learn.microsoft.com/en-us/power-apps/maker/canvas-apps/ai-overview)  
+**Status:** GA
+
+**Key Features:**
+
+- **Schema Generation:** Automatically creates 3NF normalized Dataverse tables and relationships based on business descriptions.
+- **Role Generation:** Suggests and configures security roles appropriate for the solution.
+- **App Scaffolding:** Generates the initial canvas or model-driven app layout.
+- **Agent Feed:** Integrated feed for monitoring agent activities and human-in-the-loop requests (Early Access).
+
+**When to use:** Rapid prototyping, overcoming "blank canvas" paralysis, or enabling makers to build complex data models without deep architectural skills.
+
+---
+
+## Microsoft Foundry (Azure)
+{: .tech-heading }
+
+**Description:** The cloud-based implementation of the Microsoft Foundry ecosystem (formerly **Azure AI Foundry**). A code-first environment for building, evaluating, and deploying AI solutions with Azure OpenAI, open-source, and custom models. Integrates with workforce tools such as Foundry Agent Service, prompt flow, and safety guardrails.  
+**Official Docs:** [Microsoft Foundry (Azure) Documentation](https://learn.microsoft.com/en-us/azure/ai-foundry/)  
 **Status:** GA
 
 **Key Features:**
@@ -129,7 +148,7 @@ This section provides a comprehensive overview of Microsoft's AI technology stac
 - **Provisioned throughput management:** Reserve PTUs and enable spillover to automatically route excess traffic to standard deployments. (What's new in Azure OpenAI — Updated: 2025-08-15)
 - **Safety and routing:** Use model router, prompt shields with spotlighting, and structured outputs to protect prompts and dynamically select optimal models. (What's new in Azure OpenAI — Updated: 2025-05-30)
 - **Workflow and evaluation tooling:** Build end-to-end pipelines with prompt flow, evaluations, and integrated monitoring. (Azure AI Foundry Documentation — Retrieved: 2025-10-30)
-- **Agent readiness:** Pair with Azure AI Agent Service for managed agent orchestration using the same model deployments. (Azure AI Foundry Documentation — Retrieved: 2025-10-30)
+- **Agent readiness:** Pair with Foundry Agent Service for managed agent orchestration using the same model deployments. (Azure AI Foundry Documentation — Retrieved: 2025-10-30)
 
 **Recent Updates (2025):**
 
@@ -149,7 +168,7 @@ This section provides a comprehensive overview of Microsoft's AI technology stac
 - **Managed virtual networks:** Secure hubs with inbound and outbound network isolation, NSGs, and customer-managed keys. (Create a secure Azure AI Foundry hub — Retrieved: 2025-10-30)
 - **Ideal for:** Zero-trust deployments, regulated workloads, and sovereign data strategies.
 
-**When Azure AI Foundry is the Right Tool:**
+**When Microsoft Foundry (Azure) is the Right Tool:**
 
 - Latency-sensitive or high-throughput applications needing direct control over model deployments and caching.
 - Custom AI pipelines, evaluations, or RAG systems that exceed low-code platform capabilities.
@@ -167,21 +186,21 @@ This section provides a comprehensive overview of Microsoft's AI technology stac
 
 ---
 
-## Azure AI Agent Service
-{: .tech-heading }
-**Description:** Managed PaaS for agent orchestration, skills management, and runtime infrastructure within Azure AI Foundry. Supports connected agents (multi-agent systems), 15+ built-in tools, full RBAC + VNet + BYO storage. GA with continuous feature additions.  
-**Official Docs:** [Azure AI Agent Service](https://learn.microsoft.com/en-us/azure/ai-services/agents/)  
+## Foundry Agent Service {: .tech-heading }
+
+**Description:** Managed PaaS for agent orchestration, skills management, and runtime infrastructure within **Microsoft Foundry (Azure)**. Supports connected agents (multi-agent systems), 15+ built-in tools, full RBAC + VNet + BYO storage. GA with continuous feature additions. (Formerly **Azure AI Agent Service**).  
+**Official Docs:** [Foundry Agent Service](https://learn.microsoft.com/en-us/azure/ai-services/agents/)  
 **Status:** GA (May 2025)
 
 **Key Features:**
 
-- **Managed runtime:** Microsoft hosts compute, memory, and thread state with built-in tracing and Azure Monitor metrics. (Azure AI Agent Service GA — Updated: 2025-05-20)
-- **Connected agents (GA):** Orchestrate multi-agent systems that share context without external orchestrators; supports Fabric data agents. (Azure AI Agent Service GA — Updated: 2025-05-20)
-- **BYO storage:** Bring Azure Cosmos DB for thread storage plus Azure AI Search and Azure Blob Storage for knowledge with private endpoints. (Azure AI Agent Service GA — Updated: 2025-05-20)
-- **Trace agents SDK:** Debug runs with thread-level insights, including inputs, tool calls, and outputs. (Azure AI Agent Service GA — Updated: 2025-05-20)
-- **Event triggers:** Invoke agents from Azure Logic Apps or other workflows to respond to business events. (Azure AI Agent Service GA — Updated: 2025-05-20)
-- **VS Code integration:** AI Foundry VS Code extension deploys and configures agent tools, including MCP integrations. (Azure AI Agent Service GA — Updated: 2025-05-20)
-- **MCP tool & Deep Research:** Connect to remote Model Context Protocol servers and run multi-step o3-deep-research investigations grounded by Bing Search. (What's new in Azure AI Agent Service — Updated: 2025-06-15)
+- **Managed runtime:** Microsoft hosts compute, memory, and thread state with built-in tracing and Azure Monitor metrics. (Foundry Agent Service GA — Updated: 2025-05-20)
+- **Connected agents (GA):** Orchestrate multi-agent systems that share context without external orchestrators; supports Fabric data agents. (Foundry Agent Service GA — Updated: 2025-05-20)
+- **BYO storage:** Bring Azure Cosmos DB for thread storage plus Azure AI Search and Azure Blob Storage for knowledge with private endpoints. (Foundry Agent Service GA — Updated: 2025-05-20)
+- **Trace agents SDK:** Debug runs with thread-level insights, including inputs, tool calls, and outputs. (Foundry Agent Service GA — Updated: 2025-05-20)
+- **Event triggers:** Invoke agents from Azure Logic Apps or other workflows to respond to business events. (Foundry Agent Service GA — Updated: 2025-05-20)
+- **VS Code integration:** AI Foundry VS Code extension deploys and configures agent tools, including MCP integrations. (Foundry Agent Service GA — Updated: 2025-05-20)
+- **MCP tool & Deep Research:** Connect to remote Model Context Protocol servers and run multi-step o3-deep-research investigations grounded by Bing Search. (What's new in Foundry Agent Service — Updated: 2025-06-15)
 
 **Built-in Tools (Knowledge):**
 
@@ -200,7 +219,7 @@ This section provides a comprehensive overview of Microsoft's AI technology stac
 - **Azure Logic Apps:** 1,400+ connector-based workflows
 - **Code Interpreter:** Write and run Python code in sandboxed environment (data handling, visuals)
 - **OpenAPI 3.0 Specified Tool:** Connect to external APIs via OpenAPI spec
-- **Model Context Protocol (GA June 2025):** Access tools hosted on remote MCP endpoints for interoperable tool sharing. (What's new in Azure AI Agent Service — Updated: 2025-06-15)
+- **Model Context Protocol (GA June 2025):** Access tools hosted on remote MCP endpoints for interoperable tool sharing. (What's new in Foundry Agent Service — Updated: 2025-06-15)
 - **Deep Research (GA June 2025):** Multi-step web-based research with o3-deep-research model + Bing Search
 - **Browser Automation (Preview):** Real-world browser tasks via natural language with Playwright Workspaces
 - **Computer Use (Preview):** UI interaction via specialized computer-use-preview model, interprets raw pixel screenshots, virtual keyboard/mouse control
@@ -220,7 +239,7 @@ This section provides a comprehensive overview of Microsoft's AI technology stac
 - **Bing Custom Search:** Specify websites for grounding (June 2025)
 - **Azure Monitor integration:** Metrics for file indexing, run tracking (April 2025)
 - **BYO Cosmos DB:** Thread storage in customer-managed Cosmos DB for NoSQL (April 2025)
-- **VS Code extension:** Develop, test, and publish agents with tool configuration inside Visual Studio Code. (Azure AI Agent Service GA — Updated: 2025-05-20)
+- **VS Code extension:** Develop, test, and publish agents with tool configuration inside Visual Studio Code. (Foundry Agent Service GA — Updated: 2025-05-20)
 
 **Network Isolation:**
 
@@ -231,7 +250,7 @@ This section provides a comprehensive overview of Microsoft's AI technology stac
 - Standard Setup: No public egress by default
 - **Ideal for:** Managed PaaS with private networking requirements
 
-> **Terminology note:** In this guide, "Microsoft Agent Framework" refers to the open-source orchestration SDK, whereas "Azure AI Agent Service" is the managed PaaS runtime that hosts agents in Azure AI Foundry.
+> **Terminology note:** In this guide, "Microsoft Agent Framework" refers to the open-source orchestration SDK, whereas "Foundry Agent Service" is the managed PaaS runtime that hosts agents in Azure AI Foundry.
 
 **When to use:** Managed agent orchestration at PaaS layer, scalable agent infrastructure, multi-agent systems, comprehensive built-in tool ecosystem, prefer Azure-managed RAG infrastructure, need enterprise security + observability
 
@@ -239,40 +258,15 @@ This section provides a comprehensive overview of Microsoft's AI technology stac
 
 - [What's new in Azure AI Foundry Agent Service](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/whats-new#june-2025) (Updated: 2025-06-15)
 - [What's new in Azure AI Foundry Agent Service](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/whats-new#may-2025) (Updated: 2025-05-20)
-- [Azure AI Agent Service Overview](https://learn.microsoft.com/en-us/azure/ai-services/agents/overview)
-- [Agent Tools Overview](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/how-to/tools/overview)
-- [Transparency Note for Azure Agent Service](https://learn.microsoft.com/en-us/azure/ai-foundry/responsible-ai/agents/transparency-note)
-- [Virtual Networks for Foundry](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/how-to/virtual-networks)
-
----
-- **Azure Monitor integration:** Metrics for file indexing, run tracking (April 2025)
-- **BYO Cosmos DB:** Thread storage in customer-managed Cosmos DB for NoSQL (April 2025)
-- **VS Code extension:** Develop, test, and publish agents with tool configuration inside Visual Studio Code. (Azure AI Agent Service GA — Updated: 2025-05-20)
-
-**Network Isolation:**
-
-- **VNet Support:** ✅ Full private networking support (same as Azure AI Foundry)
-- VNet integration with container injection
-- Private endpoints for all resources
-- Network Security Groups (NSGs) for traffic isolation
-- Standard Setup: No public egress by default
-- **Ideal for:** Managed PaaS with private networking requirements
-
-**When to use:** Managed agent orchestration at PaaS layer, scalable agent infrastructure, multi-agent systems, comprehensive built-in tool ecosystem, prefer Azure-managed RAG infrastructure, need enterprise security + observability
-
-**Sources:**
-
-- [What's new in Azure AI Foundry Agent Service](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/whats-new#june-2025) (Updated: 2025-06-15)
-- [What's new in Azure AI Foundry Agent Service](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/whats-new#may-2025) (Updated: 2025-05-20)
-- [Azure AI Agent Service Overview](https://learn.microsoft.com/en-us/azure/ai-services/agents/overview)
+- [Foundry Agent Service Overview](https://learn.microsoft.com/en-us/azure/ai-services/agents/overview)
 - [Agent Tools Overview](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/how-to/tools/overview)
 - [Transparency Note for Azure Agent Service](https://learn.microsoft.com/en-us/azure/ai-foundry/responsible-ai/agents/transparency-note)
 - [Virtual Networks for Foundry](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/how-to/virtual-networks)
 
 ---
 
-## AI Builder
-{: .tech-heading }
+## AI Builder {: .tech-heading }
+
 **Description:** Power Platform AI services for document processing, vision, text analysis, and predictions. Backed by Azure AI Document Intelligence and GPT models. Callable from Copilot Studio agents, Power Automate, and Power Apps.  
 **Official Docs:** [AI Builder Documentation](https://learn.microsoft.com/en-us/ai-builder/)  
 **Status:** GA
@@ -285,65 +279,69 @@ This section provides a comprehensive overview of Microsoft's AI technology stac
 - **Document processing agent:** Managed agent template (preview) orchestrates ingestion, validation station, and Copilot Studio hand-off for documents (Preview: 2025-05-15). ([Enhance document processing efficiency with an agent](https://learn.microsoft.com/en-us/power-platform/release-plan/2025wave1/ai-builder/enhance-operational-efficiency-agent) — Updated: 2025-10-16)
 - **Bring-your-own models:** Prompt builder connects securely to custom Azure AI Foundry deployments to reuse organization-tuned models (Preview: 2025-05-15, GA target September 2025). ([Use your own generative AI model from Azure AI Foundry in prompt builder](https://learn.microsoft.com/en-us/power-platform/release-plan/2025wave1/ai-builder/use-own-generative-ai-model-azure-ai-foundry-prompt-builder) — Updated: 2025-08-07)
 
-**Recent Updates (2025):**
-
-- **Mar 31, 2025:** GPT document extraction reached GA for prompt-based doc understanding without training. ([Extract information from documents with GPT](https://learn.microsoft.com/en-us/power-platform/release-plan/2024wave2/ai-builder/extract-information-documents-gpt) — Updated: 2025-08-07)
-- **Apr 30, 2025:** Azure Document Intelligence 4.0 integration delivered GA table/field confidence scoring inside AI Builder. ([Leverage advanced features with Azure Document Intelligence integration](https://learn.microsoft.com/en-us/power-platform/release-plan/2024wave2/ai-builder/leverage-advanced-features-azure-document-intelligence-integration) — Updated: 2025-08-07)
-- **May 15, 2025:** Document processing agent entered preview plus prompt builder support for Azure AI Foundry hosted models. ([Enhance document processing efficiency with an agent](https://learn.microsoft.com/en-us/power-platform/release-plan/2025wave1/ai-builder/enhance-operational-efficiency-agent) — Updated: 2025-10-16)
-
-**When to use:** Automating document understanding inside Power Platform, pairing Copilot Studio agents with managed validation flows, unifying GPT extraction with Azure Document Intelligence, or grounding prompts on enterprise-tuned models without building bespoke ML pipelines.
-
-**Sources:**
-
-- [AI Builder Documentation](https://learn.microsoft.com/en-us/ai-builder/) (Retrieved: 2025-10-30)
-- [Extract information from documents with GPT](https://learn.microsoft.com/en-us/power-platform/release-plan/2024wave2/ai-builder/extract-information-documents-gpt) (Updated: 2025-08-07)
-- [Leverage advanced features with Azure Document Intelligence integration](https://learn.microsoft.com/en-us/power-platform/release-plan/2024wave2/ai-builder/leverage-advanced-features-azure-document-intelligence-integration) (Updated: 2025-08-07)
-- [Enhance document processing efficiency with an agent](https://learn.microsoft.com/en-us/power-platform/release-plan/2025wave1/ai-builder/enhance-operational-efficiency-agent) (Updated: 2025-10-16)
-- [Use your own generative AI model from Azure AI Foundry in prompt builder](https://learn.microsoft.com/en-us/power-platform/release-plan/2025wave1/ai-builder/use-own-generative-ai-model-azure-ai-foundry-prompt-builder) (Updated: 2025-08-07)
-
 ---
 
-### Pro-Code Development Frameworks
-{: .no_toc }
+### Data & Analytics Platforms {: .no_toc }
 
-## Azure Logic Apps
-{: .tech-heading }
+## Microsoft Fabric {: .tech-heading }
 
-**Description:** Pro-developer workflow automation platform for enterprise integration and AI agent orchestration. Adds autonomous and conversational agent workflows (Preview) plus remote MCP server support to expose Logic Apps as AI tools.  
-**Status:** Agent Workflows (Preview), MCP Server (Preview), Core Platform (GA)  
-**Official Docs:** [Azure Logic Apps Documentation](https://learn.microsoft.com/en-us/azure/logic-apps/) | [Agent Workflows](https://learn.microsoft.com/en-us/azure/logic-apps/agent-workflows-concepts) | [Secure agent workflows (Easy Auth)](https://learn.microsoft.com/en-us/azure/logic-apps/set-up-authentication-agent-workflows) | [MCP Server](https://learn.microsoft.com/en-us/azure/logic-apps/set-up-model-context-protocol-server-standard)
+**Description:** Unified data and analytics platform that provides the "OneLake" foundation for AI. Includes Real-Time Intelligence, Data Engineering, and the new "Fabric Data Agents" for conversational analytics.  
+**Official Docs:** [Microsoft Fabric Documentation](https://learn.microsoft.com/en-us/fabric/)  
+**Status:** GA
 
 **Key Features:**
 
-- **1,400+ connectors:** Combine SaaS, on-premises, and Azure services inside agent workflows or classic orchestrations. ([Workflows with AI agents and models in Azure Logic Apps](https://learn.microsoft.com/en-us/azure/logic-apps/agent-workflows-concepts) — Updated: 2025-10-09)
-- **Agent workflow types:** Build autonomous or conversational agent workflows that loop through think/act cycles using Azure OpenAI or Azure AI Foundry models. ([Workflows with AI agents and models in Azure Logic Apps](https://learn.microsoft.com/en-us/azure/logic-apps/agent-workflows-concepts) — Updated: 2025-10-09)
-- **Security posture:** The Azure portal’s developer key is for design-time only; production deployments must enforce Easy Auth or managed identity access. ([Workflows with AI agents and models in Azure Logic Apps](https://learn.microsoft.com/en-us/azure/logic-apps/agent-workflows-concepts#authentication-and-authorization) — Updated: 2025-10-09)
-- **Managed authentication:** Step-by-step Easy Auth guidance configures Microsoft Entra app registrations, external chat clients, and conditional access enforcement for conversational agents. ([Secure conversational agent workflows with Easy Auth in Azure Logic Apps](https://learn.microsoft.com/en-us/azure/logic-apps/set-up-authentication-agent-workflows) — Updated: 2025-10-09)
-- **Remote MCP server mode:** Standard Logic Apps can publish workflows as MCP tools by enabling `extensions.workflow.McpServerEndpoints` in `host.json` and, for SSE transport, setting `Runtime.Backend.EdgeWorkflowRuntimeTriggerListener.AllowCrossWorkerCommunication` to `true`. ([Set up Standard logic apps as remote MCP servers](https://learn.microsoft.com/en-us/azure/logic-apps/set-up-model-context-protocol-server-standard) — Updated: 2025-09-08)
-
-**Recent Updates (2025):**
-
-- **Oct 9, 2025:** Agent workflow security guidance clarified developer key limitations and mandated Easy Auth for external callers. ([Workflows with AI agents and models in Azure Logic Apps](https://learn.microsoft.com/en-us/azure/logic-apps/agent-workflows-concepts#authentication-and-authorization) — Updated: 2025-10-09)
-- **Sep 8, 2025:** MCP server preview documented host.json settings, Easy Auth requirements, and VS Code MCP testing flows. ([Set up Standard logic apps as remote MCP servers](https://learn.microsoft.com/en-us/azure/logic-apps/set-up-model-context-protocol-server-standard) — Updated: 2025-09-08)
-
-**Security Requirements:**
-
-- **Non-production:** Use the developer key only for portal-based testing; it lacks per-caller authorization and Conditional Access enforcement. ([Workflows with AI agents and models in Azure Logic Apps](https://learn.microsoft.com/en-us/azure/logic-apps/agent-workflows-concepts#developer-key-authentication-and-authorization) — Updated: 2025-10-09)
-- **Production:** Enable Easy Auth to issue Microsoft Entra tokens, require scoped access, and light up the external chat client for conversational agents. ([Secure conversational agent workflows with Easy Auth in Azure Logic Apps](https://learn.microsoft.com/en-us/azure/logic-apps/set-up-authentication-agent-workflows) — Updated: 2025-10-09)
-- **MCP exposure:** Configure OAuth-based MCP endpoints plus optional SSE transport by editing `host.json` and securing the app registration’s allowed audiences. ([Set up Standard logic apps as remote MCP servers](https://learn.microsoft.com/en-us/azure/logic-apps/set-up-model-context-protocol-server-standard#set-up-logic-app-as-mcp-server) — Updated: 2025-09-08)
-
-**When to use:** Enterprise integration that combines AI planning with 1,400+ connectors, exposing workflows as tools for Azure AI Agent Service or VS Code MCP clients, or orchestrating long-running conversational automations with managed security controls.
-
-**Sources:**
-
-- [Workflows with AI agents and models in Azure Logic Apps](https://learn.microsoft.com/en-us/azure/logic-apps/agent-workflows-concepts) (Updated: 2025-10-09)
-- [Secure conversational agent workflows with Easy Auth in Azure Logic Apps](https://learn.microsoft.com/en-us/azure/logic-apps/set-up-authentication-agent-workflows) (Updated: 2025-10-09)
-- [Set up Standard logic apps as remote MCP servers](https://learn.microsoft.com/en-us/azure/logic-apps/set-up-model-context-protocol-server-standard) (Updated: 2025-09-08)
+- **Fabric Data Agents (Preview):** Conversational agents that retrieve insights from OneLake and respect data access permissions. Can be consumed by Copilot Studio and M365 Copilot.
+- **Cosmos DB in Fabric (Preview):** Deploy Cosmos DB (NoSQL) directly within Fabric for unified operational and analytical data without ETL.
+- **OneLake Shortcut Transformations (Preview):** Apply AI transformations (summarize, translate, classify) via Azure AI Foundry during data ingestion.
+- **Translytical Task Flows (Preview):** Trigger write-back actions and workflows directly from Power BI reports.
+- **Digital Twin Builder (Preview):** No-code tool in Real-Time Intelligence to map physical assets to digital twins.
 
 ---
 
-## Microsoft 365 Agents SDK & Toolkit
-{: .tech-heading }
+### Developer Tools {: .no_toc }
+
+## GitHub Copilot {: .tech-heading }
+
+**Description:** AI-powered developer platform that has evolved from an in-editor assistant to a suite of autonomous agents and tools for the entire software lifecycle.  
+**Official Docs:** [GitHub Copilot Documentation](https://docs.github.com/en/copilot)  
+**Status:** GA (Various features in Preview)
+
+**Key Features:**
+
+- **Copilot Coding Agent (Preview):** Autonomous agent integrated into GitHub.com that can be assigned issues to refactor code, fix bugs, and implement features asynchronously. It creates PRs, runs tests, and iterates on feedback.
+- **Copilot Agent Mode (Preview):** "Peer programmer" mode in VS Code that can edit multiple files, run terminal commands, and self-heal errors during development.
+- **Copilot Extensions:** Ecosystem of third-party tools (DataStax, Sentry, Azure) that Copilot can invoke to perform specialized tasks.
+- **Copilot Workspace:** Natural language environment to plan, build, test, and run code in a cloud-based dev environment.
+
+## GitHub Models {: .tech-heading }
+
+**Description:** Models as a Service (MaaS) platform integrated directly into GitHub, allowing developers to discover, test, and compare models (OpenAI, Meta, Mistral, Microsoft) without leaving their workflow.  
+**Official Docs:** [GitHub Models Documentation](https://docs.github.com/en/github-models)  
+**Status:** Preview
+
+**Key Features:**
+
+- **Model Playground:** Interactive hub to test prompts and compare model outputs.
+- **Workflow Integration:** Use models directly in PRs, issues, and CI/CD pipelines.
+- **Prompt Management:** Create, save, and share prompts across the organization.
+- **Evaluation:** Automated tools to evaluate model performance and cost for specific use cases.
+
+## Visual Studio Code {: .tech-heading }
+
+**Description:** The world's most popular code editor, now serving as the primary interface for "Agentic IDE" experiences.  
+**Official Docs:** [VS Code Documentation](https://code.visualstudio.com/)  
+**Status:** GA
+
+**Key Features:**
+
+- **Agent Mode:** The UI for autonomous coding agents (see GitHub Copilot).
+- **PostgreSQL Extension (Preview):** AI-powered database management with natural language to SQL capabilities.
+- **Azure AI Foundry Extension:** Build, test, and deploy agents directly from VS Code.
+
+---
+
+## Microsoft 365 Agents SDK & Toolkit {: .tech-heading }
 
 **Description:** Pro-code framework and tooling for multi-channel Microsoft 365 agents. Combines the Agents SDK (C#, JavaScript/TypeScript, Python) with Agents Toolkit extensions for VS Code, Visual Studio, GitHub Copilot, and CLI-based automation. Successor to Bot Framework for custom engine agents.  
 **Status:** GA (C#, JavaScript/TypeScript, Python)  
@@ -379,8 +377,8 @@ This section provides a comprehensive overview of Microsoft's AI technology stac
 
 ---
 
-## Microsoft Agent Framework
-{: .tech-heading }
+## Microsoft Agent Framework {: .tech-heading }
+
 **Description:** Microsoft’s next-generation, type-safe orchestration SDK for composing multi-agent workflows with executors, edges, and reusable patterns. Successor to Semantic Kernel and AutoGen for building agents in .NET and Python.  
 **Status:** Public Preview (.NET, Python)  
 **Official Docs:** [Microsoft Agent Framework overview](https://learn.microsoft.com/en-us/agent-framework/overview/agent-framework-overview) | [Workflows overview](https://learn.microsoft.com/en-us/agent-framework/user-guide/workflows/overview) | [Workflows – Checkpoints](https://learn.microsoft.com/en-us/agent-framework/user-guide/workflows/checkpoints)
@@ -393,116 +391,7 @@ This section provides a comprehensive overview of Microsoft's AI technology stac
 - **Observability instrumentation:** OpenTelemetry hooks capture workflow spans (`workflow.run`, `message.send`, etc.) via `ENABLE_OTEL` or `setup_observability()`. ([Workflows – Observability](https://learn.microsoft.com/en-us/agent-framework/user-guide/workflows/observability) — Retrieved: 2025-11-12)
 - **Workflows as agents:** Any workflow can be wrapped and exposed through the agent interface, enabling reuse across APIs or UI hosts. ([Workflows – Using workflows as agents](https://learn.microsoft.com/en-us/agent-framework/user-guide/workflows/as-agents) — Retrieved: 2025-11-12)
 
-**Workflow vs Agent Distinction:**
-
-- **Agent:** LLM-driven actor deciding which tool to invoke based on context. ([Workflows overview](https://learn.microsoft.com/en-us/agent-framework/user-guide/workflows/overview#how-is-a-workflows-different-from-an-ai-agent) — Retrieved: 2025-11-12)
-- **Workflow:** Predefined control flow that can embed agents, external APIs, and human steps for predictable orchestration. ([Workflows overview](https://learn.microsoft.com/en-us/agent-framework/user-guide/workflows/overview#how-is-a-workflows-different-from-an-ai-agent) — Retrieved: 2025-11-12)
-
-**Recent Guidance:**
-
-- **Oct 1, 2025:** Checkpoint documentation refreshed with superstep lifecycle patterns and storage guidance. ([Workflows – Checkpoints](https://learn.microsoft.com/en-us/agent-framework/user-guide/workflows/checkpoints) — Updated: 2025-10-01)
-- **Latest:** Observability documentation details OTEL setup and span taxonomy for workflow tracing. ([Workflows – Observability](https://learn.microsoft.com/en-us/agent-framework/user-guide/workflows/observability) — Retrieved: 2025-11-12)
-
-**When to use:** Coordinate specialized agents, enforce deterministic orchestration, resume long-running conversations, or pair Microsoft 365 Agents SDK apps with a first-party orchestrator.
-
-**Sources:**
-
-- [Microsoft Agent Framework overview](https://learn.microsoft.com/en-us/agent-framework/overview/agent-framework-overview) (Retrieved: 2025-11-12)
-- [Workflows overview](https://learn.microsoft.com/en-us/agent-framework/user-guide/workflows/overview) (Retrieved: 2025-11-12)
-- [Workflows – Checkpoints](https://learn.microsoft.com/en-us/agent-framework/user-guide/workflows/checkpoints) (Updated: 2025-10-01)
-- [Workflows – Observability](https://learn.microsoft.com/en-us/agent-framework/user-guide/workflows/observability) (Retrieved: 2025-11-12)
-- [Workflows – Using workflows as agents](https://learn.microsoft.com/en-us/agent-framework/user-guide/workflows/as-agents) (Retrieved: 2025-11-12)
-
 ---
-
-## AG-UI Protocol Ecosystem (Community)
-{: .tech-heading }
-
-**Description:** Vendor-neutral specification stewarded by the AG-UI Protocol open-source project. Defines the event contract that client frameworks, agent runtimes, and tooling ecosystems use to exchange agent state, UI intents, and multimodal payloads. Microsoft Agent Framework is one of several first-party integrations.  
-**Official Docs:** [AG-UI Overview](https://docs.ag-ui.com/introduction)  
-**Status:** Community-governed (Open Specification)
-
-**Key Building Blocks:**
-
-- **Streaming chat + interrupts:** Long-running conversations stream tokens, events, and cancellation hooks so users can pause, edit, or escalate flows without losing state. ([AG-UI Overview](https://docs.ag-ui.com/introduction#building-blocks-today--upcoming) — Retrieved: 2025-11-12)
-- **Generative UI (static + declarative):** Agents emit typed components or constrained UI trees that applications validate before rendering. ([AG-UI Overview](https://docs.ag-ui.com/introduction#building-blocks-today--upcoming) — Retrieved: 2025-11-12)
-- **Shared + predictive state:** Event-sourced diffs synchronize read/write state between agents and clients while predictive updates keep UI latency low. ([AG-UI Overview](https://docs.ag-ui.com/introduction#building-blocks-today--upcoming) — Retrieved: 2025-11-12)
-- **Frontend & backend tool rendering:** Typed tool handoffs let clients execute local actions and visualize remote tool outputs in real time. ([AG-UI Overview](https://docs.ag-ui.com/introduction#building-blocks-today--upcoming) — Retrieved: 2025-11-12)
-- **Protocol position:** Complements MCP (tools) and agent-to-agent protocols by explicitly focusing on the agent-to-user surface. ([AG-UI Overview](https://docs.ag-ui.com/introduction#the-ai-protocol-landscape) — Retrieved: 2025-11-12)
-
-**Supported SDKs & Clients (Community-maintained):**
-
-- **Server/Integration SDKs:** LangGraph, Google ADK, CrewAI, Mastra, Pydantic AI, Agno, LlamaIndex, AG2, AWS Bedrock Agents (in progress), AWS Strands Agents (in progress). ([AG-UI Overview](https://docs.ag-ui.com/introduction#supported-integrations) — Retrieved: 2025-11-12)
-- **Language SDKs:** Kotlin, Go, Dart, Java, Rust (GA); .NET, Nim, Flowise, Langflow (in progress). ([AG-UI Overview](https://docs.ag-ui.com/introduction#sdks) — Retrieved: 2025-11-12)
-- **UI Clients:** CopilotKit (first-party), Terminal + Agent starter, React Native (help wanted). ([AG-UI Overview](https://docs.ag-ui.com/introduction#clients) — Retrieved: 2025-11-12)
-
-**Why it matters here:**
-
-- **Cross-ecosystem adoption:** Highlights that Microsoft’s AG-UI integration interoperates with non-Microsoft agent stacks, aiding architects planning hybrid environments.
-- **Reference implementations:** AG-UI Dojo provides live demos and starter code across frameworks, useful during proof-of-concept work. ([AG-UI Overview](https://docs.ag-ui.com/introduction#ag-ui-in-action) — Retrieved: 2025-11-12)
-- **Specification-first design:** Enables enterprise teams to audit the open spec, contribute via GitHub, and track roadmap items like multimodal payloads or additional SDKs. ([AG-UI Overview](https://docs.ag-ui.com/introduction#contributing) — Retrieved: 2025-11-12)
-
-**Sources:**
-
-- [AG-UI Overview](https://docs.ag-ui.com/introduction) (Retrieved: 2025-11-12)
-
----
-
-## AG-UI Protocol Integration - Agent Framework
-{: .tech-heading }
-
-**Description:** Support for integrating Agent Framework Agents, tool calls, and state changes to AG-UI clients. Ships with ASP.NET Core hosting extensions and Python FastAPI adapters for full-stack agent experiences.
-**Official Docs:** [AG-UI Integration](https://learn.microsoft.com/en-us/agent-framework/integrations/ag-ui/)  
-**Status:** Public Preview (ASP.NET Core + Python extras)
-
-**Key Features:**
-
-- **Seven protocol pillars:** Agentic chat, backend tool rendering, human-in-the-loop approvals, agentic generative UI, tool-based generative UI, shared state sync, and predictive state updates translate Agent Framework events into typed AG-UI streams. ([AG-UI Integration](https://learn.microsoft.com/en-us/agent-framework/integrations/ag-ui/#supported-features) — Updated: 2025-11-11)
-- **Server adapters:** `Microsoft.Agents.AI.Hosting.AGUI.AspNetCore` adds `AddAGUI` DI helpers and `MapAGUI` endpoints for streaming agents over HTTP/SSE with ASP.NET Core. ([Getting Started with AG-UI](https://learn.microsoft.com/en-us/agent-framework/integrations/ag-ui/getting-started#step-1-creating-an-ag-ui-server) — Updated: 2025-11-11)
-- **Client adapters:** `Microsoft.Agents.AI.AGUI` for .NET and `agent-framework-ag-ui` extras for Python expose `AGUIChatClient` to subscribe to event streams, manage threads, and surface `AgentRunResponseUpdate` events. ([Getting Started with AG-UI](https://learn.microsoft.com/en-us/agent-framework/integrations/ag-ui/getting-started#step-2-creating-an-ag-ui-client) — Updated: 2025-11-11)
-- **Tool telemetry:** Built-in event converters surface `FunctionCallContent`/`FunctionResultContent`, approval prompts, and state deltas so frontends can render progress without polling. ([Backend Tool Rendering with AG-UI](https://learn.microsoft.com/en-us/agent-framework/integrations/ag-ui/backend-tool-rendering#observing-tool-calls-in-the-client) — Updated: 2025-11-11)
-- **CopilotKit interoperability:** Official docs highlight CopilotKit and AG-UI Dojo samples for reuse of React/Next.js components, shortening UI development. ([AG-UI Integration](https://learn.microsoft.com/en-us/agent-framework/integrations/ag-ui/#build-agent-uis-with-copilotkit) — Updated: 2025-11-11)
-
-**Recent Updates (2025):**
-
-- **Nov 11, 2025:** Microsoft Learn refresh introduced end-to-end ASP.NET Core and Python tutorials, feature matrix, and preview caveats that the protocol remains under active development. ([AG-UI Integration](https://learn.microsoft.com/en-us/agent-framework/integrations/ag-ui/) — Updated: 2025-11-11)
-- **Nov 11, 2025:** Backend tool rendering guide added JSON source generation guidance and streaming diagnostics for FunctionCall/FunctionResult events. ([Backend Tool Rendering with AG-UI](https://learn.microsoft.com/en-us/agent-framework/integrations/ag-ui/backend-tool-rendering) — Updated: 2025-11-11)
-
-**Hosting & Network:**
-
-- Inherits the security posture of the hosting stack (ASP.NET Core, Azure App Service, Container Apps, etc.); configure HTTPS, auth middleware, and private networking on the web host.  
-- SSE requires load balancers and API gateways that support long-lived connections; consider WebSockets fallback or sticky sessions when fronting with Application Gateway.
-
-**When to use:** Converting Agent Framework agents into production-grade UI experiences with real-time status, approvals, and shared state without writing custom socket infrastructure. Ideal for frontends built with CopilotKit, Next.js, or Teams tabs that need insight into agent reasoning and tool execution.
-
-**Sources:**
-
-- [AG-UI Integration with Agent Framework](https://learn.microsoft.com/en-us/agent-framework/integrations/ag-ui/) (Updated: 2025-11-11)
-- [Getting Started with AG-UI](https://learn.microsoft.com/en-us/agent-framework/integrations/ag-ui/getting-started) (Updated: 2025-11-11)
-- [Backend Tool Rendering with AG-UI](https://learn.microsoft.com/en-us/agent-framework/integrations/ag-ui/backend-tool-rendering) (Updated: 2025-11-11)
-
----
-
-## DevUI
-{: .tech-heading }
-
-**Description:** DevUI is an opinionated web interface that provides out of the box tooling for testing and debugging AI agents during development.
-**Official Docs:** [DevUI for .NET](https://github.com/microsoft/agent-framework/blob/main/dotnet/src/Microsoft.Agents.AI.DevUI/README.md) and [DevUI for Python](https://github.com/microsoft/agent-framework/blob/main/python/packages/devui/README.md)
-**Status:** Public Preview (Requires using OpenAI Conversations and OpenAI Responses API)
-
-**Key Features:**
-
-- **Event Log:** Event timeline view that shows the history of events through a conversation with an AI agent.
-- **Agent Debugging:** Detailed debugging of multi-agent systems that shows prompts, results, and workflows in a visual layer in combination with request/response logs to help developers understand where systems are failing.
-![DevUI Screenshot](../images/devuiscreen.png)
-
-**Sources:**
-- [DevUI Python Samples](https://github.com/microsoft/agent-framework/tree/main/python/samples/getting_started/devui)
-- [DevUI .NET Samples](https://github.com/microsoft/agent-framework/tree/main/dotnet/samples/GettingStarted/DevUI)
-- [DevUI Demo](https://www.youtube.com/watch?v=NBkB8faHS9w)
-
----
-
 
 ## Technology Selection Quick Guide
 
@@ -511,7 +400,7 @@ This section provides a comprehensive overview of Microsoft's AI technology stac
 | End-user productivity (no dev) | Microsoft 365 Copilot | Built-in, tenant-aware, immediate value |
 | Custom agents (low-code) | Copilot Studio | Managed platform, fast deployment, governance |
 | Custom agents (pro-code) | M365 Agents SDK or Azure AI Foundry | Full control, any model, any orchestrator |
-| Managed agent runtime | Azure AI Agent Service | PaaS for agent infrastructure, multi-agent support |
+| Managed agent runtime | Foundry Agent Service | PaaS for agent infrastructure, multi-agent support |
 | Enterprise workflow + AI | Azure Logic Apps | 1,400+ connectors, MCP server, AI agent workflows |
 | Document processing | AI Builder | Prebuilt models, Power Platform integration |
 | Workflow orchestration | Microsoft Agent Framework | Checkpointing, type-safe workflows, multi-agent patterns |
@@ -523,62 +412,55 @@ This section provides a comprehensive overview of Microsoft's AI technology stac
 | Technology | VNet Support | Private Endpoints | Air-Gapped | Gateway Required | Best For |
 |------------|-------------|-------------------|------------|------------------|----------|
 | **Azure AI Foundry** | ✅ Full | ✅ Yes | ✅ Yes | ❌ No | Zero-trust, air-gapped, sovereign data |
-| **Azure AI Agent Service** | ✅ Full | ✅ Yes | ✅ Yes | ❌ No | Managed PaaS with private networking |
+| **Foundry Agent Service** | ✅ Full | ✅ Yes | ✅ Yes | ❌ No | Managed PaaS with private networking |
 | **Copilot Studio** | ⚠️ Gateway-based | ⚠️ Via gateway | ❌ No | ✅ Yes | Managed PaaS with Azure resource access |
 | **M365 Agents SDK** | ✅ Self-hosted | ✅ Yes | ✅ Yes | ❌ No | Custom network control |
 | **M365 Copilot** | ❌ No | ❌ No | ❌ No | ✅ For on-prem | Managed SaaS only |
 
 ---
 
-## Identity & Permissions Architecture
-{: .tech-heading }
+## Identity & Permissions Architecture {: .tech-heading }
 
 **Why it matters:** Successful agent deployments hinge on getting identity, authorization, and auditing right. Use this section to align authentication models with the platforms in this guide.
 
-### Implementation Approach
-{: .no_toc }
+### Implementation Approach {: .no_toc }
 
-1. **Map identity boundaries** for every surface (M365 Copilot, Copilot Studio, Azure AI Foundry, Agents SDK) so you know which services are inherently user-scoped and which require custom design.[^copilot-privacy][^studio-authentication][^foundry-rbac][^agentsdk-auth]
+1. **Map identity boundaries** for every surface (M365 Copilot, Copilot Studio, Microsoft Foundry (Azure), Agents SDK) so you know which services are inherently user-scoped and which require custom design.[^copilot-privacy][^studio-authentication][^foundry-rbac][^agentsdk-auth]
 2. **Choose delegated vs application scopes** early, preferring delegated consent for user-driven actions and reserving service principals for automation that cannot run under a user identity.[^agentsdk-permissions][^graph-permissions]
-3. **Configure authentication flows** using the native controls for each platform—Copilot Studio manual auth, Azure AI Foundry managed identities, and MSAL providers in the Agents SDK.[^studio-authentication][^foundry-managed-identity][^msal-config]
+3. **Configure authentication flows** using the native controls for each platform—Copilot Studio manual auth, Microsoft Foundry (Azure) managed identities, and MSAL providers in the Agents SDK.[^studio-authentication][^foundry-managed-identity][^msal-config]
 4. **Enforce least privilege and RBAC** by assigning the minimum Entra ID roles, Graph scopes, and project-level permissions required for the workload; document any elevated service accounts.[^foundry-rbac][^graph-permissions]
 5. **Enable centralized auditing** in Microsoft Purview and Dataverse so prompts, responses, and service-account executions are captured for compliance reviews.[^copilot-audit][^studio-audit]
 
-### Identity & Permissions Matrix
-{: .no_toc }
+### Identity & Permissions Matrix {: .no_toc }
 
 | Technology | Default Identity Mode | Service Accounts Supported? | Primary Configuration Controls | Audit Surface |
 |------------|----------------------|-----------------------------|--------------------------------|---------------|
 | **M365 Copilot** | Always runs as the signed-in user | ❌ No | Tenant privacy & data access posture | Microsoft Purview audit logs[^copilot-audit] |
 | **Copilot Studio** | User or service account depending on authentication setting | ✅ Yes (manual auth) | Agent authentication mode + connection references | Microsoft Purview + Dataverse transcripts[^studio-authentication][^studio-audit] |
-| **Azure AI Foundry / Agent Service** | Configurable (API key, Entra ID, managed identity) | ✅ Yes | Azure RBAC assignments + managed identity role bindings | Azure Monitor / Diagnostic logs |
+| **Microsoft Foundry (Azure) / Agent Service** | Configurable (API key, Entra ID, managed identity) | ✅ Yes | Azure RBAC assignments + managed identity role bindings | Azure Monitor / Diagnostic logs |
 | **M365 Agents SDK** | Developer-defined (delegated, app-only, managed identity) | ✅ Yes | MSAL profile configuration + Graph scopes | Custom logging + Purview via channel integration[^msal-config][^agentsdk-permissions] |
 
-### Microsoft 365 Copilot: User-Scoped by Design
-{: .no_toc }
+### Microsoft 365 Copilot: User-Scoped by Design {: .no_toc }
 
 - Runs entirely under the requesting user’s identity and respects existing SharePoint, Exchange, and Teams permissions—“it only sees what you can see” is an architectural guarantee.[^copilot-privacy]
 - All prompts and responses flow into Microsoft Purview audit logs and activity explorer, enabling retention and eDiscovery without extra configuration.[^copilot-audit]
 - Best choice when compliance teams require individual attribution with zero additional setup.
 
-### Copilot Studio: Configurable Delegated or Service Accounts
-{: .no_toc }
+### Copilot Studio: Configurable Delegated or Service Accounts {: .no_toc }
 
 - Makers select **Authenticate with Microsoft** for delegated access (Teams channel only) or **Authenticate manually** to wire up Entra ID, federated credentials, or other OAuth providers.[^studio-authentication]
 - Connection references decide whether each action uses the caller’s identity or a pre-authorized service account—document every elevated credential and pair destructive flows with approvals.[^studio-authentication]
 - Purview auditing of maker and end-user interactions is GA (Jan 2025), and Dataverse conversation tables retain transcripts for 30+ days with configurable retention, giving you a complete audit trail.[^studio-audit]
 - Ideal when you need to mix user-scoped reads with selective elevation for enterprise systems (for example, HR ticket creation under a bot account).
 
-### Azure AI Foundry & Agent Service: RBAC + Managed Identity First
-{: .no_toc }
+### Microsoft Foundry (Azure) & Foundry Agent Service: RBAC + Managed Identity First {: .no_toc }
 
 - Replace static API keys with Microsoft Entra authentication and assign built-in roles (Azure AI User, Azure AI Project Manager, Cognitive Services OpenAI User) to enforce least privilege.[^foundry-rbac]
 - Enable the project’s system-assigned managed identity and grant it scoped access (for example, Storage Blob Data Reader) so hosted agents can call downstream services without secrets.[^foundry-managed-identity]
 - Use role assignments and diagnostic logging to trace every inference or tool call back to a user principal or managed identity—required for production-grade workloads.
 - Suits pro-code teams that already operate Azure landing zones and need fine-grained control.
 
-### Microsoft 365 Agents SDK: Bring Your Own Authentication
-{: .no_toc }
+### Microsoft 365 Agents SDK: Bring Your Own Authentication {: .no_toc }
 
 - The SDK ships MSAL-based providers that can issue access tokens via delegated consent, client credentials, or managed identities; profiles are defined in configuration, not hard-coded.[^msal-config]
 - Pair the SDK with Entra ID app registrations that request only the Graph scopes you need, and use the Admin Center’s Permissions tab to review delegated vs application grants.[^agentsdk-permissions][^graph-permissions]

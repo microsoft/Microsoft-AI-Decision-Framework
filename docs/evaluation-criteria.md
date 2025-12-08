@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Evaluation Criteria
-nav_order: 4
+nav_order: 6
 description: "Framework for evaluating complexity, skills, budget, and governance"
 ---
 
@@ -401,7 +401,7 @@ Many organizations use both platforms - Copilot Studio for rapid deployment with
 ---
 
 **Last Updated:** November 10, 2025  
-**Next:** [Scenarios]({{ '/docs/scenarios' | relative_url }}) - See how the scoring framework guides real-world choices
+**Next:** [Implementation Patterns]({{ '/docs/implementation-patterns' | relative_url }}) - Apply the scoring outcomes to pick execution patterns
 
 [^copilot-cost]: *Cost considerations for extending Microsoft 365 Copilot*, Microsoft Learn. Updated 2025-05-19.
 [^copilot-credits]: *Copilot Studio requirements, billing, and Copilot Credits*, Microsoft Learn. Updated 2025-11-05.

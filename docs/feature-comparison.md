@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Feature Comparison
-nav_order: 8
+nav_order: 9
 description: Comprehensive side-by-side technology comparisons
 ---
 
@@ -24,7 +24,7 @@ Detailed side-by-side comparisons of Microsoft AI technologies. For decision gui
 
 | Feature | M365 Copilot | Copilot Studio | Microsoft Foundry (Azure) | **Microsoft Agent Framework** | **AG-UI Protocol (Preview)** | Foundry Agent Service | M365 Agents SDK | **Azure Logic Apps** |
 |---------|--------------|----------------|------------------|------------------------------|----------------------------|------------------------|-----------------|----------------------|
-| **User Experience** | M365 apps | Custom channels | Custom apps | Embedded in apps | Protocol-based web/mobile UI | Custom apps | Copilot/Teams/Web | **Custom/Conversational** |
+| **User Experience** | M365 apps (Frontier creation agents Preview[^frontier-agents]) | Custom channels | Custom apps | Embedded in apps | Protocol-based web/mobile UI | Custom apps | Copilot/Teams/Web | **Custom/Conversational** |
 | **Build Approach** | No-build (consume) | Low-code to pro-code | Code-first | Pro-code (orchestration SDK) | Pro-code protocol integration (ASP.NET Core, FastAPI) | Code-first | Pro-code | **Visual designer + code** |
 | **Data Boundary** | M365 tenant | M365 or Azure | Azure | Any | Inherits host runtime | Azure | M365 or Azure | **Azure** |
 | **Governance** | Tenant-integrated (automatic) | Tenant or workload | Workload-tailored (custom) | Application-level | Inherits host app controls; approvals via middleware | Workload-tailored (custom) | Tenant or workload | **Azure RBAC** |
@@ -43,6 +43,7 @@ Detailed side-by-side comparisons of Microsoft AI technologies. For decision gui
 | **Infrastructure Model** | Microsoft-managed | SaaS (managed) | PaaS (self-managed) | SDK (self-managed) | SDK bridging host + client | PaaS (self-managed) | SDK (self-managed) | PaaS (self-managed) |
 | **Best For** | Broad productivity | Custom agents | Custom AI apps | **Workflow orchestration** | Custom branded experiences and generative UI atop Agent Framework | Managed agents | Pro-code extensions | **Enterprise integration + AI** |
 
+[^frontier-agents]: Frontier Word/Excel/PowerPoint creation agents (Preview) require admin Frontier opt-in, Anthropic provider connection, and acceptance of Anthropic commercial terms; data is processed outside Microsoft-managed environments. Sources: [Word/Excel/PowerPoint Agents](https://learn.microsoft.com/en-us/copilot/microsoft-365/wordexcelppt-agents), [Microsoft 365 Copilot admin user access](https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-page#user-access).
 [^aafs-triggers]: *What's new in Microsoft Foundry (Azure) Agent Service*, Microsoft Learn. May 2025 GA update includes Azure Logic Apps triggers for agents.
 [^logicapps-agents]: *Workflows with AI agents and models in Azure Logic Apps (Preview)*, Microsoft Learn. Retrieved: 2025-11-10.
 [^aafs-mcp]: *What's new in Microsoft Foundry (Azure) Agent Service*, Microsoft Learn. June 2025 update announces the MCP tool.
@@ -171,15 +172,15 @@ Detailed side-by-side comparisons of Microsoft AI technologies. For decision gui
 | **Vector Search** | No (semantic index only) | ✅ Yes (IVF, HNSW) | ✅ Yes (Lakehouse via external tools) | ✅ Yes (IVF, HNSW, DiskANN) | ✅ Yes (pgvector, IVF) | ✅ Yes (DiskANN) |
 | **Hybrid Search** | No | ✅ Yes (vector + keyword) | ✅ Yes (SQL endpoint + external) | ✅ Yes | ✅ Yes | ✅ Yes |
 | **Data Boundary** | M365 tenant | Azure | Azure (OneLake) | Azure | Azure | On-premises or Azure |
-| **Index Target** | Microsoft Graph | Azure AI Search index | Lakehouse Delta tables, Warehouse tables | Cosmos DB collection | PostgreSQL table | SQL Server table |
-| **Access Method** | Graph API | REST API, SDKs | ADLS Gen2 APIs, SQL endpoint, Fabric Data Agents | SDKs, REST API | SQL, pgvector | T-SQL, VECTOR type |
-| **Best For** | M365-centric knowledge | Azure-native RAG | Analytics data + unified data platform | Transactional + vector data | PostgreSQL workloads with AI | SQL Server workloads with AI |
-| **Licensing** | Included with M365 | Azure consumption | Fabric capacity (F2+) | Azure consumption | Azure consumption | SQL Server license |
-| **Status** | GA | GA | GA (Platform), Preview (Data Agents) | GA | GA | Preview |
+| **Index Target** | Microsoft Graph | Azure AI Search index / knowledge bases (agentic retrieval, preview) | Lakehouse Delta tables, Warehouse tables | Cosmos DB collection | PostgreSQL table | SQL Server table |
+| **Access Method** | Graph API | REST API, SDKs (`2025-11-01-preview` for knowledge bases) | ADLS Gen2 APIs, SQL endpoint, Fabric Data Agents | SDKs, REST API | SQL, pgvector | T-SQL, VECTOR type |
+| **Best For** | M365-centric knowledge | Azure-native RAG with ACL/label enforcement and agentic retrieval | Analytics data + unified data platform | Transactional + vector data | PostgreSQL workloads with AI | SQL Server workloads with AI |
+| **Licensing** | Included with M365 | Azure consumption (agentic retrieval preview on free tier quotas) | Fabric capacity (F2+) | Azure consumption | Azure consumption | SQL Server license |
+| **Status** | GA | GA (agentic retrieval preview) | GA (Platform), Preview (Data Agents) | GA | GA | Preview |
 
 **Sources:**
 - [Microsoft Graph Connectors](https://learn.microsoft.com/en-us/graph/connecting-external-content-connectors-overview) (Updated: 2024-09-20)
-- [Azure AI Search Vector Search](https://learn.microsoft.com/en-us/azure/search/vector-search-overview) (Updated: 2024-10-12)
+- [Azure AI Search what's new](https://learn.microsoft.com/en-us/azure/search/whats-new#november-2025) (Updated: 2025-11-18)
 - [Microsoft Fabric Platform](https://learn.microsoft.com/en-us/fabric/fundamentals/microsoft-fabric-overview) (Updated: 2025-11-03)
 - [Fabric AI Foundry Integration](https://learn.microsoft.com/en-us/azure/ai-foundry/faq) (Updated: 2025-11-03)
 - [Cosmos DB Vector Search](https://learn.microsoft.com/en-us/azure/cosmos-db/vector-search) (Updated: 2024-10-08)
@@ -240,4 +241,4 @@ Detailed side-by-side comparisons of Microsoft AI technologies. For decision gui
 
 ---
 
-**Next:** [Visual Framework]({{ '/docs/visual-framework' | relative_url }}) - Companion diagrams for facilitating the decision process
+**Next:** [Quick Reference]({{ '/docs/quick-reference' | relative_url }}) - Fast lookup tables to accompany the matrices

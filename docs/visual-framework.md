@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Visual Framework
-nav_order: 9
+nav_order: 5
 description: "Decision tree diagrams with Mermaid visualizations"
 ---
 
@@ -83,7 +83,7 @@ flowchart TD
     AgentService --> DataQ
     
     DataQ -->|M365 data| GraphConn[Graph Connectors]
-    DataQ -->|Documents| AISearch[Azure AI Search]
+    DataQ -->|Documents| AISearch[Azure AI Search<br/>(agentic retrieval, ACL/labels)]
     DataQ -->|Structured data| VectorDB{Vector DB choice?}
     DataQ -->|Analytics data| Fabric[Microsoft Fabric]
     DataQ -->|No grounding| DirectDeploy
@@ -802,5 +802,5 @@ flowchart TD
 ---
 
 **Last Updated:** November 2025  
-**Next:** [Quick Reference]({{ '/docs/quick-reference' | relative_url }}) - Fast lookup tables to pair with the diagrams when facilitating decisions
+**Next:** [Evaluation Criteria]({{ '/docs/evaluation-criteria' | relative_url }}) - Score complexity, skills, budget, and governance after selecting a path
 

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Implementation Patterns
-nav_order: 6
+nav_order: 7
 description: "Common patterns and best practices for implementing Microsoft AI solutions"
 ---
 

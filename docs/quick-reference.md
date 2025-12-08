@@ -24,13 +24,15 @@ This page provides fast-lookup tables for common scenarios. For detailed decisio
 
 | **Where Users Interact** | **Recommended Technologies** | **Use When** |
 |---------------------------|------------------------------|--------------|
-| **Microsoft 365 Apps** | **Free** Microsoft 365 Copilot Chat (included) + Graph Connectors for baseline pilots; Microsoft 365 Copilot add-on + declarative agents for work-grounded copilots | Need managed copilots embedded in Word, Excel, Outlook, or Teams with tenant-level governance—start with the free chat surface and graduate to the hero add-on when Graph grounding or in-app assistants are required |
+| **Microsoft 365 Apps** | **Free** Microsoft 365 Copilot Chat (included) + Graph Connectors for baseline pilots; Microsoft 365 Copilot add-on + declarative agents for work-grounded copilots; **Frontier Word/Excel/PowerPoint creation agents (Preview)** require admin Frontier opt-in and Anthropic data-sharing consent | Need managed copilots embedded in Word, Excel, Outlook, or Teams with tenant-level governance—start with the free chat surface and graduate to the hero add-on when Graph grounding or in-app assistants are required; use Frontier creation agents only for controlled pilots |
 | **Microsoft Teams Only** | Copilot Studio, M365 Agents SDK | Teams-centric chat or calling scenarios where admins may enforce "only during the call" retention |
 | **Custom Web/Mobile App** | Azure AI Foundry, Foundry Agent Service (Standard setup) | Building standalone applications while keeping files, search, and thread storage in customer-owned Azure resources |
+| **Governance / Registry** | Agent 365 (Preview); Foundry Control Plane | Centralize agent identity/registry, conditional access, and security posture across M365/Azure agents |
 | **Custom Web/Mobile UI with streaming** | Microsoft Agent Framework + AG-UI protocol (Preview) | Need Server-Sent Events streaming, backend tool rendering, shared state, and human approvals in bespoke front-ends |
 | **Multiple Channels** | M365 Agents SDK | Deliver one agent across Microsoft 365 Copilot, Teams, web, email, SMS, and other channels |
 | **Power Platform** | Copilot Studio, AI Builder | Integrated with low-code Power Apps/Power Automate workloads |
 | **Enterprise Workflows** | Azure Logic Apps AI Agents (Preview), MCP Server | Workflow automation that needs autonomous/conversational agent patterns with Easy Auth guardrails |
+| **Data Grounding / RAG** | Azure AI Search knowledge bases (agentic retrieval, preview); Graph Connectors (M365) | ACL- and label-aware search with reasoning effort/partial responses (Search); tenant-scoped content for M365 copilots (Graph) |
 | **Developer Tools** | GitHub Copilot Extensions | IDE and development workflow integration |
 
 **Sources:**
@@ -38,6 +40,9 @@ This page provides fast-lookup tables for common scenarios. For detailed decisio
 - [Copilot for all: Introducing Microsoft 365 Copilot Chat](https://www.microsoft.com/en-us/microsoft-365/blog/2025/01/15/copilot-for-all-introducing-microsoft-365-copilot-chat/) (Updated: 2025-01-15)
 - [Microsoft 365 Copilot release notes — November 12, 2025](https://learn.microsoft.com/en-us/copilot/microsoft-365/release-notes?tabs=all#november-12-2025)
 - [Built-in enterprise readiness with standard agent setup](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/concepts/standard-agent-setup) (Updated: 2025-06-16)
+- [Agent 365 capabilities](https://learn.microsoft.com/en-us/microsoft-agent-365/admin/capabilities-entra) (Retrieved: 2025-12-08)
+- [Foundry Control Plane overview](https://learn.microsoft.com/en-us/azure/ai-foundry/control-plane/overview) (Updated: 2025-11-18)
+- [Azure AI Search what's new](https://learn.microsoft.com/en-us/azure/search/whats-new#november-2025) (Updated: 2025-11-18)
 - [Workflows with AI agents and models in Azure Logic Apps (Preview)](https://learn.microsoft.com/en-us/azure/logic-apps/agent-workflows-concepts) (Updated: 2025-10-09)
 - [Microsoft 365 Agents Toolkit](https://learn.microsoft.com/en-us/microsoft-365/developer/overview-m365-agents-toolkit) (Updated: 2025-05-30)
 - [AG-UI integration with Agent Framework](https://learn.microsoft.com/en-us/agent-framework/integrations/ag-ui/) (Preview, Updated: 2025-11-11)

@@ -59,7 +59,7 @@ Follow this progressive path for the best learning experience:
 ### Core path
 
 ```mermaid
-%%{init: {'theme':'dark'}}%%
+%%{init: {'theme':'dark','flowchart': {'useMaxWidth': true, 'nodeSpacing': 140, 'rankSpacing': 80, 'diagramPadding': 12}}}%%
 flowchart LR
         F[Foundation<br/><small>Capability Model</small>] --> M[Methodology<br/><small>Decision Framework</small>] --> C[Context<br/><small>Scenarios</small>] --> A[Assessment<br/><small>Evaluation Criteria</small>] --> E[Execution<br/><small>Implementation Patterns</small>] --> D[Deep Dive<br/><small>Technologies</small>] --> MS[Mastery<br/><small>Feature Comparison</small>]
 
@@ -81,11 +81,11 @@ flowchart LR
 ```
 
 {: .fs-4 .fw-300 }
-Follow left to right: foundation -> methodology -> context -> assessment -> execution -> deep dive -> mastery. Each box is clickable and opens the corresponding core document.
 
 ### Reference aids (use anytime)
 
 ```mermaid
+%%{init: {'theme':'dark','flowchart': {'useMaxWidth': true, 'nodeSpacing': 140, 'rankSpacing': 80, 'diagramPadding': 12}}}%%
 flowchart LR
         VF[Visual Framework] --- QR[Quick Reference] --- RES[Resources] --- GLOS[Glossary]
 
@@ -104,13 +104,13 @@ flowchart LR
 
 | Step | Module | What You'll Learn | Time Investment |
 |------|--------|-------------------|-----------------|
-| 1) | [Capability Model]({{ site.baseurl }}/docs/capability-model) | **Foundation** - Five layers from M365 Copilot to infrastructure | 15 min |
-| 2) | [Decision Framework]({{ site.baseurl }}/docs/decision-framework) | **Methodology** - BXT assessment + nine critical questions | 20 min |
-| 3) | [Scenarios]({{ site.baseurl }}/docs/scenarios) | **Context** - Real-world use cases with solutions | 15 min |
-| 4) | [Evaluation Criteria]({{ site.baseurl }}/docs/evaluation-criteria) | **Assessment** - Complexity, skills, budget, governance | 15 min |
-| 5) | [Implementation Patterns]({{ site.baseurl }}/docs/implementation-patterns) | **Execution** - Proven architecture patterns | 15 min |
-| 6) | [Technologies]({{ site.baseurl }}/docs/technologies) | **Deep Dive** - Technical specifications for each tool | 30 min |
-| 7) | [Feature Comparison]({{ site.baseurl }}/docs/feature-comparison) | **Mastery** - Side-by-side feature matrices | 10 min |
+| 1) | [Capability Model]({{ site.baseurl }}/docs/capability-model) | **Foundation** - Map adopt/extend/build into five layers and decide where your use case should start | 15 min |
+| 2) | [Decision Framework]({{ site.baseurl }}/docs/decision-framework) | **Methodology** - BXT gates and nine critical questions to stay simple before scaling | 20 min |
+| 3) | [Scenarios]({{ site.baseurl }}/docs/scenarios) | **Context** - Real-world playbooks with recommended stacks, alternatives, and implementation steps | 15 min |
+| 4) | [Evaluation Criteria]({{ site.baseurl }}/docs/evaluation-criteria) | **Assessment** - Score complexity, skills, budget, governance, and action safety/time-to-production | 15 min |
+| 5) | [Implementation Patterns]({{ site.baseurl }}/docs/implementation-patterns) | **Execution** - Repeatable patterns (Studio-to-Azure, multi-agent, grounding) with pivot signals | 15 min |
+| 6) | [Technologies]({{ site.baseurl }}/docs/technologies) | **Deep Dive** - Detailed specs, data boundaries, and status for Microsoft AI platforms/services | 30 min |
+| 7) | [Feature Comparison]({{ site.baseurl }}/docs/feature-comparison) | **Mastery** - Side-by-side matrices to justify trade-offs across orchestration, data, and workflows | 10 min |
 
 **Supplemental references (use as needed):** [Visual Framework]({{ site.baseurl }}/docs/visual-framework) | [Quick Reference]({{ site.baseurl }}/docs/quick-reference) | [Resources]({{ site.baseurl }}/docs/resources) | [Glossary]({{ site.baseurl }}/docs/glossary)
 

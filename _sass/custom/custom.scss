@@ -8,12 +8,13 @@
 // Ensure Mermaid gitGraph blocks stretch full width and render SVG at 100%
 .main-content pre {
   width: 100% !important;
+  overflow-x: auto !important;
 }
 
 .main-content pre code.language-mermaid {
   display: block !important;
   width: 100% !important;
-  max-width: none !important;
+  max-width: 100% !important;
   padding: 0 !important;
   background: transparent !important;
   border: 0 !important;
@@ -27,6 +28,7 @@
 
 .main-content .mermaid > svg {
   width: 100% !important;
+  max-width: 100% !important; // override inline px max-width from Mermaid renderer
   height: auto !important;
 }
 // Custom styles to optimize layout for large monitors

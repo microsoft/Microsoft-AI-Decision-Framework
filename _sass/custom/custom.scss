@@ -1,7 +1,33 @@
 // Nudge gitGraph commit labels slightly right for readability
 .mermaid .commit-label {
-  /* Nudge commit tags right; override Mermaid's default transform */
-  transform: translate(18px, -8px) !important;
+  text-anchor: start !important; // anchor text to start so it sits right of the node
+  dominant-baseline: middle !important; // vertically center with the commit circle
+  transform: translate(12px, 0) !important; // slight right offset from the circle
+}
+
+// Ensure Mermaid gitGraph blocks stretch full width and render SVG at 100%
+.main-content pre {
+  width: 100% !important;
+}
+
+.main-content pre code.language-mermaid {
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+}
+
+.main-content .mermaid {
+  width: 100% !important;
+  display: block !important;
+  margin: 0 auto !important;
+}
+
+.main-content .mermaid > svg {
+  width: 100% !important;
+  height: auto !important;
 }
 // Custom styles to optimize layout for large monitors
 // Aggressive space utilization - minimize all padding and maximize content area

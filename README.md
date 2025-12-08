@@ -59,28 +59,29 @@ Follow this progressive path for the best learning experience:
 ### Core path
 
 ```mermaid
-%%{init: {'theme':'dark','gitGraph': {'rotateCommitLabel': false, 'showBranches': false}, 'themeVariables': {'git0': '#0078D4', 'git1': '#5C2D91', 'git2': '#D83B01'}}}%%
-gitGraph
-        commit id: "Foundation" tag: "Five-Layer Capability Model"
-        branch Methodology
-        checkout Methodology
-        commit id: "Methodology" tag: "Three-Phase Decision Methodology"
-        branch Context
-        checkout Context
-        commit id: "Context" tag: "Scenarios"
-        branch Assessment
-        checkout Assessment
-        commit id: "Assessment" tag: "Evaluation Criteria"
-        branch Execution
-        checkout Execution
-        commit id: "Execution" tag: "Implementation Patterns"
-        branch DeepDive
-        checkout DeepDive
-        commit id: "Deep Dive" tag: "Microsoft AI Technologies Reference"
-        branch Mastery
-        checkout Mastery
-        commit id: "Mastery" tag: "Feature Comparison" type: HIGHLIGHT
+%%{init: {'theme':'dark'}}%%
+flowchart LR
+        F[Foundation<br/><small>Capability Model</small>] --> M[Methodology<br/><small>Decision Framework</small>] --> C[Context<br/><small>Scenarios</small>] --> A[Assessment<br/><small>Evaluation Criteria</small>] --> E[Execution<br/><small>Implementation Patterns</small>] --> D[Deep Dive<br/><small>Technologies</small>] --> MS[Mastery<br/><small>Feature Comparison</small>]
+
+        click F "{{ site.baseurl }}/docs/capability-model" "Open Capability Model" _self
+        click M "{{ site.baseurl }}/docs/decision-framework" "Open Decision Framework" _self
+        click C "{{ site.baseurl }}/docs/scenarios" "Open Scenarios" _self
+        click A "{{ site.baseurl }}/docs/evaluation-criteria" "Open Evaluation Criteria" _self
+        click E "{{ site.baseurl }}/docs/implementation-patterns" "Open Implementation Patterns" _self
+        click D "{{ site.baseurl }}/docs/technologies" "Open Technologies" _self
+        click MS "{{ site.baseurl }}/docs/feature-comparison" "Open Feature Comparison" _self
+
+        style F fill:#0078D4,stroke:#004578,color:#fff
+        style M fill:#5C2D91,stroke:#3B1D61,color:#fff
+        style C fill:#5C2D91,stroke:#3B1D61,color:#fff
+        style A fill:#FFB900,stroke:#C47F00,color:#000
+        style E fill:#107C10,stroke:#0B5E0B,color:#fff
+        style D fill:#5C2D91,stroke:#3B1D61,color:#fff
+        style MS fill:#0078D4,stroke:#004578,color:#fff
 ```
+
+{: .fs-4 .fw-300 }
+Follow left to right: foundation -> methodology -> context -> assessment -> execution -> deep dive -> mastery. Each box is clickable and opens the corresponding core document.
 
 ### Reference aids (use anytime)
 

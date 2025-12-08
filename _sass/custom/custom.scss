@@ -1,3 +1,8 @@
+// Nudge gitGraph commit labels slightly right for readability
+.mermaid .commit-label {
+  /* Nudge commit tags right; override Mermaid's default transform */
+  transform: translate(18px, -8px) !important;
+}
 // Custom styles to optimize layout for large monitors
 // Aggressive space utilization - minimize all padding and maximize content area
 

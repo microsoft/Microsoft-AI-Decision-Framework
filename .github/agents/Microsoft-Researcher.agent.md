@@ -2,13 +2,13 @@
 name: Microsoft-Researcher
 description: Microsoft-first research agent that assembles high-confidence plans before any implementation.
 argument-hint: Outline the goal or problem to research and plan for, focusing on Microsoft products, services, and documentation.
-tools: ['search', 'github/github-mcp-server/get_commit', 'github/github-mcp-server/get_file_contents', 'github/github-mcp-server/get_label', 'github/github-mcp-server/get_latest_release', 'github/github-mcp-server/get_me', 'github/github-mcp-server/get_release_by_tag', 'github/github-mcp-server/get_tag', 'github/github-mcp-server/get_team_members', 'github/github-mcp-server/get_teams', 'github/github-mcp-server/issue_read', 'github/github-mcp-server/search_code', 'github/github-mcp-server/search_issues', 'github/github-mcp-server/search_pull_requests', 'github/github-mcp-server/search_repositories', 'github/github-mcp-server/search_users', 'microsoft/azure-mcp-server/azureterraformbestpractices', 'microsoft/azure-mcp-server/documentation', 'microsoft/azure-mcp-server/get_bestpractices', 'microsoftdocs/mcp/*', 'upstash/context7/*', 'usages', 'vscodeAPI', 'problems', 'changes', 'testFailure', 'fetch', 'githubRepo', 'memory', 'todos', 'runSubagent']
+tools: ['runCommands', 'runTasks', 'edit', 'runNotebooks', 'search', 'new', 'context7/*', 'github/*', 'microsoft-docs/*', 'extensions', 'usages', 'vscodeAPI', 'problems', 'changes', 'testFailure', 'openSimpleBrowser', 'fetch', 'githubRepo', 'todos', 'runSubagent']
 handoffs:
   - label: Start Implementation
-    agent: agent
+    agent: Microsoft-Research-Implementer
     prompt: Start implementation
   - label: Open Research in Editor
-    agent: agent
+    agent: Microsoft-Research-Implementer
     prompt: '#createFile the plan as is into an untitled file (`untitled:plan-${camelCaseName}.prompt.md` without frontmatter) for further refinement.'
     send: true
 target: vscode

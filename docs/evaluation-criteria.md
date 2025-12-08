@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Evaluation Criteria
-nav_order: 4
+nav_order: 6
 description: "Framework for evaluating complexity, skills, budget, and governance"
 ---
 
@@ -70,7 +70,7 @@ Mix-and-match approaches (for example, a Copilot Studio front door that delegate
 | **Free / Included / < $500/mo** | Free (included) Microsoft 365 Copilot Chat + Graph Connectors + declarative agents | Baseline Microsoft 365 licensing (Copilot Chat included, zero incremental license cost), tenant governance time, light maker effort | Keep workloads inside Layer 1–2 to prove value quickly; reuse connectors later in Copilot Studio or Azure AI Foundry as needs grow |
 | **$500-$2K/mo** | Microsoft 365 Copilot add-on pilots, Copilot Studio Lite/Full, AI Builder, Power Automate approvals | Per-user Microsoft 365 Copilot licenses (Graph grounding, in-app copilots), Copilot Credits for generative answers/flows, connector usage, part-time maker/developer capacity[^copilot-credits] | Layer Microsoft 365 Copilot on top of Copilot Chat for hero experiences; add Studio and targeted Azure APIs only when custom logic is required; budget for approval flows and DLP policy design |
 | **$2K-$10K/mo** | Copilot Studio front door + Azure AI Foundry/Agent Service, M365 Agents SDK pilots | Azure OpenAI tokens, App Service or Functions hosting, vector stores, CI/CD + observability effort[^copilot-cost][^foundry-cost] | Split workloads so Studio handles UX/governance while Azure hosts orchestration; shift spend toward Azure as more automation moves out of Studio |
-| **$10K+/mo** | Full Azure AI stack (Agent Framework, Logic Apps, Azure AI Agent Service) with enterprise data plane | Dedicated AI/ML teams, Azure landing zone hardening, custom evaluations, agent telemetry pipelines[^foundry-cost] | Expect blended spend: Studio or M365 endpoints for front doors plus Azure services for workflows, memory, and safety tooling |
+| **$10K+/mo** | Full Azure AI stack (Agent Framework, Logic Apps, Foundry Agent Service) with enterprise data plane | Dedicated AI/ML teams, Azure landing zone hardening, custom evaluations, agent telemetry pipelines[^foundry-cost] | Expect blended spend: Studio or M365 endpoints for front doors plus Azure services for workflows, memory, and safety tooling |
 
 > **Note:** These dollar ranges illustrate relative investment levels rather than contractual pricing. Always reconcile them with your actual licensing agreements, Copilot Credit allocations, Azure consumption forecasts, and staffing models.
 
@@ -84,7 +84,7 @@ Time-to-production is also multi-track: it is common to land a Copilot Studio or
 |----------|---------------------|---------------|--------------------|
 | **Days** | Enable free (included) Microsoft 365 Copilot Chat + Graph Connectors pilot | Confirm eligible licensing, scope data sources, run adoption enablement | Fastest path to value (no incremental license spend) but limited action automation; great for validating demand before deeper investment |
 | **1-2 Weeks** | Turn on Microsoft 365 Copilot add-on for a focused group and/or launch Copilot Studio template with governed connectors and approvals | Approve premium licenses, configure Copilot Credits capacity, attach Power Automate approvals, enforce DLP policies | Low-code build speed; adding Microsoft 365 Copilot unlocks work-grounded chat and in-app copilots while Studio handles hosting and security[^copilot-credits] |
-| **1-2 Months** | Keep Copilot Studio as the front door while adding custom actions, BYOM prompts, or Azure AI Foundry orchestration | Build APIs or Azure AI Agent Service skills, set up CI/CD, connect to private data via gateways | Perfect for hybrid stacks—Studio pilots stay live while Azure capabilities roll in; schedule time for testing, observability, and managed gateway setup[^studio-byom][^foundry-cost] |
+| **1-2 Months** | Keep Copilot Studio as the front door while adding custom actions, BYOM prompts, or Azure AI Foundry orchestration | Build APIs or Foundry Agent Service skills, set up CI/CD, connect to private data via gateways | Perfect for hybrid stacks—Studio pilots stay live while Azure capabilities roll in; schedule time for testing, observability, and managed gateway setup[^studio-byom][^foundry-cost] |
 | **3-6 Months** | Productionize pro-code agents (M365 Agents SDK, Agent Framework, Azure AI Foundry) with enterprise landing zone controls | Provision VNets/private endpoints, implement tool guardrails, run evaluations, harden telemetry + governance | Highest control and autonomy; longer runway driven by infra changes, compliance evidence, and multi-environment DevOps. Parallel pilots in Studio/M365 keep users engaged during the build |
 
 > **Note:** These timeframes are directional examples spanning pilots through production handoff. Actual schedules depend on compliance reviews, procurement, existing Azure landing zones, and how many layers (M365, Copilot Studio, Azure) you run in parallel.
@@ -102,29 +102,33 @@ Time-to-production is also multi-track: it is common to land a Copilot Studio or
 | **Low** | Minimal, hosting platform dependent | Agent Framework | Maximum flexibility |
 
 **Critical Considerations - Data Boundary:**
-- **M365 Copilot:** Data NEVER leaves M365 tenant boundary. No training on tenant data. Inherits M365 compliance (GDPR, HIPAA, FedRAMP).
-- **Copilot Studio:** ⚠️ External connectors (custom APIs, non-Microsoft systems) **inherit external system's compliance posture**. Web search leaves enterprise boundary (NOT covered by DPA). Compliance certifications: HIPAA, FedRAMP, SOC, ISO, PCI DSS. Power Platform DLP policies (environment/tenant-level) control connector access, custom connector endpoints (pattern matching), autonomous agent triggers.
-- **Azure AI Foundry/Agent Service:** Full Azure controls (VNet, private endpoints, CMK, Azure Policy). Governed by YOUR Azure landing zone. Content Safety service provides configurable filtering (Hate, Violence, Sexual, Self-Harm at Low/Medium/High severity), groundedness detection, prompt shields (jailbreak/indirect attacks).
+
+- **M365 Copilot:** Data NEVER leaves M365 tenant boundary. No training on tenant data. Inherits M365 compliance (GDPR, HIPAA, FedRAMP). **Microsoft Purview for AI (Preview)** extends DLP and sensitivity labels to prevent agents from summarizing "Internal Only" documents.
+- **Copilot Studio:** ⚠️ External connectors (custom APIs, non-Microsoft systems) **inherit external system's compliance posture**. Web search leaves enterprise boundary (NOT covered by DPA). Compliance certifications: HIPAA, FedRAMP, SOC, ISO, PCI DSS. Power Platform DLP policies (environment/tenant-level) control connector access. **Purview DSPM (Preview)** now audits unauthenticated user activity.
+- **Azure AI Foundry/Agent Service:** Full Azure controls (VNet, private endpoints, CMK, Azure Policy). Governed by YOUR Azure landing zone. **Microsoft Defender for AI (Preview)** provides runtime threat protection. **Azure AI Content Safety** provides Prompt Shields (GA) and Spotlighting (Preview) to block jailbreaks and injection attacks.
 
 **Critical Considerations - Network Isolation:**
+
 - **Azure AI Foundry/Agent Service:** ✅ Full private networking support. Standard Setup with Private Networking = no public egress by default. Supports air-gapped environments.
 - **Copilot Studio:** ⚠️ Does NOT execute in customer VNet. Requires on-premises data gateway (for on-prem systems) OR VNet data gateway (GA, for Azure resources). Not suitable for fully air-gapped without gateway setup.
 - **M365 Agents SDK:** ✅ Self-hosted = customer controls networking. Supports VNet integration, private endpoints, air-gapped Azure deployments. Full responsibility for network security.
 - **M365 Copilot:** ❌ No custom VNet support (fully managed SaaS). Requires gateway architecture for on-prem data access.
 
 **Critical Considerations - Permissions & Identity Model:**
+
 - **M365 Copilot:** ✅ Always user-scoped. "It only sees what I can see" = TRUE (architecturally guaranteed). Actions attributed to individual users.
 - **Copilot Studio:** ⚠️ Dual auth mode: User authentication (user-scoped) OR Agent author authentication (service account). Service accounts can exceed individual user permissions. **Critical for actions that write data.**
-- **Azure AI Foundry:** ⚠️ API key (bypasses user identity) OR Entra ID (per-user RBAC, managed identities). **Entra ID recommended for production** (user attribution, least privilege).
+- **Azure AI Foundry:** ⚠️ API key (bypasses user identity) OR Entra ID (per-user RBAC, managed identities). **Microsoft Entra Agent ID (Preview)** assigns unique identities to agents for granular permission management and auditability.
 - **M365 Agents SDK:** ⚠️ Custom auth design: Delegated permissions (user-scoped) OR Application permissions (service principal, tenant-wide scope). **Requires documented auth architecture for audit.**
 
 ### Action Safety & Content Safety
 {: .no_toc }
 
 **Key considerations:**
+
 - **M365 Copilot:** ✅ User-in-the-loop always (drafts only, user executes). Cannot take destructive actions. ✅ Content moderation + prompt injection defenses built-in.
 - **Copilot Studio:** ⚠️ Actions can execute (Power Automate flows, custom connectors). No built-in human approval. **Add approval workflows for destructive actions.** ✅ Content moderation blocks malicious prompts.
-- **Azure AI Foundry/Agent Service:** ⚠️ Tool calling with autonomous planning loops. No built-in approval. **Implement human-in-the-loop + OpenTelemetry tracing.** ✅ Content safety via Azure AI Content Safety service.
+- **Azure AI Foundry/Agent Service:** ⚠️ Tool calling with autonomous planning loops. No built-in approval. **Implement human-in-the-loop + OpenTelemetry tracing.** ✅ Content safety via Azure AI Content Safety (Prompt Shields GA, Spotlighting Preview).
 - **M365 Agents SDK:** ⚠️ Custom design (developer responsibility). No built-in action safety or approval. **Implement custom guardrails.** Content safety depends on implementation.
 
 #### Action Safety Guardrail Playbook
@@ -133,6 +137,7 @@ Time-to-production is also multi-track: it is common to land a Copilot Studio or
 **Why it matters:** These controls operationalize the Action Safety score. Use them to design approval checkpoints, logging, and escalation workflows before promoting an agent to production.
 
 **Guardrail Workflow:**
+
 1. **Classify actions by risk** (read-only, write, destructive) and document examples.
 2. **Decide approval paths** for medium/high risk actions (manager approval, security desk, or service owner).
 3. **Enforce boundaries** by limiting which tools can execute autonomously and which require explicit human confirmation.
@@ -149,22 +154,26 @@ Time-to-production is also multi-track: it is common to land a Copilot Studio or
 **Guardrails by Platform**
 
 **M365 Copilot (built-in experiences)**
+
 - User always executes the final action; drafts remain user-scoped. No extra guardrails required beyond Purview auditing.
 - Reference: [Microsoft 365 Copilot security](https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-ai-security) (Updated: 2024-10-10)
 
 **Copilot Studio (SaaS)**
+
 - Add **Start and wait for an approval** inside Power Automate flows before any destructive action.
 - Validate parameters with condition blocks (e.g., amount thresholds) and environment-level DLP policies.
 - Enable Dataverse audit logs so transcripts/actions are reviewable by compliance teams.
 - Reference: [Business applications integrations with Copilot Studio](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-business-applications) (Updated: 2024-10-05)
 
 **Azure AI Foundry / Agent Service (PaaS)**
+
 - Implement human-in-the-loop middleware for high-risk tool calls; store approvals in durable storage.
 - Use OpenTelemetry tracing and Azure Monitor to capture full tool execution chains.
 - Apply Azure Policy/API Management allowlists so agents can only call approved endpoints.
-- Reference: [Azure AI Agent Service transparency note](https://learn.microsoft.com/en-us/azure/ai-foundry/responsible-ai/agents/transparency-note) (Updated: 2024-10-15)
+- Reference: [Foundry Agent Service transparency note](https://learn.microsoft.com/en-us/azure/ai-foundry/responsible-ai/agents/transparency-note) (Updated: 2024-10-15)
 
 **M365 Agents SDK (custom code)**
+
 - Build explicit approval middleware that routes destructive actions to a reviewer before execution.
 - Classify actions in code (read/write/destructive) and enforce deny-by-default for destructive categories.
 - Log every action with initiating user identity via Application Insights or custom telemetry.
@@ -223,7 +232,7 @@ Understanding where conversation data is stored and who can access it is **criti
 **Critical Distinctions:**
 - **M365 Copilot:** Grounding ONLY (NO per-user memory extractable by admins). Activity history in user mailbox (Purview-governed).
 - **Copilot Studio:** Grounding + Dataverse memory variables. Full transcript access for admins (critical for regulated review).
-- **Azure AI Agent Service:** BYO thread storage (customer Cosmos DB). Customer responsible for retention, PII scrubbing.
+- **Foundry Agent Service:** BYO thread storage (customer Cosmos DB). Customer responsible for retention, PII scrubbing.
 - **M365 Agents SDK:** Custom implementation (developer implements everything).
 
 💡 **Cross-reference:** See [Decision Framework Q3]({{ '/docs/decision-framework#question-3-data-grounding-pattern' | relative_url }}) - Grounding vs Memory vs Analytics distinction
@@ -392,7 +401,7 @@ Many organizations use both platforms - Copilot Studio for rapid deployment with
 ---
 
 **Last Updated:** November 10, 2025  
-**Next:** [Scenarios]({{ '/docs/scenarios' | relative_url }}) - See how the scoring framework guides real-world choices
+**Next:** [Implementation Patterns]({{ '/docs/implementation-patterns' | relative_url }}) - Apply the scoring outcomes to pick execution patterns
 
 [^copilot-cost]: *Cost considerations for extending Microsoft 365 Copilot*, Microsoft Learn. Updated 2025-05-19.
 [^copilot-credits]: *Copilot Studio requirements, billing, and Copilot Credits*, Microsoft Learn. Updated 2025-11-05.

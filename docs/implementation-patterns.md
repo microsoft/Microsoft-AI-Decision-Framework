@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Implementation Patterns
-nav_order: 6
+nav_order: 7
 description: "Common patterns and best practices for implementing Microsoft AI solutions"
 ---
 
@@ -18,6 +18,9 @@ These patterns represent proven approaches for implementing Microsoft AI solutio
 - [Pattern 3 – Microsoft 365 Knowledge Grounding](#pattern-3-microsoft-365-knowledge-grounding)
 - [Pattern 4 – Multi-Channel Custom Engine Agent with M365 Agents SDK](#pattern-4-multi-channel-custom-engine-agent-with-m365-agents-sdk)
 - [Pattern 5 – Multi-Agent Workflows with Microsoft Agent Framework](#pattern-5-multi-agent-workflows-with-microsoft-agent-framework)
+- [Pattern 6 – Progressive Enhancement (Low-Code to Pro-Code Bridge)](#pattern-6-progressive-enhancement-low-code-to-pro-code-bridge)
+- [Pattern 7 – Translytical Agent (Fabric + Power BI)](#pattern-7-translytical-agent-fabric--power-bi)
+- [Pattern 8: Agentic DevOps Lifecycle](#pattern-8-agentic-devops-lifecycle)
 - [Pattern Selection Guide](#pattern-selection-guide)
 - [Pattern Decision Tree](#pattern-decision-tree)
 
@@ -31,7 +34,7 @@ These patterns represent proven approaches for implementing Microsoft AI solutio
 2. Publish to the **Microsoft 365 channel** (Teams, Outlook, Copilot Chat) to validate adoption and governance early.[^studio-publish]
 3. Add approvals, analytics, and DLP controls through Power Platform admin policies while you refine prompts and topic structure.[^studio-overview]
 4. Break down responsibilities into **child** and **connected agents** so specialized copilots can collaborate while you stay in the maker canvas.[^connected-agents]
-5. When orchestration or private hosting requirements emerge, keep Copilot Studio as the front door while introducing **Azure AI Agent Service** plus **Agent Framework** workflows, and expose the orchestrator back through Copilot Studio or the Microsoft 365 Agents SDK.[^agentservice-overview][^agent-framework][^integrate-mcs]
+5. When orchestration or private hosting requirements emerge, keep Copilot Studio as the front door while introducing **Foundry Agent Service** plus **Agent Framework** workflows, and expose the orchestrator back through Copilot Studio or the Microsoft 365 Agents SDK.[^agentservice-overview][^agent-framework][^integrate-mcs]
 
 **Strengths:**
 
@@ -59,7 +62,7 @@ These patterns represent proven approaches for implementing Microsoft AI solutio
 
 - [Copilot Studio overview](https://learn.microsoft.com/en-us/microsoft-copilot-studio/overview-what-is-copilot-studio)[^studio-overview]
 - [Add custom Copilot Studio agents to Microsoft 365](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/publish)[^studio-publish]
-- [Azure AI Agent Service overview](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/overview)[^agentservice-overview]
+- [Foundry Agent Service overview](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/overview)[^agentservice-overview]
 
 **Status:** Recommended pattern for proofs of concept and iterative delivery
 **Confidence Level:** High (official Microsoft guidance)
@@ -70,8 +73,8 @@ These patterns represent proven approaches for implementing Microsoft AI solutio
 
 **Approach:**
 
-1. Design and build in **Azure AI Foundry** or Azure AI Agent Service to control model selection, prompt flow evaluations, and custom toolchains.[^agentservice-overview]
-2. Implement RAG with Azure AI Search, Cosmos DB, or SQL vector features depending on data gravity.[^feature-comparison]
+1. Design and build in **Azure AI Foundry** or Foundry Agent Service to control model selection, prompt flow evaluations, and custom toolchains.[^agentservice-overview]
+2. Implement RAG with Azure AI Search, Cosmos DB, or **SQL Server 2025** (native vector support) depending on data gravity.[^feature-comparison]
 3. Host the agent in Azure services you already operate (Container Apps, App Service, AKS) so networking, logging, and secrets align with your landing zone standards.[^evaluation-governance]
 4. Expose the experience inside Microsoft 365 through API plugins or custom engine agents created with the Microsoft 365 Agents SDK.[^api-plugins][^agentsdk-overview]
 
@@ -97,7 +100,7 @@ These patterns represent proven approaches for implementing Microsoft AI solutio
 
 **Sources:**
 
-- [Azure AI Agent Service overview](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/overview)[^agentservice-overview]
+- [Foundry Agent Service overview](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/overview)[^agentservice-overview]
 - [Microsoft AI Feature Comparison]({{ '/docs/feature-comparison' | relative_url }})[^feature-comparison]
 - [Evaluation Criteria – Governance & Compliance]({{ '/docs/evaluation-criteria#governance--compliance' | relative_url }})[^evaluation-governance]
 - [API plugins for Microsoft 365 Copilot](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-api-plugins)[^api-plugins]
@@ -201,7 +204,7 @@ These patterns represent proven approaches for implementing Microsoft AI solutio
 **Approach:**
 
 1. Model the orchestration in **Agent Framework Workflows** to get type-safe executors, edges, and validation before anything runs.[^agent-workflows]
-2. Stand up specialized agents (Azure AI Agent Service, Azure AI Foundry, or custom ChatClient agents) and register them as workflow executors.[^agent-azure-workflow][^agent-azure-agent]
+2. Stand up specialized agents (Foundry Agent Service, Azure AI Foundry, or custom ChatClient agents) and register them as workflow executors.[^agent-azure-workflow][^agent-azure-agent]
 3. Choose the right orchestration pattern—Sequential, Concurrent, Handoff, Group Chat, or Magentic—and configure routing rules that match each agent’s responsibilities.[^agent-orchestrations]
 4. Add reliability primitives like checkpointing, event streaming, and human-in-the-loop gates before hosting the workflow runtime.[^agent-checkpoint]
 5. Expose the orchestrator through your preferred surface (M365 Agents SDK, web API, Logic Apps trigger) so downstream channels can invoke the multi-agent workflow. Use the AG-UI protocol (Preview) when you need streaming, shared state, or human-approval experiences in custom web or mobile clients.[^agentsdk-overview][^agui-integration]
@@ -210,7 +213,7 @@ These patterns represent proven approaches for implementing Microsoft AI solutio
 
 - Purpose-built for complex, multi-step collaboration with first-class orchestration patterns.[^agent-orchestrations]
 - Strong typing, validation, and checkpointing reduce runtime surprises in long-running or regulated processes.[^agent-workflows][^agent-checkpoint]
-- Works with Azure AI Agent Service or persistent Foundry agents, letting you reuse enterprise-grade agents inside coordinated workflows.[^agent-azure-workflow][^agent-azure-agent]
+- Works with Foundry Agent Service or persistent Foundry agents, letting you reuse enterprise-grade agents inside coordinated workflows.[^agent-azure-workflow][^agent-azure-agent]
 - Surfaces advanced UI experiences through the AG-UI protocol with Server-Sent Events streaming, backend tool rendering, and human-in-the-loop approvals.[^agui-integration]
 
 **Trade-offs:**
@@ -235,10 +238,132 @@ These patterns represent proven approaches for implementing Microsoft AI solutio
 - [Checkpointing and resuming workflows](https://learn.microsoft.com/en-us/agent-framework/tutorials/workflows/checkpointing-and-resuming)[^agent-checkpoint]
 - [Agents in Workflows tutorial](https://learn.microsoft.com/en-us/agent-framework/tutorials/workflows/agents-in-workflows)[^agent-azure-workflow]
 - [Azure AI Foundry Agents integration](https://learn.microsoft.com/en-us/agent-framework/user-guide/agents/agent-types/azure-ai-foundry-agent)[^agent-azure-agent]
-- [Azure AI Agent Service transparency note](https://learn.microsoft.com/en-us/azure/ai-foundry/responsible-ai/agents/transparency-note#capabilities)[^agent-transparency]
+- [Foundry Agent Service transparency note](https://learn.microsoft.com/en-us/azure/ai-foundry/responsible-ai/agents/transparency-note#capabilities)[^agent-transparency]
 
-**Status:** Microsoft Agent Framework (Public Preview); Azure AI Agent Service (GA)
+**Status:** Microsoft Agent Framework (Public Preview); Foundry Agent Service (GA)
 **Confidence Level:** Medium (preview framework + GA runtime)
+
+---
+
+## Pattern 6: Progressive Enhancement (Low-Code to Pro-Code Bridge)
+
+**Approach:**
+
+1.  **Start:** Build the core agent in **Copilot Studio** to handle standard intents, FAQs, and simple flows.
+2.  **Enhance (Reasoning):** Swap the default model for a **BYO Model** from Azure AI Foundry (e.g., a fine-tuned GPT-4o or specialized SLM) to improve domain-specific reasoning without changing the UI.[^byo-model]
+3.  **Extend (Orchestration):** Identify complex, multi-step tasks that require advanced planning. Build these as **Foundry Agent Service** agents.
+4.  **Connect:** Use the **Agent Handoff** pattern to let the Copilot Studio agent delegate these specific tasks to the Azure agent, then receive the result back to present to the user.[^agent-handoff]
+5.  **Share:** Point both the Copilot Studio agent and the Azure agent to the same **Azure AI Search** index so they share a "brain" (knowledge base).[^shared-knowledge]
+
+**Strengths:**
+
+*   **Best of Both Worlds:** Makers keep the low-code management canvas; developers get full control over the "hard parts" (reasoning/orchestration).
+*   **No Migration Cliff:** You don't have to throw away the Copilot Studio agent and rewrite it in Python just to add one complex feature.
+*   **Unified Governance:** The "Front Door" (Copilot Studio) handles auth, channel publishing, and basic logging, while Azure handles the heavy compute.
+
+**Trade-offs:**
+
+*   **Latency:** Handoffs introduce a network hop between Copilot Studio and Azure.
+*   **Complexity:** Requires managing two environments (Power Platform + Azure).
+*   **Preview Features:** BYO Model and Agent Handoff are currently in Preview.
+
+**Signals this fits:**
+
+*   You have a working Copilot Studio agent but it struggles with *one specific complex task*.
+*   You need a specialized model (e.g., medical/legal fine-tune) but want to keep the easy Teams integration of Copilot Studio.
+*   You have a mixed team (Makers + Pro Devs) collaborating on the same bot.
+
+**When to pivot:** If *most* of the agent's logic is moving to Azure, switch to **Pattern 2** (Pro-Code First) to reduce the overhead of the dual-stack approach.
+
+**Sources:**
+
+*   [Bring Your Own Model to Copilot Studio](https://learn.microsoft.com/microsoft-copilot-studio/advanced-generative-actions)[^byo-model]
+*   [Agent Handoff to Foundry Agent Service](https://learn.microsoft.com/azure/ai-foundry/agents/how-to/handoff-copilot)[^agent-handoff]
+*   [Azure AI Search Overview](https://learn.microsoft.com/azure/search/)[^shared-knowledge]
+
+**Status:** Recommended for hybrid teams and scaling existing low-code agents
+**Confidence Level:** Medium (Relies on Preview features)
+
+---
+
+## Pattern 7: Translytical Agent (Fabric + Power BI)
+
+**Approach:**
+
+1. Ingest data into **OneLake** via Fabric shortcuts or pipelines to create a unified data estate.[^fabric-onelake]
+2. Enable **Fabric Data Agents** (Preview) on your semantic models to allow conversational Q&A over structured data.[^fabric-copilot]
+3. Use **Translytical Task Flows** to embed "Action" buttons directly in Power BI reports, allowing users to trigger business processes (via Power Automate or Logic Apps) based on insights.[^translytical]
+4. For custom scenarios, build a **Cosmos DB** database with analytical store enabled, mirroring data to OneLake for near real-time analytics without ETL.[^cosmos-mirroring]
+
+**Strengths:**
+
+- **Zero-ETL:** Analyzes data where it lives (OneLake/Cosmos DB) without moving it.
+- **Actionable Insights:** Closes the loop between "seeing a problem" (Analytics) and "fixing it" (Transaction) via Task Flows.
+- **Business User Friendly:** Users interact via chat (Fabric Copilot) or familiar Power BI interfaces.
+
+**Trade-offs:**
+
+- **Fabric Data Agents** are for *analytics retrieval*, not general-purpose orchestration. They don't "do" things outside of data analysis unless paired with Task Flows.
+- Requires Fabric capacity and appropriate licensing.
+
+**Signals this fits:**
+
+- The primary goal is "Chat with Data" or "Insight-to-Action".
+- Data gravity is in OneLake or SQL/Cosmos DB.
+- Users are analysts or business decision-makers using Power BI.
+
+**When to pivot:** If you need complex multi-step orchestration beyond simple actions, use **Pattern 5** (Agent Framework) and have it call Fabric APIs for data.
+
+**Sources:**
+
+- [Microsoft Fabric Copilot overview](https://learn.microsoft.com/fabric/get-started/copilot-fabric-overview)[^fabric-copilot]
+- [OneLake shortcuts](https://learn.microsoft.com/fabric/onelake/onelake-shortcuts)[^fabric-onelake]
+- [Cosmos DB Mirroring](https://learn.microsoft.com/azure/cosmos-db/mirroring-introduction)[^cosmos-mirroring]
+- [Power BI Task Flows](https://learn.microsoft.com/power-bi/create-reports/power-bi-task-flows)[^translytical]
+
+**Status:** Recommended for Data-First / Analytics-First scenarios
+**Confidence Level:** Medium (Fabric Data Agents are Preview)
+
+---
+
+## Pattern 8: Agentic DevOps Lifecycle
+
+**Approach:**
+
+1.  **Plan:** Developer assigns a task (refactor, test, feature) to **GitHub Copilot Coding Agent** via a GitHub Issue.
+2.  **Code:** Coding Agent autonomously creates a branch, writes code, runs tests, and opens a Pull Request.
+3.  **Review:** Developer reviews the PR in **VS Code (Agent Mode)** or GitHub.com.
+4.  **Deploy:** CI/CD pipeline deploys the change.
+5.  **Monitor:** **Azure SRE Agent** monitors the application in production.
+6.  **Fix:** If an alert fires, SRE Agent performs RCA and creates a new GitHub Issue for the Coding Agent to fix.
+
+**Strengths:**
+
+- **Asynchronous Productivity:** Developers offload routine tasks and focus on architecture/review.
+- **Self-Healing:** The loop between SRE Agent (Monitor) and Coding Agent (Fix) reduces MTTR.
+- **Integrated Context:** Agents share context via the GitHub platform (Issues, PRs, Code).
+
+**Trade-offs:**
+
+- **Trust & Verification:** Requires rigorous testing and review gates; "autonomy" does not mean "unsupervised".
+- **Cost:** Agent usage (Coding Agent, SRE Agent) is metered; monitor token consumption.
+- **Complexity:** Requires setting up multiple agents and ensuring they have correct permissions (Repo write, Azure Monitor read).
+
+**Signals this fits:**
+
+- Team spends significant time on maintenance, boilerplate, or firefighting.
+- Mature DevOps practices (CI/CD, automated testing) are already in place.
+- "Inner loop" velocity is a bottleneck.
+
+**When to pivot:** If the codebase is too legacy or lacks tests, start with **Scenario 8 (App Modernization)** to clean it up first.
+
+**Sources:**
+
+- [GitHub Copilot Workspace](https://githubnext.com/projects/copilot-workspace)
+- [Azure SRE Agent (Preview)](https://learn.microsoft.com/azure/ai-foundry/agents/overview)
+
+**Status:** Emerging Pattern (Preview)
+**Confidence Level:** Medium (Rapidly evolving)
 
 ---
 
@@ -252,15 +377,19 @@ These patterns represent proven approaches for implementing Microsoft AI solutio
 | **Pattern 3 (M365 Knowledge)** | Fast (days) | Low | Medium | M365 Copilot (native) |
 | **Pattern 4 (Multi-Channel SDK)** | Moderate (weeks) | High | Full | 10+ channels |
 | **Pattern 5 (Agent Framework)** | Moderate (weeks to months) | Very High | Full | Multi-agent workflows |
+| **Pattern 6 (Progressive)** | Moderate (weeks) | Medium | High | M365 Copilot, Teams |
+| **Pattern 7 (Translytical)** | Fast (days) | Medium | Medium | Power BI, Fabric |
+| **Pattern 8 (Agentic DevOps)** | Moderate (weeks) | Medium | High | GitHub, Azure DevOps |
 
 ---
 
 ### Pattern Decision Tree
 {: .no_toc }
 
-**Ground yourself first**
 
-1. **Run the BXT gate.** Confirm viability, desirability, and feasibility in [Decision Framework Phase 1]({{ '/docs/decision-framework#phase-1-business-impact-assessment-bxt-framework' | relative_url }}). Any red score means pause here—capture the scenario in the [Scenarios backlog]({{ '/docs/scenarios#how-to-use-this-guide' | relative_url }}) instead of forcing a pattern.
+#### Ground yourself first
+
+1. **Run the BXT gate.** Confirm viability, desirability, and feasibility in [Decision Framework Phase 1]({{ '/docs/decision-framework#phase-1-business-impact-assessment-bxt-framework' | relative_url }}). Any red score means pause here—capture the scenario in the [Scenarios backlog]({{ '/docs/scenarios#how-to-use-this-guide' | relative_url }})) instead of forcing a pattern.
 
 2. **Anchor the user experience.**  
    - **M365-first surface** (Teams, Outlook, Word) → stay inside the Microsoft 365 trust boundary with **Pattern 3** for knowledge-only needs[^pattern3-knowledge] or **Pattern 1** when you need orchestrated actions and governance controls inside Copilot Studio[^pattern1-actions].  
@@ -288,7 +417,7 @@ These patterns represent proven approaches for implementing Microsoft AI solutio
 [^agent-workflows]: Microsoft Agent Framework Workflows overview, Microsoft Learn. [https://learn.microsoft.com/en-us/agent-framework/user-guide/workflows/overview](https://learn.microsoft.com/en-us/agent-framework/user-guide/workflows/overview)
 [^agentsdk-overview]: Microsoft 365 Agents SDK overview, Microsoft Learn. [https://learn.microsoft.com/en-us/microsoft-365/agents-sdk/agents-sdk-overview](https://learn.microsoft.com/en-us/microsoft-365/agents-sdk/agents-sdk-overview)
 
-----
+---
 
 {: .note-title }
 > Related Resources
@@ -298,13 +427,13 @@ These patterns represent proven approaches for implementing Microsoft AI solutio
 > - For evaluation criteria, see [Evaluation Criteria]({{ '/docs/evaluation-criteria' | relative_url }})
 > - For guardrail guidance, see [Action Safety Guardrail Playbook]({{ '/docs/evaluation-criteria#action-safety-guardrail-playbook' | relative_url }})
 
-----
+---
 
 **Next:** [Technologies]({{ '/docs/technologies' | relative_url }}) - Deep dive into technical specifications
 
 [^studio-overview]: Microsoft Copilot Studio overview, Microsoft Learn. Retrieved: 2025-11-11. [https://learn.microsoft.com/en-us/microsoft-copilot-studio/overview-what-is-copilot-studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/overview-what-is-copilot-studio)
 [^studio-publish]: Add custom Copilot Studio agents to Microsoft 365, Microsoft Learn. Retrieved: 2025-11-11. [https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/publish](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/publish)
-[^agentservice-overview]: Azure AI Agent Service overview, Microsoft Learn. Retrieved: 2025-11-11. [https://learn.microsoft.com/en-us/azure/ai-foundry/agents/overview](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/overview)
+[^agentservice-overview]: Foundry Agent Service overview, Microsoft Learn. Retrieved: 2025-11-11. [https://learn.microsoft.com/en-us/azure/ai-foundry/agents/overview](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/overview)
 [^connected-agents]: Add other agents (Preview), Microsoft Copilot Studio documentation. Retrieved: 2025-11-11. [https://learn.microsoft.com/en-us/microsoft-copilot-studio/authoring-add-other-agents](https://learn.microsoft.com/en-us/microsoft-copilot-studio/authoring-add-other-agents)
 [^agent-framework]: Microsoft Agent Framework concepts, Microsoft Learn. Retrieved: 2025-11-11. [https://learn.microsoft.com/en-us/azure/ai-services/agents/concepts/agent-framework](https://learn.microsoft.com/en-us/azure/ai-services/agents/concepts/agent-framework)
 [^integrate-mcs]: Integrate with Copilot Studio using the Microsoft 365 Agents SDK, Microsoft Learn. Retrieved: 2025-11-11. [https://learn.microsoft.com/en-us/microsoft-365/agents-sdk/integrate-with-mcs](https://learn.microsoft.com/en-us/microsoft-365/agents-sdk/integrate-with-mcs)
@@ -318,7 +447,7 @@ These patterns represent proven approaches for implementing Microsoft AI solutio
 [^agent-checkpoint]: Checkpointing and resuming workflows, Microsoft Learn. Retrieved: 2025-11-11. [https://learn.microsoft.com/en-us/agent-framework/tutorials/workflows/checkpointing-and-resuming](https://learn.microsoft.com/en-us/agent-framework/tutorials/workflows/checkpointing-and-resuming)
 [^agent-azure-workflow]: Agents in Workflows tutorial, Microsoft Learn. Retrieved: 2025-11-11. [https://learn.microsoft.com/en-us/agent-framework/tutorials/workflows/agents-in-workflows](https://learn.microsoft.com/en-us/agent-framework/tutorials/workflows/agents-in-workflows)
 [^agent-azure-agent]: Azure AI Foundry Agents integration, Microsoft Learn. Retrieved: 2025-11-11. [https://learn.microsoft.com/en-us/agent-framework/user-guide/agents/agent-types/azure-ai-foundry-agent](https://learn.microsoft.com/en-us/agent-framework/user-guide/agents/agent-types/azure-ai-foundry-agent)
-[^agent-transparency]: Azure AI Agent Service transparency note, Microsoft Learn. Retrieved: 2025-11-11. [https://learn.microsoft.com/en-us/azure/ai-foundry/responsible-ai/agents/transparency-note#capabilities](https://learn.microsoft.com/en-us/azure/ai-foundry/responsible-ai/agents/transparency-note#capabilities)
+[^agent-transparency]: Foundry Agent Service transparency note, Microsoft Learn. Retrieved: 2025-11-11. [https://learn.microsoft.com/en-us/azure/ai-foundry/responsible-ai/agents/transparency-note#capabilities](https://learn.microsoft.com/en-us/azure/ai-foundry/responsible-ai/agents/transparency-note#capabilities)
 [^agui-integration]: AG-UI integration with Agent Framework, Microsoft Learn. Preview, Updated: 2025-11-11. [https://learn.microsoft.com/en-us/agent-framework/integrations/ag-ui/](https://learn.microsoft.com/en-us/agent-framework/integrations/ag-ui/)
 [^graph-connectors]: Microsoft Graph connectors overview (external data indexing into Microsoft 365), Microsoft Learn. Retrieved: 2025-11-11. [https://learn.microsoft.com/en-us/graph/connecting-external-content-connectors-overview](https://learn.microsoft.com/en-us/graph/connecting-external-content-connectors-overview)
 [^declarative-agents]: Declarative agents for Microsoft 365 Copilot overview, Microsoft Learn. Retrieved: 2025-11-11. [https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-declarative-agent](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-declarative-agent)

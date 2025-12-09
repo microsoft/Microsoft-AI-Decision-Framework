@@ -2,10 +2,14 @@
 
 <!-- Custom CSS for Mermaid diagram interactions -->
 <style>
-/* Diagram container with expand button */
+/* Diagram container with expand button - must not constrain diagram width */
 .mermaid-container {
   position: relative;
   margin: 1rem 0;
+  width: auto !important;
+  max-width: none !important;
+  overflow-x: auto;
+  overflow-y: visible;
 }
 
 /* Expand/fullscreen button */

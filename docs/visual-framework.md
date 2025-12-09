@@ -115,15 +115,15 @@ flowchart TD
     
     Monitor --> End([Production])
     
-    style M365 fill:#0078D4,color:#fff
-    style Studio fill:#0078D4,color:#fff
-    style StudioAuto fill:#0078D4,color:#fff
-    style SDK fill:#5C2D91,color:#fff
-    style Foundry fill:#D83B01,color:#fff
-    style AGUI fill:#5C2D91,color:#fff
-    style LogicApps fill:#0078D4,color:#fff
-    style AgentService fill:#D83B01,color:#fff
-    style WinAI fill:#0078D4,color:#fff
+    style M365 fill:#004578,color:#fff
+    style Studio fill:#004578,color:#fff
+    style StudioAuto fill:#004578,color:#fff
+    style SDK fill:#4b2070,color:#fff
+    style Foundry fill:#a52617,color:#fff
+    style AGUI fill:#4b2070,color:#fff
+    style LogicApps fill:#004578,color:#fff
+    style AgentService fill:#a52617,color:#fff
+    style WinAI fill:#004578,color:#fff
 ```
 
 ### Validation Summary
@@ -216,18 +216,18 @@ flowchart TD
     DSFoundry --> DSFoundryEnd([ML pipeline])
     IntSpec --> IntSpecEnd([Enterprise workflows])
     
-    style User fill:#107C10,color:#fff
-    style MakerStudio fill:#0078D4,color:#fff
-    style MakerPlus fill:#0078D4,color:#fff
-    style DevM365 fill:#5C2D91,color:#fff
-    style DevAzure fill:#5C2D91,color:#fff
-    style DevOrch fill:#5C2D91,color:#fff
-    style DevLogic fill:#0078D4,color:#fff
-    style DevFoundry fill:#D83B01,color:#fff
-    style DevAGUI fill:#5C2D91,color:#fff
-    style DSFabric fill:#FFB900,color:#000
-    style DSFoundry fill:#D83B01,color:#fff
-    style IntSpec fill:#0078D4,color:#fff
+    style User fill:#0b6a0b,color:#fff
+    style MakerStudio fill:#004578,color:#fff
+    style MakerPlus fill:#004578,color:#fff
+    style DevM365 fill:#4b2070,color:#fff
+    style DevAzure fill:#4b2070,color:#fff
+    style DevOrch fill:#4b2070,color:#fff
+    style DevLogic fill:#004578,color:#fff
+    style DevFoundry fill:#a52617,color:#fff
+    style DevAGUI fill:#4b2070,color:#fff
+    style DSFabric fill:#8c5e00,color:#fff
+    style DSFoundry fill:#a52617,color:#fff
+    style IntSpec fill:#004578,color:#fff
 ```
 
 ### Validation Summary - Persona-Based Flow
@@ -344,18 +344,18 @@ flowchart TD
     Layer -->|Azure Foundry| LayerFoundry([Configure Foundry])
     Layer -->|Logic Apps| LayerLogicApps([MCP Server/<br/>Connector])
     
-    style Graph fill:#0078D4,color:#fff
-    style AgentFileSearch fill:#0078D4,color:#fff
-    style StudioKnowledge fill:#742774,color:#fff
-    style Search fill:#0078D4,color:#fff
-    style ContentUnderstanding fill:#50E6FF,color:#000
-    style CosmosIVF fill:#0078D4,color:#fff
-    style CosmosHNSW fill:#0078D4,color:#fff
-    style CosmosDiskANN fill:#0078D4,color:#fff
-    style Postgres fill:#0078D4,color:#fff
-    style SQL fill:#0078D4,color:#fff
-    style FabricPlatform fill:#FFB900,color:#000
-    style FabricAgent fill:#FFB900,color:#000
+    style Graph fill:#004578,color:#fff
+    style AgentFileSearch fill:#004578,color:#fff
+    style StudioKnowledge fill:#4b2070,color:#fff
+    style Search fill:#004578,color:#fff
+    style ContentUnderstanding fill:#006192,color:#fff
+    style CosmosIVF fill:#004578,color:#fff
+    style CosmosHNSW fill:#004578,color:#fff
+    style CosmosDiskANN fill:#004578,color:#fff
+    style Postgres fill:#004578,color:#fff
+    style SQL fill:#004578,color:#fff
+    style FabricPlatform fill:#8c5e00,color:#fff
+    style FabricAgent fill:#8c5e00,color:#fff
 ```
 
 ### Validation Summary - Data Grounding Decision
@@ -458,9 +458,9 @@ flowchart TD
     C_SDK --> Timeline5[2-3 months]
     C_Foundry --> Timeline6[3-6 months]
     
-    style Simple fill:#107C10,color:#fff
-    style Medium fill:#FFB900,color:#000
-    style Complex fill:#D83B01,color:#fff
+    style Simple fill:#0b6a0b,color:#fff
+    style Medium fill:#8c5e00,color:#fff
+    style Complex fill:#a52617,color:#fff
 ```
 
 ---
@@ -496,17 +496,17 @@ flowchart TD
     EntT -->|3-6 Months| E_Med[Foundry + Agent Service<br/>$10-30K/mo est<br/>Managed orchestration]
     EntT -->|6+ Months| E_Slow[Foundry PTU + Premium<br/>$30K+/mo<br/>PTU reservation + S2/S3 Search]
     
-    style M365_Fast fill:#107C10,color:#fff
-    style M365_Med fill:#107C10,color:#fff
-    style S_Fast fill:#107C10,color:#fff
-    style G_Fast fill:#107C10,color:#fff
-    style G_Med fill:#107C10,color:#fff
-    style E_Med fill:#107C10,color:#fff
-    
-    style M365_Slow fill:#FFB900,color:#000
-    style S_Med fill:#FFB900,color:#000
-    style G_Slow fill:#FFB900,color:#000
-    style S_Slow fill:#FF8C00,color:#fff
+    style M365_Fast fill:#0b6a0b,color:#fff
+    style M365_Med fill:#0b6a0b,color:#fff
+    style S_Fast fill:#0b6a0b,color:#fff
+    style G_Fast fill:#0b6a0b,color:#fff
+    style G_Med fill:#0b6a0b,color:#fff
+    style E_Med fill:#0b6a0b,color:#fff
+
+    style M365_Slow fill:#8c5e00,color:#fff
+    style S_Med fill:#8c5e00,color:#fff
+    style G_Slow fill:#8c5e00,color:#fff
+    style S_Slow fill:#9a4300,color:#fff
 ```
 
 ### Validation Summary - Budget & Timeline Tradeoffs
@@ -606,14 +606,14 @@ flowchart TD
     Q4 -->|Multi-channel<br/>custom agents| G7[M365 Agents SDK<br/>Custom Auth + Hosting]
     Q4 -->|Orchestration<br/>library only| G8[Agent Framework<br/>Host-Inherited Governance]
     
-    style G1 fill:#107C10,color:#fff
-    style G2 fill:#0078D4,color:#fff
-    style G3 fill:#0078D4,color:#fff
-    style G4 fill:#0078D4,color:#fff
-    style G5 fill:#FFB900,color:#000
-    style G6 fill:#0078D4,color:#fff
-    style G7 fill:#5C2D91,color:#fff
-    style G8 fill:#E81123,color:#fff
+    style G1 fill:#0b6a0b,color:#fff
+    style G2 fill:#004578,color:#fff
+    style G3 fill:#004578,color:#fff
+    style G4 fill:#004578,color:#fff
+    style G5 fill:#8c5e00,color:#fff
+    style G6 fill:#004578,color:#fff
+    style G7 fill:#4b2070,color:#fff
+    style G8 fill:#a52617,color:#fff
 ```
 
 ### Validation Summary: Governance & Compliance Path
@@ -694,9 +694,9 @@ flowchart TD
     E_Functions --> Deploy8([Deploy])
     E_Custom --> Deploy9([Deploy])
     
-    style Connected fill:#107C10,color:#fff
-    style Workflows fill:#FFB900,color:#000
-    style EventDriven fill:#5C2D91,color:#fff
+    style Connected fill:#0b6a0b,color:#fff
+    style Workflows fill:#8c5e00,color:#fff
+    style EventDriven fill:#4b2070,color:#fff
 ```
 
 ### Validation Summary: Multi-Agent Orchestration
@@ -756,10 +756,10 @@ flowchart TD
     Path2 --> Result2([Copilot Studio UI<br/>+ Azure Agent Brain])
     Path3 --> Result3([Full Pro-Code<br/>Solution])
     
-    style Stay fill:#0078D4,color:#fff
-    style Path1 fill:#FFB900,color:#000
-    style Path2 fill:#D83B01,color:#fff
-    style Path3 fill:#5C2D91,color:#fff
+    style Stay fill:#004578,color:#fff
+    style Path1 fill:#8c5e00,color:#fff
+    style Path2 fill:#a52617,color:#fff
+    style Path3 fill:#4b2070,color:#fff
 ```
 
 ### Validation Summary: Upgrade Paths

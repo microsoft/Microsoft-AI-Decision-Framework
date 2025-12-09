@@ -1,683 +1,442 @@
-// Custom styles to optimize layout for large monitors
-// Aggressive space utilization - minimize all padding and maximize content area
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Source+Sans+3:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
 
-// BODY - Configure as flex container for proper sidebar + main layout
+:root {
+	--bg: #0d1117;
+	--bg-panel: #111827;
+	--bg-panel-strong: #0f172a;
+	--bg-glass: rgba(255, 255, 255, 0.04);
+	--text: #d6deec;
+	--text-strong: #eef3fb;
+	--muted: #9cacc2;
+	--border: #1f2937;
+	--shadow: 0 16px 48px rgba(0, 0, 0, 0.35);
+	--shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.25);
+	--primary: #3b82f6;
+	--primary-strong: #2563eb;
+	--secondary: #f59e0b;
+	--success: #10b981;
+	--warning: #fbbf24;
+	--danger: #ef4444;
+	--link: #60a5fa;
+	--link-hover: #93c5fd;
+	--pill-ga: rgba(16, 185, 129, 0.18);
+	--pill-preview: rgba(245, 158, 11, 0.18);
+	--pill-exp: rgba(239, 68, 68, 0.18);
+	--code-bg: #0f172a;
+	--code-border: #1e293b;
+	--table-row: #0f1724;
+	--table-row-alt: #111b2d;
+	--gradient-hero: linear-gradient(135deg, #0f172a 0%, #111827 40%, #0b1224 100%);
+	--gradient-accent: linear-gradient(90deg, #3b82f6, #f59e0b);
+}
+
+/* Base layout */
 body {
-  display: flex !important;
-  flex-direction: row !important;
-  min-height: 100vh !important;
+	font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+	background: var(--bg);
+	color: var(--text);
+	line-height: 1.6;
+	letter-spacing: 0.01em;
+	display: flex;
+	flex-direction: row;
+	min-height: 100vh;
 }
 
-// MAIN CONTENT - Use maximum width available
-.main-content {
-  max-width: none !important; // Remove default 800px limit
-  width: 100% !important; // Use full available width
-  padding-left: 1rem !important; // Minimal left padding
-  padding-right: 0.625rem !important; // 10px right padding for better spacing
-  padding-top: 1rem !important; // Top padding for content spacing
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-}
-
-// MAIN CONTENT WRAPPER - Remove extra padding
-.main-content-wrap {
-  max-width: none !important;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-}
-
-// PAGE WRAPPER - Remove margins
-.page {
-  max-width: none !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-}
-
-// MAIN DIV - Use flexbox to fill remaining space, NO TOP PADDING for header alignment
-.main,
-#top,
-div.main#top {
-  flex: 1 1 auto !important; // Grow to fill remaining space after sidebar
-  max-width: none !important;
-  width: auto !important;
-  margin: auto !important; // Match the actual rendered style
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-  padding-right: 0 !important;
-  padding-left: 0.25rem !important; // Reduced to 4px (0.25rem)
-  padding-top: 0 !important; // REMOVE top padding to align headers
-  overflow-x: auto !important; // Handle overflow properly
-  order: 0 !important; // Ensure main comes after sidebar (order: -1)
-  position: relative !important; // Override any absolute positioning
-  min-height: 100vh !important; // Full viewport height
-  box-sizing: border-box !important;
-}
-
-// SIDEBAR - Fixed width, no flex growth, responsive sizing
 .side-bar {
-  flex: 0 0 160px !important; // Base width for medium screens
-  width: 160px !important;
-  min-width: 160px !important; // Override theme's 16.5rem (264px)
-  max-width: 160px !important; // Enforce width constraint
-  min-height: 100vh !important; // At least full viewport height
-  height: auto !important; // Override theme's height: 100%, allow expansion
-  overflow-y: auto !important; // Scroll if sidebar content overflows
-  padding: 0 !important; // Remove all padding - header will have its own
-  order: -1 !important; // Ensure sidebar appears first (left side)
-  position: relative !important; // Override any absolute positioning
-  flex-flow: column nowrap !important; // Maintain vertical layout
-  align-items: stretch !important; // Stretch to fill width (not flex-end)
-  
-  // Larger screens get wider sidebar
-  @media (min-width: 66.5rem) {
-    flex: 0 0 180px !important;
-    width: 180px !important;
-    min-width: 180px !important;
-    max-width: 180px !important;
-  }
+	background: var(--bg-panel);
+	border-right: 1px solid var(--border);
+	width: clamp(220px, 18vw, 260px);
+	min-width: clamp(210px, 16vw, 240px);
+	box-shadow: inset -1px 0 0 rgba(255, 255, 255, 0.02);
+	position: sticky;
+	top: 0;
+	height: 100vh;
+	backdrop-filter: blur(6px);
+	padding: 0.75rem 0.75rem 1rem;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
 }
 
-// SITE TITLE - Display inline with logo, allow text to wrap within fixed height
-.site-title {
-  padding-left: 0.25rem !important;
-  padding-right: 0.25rem !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-  margin-top: 0 !important;
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
-  line-height: 1.3 !important;
-  min-height: 3.75rem !important;
-  height: 3.75rem !important;
-  max-height: 3.75rem !important;
-  overflow: hidden !important;
-  flex-grow: 1 !important;
-  display: flex !important;
-  align-items: center !important;
-  flex-wrap: wrap !important;
+.side-bar .site-header,
+.side-bar .site-nav,
+.side-bar .site-nav .nav-list,
+.side-bar .nav-list .nav-list-item > a,
+.side-bar .nav-list .nav-list-item > .nav-list-link,
+.side-bar .search {
+	width: 100%;
+	box-sizing: border-box;
 }
 
-// SITE LOGO - Consolidated styling for all logo selectors
-// Handles both PNG and SVG formats with proper scaling
-.site-logo,
-.site-logo-img,
-.site-logo img {
-  height: 38px !important;
-  width: auto !important;
-  max-width: 240px !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  margin-right: 0 !important;
-  padding: 0 !important;
-  flex-shrink: 0 !important;
-  object-fit: contain !important; // Maintain aspect ratio for both PNG and SVG
-  vertical-align: middle !important;
+.side-bar .nav-list .nav-list-item > a,
+.side-bar .nav-list .nav-list-item > .nav-list-link {
+	word-break: break-word;
 }
 
-// SITE TITLE TEXT - The actual text next to logo
-.site-title-text {
-  display: inline-block !important;
-  vertical-align: middle !important;
-  color: #f5f6fa !important;
-  font-size: 0.875rem !important;
-  font-weight: 600 !important;
-  line-height: 1.3 !important;
-  white-space: normal !important;
-  word-wrap: break-word !important;
-  max-width: calc(100% - 48px) !important; // Account for logo (38px) + spacing
-  padding-left: 1rem !important;
-  flex: 1 1 auto !important;
+.main {
+	flex: 1 1 auto;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
 }
 
-// SITE HEADER (in sidebar) - Force exact 3.75rem height to match main-header
-.site-header {
-  padding-left: 0.5rem !important;
-  padding-right: 0.5rem !important;
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
-  margin-top: 0 !important;
-  width: 100% !important;
-  min-height: 3.75rem !important;
-  height: 3.75rem !important;
-  max-height: 3.75rem !important;
-  display: flex !important;
-  align-items: center !important;
-  border-bottom: 1px solid #44434d !important;
-  box-sizing: border-box !important;
+#top,
+.main#top {
+	margin-left: 0;
+	padding-left: 1rem;
+	padding-right: 1.5rem;
+	max-width: 90rem;
+	width: 100%;
+	box-sizing: border-box;
 }
 
-// TOP HEADER BAR (search + view on github) - Align with sidebar header perfectly
+.main-content-wrap {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	display: flex;
+	justify-content: flex-start;
+}
+
+#main-content,
+.main-content {
+	margin: 0;
+	max-width: clamp(72ch, 85vw, 170ch);
+	width: 100%;
+	padding: 1.25rem 1.5rem 3rem;
+}
+
 .main-header,
 #main-header {
-  padding-left: 0.5rem !important;
-  padding-right: 0.5rem !important;
-  margin-top: 0 !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: space-between !important;
-  height: 3.75rem !important; // Fixed height to match sidebar header
-  background-color: #27262b !important;
-  border-bottom: 1px solid #44434d !important;
-  z-index: 0 !important;
-  box-sizing: border-box !important;
+	background: var(--bg-panel-strong);
+	border-bottom: 1px solid var(--border);
+	box-shadow: var(--shadow-soft);
+	position: sticky;
+	top: 0;
+	z-index: 5;
+	padding: 0.5rem 1.25rem;
 }
 
-// Main header direct child divs (search container)
-.main-header > div {
-  display: flex !important;
-  align-items: center !important; // Vertically center search input
-  height: 100% !important;
+.page {
+	max-width: 1220px;
+	margin: 0 auto;
+	padding: 1.25rem 1.5rem 3rem;
+	flex: 1 1 auto;
 }
 
-.site-nav,
-.main-content-wrap > .site-header {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
+.main-content {
+	max-width: min(96ch, 100%);
 }
 
-// SITE NAV - Remove all padding (#site-nav)
-#site-nav,
-.site-nav {
-  padding: 0 !important;
-  margin: 0 !important;
-  width: 100% !important; // Inherit full width from sidebar
-  max-width: 100% !important; // Don't exceed sidebar width
-  box-sizing: border-box !important; // Include padding in width
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Sora', 'Source Sans 3', sans-serif;
+	color: var(--text-strong);
+	letter-spacing: -0.01em;
 }
 
-// NAVIGATION - Tighter spacing
-.nav-list {
-  padding-left: 0.5rem !important;
-  padding-right: 0.5rem !important;
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
+h1 { font-size: 2.2rem; }
+h2 { font-size: 1.7rem; }
+h3 { font-size: 1.35rem; }
+h4 { font-size: 1.1rem; }
+
+p { color: var(--text); }
+
+/* Links */
+a { color: var(--link); }
+a:hover { color: var(--link-hover); }
+a:focus { outline: 2px solid var(--secondary); outline-offset: 2px; }
+
+/* Navigation */
+.site-title { color: var(--text-strong); }
+.site-header {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 0.65rem;
+	padding: 0.7rem 0.75rem 0.55rem;
+	width: 100%;
+	height: 3.75rem;
+	box-sizing: border-box;
 }
 
-.nav-list .nav-list-item {
-  margin: 0.25rem 0 !important;
+.site-logo img,
+.site-logo,
+.site-logo-img {
+	max-height: 32px;
+	width: auto;
+	display: block;
+	flex: 0 0 auto;
 }
 
-// NAVIGATION LINKS - Remove excessive padding
-.nav-list .nav-list-item > a {
-  padding: 0.25rem 0.5rem !important; // Minimal padding instead of 32px
+.site-header .site-title {
+	display: flex;
+	align-items: center;
+	gap: 0.6rem;
+	margin: 0;
+	padding: 0;
+	width: auto;
+	text-decoration: none;
+	color: var(--text-strong);
+	flex: 1 1 auto;
+	min-width: 0;
 }
 
-// SEARCH BAR - No padding for tight alignment in main-header
-.search {
-  padding: 0 !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-  display: flex !important;
-  align-items: center !important;
-  width: 100% !important;
+.site-title span,
+.site-title-text {
+	display: block;
+	font-size: 1rem;
+	line-height: 1.25;
+	color: var(--text-strong);
+	white-space: normal;
+	flex: 1 1 auto;
+	min-width: 0;
 }
 
-.search-input-wrap {
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-  display: flex !important;
-  align-items: center !important;
-  width: 100% !important;
-  height: auto !important; // Let it size naturally
+.site-logo + .site-title,
+.site-logo-img + .site-title {
+	padding-left: 0.1rem;
 }
 
-.search-input,
-#search-input {
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-  position: relative !important; // Override absolute positioning
-  height: 2.5rem !important; // Fixed height for consistency
-  width: 100% !important;
+.site-nav .nav-list .nav-list-item > a,
+.site-nav .nav-list .nav-list-item > .nav-list-link {
+	padding: 0.35rem 0.75rem;
+	border-radius: 6px;
+	transition: background 140ms ease, color 140ms ease;
 }
 
-// Search results
-.search-results {
-  padding-left: 0.5rem !important;
-  padding-right: 0.5rem !important;
+.site-nav .nav-list .nav-list-item > a:hover,
+.site-nav .nav-list .nav-list-item > .nav-list-link:hover {
+	background: var(--bg-glass);
+	color: var(--text-strong);
 }
 
-// BREADCRUMBS - Minimize space
-.breadcrumb-nav {
-  margin-top: 0.5rem !important;
-  margin-bottom: 0.5rem !important;
-  padding-left: 0 !important;
+.site-nav .nav-list .nav-list-item .nav-list-link.active {
+	background: rgba(59, 130, 246, 0.12);
+	color: var(--text-strong);
+	border: 1px solid rgba(59, 130, 246, 0.2);
 }
 
-// PAGE HEADER - Remove excessive padding
+.search-input {
+	background: var(--bg-panel);
+	border: 1px solid var(--border);
+	color: var(--text);
+	border-radius: 8px;
+	height: 2.5rem;
+}
+
+/* Hero and section framing */
 .page-header {
-  padding-top: 0.5rem !important;
-  padding-bottom: 0.5rem !important;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
+	background: var(--gradient-hero);
+	padding: 1.25rem 1.5rem;
+	border-radius: 12px;
+	border: 1px solid var(--border);
+	box-shadow: var(--shadow);
+	position: relative;
+	overflow: hidden;
 }
 
-// TITLES - Reduce spacing
-.main-content h1:first-of-type {
-  margin-top: 0.5rem !important;
+.page-header:after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background: radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.15), transparent 35%),
+									radial-gradient(circle at 80% 20%, rgba(245, 158, 11, 0.16), transparent 30%);
+	pointer-events: none;
 }
 
-.main-content h1,
 .main-content h2,
 .main-content h3 {
-  margin-top: 1.5rem !important;
-  margin-bottom: 0.75rem !important;
+	background: var(--bg-panel);
+	border: 1px solid var(--border);
+	border-radius: 10px;
+	padding: 0.9rem 1rem;
+	box-shadow: var(--shadow-soft);
+	margin-top: 2rem;
+	position: relative;
+	overflow: hidden;
 }
 
-// HEADING ANCHOR LINKS - Ensure they stay within main content area
-.main-content h1 > a.anchor,
-.main-content h2 > a.anchor,
-.main-content h3 > a.anchor,
-.main-content h4 > a.anchor,
-.main-content h5 > a.anchor,
-.main-content h6 > a.anchor,
-.main-content h1 > a.anchor-heading,
-.main-content h2 > a.anchor-heading,
-.main-content h3 > a.anchor-heading,
-.main-content h4 > a.anchor-heading,
-.main-content h5 > a.anchor-heading,
-.main-content h6 > a.anchor-heading {
-  left: -1.5rem !important; // Position to the left of heading
-  margin-left: 0 !important; // Reset any margin
-  text-decoration: none !important; // Remove underline
-  border-bottom: none !important; // Remove any border underline
-  border: none !important; // Remove all borders
-  opacity: 0 !important; // Hidden by default
-  transition: opacity 0.2s ease !important;
-  
-  &:hover {
-    opacity: 1 !important; // Show on hover
-  }
+.main-content h2:after,
+.main-content h3:after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	height: 3px;
+	width: 100%;
+	background: var(--gradient-accent);
 }
 
-// Show anchor when hovering over heading
-.main-content h1:hover > a.anchor,
-.main-content h2:hover > a.anchor,
-.main-content h3:hover > a.anchor,
-.main-content h4:hover > a.anchor,
-.main-content h5:hover > a.anchor,
-.main-content h6:hover > a.anchor,
-.main-content h1:hover > a.anchor-heading,
-.main-content h2:hover > a.anchor-heading,
-.main-content h3:hover > a.anchor-heading,
-.main-content h4:hover > a.anchor-heading,
-.main-content h5:hover > a.anchor-heading,
-.main-content h6:hover > a.anchor-heading {
-  opacity: 1 !important;
+.main-content h4 {
+	background: rgba(59, 130, 246, 0.08);
+	border-left: 4px solid var(--primary);
+	padding: 0.65rem 0.9rem;
+	border-radius: 8px;
+	margin-top: 1.25rem;
 }
 
-// Ensure headings have position: relative for anchor positioning
-.main-content h1,
+/* Cards & panels */
+.content-panel {
+	background: var(--bg-panel);
+	border: 1px solid var(--border);
+	border-radius: 12px;
+	padding: 1rem 1.25rem;
+	box-shadow: var(--shadow-soft);
+	backdrop-filter: blur(4px);
+}
+
+/* Callouts */
+blockquote {
+	background: rgba(15, 23, 42, 0.6);
+	border-left: 4px solid var(--secondary);
+	border-radius: 10px;
+	padding: 0.9rem 1rem;
+	color: var(--text);
+	box-shadow: var(--shadow-soft);
+}
+
+/* Tables */
+.main-content table {
+	background: var(--bg-panel);
+	border: 1px solid var(--border);
+	border-radius: 12px;
+	overflow: hidden;
+	box-shadow: var(--shadow-soft);
+}
+
+.main-content table th {
+	background: var(--bg-panel-strong);
+	color: var(--text-strong);
+	border-bottom: 1px solid var(--border);
+	padding: 0.75rem;
+}
+
+.main-content table td {
+	border-top: 1px solid var(--border);
+	padding: 0.7rem;
+}
+
+.main-content table tr:nth-child(even) { background: var(--table-row); }
+.main-content table tr:nth-child(odd) { background: var(--table-row-alt); }
+
+/* Lists */
+.main-content ul,
+.main-content ol {
+	padding-left: 1.25rem;
+}
+
+.main-content li { margin-bottom: 0.4rem; }
+
+/* Code & pre */
+code {
+	background: var(--code-bg);
+	border: 1px solid var(--code-border);
+	border-radius: 6px;
+	padding: 0.1rem 0.35rem;
+	font-family: 'JetBrains Mono', 'Source Code Pro', monospace;
+	color: var(--link-hover);
+}
+
+pre {
+	background: var(--code-bg);
+	border: 1px solid var(--code-border);
+	border-radius: 10px;
+	padding: 0.9rem 1rem;
+	overflow-x: auto;
+	box-shadow: var(--shadow-soft);
+}
+
+pre code {
+	border: none;
+	padding: 0;
+	color: var(--text-strong);
+}
+
+/* Pills for statuses */
+.pill {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.25rem;
+	padding: 0.2rem 0.55rem;
+	border-radius: 999px;
+	font-size: 0.75rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	border: 1px solid transparent;
+}
+
+.pill.ga { background: var(--pill-ga); color: var(--success); border-color: rgba(16, 185, 129, 0.35); }
+.pill.preview { background: var(--pill-preview); color: var(--secondary); border-color: rgba(245, 158, 11, 0.35); }
+.pill.experimental { background: var(--pill-exp); color: var(--danger); border-color: rgba(239, 68, 68, 0.35); }
+
+/* Focus ring */
+:focus-visible {
+	outline: 2px solid var(--secondary);
+	outline-offset: 2px;
+	border-radius: 6px;
+}
+
+/* Mermaid alignment */
+.mermaid {
+	background: transparent !important;
+	color: var(--text-strong);
+}
+
+.mermaid svg .node rect,
+.mermaid svg .node polygon,
+.mermaid svg .node circle {
+	fill: rgba(59, 130, 246, 0.15) !important;
+	stroke: var(--primary-strong) !important;
+	color: #ffffff !important;
+}
+
+.mermaid svg .edgePath path {
+	stroke: #cbd5e1 !important;
+}
+
+.mermaid svg .label {
+	color: #e5ecf5 !important;
+	fill: #e5ecf5 !important;
+}
+
+/* Animations */
+@keyframes fade-up {
+	from { opacity: 0; transform: translateY(6px); }
+	to { opacity: 1; transform: translateY(0); }
+}
+
 .main-content h2,
 .main-content h3,
 .main-content h4,
-.main-content h5,
-.main-content h6 {
-  position: relative !important;
+.content-panel,
+.page-header {
+	animation: fade-up 240ms ease;
 }
 
-// ENHANCED HEADING STYLES FOR PHASES AND QUESTIONS
-// Phase headers (h3) - Make them prominent with background and borders
-.main-content h3 {
-  background: linear-gradient(135deg, rgba(79, 70, 229, 0.15) 0%, rgba(99, 102, 241, 0.08) 100%) !important;
-  border-left: 4px solid #6366f1 !important;
-  padding: 1rem 1.25rem !important;
-  margin-top: 2.5rem !important;
-  margin-bottom: 1.25rem !important;
-  border-radius: 6px !important;
-  font-size: 1.5rem !important;
-  font-weight: 700 !important;
-  color: #e0e0ff !important;
-  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.15) !important;
-}
+@media (max-width: 900px) {
+	body {
+		flex-direction: column;
+	}
 
-// Technology headings (h2) - Reuse phase styling for promoted sections
-.main-content h2.tech-heading {
-  background: linear-gradient(135deg, rgba(79, 70, 229, 0.15) 0%, rgba(99, 102, 241, 0.08) 100%) !important;
-  border-left: 4px solid #6366f1 !important;
-  padding: 1rem 1.25rem !important;
-  margin-top: 2.5rem !important;
-  margin-bottom: 1.25rem !important;
-  border-radius: 6px !important;
-  font-size: 1.5rem !important;
-  font-weight: 700 !important;
-  color: #e0e0ff !important;
-  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.15) !important;
-}
+	.side-bar {
+		position: relative;
+		height: auto;
+		width: 100%;
+		min-width: 0;
+		padding: 0.75rem 1rem;
+		align-items: stretch;
+	}
 
-// Question headers (h4) - Distinctive styling with icon-like appearance
-.main-content h4 {
-  background: rgba(139, 92, 246, 0.12) !important;
-  border-left: 3px solid #8b5cf6 !important;
-  padding: 0.75rem 1rem !important;
-  margin-top: 1.75rem !important;
-  margin-bottom: 1rem !important;
-  border-radius: 4px !important;
-  font-size: 1.15rem !important;
-  font-weight: 600 !important;
-  color: #ddd6fe !important;
-  box-shadow: 0 1px 4px rgba(139, 92, 246, 0.1) !important;
-}
+	.main {
+		width: 100%;
+	}
 
-// Special styling for "Decision Gate" and "Decision Criteria" headers
-.main-content h4:contains("Decision"),
-.main-content h4[id*="decision"] {
-  background: rgba(236, 72, 153, 0.12) !important;
-  border-left-color: #ec4899 !important;
-  color: #fce7f3 !important;
-}
-
-
-// PARAGRAPHS - Tighter spacing
-.main-content p {
-  margin-bottom: 0.75rem !important;
-  line-height: 1.7 !important;
-}
-
-// Enhanced styling for decision path paragraphs (bold questions with arrows)
-.main-content p strong {
-  color: #a5b4fc !important; // Brighter indigo for questions
-  font-weight: 600 !important;
-}
-
-// Paragraphs immediately after h4 headings (decision paths)
-.main-content h4 + p {
-  margin-top: 0.5rem !important;
-  padding-left: 1rem !important;
-  border-left: 2px solid rgba(139, 92, 246, 0.3) !important;
-  padding-top: 0.5rem !important;
-  padding-bottom: 0.5rem !important;
-}
-
-// LISTS - Reduce spacing and improve hierarchy
-.main-content ul,
-.main-content ol {
-  margin-bottom: 0.75rem !important;
-  padding-left: 1.5rem !important;
-}
-
-// List items with better spacing
-.main-content li {
-  margin-bottom: 0.5rem !important;
-  line-height: 1.6 !important;
-}
-
-// Nested lists
-.main-content ul ul,
-.main-content ol ul,
-.main-content ul ol,
-.main-content ol ol {
-  margin-top: 0.5rem !important;
-  margin-bottom: 0.5rem !important;
-  padding-left: 1.25rem !important;
-}
-
-// List items under h4 headings (like the dimension questions)
-.main-content h4 + ul,
-.main-content h4 + ol {
-  background: rgba(100, 100, 100, 0.05) !important;
-  padding: 1rem 1rem 1rem 2rem !important;
-  border-radius: 4px !important;
-  margin-top: 0.75rem !important;
-  margin-bottom: 1rem !important;
-}
-
-// Arrow symbol styling in decision paths
-.main-content p:contains("→"),
-.main-content li:contains("→") {
-  color: #e0e0e0 !important;
-}
-
-
-// TABLES - Full width with professional styling
-.main-content table {
-  width: 100% !important;
-  max-width: 100% !important;
-  border-collapse: collapse !important;
-  margin: 1.5rem 0 !important;
-  font-size: 0.9rem !important;
-  line-height: 1.5 !important;
-}
-
-// Table headers - bold and styled
-.main-content table thead th {
-  background-color: rgba(100, 100, 100, 0.15) !important;
-  font-weight: 700 !important;
-  text-align: left !important;
-  padding: 0.75rem 1rem !important;
-  border-bottom: 2px solid rgba(150, 150, 150, 0.3) !important;
-  vertical-align: top !important;
-}
-
-// Table cells - consistent padding and alignment
-.main-content table td {
-  padding: 0.65rem 1rem !important;
-  border-bottom: 1px solid rgba(150, 150, 150, 0.2) !important;
-  vertical-align: top !important;
-  text-align: left !important;
-}
-
-// Zebra striping for readability
-.main-content table tbody tr:nth-child(even) {
-  background-color: rgba(100, 100, 100, 0.05) !important;
-}
-
-// Hover effect for rows
-.main-content table tbody tr:hover {
-  background-color: rgba(100, 100, 100, 0.1) !important;
-}
-
-// AUTOMATIC COLUMN WIDTHS - Let content determine size
-// Tables will autosize based on content with proper wrapping
-.main-content table thead th,
-.main-content table tbody td {
-  width: auto !important; // Auto-size columns based on content
-  white-space: normal !important; // Allow text wrapping
-}
-
-// Links in tables - make them visible
-.main-content table a {
-  color: #4a9eff !important; // Bright blue for dark mode
-  text-decoration: none !important;
-  &:hover {
-    text-decoration: underline !important;
-  }
-}
-
-// Bold text in tables
-.main-content table strong,
-.main-content table b {
-  font-weight: 700 !important;
-  color: #e0e0e0 !important; // Brighter in dark mode
-}
-
-// Code in tables
-.main-content table code {
-  background-color: rgba(150, 150, 150, 0.2) !important;
-  padding: 0.2rem 0.4rem !important;
-  border-radius: 3px !important;
-  font-size: 0.85em !important;
-}
-
-// Ensure text wraps properly in cells
-.main-content table td,
-.main-content table th {
-  word-wrap: break-word !important;
-  overflow-wrap: break-word !important;
-  hyphens: auto !important;
-}
-
-// CODE BLOCKS - Full width
-.main-content pre {
-  max-width: 100% !important;
-  margin: 0.75rem 0 !important;
-}
-
-// CODE INLINE - Better visibility
-.main-content code {
-  background-color: rgba(150, 150, 150, 0.25) !important;
-  padding: 0.2rem 0.4rem !important;
-  border-radius: 3px !important;
-  font-size: 0.9em !important;
-  color: #c7d2fe !important;
-  border: 1px solid rgba(150, 150, 150, 0.3) !important;
-}
-
-// BLOCKQUOTES - Enhanced styling
-.main-content blockquote {
-  border-left: 4px solid #6366f1 !important;
-  background: rgba(99, 102, 241, 0.08) !important;
-  padding: 0.75rem 1rem !important;
-  margin: 1rem 0 !important;
-  border-radius: 4px !important;
-}
-
-// EMOJI AND ICONS - Better visibility
-.main-content {
-  // Emoji in lists
-  li:first-child::before {
-    font-size: 1.1em !important;
-  }
-}
-
-// HORIZONTAL RULES - More visible separators
-.main-content hr {
-  border: 0 !important;
-  height: 2px !important;
-  background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.5), transparent) !important;
-  margin: 2rem 0 !important;
-}
-
-// LINKS - Better contrast
-.main-content a {
-  color: #7dd3fc !important;
-  text-decoration: none !important;
-  border-bottom: 1px solid rgba(125, 211, 252, 0.3) !important;
-  transition: all 0.2s ease !important;
-  
-  &:hover {
-    color: #bae6fd !important;
-    border-bottom-color: rgba(186, 230, 253, 0.6) !important;
-  }
-}
-
-// EMPHASIS - Bold text needs to stand out more
-.main-content strong,
-.main-content b {
-  font-weight: 700 !important;
-  color: #f0f0f5 !important;
-}
-
-
-// FOOTER - Minimal spacing and hide theme credit
-.site-footer {
-  margin-top: 1.5rem !important;
-  padding: 1rem !important;
-}
-
-// Hide "This site uses Just the Docs" text
-.site-footer p {
-  display: none !important;
-}
-
-// HIDE SIDEBAR FOOTER COMPLETELY (body > div.side-bar > footer)
-.side-bar > footer,
-.side-bar footer {
-  display: none !important;
-}
-
-// REMOVE AUX LINKS PADDING
-.aux-nav {
-  padding-top: 0.5rem !important;
-  padding-right: 0.5rem !important;
-}
-
-// Ensure content stretches to fill available space
-@media (min-width: 50rem) {
-  .main-content-wrap {
-    max-width: none !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    margin-right: 0 !important;
-  }
-}
-
-// Remove default container constraints
-.container,
-.container-lg,
-.container-xl {
-  max-width: none !important;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-}
-
-// Override any wrapper divs adding padding
-.site-nav,
-.navigation,
-.nav-category {
-  padding-left: 0.5rem !important;
-  padding-right: 0.5rem !important;
-}
-
-// Remove extra spacing from nav list
-.nav-list-item .nav-list {
-  padding-left: 1rem !important; // Just enough for hierarchy
-}
-
-// Top-level page header in main content area
-.main-content > .page-header {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-}
-
-// Site wrapper - ensure proper layout
-.site {
-  padding-right: 0 !important;
-  margin-right: 0 !important;
-}
-
-// Main wrapper - extend to full viewport
-.wrap,
-.wrapper {
-  max-width: 100vw !important;
-  padding-right: 0 !important;
-  margin-right: 0 !important;
-}
-
-// Footnote and reference styling to reduce visual prominence near navigation links
-.footnotes {
-  border-top: 1px solid #3a3a45 !important;
-  margin-top: 2.5rem !important;
-  padding-top: 1rem !important;
-  font-size: 0.8rem !important;
-  color: #9ba3af !important;
-}
-
-.footnotes::before {
-  content: "References";
-  display: block;
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: #7dd3fc;
-  margin-bottom: 0.5rem;
-}
-
-.footnotes ol {
-  margin-left: 1.25rem !important;
-}
-
-.footnotes p {
-  margin-bottom: 0.4rem !important;
-}
-
-sup a.footnote {
-  font-size: 0.6rem !important;
-  color: #7dd3fc !important;
-}
-
-sup a.footnote:hover,
-sup a.footnote:focus {
-  color: #38bdf8 !important;
+	#top,
+	.main#top {
+		margin-left: 0;
+		max-width: 100%;
+		width: 100%;
+	}
 }

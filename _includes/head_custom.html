@@ -1,0 +1,24 @@
+<script src="https://cdn.jsdelivr.net/npm/mermaid@{{ site.mermaid.version | default: '11.12.1' }}/dist/mermaid.min.js"></script>
+<script>
+  // Initialize Mermaid and convert fenced mermaid code blocks to renderable diagrams.
+  document.addEventListener('DOMContentLoaded', () => {
+    if (!window.mermaid) return;
+
+    const mermaidConfig = Object.assign(
+      { startOnLoad: false, securityLevel: 'loose' },
+      {% include mermaid_config.js %}
+    );
+
+    const codeBlocks = Array.from(document.querySelectorAll('pre > code.language-mermaid'));
+    codeBlocks.forEach((codeBlock) => {
+      const container = document.createElement('div');
+      container.classList.add('mermaid');
+      container.innerHTML = codeBlock.textContent;
+      const pre = codeBlock.parentElement;
+      pre.replaceWith(container);
+    });
+
+    mermaid.initialize(mermaidConfig);
+    mermaid.run({ querySelector: '.mermaid' });
+  });
+</script>

@@ -67,6 +67,14 @@ kramdown:
     block:
       line_numbers: false
 
+# Sass compiler settings (quiet dependency warnings from upstream theme)
+sass:
+  quiet_deps: true
+  silence_deprecations:
+    - import
+    - global-builtin
+    - color-functions
+
 # Plugins
 plugins:
   - jekyll-seo-tag

@@ -73,13 +73,15 @@ Prevents "cheating" - users must learn the framework before accessing fast-looku
 ### 4. Mermaid Diagram Validation
 
 **Every diagram in `docs/visual-framework.md` must have:**
-1. Dark theme: `%%{init: {'theme':'dark'}}`
-2. Color-coded nodes (Blue=Microsoft primary, Purple=Dev tools, Green=Simple, Orange=Medium, Red=Complex)
+1. Dark theme (default Mermaid config)
+2. Color-coded nodes set **inline** per diagram (keep white text): Blue #004578, Purple #4b2070, Green #0b6a0b, Orange #8c5e00, Red #a52617
 3. Status annotations: `<i>Preview</i>` for preview features
 4. Validation summary with:
    - Last validated date
    - Key changes explanation
    - List of technologies with capabilities and source URLs
+
+**Do not add Mermaid CSS overrides in `_sass/custom/custom.scss`; keep palette in diagram `style` lines.**
 
 **Before committing diagram changes:**
 - Research EVERY technology mentioned
@@ -215,7 +217,7 @@ When discussing multi-agent capabilities, distinguish THREE patterns:
    - Feature Comparison → Quick Reference
 
 3. **Test:**
-   - Run `bundle exec jekyll serve --incremental`
+   - In the dev container run `bundle exec jekyll serve --incremental --host 0.0.0.0 --port 4000`
    - Verify sidebar navigation
    - Click through "Next:" links
 
@@ -246,10 +248,14 @@ Before proposing edits, verify:
 
 **Diagrams:**
 - [ ] Dark theme applied
-- [ ] Color coding follows conventions
+- [ ] Color coding set inline per diagram (no CSS overrides)
 - [ ] Status annotations present
 - [ ] Validation summary includes sources
 - [ ] Mermaid syntax tested locally
+
+**Local dev reminders:**
+- Serve locally inside the dev container with `bundle exec jekyll serve --incremental --host 0.0.0.0 --port 4000` and browse `http://localhost:4000/Microsoft-AI-Decision-Framework/`.
+- If colors look wrong, check diagrams for inline palette and ensure `_sass/custom/custom.scss` has no Mermaid overrides.
 
 **Navigation:**
 - [ ] nav_order correct (1-12)

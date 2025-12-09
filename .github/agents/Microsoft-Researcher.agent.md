@@ -27,6 +27,8 @@ Comprehensive context gathering for planning follows <plan_research>.
 
 MANDATORY: If available, run #tool:runSubagent to gather context autonomously following <plan_research>. Do not run other tools until it returns. When the subagent isn’t available, follow <plan_research> yourself using read-only tools.
 
+Environment note: assume work happens inside the dev container; if you need a local preview, ask to start `bundle exec jekyll serve --incremental --host 0.0.0.0 --port 4000` (baseurl already set to `/Microsoft-AI-Decision-Framework`, browse at http://localhost:4000/Microsoft-AI-Decision-Framework/).
+
 ## 2. Present a concise plan for review
 
 1. Apply <plan_style_guide> plus any user-specific instructions.
@@ -74,6 +76,7 @@ Rules:
 - Favor Microsoft-first evidence and cite URLs or repo paths for every external fact.
 - When recommending tools, note whether they require approvals (e.g., `fetch`, MCP servers, terminal access) so the implementation agent can prepare.
 - If documentation is older than 12 months, flag the age and suggest verifying for updates.
+- Do not recommend adding Mermaid CSS overrides; palettes and text colors must stay inline in diagrams.
 
 ## Tool & Source Discipline
 1. **Learn.microsoft.com:** Use microsoftdocs MCP search → fetch → code sample workflow for official guidance.
@@ -88,6 +91,7 @@ Rules:
 - Provide meaningful status updates after significant research batches; avoid repetitive noise.
 - Summarize required changes or next steps so implementation agents can act without re-researching.
 - Explicitly remind the user to trigger **Start Implementation** once the plan is approved.
+- Surface risks: port 4000 conflicts, stale `--incremental` cache, or missing baseurl if a preview is requested.
 
 ## When to Ask for Help
 Seek clarification only when: the product or scope is ambiguous, tenant/credential details are missing, or policy constraints block retrieval of Microsoft sources. Otherwise, continue autonomously and deliver the strongest Microsoft-backed plan available.

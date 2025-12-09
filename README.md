@@ -79,13 +79,13 @@ flowchart LR
     click D "{{ site.baseurl }}/docs/technologies" "Open Technologies" _self
     click MS "{{ site.baseurl }}/docs/feature-comparison" "Open Feature Comparison" _self
 
-    style F fill:#0078D4,stroke:#004578,color:#fff
-    style M fill:#5C2D91,stroke:#3B1D61,color:#fff
-    style C fill:#5C2D91,stroke:#3B1D61,color:#fff
-    style A fill:#FFB900,stroke:#C47F00,color:#000
-    style E fill:#107C10,stroke:#0B5E0B,color:#fff
-    style D fill:#5C2D91,stroke:#3B1D61,color:#fff
-    style MS fill:#0078D4,stroke:#004578,color:#fff
+    style F fill:#004578,stroke:#002f4a,color:#fff
+    style M fill:#4b2070,stroke:#33154c,color:#fff
+    style C fill:#4b2070,stroke:#33154c,color:#fff
+    style A fill:#8c5e00,stroke:#6a4700,color:#fff
+    style E fill:#0b6a0b,stroke:#084c08,color:#fff
+    style D fill:#4b2070,stroke:#33154c,color:#fff
+    style MS fill:#004578,stroke:#002f4a,color:#fff
 ```
 
 {: .fs-4 .fw-300 }
@@ -102,10 +102,10 @@ flowchart LR
 
     VF --- QR --- RES --- GLOS
 
-    style VF fill:#5C2D91,stroke:#3B1D61,color:#fff
-    style QR fill:#5C2D91,stroke:#3B1D61,color:#fff
-    style RES fill:#5C2D91,stroke:#3B1D61,color:#fff
-    style GLOS fill:#5C2D91,stroke:#3B1D61,color:#fff
+    style VF fill:#4b2070,stroke:#33154c,color:#fff
+    style QR fill:#4b2070,stroke:#33154c,color:#fff
+    style RES fill:#4b2070,stroke:#33154c,color:#fff
+    style GLOS fill:#4b2070,stroke:#33154c,color:#fff
 
     click VF "{{ site.baseurl }}/docs/visual-framework" "Open Visual Framework" _self
     click QR "{{ site.baseurl }}/docs/quick-reference" "Open Quick Reference" _self

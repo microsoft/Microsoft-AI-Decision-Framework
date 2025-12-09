@@ -21,7 +21,7 @@ This is a **comprehensive decision framework and reference guide** for navigatin
 - **Diagrams:** Mermaid 11.12.1 flowcharts (embedded in Markdown, dark theme configured)
 - **Navigation:** Jekyll front matter with `nav_order` property (1-12)
 - **Theme:** Just the Docs (remote_theme via GitHub Pages)
-- **Custom Styling:** SCSS in `_sass/custom/custom.scss` with aggressive space optimization
+- **Custom Styling:** SCSS in `_sass/custom/custom.scss` (no Mermaid overrides; palette is owned inline in diagrams)
 - **Ruby Gems:** jekyll-seo-tag, jekyll-github-metadata, jekyll-include-cache, webrick
 - **Deployment:** GitHub Pages at https://chrismckee1.github.io/microsoft-ai-decision-tree/
 
@@ -139,13 +139,13 @@ This repository is governed by a set of immutable principles defined in **[`CONS
 8. Upgrade Paths - Migration and enhancement options
 
 **Diagram conventions:**
-- Use dark theme: `%%{init: {'theme':'dark'}}`
-- Color coding:
-  - Blue (#0078D4): Microsoft primary technologies
-  - Purple (#5C2D91): Developer-focused solutions
-  - Green (#107C10): Low complexity/fast path
-  - Orange (#FFB900): Medium complexity
-  - Red (#D83B01): High complexity/enterprise
+- Dark theme via default Mermaid config (no repo-wide init required)
+- Color coding set inline per diagram (keep white text):
+    - Blue (#004578): Microsoft primary technologies
+    - Purple (#4b2070): Developer-focused solutions
+    - Green (#0b6a0b): Low complexity/fast path
+    - Orange (#8c5e00): Medium complexity
+    - Red (#a52617): High complexity/enterprise
 - Status annotations: `<br/><i>Preview</i>` for preview features
 - Node shape meanings: Diamond = decision, Rectangle = technology, Circle = start/end
 
@@ -162,23 +162,13 @@ This repository is governed by a set of immutable principles defined in **[`CONS
 - **[Technology Name]** (GA/Preview/Experimental): [Capability description] [(source link)](URL)
 ```
 
-**Mermaid initialization pattern:**
-```mermaid
-%%{init: {'theme':'dark'}}%%
-flowchart TD
-    Start([Start Node]) --> Decision{Decision Point?}
-    Decision -->|Option A| Tech1[Technology Name<br/><i>Preview</i>]
-    Decision -->|Option B| Tech2[Technology Name]
-    
-    style Tech1 fill:#0078D4,color:#fff
-    style Tech2 fill:#5C2D91,color:#fff
-```
+**Mermaid styling pattern:** set `style` lines per diagram for palette and text; avoid CSS overrides and repo-wide Mermaid init blocks.
 
 **Testing Mermaid diagrams:**
 1. Edit diagram in `docs/visual-framework.md`
-2. Run `bundle exec jekyll serve --incremental`
-3. Navigate to http://localhost:4000/microsoft-ai-decision-tree/docs/visual-framework.html
-4. Verify rendering, colors, and status annotations
+2. In the dev container run `bundle exec jekyll serve --incremental --host 0.0.0.0 --port 4000`
+3. Browse http://localhost:4000/Microsoft-AI-Decision-Framework/docs/visual-framework.html (baseurl is set)
+4. Verify rendering, colors, and status annotations; ensure inline palette is applied and no CSS overrides are added
 5. Alternatively, test syntax at https://mermaid.live/ before committing
 
 **Common Mermaid issues:**
@@ -246,11 +236,11 @@ description: "[Brief description for SEO]"
 - Search enabled with 3 previews, 5 words before/after
 - GitHub Pages deployment settings (baseurl, url)
 
-**Local development:**
+**Local development (dev container):**
 ```bash
 bundle install
-bundle exec jekyll serve --incremental
-# Site runs at http://localhost:4000/microsoft-ai-decision-tree/
+bundle exec jekyll serve --incremental --host 0.0.0.0 --port 4000
+# Site runs at http://localhost:4000/Microsoft-AI-Decision-Framework/
 # Use --incremental for faster rebuilds during development
 ```
 

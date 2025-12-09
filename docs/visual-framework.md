@@ -59,7 +59,7 @@ flowchart TD
     Q4 -->|Azure-centric| Q4Azure{Need custom UI<br/>protocol?}
 
     Q4Azure -->|Yes| AGUI[Agent Framework + AG-UI<br/><i>Preview</i>]
-    Q4Azure -->|No| Foundry[Microsoft Foundry (Azure)]
+    Q4Azure -->|No| Foundry[Microsoft Foundry - Azure]
     
     Auto_Path --> Q5{Build approach?}
     Q5 -->|Low-code| StudioAuto[Copilot Studio<br/>with Event Triggers]
@@ -71,7 +71,7 @@ flowchart TD
     API_Path --> Q7{Hosting preference?}
     Q7 -->|Managed PaaS| AgentService[Foundry Agent Service]
     Q7 -->|Self-hosted| Foundry
-    Q7 -->|Local/Edge| WinAI[Microsoft Foundry (Windows)<br/><i>Local</i>]
+    Q7 -->|Local/Edge| WinAI[Microsoft Foundry - Windows<br/><i>Local</i>]
     
     M365 --> DataQ{Need custom data?}
     Studio --> DataQ
@@ -83,7 +83,7 @@ flowchart TD
     AgentService --> DataQ
     
     DataQ -->|M365 data| GraphConn[Graph Connectors]
-    DataQ -->|Documents| AISearch[Azure AI Search<br/>(agentic retrieval, ACL/labels)]
+    DataQ -->|Documents| AISearch[Azure AI Search<br/>Agentic retrieval - ACL/labels]
     DataQ -->|Structured data| VectorDB{Vector DB choice?}
     DataQ -->|Analytics data| Fabric[Microsoft Fabric]
     DataQ -->|No grounding| DirectDeploy
@@ -186,7 +186,7 @@ flowchart TD
     Maker -->|Occasional help| MakerPlus[Studio + Custom Actions]
     
     Dev -->|M365 integration| DevM365[M365 Agents SDK]
-    Dev -->|Azure services| DevAzure[Microsoft Foundry (Azure)]
+    Dev -->|Azure services| DevAzure[Microsoft Foundry - Azure]
     Dev -->|Multi-agent orchestration| DevOrch[Agent Framework<br/><i>Public Preview</i>]
     Dev -->|Multi-platform| DevChoice{Skill level?}
     Dev -->|Autonomous agents| DevAuto{Event-driven?}
@@ -196,7 +196,7 @@ flowchart TD
     DevChoice -->|Senior| DevSDK[M365 SDK or Foundry]
     
     DevAuto -->|Yes| DevLogic[Logic Apps<br/>AI Agent Workflows<br/><i>Preview</i>]
-    DevAuto -->|Custom orchestration| DevFoundry[Microsoft Foundry (Azure)<br/>+ Agent Service]
+    DevAuto -->|Custom orchestration| DevFoundry[Microsoft Foundry - Azure<br/>+ Agent Service]
     
     DS -->|Analytics/BI| DSFabric[Fabric Data Agents<br/><i>Preview</i>]
     DS -->|ML/Custom models| DSFoundry[Azure AI Foundry]
@@ -477,9 +477,9 @@ flowchart TD
     Q1 -->|$5K+/mo| Enterprise[Enterprise Budget]
     
     M365Only --> M365T{Timeline?}
-    M365T -->|Days| M365_Fast[M365 Copilot Chat<br/>$0 add'l (included with M365)<br/>Instruction-based agents]
-    M365T -->|1-2 Weeks| M365_Med[M365 Copilot + Graph<br/>$0 add'l<br/>Knowledge grounding]
-    M365T -->|1 Month+| M365_Slow[Declarative Agents<br/>$0 add'l or PAYG<br/>Custom instructions + data]
+    M365T -->|Days| M365_Fast[M365 Copilot Chat<br/>$0 addl - included with M365<br/>Instruction-based agents]
+    M365T -->|1-2 Weeks| M365_Med[M365 Copilot + Graph<br/>$0 addl<br/>Knowledge grounding]
+    M365T -->|1 Month+| M365_Slow[Declarative Agents<br/>$0 addl or PAYG<br/>Custom instructions + data]
     
     Starter --> StarterT{Timeline?}
     StarterT -->|1-2 Weeks| S_Fast[Copilot Studio PAYG<br/>$200-500/mo avg<br/>$0.01/credit, low-code]
@@ -662,12 +662,12 @@ flowchart TD
 flowchart TD
     Start([Need Multi-Agent?]) --> Q1{Pattern Type?}
     
-    Q1 -->|Connected agents<br/>Mesh (A2A)| Connected[Connected/Mesh Pattern]
+    Q1 -->|Connected agents<br/>Mesh - A2A| Connected[Connected/Mesh Pattern]
     Q1 -->|Sequential/Parallel<br/>workflows| Workflows[Agent Workflow Orchestration]
     Q1 -->|Event triggers| EventDriven[Event-Driven Agents]
     
     Connected --> C_Platform{Platform?}
-    C_Platform -->|Low-code| C_Studio[Copilot Studio Preview<br/>Agent2Agent (A2A)<br/>Decentralized Mesh]
+    C_Platform -->|Low-code| C_Studio[Copilot Studio Preview<br/>Agent2Agent - A2A<br/>Decentralized Mesh]
     C_Platform -->|Azure| C_Foundry[Azure AI Foundry GA<br/>Connected agents<br/>Sub-agent delegation]
     
     Workflows --> W_Framework{Framework?}
@@ -748,9 +748,9 @@ flowchart TD
     Q1 -->|No| Stay[Copilot Studio<br/>Standard]
     Q1 -->|Yes| Q2{What kind of<br/>capability?}
     
-    Q2 -->|Better Reasoning/LLM| Path1[**Enhance**<br/>BYO Model (Foundry)<br/><i>Preview</i>]
-    Q2 -->|Complex Orchestration| Path2[**Extend**<br/>Handoff to Agent Service<br/><i>Preview</i>]
-    Q2 -->|Custom UI/Protocol| Path3[**Migrate**<br/>M365 Agents SDK<br/>or Foundry]
+    Q2 -->|Better Reasoning/LLM| Path1[Enhance<br/>BYO Model - Foundry<br/><i>Preview</i>]
+    Q2 -->|Complex Orchestration| Path2[Extend<br/>Handoff to Agent Service<br/><i>Preview</i>]
+    Q2 -->|Custom UI/Protocol| Path3[Migrate<br/>M365 Agents SDK<br/>or Foundry]
     
     Path1 --> Result1([Copilot Studio<br/>+ Specialized Model])
     Path2 --> Result2([Copilot Studio UI<br/>+ Azure Agent Brain])

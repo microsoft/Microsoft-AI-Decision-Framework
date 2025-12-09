@@ -21,22 +21,31 @@
 }
 
 .main-content .mermaid {
-  width: 100vw !important; // span full viewport width
+  width: calc(100vw - 200px) !important; // viewport minus sidebar and padding
   max-width: none !important;
   display: block !important;
-  margin: 0 auto !important;
-  position: relative !important;
-  left: 50% !important;
-  transform: translateX(-50%) !important; // center after expanding to viewport width
+  margin: 0 !important;
+  margin-left: -1rem !important; // offset the main-content padding
+  padding: 1rem 0 !important;
+  overflow-x: auto !important;
+  overflow-y: visible !important; // allow vertical content to show
 }
 
 .main-content .mermaid > svg {
-  width: 100vw !important;
+  width: 100% !important;
   max-width: none !important; // override inline px max-width from Mermaid renderer
   height: auto !important;
-  left: 50% !important;
-  transform: translateX(-50%) !important;
-  position: relative !important;
+  min-height: 120px !important; // ensure minimum height for multi-line nodes
+  display: block !important;
+}
+
+// Override Mermaid's inline viewBox clipping on flowchart nodes
+.main-content .mermaid svg .node rect {
+  overflow: visible !important;
+}
+
+.main-content .mermaid svg foreignObject {
+  overflow: visible !important;
 }
 // Custom styles to optimize layout for large monitors
 // Aggressive space utilization - minimize all padding and maximize content area

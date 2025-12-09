@@ -59,9 +59,9 @@ Follow this progressive path for the best learning experience:
 ### Core path
 
 ```mermaid
-%%{init: {'theme':'dark','flowchart': {'useMaxWidth': true, 'nodeSpacing': 140, 'rankSpacing': 80, 'diagramPadding': 12}}}%%
+%%{init: {'theme':'dark','flowchart': {'useMaxWidth': true, 'nodeSpacing': 100, 'rankSpacing': 60, 'diagramPadding': 20, 'htmlLabels': true, 'wrappingWidth': 150}}}%%
 flowchart LR
-        F[Foundation<br/><small>Capability Model</small>] --> M[Methodology<br/><small>Decision Framework</small>] --> C[Context<br/><small>Scenarios</small>] --> A[Assessment<br/><small>Evaluation Criteria</small>] --> E[Execution<br/><small>Implementation Patterns</small>] --> D[Deep Dive<br/><small>Technologies</small>] --> MS[Mastery<br/><small>Feature Comparison</small>]
+        F["Foundation<br><small>Capability Model</small>"] --> M["Methodology<br><small>Decision Framework</small>"] --> C["Context<br><small>Scenarios</small>"] --> A["Assessment<br><small>Evaluation Criteria</small>"] --> E["Execution<br><small>Implementation Patterns</small>"] --> D["Deep Dive<br><small>Technologies</small>"] --> MS["Mastery<br><small>Feature Comparison</small>"]
 
         click F "{{ site.baseurl }}/docs/capability-model" "Open Capability Model" _self
         click M "{{ site.baseurl }}/docs/decision-framework" "Open Decision Framework" _self
@@ -82,12 +82,12 @@ flowchart LR
 
 {: .fs-4 .fw-300 }
 
-### Reference aids (use anytime)
+### Reference aids
 
 ```mermaid
-%%{init: {'theme':'dark','flowchart': {'useMaxWidth': true, 'nodeSpacing': 140, 'rankSpacing': 80, 'diagramPadding': 12}}}%%
+%%{init: {'theme':'dark','flowchart': {'useMaxWidth': true, 'nodeSpacing': 100, 'rankSpacing': 60, 'diagramPadding': 20}}}%%
 flowchart LR
-        VF[Visual Framework] --- QR[Quick Reference] --- RES[Resources] --- GLOS[Glossary]
+        VF["Visual Framework"] --- QR["Quick Reference"] --- RES["Resources"] --- GLOS["Glossary"]
 
         style VF fill:#5C2D91,stroke:#3B1D61,color:#fff
         style QR fill:#5C2D91,stroke:#3B1D61,color:#fff

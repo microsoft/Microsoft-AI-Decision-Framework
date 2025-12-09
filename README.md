@@ -59,25 +59,33 @@ Follow this progressive path for the best learning experience:
 ### Core path
 
 ```mermaid
-%%{init: {'theme':'dark','flowchart': {'nodeSpacing': 100, 'rankSpacing': 60, 'diagramPadding': 20, 'htmlLabels': true}}}%%
+%%{init: {'theme':'dark'}}%%
 flowchart LR
-        F["Foundation<br><small>Capability Model</small>"] --> M["Methodology<br><small>Decision Framework</small>"] --> C["Context<br><small>Scenarios</small>"] --> A["Assessment<br><small>Evaluation Criteria</small>"] --> E["Execution<br><small>Implementation Patterns</small>"] --> D["Deep Dive<br><small>Technologies</small>"] --> MS["Mastery<br><small>Feature Comparison</small>"]
+    F["Foundation<br><small>Capability Model</small>"]
+    M["Methodology<br><small>Decision Framework</small>"]
+    C["Context<br><small>Scenarios</small>"]
+    A["Assessment<br><small>Evaluation Criteria</small>"]
+    E["Execution<br><small>Implementation Patterns</small>"]
+    D["Deep Dive<br><small>Technologies</small>"]
+    MS["Mastery<br><small>Feature Comparison</small>"]
 
-        click F "{{ site.baseurl }}/docs/capability-model" "Open Capability Model" _self
-        click M "{{ site.baseurl }}/docs/decision-framework" "Open Decision Framework" _self
-        click C "{{ site.baseurl }}/docs/scenarios" "Open Scenarios" _self
-        click A "{{ site.baseurl }}/docs/evaluation-criteria" "Open Evaluation Criteria" _self
-        click E "{{ site.baseurl }}/docs/implementation-patterns" "Open Implementation Patterns" _self
-        click D "{{ site.baseurl }}/docs/technologies" "Open Technologies" _self
-        click MS "{{ site.baseurl }}/docs/feature-comparison" "Open Feature Comparison" _self
+    F --> M --> C --> A --> E --> D --> MS
 
-        style F fill:#0078D4,stroke:#004578,color:#fff
-        style M fill:#5C2D91,stroke:#3B1D61,color:#fff
-        style C fill:#5C2D91,stroke:#3B1D61,color:#fff
-        style A fill:#FFB900,stroke:#C47F00,color:#000
-        style E fill:#107C10,stroke:#0B5E0B,color:#fff
-        style D fill:#5C2D91,stroke:#3B1D61,color:#fff
-        style MS fill:#0078D4,stroke:#004578,color:#fff
+    click F "{{ site.baseurl }}/docs/capability-model" "Open Capability Model" _self
+    click M "{{ site.baseurl }}/docs/decision-framework" "Open Decision Framework" _self
+    click C "{{ site.baseurl }}/docs/scenarios" "Open Scenarios" _self
+    click A "{{ site.baseurl }}/docs/evaluation-criteria" "Open Evaluation Criteria" _self
+    click E "{{ site.baseurl }}/docs/implementation-patterns" "Open Implementation Patterns" _self
+    click D "{{ site.baseurl }}/docs/technologies" "Open Technologies" _self
+    click MS "{{ site.baseurl }}/docs/feature-comparison" "Open Feature Comparison" _self
+
+    style F fill:#0078D4,stroke:#004578,color:#fff
+    style M fill:#5C2D91,stroke:#3B1D61,color:#fff
+    style C fill:#5C2D91,stroke:#3B1D61,color:#fff
+    style A fill:#FFB900,stroke:#C47F00,color:#000
+    style E fill:#107C10,stroke:#0B5E0B,color:#fff
+    style D fill:#5C2D91,stroke:#3B1D61,color:#fff
+    style MS fill:#0078D4,stroke:#004578,color:#fff
 ```
 
 {: .fs-4 .fw-300 }
@@ -85,19 +93,24 @@ flowchart LR
 ### Reference aids
 
 ```mermaid
-%%{init: {'theme':'dark','flowchart': {'nodeSpacing': 100, 'rankSpacing': 60, 'diagramPadding': 20}}}%%
+%%{init: {'theme':'dark'}}%%
 flowchart LR
-        VF["Visual Framework"] --- QR["Quick Reference"] --- RES["Resources"] --- GLOS["Glossary"]
+    VF["Visual Framework"]
+    QR["Quick Reference"]
+    RES["Resources"]
+    GLOS["Glossary"]
 
-        style VF fill:#5C2D91,stroke:#3B1D61,color:#fff
-        style QR fill:#5C2D91,stroke:#3B1D61,color:#fff
-        style RES fill:#5C2D91,stroke:#3B1D61,color:#fff
-        style GLOS fill:#5C2D91,stroke:#3B1D61,color:#fff
+    VF --- QR --- RES --- GLOS
 
-        click VF "{{ site.baseurl }}/docs/visual-framework" "Open Visual Framework" _self
-        click QR "{{ site.baseurl }}/docs/quick-reference" "Open Quick Reference" _self
-        click RES "{{ site.baseurl }}/docs/resources" "Open Resources" _self
-        click GLOS "{{ site.baseurl }}/docs/glossary" "Open Glossary" _self
+    style VF fill:#5C2D91,stroke:#3B1D61,color:#fff
+    style QR fill:#5C2D91,stroke:#3B1D61,color:#fff
+    style RES fill:#5C2D91,stroke:#3B1D61,color:#fff
+    style GLOS fill:#5C2D91,stroke:#3B1D61,color:#fff
+
+    click VF "{{ site.baseurl }}/docs/visual-framework" "Open Visual Framework" _self
+    click QR "{{ site.baseurl }}/docs/quick-reference" "Open Quick Reference" _self
+    click RES "{{ site.baseurl }}/docs/resources" "Open Resources" _self
+    click GLOS "{{ site.baseurl }}/docs/glossary" "Open Glossary" _self
 ```
 
 ### The Progressive Path

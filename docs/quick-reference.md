@@ -6,11 +6,11 @@ description: "Fast lookup table for Microsoft AI technologies"
 ---
 
 # Quick Reference: Technology by Need
+{: .no_toc }
 
 {: .note }
 This page provides fast-lookup tables for common scenarios. For detailed decision logic, see the [Decision Framework]({{ '/docs/decision-framework' | relative_url }}).
 
----
 
 ## Table of contents
 {: .no_toc .text-delta }
@@ -18,38 +18,90 @@ This page provides fast-lookup tables for common scenarios. For detailed decisio
 1. TOC
 {:toc}
 
+
+## CAF Agent Adoption Quick Cues
+
+- **Phases in one line:** Plan (business + tech + org + data), Govern & secure (responsible AI, controls, environment prep), Build (single vs multi, orchestrate, secure process), Operate (integrate, monitor, retire). [CAF AI agent adoption](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/).
+- **When not to use an agent:** Highly deterministic workflows or static Q&A/content generation → use code or plain RAG. [Business plan](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/business-strategy-plan).
+- **SaaS vs build:** Use SaaS agents when they meet requirements; if not, prototype on Foundry or Copilot Studio before committing to custom builds. [Technology plan](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/technology-solutions-plan-strategy).
+- **Single vs multi:** Start single; go multi-agent only for hard security/compliance boundaries, distinct owning teams, or planned modular growth. [Single vs multiple](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/single-agent-multiple-agents).
+- **Prioritize use cases fast:** Score business impact, feasibility, desirability; pick high-impact, low-friction pilots first.
+- **Org roles:** Platform owns guardrails, workload teams own use cases and data, AI CoE advises and standardizes. [Organizational readiness](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/organization-people-readiness-plan).
+- **Build safely:** Use workflows for deterministic control, treat instructions as versioned config, gate tool calls, isolate memory per role/tenant, and run evaluations before production. [Build process](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/build-secure-process).
+- **Operate with evidence:** Keep an agent inventory/identity, centralize logging, track cost and quotas, red team regularly, retire unused agents. [Manage agents](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/integrate-manage-operate).
+
+![CAF agent decision tree](../images/ai-agent-decision-tree.svg)
+*CAF decision tree: SaaS first, then build; validate single vs multi during planning.*
+---
+
+
+![How to prioritize agent use cases](../images/prioritize-agent-use-cases.png)
+*Use impact × feasibility × desirability to rank pilots.*
+
+![Typical agent responsibilities across the organization](../images/agent-teams.png)
+*Platform governs; workloads deliver; AI CoE advises and enforces patterns.*
+
+![Data architecture for Fabric, OneLake, Foundry, and Azure](../images/data-architecture-fabric-onelake-foundry-azure-microsoft.svg)
+*Anchor grounding in governed data (OneLake/Fabric/Foundry) with clear landing zones.*
+
+**Sources (CAF):**
+
+- [AI agent adoption](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/) (Updated: 2025-11-22)
+- [Business plan for AI agents](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/business-strategy-plan) (Updated: 2025-11-22)
+- [Technology plan for AI agents](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/technology-solutions-plan-strategy) (Updated: 2025-11-22)
+- [Organizational readiness for AI agents](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/organization-people-readiness-plan) (Updated: 2025-11-22)
+- [Single agent or multiple agents](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/single-agent-multiple-agents) (Updated: 2025-11-22)
+- [Process to build agents across your organization](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/build-secure-process) (Updated: 2025-11-22)
+- [Manage AI agents across your organization](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/integrate-manage-operate) (Updated: 2025-11-22)
+
 ---
 
 ## Technology by User Experience
 
 | **Where Users Interact** | **Recommended Technologies** | **Use When** |
 |---------------------------|------------------------------|--------------|
-| **Microsoft 365 Apps** | **Free** Microsoft 365 Copilot Chat (included) + Graph Connectors for baseline pilots; Microsoft 365 Copilot add-on + declarative agents for work-grounded copilots; **Frontier Word/Excel/PowerPoint creation agents (Preview)** require admin Frontier opt-in and Anthropic data-sharing consent | Need managed copilots embedded in Word, Excel, Outlook, or Teams with tenant-level governance—start with the free chat surface and graduate to the hero add-on when Graph grounding or in-app assistants are required; use Frontier creation agents only for controlled pilots |
+| **Microsoft 365 Apps** | **Free** Microsoft 365 Copilot Chat (included) + Graph Connectors for baseline pilots; Microsoft 365 Copilot add-on + declarative agents for work-grounded copilots; **Frontier Word/Excel/PowerPoint creation agents (Preview)** require admin Frontier opt-in and Anthropic data-sharing consent; mobile parity for custom engine/message-extension agents (iOS/Android)[^mobile-ext-qr]; Copy to Copilot Studio (rolling out) copies data sources/actions but GPTs/custom actions must be reattached[^copy-to-studio-qr] | Need managed copilots embedded in Word, Excel, Outlook, or Teams with tenant-level governance—start with the free chat surface and graduate to the hero add-on when Graph grounding or in-app assistants are required; use Frontier creation agents only for controlled pilots |
 | **Microsoft Teams Only** | Copilot Studio, M365 Agents SDK | Teams-centric chat or calling scenarios where admins may enforce "only during the call" retention |
 | **Custom Web/Mobile App** | Azure AI Foundry, Foundry Agent Service (Standard setup) | Building standalone applications while keeping files, search, and thread storage in customer-owned Azure resources |
-| **Governance / Registry** | Agent 365 (Preview); Foundry Control Plane | Centralize agent identity/registry, conditional access, and security posture across M365/Azure agents |
+| **Governance / Registry** | Agent 365 (Preview); Foundry Control Plane; M365 Agent Registry lifecycle (publish/activate/deploy/pin/block/remove/delete/owner transfer/export)[^agent-registry-qr] | Centralize agent identity/registry, conditional access, and security posture across M365/Azure agents |
 | **Custom Web/Mobile UI with streaming** | Microsoft Agent Framework + AG-UI protocol (Preview) | Need Server-Sent Events streaming, backend tool rendering, shared state, and human approvals in bespoke front-ends |
 | **Multiple Channels** | M365 Agents SDK | Deliver one agent across Microsoft 365 Copilot, Teams, web, email, SMS, and other channels |
 | **Power Platform** | Copilot Studio, AI Builder | Integrated with low-code Power Apps/Power Automate workloads |
 | **Enterprise Workflows** | Azure Logic Apps AI Agents (Preview), MCP Server | Workflow automation that needs autonomous/conversational agent patterns with Easy Auth guardrails |
-| **Data Grounding / RAG** | Azure AI Search knowledge bases (agentic retrieval, preview); Graph Connectors (M365) | ACL- and label-aware search with reasoning effort/partial responses (Search); tenant-scoped content for M365 copilots (Graph) |
+| **Data Grounding / RAG** | Azure AI Search knowledge bases (agentic retrieval, preview); Graph Connectors (M365); Microsoft 365 Copilot Search API (Preview) for OneDrive hybrid semantic+lexical search[^search-api-qr] | ACL- and label-aware search with reasoning effort/partial responses (Search); tenant-scoped content for M365 copilots (Graph); hybrid OneDrive search for custom engine agents (Search API) |
 | **Developer Tools** | GitHub Copilot Extensions | IDE and development workflow integration |
 
 **Sources:**
 
 - [Copilot for all: Introducing Microsoft 365 Copilot Chat](https://www.microsoft.com/en-us/microsoft-365/blog/2025/01/15/copilot-for-all-introducing-microsoft-365-copilot-chat/) (Updated: 2025-01-15)
-- [Microsoft 365 Copilot release notes — November 12, 2025](https://learn.microsoft.com/en-us/copilot/microsoft-365/release-notes?tabs=all#november-12-2025)
+- [Microsoft 365 Copilot release notes — November 24, 2025](https://learn.microsoft.com/en-us/copilot/microsoft-365/release-notes#november-24,-2025)
 - [Built-in enterprise readiness with standard agent setup](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/concepts/standard-agent-setup) (Updated: 2025-06-16)
 - [Agent 365 capabilities](https://learn.microsoft.com/en-us/microsoft-agent-365/admin/capabilities-entra) (Retrieved: 2025-12-08)
+- [Agent Registry in the Microsoft 365 admin center](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/agent-registry?view=o365-worldwide#admin-actions-to-manage-agents) (Retrieved: 2025-12-08)
 - [Foundry Control Plane overview](https://learn.microsoft.com/en-us/azure/ai-foundry/control-plane/overview) (Updated: 2025-11-18)
 - [Azure AI Search what's new](https://learn.microsoft.com/en-us/azure/search/whats-new#november-2025) (Updated: 2025-11-18)
+- [Microsoft 365 Copilot Search API overview](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/api/ai-services/search/overview) (Retrieved: 2025-12-09)
 - [Workflows with AI agents and models in Azure Logic Apps (Preview)](https://learn.microsoft.com/en-us/azure/logic-apps/agent-workflows-concepts) (Updated: 2025-10-09)
 - [Microsoft 365 Agents Toolkit](https://learn.microsoft.com/en-us/microsoft-365/developer/overview-m365-agents-toolkit) (Updated: 2025-05-30)
 - [AG-UI integration with Agent Framework](https://learn.microsoft.com/en-us/agent-framework/integrations/ag-ui/) (Preview, Updated: 2025-11-11)
+- [Copy a Copilot agent to Microsoft Copilot Studio](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/copilot-agent-to-studio) (Retrieved: 2025-12-09)
 
 **Confidence Level:** High (all technologies GA except Logic Apps AI Agents Preview)
 
+[^mobile-ext-qr]: Mobile parity for custom engine agents and message-extension agents on iOS/Android. Source: Microsoft 365 Copilot release notes (November 24, 2025).
+[^agent-registry-qr]: Agent Registry lifecycle actions in M365 admin center: publish, activate, deploy, pin, block, remove, delete, reassign owner, export inventory. Source: Agent Registry documentation (Retrieved: 2025-12-08).
+[^search-api-qr]: Microsoft 365 Copilot Search API (Preview) for hybrid semantic + lexical search across OneDrive via Graph `/beta`. Source: Search API overview (Retrieved: 2025-12-09).
+[^copy-to-studio-qr]: Copy to Copilot Studio (rolling out) copies agent data sources and actions; GPTs and custom actions must be reattached. Source: Copy a Copilot agent to Microsoft Copilot Studio (Retrieved: 2025-12-09).
+
 ---
+
+## Agentic Retrieval Quick Facts
+
+- Knowledge agents are now **knowledge bases** (Preview, `2025-11-01-preview`); routes `/knowledgebases/*`, `outputMode` + `retrievalReasoningEffort` (minimal/low/medium) replace fast path.
+- Knowledge sources (Preview): indexed SharePoint, remote SharePoint (Copilot Retrieval API, ACL-trimmed), indexed OneLake, web/Bing, search index, Azure Blob; `ingestionParameters` wraps embeddings/chat models/Content Understanding; portal creates `2025-08-01-preview` objects—migrate for `2025-11-01-preview`.
+- Semantic ranker is available on **free tier** (quota limits); enable on the service before using KBs.
+- Hybrid/vector preview (`2024-09-01-preview`): MRL `truncationDimension`, `filterOverride` for vector-only filters, `debug` subscores for RRF, token-based Text Split parameters.
+- Content Understanding skill (Preview) replaces Text Split for richer chunking; billed to Foundry resource when used via `contentExtractionMode`.
 
 ## Agent Development Approach Comparison
 

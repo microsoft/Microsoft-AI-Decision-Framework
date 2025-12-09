@@ -1,66 +1,61 @@
-// Nudge gitGraph commit labels slightly right for readability
-.mermaid .commit-label {
-  text-anchor: start !important; // anchor text to start so it sits right of the node
-  dominant-baseline: middle !important; // vertically center with the commit circle
-  transform: translate(12px, 0) !important; // slight right offset from the circle
+// =============================================================================
+// MERMAID DIAGRAM STYLING
+// =============================================================================
+// Mermaid diagrams have different needs based on context:
+// - README/homepage: Simple horizontal flowcharts (LR) - compact height
+// - Visual-framework: Complex vertical flowcharts (TD) - need full height
+// 
+// Strategy: Let Mermaid handle sizing via useMaxWidth, add scroll for overflow
+
+// Base Mermaid container - minimal interference with Mermaid's native sizing
+.mermaid {
+  width: 100%;
+  display: block;
+  margin: 1rem 0;
+  overflow-x: auto; // horizontal scroll for wide diagrams
+  overflow-y: visible; // allow full height
 }
 
-// Ensure Mermaid gitGraph blocks stretch full width and render SVG at 100%
+// Mermaid SVG - let it size naturally, don't constrain
+.mermaid svg {
+  display: block;
+  max-width: 100%; // prevent horizontal overflow
+  height: auto; // natural height based on content
+}
+
+// Pre/code blocks containing Mermaid - ensure proper display
 .main-content pre {
-  width: 100% !important;
-  overflow-x: auto !important;
+  width: 100%;
+  overflow-x: auto;
 }
 
 .main-content pre code.language-mermaid {
-  display: block !important;
-  width: 100% !important;
-  max-width: 100% !important;
-  padding: 0 !important;
-  background: transparent !important;
-  border: 0 !important;
+  display: block;
+  width: 100%;
+  padding: 0;
+  background: transparent;
+  border: 0;
 }
 
-// Force all Mermaid diagrams to fit within container - scale to fit like an image
-.mermaid {
-  width: 100% !important;
-  max-width: 100% !important;
-  overflow: hidden !important; // contain the diagram
-  text-align: left !important; // align SVG to left
-}
-
-// Target SVG by ID pattern and class - Mermaid generates IDs like "mermaid-1234567890"
-// SVGs scale via viewBox - use preserveAspectRatio alignment
-svg[id^="mermaid-"],
-svg.flowchart,
-.mermaid svg {
-  width: 100% !important;
-  max-width: 100% !important;
-  height: auto !important;
-  min-height: 80px !important;
-  max-height: 200px !important; // constrain height for horizontal flowcharts
-  display: block !important;
-  margin: 0 !important; // no auto margins - align top-left
-}
-
+// Mermaid in main content area
 .main-content .mermaid {
-  width: 100% !important;
-  max-width: 100% !important;
-  display: block !important;
-  margin: 0 !important;
-  padding: 0.5rem 0 !important; // reduced padding
-  overflow: hidden !important; // don't overflow container
-  text-align: left !important;
+  width: 100%;
+  display: block;
+  margin: 1rem 0;
+  padding: 0.5rem 0;
 }
 
-// Override Mermaid's inline viewBox clipping on flowchart nodes
+// GitGraph specific styling
+.mermaid .commit-label {
+  text-anchor: start;
+  dominant-baseline: middle;
+  transform: translate(12px, 0);
+}
+
+// Ensure nodes and labels are visible
 .mermaid svg .node rect,
-.main-content .mermaid svg .node rect {
-  overflow: visible !important;
-}
-
-.mermaid svg foreignObject,
-.main-content .mermaid svg foreignObject {
-  overflow: visible !important;
+.mermaid svg foreignObject {
+  overflow: visible;
 }
 // Custom styles to optimize layout for large monitors
 // Aggressive space utilization - minimize all padding and maximize content area

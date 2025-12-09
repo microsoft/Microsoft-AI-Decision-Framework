@@ -1,5 +1,7 @@
 {
+  "startOnLoad": true,
   "theme": "dark",
+  "securityLevel": "loose",
   "themeVariables": {
     "primaryColor": "#0078D4",
     "primaryTextColor": "#fff",
@@ -13,8 +15,11 @@
     "clusterBkg": "#2d2d2d"
   },
   "flowchart": {
+    "useMaxWidth": true,
+    "htmlLabels": true,
     "curve": "basis",
-    "padding": 20
-  },
-  "startOnLoad": true
+    "padding": 15,
+    "nodeSpacing": 50,
+    "rankSpacing": 50
+  }
 }

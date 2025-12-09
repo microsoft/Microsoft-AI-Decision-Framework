@@ -59,7 +59,7 @@ Follow this progressive path for the best learning experience:
 ### Core path
 
 ```mermaid
-%%{init: {'theme':'dark','flowchart': {'useMaxWidth': true, 'nodeSpacing': 100, 'rankSpacing': 60, 'diagramPadding': 20, 'htmlLabels': true, 'wrappingWidth': 150}}}%%
+%%{init: {'theme':'dark','flowchart': {'nodeSpacing': 100, 'rankSpacing': 60, 'diagramPadding': 20, 'htmlLabels': true}}}%%
 flowchart LR
         F["Foundation<br><small>Capability Model</small>"] --> M["Methodology<br><small>Decision Framework</small>"] --> C["Context<br><small>Scenarios</small>"] --> A["Assessment<br><small>Evaluation Criteria</small>"] --> E["Execution<br><small>Implementation Patterns</small>"] --> D["Deep Dive<br><small>Technologies</small>"] --> MS["Mastery<br><small>Feature Comparison</small>"]
 
@@ -85,7 +85,7 @@ flowchart LR
 ### Reference aids
 
 ```mermaid
-%%{init: {'theme':'dark','flowchart': {'useMaxWidth': true, 'nodeSpacing': 100, 'rankSpacing': 60, 'diagramPadding': 20}}}%%
+%%{init: {'theme':'dark','flowchart': {'nodeSpacing': 100, 'rankSpacing': 60, 'diagramPadding': 20}}}%%
 flowchart LR
         VF["Visual Framework"] --- QR["Quick Reference"] --- RES["Resources"] --- GLOS["Glossary"]
 

@@ -20,30 +20,40 @@
   border: 0 !important;
 }
 
-.main-content .mermaid {
-  width: calc(100vw - 200px) !important; // viewport minus sidebar and padding
-  max-width: none !important;
-  display: block !important;
-  margin: 0 !important;
-  margin-left: -1rem !important; // offset the main-content padding
-  padding: 1rem 0 !important;
-  overflow-x: auto !important;
-  overflow-y: visible !important; // allow vertical content to show
+// Force all Mermaid diagrams to 100% width - override inline styles from Mermaid renderer
+.mermaid {
+  width: 100% !important;
+  max-width: 100% !important;
 }
 
-.main-content .mermaid > svg {
+// Target SVG by ID pattern and class - Mermaid generates IDs like "mermaid-1234567890"
+svg[id^="mermaid-"],
+svg.flowchart,
+.mermaid svg {
   width: 100% !important;
-  max-width: none !important; // override inline px max-width from Mermaid renderer
+  max-width: 100% !important; // override Mermaid's inline max-width: NNNNpx
   height: auto !important;
-  min-height: 120px !important; // ensure minimum height for multi-line nodes
+  min-height: 120px !important;
   display: block !important;
+}
+
+.main-content .mermaid {
+  width: 100% !important;
+  max-width: 100% !important;
+  display: block !important;
+  margin: 0 !important;
+  padding: 1rem 0 !important;
+  overflow-x: auto !important;
+  overflow-y: visible !important;
 }
 
 // Override Mermaid's inline viewBox clipping on flowchart nodes
+.mermaid svg .node rect,
 .main-content .mermaid svg .node rect {
   overflow: visible !important;
 }
 
+.mermaid svg foreignObject,
 .main-content .mermaid svg foreignObject {
   overflow: visible !important;
 }

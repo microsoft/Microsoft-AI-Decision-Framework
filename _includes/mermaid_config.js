@@ -15,7 +15,7 @@
     "clusterBkg": "#2d2d2d"
   },
   "flowchart": {
-    "useMaxWidth": true,
+    "useMaxWidth": false,
     "htmlLabels": true,
     "curve": "basis",
     "padding": 15,

@@ -1,94 +1,3 @@
-// =============================================================================
-// MERMAID DIAGRAM STYLING
-// =============================================================================
-// Problem: Mermaid sets inline styles on SVG that constrain width.
-// Solution: Override ALL possible width constraints at every level.
-// Goal: Gray box expands to fit content, diagram centered inside, scrollbar on overflow.
-
-// The pre > code wrapper - expand to fit content, allow scroll
-.main-content pre:has(.mermaid),
-.main-content pre:has(code.language-mermaid) {
-  max-width: none !important;
-  width: fit-content !important; // Expand to fit the SVG content
-  min-width: 100% !important; // At least full container width
-  overflow-x: auto !important;
-  overflow-y: visible !important;
-  display: block !important;
-}
-
-// Code block inside pre - also expand to fit
-.main-content pre code.language-mermaid {
-  display: block !important;
-  width: fit-content !important; // Expand to fit content
-  min-width: 100% !important; // At least full width
-  max-width: none !important;
-  padding: 1rem !important; // Add padding for visual spacing
-  background: transparent !important;
-  border: 0 !important;
-  overflow: visible !important;
-}
-
-// Base Mermaid container - center the diagram
-.mermaid {
-  width: fit-content !important; // Size to content
-  min-width: 100% !important; // At least full width of parent
-  max-width: none !important;
-  display: flex !important; // Use flex for centering
-  justify-content: center !important; // Center the SVG horizontally
-  align-items: center !important;
-  margin: 1rem auto !important; // Center the container itself
-  overflow: visible !important;
-}
-
-// Mermaid SVG - override ANY inline styles Mermaid sets
-.mermaid svg,
-.mermaid > svg,
-svg[id^="mermaid-"] {
-  display: block !important;
-  max-width: none !important;
-  width: auto !important;
-  min-width: fit-content !important;
-  height: auto !important;
-  overflow: visible !important;
-  margin: 0 auto !important; // Center SVG within mermaid container
-}
-
-// The g element inside SVG - ensure visible
-.mermaid svg > g,
-svg[id^="mermaid-"] > g {
-  overflow: visible !important;
-}
-
-// General pre block styling
-.main-content pre {
-  width: 100%;
-  overflow-x: auto;
-}
-
-// Mermaid in main content area - scrollable container
-.main-content .mermaid {
-  width: fit-content !important;
-  min-width: 100% !important;
-  max-width: none !important;
-  display: flex !important;
-  justify-content: center !important;
-  margin: 1rem auto !important;
-  padding: 0.5rem 0;
-  overflow: visible !important;
-}
-
-// GitGraph specific styling
-.mermaid .commit-label {
-  text-anchor: start;
-  dominant-baseline: middle;
-  transform: translate(12px, 0);
-}
-
-// Ensure nodes and labels are visible
-.mermaid svg .node rect,
-.mermaid svg foreignObject {
-  overflow: visible !important;
-}
 // Custom styles to optimize layout for large monitors
 // Aggressive space utilization - minimize all padding and maximize content area
 
@@ -597,17 +506,10 @@ div.main#top {
   hyphens: auto !important;
 }
 
-// CODE BLOCKS - Full width, but don't constrain Mermaid
+// CODE BLOCKS - Full width
 .main-content pre {
-  max-width: 100%;
+  max-width: 100% !important;
   margin: 0.75rem 0 !important;
-  overflow-x: auto;
-}
-
-// Override for Mermaid-containing pre blocks
-.main-content pre:has(.mermaid) {
-  max-width: none !important;
-  overflow: visible !important;
 }
 
 // CODE INLINE - Better visibility

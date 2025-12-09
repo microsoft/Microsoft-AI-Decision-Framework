@@ -2,12 +2,12 @@
 // MERMAID DIAGRAM STYLING
 // =============================================================================
 // Mermaid diagrams have different needs based on context:
-// - README/homepage: Simple horizontal flowcharts (LR) - compact height
+// - README/homepage: Simple horizontal flowcharts (LR) - may be wider than container
 // - Visual-framework: Complex vertical flowcharts (TD) - need full height
 // 
-// Strategy: Let Mermaid handle sizing via useMaxWidth, add scroll for overflow
+// Strategy: Let SVG render at natural size, container handles overflow with scroll
 
-// Base Mermaid container - minimal interference with Mermaid's native sizing
+// Base Mermaid container - allow scrolling for wide diagrams
 .mermaid {
   width: 100%;
   display: block;
@@ -16,11 +16,14 @@
   overflow-y: visible; // allow full height
 }
 
-// Mermaid SVG - let it size naturally, don't constrain
+// Mermaid SVG - DO NOT constrain width, let it render naturally
+// The container will scroll if SVG is wider than viewport
 .mermaid svg {
   display: block;
-  max-width: 100%; // prevent horizontal overflow
+  max-width: none !important; // CRITICAL: don't clip wide diagrams
+  width: auto !important; // natural width from viewBox
   height: auto; // natural height based on content
+  overflow: visible !important; // override user-agent overflow:hidden
 }
 
 // Pre/code blocks containing Mermaid - ensure proper display
@@ -43,6 +46,8 @@
   display: block;
   margin: 1rem 0;
   padding: 0.5rem 0;
+  overflow-x: auto;
+  overflow-y: visible;
 }
 
 // GitGraph specific styling
@@ -55,7 +60,7 @@
 // Ensure nodes and labels are visible
 .mermaid svg .node rect,
 .mermaid svg foreignObject {
-  overflow: visible;
+  overflow: visible !important;
 }
 // Custom styles to optimize layout for large monitors
 // Aggressive space utilization - minimize all padding and maximize content area

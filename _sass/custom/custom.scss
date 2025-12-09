@@ -25,10 +25,11 @@
   width: 100% !important;
   max-width: 100% !important;
   overflow: hidden !important; // contain the diagram
+  text-align: left !important; // align SVG to left
 }
 
 // Target SVG by ID pattern and class - Mermaid generates IDs like "mermaid-1234567890"
-// Use object-fit style scaling to contain diagram within bounds
+// SVGs scale via viewBox - use preserveAspectRatio alignment
 svg[id^="mermaid-"],
 svg.flowchart,
 .mermaid svg {
@@ -38,8 +39,7 @@ svg.flowchart,
   min-height: 80px !important;
   max-height: 200px !important; // constrain height for horizontal flowcharts
   display: block !important;
-  object-fit: contain !important; // scale to fit like an image
-  object-position: left center !important; // align left
+  margin: 0 !important; // no auto margins - align top-left
 }
 
 .main-content .mermaid {
@@ -47,8 +47,9 @@ svg.flowchart,
   max-width: 100% !important;
   display: block !important;
   margin: 0 !important;
-  padding: 1rem 0 !important;
+  padding: 0.5rem 0 !important; // reduced padding
   overflow: hidden !important; // don't overflow container
+  text-align: left !important;
 }
 
 // Override Mermaid's inline viewBox clipping on flowchart nodes

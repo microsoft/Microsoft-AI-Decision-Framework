@@ -21,15 +21,22 @@
 }
 
 .main-content .mermaid {
-  width: 100% !important;
+  width: 100vw !important; // span full viewport width
+  max-width: none !important;
   display: block !important;
   margin: 0 auto !important;
+  position: relative !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important; // center after expanding to viewport width
 }
 
 .main-content .mermaid > svg {
-  width: 100% !important;
-  max-width: 100% !important; // override inline px max-width from Mermaid renderer
+  width: 100vw !important;
+  max-width: none !important; // override inline px max-width from Mermaid renderer
   height: auto !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  position: relative !important;
 }
 // Custom styles to optimize layout for large monitors
 // Aggressive space utilization - minimize all padding and maximize content area

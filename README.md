@@ -258,7 +258,7 @@ Begin with Scenarios to find use cases similar to yours, then explore referenced
 
 ## Still Want the Simplified Version?
 
-After understanding the comprehensive framework above, if you prefer Microsoft's official high-level decision tree and want to prioritize use cases that align with strategic goals and demonstrate impact quickly refer to the diagrams below:
+After understanding the comprehensive framework above, if you prefer Microsoft's official high-level decision tree and want to prioritize use cases that align with strategic goals and demonstrate impact quickly, refer to the diagrams below:
 
 
 ![Prioritize AI agent use cases](images/prioritize-agent-use-cases.png)

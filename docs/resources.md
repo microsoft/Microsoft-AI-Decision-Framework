@@ -20,17 +20,22 @@ This page provides role-based action plans and key takeaways from the Microsoft 
 
 ## Key Takeaways
 
+# Resources & Next Steps
+{: .no_toc }
+
 1. **Start with user experience**: Where users interact drives technology choice
 2. **Choose simplest tool that meets requirements**: Developers can use low-code or pro-code; makers limited to low-code; let complexity and time-to-market decide
 3. **Match governance approach to your needs**: M365 tenant-integrated (ready to use, fast) vs Azure workload-tailored (precise control for specific requirements)
 4. **Plan for scale**: Start simple, architect for growth
 5. **Leverage integration**: Technologies work together, not in isolation
-6. **Prioritize governance**: Especially for Microsoft 365 Copilot extensions and custom agents
+6. **Prioritize governance**: Especially for Microsoft 365 Copilot extensions and custom agents; keep agent inventory current via Agent Registry/Agent 365
 7. **Adopt staged security blueprints**: Use Microsoft Purview deployment models to secure agent data and interactions
 8. **Think beyond agents**: Connectors, plugins, and extensibility matter
 9. **Budget appropriately**: Understand per-user vs. consumption models
 10. **Iterate and learn**: Start small, measure, expand
 11. **Stay current**: Capabilities evolving rapidly, especially in preview
+---
+
 
 ---
 
@@ -47,8 +52,10 @@ This page provides role-based action plans and key takeaways from the Microsoft 
 
 **Key Resources:**
 
-- [What's new in Azure AI Foundry Agent Service](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/whats-new#october-2025)
+- [What's new in Azure AI Foundry Agent Service](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/whats-new)
 - [M365 Copilot Extensibility Overview](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/)
+- [Microsoft 365 Copilot release notes — November 24, 2025](https://learn.microsoft.com/en-us/copilot/microsoft-365/release-notes#november-24,-2025)
+- [Agent Registry in the Microsoft 365 admin center](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/agent-registry?view=o365-worldwide#admin-actions-to-manage-agents) (Retrieved: 2025-12-08)
 - [Secure and govern Microsoft 365 Copilot agents (Purview blueprint)](https://learn.microsoft.com/en-us/purview/deploymentmodels/depmod-sc-agents-deployment)
 - [Cloud Adoption Framework for AI](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/ai/)
 
@@ -71,6 +78,8 @@ This page provides role-based action plans and key takeaways from the Microsoft 
 - [Microsoft Agent Framework documentation](https://learn.microsoft.com/en-us/azure/ai-services/agents/concepts/agent-framework)
 - [Semantic Kernel documentation](https://learn.microsoft.com/en-us/semantic-kernel/overview/)
 - [Agentic retrieval quickstart for Azure AI Search](https://learn.microsoft.com/en-us/azure/search/search-get-started-agentic-retrieval)
+- [Microsoft 365 Copilot Search API overview (Preview)](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/api/ai-services/search/overview) (Retrieved: 2025-12-09)
+- [Copy a Copilot agent to Microsoft Copilot Studio](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/copilot-agent-to-studio) (Retrieved: 2025-12-09)
 
 ---
 
@@ -89,6 +98,7 @@ This page provides role-based action plans and key takeaways from the Microsoft 
 - [Copilot Studio documentation](https://learn.microsoft.com/en-us/microsoft-copilot-studio/)
 - [Copilot Studio learning paths](https://learn.microsoft.com/en-us/training/browse/?products=microsoft-copilot-studio)
 - [Power Platform community](https://powerusers.microsoft.com/)
+- [Copy a Copilot agent to Microsoft Copilot Studio](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/copilot-agent-to-studio) (Retrieved: 2025-12-09)
 
 ---
 
@@ -107,6 +117,8 @@ This page provides role-based action plans and key takeaways from the Microsoft 
 - [M365 Copilot admin guide](https://learn.microsoft.com/en-us/microsoft-365-copilot/microsoft-365-copilot-setup)
 - [Integrated apps management](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/test-and-deploy-microsoft-365-apps)
 - [Graph connectors administration](https://learn.microsoft.com/en-us/microsoftsearch/configure-connector)
+- [Agent Registry in the Microsoft 365 admin center](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/agent-registry?view=o365-worldwide#admin-actions-to-manage-agents) (Retrieved: 2025-12-08)
+- [Microsoft 365 Copilot release notes — November 24, 2025](https://learn.microsoft.com/en-us/copilot/microsoft-365/release-notes#november-24,-2025)
 
 ---
 

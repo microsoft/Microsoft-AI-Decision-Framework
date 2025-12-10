@@ -19,11 +19,11 @@ Master the art of selecting the right Microsoft AI technology for your business 
 
 ## The Challenge
 
-Microsoft's AI portfolio includes **M365 Copilot, Copilot Studio, Azure AI Foundry, Agent Service, SDKs, and more**. Each technology serves different needs, and choosing the wrong one wastes time and money.
+Microsoft's AI portfolio is a maze—**M365 Copilot, Copilot Studio, Microsoft Foundry, Agent Service, SDKs, and more**—and the price of a wrong turn is real: wasted budget, security exposure, stalled pilots, or compliance risk.
 
-Enterprise AI decisions also have countless edge cases-data boundaries, orchestration models, compliance controls, channel requirements-so a single static decision tree oversimplifies reality. This guide is intentionally **Level 300-400** material: it teaches you how to think, model tradeoffs, and construct your own decision trees for any use case instead of memorizing ours.
+Decisions get harder in the messy middle: data boundaries, orchestration models, action safety, channel reach, governance, and operating models rarely fit a one-page decision tree. Static checklists collapse under enterprise edge cases.
 
-**This guide solves that problem** by teaching you a systematic framework (BXT + capability model + evaluation criteria) for evaluating and selecting the right tool for your specific requirements, then adapting the framework as Microsoft ships new capabilities.
+**This guide exists to prevent false starts.** It gives you a repeatable way of thinking (BXT + capability model + evaluation criteria) so you can select the right tool for your use case, defend the tradeoffs, and adapt as Microsoft ships new capabilities.
 
 ---
 
@@ -173,7 +173,7 @@ For experienced users who need fast recommendations:
 
 ### "I have a dev team and complex requirements"
 
--> **[Azure AI Foundry]({{ '/docs/technologies#azure-ai-foundry' | relative_url }})** or **[M365 Agents SDK]({{ '/docs/technologies#microsoft-365-agents-sdk--toolkit' | relative_url }})**
+-> **[Microsoft Foundry (Azure)]({{ '/docs/technologies#microsoft-foundry-azure' | relative_url }})** or **[M365 Agents SDK]({{ '/docs/technologies#microsoft-365-agents-sdk--toolkit' | relative_url }})**
 
 ### "I need enterprise integration + AI"
 
@@ -182,6 +182,30 @@ For experienced users who need fast recommendations:
 ### "I need to extend M365 Copilot"
 
 -> **[Graph Connectors]({{ '/docs/capability-model#layer-2-extensibility-enhance-existing-copilots' | relative_url }})** (data) or **[Declarative Agents]({{ '/docs/capability-model#layer-2-extensibility-enhance-existing-copilots' | relative_url }})** (custom skills)
+
+### "I need an intranet copilot with citations"
+
+-> **[Azure AI Search knowledge bases (Preview)]({{ '/docs/scenarios#scenario-4-agentic-retrieval-knowledge-base-enterprise-intranet' | relative_url }})** (SharePoint/OneLake/web sources with ACLs, citations)
+
+### "I need answers from PDFs with tables and diagrams"
+
+-> **[Azure AI Search + Content Understanding (Preview)]({{ '/docs/scenarios#scenario-5-multimodal-compliance-copilot-rich-pdfs-tables-and-images' | relative_url }})** (hybrid/vector + layout-aware citations)
+
+### "I need multi-agent orchestration without coding a graph"
+
+-> **[Foundry Workflows (new portal)]({{ '/docs/scenarios#scenario-9-foundry-multi-agent-workflow-approvals--triage' | relative_url }})** (template-based orchestration with agent nodes and tool catalog)
+
+### "I need to publish an agent to Teams/M365 fast"
+
+-> **[Foundry publish to Copilot/Teams]({{ '/docs/scenarios#scenario-10-publish-foundry-agent-to-microsoft-365teams' | relative_url }})** (org-scoped store listing, Entra + Bot Service wiring)
+
+### "I need a governed M365 copilot with better SharePoint answers"
+
+-> **[Copilot Studio Entra identity + tenant graph grounding (Preview)]({{ '/docs/scenarios#scenario-11-copilot-studio-enterprise-agent-with-entra-identity--tenant-graph-grounding' | relative_url }})** (agent-level identity, semantic SharePoint grounding, metadata filters)
+
+### "I need hybrid OneDrive search for a custom engine agent"
+
+-> **[Copilot Search API (Preview)]({{ '/docs/quick-reference#technology-by-user-experience' | relative_url }})** (Graph `/beta` hybrid semantic + lexical search with M365 security trimming)
 
 {: .note }
 > **Note:** These shortcuts skip the learning framework. For comprehensive understanding, follow the [progressive learning path](#your-learning-journey) above.
@@ -193,10 +217,11 @@ For experienced users who need fast recommendations:
 This guide is built on evidence-based research and systematic decision-making:
 
 1. **Source-First Research** - All content backed by official Microsoft documentation
-2. **Framework-Driven** - BXT methodology + 6 critical questions + scenario criteria
+2. **Framework-Driven** - BXT methodology + 6 critical questions + scenario criteria, aligned with the CAF AI agent adoption path (plan, govern & secure, build, operate)
 3. **Pattern-Oriented** - Proven implementation approaches from real deployments
-4. **Progressive Learning** - Foundation -> Context -> Application -> Mastery
-5. **Start Simple, Scale Smart** - Choose the simplest technology that meets requirements
+4. **Governance-Aware** - Maintain agent inventory and lifecycle via Agent Registry/Agent 365 where applicable
+5. **Progressive Learning** - Foundation -> Context -> Application -> Mastery
+6. **Start Simple, Scale Smart** - Choose the simplest technology that meets requirements
 
 ---
 
@@ -223,17 +248,26 @@ Begin with Scenarios to find use cases similar to yours, then explore referenced
 **Approach:**
 
 - Source-backed (official Microsoft Learn documentation)
-- Framework-driven (BXT + Technology Groupings + Selection Criteria)
+- Framework-driven (BXT + Technology Groupings + Selection Criteria), with CAF AI agent adoption providing the plan/govern/build/operate rollout spine
 - Pattern-oriented (proven architecture approaches)
 - Validation-focused (all diagrams validated against official capabilities)
 
-**Maintenance:** This guide reflects the state as of **November 2025**. Microsoft's AI capabilities evolve rapidly-always verify with official sources for production decisions.
+**Maintenance:** This guide reflects the state as of **December 2025**. Microsoft's AI capabilities evolve rapidly—always verify with official sources for production decisions.
 
 ---
 
 ## Still Want the Simplified Version?
 
-After understanding the comprehensive framework above, if you prefer Microsoft's official high-level decision tree:
+After understanding the comprehensive framework above, if you prefer Microsoft's official high-level decision tree and want to prioritize use cases that align with strategic goals and demonstrate impact quickly, refer to the diagrams below:
+
+
+![Prioritize AI agent use cases](images/prioritize-agent-use-cases.png)
+*CAF criteria to rank agent use cases by impact, feasibility, and desirability (Microsoft Learn, accessed 2025-12-09).* [(Reference)](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/business-strategy-plan)
+
+
+![AI agent decision tree](images/ai-agent-decision-tree.svg)
+*CAF technology plan decision tree for choosing SaaS vs custom agents (Microsoft Learn, accessed 2025-12-09).* [(Reference)](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/technology-solutions-plan-strategy)
+
 
 ![Microsoft AI Decision Tree](images/ai-decision-tree.svg)
 
@@ -249,6 +283,7 @@ After understanding the comprehensive framework above, if you prefer Microsoft's
 This framework integrates:
 
 - Microsoft's [Business-Experience-Technology (BXT) Framework](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/business-envisioning)
+- [CAF AI agent adoption](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/) (plan, govern & secure, build, operate)
 - [Cloud Adoption Framework AI Strategy](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/ai/strategy)
 - [M365 Copilot Extensibility Guidance](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/agents-overview)
 

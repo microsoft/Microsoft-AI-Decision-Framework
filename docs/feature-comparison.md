@@ -6,6 +6,7 @@ description: Comprehensive side-by-side technology comparisons
 ---
 
 # Feature Comparison
+{: .no_toc }
 
 {: .note }
 Detailed side-by-side comparisons of Microsoft AI technologies. For decision guidance, see the [Decision Framework]({{ '/docs/decision-framework' | relative_url }}).
@@ -22,15 +23,17 @@ Detailed side-by-side comparisons of Microsoft AI technologies. For decision gui
 
 ## Comprehensive Platform Comparison
 
+Quick view of core platforms (M365 Copilot, Studio, Foundry, Agent Framework, Logic Apps) across UX, governance, orchestration, and hosting trade-offs.
+
 | Feature | M365 Copilot | Copilot Studio | Microsoft Foundry (Azure) | **Microsoft Agent Framework** | **AG-UI Protocol (Preview)** | Foundry Agent Service | M365 Agents SDK | **Azure Logic Apps** |
 |---------|--------------|----------------|------------------|------------------------------|----------------------------|------------------------|-----------------|----------------------|
-| **User Experience** | M365 apps (Frontier creation agents Preview[^frontier-agents]) | Custom channels | Custom apps | Embedded in apps | Protocol-based web/mobile UI | Custom apps | Copilot/Teams/Web | **Custom/Conversational** |
+| **User Experience** | M365 apps (Frontier creation agents Preview[^frontier-agents]) + mobile parity for custom engine/message-extension agents[^mobile-ext] | Custom channels | Custom apps | Embedded in apps | Protocol-based web/mobile UI | Custom apps | Copilot/Teams/Web | **Custom/Conversational** |
 | **Build Approach** | No-build (consume) | Low-code to pro-code | Code-first | Pro-code (orchestration SDK) | Pro-code protocol integration (ASP.NET Core, FastAPI) | Code-first | Pro-code | **Visual designer + code** |
 | **Data Boundary** | M365 tenant | M365 or Azure | Azure | Any | Inherits host runtime | Azure | M365 or Azure | **Azure** |
-| **Governance** | Tenant-integrated (automatic) | Tenant or workload | Workload-tailored (custom) | Application-level | Inherits host app controls; approvals via middleware | Workload-tailored (custom) | Tenant or workload | **Azure RBAC** |
+| **Governance** | Tenant-integrated (automatic) + registry lifecycle (publish/activate/deploy/pin/block/remove/delete/owner transfer/export)[^agent-registry] | Tenant or workload | Workload-tailored (custom) | Application-level | Inherits host app controls; approvals via middleware | Workload-tailored (custom) | Tenant or workload | **Azure RBAC** |
 | **Admin Center** | M365 admin center | Power Platform admin | Azure RBAC | Application-level | Host platform (Azure/App) | Azure RBAC | M365 admin center | **Azure portal** |
 | **Licensing Model** | Per-user (\/month) | Metered messages | Azure consumption | Open-source (free) | Open-source adapters (no license) | Azure consumption | Included in M365 | **Consumption or Standard** |
-| **Extensibility** | Via Studio/SDK | Plugins, connectors | Full custom | Workflow orchestration | Seven protocol features (streaming, backend tool rendering, human approvals, generative UI, shared/predictive state) | Full custom | Full custom | **1,400+ connectors** |
+| **Extensibility** | Via Studio/SDK + Copilot Search API (Preview, OneDrive hybrid search)[^search-api] | Plugins, connectors | Full custom | Workflow orchestration | Seven protocol features (streaming, backend tool rendering, human approvals, generative UI, shared/predictive state) | Full custom | Full custom | **1,400+ connectors** |
 | **Deployment** | Microsoft-managed | Microsoft-managed | Self-managed | Self-managed (SDK) | Self-hosted endpoints (ASP.NET Core, FastAPI) | Microsoft-managed | Self-managed | **Self-managed (Azure)** |
 | **Time to Value** | Immediate | Days to weeks | Weeks to months | Weeks (with dev skills) | Weeks (requires pro dev + UI build) | Weeks to months | Weeks | **Days to weeks** |
 | **Skill Level** | End user | Maker to developer | Developer/engineer | Developer (C#/Python) | Developers (front-end + back-end) | Developer/engineer | Developer | **Developer** |
@@ -44,6 +47,9 @@ Detailed side-by-side comparisons of Microsoft AI technologies. For decision gui
 | **Best For** | Broad productivity | Custom agents | Custom AI apps | **Workflow orchestration** | Custom branded experiences and generative UI atop Agent Framework | Managed agents | Pro-code extensions | **Enterprise integration + AI** |
 
 [^frontier-agents]: Frontier Word/Excel/PowerPoint creation agents (Preview) require admin Frontier opt-in, Anthropic provider connection, and acceptance of Anthropic commercial terms; data is processed outside Microsoft-managed environments. Sources: [Word/Excel/PowerPoint Agents](https://learn.microsoft.com/en-us/copilot/microsoft-365/wordexcelppt-agents), [Microsoft 365 Copilot admin user access](https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-page#user-access).
+[^mobile-ext]: Microsoft 365 Copilot release notes (Nov 24, 2025) – mobile support for custom engine agents and message-extension agents on iOS/Android. Source: [Microsoft 365 Copilot release notes - Nov 24, 2025](https://learn.microsoft.com/en-us/copilot/microsoft-365/release-notes#november-24,-2025).
+[^agent-registry]: Agent Registry lifecycle actions (publish, activate, deploy, pin, block, remove, delete, reassign owner, export inventory). Source: [Agent Registry in the Microsoft 365 admin center](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/agent-registry?view=o365-worldwide#admin-actions-to-manage-agents) (Retrieved: 2025-12-08).
+[^search-api]: Overview of the Microsoft 365 Copilot Search API (Preview) for hybrid semantic + lexical search across OneDrive via Graph `/beta`. Source: [Microsoft 365 Copilot Search API overview](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/api/ai-services/search/overview) (Retrieved: 2025-12-09).
 [^aafs-triggers]: *What's new in Microsoft Foundry (Azure) Agent Service*, Microsoft Learn. May 2025 GA update includes Azure Logic Apps triggers for agents.
 [^logicapps-agents]: *Workflows with AI agents and models in Azure Logic Apps (Preview)*, Microsoft Learn. Retrieved: 2025-11-10.
 [^aafs-mcp]: *What's new in Microsoft Foundry (Azure) Agent Service*, Microsoft Learn. June 2025 update announces the MCP tool.
@@ -53,6 +59,8 @@ Detailed side-by-side comparisons of Microsoft AI technologies. For decision gui
 
 ## Developer Agent Comparison
 {: .tech-heading }
+
+Contrast packaged Microsoft agents (Coding, SRE, App Modernization) by trigger, action scope, and human-in-the-loop expectations.
 
 | Feature | GitHub Copilot Coding Agent | Azure SRE Agent | GitHub Copilot App Modernization |
 |---------|-----------------------------|-----------------|----------------------------------|
@@ -70,6 +78,8 @@ Detailed side-by-side comparisons of Microsoft AI technologies. For decision gui
 ## Workflow Orchestration Platform Comparison
 
 **Agentic workflows** automate business processes and orchestrate AI agents through deterministic sequences with AI integration. Microsoft provides three primary technologies for different development approaches and team skills.
+
+Use this matrix to choose between Agent Framework Workflows, Logic Apps AI Agent Workflows, and Copilot Studio agent flows based on skills, hosting, connectors, and checkpointing needs.
 
 ### Technology Options
 {: .no_toc }
@@ -167,6 +177,8 @@ Detailed side-by-side comparisons of Microsoft AI technologies. For decision gui
 
 ## Data Grounding Technology Comparison
 
+Side-by-side grounding options (Graph, AI Search, Fabric, Cosmos, PostgreSQL, SQL Server) by search mode, boundary, and best-fit workloads.
+
 | Feature | **Graph Connectors** | **Azure AI Search** | **Microsoft Fabric** | **Cosmos DB** | **PostgreSQL** | **SQL Server 2025** |
 |---------|---------------------|---------------------|----------------------|----------------|----------------|---------------------|
 | **Vector Search** | No (semantic index only) | ✅ Yes (IVF, HNSW) | ✅ Yes (Lakehouse via external tools) | ✅ Yes (IVF, HNSW, DiskANN) | ✅ Yes (pgvector, IVF) | ✅ Yes (DiskANN) |
@@ -191,7 +203,24 @@ Detailed side-by-side comparisons of Microsoft AI technologies. For decision gui
 
 ---
 
+### Azure AI Search Agentic & Hybrid Preview Highlights
+{: .no_toc }
+
+| Feature | Status | Notes | API Version | Documentation |
+|---------|--------|-------|-------------|----------------|
+| Knowledge bases (renamed from knowledge agents) | Preview | Routes `/knowledgebases/*`, `outputMode` replaces `outputConfiguration`, `retrievalReasoningEffort` (minimal/low/medium) replaces fast path; partial responses supported. | 2025-11-01-preview | [Agentic retrieval migration](https://learn.microsoft.com/en-us/azure/search/agentic-retrieval-how-to-migrate) |
+| Knowledge sources | Preview | Indexed/remote SharePoint, indexed OneLake, web/Bing, search index, Azure Blob; `ingestionParameters` wrap embeddings/chat models, schedules, `contentExtractionMode` (Content Understanding). Portal uses 2025-08-01-preview objects—migrate for 2025-11-01-preview. | 2025-11-01-preview | [Knowledge sources](https://learn.microsoft.com/en-us/azure/search/agentic-knowledge-source-overview) |
+| Content Understanding skill | Preview | Rich Markdown/table extraction and chunking without Text Split; billed to Foundry resource. | 2025-05-01-preview | [Content Understanding skill](https://learn.microsoft.com/en-us/azure/search/cognitive-search-skill-content-understanding) |
+| Semantic ranker on free tier | GA | Semantic reranking available on free tier with volume limits. | n/a | [Semantic ranker](https://learn.microsoft.com/en-us/azure/search/semantic-how-to-enable-disable) |
+| Hybrid/vector debug & control | Preview | `truncationDimension` for MRL embeddings, `filterOverride` for vector-only filters in hybrid queries, `debug` subscores for RRF, token-based Text Split parameters. | 2024-09-01-preview | [Hybrid search preview](https://learn.microsoft.com/en-us/azure/search/hybrid-search-how-to-query#example-hybrid-search-with-filters-targeting-vector-subqueries-preview) |
+
+**Last Updated:** December 9, 2025
+
+---
+
 ## Agent Development Approach Comparison
+
+Declarative vs custom engine: when to stay low-code with managed orchestration versus bringing your own orchestrator and hosting.
 
 | **Approach** | **Declarative Agents** | **Custom Engine Agents** |
 |--------------|------------------------|--------------------------|
@@ -212,6 +241,8 @@ Detailed side-by-side comparisons of Microsoft AI technologies. For decision gui
 ---
 
 ## Custom Engine Agent Tool Comparison
+
+Tooling snapshot for custom engine agents across Copilot Studio, Teams AI Library, and M365 Agents SDK (channels, orchestration fit, developer experience).
 
 | **Tool** | **Copilot Studio** | **Teams AI Library** | **M365 Agents SDK** |
 |----------|---------------------|----------------------|---------------------|

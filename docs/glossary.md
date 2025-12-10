@@ -6,6 +6,7 @@ description: "Key terms and definitions for Microsoft AI technologies"
 ---
 
 # Glossary
+{: .no_toc }
 
 Quick reference for key terms used throughout the Microsoft AI Decision Tree.
 
@@ -26,6 +27,12 @@ An AI system that uses an LLM to interpret user inputs, plan, call tools or MCP 
 
 **Agent2Agent (A2A)**  
 A protocol enabling secure, peer-to-peer communication between AI agents, allowing them to discover peers, negotiate tasks, and collaborate without centralized intermediaries ([Advanced development tools for Teams](https://news.microsoft.com/build-2025-book-of-news/), updated 2025-05-19).
+
+**Agent Registry (Preview)**  
+Central inventory in the M365 admin center to publish, activate, deploy, pin, block, remove, delete, transfer ownership, or export agents; enforces governance and visibility across Copilot and custom agents ([Agent Registry](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/agent-registry?view=o365-worldwide#admin-actions-to-manage-agents), retrieved 2025-12-08).
+
+**Agent Settings templates (Preview)**  
+Reusable configuration templates in the M365 admin center that let admins apply consistent policies to multiple agents (e.g., enabled channels, publishing scope, owners), managed alongside Agent Registry entries ([Microsoft 365 Copilot release notes — November 24, 2025](https://learn.microsoft.com/en-us/copilot/microsoft-365/release-notes#november-24,-2025)).
 
 **Agent Framework**  
 An open-source development kit for .NET and Python that unifies Semantic Kernel and AutoGen concepts, adding stateful workflows and multi-agent orchestration for production-grade AI solutions ([Microsoft Agent Framework](https://learn.microsoft.com/en-us/agent-framework/overview/agent-framework-overview), updated 2025-10-09).
@@ -54,6 +61,12 @@ Tenant-aware AI experience embedded across Microsoft 365 apps, inheriting Graph 
 
 **Copilot vs. Agent**  
 "Copilot" describes the user-facing experience; "agent" describes the implementation pattern (planning, tools, memory). Many copilots are backed by agents, but a copilot can remain a simple assistant if no tools or state are attached.
+
+**Copilot Search API (Preview, Graph `/beta`)**  
+Microsoft Graph `/beta` API that delivers hybrid semantic + lexical search over OneDrive content for custom engine agents, returning grounding for Copilot experiences while respecting M365 security trimming ([Microsoft 365 Copilot Search API overview](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/api/ai-services/search/overview), retrieved 2025-12-09).
+
+**Copy to Copilot Studio**  
+Rolling capability to clone Copilot agents into Copilot Studio; copies data sources and actions, but GPTs and custom actions must be reattached after import ([Copy a Copilot agent to Microsoft Copilot Studio](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/copilot-agent-to-studio), retrieved 2025-12-09).
 
 ## D
 

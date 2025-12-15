@@ -23,6 +23,8 @@ Real-world use cases with step-by-step technology recommendations.
 
 ## How to Use This Guide
 
+Use scenarios as a guided learning path: they show how the same Microsoft portfolio components combine in different ways depending on constraints (data boundary, governance, skills, time-to-production). If you’re not sure where to start, use the [Decision Framework]({{ '/docs/decision-framework' | relative_url }}) to pick a build style and trust boundary, then use [Evaluation Criteria]({{ '/docs/evaluation-criteria' | relative_url }}) to sanity-check complexity and readiness.
+
 Each scenario follows this structure:
 - **Business Context:** The problem to solve
 - **Key Requirements:** Must-have capabilities

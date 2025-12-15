@@ -8,7 +8,7 @@ description: "Key terms and definitions for Microsoft AI technologies"
 # Glossary
 {: .no_toc }
 
-Quick reference for key terms used throughout the Microsoft AI Decision Tree.
+Quick reference for key terms used throughout the Microsoft AI Decision Framework.
 
 ---
 

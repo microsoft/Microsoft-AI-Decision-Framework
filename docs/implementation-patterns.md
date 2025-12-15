@@ -8,6 +8,8 @@ description: "Common patterns and best practices for implementing Microsoft AI s
 {: .note }
 These patterns represent proven approaches for implementing Microsoft AI solutions. Each pattern includes clear guidance on when to use it and when to avoid it.
 
+Use this page when you’ve identified a likely platform choice and want an execution-ready shape for delivery. Patterns are designed to be composable: it’s common to start with one pattern for speed (e.g., Copilot Studio) and adopt another as requirements mature (e.g., Azure-hosted orchestration).
+
 ---
 
 ## Table of contents

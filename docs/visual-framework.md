@@ -12,7 +12,7 @@ Interactive decision trees to guide Microsoft AI technology selection.
 {: .fs-6 .fw-300 }
 
 {: .note }
-Use these diagrams after working through the [Decision Framework]({{ '/docs/decision-framework' | relative_url }}) and [Evaluation Criteria]({{ '/docs/evaluation-criteria' | relative_url }}). They reinforce the nine critical questions and help facilitate workshops or executive readouts.
+Use these diagrams after working through the [Decision Framework]({{ '/docs/decision-framework' | relative_url }}) and [Evaluation Criteria]({{ '/docs/evaluation-criteria' | relative_url }}). They reinforce the nine critical questions and are designed to support workshops, architecture reviews, and executive readouts.
 
 ## Table of contents
 {: .no_toc .text-delta }

@@ -6,7 +6,7 @@ description: Key takeaways and resources by role
 ---
 
 {: .note }
-This page provides role-based action plans and key takeaways from the Microsoft AI Decision Tree framework.
+This page provides role-based action plans and key takeaways from the Microsoft AI Decision Framework.
 
 ---
 

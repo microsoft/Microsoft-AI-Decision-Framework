@@ -12,6 +12,8 @@ description: "Complete reference for Microsoft's AI technology portfolio"
 
 This section provides a comprehensive overview of Microsoft's AI technology stack, from end-user productivity tools to infrastructure services.
 
+Use this page as a reference after you’ve narrowed the decision: it’s optimized for confirming capabilities, boundaries, and status (GA/Preview) rather than teaching the selection process.
+
 > **Problem-first reminder:** Start with the business outcome and scenario, then pick the simplest technology that satisfies it. Use [Scenarios]({{ '/docs/scenarios' | relative_url }}) to anchor real problems and the [Decision Framework]({{ '/docs/decision-framework' | relative_url }}) to gate technology choices.
 
 

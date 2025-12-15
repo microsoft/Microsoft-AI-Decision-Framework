@@ -8,11 +8,15 @@ description: "Understanding Microsoft's AI portfolio through five capability lay
 # Five-Layer Capability Model
 {: .no_toc }
 
-Microsoft's five-layer capability model distills the official "adopt → extend → build" journey from [Adopt, extend and build Copilot experiences across the Microsoft Cloud](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/overview), expands it with the hands-on tiers from the [Explore the Copilot stack](https://learn.microsoft.com/en-us/training/modules/explore-copilot-stack/) module and ...e Copilot stack view in [Creating Generative AI Experiences with the Microsoft Cloud](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/isv-extensibility-story#scenarios-and-approaches), and grounds it in Azure's [Application design for AI workloads](https://learn.microsoft.com/en-us/azure/well-architected/ai/application-design#application-layer-architecture). The result is a single progression—from turnkey Microsoft 365 copilots, to governed extensibility, to Copilot Studio and Microsoft Foundry platforms, to shared Azure AI services, to specialized domain copilots—that helps you decide whether to infuse AI into an existing experience or build agents and orchestration when the scenario demands more control.
+Microsoft's five-layer capability model is a practical map for choosing the right starting point in the Microsoft AI portfolio. It distills the official "adopt → extend → build" journey from [Adopt, extend and build Copilot experiences across the Microsoft Cloud](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/overview), expands it with the hands-on tiers from the [Explore the Copilot stack](https://learn.microsoft.com/en-us/training/modules/explore-copilot-stack/) module and the Copilot stack view in [Creating Generative AI Experiences with the Microsoft Cloud](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/isv-extensibility-story#scenarios-and-approaches), and grounds it in Azure's [Application design for AI workloads](https://learn.microsoft.com/en-us/azure/well-architected/ai/application-design#application-layer-architecture).
+
+The result is a single progression—from turnkey Microsoft 365 copilots, to governed extensibility, to Copilot Studio and Microsoft Foundry platforms, to shared Azure AI services, to specialized domain copilots—that helps you decide whether to infuse AI into an existing experience or build agents and orchestration when the scenario demands more control.
+
+**How to use this page:** Start at Layer 1 and move up only when your requirements demand more control (data boundaries, governance, orchestration depth, channel reach, or hosting). Most successful programs combine layers over time; this model helps you do that intentionally.
 
 ## Orientation: Three Capability Buckets
 
-Before the five-layer model, align on the three core capability buckets that describe *how* AI shows up:
+Before the five-layer model, align on the three core capability buckets that describe *how* AI shows up. This keeps early conversations grounded in outcomes (who uses it and how) before you debate platforms.
 
 | Bucket | What It Is | Key Distinction |
 |--------|------------|-----------------|

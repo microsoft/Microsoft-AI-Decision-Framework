@@ -10,7 +10,7 @@ description: "Three-phase decision methodology for selecting Microsoft AI techno
 
 {: .no_toc }
 
-This framework integrates Microsoft's [Business-Experience-Technology (BXT) Framework](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/business-envisioning), [Cloud Adoption Framework AI Strategy](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/ai/strategy), and [M365 Copilot Extensibility Decision Guidance](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/agents-overview).
+Use this document as your intake playbook: it keeps the decision anchored in business outcomes and user experience before you select technologies. It integrates Microsoft's [Business-Experience-Technology (BXT) Framework](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/business-envisioning), [Cloud Adoption Framework AI Strategy](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/ai/strategy), and [M365 Copilot Extensibility Decision Guidance](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/agents-overview).
 
 > [!NOTE] **See [Visual Framework]({{ '/docs/visual-framework' | relative_url }}) for workflow diagrams** that illustrate how to apply this framework as an intake process.
 
@@ -19,7 +19,7 @@ This framework integrates Microsoft's [Business-Experience-Technology (BXT) Fram
 {: .no_toc }
 
 1. **What business outcome am I trying to achieve?** If the outcome is unclear, pause and rewrite the problem statement before picking any tool.
-2. **What user experience delivers that outcome?** Decide if people need conversational help, embedded copilots, or headless APIs-and prototype the experience first.
+2. **What user experience delivers that outcome?** Decide if people need conversational help, embedded copilots, or headless APIs—and prototype the experience first.
 3. **What is the simplest technology that satisfies it?** Start with built-in Microsoft 365 Copilot or Copilot Studio, and only move to pro-code (Foundry/Agent Framework/SDK) when requirements demand network control, custom orchestration, or specialized hosting.
 
 
@@ -34,7 +34,7 @@ This framework integrates Microsoft's [Business-Experience-Technology (BXT) Fram
 
 ## Phase 1: Business Impact Assessment (BXT Framework)
 
-Microsoft's official [Business-Experience-Technology (BXT) framework](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/business-envisioning) requires every AI initiative to prove **Business viability**, **Experience desirability**, and **Technology feasibility** before you fund build work. Use this phase to quantify value, adoption, and delivery readiness up front-if any dimension falls short, pause or reshape the scenario before moving to technology choices.
+Microsoft's official [Business-Experience-Technology (BXT) framework](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/business-envisioning) requires every AI initiative to prove **Business viability**, **Experience desirability**, and **Technology feasibility** before you fund build work. Use this phase to quantify value, adoption, and delivery readiness up front—if any dimension falls short, pause or reshape the scenario before moving to technology choices.
 
 ### 1. Viability (Business)
 
@@ -78,7 +78,7 @@ Apply these questions **sequentially** after passing the BXT assessment. Each qu
 
 > [!NOTE] **Important:** These questions create buckets/categories. Final technology selection happens in **Phase 3** based on scenario-specific criteria (time-to-market, complexity, budget, etc.).
 
-Use these gates to stay simple first: start with a SaaS agent when it meets the requirement; step into low-code or pro-code only when the need is explicit. Frame every answer as a balance of speed, control, and shared responsibility (SaaS -> PaaS -> IaaS), and prefer interoperable standards (e.g., MCP) to reduce rework.
+Use these gates to stay simple first: start with a SaaS agent when it meets the requirement; step into low-code or pro-code only when the need is explicit. Frame every answer as a balance of speed, control, and shared responsibility (SaaS → PaaS → IaaS), and prefer interoperable standards (e.g., MCP) to reduce rework.
 
 ---
 

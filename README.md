@@ -19,9 +19,9 @@ Master the art of selecting the right Microsoft AI technology for your business 
 
 ## The Challenge
 
-Microsoft's AI portfolio is a maze—**M365 Copilot, Copilot Studio, Microsoft Foundry, Agent Service, SDKs, and more**—and the price of a wrong turn is real: wasted budget, security exposure, stalled pilots, or compliance risk.
+Microsoft's AI portfolio is broad and moving fast—**M365 Copilot, Copilot Studio, Microsoft Foundry, Agent Service, SDKs, and more**—and choosing the right starting point matters. When the solution and requirements don’t align, the consequences are real: wasted budget, security exposure, stalled pilots, or compliance risk.
 
-Decisions get harder in the messy middle: data boundaries, orchestration models, action safety, channel reach, governance, and operating models rarely fit a one-page decision tree. Static checklists collapse under enterprise edge cases.
+Decisions get harder in the messy middle: data boundaries, orchestration models, action safety, channel reach, governance, and operating models rarely fit a one-page decision tree. Static checklists miss the enterprise edge cases that drive success or failure.
 
 **This guide exists to prevent false starts.** It gives you a repeatable way of thinking (BXT + capability model + evaluation criteria) so you can select the right tool for your use case, defend the tradeoffs, and adapt as Microsoft ships new capabilities.
 
@@ -43,7 +43,7 @@ By following this framework, you'll gain:
 
 ## Who This Framework Serves
 
-This content assumes readers can reason across business, experience, and technology concerns and want a reusable evaluation pattern rather than a shortcut. Expect to synthesize enterprise constraints, justify architecture choices, and extend the framework to new Microsoft releases.
+This framework is written for readers who can reason across business, experience, and technology concerns and want a reusable evaluation pattern rather than a one-page answer. Expect to synthesize enterprise constraints, justify architecture choices, and extend the framework as Microsoft ships new capabilities.
 
 - **Technical decision makers & strategists** - AI program sponsors, product owners, security/compliance leads, and other executives accountable for cross-functional alignment and governance.
 - **Architects (AI, application, integration)** - AI solution architects, application/platform architects, and integration leads who design landing zones, data boundaries, and orchestration models.
@@ -151,7 +151,7 @@ Use the [Visual Framework]({{ '/docs/visual-framework' | relative_url }}) diagra
 
 ### Need Quick Answers
 
-**Experienced user?** Use the fast-lookup tables and scenario shortcuts.
+**Experienced user?** Use the fast-lookup tables and scenario starting points.
 
 **Start here:** [Scenarios]({{ '/docs/scenarios' | relative_url }}) - "I need X" -> recommended path
 
@@ -161,7 +161,7 @@ Use the [Visual Framework]({{ '/docs/visual-framework' | relative_url }}) diagra
 
 ## Common Paths (Quick Shortcuts)
 
-For experienced users who need fast recommendations:
+For experienced users who want a fast starting point:
 
 ### "I need something in production next week"
 
@@ -208,7 +208,7 @@ For experienced users who need fast recommendations:
 -> **[Copilot Search API (Preview)]({{ '/docs/quick-reference#technology-by-user-experience' | relative_url }})** (Graph `/beta` hybrid semantic + lexical search with M365 security trimming)
 
 {: .note }
-> **Note:** These shortcuts skip the learning framework. For comprehensive understanding, follow the [progressive learning path](#your-learning-journey) above.
+> **Note:** These are fast starting points, not a replacement for the framework. For comprehensive understanding, follow the [progressive learning path](#your-learning-journey) above.
 
 ---
 
@@ -258,7 +258,7 @@ Begin with Scenarios to find use cases similar to yours, then explore referenced
 
 ## Still Want the Simplified Version?
 
-After understanding the comprehensive framework above, if you prefer Microsoft's official high-level decision tree and want to prioritize use cases that align with strategic goals and demonstrate impact quickly, refer to the diagrams below:
+After you’ve skimmed the framework above, if you prefer Microsoft’s official high-level decision tree to quickly prioritize use cases that align with strategic goals and demonstrate impact, refer to the diagrams below:
 
 
 ![Prioritize AI agent use cases](images/prioritize-agent-use-cases.png)

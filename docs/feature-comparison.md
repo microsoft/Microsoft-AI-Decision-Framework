@@ -9,7 +9,7 @@ description: Comprehensive side-by-side technology comparisons
 {: .no_toc }
 
 {: .note }
-Detailed side-by-side comparisons of Microsoft AI technologies. For decision guidance, see the [Decision Framework]({{ '/docs/decision-framework' | relative_url }}).
+Detailed side-by-side comparisons of Microsoft AI technologies. Use this page after you’ve clarified requirements in the [Decision Framework]({{ '/docs/decision-framework' | relative_url }}), so the tables confirm trade-offs (rather than driving the decision by brand names alone).
 
 ---
 
@@ -24,6 +24,8 @@ Detailed side-by-side comparisons of Microsoft AI technologies. For decision gui
 ## Comprehensive Platform Comparison
 
 Quick view of core platforms (M365 Copilot, Studio, Foundry, Agent Framework, Logic Apps) across UX, governance, orchestration, and hosting trade-offs.
+
+**How to use this section:** Start with the columns that match your trust boundary and channel needs, then compare orchestration and governance features to validate whether you should stay in SaaS, step into low-code, or move to pro-code.
 
 | Feature | M365 Copilot | Copilot Studio | Microsoft Foundry (Azure) | **Microsoft Agent Framework** | **AG-UI Protocol (Preview)** | Foundry Agent Service | M365 Agents SDK | **Azure Logic Apps** |
 |---------|--------------|----------------|------------------|------------------------------|----------------------------|------------------------|-----------------|----------------------|

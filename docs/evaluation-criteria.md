@@ -8,7 +8,7 @@ description: "Framework for evaluating complexity, skills, budget, and governanc
 # Evaluation Criteria
 {: .no_toc }
 
-Assess your situation before selecting Microsoft AI technologies.
+Use this module as the scoring rubric before selecting Microsoft AI technologies.
 {: .fs-6 .fw-300 }
 
 ## Table of contents
@@ -21,7 +21,9 @@ Assess your situation before selecting Microsoft AI technologies.
 
 ## Purpose
 
-This module anchors the broader Microsoft AI Decision Framework by teaching how to score readiness across complexity, skills, budget, and governance before you dive into detailed technology choices. Treat the scenarios and recommendations below as illustrative patterns that reinforce the concepts explained in the rest of the repo—not turnkey prescriptions.
+This module anchors the broader Microsoft AI Decision Framework by teaching how to score readiness across complexity, skills, budget, and governance before you dive into detailed technology choices.
+
+Treat the scenarios and recommendations below as illustrative patterns that reinforce the concepts explained in the rest of the repo—not turnkey prescriptions. The goal is to make your tradeoffs explicit (speed vs. control, governance vs. flexibility) so the final platform choice is easier to defend and operate.
 
 ---
 

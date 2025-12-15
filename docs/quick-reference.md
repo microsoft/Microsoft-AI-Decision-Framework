@@ -9,7 +9,7 @@ description: "Fast lookup table for Microsoft AI technologies"
 {: .no_toc }
 
 {: .note }
-This page provides fast-lookup tables for common scenarios. For detailed decision logic, see the [Decision Framework]({{ '/docs/decision-framework' | relative_url }}).
+This page provides fast-lookup tables for common scenarios and common “starting points.” For detailed decision logic (and to avoid overfitting to a tool too early), see the [Decision Framework]({{ '/docs/decision-framework' | relative_url }}).
 
 
 ## Table of contents

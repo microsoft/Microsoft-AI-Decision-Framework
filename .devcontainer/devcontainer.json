@@ -2,6 +2,9 @@
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.224.2/containers/jekyll
 {
   "name": "Just the docs",
+  "features": {
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
   "build": {
     "dockerfile": "Dockerfile",
     "args": {
@@ -23,7 +26,8 @@
         "GitHub.vscode-pull-request-github",
         "GitHub.copilot",
         "GitHub.copilot-chat",
-        "mhutchie.git-graph"
+        "mhutchie.git-graph",
+        "rebornix.ruby"
       ]
     }
   },

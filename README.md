@@ -32,7 +32,7 @@ Decisions get harder in the messy middle: data boundaries, orchestration models,
 By following this framework, you'll gain:
 
 - **Methodology** - The BXT decision framework for systematic technology selection  
-- **Foundation** - Understanding of Microsoft's five-layer AI capability model  
+- **Foundation** - Understanding of Microsoft's AI capability model (five layers)  
 - **Context** - Real-world scenarios showing how others solved similar problems  
 - **Application** - Interactive decision trees for visual technology selection  
 - **Assessment** - Evaluation criteria for complexity, skills, budget, and governance  
@@ -141,7 +141,7 @@ Use the [Visual Framework]({{ '/docs/visual-framework' | relative_url }}) diagra
 
 **Recommended:** Follow the sequential path above for comprehensive understanding.
 
-**Start here:** [Capability Model]({{ site.baseurl }}/docs/capability-model) - Ground yourself in the five-layer model before choosing technologies
+**Start here:** [Capability Model]({{ site.baseurl }}/docs/capability-model) - Ground yourself in the capability model before choosing technologies
 
 ### Visual Learner
 

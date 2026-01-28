@@ -78,7 +78,7 @@ This repository is governed by a set of immutable principles defined in **[`CONS
 
 ### Source-Backed Research Principle
 
-**CRITICAL:** All technology capabilities, features, and status annotations (GA/Preview/Experimental) MUST be validated against official Microsoft Learn documentation.
+**CRITICAL:** All technology capabilities, features, and status annotations (GA/Preview/Experimental) MUST be validated against official Microsoft documentation sources. Microsoft Learn is primary, but some official docs live elsewhere (VS Code docs on code.visualstudio.com, GitHub Docs on docs.github.com, Aspire docs on aspire.dev).
 
 **Never:**
 - Guess or assume features based on product naming
@@ -87,8 +87,10 @@ This repository is governed by a set of immutable principles defined in **[`CONS
 
 **Always:**
 - Search Microsoft Learn documentation first
+- If Microsoft Learn does not host the relevant product documentation, use the official product documentation site (VS Code, GitHub Docs, Aspire.dev)
 - Cite sources with URLs and last updated dates
 - Note when information is unavailable or unclear
+- If a source does not publish a “last updated” date, record an access date instead
 - Mark Preview/Experimental/GA status explicitly
 
 ### Shoeboxing Prevention
@@ -103,7 +105,7 @@ This repository is governed by a set of immutable principles defined in **[`CONS
 
 **Validation workflow when adding/editing diagrams:**
 1. Identify every technology mentioned
-2. Search Microsoft Learn for official documentation
+2. Search Microsoft Learn first; if not available, use official product docs (VS Code, GitHub Docs, Aspire.dev)
 3. Verify the specific capability claimed in the diagram
 4. Document validation with source URLs and dates
 5. Add validation summary to diagram section
@@ -340,7 +342,7 @@ bundle exec jekyll serve
 
 ### Adding a New Technology
 
-1. **Research first:** Find official Microsoft Learn documentation
+1. **Research first:** Find official documentation (Microsoft Learn primary; VS Code, GitHub Docs, Aspire.dev when applicable)
 2. **Validate capabilities:** Confirm what it CAN and CANNOT do
 3. **Check status:** GA, Preview, or Experimental?
 4. **Update files:**
@@ -355,7 +357,7 @@ bundle exec jekyll serve
 ### Updating Diagram Validation
 
 **When Microsoft releases updates:**
-1. Search Microsoft Learn for latest documentation
+1. Search Microsoft Learn first; if not available, use official product docs (VS Code, GitHub Docs, Aspire.dev)
 2. Check for new capabilities, renamed features, or status changes
 3. Update Mermaid diagram nodes if needed
 4. Update validation summary with changes and new source URLs
@@ -380,13 +382,20 @@ bundle exec jekyll serve
 
 ---
 
+## Writing Style & Voice (Thought Leadership)
+
+- Teach a **way of thinking**; lead with principles, framing questions, and decision levers.
+- Use an **instructor-led, narrative tone** that brings clarity to complex or messy problems.
+- **Widen the lens before narrowing**: help readers see trade-offs, then guide them to choices.
+- Avoid answer-key or product-first language in core files; explain *how to decide* instead.
+
 ## Quality Checklist
 
 Before committing changes, verify:
 
 **Content Quality:**
-- [ ] All technology claims backed by Microsoft Learn sources
-- [ ] Source URLs included with last updated dates
+- [ ] All technology claims backed by official Microsoft documentation sources (Microsoft Learn primary; VS Code, GitHub Docs, Aspire.dev when applicable)
+- [ ] Source URLs included with last updated dates or access dates
 - [ ] GA/Preview/Experimental status explicitly marked
 - [ ] No shoeboxing (capabilities match official documentation)
 - [ ] Third-party tools explicitly labeled (LangGraph, LangChain)
@@ -410,6 +419,7 @@ Before committing changes, verify:
 - [ ] Bullet points for lists (not numbered unless sequential steps)
 - [ ] Code blocks use appropriate language tags
 - [ ] Tables formatted consistently
+- [ ] Thought-leadership tone that teaches decision-making over product selection
 
 ---
 
@@ -447,7 +457,7 @@ Before committing changes, verify:
 ### When Asked to Add Features
 
 **DO:**
-- Research official Microsoft Learn documentation first
+- Research official documentation first (Microsoft Learn primary; VS Code, GitHub Docs, Aspire.dev when applicable)
 - Validate capabilities against official sources
 - Add validation summary with sources
 - Update multiple related files (capability-model, technologies, visual-framework, quick-reference)
@@ -511,7 +521,7 @@ Before committing changes, verify:
 - Navigation flow supports progressive learning
 - Cross-references create cohesive framework
 - Status annotations accurate (GA/Preview/Experimental)
-- Sources include last updated dates
+- Sources include last updated dates or access dates
 
 ---
 
@@ -523,7 +533,7 @@ Before committing changes, verify:
 
 **For contributors:**
 - Follow validation methodology (no shoeboxing)
-- Research before editing (Microsoft Learn sources only)
+- Research before editing (Microsoft Learn primary; VS Code, GitHub Docs, Aspire.dev when applicable)
 - Test locally before committing
 - Update cross-references when changing structure
 - Add validation summaries to all diagrams

@@ -18,7 +18,16 @@ We aim to instill a mental framework for evaluating AI problems, rather than jus
 * **Problem-First Architecture:** We prioritize understanding the *problem* (use cases, edge cases, constraints) over picking a *solution*. Technology is a means to an end, not the starting point.
 * **Holistic Trade-offs:** Decisions are never just technical. They must weigh budget, timeline, team skills, and governance.
 * **Anti-Hype:** It is intentionally "Level 300-400" (technical/architectural). It rejects marketing fluff in favor of engineering reality (e.g., "Does this actually support VNET injection?" vs. "It's enterprise-ready").
-* **Source-Backed Truth:** If it’s not in the official Microsoft Learn documentation, it doesn't exist in this framework.
+* **Source-Backed Truth:** If it’s not in official Microsoft documentation sources, it doesn't exist in this framework. Microsoft Learn is primary, but some official docs live elsewhere (VS Code docs on code.visualstudio.com, GitHub Docs on docs.github.com, and Aspire docs on aspire.dev). If a source does not publish a “last updated” date, record an access date instead.
+
+### Writing Style & Voice
+
+We write to **change how people think**, not just what they pick.
+
+* **Thought leadership, not answer keys:** Lead with principles, framing questions, and decision levers.
+* **Instructor-led clarity:** Use narrative guidance to turn “spaghetti” into structured thinking.
+* **Lens-widening:** Help readers expand their perspective before narrowing to a choice.
+* **Anti-marketing tone:** No hype, no product-first pitch; prioritize insight and trade-offs.
 
 ---
 
@@ -30,7 +39,7 @@ To keep this repository aligned with its mission, we adhere to the following "Co
 
 #### "If you can't link it, you can't claim it."
 
-* Every capability, feature, and limitation must be validated against official **Microsoft Learn** documentation.
+* Every capability, feature, and limitation must be validated against official **Microsoft documentation** sources. Microsoft Learn is primary, but for VS Code, GitHub Copilot, or Aspire, use their official documentation sites.
 * Marketing blogs are secondary; engineering docs are primary.
 * **Rule:** Never assume a feature exists because of a product name (e.g., assuming "Fabric Data Agents" are autonomous orchestrators just because they are called "Agents").
 
@@ -80,4 +89,9 @@ Certain files have a specific educational or methodological purpose that must no
 * **`docs/evaluation-criteria.md` (The "Measure"):**
   * **Intent:** Defines the *metrics* and *dimensions* for assessment (Complexity, Governance, Skills).
   * **Guardrail:** Do not fill this with product comparison tables. It defines the *ruler*, not the things being measured.
+
+### Article VII: The Teaching Mandate
+
+* Content must teach a **way of thinking** through story, principles, and frameworks—not just list options.
+* **Rule:** If a section reads like a product chooser, rewrite it to explain *how to decide* instead.
 

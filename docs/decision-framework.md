@@ -10,7 +10,7 @@ description: "Three-phase decision methodology for selecting Microsoft AI techno
 
 {: .no_toc }
 
-Use this document as your intake playbook: it keeps the decision anchored in business outcomes and user experience before you select technologies. It integrates Microsoft's [Business-Experience-Technology (BXT) Framework](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/business-envisioning), [Cloud Adoption Framework AI Strategy](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/ai/strategy), and the [Copilot Extensibility Planning Guide](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/planning-guide).
+Use this document as your intake playbook: it keeps the decision anchored in business outcomes and user experience before you select technologies. It integrates Microsoft's [Business-Experience-Technology (BXT) Framework](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/business-envisioning), [Capability Envisioning](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/capability-envisioning), [CAF AI adoption](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/ai/), [AI agent adoption](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/), [AI architecture design](https://learn.microsoft.com/en-us/azure/architecture/ai-ml/), and the [Responsible AI Standard v2](https://msblogs.thesourcemediaassets.com/sites/5/2022/06/Microsoft-Responsible-AI-Standard-v2-General-Requirements-3.pdf). It also references the [Copilot Extensibility Planning Guide](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/planning-guide) and [Microsoft 365 Copilot adoption guidance](https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-enablement-resources) for organizational readiness.
 
 > [!NOTE] **See [Visual Framework]({{ '/docs/visual-framework' | relative_url }}) for workflow diagrams** that illustrate how to apply this framework as an intake process.
 
@@ -21,6 +21,38 @@ Use this document as your intake playbook: it keeps the decision anchored in bus
 1. **What business outcome am I trying to achieve?** If the outcome is unclear, pause and rewrite the problem statement before picking any tool.
 2. **What user experience delivers that outcome?** Decide if people need conversational help, embedded copilots, or headless APIs—and prototype the experience first.
 3. **What is the simplest technology that satisfies it?** Start with built-in Microsoft 365 Copilot or Copilot Studio, and only move to pro-code (Foundry/Agent Framework/SDK) when requirements demand network control, custom orchestration, or specialized hosting.
+
+## Experience Framing (UX + Autonomy)
+
+Before you select platforms, frame the **experience** using Microsoft’s UX guidance for generative AI. This keeps decisions anchored in user context instead of product labels.[^uxguidance]
+
+| UX Focus | When It Fits | Decision Implication |
+|---|---|---|
+| **Immersive** | Deep, whole‑canvas work with a knowledge base | Likely needs a dedicated UI surface |
+| **Assistive** | In‑app help where users already work | Favor existing app surfaces and extensions |
+| **Embedded** | Lightweight, single‑entity interactions | Favor targeted UI entry points and narrow scope |
+
+Start by deciding **UI vs no‑UI**. If the experience is UI‑based, choose **chat‑first** vs **embedded-in-app**. If the experience is headless, define the **trigger model** (event, schedule, or system alert) and the **human‑approval points** up front.
+
+UX guidance also emphasizes:
+
+- **Human in control** (user remains the pilot)
+- **Avoid anthropomorphizing** (set correct expectations)
+- **Consider direct and indirect stakeholders**
+
+**Autonomy decision:** Some agents are conversational and user‑initiated; others run headlessly on triggers or schedules. Decide how much autonomy is required and where humans must approve actions before selecting a platform.
+
+## Storybook view: From vision to operating system
+
+This framework tells a **story**: how a technical leader moves from a good idea to a governed, production-ready AI system.
+
+1. **Envision:** Use **Business Envisioning (BXT)** to validate viability, desirability, and feasibility before you build. [Business Envisioning](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/business-envisioning)
+2. **Choose the approach:** Apply **Capability Envisioning** to select *adopt/extend a Copilot*, *build a custom copilot*, or *build on Fabric*. [Capability Envisioning](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/capability-envisioning)
+3. **Adopt and govern:** Use the CAF AI adoption stages to sequence Strategy → Plan → Ready → Govern → Secure → Manage. [AI adoption](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/ai/)
+4. **Architect for production:** Start with CAF AI PaaS baselines and Azure Architecture Center AI guidance. [CAF AI architectures](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/ai/platform/architectures), [AI architecture design](https://learn.microsoft.com/en-us/azure/architecture/ai-ml/)
+5. **Build & run agents responsibly:** Align to AI agent adoption guidance and the Responsible AI Standard v2. [AI agent adoption](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/), [Responsible AI Standard v2 (PDF)](https://msblogs.thesourcemediaassets.com/sites/5/2022/06/Microsoft-Responsible-AI-Standard-v2-General-Requirements-3.pdf)
+
+This storybook view complements the three phases below without replacing them.
 
 
 ## Table of contents
@@ -63,6 +95,18 @@ Microsoft's official [Business-Experience-Technology (BXT) framework](https://le
 - Data accessible & governable?
 - Infrastructure and compliance ready?
 
+### Strategic Fit & Prioritization (Business Envisioning)
+
+{: .no_toc }
+
+Use the Business Envisioning scorecard to rank candidate use cases before you fund build work:
+
+- Assign a **strategic fit** score (business objective, key results, stakeholders).
+- Score **Business**, **Experience**, and **Technology** components from the BXT framework.
+- Plot outcomes to identify the right action: **Shelve**, **Research**, **Incubate**, or **Accelerate to MVP**.
+
+See [Business Envisioning](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/business-envisioning) for the scoring and prioritization approach.
+
 ### Decision Gate
 
 {: .no_toc }
@@ -83,6 +127,33 @@ Align this phase with the Cloud Adoption Framework AI strategy and AI agent adop
 
 ---
 
+### Pre-Question: Do you need an agent at all?
+
+{: .no_toc }
+
+Before you choose approaches, confirm whether the problem truly requires an agent:
+
+- **Structured, predictable work** → deterministic code or nongenerative AI
+- **Static knowledge retrieval** → classic RAG without tool execution or multi‑step reasoning
+
+Agents introduce nondeterminism, latency, and cost—use them only when reasoning or tool orchestration is required. See [When not to use AI agents](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/business-strategy-plan#when-not-to-use-ai-agents).[^whennotagents]
+
+---
+
+### Pre-Question: Capability Envisioning (Approach Selection)
+
+{: .no_toc }
+
+Before you answer the nine questions, select the **approach** that best fits the use case:
+
+- **Adopt or extend a Microsoft Copilot** (fast time-to-value, limited customization)
+- **Build a custom copilot** (custom experience, multi-channel, advanced orchestration)
+- **Build an application on Fabric** (data-heavy, analytics-centric apps with AI embedded)
+
+These approaches are **not mutually exclusive**; many solutions blend them. Use the Capability Envisioning considerations (data, customization, development complexity, end-user, business value, risk/compliance) to pick the lead approach.[^capabilityenvisioning]
+
+---
+
 ### Question 1: User Experience Location
 
 {: .no_toc }
@@ -93,7 +164,7 @@ Identify the primary place people will engage with the agent. Start with the fre
 - **Custom or multi-channel** (web, mobile, SMS, email) -> Use M365 Agents SDK, Microsoft Foundry, or Logic Apps to reach every endpoint consistently. Pair Agent Framework with the AG-UI protocol when you need streaming UI, shared state, or human-in-the-loop approvals in bespoke web/mobile experiences.[^agui-overview]
 - **API/headless** workloads -> Design for services that call the agent as a capability rather than a UI.
 
-> [!TIP] Use the groupings from this question with the capability group mappings in [Five Capability Model]({{ '/docs/capability-model' | relative_url }}) and the examples in [Scenarios]({{ '/docs/scenarios' | relative_url }}).
+> [!TIP] Use the groupings from this question with the capability layer mappings in [Capability Model]({{ '/docs/capability-model' | relative_url }}) and the examples in [Scenarios]({{ '/docs/scenarios' | relative_url }}).
 
 ---
 
@@ -228,8 +299,10 @@ These principles keep the framework durable as products rename or shift capabili
 
 ---
 
+[^uxguidance]: *Creating a dynamic UX: guidance for generative AI applications*, Microsoft Learn. Updated 2024-09-20. [https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/ux-guidance](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/ux-guidance)
 [^standardsetup]: *Built-in enterprise readiness with standard agent setup*, Microsoft Learn. Updated 2025-06-16. [https://learn.microsoft.com/en-us/azure/ai-foundry/agents/concepts/standard-agent-setup](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/concepts/standard-agent-setup)
-[^aiagentadoption]: *AI agent adoption*, Microsoft Learn. Updated 2026-01-27. [https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/)
+[^aiagentadoption]: *AI agent adoption*, Microsoft Learn. Updated 2025-12-03. [https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/)
+[^whennotagents]: *Business strategy plan: When not to use AI agents*, Microsoft Learn. Updated 2025-12-05. [https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/business-strategy-plan#when-not-to-use-ai-agents](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/business-strategy-plan#when-not-to-use-ai-agents)
 [^transcriptcontrols]: *Control transcript access and retention*, Microsoft Learn. Updated 2025-03-07. [https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-transcript-controls](https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-transcript-controls)
 [^copilotcalls]: *Manage Microsoft 365 Copilot in Teams calls*, Microsoft Learn. Updated 2025-07-01. [https://learn.microsoft.com/en-us/microsoftteams/copilot-teams-calling-transcription](https://learn.microsoft.com/en-us/microsoftteams/copilot-teams-calling-transcription)
 [^m365admin]: *Copilot in Microsoft 365 admin centers*, Microsoft Learn. Updated 2025-10-23. [https://learn.microsoft.com/en-us/copilot/microsoft-365/copilot-for-microsoft-365-admin](https://learn.microsoft.com/en-us/copilot/microsoft-365/copilot-for-microsoft-365-admin)
@@ -237,12 +310,12 @@ These principles keep the framework durable as products rename or shift capabili
 [^humanreview]: *Use your prompt in Power Automate*, Microsoft Learn. Updated 2025-09-08. [https://learn.microsoft.com/en-us/ai-builder/use-a-custom-prompt-in-flow](https://learn.microsoft.com/en-us/ai-builder/use-a-custom-prompt-in-flow)
 [^aifoundrytrace]: *Trace and Observe AI Agents in Microsoft Foundry (preview)*, Microsoft Learn. Updated 2025-10-01. [https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/develop/trace-agents-sdk](https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/develop/trace-agents-sdk)
 [^agentssdk]: *Create and deploy an agent with Microsoft 365 Agents SDK*, Microsoft Learn. Updated 2025-09-23. [https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/create-deploy-agents-sdk](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/create-deploy-agents-sdk)
-[^copilotstudio]: *Copilot Studio overview*, Microsoft Learn. Updated 2025-07-15. [https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-what-is-copilot-studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-what-is-copilot-studio)
+[^copilotstudio]: *Copilot Studio overview*, Microsoft Learn. Updated 2025-12-15. [https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-what-is-copilot-studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-what-is-copilot-studio)
 [^aibuilderoverview]: *Overview of AI Builder*, Microsoft Learn. Updated 2025-08-29. [https://learn.microsoft.com/en-us/ai-builder/overview](https://learn.microsoft.com/en-us/ai-builder/overview)
 [^declarativecomparison]: *Choose the right tool to build your declarative agent*, Microsoft Learn. Updated 2025-09-17. [https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/declarative-agent-tool-comparison](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/declarative-agent-tool-comparison)
 [^agentstoolkitoverview]: *Microsoft 365 Agents Toolkit Overview*, Microsoft Learn. Updated 2025-09-03. [https://learn.microsoft.com/en-us/microsoftteams/platform/toolkit/agents-toolkit-fundamentals](https://learn.microsoft.com/en-us/microsoftteams/platform/toolkit/agents-toolkit-fundamentals)
 [^foundryoverview]: *What is Microsoft Foundry?*, Microsoft Learn. Updated 2026-01-05. [https://learn.microsoft.com/en-us/azure/ai-foundry/what-is-foundry](https://learn.microsoft.com/en-us/azure/ai-foundry/what-is-foundry)
-[^aiarchitecture]: *AI architecture design*, Microsoft Learn. Updated 2025-02-03. [https://learn.microsoft.com/en-us/azure/architecture/ai-ml/](https://learn.microsoft.com/en-us/azure/architecture/ai-ml/)
+[^aiarchitecture]: *AI architecture design*, Microsoft Learn. Updated 2026-01-13. [https://learn.microsoft.com/en-us/azure/architecture/ai-ml/](https://learn.microsoft.com/en-us/azure/architecture/ai-ml/)
 [^logicappsoverview]: *What is Azure Logic Apps?*, Microsoft Learn. Updated 2025-09-11. [https://learn.microsoft.com/en-us/azure/logic-apps/logic-apps-overview](https://learn.microsoft.com/en-us/azure/logic-apps/logic-apps-overview)
 [^m365reactive]: *Privacy and protections*, Microsoft Learn. Updated 2025-08-15. [https://learn.microsoft.com/en-us/copilot/privacy-and-protections](https://learn.microsoft.com/en-us/copilot/privacy-and-protections)
 [^logicappstrigger]: *Trigger an agent by using Logic Apps (preview)*, Microsoft Learn. Updated 2025-10-17. [https://learn.microsoft.com/en-us/azure/ai-foundry/agents/how-to/triggers](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/how-to/triggers)
@@ -251,6 +324,11 @@ These principles keep the framework durable as products rename or shift capabili
 [^agui-overview]: *AG-UI integration with Agent Framework*, Microsoft Learn. Preview, Updated 2025-11-11. [https://learn.microsoft.com/en-us/agent-framework/integrations/ag-ui/](https://learn.microsoft.com/en-us/agent-framework/integrations/ag-ui/)
 [^copilotforall]: *Overview of Microsoft 365 Copilot Chat*, Microsoft Learn. Updated 2026-01-20. [https://learn.microsoft.com/en-us/copilot/overview](https://learn.microsoft.com/en-us/copilot/overview)
 [^copilot-licensing]: *License options for Microsoft 365 Copilot*, Microsoft Learn. Updated 2026-01-20. [https://learn.microsoft.com/en-us/microsoft-365-copilot/microsoft-365-copilot-licensing#microsoft-365-copilot-chat](https://learn.microsoft.com/en-us/microsoft-365-copilot/microsoft-365-copilot-licensing#microsoft-365-copilot-chat)
+[^capabilityenvisioning]: *Choosing an approach with Capability Envisioning*, Microsoft Learn. Updated 2024-09-20. [https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/capability-envisioning](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/capability-envisioning)
+[^cafaiadoption]: *AI adoption (CAF)*, Microsoft Learn. Updated 2026-01-07. [https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/ai/](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/ai/)
+[^cafaiarch]: *CAF AI PaaS architectures*, Microsoft Learn. Updated 2025-12-03. [https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/ai/platform/architectures](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/ai/platform/architectures)
+[^raistandard]: *Microsoft Responsible AI Standard v2 (PDF)*, Microsoft. [https://msblogs.thesourcemediaassets.com/sites/5/2022/06/Microsoft-Responsible-AI-Standard-v2-General-Requirements-3.pdf](https://msblogs.thesourcemediaassets.com/sites/5/2022/06/Microsoft-Responsible-AI-Standard-v2-General-Requirements-3.pdf)
+[^m365adoption]: *Microsoft 365 Copilot adoption guide*, Microsoft Learn. Updated 2025-05-20. [https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-enablement-resources](https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-enablement-resources)
 
 ## Phase 3: Scenario-Specific Selection
 
@@ -420,6 +498,20 @@ Prefer platforms and connectors that support open/interoperable patterns (e.g., 
 - **Power Automate Cloud Flows** (1,000+ connectors, long-running)
 
 > [!NOTE] **Cross-reference:** [Feature Comparison]({{ '/docs/feature-comparison' | relative_url }}) - Workflow Orchestration Platform Comparison
+
+---
+
+### 7. Operationalize & Govern (CAF + Responsible AI)
+
+{: .no_toc }
+
+Selection is only half the decision. Before you finalize, confirm you can **adopt, govern, and operate** the solution:
+
+- **CAF AI adoption:** Ensure you can execute Strategy → Plan → Ready → Govern → Secure → Manage for the chosen platform.[^cafaiadoption]
+- **Architecture baselines:** Start from proven AI architectures and design guides before custom designs.[^cafaiarch][^aiarchitecture]
+- **Agent lifecycle:** If you’re building agents, align to the plan → govern/secure → build → operate flow.[^aiagentadoption]
+- **Responsible AI:** Validate compliance with the Responsible AI Standard v2 across the full lifecycle.[^raistandard]
+- **Change management:** If Microsoft 365 Copilot is part of the rollout, align to adoption and readiness guidance.[^m365adoption]
 
 ---
 

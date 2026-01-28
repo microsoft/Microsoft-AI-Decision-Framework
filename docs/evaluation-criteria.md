@@ -71,7 +71,7 @@ For teams extending work-grounded experiences beyond licensed users, the Microso
 
 | Budget Band | Typical Stack | Primary Cost Drivers | Mix & Match Considerations |
 |-------------|---------------|----------------------|----------------------------|
-| **Free / Included / < $500/mo** | Free (included) Microsoft 365 Copilot Chat + Copilot connectors (Graph connectors) + declarative agents | Baseline Microsoft 365 licensing (Copilot Chat included, zero incremental license cost), tenant governance time, light maker effort | Keep workloads inside Layers 1–2 in the Capability Model to prove value quickly; reuse connectors later in Copilot Studio or Microsoft Foundry as needs grow |
+| **Free / Included / < $500/mo** | Free (included) Microsoft 365 Copilot Chat + Copilot connectors (Graph connectors) + declarative agents | Baseline Microsoft 365 licensing (Copilot Chat included, zero incremental license cost), tenant governance time, light maker effort | Keep workloads inside the first two capability groupings (End‑user copilots and Extensibility) to prove value quickly; reuse connectors later in Copilot Studio or Microsoft Foundry as needs grow |
 | **$500-$2K/mo** | Microsoft 365 Copilot add-on pilots, Copilot Studio Lite/Full, AI Builder, Power Automate approvals | Per-user Microsoft 365 Copilot licenses (Graph grounding, in-app copilots), Copilot Credits for generative answers/flows, connector usage, part-time maker/developer capacity[^copilot-credits] | Add Microsoft 365 Copilot on top of Copilot Chat for hero experiences; add Studio and targeted Azure APIs only when custom logic is required; budget for approval flows and DLP policy design |
 | **$2K-$10K/mo** | Copilot Studio front door + Microsoft Foundry / Microsoft Foundry Agent Service, M365 Agents SDK pilots | Azure OpenAI tokens, App Service or Functions hosting, vector stores, CI/CD + observability effort[^copilot-cost][^foundry-cost] | Split workloads so Studio handles UX/governance while Azure hosts orchestration; shift spend toward Azure as more automation moves out of Studio |
 | **$10K+/mo** | Full Microsoft AI stack (Agent Framework, Logic Apps, Microsoft Foundry Agent Service) with enterprise data plane | Dedicated AI/ML teams, Azure landing zone hardening, custom evaluations, agent telemetry pipelines[^foundry-cost] | Expect blended spend: Studio or M365 endpoints for front doors plus Azure services for workflows, memory, and safety tooling |
@@ -406,6 +406,8 @@ Many organizations use both platforms - Copilot Studio for rapid deployment with
 
 **Last Updated:** January 28, 2026  
 **Next:** [Implementation Patterns]({{ '/docs/implementation-patterns' | relative_url }}) - Apply the scoring outcomes to pick execution patterns
+
+---
 
 [^copilot-cost]: *Cost considerations for extending Microsoft 365 Copilot*, Microsoft Learn. Updated 2025-05-19.
 [^copilot-credits]: *Copilot Studio requirements, billing, and Copilot Credits*, Microsoft Learn. Updated 2025-11-05.

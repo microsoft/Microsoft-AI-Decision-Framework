@@ -69,7 +69,7 @@ This project has adopted the [Microsoft Open Source Code of Conduct](https://ope
 **When updating Markdown files:**
 - Follow existing front matter format (layout, title, nav_order, description)
 - Maintain heading hierarchy (H1 for page title, H2 for major sections)
-- Use descriptive link text: `[Five-Layer Capability Model](capability-model.md)`
+- Use descriptive link text: `[Capability Model](capability-model.md)`
 - Keep files under 1000 lines (split into separate files if needed)
 - Add status annotations: `(GA)`, `(Preview)`, `(Experimental)`
 

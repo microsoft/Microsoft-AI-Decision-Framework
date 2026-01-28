@@ -32,7 +32,7 @@ Decisions get harder in the messy middle: data boundaries, orchestration models,
 By following this framework, you'll gain:
 
 - **Methodology** - The BXT decision framework for systematic technology selection  
-- **Foundation** - Understanding of Microsoft's AI capability model (five layers)  
+- **Foundation** - Understanding of Microsoft's AI capability model (five capability groupings)  
 - **Context** - Real-world scenarios showing how others solved similar problems  
 - **Application** - Interactive decision trees for visual technology selection  
 - **Assessment** - Evaluation criteria for complexity, skills, budget, and governance  
@@ -117,7 +117,7 @@ flowchart LR
 
 | Step | Module | What You'll Learn | Time Investment |
 |------|--------|-------------------|-----------------|
-| 1) | [Capability Model]({{ site.baseurl }}/docs/capability-model) | **Foundation** - Map adopt/extend/build into five layers and decide where your use case should start | 15 min |
+| 1) | [Capability Model]({{ site.baseurl }}/docs/capability-model) | **Foundation** - Map adopt/extend/build into five capability groupings and decide where your use case should start | 15 min |
 | 2) | [Decision Framework]({{ site.baseurl }}/docs/decision-framework) | **Methodology** - BXT gates and nine critical questions to stay simple before scaling | 20 min |
 | 3) | [Scenarios]({{ site.baseurl }}/docs/scenarios) | **Context** - Real-world playbooks with recommended stacks, alternatives, and implementation steps | 15 min |
 | 4) | [Evaluation Criteria]({{ site.baseurl }}/docs/evaluation-criteria) | **Assessment** - Score complexity, skills, budget, governance, and action safety/time-to-production | 15 min |
@@ -169,7 +169,7 @@ For experienced users who want a fast starting point:
 
 ### "I have makers but no developers"
 
--> **[Copilot Studio]({{ '/docs/technologies#copilot-studio' | relative_url }})** + **[AI Builder]({{ '/docs/capability-model#layer-4-infrastructure--ai-services-building-blocks' | relative_url }})**
+-> **[Copilot Studio]({{ '/docs/technologies#copilot-studio' | relative_url }})** + **[AI Builder]({{ '/docs/capability-model#4-ai-services-and-building-blocks' | relative_url }})**
 
 ### "I have a dev team and complex requirements"
 
@@ -181,7 +181,7 @@ For experienced users who want a fast starting point:
 
 ### "I need to extend M365 Copilot"
 
--> **[Graph Connectors]({{ '/docs/capability-model#layer-2-extensibility-enhance-existing-copilots' | relative_url }})** (data) or **[Declarative Agents]({{ '/docs/capability-model#layer-2-extensibility-enhance-existing-copilots' | relative_url }})** (custom skills)
+-> **[Graph Connectors]({{ '/docs/capability-model#2-extensibility-into-existing-copilots' | relative_url }})** (data) or **[Declarative Agents]({{ '/docs/capability-model#2-extensibility-into-existing-copilots' | relative_url }})** (custom skills)
 
 ### "I need an intranet copilot with citations"
 
@@ -217,7 +217,7 @@ For experienced users who want a fast starting point:
 This guide is built on evidence-based research and systematic decision-making:
 
 1. **Source-First Research** - All content backed by official Microsoft documentation
-2. **Framework-Driven** - BXT methodology + 6 critical questions + scenario criteria, aligned with the CAF AI agent adoption path (plan, govern & secure, build, operate)
+2. **Framework-Driven** - BXT methodology + 9 critical questions + scenario criteria, aligned with the CAF AI agent adoption path (plan, govern & secure, build, operate)
 3. **Pattern-Oriented** - Proven implementation approaches from real deployments
 4. **Governance-Aware** - Maintain agent inventory and lifecycle via Agent Registry/Agent 365 where applicable
 5. **Progressive Learning** - Foundation -> Context -> Application -> Mastery

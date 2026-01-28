@@ -10,7 +10,7 @@ description: "Three-phase decision methodology for selecting Microsoft AI techno
 
 {: .no_toc }
 
-Use this document as your intake playbook: it keeps the decision anchored in business outcomes and user experience before you select technologies. It integrates Microsoft's [Business-Experience-Technology (BXT) Framework](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/business-envisioning), [Capability Envisioning](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/capability-envisioning), [CAF AI adoption](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/ai/), [AI agent adoption](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/), [AI architecture design](https://learn.microsoft.com/en-us/azure/architecture/ai-ml/), and the [Responsible AI Standard v2](https://msblogs.thesourcemediaassets.com/sites/5/2022/06/Microsoft-Responsible-AI-Standard-v2-General-Requirements-3.pdf). It also references the [Copilot Extensibility Planning Guide](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/planning-guide) and [Microsoft 365 Copilot adoption guidance](https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-enablement-resources) for organizational readiness.
+Use this document as your intake playbook. It keeps the decision anchored in business outcomes and user experience before you select technologies. It integrates Microsoft's [Business-Experience-Technology (BXT) Framework](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/business-envisioning), [Capability Envisioning](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/capability-envisioning), [CAF AI adoption](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/ai/), [AI agent adoption](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/), [AI architecture design](https://learn.microsoft.com/en-us/azure/architecture/ai-ml/), and the [Responsible AI Standard v2](https://msblogs.thesourcemediaassets.com/sites/5/2022/06/Microsoft-Responsible-AI-Standard-v2-General-Requirements-3.pdf). It also references the [Copilot Extensibility Planning Guide](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/planning-guide) and [Microsoft 365 Copilot adoption guidance](https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-enablement-resources) for organizational readiness.
 
 > [!NOTE] **See [Visual Framework]({{ '/docs/visual-framework' | relative_url }}) for workflow diagrams** that illustrate how to apply this framework as an intake process.
 
@@ -122,8 +122,7 @@ Apply these questions **sequentially** after passing the BXT assessment. Each qu
 
 > [!NOTE] **Important:** These questions create buckets/categories. Final technology selection happens in **Phase 3** based on scenario-specific criteria (time-to-market, complexity, budget, etc.).
 
-Use these gates to stay simple first: start with a SaaS agent when it meets the requirement; step into low-code or pro-code only when the need is explicit. Frame every answer as a balance of speed, control, and shared responsibility (SaaS → PaaS → IaaS), and prefer interoperable standards (e.g., MCP) to reduce rework.
-Align this phase with the Cloud Adoption Framework AI strategy and AI agent adoption guidance to keep your governance, data strategy, and interoperability assumptions consistent across teams.[^aiagentadoption]
+Use these gates to stay simple first. Start with a SaaS agent when it meets the requirement; step into low-code or pro-code only when the need is explicit. Frame every answer as a balance of speed, control, and shared responsibility (SaaS → PaaS → IaaS), and prefer interoperable standards (e.g., MCP) to reduce rework. Align this phase with the Cloud Adoption Framework AI strategy and AI agent adoption guidance to keep your governance, data strategy, and interoperability assumptions consistent across teams.[^aiagentadoption]
 
 ---
 
@@ -133,7 +132,7 @@ Align this phase with the Cloud Adoption Framework AI strategy and AI agent adop
 
 Before you choose approaches, confirm whether the problem truly requires an agent:
 
-- **Structured, predictable work** → deterministic code or nongenerative AI
+- **Structured, predictable work** → deterministic code or non‑generative AI
 - **Static knowledge retrieval** → classic RAG without tool execution or multi‑step reasoning
 
 Agents introduce nondeterminism, latency, and cost—use them only when reasoning or tool orchestration is required. See [When not to use AI agents](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/business-strategy-plan#when-not-to-use-ai-agents).[^whennotagents]
@@ -158,13 +157,13 @@ These approaches are **not mutually exclusive**; many solutions blend them. Use 
 
 {: .no_toc }
 
-Identify the primary place people will engage with the agent. Start with the free, included **Microsoft 365 Copilot Chat** surface (m365copilot.com, Teams, Outlook, Edge) for every eligible user, then add the premium **Microsoft 365 Copilot** add-on or custom channels when scenarios demand work-grounded data or embedded copilots.[^copilotforall]
+Identify the primary place people will engage with the agent. Start with the free, included **Microsoft 365 Copilot Chat** surface (m365copilot.com, Teams, Outlook, Edge) for every eligible user. Add the premium **Microsoft 365 Copilot** add-on or custom channels when scenarios demand work-grounded data or embedded copilots.[^copilotforall]
 
 - **M365 apps** (Copilot Chat, Teams, Word, Excel, Outlook) -> Default to the free Copilot Chat surface for web-grounded or PAYG agent experiences, then graduate to Microsoft 365 Copilot when you need Graph-grounded answers and in-app copilots. Stay inside the Microsoft 365 trust boundary with built-in agents, Copilot Studio M365 channels, or Graph connectors.
 - **Custom or multi-channel** (web, mobile, SMS, email) -> Use M365 Agents SDK, Microsoft Foundry, or Logic Apps to reach every endpoint consistently. Pair Agent Framework with the AG-UI protocol when you need streaming UI, shared state, or human-in-the-loop approvals in bespoke web/mobile experiences.[^agui-overview]
 - **API/headless** workloads -> Design for services that call the agent as a capability rather than a UI.
 
-> [!TIP] Use the groupings from this question with the capability layer mappings in [Capability Model]({{ '/docs/capability-model' | relative_url }}) and the examples in [Scenarios]({{ '/docs/scenarios' | relative_url }}).
+> [!TIP] Use the groupings from this question with the capability grouping mappings in [Capability Model]({{ '/docs/capability-model' | relative_url }}) and the examples in [Scenarios]({{ '/docs/scenarios' | relative_url }}).
 
 ---
 
@@ -233,7 +232,7 @@ Answer "Where does my data go, and who can act on it?" before choosing a platfor
 
 {: .no_toc }
 
-Model the usage pattern and budget envelope early so you can select the right consumption model-remember Microsoft 365 Copilot Chat is free (included), while Microsoft 365 Copilot remains a premium add-on.
+Model the usage pattern and budget envelope early so you can select the right consumption model—remember that Microsoft 365 Copilot Chat is free (included), while Microsoft 365 Copilot remains a premium add-on.
 
 - **Predictable spend** - Free (included) Copilot Chat for baseline pilots, Microsoft 365 Copilot per-user licensing when you need Graph grounding and in-app copilots, or Copilot Studio prepaid capacity packs for governed makers.
 - **Variable spend with guardrails** - Microsoft Foundry/Foundry Agent Service pay-per-token, Copilot Studio PAYG metering, with rate limits and budget alerts to control spikes.
@@ -292,7 +291,7 @@ Declarative agents are reactive by design; proactive workflows require custom en
 These principles keep the framework durable as products rename or shift capabilities.
 
 - **Standardize first:** Favor open or widely adopted extensibility standards (today that means MCP) to avoid reimplementing the same integrations.
-- **Cloud-to-edge continuity:** Design so workloads can move between cloud, edge, and local runtime based on latency, data gravity, or cost-not vendor defaults.
+- **Cloud-to-edge continuity:** Design so workloads can move between cloud, edge, and local runtime based on latency, data gravity, or cost—not vendor defaults.
 - **Composability over monoliths:** Build small, specialized agents that can delegate or coordinate (A2A/connected agents) instead of a single brittle mega-agent.
 - **Integrated security by design:** Pick platforms with identity, network boundary, content safety, and auditability built in-do not bolt them on later.
 - **Unify the data estate:** Keep operational, analytical, and search data coherent to simplify grounding, evaluations, and governance.
@@ -344,7 +343,7 @@ Phase 3 is about evidence: run short, time-boxed experiments to validate the sim
 
 {: .no_toc }
 
-Think in experiment steps: start with the fastest viable option (often SaaS or managed PaaS), move to low-/pro-code when specific requirements demand it. Delivery speed depends on your team's skills and familiarity-learning curves can invert "what's fastest."
+Think in experiment steps: start with the fastest viable option (often SaaS or managed PaaS), move to low-/pro-code when specific requirements demand it. Delivery speed depends on your team's skills and familiarity; learning curves can invert what looks fastest.
 
 **Days (Immediate):**
 
@@ -371,7 +370,7 @@ Think in experiment steps: start with the fastest viable option (often SaaS or m
 
 {: .no_toc }
 
-Decide how much you want to own and what you're willing to trade: SaaS for speed/less to manage, PaaS (Foundry/Agent Service) for governed extensibility with minimal plumbing, self-managed only when full-stack control is necessary. An 80% fit that ships now can beat a perfect fit that arrives late-factor team skills and learning curves when you choose.
+Decide how much you want to own and what you're willing to trade: SaaS for speed/less to manage, PaaS (Foundry/Agent Service) for governed extensibility with minimal plumbing, self-managed only when full-stack control is necessary. An 80% fit that ships now can beat a perfect fit that arrives late; factor team skills and learning curves when you choose.
 
 **Managed (SaaS/PaaS):**
 
@@ -543,3 +542,5 @@ After applying all criteria, document your selection:
 ---
 
 **Next:** [Scenarios]({{ '/docs/scenarios' | relative_url }}) - Apply the framework to real-world use cases
+
+---

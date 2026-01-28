@@ -34,7 +34,7 @@ This is a **comprehensive decision framework and reference guide** for navigatin
 The documentation follows a **progressive learning flow** designed to build knowledge systematically:
 
 1. **README.md** (nav_order: 1) - Landing page with learning paths
-2. **docs/capability-model.md** (nav_order: 2) - **Foundation** - Five-layer capability model
+2. **docs/capability-model.md** (nav_order: 2) - **Foundation** - Five capability groupings
 3. **docs/decision-framework.md** (nav_order: 3) - **Methodology** - BXT three-phase approach
 4. **docs/scenarios.md** (nav_order: 4) - **Context** - Real-world use cases
 5. **docs/visual-framework.md** (nav_order: 5) - **Application** - 8 Mermaid decision tree diagrams
@@ -116,7 +116,7 @@ This repository is governed by a set of immutable principles defined in **[`CONS
 
 1.  **`docs/capability-model.md` (The "What")**
     *   **Purpose:** Defines abstract capabilities (e.g., "Orchestration"), NOT a product list.
-    *   **Rule:** Only use products as *examples* of a capability. Do not add "New Product X" as a new layer or capability unless it fundamentally changes the *abstract model*.
+    *   **Rule:** Only use products as *examples* of a capability. Do not add "New Product X" as a new grouping or capability unless it fundamentally changes the *abstract model*.
 
 2.  **`docs/decision-framework.md` (The "How")**
     *   **Purpose:** Defines the *methodology* (BXT, 9 Questions) for choosing.
@@ -281,13 +281,13 @@ bundle exec jekyll serve
 
 ## Key Concepts & Terminology
 
-### Five-Layer Capability Model
+### Capability Model: Five Groupings
 
-**Layer 1: Consumption** - M365 Copilot, built-in agents, Agent Store  
-**Layer 2: Extensibility** - Graph Connectors, AI Plugins, Declarative Agents  
-**Layer 3: Development Platforms** - Copilot Studio, M365 Agents SDK, Agent Framework, Microsoft Foundry (Azure)  
-**Layer 4: Infrastructure & AI Services** - Azure OpenAI, AI Search, Document Intelligence, Logic Apps, Cosmos DB, Fabric  
-**Layer 5: Specialized Copilots** - GitHub Copilot, Security Copilot, Dynamics 365 Copilots, Fabric Data Agents, Azure SRE Agent
+**Grouping 1: End‑user copilots** - M365 Copilot, built-in agents, Agent Store  
+**Grouping 2: Extensibility into existing copilots** - Graph Connectors, AI Plugins, Declarative Agents  
+**Grouping 3: Build AI apps and agents** - Copilot Studio, M365 Agents SDK, Agent Framework, Microsoft Foundry (Azure)  
+**Grouping 4: AI services and building blocks** - Azure OpenAI, AI Search, Document Intelligence, Logic Apps, Cosmos DB, Fabric  
+**Grouping 5: Specialized agents** - GitHub Copilot, Security Copilot, Dynamics 365 Copilots, Fabric Data Agents, Azure SRE Agent
 
 ### BXT Decision Framework
 
@@ -317,8 +317,8 @@ bundle exec jekyll serve
 ### Common Technology Distinctions
 
 **Microsoft Fabric:**
-- **Platform** (Layer 4): Lakehouse/Warehouse/OneLake for direct data access
-- **AI Layer** (Layer 5): Fabric Data Agents (Preview) - conversational analytics agent
+- **Platform** (Grouping 4): Lakehouse/Warehouse/OneLake for direct data access
+- **Specialized agents** (Grouping 5): Fabric Data Agents (Preview) - conversational analytics agent
 
 **M365 Agents SDK:**
 - Pro-code framework for M365-centric agents
@@ -346,7 +346,7 @@ bundle exec jekyll serve
 2. **Validate capabilities:** Confirm what it CAN and CANNOT do
 3. **Check status:** GA, Preview, or Experimental?
 4. **Update files:**
-   - Add to `docs/capability-model.md` (appropriate layer)
+    - Add to `docs/capability-model.md` (appropriate capability grouping)
    - Add to `docs/technologies.md` (technical specs)
    - Update relevant diagrams in `docs/visual-framework.md`
    - Add to `docs/feature-comparison.md` (comparison matrix)
@@ -375,7 +375,7 @@ bundle exec jekyll serve
 ### Adding Cross-References
 
 **When connecting documentation modules:**
-1. Use descriptive link text: `[Five-Layer Capability Model - Layer 2](capability-model.md#layer-2-extensibility)`
+1. Use descriptive link text: `[Capability Model - Grouping 2](../docs/capability-model.md)`
 2. Include context: "See [Scenarios](scenarios.md) for real-world examples"
 3. Add "Related Documentation" sections in validation summaries
 4. Link visual decisions to detailed docs: "Use [Evaluation Framework](evaluation-criteria.md) to assess complexity"
@@ -507,9 +507,9 @@ Before committing changes, verify:
 ## Success Metrics
 
 **This framework is successful when users can:**
-1. Understand Microsoft's five-layer AI capability model
+1. Understand Microsoft's five capability groupings
 2. Apply BXT methodology to validate use cases
-3. Use 6 critical questions to shortlist technologies
+3. Use 9 critical questions to shortlist technologies
 4. Navigate decision trees to select appropriate technology
 5. Assess complexity, skills, budget, and governance requirements
 6. Implement proven architecture patterns

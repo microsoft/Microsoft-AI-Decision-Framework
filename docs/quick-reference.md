@@ -316,3 +316,5 @@ description: "Fast lookup table for Microsoft AI technologies"
 ---
 
 **Next:** [Resources]({{ '/docs/resources' | relative_url }}) - Official Microsoft references to keep research evidence-backed
+
+---

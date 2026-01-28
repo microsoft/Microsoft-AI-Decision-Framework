@@ -8,7 +8,7 @@ description: "Instructor-led capability framing for Microsoft AI choices"
 # Capability Model
 {: .no_toc }
 
-This page is **not a decision tree**. It is a teaching aid for *how to think* about AI choices before you pick a product. Treat it like a workshop guide: we start with people and outcomes, then move to capability groupings, and only later talk about platforms. Capabilities shift quickly, so validate your choices against current Microsoft Foundry and Copilot Studio documentation before committing.
+This page is **not a decision tree**. It is a teaching aid for *how to think* about AI choices before you pick a technology. Treat it like a workshop guide: start with people and outcomes, then move to capability groupings, and only later talk about platforms. Capabilities shift quickly, so validate your choices against current Microsoft Foundry and Copilot Studio documentation before committing.
 
 **How to use this page:**
 
@@ -41,7 +41,7 @@ This distinction matters. You can build a copilot experience without using a Mic
 
 ### What is an agent?
 
-In Microsoft guidance, agents can handle tasks, take actions, and operate in conversation or through triggers. They can be assistive or autonomous depending on how you design them. See [Copilot Studio overview](https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-what-is-copilot-studio).
+In Microsoft guidance, agents can handle tasks, take actions, and operate in conversation or via triggers. They can be assistive or autonomous depending on how you design them. See [Copilot Studio overview](https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-what-is-copilot-studio).
 
 ---
 
@@ -49,11 +49,11 @@ In Microsoft guidance, agents can handle tasks, take actions, and operate in con
 
 These dimensions help you describe *what kind* of AI capability you’re building—before you name a product.
 
-- **UI vs no‑UI:** Experiences can be conversational, or they can run via triggers, schedules, or workflows. Copilot Studio supports both conversation and triggered agent flows. [Copilot Studio overview](https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-what-is-copilot-studio)
-- **Assistive vs autonomous:** Assistive agents co‑pilot with the user; autonomous agents act on instructions and context. Both models are supported, and you decide the guardrails. [Copilot Studio overview](https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-what-is-copilot-studio)
-- **Deterministic vs nondeterministic:** If the task is predictable, use deterministic code or classic RAG. Agents introduce nondeterminism and cost only when reasoning is required. [When not to use AI agents](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/business-strategy-plan#when-not-to-use-ai-agents)
+- **UI vs no‑UI:** Experiences can be conversational or they can run via triggers, schedules, or workflows. Copilot Studio supports both conversational and triggered agent flows. [Copilot Studio overview](https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-what-is-copilot-studio)
+- **Assistive vs autonomous:** Assistive agents co‑pilot with the user; autonomous agents act on instructions and context. Both models are supported; you decide the guardrails. [Copilot Studio overview](https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-what-is-copilot-studio)
+- **Deterministic vs nondeterministic:** If the task is predictable, use deterministic code or classic RAG. Agents add nondeterminism and cost only when reasoning is required. [When not to use AI agents](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/business-strategy-plan#when-not-to-use-ai-agents)
 - **Single‑agent vs multi‑agent workflows:** Some problems are solved by one agent; others need coordinated agents and workflows. Microsoft Foundry’s new portal emphasizes multi‑agent orchestration as a core capability. [Microsoft Foundry overview](https://learn.microsoft.com/en-us/azure/ai-foundry/what-is-foundry?view=foundry&preserve-view=true)
-- **Off‑the‑shelf vs custom:** Specialized agents already exist for certain domains; adopt them when they fit, and customize only when the gap is clear. [Azure SRE Agent overview](https://learn.microsoft.com/en-us/azure/sre-agent/overview)
+- **Off‑the‑shelf vs custom:** Specialized agents already exist for certain domains; adopt them when they fit and customize only when the gap is clear. [Azure SRE Agent overview](https://learn.microsoft.com/en-us/azure/sre-agent/overview)
 
 ---
 
@@ -67,7 +67,7 @@ Start by naming **who benefits and how**. This keeps early conversations grounde
 | **AI as Product/Capability** | AI is the value delivered to end users | Standalone agents, embedded features, LLM‑powered integrations—users consume AI outcomes |
 | **Agentic Coding** | Autonomous technical builder | AI builds software or systems; output may or may not contain AI features |
 
-Think of this like podcasts: some are about *using* AI tools (personal productivity), some are about *shipping* AI value (product features), and others are about *building* with AI (coding agents and context engineering). Three buckets, three different conversations.
+Think of this like podcasts: some focus on *using* AI tools (personal productivity), some on *shipping* AI value (product features), and others on *building* with AI (coding agents and context engineering). Three buckets, three different conversations.
 
 ---
 
@@ -75,7 +75,7 @@ Think of this like podcasts: some are about *using* AI tools (personal productiv
 
 Not every AI problem needs an agent. Microsoft’s AI agent guidance explicitly calls out cases where **agents add unnecessary cost, latency, and risk**.
 
-- **Structured and predictable tasks:** Use deterministic code or nongenerative AI when the workflow is rule‑based and predictable.
+- **Structured and predictable tasks:** Use deterministic code or non‑generative AI when the workflow is rule‑based and predictable.
 - **Static knowledge retrieval:** Use classic RAG for single‑turn question answering or summarization from a fixed index. If there’s no tool execution or multi‑step reasoning, an agent is overkill.
 
 See [When not to use AI agents](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/business-strategy-plan#when-not-to-use-ai-agents).
@@ -111,7 +111,7 @@ This grouping is for **custom experiences**. Your app may be 95% deterministic a
 
 ### 4) AI services and building blocks
 
-This is the layer beneath apps: models, tools, retrieval, evaluations, and governance. Microsoft Foundry unifies agents, models, and tools with enterprise‑grade management so teams can mix building blocks without reinventing foundations. See [Microsoft Foundry overview](https://learn.microsoft.com/en-us/azure/ai-foundry/what-is-foundry?view=foundry&preserve-view=true).
+This grouping sits beneath apps: models, tools, retrieval, evaluations, and governance. Microsoft Foundry unifies agents, models, and tools with enterprise‑grade management so teams can mix building blocks without reinventing foundations. See [Microsoft Foundry overview](https://learn.microsoft.com/en-us/azure/ai-foundry/what-is-foundry?view=foundry&preserve-view=true).
 
 ### 5) Specialized agents (don’t rebuild what already exists)
 
@@ -135,10 +135,10 @@ Microsoft’s ISV guidance defines three approaches—extend existing Copilots, 
 
 Use these as **teaching anchors**, not hard rules:
 
-- **Copilot Studio** is best when you need rapid, low‑code delivery with connectors, agent flows, and multi‑channel publishing. [Copilot Studio overview](https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-what-is-copilot-studio)
-- **Microsoft Foundry** is best when you need deeper control over models, tools, multi‑agent workflows, memory, and observability within a unified PaaS. [Microsoft Foundry overview](https://learn.microsoft.com/en-us/azure/ai-foundry/what-is-foundry?view=foundry&preserve-view=true)
+- **Copilot Studio** is a strong fit when you need rapid, low‑code delivery with connectors, agent flows, and multi‑channel publishing. [Copilot Studio overview](https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-what-is-copilot-studio)
+- **Microsoft Foundry** is a strong fit when you need deeper control over models, tools, multi‑agent workflows, memory, and observability within a unified PaaS. [Microsoft Foundry overview](https://learn.microsoft.com/en-us/azure/ai-foundry/what-is-foundry?view=foundry&preserve-view=true)
 
-**Instructor note:** These are not competing religions. The best teams start low‑code to validate value, then deepen control as the use case proves itself.
+**Instructor note:** These are not competing religions. Teams often start low‑code to validate value, then deepen control as the use case proves itself.
 
 ---
 

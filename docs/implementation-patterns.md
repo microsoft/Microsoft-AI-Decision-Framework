@@ -413,7 +413,7 @@ Use this page when you’ve identified a likely platform choice and want an exec
    - **Managed connected/child agents or Logic Apps AI Agent workflows suffice** → stay with **Patterns 1 or 2** and lean on those tooling features.  
    - **Need programmable routing, checkpointing, or specialized agent collaboration** → invest in **Pattern 5** (Agent Framework workflows) and surface them through **Pattern 2** or **Pattern 4** channels.[^agent-workflows][^agentsdk-overview]
 
-**Before you decide:** Validate your choice against the scenario playbooks in [Scenarios]({{ '/docs/scenarios' | relative_url }}) and the capability layers in [Capability Model]({{ '/docs/capability-model' | relative_url }}) to ensure the pattern supports the right part of Microsoft’s AI portfolio. Use the comparison matrices in [Quick Reference]({{ '/docs/quick-reference' | relative_url }}) to double-check complexity, skills, budget, and governance trade-offs.
+**Before you decide:** Validate your choice against the scenario playbooks in [Scenarios]({{ '/docs/scenarios' | relative_url }}) and the capability groupings in [Capability Model]({{ '/docs/capability-model' | relative_url }}) to ensure the pattern supports the right part of Microsoft’s AI portfolio. Use the comparison matrices in [Quick Reference]({{ '/docs/quick-reference' | relative_url }}) to double-check complexity, skills, budget, and governance trade-offs.
 
 [^pattern3-knowledge]: Add SharePoint as a knowledge source in Copilot Studio, Microsoft Learn. Updated: 2026-01-12. [https://learn.microsoft.com/en-us/microsoft-copilot-studio/knowledge-add-sharepoint](https://learn.microsoft.com/en-us/microsoft-copilot-studio/knowledge-add-sharepoint)
 [^pattern1-actions]: Microsoft 365 Copilot release notes — August 19, 2025, Microsoft Learn. [https://learn.microsoft.com/en-us/copilot/microsoft-365/release-notes#august-19,-2025](https://learn.microsoft.com/en-us/copilot/microsoft-365/release-notes#august-19,-2025)
@@ -434,6 +434,8 @@ Use this page when you’ve identified a likely platform choice and want an exec
 ---
 
 **Next:** [Technologies]({{ '/docs/technologies' | relative_url }}) - Deep dive into technical specifications
+
+---
 
 [^studio-overview]: Microsoft Copilot Studio overview, Microsoft Learn. Retrieved: 2025-12-15. [https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-what-is-copilot-studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-what-is-copilot-studio)
 [^studio-publish]: Add custom Copilot Studio agents to Microsoft 365, Microsoft Learn. Retrieved: 2026-01-13. [https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/publish](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/publish)

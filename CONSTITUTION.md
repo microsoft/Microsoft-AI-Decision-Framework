@@ -65,7 +65,7 @@ To keep this repository aligned with its mission, we adhere to the following "Co
   1. **Business:** Is this viable? (ROI)
   2. **Experience:** Is this desirable? (Chat vs. API)
   3. **Technology:** Is this feasible? (Security/Skills)
-* **Rule:** Don't recommend a "Solution" (Layer 3-5) without first checking if a "Consumption" (Layer 1) tool solves the problem for free.
+* **Rule:** Don't recommend a "Solution" (Capability Groupings 3–5) without first checking if an **End‑user copilot** (Capability Grouping 1) solves the problem for free.
 
 ### Article V: The Navigation Mandate
 

@@ -63,6 +63,11 @@ body > .side-bar > footer {
 	display: none !important;
 }
 
+/* Hide header footer block from the just docs logo*/
+body > header > div.d-md-block.d-none.site-footer {
+	display: none !important;
+}
+
 .side-bar .site-header,
 .side-bar .site-nav,
 .side-bar .site-nav .nav-list,

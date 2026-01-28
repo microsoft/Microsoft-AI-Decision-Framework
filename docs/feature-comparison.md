@@ -52,14 +52,14 @@ Quick view of core platforms (M365 Copilot, Studio, Foundry, Agent Framework, Lo
 | **Best For** | Broad productivity | Custom agents | Custom AI apps | **Workflow orchestration** | Custom branded experiences and generative UI atop Agent Framework | Managed agents | Pro-code extensions | **Enterprise integration + AI** |
 
 [^frontier-agents]: Frontier Word/Excel/PowerPoint creation agents (Preview) require admin Frontier opt-in (Frontier is the early access program for experimental/preview Copilot features), Anthropic provider connection, and acceptance of Anthropic commercial terms; data is processed outside Microsoft-managed environments. Sources: [Word/Excel/PowerPoint Agents](https://learn.microsoft.com/en-us/copilot/microsoft-365/wordexcelppt-agents), [Microsoft 365 Copilot admin user access](https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-page#user-access).
-[^mobile-ext]: Microsoft 365 Copilot release notes (Nov 24, 2025) – mobile support for custom engine agents and message-extension agents on iOS/Android. Source: [Microsoft 365 Copilot release notes - Nov 24, 2025](https://learn.microsoft.com/en-us/copilot/microsoft-365/release-notes#november-24,-2025) (Retrieved: 2026-01-28).
-[^agent-registry]: Agent Registry lifecycle actions (publish, activate, deploy, pin, block, remove, delete, reassign owner, export inventory). Source: [Agent Registry in the Microsoft 365 admin center](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/agent-registry?view=o365-worldwide#admin-actions-to-manage-agents) (Retrieved: 2025-12-08).
-[^search-api]: Overview of the Microsoft 365 Copilot Search API (Preview) for hybrid semantic + lexical search across OneDrive via Graph `/beta`. Source: [Microsoft 365 Copilot Search API overview](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/api/ai-services/search/overview) (Retrieved: 2025-12-09).
+[^mobile-ext]: Microsoft 365 Copilot release notes (Nov 24, 2025) – mobile support for custom engine agents and message-extension agents on iOS/Android. Source: [Microsoft 365 Copilot release notes - Nov 24, 2025](https://learn.microsoft.com/en-us/copilot/microsoft-365/release-notes#november-24,-2025) (Retrieved: 2025-01-27).
+[^agent-registry]: Agent Registry lifecycle actions (publish, activate, deploy, pin, block, remove, delete, reassign owner, export inventory). Source: [Agent Registry in the Microsoft 365 admin center](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/agent-registry?view=o365-worldwide#admin-actions-to-manage-agents) (Retrieved: 2026-01-23).
+[^search-api]: Overview of the Microsoft 365 Copilot Search API (Preview) for hybrid semantic + lexical search across OneDrive via Graph `/beta`. Source: [Microsoft 365 Copilot Search API overview](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/api/ai-services/search/overview) (Retrieved: 2025-10-20).
 [^when-not-agent]: Agent Framework guidance on when *not* to use an agent (prefer deterministic functions/workflows). Source: [Microsoft Agent Framework overview](https://learn.microsoft.com/en-us/agent-framework/overview/agent-framework-overview).
-[^aafs-triggers]: *What's new in Microsoft Foundry Agent Service*, Microsoft Learn. May 2025 GA update includes Azure Logic Apps triggers for agents. Source: [Foundry Agent Service - What's new](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/whats-new?view=foundry-classic) (Retrieved: 2026-01-28).
-[^logicapps-agents]: *Workflows with AI agents and models in Azure Logic Apps (Preview)*, Microsoft Learn. Source: [Logic Apps agent workflows concepts](https://learn.microsoft.com/en-us/azure/logic-apps/agent-workflows-concepts) (Retrieved: 2026-01-28).
-[^aafs-mcp]: *What's new in Microsoft Foundry Agent Service*, Microsoft Learn. June 2025 update announces the MCP tool. Source: [Foundry Agent Service - What's new](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/whats-new?view=foundry-classic) (Retrieved: 2026-01-28).
-[^logicapps-mcp]: *Set up Standard logic apps as remote MCP servers (Preview)*, Microsoft Learn. Source: [Set up Standard logic apps as remote MCP servers](https://learn.microsoft.com/en-us/azure/logic-apps/set-up-model-context-protocol-server-standard) (Retrieved: 2026-01-28).
+[^aafs-triggers]: *What's new in Microsoft Foundry Agent Service*, Microsoft Learn. May 2025 GA update includes Azure Logic Apps triggers for agents. Source: [Foundry Agent Service - What's new](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/whats-new?view=foundry-classic) (Retrieved: 2025-10-08).
+[^logicapps-agents]: *Workflows with AI agents and models in Azure Logic Apps (Preview)*, Microsoft Learn. Source: [Logic Apps agent workflows concepts](https://learn.microsoft.com/en-us/azure/logic-apps/agent-workflows-concepts) (Retrieved: 2025-11-18).
+[^aafs-mcp]: *What's new in Microsoft Foundry Agent Service*, Microsoft Learn. June 2025 update announces the MCP tool. Source: [Foundry Agent Service - What's new](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/whats-new?view=foundry-classic) (Retrieved: 2025-10-08).
+[^logicapps-mcp]: *Set up Standard logic apps as remote MCP servers (Preview)*, Microsoft Learn. Source: [Set up Standard logic apps as remote MCP servers](https://learn.microsoft.com/en-us/azure/logic-apps/set-up-model-context-protocol-server-standard) (Retrieved: 2025-11-18).
 
 ---
 
@@ -135,7 +135,7 @@ Use this matrix to choose between Agent Framework Workflows, Logic Apps AI Agent
 - No development team available
 
 **Sources:**
-- [Agent Framework Workflows Overview](https://learn.microsoft.com/en-us/agent-framework/overview/agent-framework-overview) (Updated: 2024-10-20)
+- [Agent Framework Workflows Overview](https://learn.microsoft.com/en-us/agent-framework/overview/agent-framework-overview) (Updated: 2025-10-01)
 
 ---
 
@@ -156,7 +156,7 @@ Use this matrix to choose between Agent Framework Workflows, Logic Apps AI Agent
 - Compile-time type safety is critical (use Agent Framework instead)
 
 **Sources:**
-- [Logic Apps Agent Workflows Concepts](https://learn.microsoft.com/en-us/azure/logic-apps/agent-workflows-concepts) (Updated: 2024-10-28)
+- [Logic Apps Agent Workflows Concepts](https://learn.microsoft.com/en-us/azure/logic-apps/agent-workflows-concepts) (Updated: 2025-11-18)
 
 ---
 
@@ -177,7 +177,7 @@ Use this matrix to choose between Agent Framework Workflows, Logic Apps AI Agent
 - MCP server capabilities needed
 
 **Sources:**
-- [Copilot Studio Flows Overview](https://learn.microsoft.com/en-us/microsoft-copilot-studio/flows-overview) (Updated: 2024-10-05)
+- [Copilot Studio Flows Overview](https://learn.microsoft.com/en-us/microsoft-copilot-studio/flows-overview) (Updated: 2025-11-21)
 
 ---
 
@@ -197,13 +197,13 @@ Side-by-side grounding options (Copilot connectors, AI Search, Fabric, Cosmos, P
 | **Status** | GA | GA (agentic retrieval preview) | GA (Platform), Preview (Data Agents) | GA | GA | Preview |
 
 **Sources:**
-- [Microsoft 365 Copilot connectors overview](https://learn.microsoft.com/en-us/graph/connecting-external-content-connectors-overview) (Updated: 2024-09-20)
-- [Azure AI Search what's new](https://learn.microsoft.com/en-us/azure/search/whats-new#november-2025) (Updated: 2025-11-18)
-- [Microsoft Fabric Platform](https://learn.microsoft.com/en-us/fabric/fundamentals/microsoft-fabric-overview) (Updated: 2025-11-03)
-- [Microsoft Foundry (Azure) FAQ](https://learn.microsoft.com/en-us/azure/ai-foundry/faq?view=foundry-classic) (Updated: 2025-11-03)
-- [Cosmos DB Vector Search](https://learn.microsoft.com/en-us/azure/cosmos-db/vector-search) (Updated: 2024-10-08)
-- [Azure Database for PostgreSQL AI](https://learn.microsoft.com/en-us/azure/postgresql/azure-ai/generative-ai-overview) (Updated: 2024-09-30)
-- [SQL Server 2025 Vectors](https://learn.microsoft.com/en-us/sql/sql-server/ai/vectors?view=sql-server-ver17) (Updated: 2024-10-20)
+- [Microsoft 365 Copilot connectors overview](https://learn.microsoft.com/en-us/graph/connecting-external-content-connectors-overview) (Updated: 2025-07-21)
+- [Azure AI Search what's new](https://learn.microsoft.com/en-us/azure/search/whats-new#november-2025) (Updated: 2025-12-18)
+- [Microsoft Fabric Platform](https://learn.microsoft.com/en-us/fabric/fundamentals/microsoft-fabric-overview) (Updated: 2025-12-19)
+- [Microsoft Foundry (Azure) FAQ](https://learn.microsoft.com/en-us/azure/ai-foundry/faq?view=foundry-classic) (Updated: 2026-01-23)
+- [Cosmos DB Vector Search](https://learn.microsoft.com/en-us/azure/cosmos-db/vector-search) (Updated: 2025-09-25)
+- [Azure Database for PostgreSQL AI](https://learn.microsoft.com/en-us/azure/postgresql/azure-ai/generative-ai-overview) (Updated: 2026-01-20)
+- [SQL Server 2025 Vectors](https://learn.microsoft.com/en-us/sql/sql-server/ai/vectors?view=sql-server-ver17) (Updated: 2025-07-24)
 
 **Confidence Level:** High for GA technologies, Medium for SQL Server 2025 Preview
 
@@ -239,8 +239,8 @@ Declarative vs custom engine: when to stay low-code with managed orchestration v
 | **Skill Level** | Makers (low-code) or Developers (pro-code) | Developers required |
 
 **Sources:**
-- [Declarative Agents for Microsoft 365 Copilot](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-declarative-agent) (Updated: 2024-10-15)
-- [Custom Engine Agents Overview](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-custom-engine-agent) (Updated: 2024-10-18)
+- [Declarative Agents for Microsoft 365 Copilot](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-declarative-agent) (Updated: 2025-12-01)
+- [Custom Engine Agents Overview](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-custom-engine-agent) (Updated: 2026-01-13)
 
 **Confidence Level:** High (official Microsoft guidance)
 
@@ -263,9 +263,9 @@ Tooling snapshot for custom engine agents across Copilot Studio, Teams SDK, and 
 **Publishing scope:** Only agents built with the Teams SDK, M365 Agents SDK, or Foundry can be published to the Microsoft Commercial Store via Agents Toolkit; Copilot Studio agents are org-only by default. Source: [Custom engine agents for Microsoft 365 overview](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-custom-engine-agent).
 
 **Sources:**
-- [Copilot Studio Custom Engine Agents](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-custom-engine-agent) (Updated: 2024-10-18)
-- [Teams SDK Overview](https://learn.microsoft.com/en-us/microsoftteams/platform/teams-ai-library/welcome) (Updated: 2024-07-31)
-- [M365 Agents SDK](https://learn.microsoft.com/en-us/microsoft-365/agents-sdk/agents-sdk-overview) (Updated: 2024-10-22)
+- [Copilot Studio Custom Engine Agents](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-custom-engine-agent) (Updated: 2026-01-13)
+- [Teams SDK Overview](https://learn.microsoft.com/en-us/microsoftteams/platform/teams-ai-library/welcome) (Updated: 2025-11-17)
+- [M365 Agents SDK](https://learn.microsoft.com/en-us/microsoft-365/agents-sdk/agents-sdk-overview) (Updated: 2025-11-21)
 
 **Confidence Level:** High (all GA, official Microsoft documentation)
 

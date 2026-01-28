@@ -129,7 +129,7 @@ flowchart TD
 ### Validation Summary
 {: .no_toc }
 
-**Last Validated:** November 2025
+**Last Validated:** January 2026
 
 #### UI-Based Agents (GA unless noted)
 {: .no_toc }
@@ -233,7 +233,7 @@ flowchart TD
 ### Validation Summary - Persona-Based Flow
 {: .no_toc }
 
-**Last Validated:** November 3, 2025
+**Last Validated:** January 28, 2026
 
 #### End User (GA)
 {: .no_toc }
@@ -361,7 +361,7 @@ flowchart TD
 ### Validation Summary - Data Grounding Decision
 {: .no_toc }
 
-**Last Validated:** November 3, 2025
+**Last Validated:** January 28, 2026
 
 #### M365 Data Sources (GA)
 {: .no_toc }
@@ -512,7 +512,7 @@ flowchart TD
 ### Validation Summary - Budget & Timeline Tradeoffs
 {: .no_toc }
 
-**Last Validated:** November 3, 2025
+**Last Validated:** January 28, 2026
 
 #### M365-Only ($0 AI infrastructure add'l)
 {: .no_toc }
@@ -572,12 +572,12 @@ flowchart TD
 #### Sources
 {: .no_toc }
 
-- [Copilot Studio Licensing](https://learn.microsoft.com/en-us/microsoft-copilot-studio/billing-licensing) (Updated: 2025)
-- [M365 Copilot Cost Considerations](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/cost-considerations) (Updated: 2025)
+- [Copilot Studio Licensing](https://learn.microsoft.com/en-us/microsoft-copilot-studio/billing-licensing) (Updated: 2025-11-05)
+- [M365 Copilot Cost Considerations](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/cost-considerations) (Updated: 2025-11-25)
 - [Azure OpenAI Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) (Updated: 2025)
-- [Azure AI Search Tiers](https://learn.microsoft.com/en-us/azure/search/search-sku-tier) (Updated: 2025)
-- [Logic Apps AI Agent Workflows](https://learn.microsoft.com/en-us/azure/logic-apps/agent-workflows-concepts) (Preview, Updated: 2025)
-- [AI Builder Overview](https://learn.microsoft.com/en-us/ai-builder/overview) (Updated: 2025)
+- [Azure AI Search Tiers](https://learn.microsoft.com/en-us/azure/search/search-sku-tier) (Updated: 2025-11-06)
+- [Logic Apps AI Agent Workflows](https://learn.microsoft.com/en-us/azure/logic-apps/agent-workflows-concepts) (Preview, Updated: 2025-11-18)
+- [AI Builder Overview](https://learn.microsoft.com/en-us/ai-builder/overview) (Updated: 2026-01-14)
 
 ---
 
@@ -619,7 +619,7 @@ flowchart TD
 ### Validation Summary: Governance & Compliance Path
 {: .no_toc }
 
-**Last Validated:** November 2025
+**Last Validated:** January 2026
 
 #### M365 Tenant Boundary Technologies
 {: .no_toc }
@@ -702,7 +702,7 @@ flowchart TD
 ### Validation Summary: Multi-Agent Orchestration
 {: .no_toc }
 
-**Last Validated:** November 2025
+**Last Validated:** January 2026
 
 #### Connected Agents / Sub-Agent Pattern
 {: .no_toc }
@@ -765,7 +765,7 @@ flowchart TD
 ### Validation Summary: Upgrade Paths
 {: .no_toc }
 
-**Last Validated:** May 2025
+**Last Validated:** January 2026
 
 #### Progressive Enhancement Mechanisms
 {: .no_toc }
@@ -801,6 +801,6 @@ flowchart TD
 
 ---
 
-**Last Updated:** November 2025  
+**Last Updated:** January 28, 2026  
 **Next:** [Evaluation Criteria]({{ '/docs/evaluation-criteria' | relative_url }}) - Score complexity, skills, budget, and governance after selecting a path
 

@@ -86,13 +86,13 @@ Employees need instant answers to HR questions (policies, benefits, PTO) without
 
 3. **Configure Knowledge & Systems** (3-4 days)
    - Audit SharePoint HR site, tag authoritative pages, and configure knowledge sources with KQL filtering ([SharePoint advanced filtering for Employee Self-Service, Nov 5 2025](https://learn.microsoft.com/en-us/copilot/microsoft-365/employee-self-service/sharepoint-filtering))
-   - Configure Workday reports (RaaS), ServiceNow OAuth apps, and SAP credentials for the extension packs ([Integrate Workday with your Employee Self-Service deployment, Nov 12 2025](https://learn.microsoft.com/en-us/copilot/microsoft-365/employee-self-service/workday); [Integrate ServiceNow HRSD and ITSM with Employee Self-Service, Nov 5 2025](https://learn.microsoft.com/en-us/copilot/microsoft-365/employee-self-service/servicenow-hrsd-itsm))
-   - Customize instructions, welcome experience, and official-source badges for HR tone ([Customize the Employee Self-Service agent, Nov 5 2025](https://learn.microsoft.com/en-us/copilot/microsoft-365/employee-self-service/customize))
+   - Configure Workday reports (RaaS), ServiceNow OAuth apps, and SAP credentials for the extension packs ([Integrate Workday with your Employee Self-Service deployment, Jan 20 2026](https://learn.microsoft.com/en-us/copilot/microsoft-365/employee-self-service/workday); [Integrate ServiceNow HRSD and ITSM with Employee Self-Service, Nov 12 2025](https://learn.microsoft.com/en-us/copilot/microsoft-365/employee-self-service/servicenow-hrsd-itsm))
+   - Customize instructions, welcome experience, and official-source badges for HR tone ([Customize the Employee Self-Service agent, Dec 15 2025](https://learn.microsoft.com/en-us/copilot/microsoft-365/employee-self-service/customize))
 
 4. **Test & Govern** (3-5 days)
    - Build golden prompts, regression suites, and telemetry dashboards
    - Pilot with HR stewards, validate ticket creation, and review safety rails
-   - Document handoff procedures for sensitive topics or low confidence responses ([Customize the Employee Self-Service agent, Nov 5 2025](https://learn.microsoft.com/en-us/copilot/microsoft-365/employee-self-service/customize))
+   - Document handoff procedures for sensitive topics or low confidence responses ([Customize the Employee Self-Service agent, Dec 15 2025](https://learn.microsoft.com/en-us/copilot/microsoft-365/employee-self-service/customize))
 
 5. **Deploy & Monitor** (1 day)
    - Promote managed solution to production via ALM pipeline ([Employee Self-Service agent deployment overview, Nov 5 2025](https://learn.microsoft.com/en-us/copilot/microsoft-365/employee-self-service/deploy-overview-alm))
@@ -110,7 +110,7 @@ Employees need instant answers to HR questions (policies, benefits, PTO) without
 
 **If you need bespoke orchestration:**
 
-- Use M365 Agents SDK or Foundry Agent Service for custom routing, non-supported HRIS integrations, or multi-channel experiences beyond Microsoft 365 Copilot. Incorporate Azure AI Search BYOK when data spans on-premises or third-party stores ([Agentic retrieval overview, May 2025](https://learn.microsoft.com/en-us/azure/search/agentic-retrieval-overview)).
+- Use M365 Agents SDK or Foundry Agent Service for custom routing, non-supported HRIS integrations, or multi-channel experiences beyond Microsoft 365 Copilot. Incorporate Azure AI Search BYOK when data spans on-premises or third-party stores ([Agentic retrieval overview, Updated: Jan 16 2026](https://learn.microsoft.com/en-us/azure/search/agentic-retrieval-overview)).
 
 ---
 
@@ -189,7 +189,7 @@ Accounts Payable team manually processes 500+ supplier invoices per month. Need 
 
 **If invoices are non-standard:**
 
-- Use Azure Document Intelligence custom models ([Document Intelligence invoice model GA, Nov 30, 2024](https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/prebuilt/invoice?view=doc-intel-4.0.0))
+- Use Azure Document Intelligence custom models ([Document Intelligence invoice model GA, Nov 18, 2025](https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/prebuilt/invoice?view=doc-intel-4.0.0))
 - Train on company-specific invoice formats
 - More complex setup, higher accuracy
 
@@ -448,5 +448,5 @@ An enterprise has hundreds of legacy Java and .NET applications running on outda
 
 ---
 
-**Last Updated:** December 2025  
+**Last Updated:** January 28, 2026  
 **Next:** [Visual Framework]({{ '/docs/visual-framework' | relative_url }}) - Walk the decision trees to choose the right path

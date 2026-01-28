@@ -220,7 +220,7 @@ Side-by-side grounding options (Copilot connectors, AI Search, Fabric, Cosmos, P
 | Semantic ranker on free tier | GA | Semantic reranking available on free tier with volume limits. | n/a | [Semantic ranker](https://learn.microsoft.com/en-us/azure/search/semantic-how-to-enable-disable) |
 | Hybrid/vector debug & control | Preview | `truncationDimension` for MRL embeddings, `filterOverride` for vector-only filters in hybrid queries, `debug` subscores for RRF, token-based Text Split parameters. | 2024-09-01-preview | [Hybrid search preview](https://learn.microsoft.com/en-us/azure/search/hybrid-search-how-to-query#example-hybrid-search-with-filters-targeting-vector-subqueries-preview) |
 
-**Last Updated:** December 9, 2025
+**Last Updated:** January 28, 2026
 
 ---
 

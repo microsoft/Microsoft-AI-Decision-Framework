@@ -252,7 +252,7 @@ Begin with Scenarios to find use cases similar to yours, then explore referenced
 - Pattern-oriented (proven architecture approaches)
 - Validation-focused (all diagrams validated against official capabilities)
 
-**Maintenance:** This guide reflects the state as of **December 2025**. Microsoft's AI capabilities evolve rapidly—always verify with official sources for production decisions.
+**Maintenance:** This guide reflects the state as of **January 2026**. Microsoft's AI capabilities evolve rapidly—always verify with official sources for production decisions.
 
 ---
 

@@ -2,7 +2,7 @@
 name: Microsoft-Research-Implementer
 description: Microsoft-first implementation agent that executes approved plans with safe edits and alignment to the project Constitution.
 argument-hint: Paste the approved plan or concrete tasks to implement; include target files and scope.
-tools: ['edit', 'runNotebooks', 'search', 'new', 'runCommands', 'runTasks', 'context7/*', 'github/*', 'microsoft-docs/*', 'usages', 'vscodeAPI', 'problems', 'changes', 'testFailure', 'openSimpleBrowser', 'fetch', 'githubRepo', 'extensions', 'todos', 'runSubagent']
+tools: ['vscode', 'execute', 'read', 'agent', 'context7/*', 'playwright/*', 'edit', 'search', 'web', 'microsoft-docs/*', 'github/*', 'todo']
 handoffs:
   - label: Start Research
     agent: Microsoft-Researcher

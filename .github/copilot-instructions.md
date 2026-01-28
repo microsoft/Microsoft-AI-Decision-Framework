@@ -6,7 +6,7 @@ applyTo: '**'
 
 ## Project Overview
 
-This is a **comprehensive decision framework and reference guide** for navigating Microsoft's AI technology portfolio. The project helps users systematically evaluate and select the right Microsoft AI technology (M365 Copilot, Copilot Studio, Azure AI Foundry, Agent Service, SDKs, etc.) for their specific business requirements.
+This is a **comprehensive decision framework and reference guide** for navigating Microsoft's AI technology portfolio. The project helps users systematically evaluate and select the right Microsoft AI technology (M365 Copilot, Copilot Studio, Microsoft Foundry, Agent Service, SDKs, etc.) for their specific business requirements.
 
 **Primary Goal:** Enable evidence-based technology selection through a structured learning journey that progresses from foundational concepts to technical mastery.
 
@@ -180,7 +180,7 @@ This repository is governed by a set of immutable principles defined in **[`CONS
 ### Multi-Agent Orchestration Patterns
 
 **Three distinct patterns validated:**
-1. **Connected Agents:** Independent agents that communicate/collaborate (Copilot Studio Connected Agents, Azure AI Foundry GA May 2025)
+1. **Connected Agents:** Independent agents that communicate/collaborate (Copilot Studio Connected Agents, Microsoft Foundry (Azure) GA May 2025)
 2. **Sub-agents:** Parent-child hierarchy where main agent delegates to specialized children (Copilot Studio child agents, Agent Framework sub-agent delegation)
 3. **Agent Workflows:** Sequential/Concurrent/Handoff orchestration (Microsoft Agent Framework, LangGraph)
 
@@ -283,7 +283,7 @@ bundle exec jekyll serve
 
 **Layer 1: Consumption** - M365 Copilot, built-in agents, Agent Store  
 **Layer 2: Extensibility** - Graph Connectors, AI Plugins, Declarative Agents  
-**Layer 3: Development Platforms** - Copilot Studio, M365 Agents SDK, Agent Framework, Azure AI Foundry  
+**Layer 3: Development Platforms** - Copilot Studio, M365 Agents SDK, Agent Framework, Microsoft Foundry (Azure)  
 **Layer 4: Infrastructure & AI Services** - Azure OpenAI, AI Search, Document Intelligence, Logic Apps, Cosmos DB, Fabric  
 **Layer 5: Specialized Copilots** - GitHub Copilot, Security Copilot, Dynamics 365 Copilots, Fabric Data Agents, Azure SRE Agent
 
@@ -323,9 +323,9 @@ bundle exec jekyll serve
 - BYO orchestrator model (integrate Agent Framework Preview recommended, LangChain third-party alternative)
 - 10+ channels (Teams, Outlook, M365 Chat)
 
-**Azure AI Foundry:**
+**Microsoft Foundry (Azure):**
 - Code-first platform for custom models, RAG, evaluations
-- Works with OR without Azure AI Agent Service
+- Works with OR without Foundry Agent Service
 - Connected Agents GA May 2025
 
 **Copilot Studio:**
@@ -425,7 +425,7 @@ Before committing changes, verify:
 - SQL Server 2025 VECTOR: Preview RC1
 - Azure AI Content Understanding: Preview (2025-05-01-preview API)
 - Copilot Studio Connected Agents: Preview
-- Azure AI Foundry Connected Agents: GA May 2025
+- Microsoft Foundry (Azure) Connected Agents: GA May 2025
 - Graph Connectors: GA March 2025
 
 **Rapid evolution note:** Microsoft's AI portfolio changes frequently. Always verify with official sources for production decisions. Documentation maintenance requires re-research every 3-6 months.
@@ -434,7 +434,7 @@ Before committing changes, verify:
 
 **When Microsoft releases updates:**
 1. Monitor [M365 Copilot Release Notes](https://learn.microsoft.com/en-us/copilot/microsoft-365/release-notes)
-2. Check [Azure AI Foundry What's New](https://learn.microsoft.com/en-us/azure/ai-foundry/whats-new)
+2. Check [Microsoft Foundry What's New](https://learn.microsoft.com/en-us/azure/ai-foundry/whats-new)
 3. Review [Copilot Studio Release Plans](https://learn.microsoft.com/en-us/power-platform/release-plan/)
 4. Update affected diagrams and validation summaries
 5. Verify cross-references remain accurate

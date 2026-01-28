@@ -11,6 +11,9 @@ description: Comprehensive side-by-side technology comparisons
 {: .note }
 Detailed side-by-side comparisons of Microsoft AI technologies. Use this page after you’ve clarified requirements in the [Decision Framework]({{ '/docs/decision-framework' | relative_url }}), so the tables confirm trade-offs (rather than driving the decision by brand names alone).
 
+{: .note }
+**Sanity check before you compare:** If the work is deterministic, repeatable, or can be expressed as a clear function/workflow, **don’t use an agent**—use a workflow, API integration, or traditional code. Agents are best when the task is ambiguous, multi-step, and conversational, where the steps can’t be fully specified up front.[^when-not-agent]
+
 ---
 
 ## Table of contents
@@ -27,7 +30,7 @@ Quick view of core platforms (M365 Copilot, Studio, Foundry, Agent Framework, Lo
 
 **How to use this section:** Start with the columns that match your trust boundary and channel needs, then compare orchestration and governance features to validate whether you should stay in SaaS, step into low-code, or move to pro-code.
 
-| Feature | M365 Copilot | Copilot Studio | Microsoft Foundry (Azure) | **Microsoft Agent Framework** | **AG-UI Protocol (Preview)** | Foundry Agent Service | M365 Agents SDK | **Azure Logic Apps** |
+| Feature | M365 Copilot | Copilot Studio | Microsoft Foundry (Azure) | **Microsoft Agent Framework** | **AG-UI Protocol (Preview)** | Microsoft Foundry Agent Service | M365 Agents SDK | **Azure Logic Apps** |
 |---------|--------------|----------------|------------------|------------------------------|----------------------------|------------------------|-----------------|----------------------|
 | **User Experience** | M365 apps (Frontier creation agents Preview[^frontier-agents]) + mobile parity for custom engine/message-extension agents[^mobile-ext] | Custom channels | Custom apps | Embedded in apps | Protocol-based web/mobile UI | Custom apps | Copilot/Teams/Web | **Custom/Conversational** |
 | **Build Approach** | No-build (consume) | Low-code to pro-code | Code-first | Pro-code (orchestration SDK) | Pro-code protocol integration (ASP.NET Core, FastAPI) | Code-first | Pro-code | **Visual designer + code** |
@@ -41,21 +44,22 @@ Quick view of core platforms (M365 Copilot, Studio, Foundry, Agent Framework, Lo
 | **Skill Level** | End user | Maker to developer | Developer/engineer | Developer (C#/Python) | Developers (front-end + back-end) | Developer/engineer | Developer | **Developer** |
 | **Orchestration** | Built-in | Built-in | Custom | **Workflow-based (Executor/Edge)** | Inherits Agent Framework orchestration | Managed orchestration | BYO orchestrator | **Visual workflow** |
 | **Checkpointing** | N/A | No | Custom | **Yes (built-in)** | Inherits from orchestrator | No | Via orchestrator | **State management** |
-| **AI Agent Workflows** | N/A | Via agent flows | Via Agent Service[^aafs-triggers] | N/A | N/A (UI protocol) | ✅ Yes | N/A | **✅ Yes (Preview)**[^logicapps-agents] |
+| **AI Agent Workflows** | N/A | Via agent flows | Via Microsoft Foundry Agent Service[^aafs-triggers] | N/A | N/A (UI protocol) | ✅ Yes | N/A | **✅ Yes (Preview)**[^logicapps-agents] |
 | **MCP Server** | N/A | ❌ No | ✅ Yes (MCP tool)[^aafs-mcp] | N/A | N/A | ⚠️ Custom | N/A | **✅ Yes (Preview)**[^logicapps-mcp] |
 | **Optimized For** | Productivity at scale | Speed to market + connectors | Latency & control | Workflow orchestration | Bespoke agent UI with streaming & approvals | Managed agents | Pro-code flexibility | **Enterprise integration** |
 | **Latency Profile** | <1s (M365 apps) | <1s (managed platform) | <100ms (direct API) | Workflow processing | SSE streaming (depends on backend) | <100ms (direct API) | <1s (M365 integration) | Workflow processing |
 | **Infrastructure Model** | Microsoft-managed | SaaS (managed) | PaaS (self-managed) | SDK (self-managed) | SDK bridging host + client | PaaS (self-managed) | SDK (self-managed) | PaaS (self-managed) |
 | **Best For** | Broad productivity | Custom agents | Custom AI apps | **Workflow orchestration** | Custom branded experiences and generative UI atop Agent Framework | Managed agents | Pro-code extensions | **Enterprise integration + AI** |
 
-[^frontier-agents]: Frontier Word/Excel/PowerPoint creation agents (Preview) require admin Frontier opt-in, Anthropic provider connection, and acceptance of Anthropic commercial terms; data is processed outside Microsoft-managed environments. Sources: [Word/Excel/PowerPoint Agents](https://learn.microsoft.com/en-us/copilot/microsoft-365/wordexcelppt-agents), [Microsoft 365 Copilot admin user access](https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-page#user-access).
-[^mobile-ext]: Microsoft 365 Copilot release notes (Nov 24, 2025) – mobile support for custom engine agents and message-extension agents on iOS/Android. Source: [Microsoft 365 Copilot release notes - Nov 24, 2025](https://learn.microsoft.com/en-us/copilot/microsoft-365/release-notes#november-24,-2025).
+[^frontier-agents]: Frontier Word/Excel/PowerPoint creation agents (Preview) require admin Frontier opt-in (Frontier is the early access program for experimental/preview Copilot features), Anthropic provider connection, and acceptance of Anthropic commercial terms; data is processed outside Microsoft-managed environments. Sources: [Word/Excel/PowerPoint Agents](https://learn.microsoft.com/en-us/copilot/microsoft-365/wordexcelppt-agents), [Microsoft 365 Copilot admin user access](https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-page#user-access).
+[^mobile-ext]: Microsoft 365 Copilot release notes (Nov 24, 2025) – mobile support for custom engine agents and message-extension agents on iOS/Android. Source: [Microsoft 365 Copilot release notes - Nov 24, 2025](https://learn.microsoft.com/en-us/copilot/microsoft-365/release-notes#november-24,-2025) (Retrieved: 2026-01-28).
 [^agent-registry]: Agent Registry lifecycle actions (publish, activate, deploy, pin, block, remove, delete, reassign owner, export inventory). Source: [Agent Registry in the Microsoft 365 admin center](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/agent-registry?view=o365-worldwide#admin-actions-to-manage-agents) (Retrieved: 2025-12-08).
 [^search-api]: Overview of the Microsoft 365 Copilot Search API (Preview) for hybrid semantic + lexical search across OneDrive via Graph `/beta`. Source: [Microsoft 365 Copilot Search API overview](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/api/ai-services/search/overview) (Retrieved: 2025-12-09).
-[^aafs-triggers]: *What's new in Microsoft Foundry (Azure) Agent Service*, Microsoft Learn. May 2025 GA update includes Azure Logic Apps triggers for agents.
-[^logicapps-agents]: *Workflows with AI agents and models in Azure Logic Apps (Preview)*, Microsoft Learn. Retrieved: 2025-11-10.
-[^aafs-mcp]: *What's new in Microsoft Foundry (Azure) Agent Service*, Microsoft Learn. June 2025 update announces the MCP tool.
-[^logicapps-mcp]: *Set up Standard logic apps as remote MCP servers (Preview)*, Microsoft Learn. Retrieved: 2025-11-10.
+[^when-not-agent]: Agent Framework guidance on when *not* to use an agent (prefer deterministic functions/workflows). Source: [Microsoft Agent Framework overview](https://learn.microsoft.com/en-us/agent-framework/overview/agent-framework-overview).
+[^aafs-triggers]: *What's new in Microsoft Foundry Agent Service*, Microsoft Learn. May 2025 GA update includes Azure Logic Apps triggers for agents. Source: [Foundry Agent Service - What's new](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/whats-new?view=foundry-classic) (Retrieved: 2026-01-28).
+[^logicapps-agents]: *Workflows with AI agents and models in Azure Logic Apps (Preview)*, Microsoft Learn. Source: [Logic Apps agent workflows concepts](https://learn.microsoft.com/en-us/azure/logic-apps/agent-workflows-concepts) (Retrieved: 2026-01-28).
+[^aafs-mcp]: *What's new in Microsoft Foundry Agent Service*, Microsoft Learn. June 2025 update announces the MCP tool. Source: [Foundry Agent Service - What's new](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/whats-new?view=foundry-classic) (Retrieved: 2026-01-28).
+[^logicapps-mcp]: *Set up Standard logic apps as remote MCP servers (Preview)*, Microsoft Learn. Source: [Set up Standard logic apps as remote MCP servers](https://learn.microsoft.com/en-us/azure/logic-apps/set-up-model-context-protocol-server-standard) (Retrieved: 2026-01-28).
 
 ---
 
@@ -92,17 +96,17 @@ Use this matrix to choose between Agent Framework Workflows, Logic Apps AI Agent
 | **Architecture** | Graph-based (Executors + Edges) | Workflow designer + connectors | Workflow designer + connectors |
 | **Checkpointing** | ✅ Yes (built-in) | ✅ Yes (state management) | ❌ No |
 | **Type Safety** | ✅ Yes (compile-time) | ⚠️ Partial (schema validation) | ⚠️ Partial (schema validation) |
-| **AI Integration** | Native (\IChatClient\) | Azure OpenAI, Microsoft Foundry (Azure), Agent Service | Azure OpenAI, Microsoft Foundry (Azure), Agent Service |
+| **AI Integration** | Native (\IChatClient\) | Azure OpenAI, Microsoft Foundry (Azure), Microsoft Foundry Agent Service | Azure OpenAI, Microsoft Foundry (Azure), Microsoft Foundry Agent Service |
 | **Connectors** | Custom code (any API) | 1,400+ connectors + custom code | 1,000+ (Power Platform) |
 | **Hosting** | Self-managed (Azure) | Azure Portal | Microsoft SaaS (managed) |
 | **Licensing** | Open-source (free SDK) | Azure consumption/Standard | Copilot Studio Credits |
 | **DevOps** | ✅ Yes (code-based CI/CD) | ✅ Yes (GitHub Actions, Azure DevOps) | ✅ Yes (Pipelines, GitHub Actions, Azure DevOps) |
 | **MCP Server** | ⚠️ Custom | ✅ Yes (Preview) | ❌ No |
-| **Status** | Public Preview | Preview (Agents), GA (core) | GA |
+| **Status** | Public Preview | Preview (Consumption agent workflows), GA (core) | GA |
 | **Best For** | Multi-agent orchestration + checkpointing | Enterprise integration + AI agents | Fast automation within Studio agents |
 
 **Sources:**
-- [Agent Framework Workflows](https://learn.microsoft.com/en-us/azure/ai-services/agents/concepts/agent-framework)
+- [Agent Framework Workflows](https://learn.microsoft.com/en-us/agent-framework/overview/agent-framework-overview)
 - [Logic Apps Agent Workflows](https://learn.microsoft.com/en-us/azure/logic-apps/agent-workflows-concepts)
 - [Copilot Studio Agent Flows](https://learn.microsoft.com/en-us/microsoft-copilot-studio/flows-overview)
 - [Agent Flows vs Cloud Flows FAQ](https://learn.microsoft.com/en-us/microsoft-copilot-studio/flows-faqs)
@@ -131,7 +135,7 @@ Use this matrix to choose between Agent Framework Workflows, Logic Apps AI Agent
 - No development team available
 
 **Sources:**
-- [Agent Framework Workflows Overview](https://learn.microsoft.com/en-us/azure/ai-services/agents/concepts/agent-framework) (Updated: 2024-10-20)
+- [Agent Framework Workflows Overview](https://learn.microsoft.com/en-us/agent-framework/overview/agent-framework-overview) (Updated: 2024-10-20)
 
 ---
 
@@ -179,27 +183,27 @@ Use this matrix to choose between Agent Framework Workflows, Logic Apps AI Agent
 
 ## Data Grounding Technology Comparison
 
-Side-by-side grounding options (Graph, AI Search, Fabric, Cosmos, PostgreSQL, SQL Server) by search mode, boundary, and best-fit workloads.
+Side-by-side grounding options (Copilot connectors, AI Search, Fabric, Cosmos, PostgreSQL, SQL Server) by search mode, boundary, and best-fit workloads.
 
-| Feature | **Graph Connectors** | **Azure AI Search** | **Microsoft Fabric** | **Cosmos DB** | **PostgreSQL** | **SQL Server 2025** |
+| Feature | **Copilot connectors** | **Azure AI Search** | **Microsoft Fabric** | **Cosmos DB** | **PostgreSQL** | **SQL Server 2025** |
 |---------|---------------------|---------------------|----------------------|----------------|----------------|---------------------|
 | **Vector Search** | No (semantic index only) | ✅ Yes (IVF, HNSW) | ✅ Yes (Lakehouse via external tools) | ✅ Yes (IVF, HNSW, DiskANN) | ✅ Yes (pgvector, IVF) | ✅ Yes (DiskANN) |
 | **Hybrid Search** | No | ✅ Yes (vector + keyword) | ✅ Yes (SQL endpoint + external) | ✅ Yes | ✅ Yes | ✅ Yes |
 | **Data Boundary** | M365 tenant | Azure | Azure (OneLake) | Azure | Azure | On-premises or Azure |
-| **Index Target** | Microsoft Graph | Azure AI Search index / knowledge bases (agentic retrieval, preview) | Lakehouse Delta tables, Warehouse tables | Cosmos DB collection | PostgreSQL table | SQL Server table |
-| **Access Method** | Graph API | REST API, SDKs (`2025-11-01-preview` for knowledge bases) | ADLS Gen2 APIs, SQL endpoint, Fabric Data Agents | SDKs, REST API | SQL, pgvector | T-SQL, VECTOR type |
-| **Best For** | M365-centric knowledge | Azure-native RAG with ACL/label enforcement and agentic retrieval | Analytics data + unified data platform | Transactional + vector data | PostgreSQL workloads with AI | SQL Server workloads with AI |
+| **Index Target** | Microsoft Graph (connector ingestion) | Azure AI Search index / knowledge bases (agentic retrieval, preview) | Lakehouse Delta tables, Warehouse tables | Cosmos DB collection | PostgreSQL table | SQL Server table |
+| **Access Method** | Graph API (Copilot connector APIs) | REST API, SDKs (`2025-11-01-preview` for knowledge bases) | ADLS Gen2 APIs, SQL endpoint, Fabric Data Agents | SDKs, REST API | SQL, pgvector | T-SQL, VECTOR type |
+| **Best For** | M365-centric knowledge (Copilot, Search, Context IQ) | Azure-native RAG with ACL/label enforcement and agentic retrieval | Analytics data + unified data platform | Transactional + vector data | PostgreSQL workloads with AI | SQL Server workloads with AI |
 | **Licensing** | Included with M365 | Azure consumption (agentic retrieval preview on free tier quotas) | Fabric capacity (F2+) | Azure consumption | Azure consumption | SQL Server license |
 | **Status** | GA | GA (agentic retrieval preview) | GA (Platform), Preview (Data Agents) | GA | GA | Preview |
 
 **Sources:**
-- [Microsoft Graph Connectors](https://learn.microsoft.com/en-us/graph/connecting-external-content-connectors-overview) (Updated: 2024-09-20)
+- [Microsoft 365 Copilot connectors overview](https://learn.microsoft.com/en-us/graph/connecting-external-content-connectors-overview) (Updated: 2024-09-20)
 - [Azure AI Search what's new](https://learn.microsoft.com/en-us/azure/search/whats-new#november-2025) (Updated: 2025-11-18)
 - [Microsoft Fabric Platform](https://learn.microsoft.com/en-us/fabric/fundamentals/microsoft-fabric-overview) (Updated: 2025-11-03)
-- [Fabric AI Foundry Integration](https://learn.microsoft.com/en-us/azure/ai-foundry/faq) (Updated: 2025-11-03)
+- [Microsoft Foundry (Azure) FAQ](https://learn.microsoft.com/en-us/azure/ai-foundry/faq?view=foundry-classic) (Updated: 2025-11-03)
 - [Cosmos DB Vector Search](https://learn.microsoft.com/en-us/azure/cosmos-db/vector-search) (Updated: 2024-10-08)
-- [Azure Database for PostgreSQL AI](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/generative-ai-overview) (Updated: 2024-09-30)
-- [SQL Server 2025 Vectors](https://learn.microsoft.com/en-us/sql/relational-databases/vectors/vectors-sql-server) (Updated: 2024-10-20)
+- [Azure Database for PostgreSQL AI](https://learn.microsoft.com/en-us/azure/postgresql/azure-ai/generative-ai-overview) (Updated: 2024-09-30)
+- [SQL Server 2025 Vectors](https://learn.microsoft.com/en-us/sql/sql-server/ai/vectors?view=sql-server-ver17) (Updated: 2024-10-20)
 
 **Confidence Level:** High for GA technologies, Medium for SQL Server 2025 Preview
 
@@ -226,7 +230,7 @@ Declarative vs custom engine: when to stay low-code with managed orchestration v
 
 | **Approach** | **Declarative Agents** | **Custom Engine Agents** |
 |--------------|------------------------|--------------------------|
-| **Definition** | Pre-built orchestration; configure instructions, knowledge, actions | Bring your own orchestrator (Agent Framework Preview recommended, LangChain third-party) |
+| **Definition** | Pre-built orchestration; configure instructions, knowledge, actions | Bring your own orchestrator (Agent Framework (Preview) recommended, LangChain (Third-party)) |
 | **Best For** | Simple → Moderate complexity; fast time-to-market | Complex workflows; multi-agent systems; custom reasoning |
 | **Development Model** | Low-code (Copilot Studio) or Pro-code (M365 Agents Toolkit) | Pro-code only; full control over logic |
 | **Orchestration** | Microsoft-managed orchestration (GPT-based) | You control orchestration framework and model selection |
@@ -235,8 +239,8 @@ Declarative vs custom engine: when to stay low-code with managed orchestration v
 | **Skill Level** | Makers (low-code) or Developers (pro-code) | Developers required |
 
 **Sources:**
-- [Declarative Agents for Microsoft 365 Copilot](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/copilot-studio-declarative-agents) (Updated: 2024-10-15)
-- [Custom Engine Agents Overview](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/copilot-studio-custom-engine-agent) (Updated: 2024-10-18)
+- [Declarative Agents for Microsoft 365 Copilot](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-declarative-agent) (Updated: 2024-10-15)
+- [Custom Engine Agents Overview](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-custom-engine-agent) (Updated: 2024-10-18)
 
 **Confidence Level:** High (official Microsoft guidance)
 
@@ -244,22 +248,24 @@ Declarative vs custom engine: when to stay low-code with managed orchestration v
 
 ## Custom Engine Agent Tool Comparison
 
-Tooling snapshot for custom engine agents across Copilot Studio, Teams AI Library, and M365 Agents SDK (channels, orchestration fit, developer experience).
+Tooling snapshot for custom engine agents across Copilot Studio, Teams SDK, and M365 Agents SDK (channels, orchestration fit, developer experience).
 
-| **Tool** | **Copilot Studio** | **Teams AI Library** | **M365 Agents SDK** |
+| **Tool** | **Copilot Studio** | **Teams SDK** | **M365 Agents SDK** |
 |----------|---------------------|----------------------|---------------------|
 | **Primary Use Case** | Low-code custom engine agents | Bot Framework migration path | Multi-channel pro-code agents |
-| **Orchestration Options** | Agent Framework Preview recommended, LangChain third-party | Teams AI Library framework | Agent Framework Preview recommended, LangChain third-party |
+| **Orchestration Options** | Agent Framework (Preview) recommended, LangChain (Third-party) | Teams SDK (Action Planner) | Agent Framework (Preview) recommended, LangChain (Third-party) |
 | **Deployment Channels** | Teams, M365 Copilot | Teams-focused | 10+ channels (Teams, Slack, web chat, etc.) |
 | **Developer Experience** | Visual designer + code | Code-first | Code-first with Toolkit in VS Code |
 | **Target Audience** | Makers and developers | Bot Framework developers | Professional developers |
 | **Licensing Model** | Per-user subscription | Included with M365 | Included with Azure Bot Service |
 | **Status** | GA | GA | GA |
 
+**Publishing scope:** Only agents built with the Teams SDK, M365 Agents SDK, or Foundry can be published to the Microsoft Commercial Store via Agents Toolkit; Copilot Studio agents are org-only by default. Source: [Custom engine agents for Microsoft 365 overview](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-custom-engine-agent).
+
 **Sources:**
-- [Copilot Studio Custom Engine Agents](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/copilot-studio-custom-engine-agent) (Updated: 2024-10-18)
-- [Teams AI Library Overview](https://learn.microsoft.com/en-us/microsoftteams/platform/bots/how-to/teams-conversational-ai/teams-conversation-ai-overview) (Updated: 2024-07-31)
-- [M365 Agents SDK](https://learn.microsoft.com/en-us/microsoft-365/dev/m365-agents-sdk/overview) (Updated: 2024-10-22)
+- [Copilot Studio Custom Engine Agents](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-custom-engine-agent) (Updated: 2024-10-18)
+- [Teams SDK Overview](https://learn.microsoft.com/en-us/microsoftteams/platform/teams-ai-library/welcome) (Updated: 2024-07-31)
+- [M365 Agents SDK](https://learn.microsoft.com/en-us/microsoft-365/agents-sdk/agents-sdk-overview) (Updated: 2024-10-22)
 
 **Confidence Level:** High (all GA, official Microsoft documentation)
 

@@ -11,7 +11,7 @@ This file provides persistent guidance to AI coding assistants (like Codex CLI, 
 ## Project Context
 
 **What this project does:**  
-Provides a comprehensive decision framework for selecting the right Microsoft AI technology (M365 Copilot, Copilot Studio, Azure AI Foundry, etc.) based on business requirements, technical complexity, and organizational capabilities.
+Provides a comprehensive decision framework for selecting the right Microsoft AI technology (M365 Copilot, Copilot Studio, Microsoft Foundry, etc.) based on business requirements, technical complexity, and organizational capabilities.
 
 **Why it exists:**  
 Microsoft's AI portfolio is vast and rapidly evolving. This framework helps technical decision-makers avoid costly mistakes by providing evidence-based, source-backed guidance for technology selection.
@@ -125,7 +125,7 @@ Use these consistently:
 When referencing technologies, identify their layer:
 - **Layer 1: Consumption** - M365 Copilot, built-in agents
 - **Layer 2: Extensibility** - Graph Connectors, AI Plugins, Declarative Agents
-- **Layer 3: Development Platforms** - Copilot Studio, M365 SDK, Azure AI Foundry
+- **Layer 3: Development Platforms** - Copilot Studio, M365 SDK, Microsoft Foundry (Azure)
 - **Layer 4: Infrastructure** - Azure OpenAI, AI Search, Logic Apps, Cosmos DB, Fabric
 - **Layer 5: Specialized Copilots** - GitHub Copilot, Security Copilot, Fabric Data Agents
 
@@ -277,7 +277,7 @@ Before proposing edits, verify:
 - ✅ M365 Copilot (not "Microsoft 365 Copilot")
 - ✅ Copilot Studio (not "Microsoft Copilot Studio")
 - ✅ M365 Agents SDK (not "Microsoft 365 Agents SDK")
-- ✅ Azure AI Foundry (not "Azure AI Studio" - rebranded)
+- ✅ Microsoft Foundry (Azure) (not "Azure AI Studio" - rebranded)
 - ✅ Azure AI Agent Service (not "AI Agent Service")
 - ✅ Microsoft Agent Framework (not "Agent Framework SDK")
 - ✅ Logic Apps AI Agent Workflows (not "Logic Apps Agents")
@@ -287,7 +287,7 @@ Before proposing edits, verify:
 - M365 Copilot: GA
 - Copilot Studio: GA
 - M365 Agents SDK: GA
-- Azure AI Foundry: GA
+- Microsoft Foundry (Azure): GA
 - Azure AI Agent Service: GA
 - Microsoft Agent Framework: Preview/Experimental (Microsoft's investment direction, will be GA soon)
 - Semantic Kernel: Maintenance mode (security patches only, no new features - recommend Agent Framework instead)
@@ -296,7 +296,7 @@ Before proposing edits, verify:
 - SQL Server 2025 VECTOR: Preview RC1
 - Azure AI Content Understanding: Preview
 - Copilot Studio Connected Agents: Preview
-- Azure AI Foundry Connected Agents: GA May 2025
+- Microsoft Foundry (Azure) Connected Agents: GA May 2025
 - Graph Connectors: GA March 2025
 
 ---

@@ -2,7 +2,7 @@
 name: Microsoft-Researcher
 description: Microsoft-first research agent that assembles high-confidence plans before any implementation.
 argument-hint: Outline the goal or problem to research and plan for, focusing on Microsoft products, services, and documentation.
-tools: ['runCommands', 'runTasks', 'edit', 'runNotebooks', 'search', 'new', 'context7/*', 'github/*', 'microsoft-docs/*', 'extensions', 'usages', 'vscodeAPI', 'problems', 'changes', 'testFailure', 'openSimpleBrowser', 'fetch', 'githubRepo', 'todos', 'runSubagent']
+tools: ['vscode', 'execute', 'read', 'agent', 'context7/*', 'edit', 'search', 'web', 'microsoft-docs/*', 'github/*', 'todo']
 handoffs:
   - label: Start Implementation
     agent: Microsoft-Research-Implementer
@@ -25,7 +25,7 @@ Comprehensive context gathering for planning follows <plan_research>.
 
 ## 1. Context gathering and research
 
-MANDATORY: If available, run #tool:runSubagent to gather context autonomously following <plan_research>. Do not run other tools until it returns. When the subagent isn’t available, follow <plan_research> yourself using read-only tools.
+MANDATORY: If available, run #tool:agent to gather context autonomously following <plan_research>. Do not run other tools until it returns. When the subagent isn’t available, follow <plan_research> yourself using read-only tools.
 
 Environment note: assume work happens inside the dev container; if you need a local preview, ask to start `bundle exec jekyll serve --incremental --host 0.0.0.0 --port 4000` (baseurl already set to `/Microsoft-AI-Decision-Framework`, browse at http://localhost:4000/Microsoft-AI-Decision-Framework/).
 

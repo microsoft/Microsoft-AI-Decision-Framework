@@ -110,7 +110,7 @@ Employees need instant answers to HR questions (policies, benefits, PTO) without
 
 **If you need bespoke orchestration:**
 
-- Use M365 Agents SDK or Azure AI Foundry Agent Service for custom routing, non-supported HRIS integrations, or multi-channel experiences beyond Microsoft 365 Copilot. Incorporate Azure AI Search BYOK when data spans on-premises or third-party stores ([Agentic retrieval overview, May 2025](https://learn.microsoft.com/en-us/azure/search/agentic-retrieval-overview)).
+- Use M365 Agents SDK or Foundry Agent Service for custom routing, non-supported HRIS integrations, or multi-channel experiences beyond Microsoft 365 Copilot. Incorporate Azure AI Search BYOK when data spans on-premises or third-party stores ([Agentic retrieval overview, May 2025](https://learn.microsoft.com/en-us/azure/search/agentic-retrieval-overview)).
 
 ---
 
@@ -274,7 +274,7 @@ Support team handles 1,000+ tickets per month with repetitive questions. Company
 
 **If you need full control:**
 
-- Build with M365 Agents SDK or Azure AI Foundry ([Azure AI Foundry Agent Service GA, May 2025](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/whats-new#may-2025))
+- Build with M365 Agents SDK or Microsoft Foundry (Azure) ([Foundry Agent Service GA, May 2025](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/whats-new#may-2025))
 - Custom evaluation metrics
 - More complex deployment
 

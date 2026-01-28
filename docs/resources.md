@@ -6,7 +6,10 @@ description: Key takeaways and resources by role
 ---
 
 {: .note }
-This page provides role-based action plans and key takeaways from the Microsoft AI Decision Framework.
+This page provides comprehensive links to official Microsoft documentation, training resources, and community support organized by technology area. For term definitions, see [Glossary]({{ '/docs/glossary' | relative_url }}). For methodology and decision guidance, see [Decision Framework]({{ '/docs/decision-framework' | relative_url }}).
+
+{: .note }
+> **Last validated:** January 28, 2026. Microsoft Learn documentation shows "Last Updated" dates on each page - always check before making production decisions. Preview features may reach GA without immediate documentation updates.
 
 ---
 
@@ -44,15 +47,15 @@ This page provides role-based action plans and key takeaways from the Microsoft 
 ### For Architects & Technical Decision Makers
 {: .no_toc }
 
-1. Review this decision tree with stakeholders
-2. Map your requirements to the six decision questions
+1. Review this decision framework with stakeholders
+2. Map your requirements to the nine decision questions
 3. Identify pilot scenarios for chosen technologies
 4. Plan proof of concept with clear success criteria
 5. Consider governance and compliance early
 
 **Key Resources:**
 
-- [What's new in Azure AI Foundry Agent Service](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/whats-new)
+- [What's new in Foundry Agent Service](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/whats-new)
 - [M365 Copilot Extensibility Overview](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/)
 - [Microsoft 365 Copilot release notes — November 24, 2025](https://learn.microsoft.com/en-us/copilot/microsoft-365/release-notes#november-24,-2025)
 - [Agent Registry in the Microsoft 365 admin center](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/agent-registry?view=o365-worldwide#admin-actions-to-manage-agents) (Retrieved: 2025-12-08)
@@ -64,7 +67,7 @@ This page provides role-based action plans and key takeaways from the Microsoft 
 ### For Developers
 {: .no_toc }
 
-1. Explore Azure AI Foundry portal and samples
+1. Explore the [Microsoft Foundry portal](https://ai.azure.com/?cid=learnDocs) and samples
 2. Install M365 Agents SDK Toolkit in VS Code
 3. Review Agent Framework documentation
 4. Experiment with prompt engineering
@@ -72,10 +75,10 @@ This page provides role-based action plans and key takeaways from the Microsoft 
 
 **Key Resources:**
 
-- [Azure AI Foundry Agent Service quickstart](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/quickstart)
-- [AI Foundry Visual Studio Code extension](https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/develop/vs-code-agents?context=/azure/ai-services/agents/context/context)
+- [Foundry Agent Service quickstart](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/quickstart)
+- [Microsoft Foundry Visual Studio Code extension](https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/develop/vs-code-agents?context=/azure/ai-services/agents/context/context)
 - [M365 Agents SDK Toolkit](https://marketplace.visualstudio.com/items?itemName=msft-vscode-m365-agents.vscode-m365-agents)
-- [Microsoft Agent Framework documentation](https://learn.microsoft.com/en-us/azure/ai-services/agents/concepts/agent-framework)
+- [Microsoft Agent Framework documentation](https://learn.microsoft.com/en-us/agent-framework/overview/agent-framework-overview)
 - [Semantic Kernel documentation](https://learn.microsoft.com/en-us/semantic-kernel/overview/)
 - [Agentic retrieval quickstart for Azure AI Search](https://learn.microsoft.com/en-us/azure/search/search-get-started-agentic-retrieval)
 - [Microsoft 365 Copilot Search API overview (Preview)](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/api/ai-services/search/overview) (Retrieved: 2025-12-09)
@@ -133,17 +136,32 @@ This page provides role-based action plans and key takeaways from the Microsoft 
   - [Security posture](https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-ai-security)
   - [Privacy and data safeguards](https://learn.microsoft.com/en-us/microsoft-365-copilot/microsoft-365-copilot-privacy)
 
-- **Azure AI Foundry**
-  - [What's new in Azure AI Foundry Agent Service](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/whats-new#october-2025)
-  - [Agent Service quickstart](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/quickstart)
+- **Microsoft Foundry (Platform)**
+  - [Portal (ai.azure.com)](https://ai.azure.com/?cid=learnDocs)
   - [Azure OpenAI Service overview](https://learn.microsoft.com/en-us/azure/ai-services/openai/)
   - [Azure AI Search service](https://learn.microsoft.com/en-us/azure/search/)
+  - **Platform note:** Classic Foundry and the new Foundry portal use different APIs and do **not** have feature parity. Validate capability availability in the portal, SDK samples, and Microsoft Learn before committing to a design.
+  
+- **Microsoft Foundry Agent Service (Optional Managed Runtime)**
+  - [What's new in Foundry Agent Service](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/whats-new#october-2025)
+  - [Agent Service quickstart](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/quickstart)
+  - [Foundry Agent Service Overview](https://learn.microsoft.com/en-us/azure/ai-services/agents/overview)
+  - **Service note:** Optional PaaS runtime for hosting agents. Alternatively, deploy self-hosted agents using Agent Framework or custom code in your infrastructure.
 
 - **Copilot Studio**
   - [What's new in Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/whats-new#october-2025)
   - [Declarative agents](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/copilot-studio-declarative-agents)
-  - [Custom engine agents](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/copilot-studio-custom-engine-agent)
+  - [Custom engine agents overview](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-custom-engine-agent)
   - [Copilot Studio documentation](https://learn.microsoft.com/en-us/microsoft-copilot-studio/)
+
+- **Microsoft Agent 365 (Frontier Preview)**
+  - [Overview](https://learn.microsoft.com/en-us/microsoft-agent-365/overview)
+  - [Agent 365 SDK](https://learn.microsoft.com/en-us/microsoft-agent-365/developer/agent-365-sdk)
+  - [Agent 365 CLI](https://learn.microsoft.com/en-us/microsoft-agent-365/developer/agent-365-cli)
+
+- **Microsoft Entra Agent ID (Preview)**
+  - [What is Microsoft Entra Agent ID?](https://learn.microsoft.com/en-us/entra/agent-id/identity-professional/microsoft-entra-agent-identities-for-ai-agents)
+  - [Agent identities](https://learn.microsoft.com/en-us/entra/agent-id/identity-platform/agent-identities)
 
 ### SDKs & Frameworks
 {: .no_toc }
@@ -154,12 +172,16 @@ This page provides role-based action plans and key takeaways from the Microsoft 
   - [Sample Gallery](https://github.com/microsoft/m365-agents-sdk)
 
 - **Microsoft Agent Framework**
-  - [Concepts](https://learn.microsoft.com/en-us/azure/ai-services/agents/concepts/agent-framework)
-  - [Orchestration Patterns](https://learn.microsoft.com/en-us/azure/ai-services/agents/how-to/multi-agent)
+  - [Overview](https://learn.microsoft.com/en-us/agent-framework/overview/agent-framework-overview)
+  - [Orchestration Patterns](https://learn.microsoft.com/en-us/agent-framework/user-guide/workflows/orchestrations/overview)
 
-- **Semantic Kernel**
+- **Semantic Kernel** ⚠️ *Maintenance Mode*
   - [Documentation](https://learn.microsoft.com/en-us/semantic-kernel/overview/)
   - [GitHub Repository](https://github.com/microsoft/semantic-kernel)
+  - [Migrate to Agent Framework](https://learn.microsoft.com/en-us/agent-framework/migration-guide/from-semantic-kernel/index)
+  
+  {: .note }
+  > Semantic Kernel is in maintenance mode (security patches only). For new projects, use Microsoft Agent Framework which provides enhanced multi-agent orchestration, stateful workflows, and production-grade capabilities.
 
 - **LangChain Integration**
   - [Azure Integration Guide](https://learn.microsoft.com/en-us/azure/developer/python/get-started-app-chat-template)
@@ -205,7 +227,7 @@ This page provides role-based action plans and key takeaways from the Microsoft 
 {: .no_toc }
 
 - [M365 Agents SDK Samples](https://github.com/microsoft/m365-agents-sdk)
-- [Azure AI Foundry Samples](https://github.com/Azure-Samples/azure-ai-foundry)
+- [Microsoft Foundry samples](https://github.com/Azure-Samples/azure-ai-foundry)
 - [Semantic Kernel Samples](https://github.com/microsoft/semantic-kernel/tree/main/python/samples)
 - [Microsoft Agent Framework](https://github.com/microsoft/agent-framework)
 
@@ -229,7 +251,7 @@ Microsoft's AI landscape evolves rapidly. To stay informed:
    - [Microsoft Ignite](https://ignite.microsoft.com/)
    - Local user groups and meetups
 
-4. **Re-Verify This Decision Tree:**
+4. **Re-Verify This Decision Framework:**
    - Product names and capabilities change frequently
    - Preview features may reach GA or be deprecated
    - New technologies are announced regularly
@@ -237,10 +259,54 @@ Microsoft's AI landscape evolves rapidly. To stay informed:
 
 ---
 
+## Validating Information Currency
+{: .no_toc }
+
+Microsoft's AI platform evolves rapidly. Here's how to verify information before making production decisions:
+
+### Check Documentation Dates
+
+- **Microsoft Learn pages** display "Last Updated" dates at the top
+- Prioritize articles updated within the last 90 days for fast-moving features
+- Cross-reference multiple sources when dates are older than 6 months
+
+### Understand Preview vs GA Status
+
+- **Preview** features may have breaking API changes, limited SLAs, and regional availability
+- **GA (General Availability)** features have production SLAs and broader support
+- Preview features can GA without immediate documentation updates - verify in portal
+
+### Verify Portal vs Documentation Alignment
+
+- Feature availability in [Microsoft Foundry portal (ai.azure.com)](https://ai.azure.com) or [Copilot Studio portal](https://copilotstudio.microsoft.com) may lead documentation
+- Documentation may reference features in staged rollout (not yet in your tenant/region)
+- Check "What's New" pages for the latest capabilities and rollout timelines
+
+### Monitor Official Sources
+
+- [Microsoft 365 Roadmap](https://www.microsoft.com/en-us/microsoft-365/roadmap) - Feature announcements and timelines
+- [Azure Updates](https://azure.microsoft.com/en-us/updates/?category=ai-machine-learning) - AI service updates
+- Product-specific "What's New" pages (linked in sections above)
+- Microsoft Build and Ignite announcements for major releases
+
+### When Information Conflicts
+
+If you find conflicting information:
+1. Prioritize portal/product behavior over documentation
+2. Check the documentation "Last Updated" date
+3. Verify the feature's Preview/GA status
+4. Consult product-specific release notes
+5. Test in a non-production environment
+
+{: .important }
+> **This framework was last validated: January 28, 2026.** Technology selections should always be verified against current Microsoft Learn documentation, portal capabilities, and your organization's specific requirements before implementation.
+
+---
+
 {: .note-title }
 > Framework Maintenance
 >
-> This decision tree represents a point-in-time snapshot of Microsoft's AI portfolio. For the methodology used to research and maintain this content, see the [Core Methodology](https://github.com/ChrisMcKee1/microsoft-ai-decision-tree/tree/main/docs/02-core-methodology) documentation.
+> This decision framework represents a point-in-time snapshot of Microsoft's AI portfolio. For the methodology used to research and maintain this content, see the [Decision Framework](https://github.com/microsoft/Microsoft-AI-Decision-Framework/blob/main/docs/decision-framework.md) documentation.
 
 ---
 

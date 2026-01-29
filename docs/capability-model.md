@@ -12,10 +12,10 @@ This page is **not a decision tree**. It is a teaching aid for *how to think* ab
 
 **How to use this page:**
 
-1.  Start with **definitions and outcomes** (Buckets).
-2.  Verify if AI is the right tool (**Checkpoint**).
-3.  Determine behavior using the **Agent Framework** (The Spectrum & Dimensions).
-4.  Map the work to the **Capability Groupings** and **Implementation Layers**.
+1. Start with **definitions and outcomes** (Buckets).
+2. Verify if AI is the right tool (**Checkpoint**).
+3. Determine behavior using the **Agent Framework** (The Spectrum & Dimensions).
+4. Map the work to the **Capability Groupings** and **Implementation Layers**.
 
 For a detailed intake workflow, see [Decision Framework]({{ '/docs/decision-framework' | relative_url }}).
 
@@ -178,9 +178,9 @@ Most enterprise architectures use a combination of all three layers.
 ### The "Better Together" Architecture
 A robust AI solution often spans all three:
 
-1.  **Foundry** hosts a custom-tuned model for analyzing proprietary engineering specs.
-2.  **Copilot Studio** consumes that model, adds a "Human Handoff" logic flow, and enforces access controls.
-3.  **Microsoft 365 Copilot** acts as the user interface, allowing an engineer in Teams to query the specs without leaving their chat.
+1. **Foundry** hosts a custom-tuned model for analyzing proprietary engineering specs.
+2. **Copilot Studio** consumes that model, adds a "Human Handoff" logic flow, and enforces access controls.
+3. **Microsoft 365 Copilot** acts as the user interface, allowing an engineer in Teams to query the specs without leaving their chat.
 
 ---
 

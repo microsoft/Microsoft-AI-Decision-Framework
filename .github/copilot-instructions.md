@@ -78,17 +78,17 @@ This repository is governed by a set of immutable principles defined in **[`CONS
 
 ### Article I: Fact vs. Framework Distinction
 **"Cite the Specs, Own the Story."**
-- **Technical Truths:** Claims about features, limits, pricing, or availability MUST be validated against official Microsoft documentation.
+- **Technical Truths:** Claims about features, limits, pricing, or availability MUST be validated against official Microsoft documentation. Verify accuracy — include links where they genuinely help the reader, but exhaustive inline citation is not required.
 - **Conceptual Truths:** Thought leadership, analogies, and mental models (e.g., "The Coin," "The Podcast") DO NOT require citations. They are the lens we use to teach.
 
-### Source-Backed Research Principle (For Technical Specs)
+### Source Validation Principle (For Technical Specs)
 
-**CRITICAL:** All technology capabilities, features, and status annotations (GA/Preview/Experimental) MUST be validated against official Microsoft documentation sources.
+All technology capabilities, features, and status annotations (GA/Preview/Experimental) MUST be verified against official Microsoft documentation sources.
 
 **Always:**
-- Search Microsoft Learn documentation first
+- Verify against Microsoft Learn documentation first
 - If Microsoft Learn does not host the relevant product documentation, use the official product documentation site (VS Code, GitHub Docs, Aspire.dev)
-- Cite sources with URLs and last updated dates
+- Include source links where they genuinely help the reader navigate further — not for every statement
 - Mark Preview/Experimental/GA status explicitly
 
 ### Guardrails for Core Files (Constitutional Mandate)
@@ -109,13 +109,25 @@ This repository is governed by a set of immutable principles defined in **[`CONS
 
 ### Writing Style & Voice (The Storyteller)
 
-We write to **change how people think**, not just what they pick.
+**This is the most important section in this file.** We write to **change how people think**, not just what they pick. The creative voice is the delivery mechanism — without it, this is just another product catalog.
 
-* **The Teaching Triad:** Bridge abstract concepts to specific products using **universal analogies**.
+* **The Teaching Triad (non-negotiable):** Every major concept needs three legs: **Concept → Analogy → Product**.
     * *Bad:* "Use Copilot Studio for triggers."
     * *Good:* "Think of an Invisible Agent like a thermostat (Analogy). It waits for a change to trigger an action (Concept). In Microsoft's stack, Copilot Studio handles these triggers (Product)."
-* **Narrative Arcs:** Structure documents like a story (Protagonist -> Inciting Incident -> Resolution).
+* **Named Mental Models:** Give ideas memorable handles — "The Coin," "The Kitchen," "The AI Podcast Problem," "The Furnished Condo." These sticky names survive product renames.
+* **Narrative Arcs:** Structure documents like a story (Protagonist → Inciting Incident → Resolution). Open with bold trade-off statements, not dry definitions.
+* **Conversational Authority:** Write like a senior architect mentoring a colleague over coffee — direct, confident, occasionally irreverent, always grounded.
 * **No Product Supremacy:** Frame technologies as "Roles in a Cast" (e.g., Orchestrator vs. Engine), not rivals.
+
+### Style Exemplars
+
+Before writing or editing, read these files to absorb the voice:
+
+* **`docs/capability-model.md`** — "The Coin," "The 5 Dimensions," "The AI Podcast Problem."
+* **`docs/decision-framework.md`** — "Stop Shiny Object Syndrome before it starts," The Kitchen analogy.
+* **`docs/evaluation-criteria.md`** — "The Furnished Condo vs. The Skyscraper," trade-off openers.
+
+Match their rhythm. Match their boldness. If it reads like a product spec sheet, rewrite it.
 
 ---
 
@@ -187,10 +199,12 @@ The framework follows a **Storybook Flow**:
 Before committing changes, verify:
 
 **Content Quality:**
-- [ ] Technical claims backed by official Microsoft documentation sources
-- [ ] Conceptual analogies used to explain complex topics (Teaching Triad)
+- [ ] Technical claims verified against official Microsoft documentation sources
+- [ ] Teaching Triad used for major concepts (Concept → Analogy → Product)
+- [ ] Named mental models used where they aid understanding
 - [ ] No shoeboxing (capabilities match official documentation)
 - [ ] Third-party tools explicitly labeled (LangGraph, LangChain)
+- [ ] Voice matches the style exemplars (conversational, bold, story-driven)
 
 **Diagram Quality:**
 - [ ] Mermaid syntax valid (test with local Jekyll)
@@ -208,7 +222,8 @@ Before committing changes, verify:
 **Documentation Standards:**
 - [ ] Consistent terminology (M365 Copilot, NOT "Microsoft 365 Copilot")
 - [ ] Clear heading hierarchy (H1 → H2 → H3)
-- [ ] Thought-leadership tone that teaches decision-making over product selection
+- [ ] Storytelling tone that teaches decision-making, not product selection
+- [ ] Passes the "coffee test" — would a senior architect stay engaged reading this?
 
 ---
 
@@ -220,4 +235,5 @@ Before committing changes, verify:
 3. Use 9 critical questions to shortlist technologies.
 4. Navigate decision trees to select appropriate technology.
 5. Assess complexity, skills, budget, and governance requirements.
-6. Make evidence-based technology decisions backed by official sources.
+6. Make evidence-based technology decisions grounded in verified information.
+7. **Remember the framework months later** because the analogies and mental models stuck.

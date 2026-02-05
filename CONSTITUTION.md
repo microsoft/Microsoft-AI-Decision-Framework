@@ -18,17 +18,32 @@ We aim to instill a mental framework for evaluating AI problems, rather than jus
 * **Problem-First Architecture:** We prioritize understanding the *problem* (use cases, edge cases, constraints) over picking a *solution*. Technology is a means to an end, not the starting point.
 * **Holistic Trade-offs:** Decisions are never just technical. They must weigh budget, timeline, team skills, and governance.
 * **Anti-Hype:** It is intentionally "Level 300-400" (technical/architectural). It rejects marketing fluff in favor of engineering reality.
-* **Source-Backed Truth:** If it’s not in official Microsoft documentation sources, it doesn't exist in this framework. Microsoft Learn is primary.
+* **Accuracy over Citation:** Technical claims must be accurate and verifiable against official Microsoft documentation. Verification is the standard — not exhaustive inline citation. When a fact matters, confirm it against Microsoft Learn or official product docs. When a link genuinely helps the reader go deeper, include it. But do not let citation maintenance slow down the mission of teaching. Links rot; good thinking endures.
 
 ### Writing Style & Voice
 
-We write to **change how people think**, not just what they pick. We act as a **Storyteller** and **Guide**.
+**This is the soul of the project.** We write to **change how people think**, not just what they pick. We act as a **Storyteller** and **Guide**. Every contributor — human or AI — must write in this voice.
 
-* **The Teaching Triad:** We bridge the gap between abstract concepts and specific products using **universal analogies**.
+* **The Teaching Triad:** We bridge the gap between abstract concepts and specific products using **universal analogies**. This is non-negotiable. Every major concept needs all three legs:
+    1. **The Concept** — the abstract principle.
+    2. **The Analogy** — a universal, memorable metaphor (thermostats, kitchens, coins, orchestras).
+    3. **The Product** — the Microsoft technology that fulfills the concept.
     * *Bad:* "Use Copilot Studio for triggers." (Assumes product knowledge).
     * *Good:* "Think of an Invisible Agent like a thermostat (The Analogy). It waits for a temperature change to trigger an action (The Concept). In Microsoft's stack, Copilot Studio handles these triggers (The Product)."
-* **Narrative Arcs:** Structure documents like a story. There is a protagonist (the builder), an inciting incident (the business problem), and a resolution (the architecture).
-* **Thought Leadership:** Lead with principles and decision levers, not product pitches.
+* **Named Mental Models:** Give ideas handles people can grab. "The Coin," "The Kitchen," "The AI Podcast Problem," "The Furnished Condo vs. The Skyscraper" — these sticky names are what make the framework memorable and durable. Invent new ones when they serve the reader.
+* **Narrative Arcs:** Structure documents like a story. There is a protagonist (the builder), an inciting incident (the business problem), and a resolution (the architecture). Open sections with bold trade-off statements or provocative questions, not dry definitions.
+* **Conversational Authority:** Write like a senior architect mentoring a colleague over coffee — direct, confident, occasionally irreverent, always grounded. Avoid corporate jargon and committee-speak.
+* **Thought Leadership:** Lead with principles and decision levers, not product pitches. The reader should walk away understanding *why* they should choose something, not just *what* to choose.
+
+### Style Exemplars
+
+The gold standard for this project's voice lives in these files:
+
+* **`docs/capability-model.md`** — The Teaching Triad in action: "The Coin," "The 5 Dimensions," "The AI Podcast Problem."
+* **`docs/decision-framework.md`** — Narrative arc from intake filter to selection: "Stop Shiny Object Syndrome before it starts."
+* **`docs/evaluation-criteria.md`** — Trade-off framing and analogies: "The Furnished Condo vs. The Skyscraper," "The Kitchen."
+
+When writing or editing, read these first. Match their rhythm, their boldness, and their refusal to be boring.
 
 ---
 
@@ -38,7 +53,7 @@ To keep this repository aligned with its mission, we adhere to the following "Co
 
 ### Article I: The Fact vs. Framework Distinction
 #### "Cite the Specs, Own the Story."
-* **Technical Truths:** Claims about what a product *is*, what it *does*, specific limits, pricing, or availability must be validated against official **Microsoft documentation** sources. If you claim a feature works, you must be able to link to it.
+* **Technical Truths:** Claims about what a product *is*, what it *does*, specific limits, pricing, or availability must be validated against official **Microsoft documentation** sources. Verify accuracy before publishing. Include links where they genuinely serve the reader — but exhaustive inline citations are not required for every technical statement. The goal is correctness, not a bibliography.
 * **Conceptual Truths:** Thought leadership, analogies, and mental models (e.g., "The Coin," "The Podcast") are the creative engine of this repository. These do not require citations because they are the *lens* we created to teach the material.
 * **Rule:** Never invent a feature to fit a narrative, but fearlessly invent narratives to explain the features.
 
@@ -87,3 +102,9 @@ Certain files have a specific educational purpose.
 * **Rule:** Always frame technologies as **roles in a cast**.
     * *Bad:* "Foundry is better than Copilot Studio because it has code."
     * *Good:* "Copilot Studio plays the role of the Orchestrator, managing the flow, while Foundry plays the role of the Engine, powering the deep reasoning. They are teammates, not rivals."
+
+### Article IX: The Storyteller Mandate
+#### "If it's boring, rewrite it."
+* The creative voice is not decoration — it is the delivery mechanism. A dry feature comparison teaches nothing; a well-told analogy changes how someone thinks permanently.
+* **Rule:** Every document, section, and edit must pass the "coffee test" — would a senior architect stay engaged reading this over coffee, or would they skim past it? If the answer is skim, the writing needs work.
+* **Rule:** AI agents working on this project must write in the same storytelling voice as the humans. They are co-authors, not transcriptionists. Refer to the Style Exemplars and the Teaching Triad before every edit.

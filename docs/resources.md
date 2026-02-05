@@ -34,7 +34,7 @@ This page provides comprehensive links to official Microsoft documentation, trai
 6. **Prioritize governance**: Especially for Microsoft 365 Copilot extensions and custom agents; keep agent inventory current via Agent Registry/Agent 365
 7. **Adopt staged security blueprints**: Use Microsoft Purview deployment models to secure agent data and interactions
 8. **Think beyond agents**: Connectors, plugins, and extensibility matter
-9. **Budget appropriately**: Understand per-user vs. consumption models
+9. **Budget appropriately**: Understand per-user, consumption, and unified pre-purchase (P3) models
 10. **Iterate and learn**: Start small, measure, expand
 11. **Stay current**: Capabilities evolving rapidly, especially in preview
 ---
@@ -61,6 +61,7 @@ This page provides comprehensive links to official Microsoft documentation, trai
 - [Agent Registry in the Microsoft 365 admin center](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/agent-registry?view=o365-worldwide#admin-actions-to-manage-agents) (Updated: 2026-01-23)
 - [Secure and govern Microsoft 365 Copilot agents (Purview blueprint)](https://learn.microsoft.com/en-us/purview/deploymentmodels/depmod-sc-agents-deployment)
 - [Cloud Adoption Framework for AI](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/ai/)
+- [Agent Pre-Purchase Plan (P3)](https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/agent-pre-purchase) (Updated: 2026-01-15)
 
 ---
 
@@ -299,7 +300,7 @@ If you find conflicting information:
 5. Test in a non-production environment
 
 {: .important }
-> **This framework was last validated: January 29, 2026.** Technology selections should always be verified against current Microsoft Learn documentation, portal capabilities, and your organization's specific requirements before implementation.
+> **This framework was last validated: February 5, 2026.** Technology selections should always be verified against current Microsoft Learn documentation, portal capabilities, and your organization's specific requirements before implementation.
 
 ---
 

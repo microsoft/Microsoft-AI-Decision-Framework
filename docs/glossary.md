@@ -11,7 +11,7 @@ description: "Key terms and definitions for Microsoft AI technologies"
 Quick reference for key terms used throughout the Microsoft AI Decision Framework. For detailed documentation links and resources, see [Resources]({{ '/docs/resources' | relative_url }}). For methodology and decision guidance, see [Decision Framework]({{ '/docs/decision-framework' | relative_url }}).
 
 {: .note }
-> **Last validated:** January 28, 2026. Microsoft's AI capabilities evolve rapidly - always verify with [official sources]({{ '/docs/resources' | relative_url }}) for production decisions.
+> **Last validated:** February 5, 2026. Microsoft's AI capabilities evolve rapidly - always verify with [official sources]({{ '/docs/resources' | relative_url }}) for production decisions.
 
 ---
 
@@ -27,6 +27,15 @@ Quick reference for key terms used throughout the Microsoft AI Decision Framewor
 
 **Agent**  
 An AI system that uses an LLM to interpret user inputs, plan, call tools or MCP servers, and return responses, with optional threads, memory, and middleware to enrich interactions ([Microsoft Agent Framework](https://learn.microsoft.com/en-us/agent-framework/overview/agent-framework-overview), updated 2025-10-01).
+
+**Agent Commit Unit (ACU)**  
+The billing unit for the Microsoft Agent Pre-Purchase Plan (P3). 1 ACU ≈ $1 of retail usage. ACUs are purchased in a single pool and pay down both Copilot Studio Credit consumption and Microsoft Foundry usage, enabling unified budgeting across platforms. See [Agent Pre-Purchase Plan](https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/agent-pre-purchase) (updated 2026-01-15).
+
+**Agent Factory**  
+A Microsoft program (not a product) that accelerates enterprise agent adoption through three pillars: the Agent Pre-Purchase Plan (P3) for unified billing, Forward Deployed Engineers (FDEs) for hands-on architecture support, and customized training. See [Introducing Microsoft Agent Factory](https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/introducing-microsoft-agent-factory/4470732) (published 2025-11-18).
+
+**Agent Pre-Purchase Plan (P3)**  
+A 1-year Azure reservation that provides Agent Commit Units (ACUs) covering both Microsoft Foundry and Copilot Studio Credit consumption in a single pool. Benefit precedence: Foundry PTU reservations apply first, then Copilot Credit pre-purchase, then P3 covers overflow from both. Purchased via Azure Portal Reservations with tiered volume discounts. See [Agent Pre-Purchase Plan](https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/agent-pre-purchase) (updated 2026-01-15).
 
 **Agent2Agent (A2A)**  
 A protocol enabling secure, peer-to-peer communication between AI agents, allowing them to discover peers, negotiate tasks, and collaborate without centralized intermediaries ([Advanced development tools for Teams](https://news.microsoft.com/build-2025-book-of-news/), updated 2025-05-19).

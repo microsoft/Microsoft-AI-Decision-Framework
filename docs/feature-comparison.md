@@ -37,7 +37,7 @@ Quick view of core platforms (M365 Copilot, Studio, Foundry, Agent Framework, Lo
 | **Data Boundary** | M365 tenant | M365 or Azure | Azure | Any | Inherits host runtime | Azure | M365 or Azure | **Azure** |
 | **Governance** | Tenant-integrated (automatic) + registry lifecycle (publish/activate/deploy/pin/block/remove/delete/owner transfer/export)[^agent-registry] | Tenant or workload | Workload-tailored (custom) | Application-level | Inherits host app controls; approvals via middleware | Workload-tailored (custom) | Tenant or workload | **Azure RBAC** |
 | **Admin Center** | M365 admin center | Power Platform admin | Azure RBAC | Application-level | Host platform (Azure/App) | Azure RBAC | M365 admin center | **Azure portal** |
-| **Licensing Model** | Per-user (\/month) | Metered messages | Azure consumption | Open-source (free) | Open-source adapters (no license) | Azure consumption | Included in M365 | **Consumption or Standard** |
+| **Licensing Model** | Per-user (/month) | Metered messages | Azure consumption | Open-source (free) | Open-source adapters (no license) | Azure consumption | Included in M365 | **Consumption or Standard** |[^p3-licensing]
 | **Extensibility** | Via Studio/SDK + Copilot Search API (Preview, OneDrive hybrid search)[^search-api] | Plugins, connectors | Full custom | Workflow orchestration | Seven protocol features (streaming, backend tool rendering, human approvals, generative UI, shared/predictive state) | Full custom | Full custom | **1,400+ connectors** |
 | **Deployment** | Microsoft-managed | Microsoft-managed | Self-managed | Self-managed (SDK) | Self-hosted endpoints (ASP.NET Core, FastAPI) | Microsoft-managed | Self-managed | **Self-managed (Azure)** |
 | **Time to Value** | Immediate | Days to weeks | Weeks to months | Weeks (with dev skills) | Weeks (requires pro dev + UI build) | Weeks to months | Weeks | **Days to weeks** |
@@ -60,6 +60,7 @@ Quick view of core platforms (M365 Copilot, Studio, Foundry, Agent Framework, Lo
 [^logicapps-agents]: *Workflows with AI agents and models in Azure Logic Apps (Preview)*, Microsoft Learn. Source: [Logic Apps agent workflows concepts](https://learn.microsoft.com/en-us/azure/logic-apps/agent-workflows-concepts) (Retrieved: 2025-11-18).
 [^aafs-mcp]: *What's new in Microsoft Foundry Agent Service*, Microsoft Learn. June 2025 update announces the MCP tool. Source: [Foundry Agent Service - What's new](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/whats-new?view=foundry-classic) (Retrieved: 2025-10-08).
 [^logicapps-mcp]: *Set up Standard logic apps as remote MCP servers (Preview)*, Microsoft Learn. Source: [Set up Standard logic apps as remote MCP servers](https://learn.microsoft.com/en-us/azure/logic-apps/set-up-model-context-protocol-server-standard) (Retrieved: 2025-11-18).
+[^p3-licensing]: The **Agent Pre-Purchase Plan (P3)** lets organizations buy Agent Commit Units (ACUs) in a single pool covering both Copilot Studio (metered messages) and Microsoft Foundry (Azure consumption) usage. This does not change per-platform licensing models but provides a unified pre-purchase option across platforms. Source: [Agent Pre-Purchase Plan](https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/agent-pre-purchase) (Updated: 2026-01-15).
 
 ---
 

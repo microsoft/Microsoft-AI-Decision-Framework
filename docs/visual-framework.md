@@ -561,6 +561,11 @@ flowchart TD
 | **3-6 Months** | Microsoft Foundry (Azure) custom solutions, complex orchestration | [(evaluation-criteria)]({{ '/docs/evaluation-criteria#time-to-production' | relative_url }}) |
 | **6+ Months** | Enterprise-scale with PTU, fine-tuning, advanced patterns | |
 
+#### Cross-Tier: Unified Pre-Purchase (P3)
+{: .no_toc }
+
+Organizations running workloads across **both** Copilot Studio and Microsoft Foundry can purchase **Agent Commit Units (ACUs)** in a single pool starting at ~$19K/year. This eliminates separate procurement for each platform and is best for "Better Together" architectures that span Growth and Enterprise tiers. See [Evaluation Criteria: Budget]({{ '/docs/evaluation-criteria#3-budget-assessment' | relative_url }}) and [Agent Pre-Purchase Plan](https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/agent-pre-purchase).
+
 #### Cost Calculation Notes
 {: .no_toc }
 

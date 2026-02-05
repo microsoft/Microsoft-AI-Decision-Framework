@@ -260,6 +260,7 @@ description: "Fast lookup table for Microsoft AI technologies"
 - **M365-Centric:** Per-user licensing (Copilot Studio, M365 Copilot add-on)
 - **Azure-Native:** Consumption-based (Azure OpenAI tokens, AI Search queries, compute)
 - **Hybrid:** Mix of per-user and consumption models
+- **Unified Pre-Purchase (P3):** Agent Commit Units (ACUs) in a single pool covering both Copilot Studio and Foundry; best when workloads span both platforms. See [Evaluation Criteria: Budget]({{ '/docs/evaluation-criteria#3-budget-assessment' | relative_url }})
 - **Hidden Costs:** Team training, governance setup, responsible AI evaluation, ongoing maintenance
 
 **Sources:**

@@ -269,12 +269,8 @@ After you’ve skimmed the framework above, if you prefer Microsoft’s official
 *CAF technology plan decision tree for choosing SaaS vs custom agents (Microsoft Learn, accessed 2025-12-09).* [(Reference)](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/technology-solutions-plan-strategy)
 
 
-![Microsoft AI Decision Tree](images/ai-decision-tree.svg)
-
-**Source:** [Azure Cloud Adoption Framework - AI Strategy](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/ai/strategy)
-
 {: .warning }
-> **Why we recommend the full framework:** This simplified tree doesn't address critical enterprise considerations like governance requirements, data boundaries, network isolation, permissions models, action safety, scale/cost tradeoffs, and proactive capabilities. Real-world decisions require the systematic approach taught in this guide.
+> **Why we recommend the full framework:** Simplified decision trees don't address critical enterprise considerations like governance requirements, data boundaries, network isolation, permissions models, action safety, scale/cost tradeoffs, and proactive capabilities. Real-world decisions require the systematic approach taught in this guide.
 
 ---
 

@@ -12,7 +12,7 @@ This page is **not a decision tree**. It is a teaching aid for *how to think* ab
 
 **How to use this page:**
 
-1. Start with **definitions and outcomes** (Buckets).
+1. Start with **definitions and outcomes** (The 3 AI Buckets).
 2. Verify if AI is the right tool (**Checkpoint**).
 3. Determine behavior using the **Agent Framework** (The Spectrum & Dimensions).
 4. Map the work to the **Capability Groupings** and **Implementation Layers**.
@@ -39,7 +39,7 @@ This distinction matters. You can build a copilot experience without using a Mic
 
 ---
 
-## 2. Orientation: Three Capability Buckets
+## 2. Orientation: The 3 AI Buckets
 
 Start by naming **who benefits and how**. This keeps early conversations grounded in outcomes before you debate platforms.
 
@@ -56,7 +56,7 @@ Why do we need these buckets? Imagine searching for "AI" in a podcast app. The r
 * **The AI Architect:** Wants to know how to orchestrate multi-agent systems to ship a new feature to their customers. *(Bucket 2: Shipping Value)*
 * **The Developer:** Wants to know how to use an autonomous coding agent to refactor legacy code in the background. *(Bucket 3: Agentic Coding)*
 
-If you don't separate these channels, you risk applying "life hack" advice to enterprise architecture. Three buckets, three different conversations.
+If you don't separate these channels, you risk applying "life hack" advice to enterprise architecture. Three AI buckets, three different conversations.
 
 ---
 

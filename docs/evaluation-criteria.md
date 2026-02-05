@@ -74,6 +74,10 @@ Architects must speak the language of finance. You need to capture Total Cost of
 | **Per-User Licensing** | < $500/mo (Starts at $30/user) | **M365 Copilot.** Best for equipping knowledge workers. Costs scale linearly with headcount ($30 -> $60 -> $90). Predictable OpEx. |
 | **Capacity Packs** | $200 - $10k/mo | **Copilot Studio.** Best for internal tools. You buy "blocks" of messages (e.g., 25k messages/month). Predictable billing that doesn't spike if one user goes rogue.[^copilot-cost] |
 | **Metered Consumption** | $0 start -> Scale to $10k+ | **Microsoft Foundry / Agent Service.** Best for B2C apps or high-volume automation. You pay per token/hour. Low barrier to entry, but requires strict **Quota Management** to prevent cost overruns.[^foundry-cost] |
+| **Unified Pre-Purchase (P3)** | $19k+ / year (tiered) | **Copilot Studio + Microsoft Foundry combined.** Buy **Agent Commit Units (ACUs)** in a single pool that covers both platforms. 1 ACU ≈ $1 retail usage. Eliminates the need to choose between platforms at the procurement level. Best for organizations running workloads across both layers.[^p3-cost] |
+
+{: .tip }
+> **Procurement Simplification:** The Agent Pre-Purchase Plan (P3) removes the "OR" from budget conversations. If your architecture spans Copilot Studio *and* Foundry (the "Better Together" pattern), P3 lets one pool of ACUs follow the workload across both platforms. See [Agent Pre-Purchase Plan](https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/agent-pre-purchase).
 
 {: .warning }
 > Consumption models require **Quota Management**. An ungoverned autonomous agent can burn through a monthly token budget in hours if it enters a loop. Always implement spending caps in Azure Cost Management.
@@ -194,6 +198,8 @@ Before moving to the [Implementation Patterns]({{ '/docs/implementation-patterns
 
 ---
 
-**Last Updated:** January 28, 2026
+[^p3-cost]: *Optimize Microsoft Foundry and Copilot Credit costs with Microsoft Agent pre-purchase plan*, Microsoft Learn. Updated 2026-01-15. [https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/agent-pre-purchase](https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/agent-pre-purchase)
+
+**Last Updated:** February 5, 2026
 
 **Next:** [Implementation Patterns]({{ '/docs/implementation-patterns' | relative_url }}) - Apply the scoring outcomes to pick execution patterns

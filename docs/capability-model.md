@@ -182,6 +182,9 @@ A robust AI solution often spans all three:
 2. **Copilot Studio** consumes that model, adds a "Human Handoff" logic flow, and enforces access controls.
 3. **Microsoft 365 Copilot** acts as the user interface, allowing an engineer in Teams to query the specs without leaving their chat.
 
+### Why the Economics Now Match the Architecture
+Historically, the "AND" conversation stalled at procurement: separate billing for Copilot Studio and Foundry forced teams into premature "OR" decisions driven by budget silos rather than architecture fit. The **Microsoft Agent Pre-Purchase Plan (P3)** removes that friction. Organizations purchase **Agent Commit Units (ACUs)** in a single pool that pays down both Copilot Credit and Microsoft Foundry usage—one contract, one meter, flexible allocation across layers. This is Microsoft financially codifying the "Better Together" architecture: build in Foundry, orchestrate in Studio, deploy to M365, and let a unified budget follow the workload. See [Agent Pre-Purchase Plan](https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/agent-pre-purchase).
+
 ---
 
 **Next:** [Decision Framework]({{ '/docs/decision-framework' | relative_url }}) - Apply BXT and critical questions to shortlist technologies
@@ -202,3 +205,5 @@ A robust AI solution often spans all three:
 * [Azure SRE Agent overview](https://learn.microsoft.com/en-us/azure/sre-agent/overview) (Updated: 2025-12-08)
 * [GitHub Copilot in VS Code](https://code.visualstudio.com/docs/copilot/overview#_autonomous-coding) (Updated: 2026-01-08)
 * [About GitHub Copilot coding agent](https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-coding-agent) (Accessed: 2026-01-28)
+* [Agent Pre-Purchase Plan (P3)](https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/agent-pre-purchase) (Updated: 2026-01-15)
+* [Introducing Microsoft Agent Factory](https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/introducing-microsoft-agent-factory/4470732) (Published: 2025-11-18)

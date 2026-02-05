@@ -264,6 +264,7 @@ Model the usage pattern and budget envelope early so you can select the right co
 
 - **Predictable spend** - Free (included) Copilot Chat for baseline pilots, Microsoft 365 Copilot per-user licensing when you need Graph grounding and in-app copilots, or Copilot Studio prepaid capacity packs for governed makers.
 - **Variable spend with guardrails** - Microsoft Foundry/Foundry Agent Service pay-per-token, Copilot Studio PAYG metering, with rate limits and budget alerts to control spikes.
+- **Unified pre-purchase (P3)** - Agent Commit Units (ACUs) in a single pool covering both Copilot Studio and Foundry usage. Eliminates separate procurement for each platform; best for organizations running workloads across both layers.[^p3plan]
 - **Custom throttling** - M365 Agents SDK or Agent Framework solutions where you own auto-scaling and rate limiting.
 - **Zero marginal cost (Local)** - Windows AI Foundry / Edge AI (Phi-4-mini) for high-frequency, privacy-sensitive tasks where you trade cloud reasoning power for zero inference cost.
 
@@ -360,6 +361,7 @@ These principles keep the framework durable as products rename or shift capabili
 [^cafaiarch]: *CAF AI PaaS architectures*, Microsoft Learn. Updated 2025-12-03. [https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/ai/platform/architectures](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/ai/platform/architectures)
 [^raistandard]: *Microsoft Responsible AI Standard v2 (PDF)*, Microsoft. [https://msblogs.thesourcemediaassets.com/sites/5/2022/06/Microsoft-Responsible-AI-Standard-v2-General-Requirements-3.pdf](https://msblogs.thesourcemediaassets.com/sites/5/2022/06/Microsoft-Responsible-AI-Standard-v2-General-Requirements-3.pdf)
 [^m365adoption]: *Microsoft 365 Copilot adoption guide*, Microsoft Learn. Updated 2025-05-20. [https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-enablement-resources](https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-enablement-resources)
+[^p3plan]: *Optimize Microsoft Foundry and Copilot Credit costs with Microsoft Agent pre-purchase plan*, Microsoft Learn. Updated 2026-01-15. [https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/agent-pre-purchase](https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/agent-pre-purchase)
 
 ## Phase 3: Scenario-Specific Selection
 
@@ -474,6 +476,12 @@ Prefer platforms and connectors that support open/interoperable patterns (e.g., 
 
 - Copilot Studio prepaid packs (predictable high-volume)
 - Azure OpenAI provisioned throughput (PTU)
+
+**Unified Pre-Purchase (Agent Pre-Purchase Plan / P3):**
+
+- Agent Commit Units (ACUs) covering both Copilot Studio and Foundry in one pool[^p3plan]
+- Tiered pricing with volume discounts; 1-year term
+- Best when workloads span both platforms (the "Better Together" pattern)
 
 **Azure Consumption:**
 

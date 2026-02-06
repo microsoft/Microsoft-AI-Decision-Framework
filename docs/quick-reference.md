@@ -172,7 +172,7 @@ description: "Fast lookup table for Microsoft AI technologies"
 | **Unstructured Documents** | Vector search with chunking | Azure AI Search, Azure OpenAI Embeddings |
 | **Real-Time Transactional Data** | API-based grounding | API plugins, Functions, Logic Apps agent workflows |
 | **Multimodal Content** | Azure AI Content Understanding (Preview) | Process documents, images, audio, video with reasoning |
-| **Database Vectors** | AI-capable databases with managed embeddings | Azure Cosmos DB for NoSQL (standard setup: 3 × 1000 RU containers), PostgreSQL (GA), SQL Server 2025 (Preview) |
+| **Database Vectors** | AI-capable databases with managed embeddings | Azure Cosmos DB for NoSQL (standard setup: 3 × 1000 RU containers), PostgreSQL (GA), Azure SQL Database (GA), Azure SQL MI (GA), SQL Server 2025 (GA), SQL database in Fabric (GA). ANN indexes Preview across SQL Database Engine family. |
 | **Microsoft Fabric Platform** | Direct data access | Lakehouse (Delta tables), Warehouse (T-SQL), OneLake (ADLS Gen2 APIs), SQL analytics endpoint |
 | **Microsoft Fabric via Agent** | Conversational data layer | Fabric Data Agents (Preview) with Copilot Studio or Microsoft Foundry Agent Service |
 

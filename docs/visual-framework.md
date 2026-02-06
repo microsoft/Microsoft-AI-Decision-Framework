@@ -89,14 +89,22 @@ flowchart TD
     DataQ -->|No grounding| DirectDeploy
     
     VectorDB -->|Global scale NoSQL| CosmosDB[Cosmos DB<br/>IVF/HNSW/DiskANN]
-    VectorDB -->|Relational| PostgreSQL[PostgreSQL<br/>pgvector]
-    VectorDB -->|Enterprise SQL| SQLServer[SQL Server 2025<br/>VECTOR <i>Preview</i>]
+    VectorDB -->|Relational, OSS| PostgreSQL[PostgreSQL<br/>pgvector]
+    VectorDB -->|SQL Database Engine| SQLFamily{Where does<br/>SQL run?}
+    
+    SQLFamily -->|Cloud PaaS| AzureSQL[Azure SQL Database<br/>VECTOR type<br/>ANN Index <i>Preview</i>]
+    SQLFamily -->|Lift-and-shift PaaS| SQLMI[Azure SQL MI<br/>VECTOR type<br/>ANN Index <i>Preview</i>]
+    SQLFamily -->|On-prem / VM| SQLServer[SQL Server 2025<br/>VECTOR type<br/>ANN Index <i>Preview</i>]
+    SQLFamily -->|Fabric-native| SQLFabric[SQL database in Fabric<br/>VECTOR type<br/>ANN Index <i>Preview</i>]
     
     GraphConn --> DeployConfig
     AISearch --> DeployConfig
     CosmosDB --> DeployConfig
     PostgreSQL --> DeployConfig
+    AzureSQL --> DeployConfig
+    SQLMI --> DeployConfig
     SQLServer --> DeployConfig
+    SQLFabric --> DeployConfig
     Fabric --> DeployConfig
     DirectDeploy --> DeployConfig
     
@@ -129,7 +137,7 @@ flowchart TD
 ### Validation Summary
 {: .no_toc }
 
-**Last Validated:** January 2026
+**Last Validated:** February 2026
 
 #### UI-Based Agents (GA unless noted)
 {: .no_toc }
@@ -166,7 +174,10 @@ flowchart TD
 |------------|--------|--------------|
 | **Cosmos DB** | GA | IVF, HNSW, DiskANN algorithms [(docs)](https://learn.microsoft.com/en-us/azure/cosmos-db/nosql/vector-search) |
 | **PostgreSQL pgvector** | GA | Extension 0.7.0 [(docs)](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-use-pgvector) |
-| **SQL Server 2025 VECTOR** | Preview | Native type, float32/float16 [(docs)](https://learn.microsoft.com/en-us/sql/t-sql/data-types/vector-data-type) |
+| **Azure SQL Database** | GA (ANN Index Preview) | Native VECTOR type, VECTOR_DISTANCE, DiskANN index, 1,998 dims, LangChain + Semantic Kernel integrations [(docs)](https://learn.microsoft.com/en-us/azure/azure-sql/database/ai-artificial-intelligence-intelligent-applications) |
+| **Azure SQL MI** | GA (ANN Index Preview) | Same SQL Database Engine; requires Always-up-to-date or SQL Server 2025 update policy [(docs)](https://learn.microsoft.com/en-us/sql/sql-server/ai/vectors?view=sql-server-ver17) |
+| **SQL Server 2025** | GA (ANN Index Preview) | Native VECTOR type, float32/float16, on-prem or VM [(docs)](https://learn.microsoft.com/en-us/sql/t-sql/data-types/vector-data-type) |
+| **SQL database in Fabric** | GA (ANN Index Preview) | Fabric-native SQL with VECTOR type, same engine capabilities [(docs)](https://learn.microsoft.com/en-us/fabric/database/sql/overview) |
 
 ---
 
@@ -306,8 +317,13 @@ flowchart TD
     FileSearch -->|Copilot Studio| StudioKnowledge[Studio Knowledge Base<br/>Up to 1,000 files<br/>SharePoint or OneDrive]
     
     DB -->|Global scale, NoSQL| Cosmos{Vector algorithm?}
-    DB -->|Relational| Postgres[PostgreSQL with pgvector]
-    DB -->|Enterprise SQL| SQL[SQL Server 2025<br/>VECTOR Preview]
+    DB -->|Relational, OSS| Postgres[PostgreSQL with pgvector]
+    DB -->|SQL Database Engine| SQLFamily{Where does<br/>your SQL run?}
+    
+    SQLFamily -->|Cloud PaaS| AzureSQL[Azure SQL Database<br/>VECTOR type, DiskANN<br/>ANN Index Preview]
+    SQLFamily -->|Lift-and-shift PaaS| SQLMI[Azure SQL MI<br/>VECTOR type<br/>ANN Index Preview]
+    SQLFamily -->|On-prem / VM| SQL[SQL Server 2025<br/>VECTOR type<br/>ANN Index Preview]
+    SQLFamily -->|Fabric-native| SQLFabric[SQL database in Fabric<br/>VECTOR type<br/>ANN Index Preview]
     
     Cosmos -->|Flat index| CosmosIVF[Cosmos DB IVF]
     Cosmos -->|Graph-based| CosmosHNSW[Cosmos DB HNSW]
@@ -331,7 +347,10 @@ flowchart TD
     CosmosHNSW --> Platform
     CosmosDiskANN --> Platform
     Postgres --> Platform
+    AzureSQL --> Platform
+    SQLMI --> Platform
     SQL --> Platform
+    SQLFabric --> Platform
     Blob --> Platform
     HybridM365 --> Platform
     HybridAzure --> Platform
@@ -353,7 +372,10 @@ flowchart TD
     style CosmosHNSW fill:#004578,color:#fff
     style CosmosDiskANN fill:#004578,color:#fff
     style Postgres fill:#004578,color:#fff
+    style AzureSQL fill:#004578,color:#fff
+    style SQLMI fill:#004578,color:#fff
     style SQL fill:#004578,color:#fff
+    style SQLFabric fill:#8c5e00,color:#fff
     style FabricPlatform fill:#8c5e00,color:#fff
     style FabricAgent fill:#8c5e00,color:#fff
 ```
@@ -361,7 +383,7 @@ flowchart TD
 ### Validation Summary - Data Grounding Decision
 {: .no_toc }
 
-**Last Validated:** January 28, 2026
+**Last Validated:** February 6, 2026
 
 #### M365 Data Sources (GA)
 {: .no_toc }
@@ -399,7 +421,10 @@ flowchart TD
 |------------|--------|--------------|---------------|
 | **Cosmos DB Vector Search** | GA | IVF/HNSW/DiskANN algorithms, NoSQL & MongoDB vCore APIs | [Cosmos DB Vector Search](https://learn.microsoft.com/en-us/azure/cosmos-db/vector-database) |
 | **PostgreSQL pgvector** | GA | Extension version 0.7.0, HNSW/IVF indexes | [PostgreSQL Vector Search](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-use-pgvector) |
-| **SQL Server 2025 VECTOR** | Preview RC1 | Native VECTOR data type, float32 (1,998 dims)/float16 (3,996 dims) | [SQL Server Vector](https://learn.microsoft.com/en-us/sql/t-sql/data-types/vector-data-type) |
+| **Azure SQL Database** | GA (ANN Index Preview) | Native VECTOR type, VECTOR_DISTANCE, DiskANN index, 1,998 dims, LangChain + Semantic Kernel connectors | [Azure SQL AI](https://learn.microsoft.com/en-us/azure/azure-sql/database/ai-artificial-intelligence-intelligent-applications) |
+| **Azure SQL Managed Instance** | GA (ANN Index Preview) | Same SQL Database Engine; requires Always-up-to-date or SQL Server 2025 update policy | [SQL MI Update Policy](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/update-policy) |
+| **SQL Server 2025** | GA (ANN Index Preview) | Native VECTOR data type, float32 (1,998 dims)/float16 (3,996 dims) | [SQL Server Vector](https://learn.microsoft.com/en-us/sql/t-sql/data-types/vector-data-type) |
+| **SQL database in Fabric** | GA (ANN Index Preview) | Fabric-native SQL with VECTOR type, same engine as Azure SQL Database | [SQL database in Fabric](https://learn.microsoft.com/en-us/fabric/database/sql/overview) |
 
 #### Analytics Platform (GA with Preview features)
 {: .no_toc }

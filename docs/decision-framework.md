@@ -207,7 +207,7 @@ Default to SaaS (built-in Copilot / Copilot Studio) when it meets the need; reac
 
 Separate how you ground answers from how you persist history or analytics.
 
-- **Grounding (RAG)** - Retrieve the right files or records per request (Microsoft Graph, Azure AI Search, Cosmos DB, PostgreSQL, SQL Server 2025). Use **Fabric Data Agents** for conversational analytics over OneLake. Standard agent setup provisions customer-owned Azure Storage, Azure AI Search, and Cosmos DB containers for thread data.[^standardsetup]
+- **Grounding (RAG)** - Retrieve the right files or records per request (Microsoft Graph, Azure AI Search, Cosmos DB, PostgreSQL, Azure SQL Database, Azure SQL MI, SQL Server 2025, SQL database in Fabric). Use **Fabric Data Agents** for conversational analytics over OneLake. Standard agent setup provisions customer-owned Azure Storage, Azure AI Search, and Cosmos DB containers for thread data.[^standardsetup]
 - **Memory** - Decide if conversations should persist (Copilot Studio Dataverse variables, Foundry Agent Service thread stores in Cosmos DB, custom implementations).
 - **Analytics** - Plan transcript retention, telemetry, and review processes before launch. Use **Translytical Task Flows** in Fabric to trigger actions directly from analytical reports.
 

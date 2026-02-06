@@ -184,18 +184,18 @@ Use this matrix to choose between Agent Framework Workflows, Logic Apps AI Agent
 
 ## Data Grounding Technology Comparison
 
-Side-by-side grounding options (Copilot connectors, AI Search, Fabric, Cosmos, PostgreSQL, SQL Server) by search mode, boundary, and best-fit workloads.
+Side-by-side grounding options (Copilot connectors, AI Search, Fabric, Cosmos, PostgreSQL, SQL Database Engine family) by search mode, boundary, and best-fit workloads.
 
-| Feature | **Copilot connectors** | **Azure AI Search** | **Microsoft Fabric** | **Cosmos DB** | **PostgreSQL** | **SQL Server 2025** |
+| Feature | **Copilot connectors** | **Azure AI Search** | **Microsoft Fabric** | **Cosmos DB** | **PostgreSQL** | **SQL Database Engine** (Azure SQL DB, SQL MI, SQL Server 2025, SQL database in Fabric) |
 |---------|---------------------|---------------------|----------------------|----------------|----------------|---------------------|
-| **Vector Search** | No (semantic index only) | ✅ Yes (IVF, HNSW) | ✅ Yes (Lakehouse via external tools) | ✅ Yes (IVF, HNSW, DiskANN) | ✅ Yes (pgvector, IVF) | ✅ Yes (DiskANN) |
+| **Vector Search** | No (semantic index only) | ✅ Yes (IVF, HNSW) | ✅ Yes (Lakehouse via external tools) | ✅ Yes (IVF, HNSW, DiskANN) | ✅ Yes (pgvector, IVF) | ✅ Yes (DiskANN, ANN Index Preview) |
 | **Hybrid Search** | No | ✅ Yes (vector + keyword) | ✅ Yes (SQL endpoint + external) | ✅ Yes | ✅ Yes | ✅ Yes |
-| **Data Boundary** | M365 tenant | Azure | Azure (OneLake) | Azure | Azure | On-premises or Azure |
-| **Index Target** | Microsoft Graph (connector ingestion) | Azure AI Search index / knowledge bases (agentic retrieval, preview) | Lakehouse Delta tables, Warehouse tables | Cosmos DB collection | PostgreSQL table | SQL Server table |
-| **Access Method** | Graph API (Copilot connector APIs) | REST API, SDKs (`2025-11-01-preview` for knowledge bases) | ADLS Gen2 APIs, SQL endpoint, Fabric Data Agents | SDKs, REST API | SQL, pgvector | T-SQL, VECTOR type |
-| **Best For** | M365-centric knowledge (Copilot, Search, Context IQ) | Azure-native RAG with ACL/label enforcement and agentic retrieval | Analytics data + unified data platform | Transactional + vector data | PostgreSQL workloads with AI | SQL Server workloads with AI |
-| **Licensing** | Included with M365 | Azure consumption (agentic retrieval preview on free tier quotas) | Fabric capacity (F2+) | Azure consumption | Azure consumption | SQL Server license |
-| **Status** | GA | GA (agentic retrieval preview) | GA (Platform), Preview (Data Agents) | GA | GA | Preview |
+| **Data Boundary** | M365 tenant | Azure | Azure (OneLake) | Azure | Azure | Azure SQL DB & SQL MI: Azure. SQL Server 2025: On-prem or Azure VM. SQL database in Fabric: Fabric. |
+| **Index Target** | Microsoft Graph (connector ingestion) | Azure AI Search index / knowledge bases (agentic retrieval, preview) | Lakehouse Delta tables, Warehouse tables | Cosmos DB collection | PostgreSQL table | SQL table (VECTOR column) |
+| **Access Method** | Graph API (Copilot connector APIs) | REST API, SDKs (`2025-11-01-preview` for knowledge bases) | ADLS Gen2 APIs, SQL endpoint, Fabric Data Agents | SDKs, REST API | SQL, pgvector | T-SQL, VECTOR type, VECTOR_DISTANCE, VECTOR_SEARCH |
+| **Best For** | M365-centric knowledge (Copilot, Search, Context IQ) | Azure-native RAG with ACL/label enforcement and agentic retrieval | Analytics data + unified data platform | Transactional + vector data | PostgreSQL workloads with AI | SQL workloads with AI — choose deployment by existing estate (cloud PaaS, lift-and-shift, on-prem, Fabric) |
+| **Licensing** | Included with M365 | Azure consumption (agentic retrieval preview on free tier quotas) | Fabric capacity (F2+) | Azure consumption | Azure consumption | Azure SQL DB/MI: Azure consumption. SQL Server 2025: SQL license. SQL in Fabric: Fabric capacity. |
+| **Status** | GA | GA (agentic retrieval preview) | GA (Platform), Preview (Data Agents) | GA | GA | VECTOR type GA. ANN index (DiskANN) Preview. |
 
 **Sources:**
 - [Microsoft 365 Copilot connectors overview](https://learn.microsoft.com/en-us/graph/connecting-external-content-connectors-overview) (Updated: 2025-07-21)
@@ -204,9 +204,11 @@ Side-by-side grounding options (Copilot connectors, AI Search, Fabric, Cosmos, P
 - [Microsoft Foundry (Azure) FAQ](https://learn.microsoft.com/en-us/azure/ai-foundry/faq?view=foundry-classic) (Updated: 2026-01-23)
 - [Cosmos DB Vector Search](https://learn.microsoft.com/en-us/azure/cosmos-db/vector-search) (Updated: 2025-09-25)
 - [Azure Database for PostgreSQL AI](https://learn.microsoft.com/en-us/azure/postgresql/azure-ai/generative-ai-overview) (Updated: 2026-01-20)
-- [SQL Server 2025 Vectors](https://learn.microsoft.com/en-us/sql/sql-server/ai/vectors?view=sql-server-ver17) (Updated: 2025-07-24)
+- [SQL Database Engine Vectors](https://learn.microsoft.com/en-us/sql/sql-server/ai/vectors?view=sql-server-ver17) — applies to SQL Server 2025, Azure SQL Database, Azure SQL MI, SQL database in Fabric (Updated: 2025-07-24)
+- [Azure SQL Database AI](https://learn.microsoft.com/en-us/azure/azure-sql/database/ai-artificial-intelligence-intelligent-applications) (Updated: 2026-02-06)
+- [SQL database in Fabric](https://learn.microsoft.com/en-us/fabric/database/sql/overview) (Updated: 2026-02-06)
 
-**Confidence Level:** High for GA technologies, Medium for SQL Server 2025 Preview
+**Confidence Level:** High for GA technologies (VECTOR type GA across SQL engine family), Medium for ANN Index (DiskANN) Preview
 
 ---
 

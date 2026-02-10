@@ -76,7 +76,8 @@ There is a common misconception that deterministic code is the "expensive" path�
 
 **The anti-pattern:** Reaching for agentic orchestration to avoid writing code. Don't use nondeterminism as a shortcut when the logic is known. Every LLM call introduces latency, token cost, and unpredictable behavior—reserve that budget for steps where reasoning, ambiguity, or natural‑language understanding genuinely adds value.
 
-**The best architectures mix and match.** Let agents handle the *thinking*—intent recognition, multi-step planning, ambiguity resolution. Let deterministic code handle the *doing*—validation, routing, transformation, and anything with a known correct answer. The two aren't rivals; they're teammates with different job descriptions.
+The best architectures mix and match. Let agents handle the *thinking*—intent recognition, multi-step planning, ambiguity resolution. Let deterministic code handle the *doing*—validation, routing, transformation, and anything with a known correct answer. The two aren't rivals; they're teammates with different job descriptions.
+
 ---
 
 ## 4. The Agent Framework

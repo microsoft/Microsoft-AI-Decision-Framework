@@ -68,7 +68,15 @@ Not every AI problem needs an agent. Microsoft’s AI agent guidance explicitly 
 * **Static knowledge retrieval:** Use classic RAG for single‑turn question answering or summarization from a fixed index. If there’s no tool execution or multi‑step reasoning, an agent is overkill.
 
 See [When not to use AI agents](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/business-strategy-plan#when-not-to-use-ai-agents).
+### The Right Tool for the Step: Deterministic Code Is Not the Expensive Option Anymore
 
+Even *inside* an agent architecture, not every step deserves an LLM call. State machines, rule engines, and well‑written `if/else` code give you what language models fundamentally lack: **predictability, observability, and recoverability**.
+
+There is a common misconception that deterministic code is the "expensive" path—that writing and maintaining code costs more than letting an agent figure it out at runtime. That argument had more weight before agentic coding tools (GitHub Copilot, coding agents) collapsed the cost of writing deterministic logic. Today, an AI can *write* the state machine for you in minutes. The code it produces runs faster, costs less per execution, and fails in ways you can actually debug. The agent call it replaces runs slower, costs more per invocation, and fails in ways that require prompt archaeology.
+
+**The anti-pattern:** Reaching for agentic orchestration to avoid writing code. Don't use nondeterminism as a shortcut when the logic is known. Every LLM call introduces latency, token cost, and unpredictable behavior—reserve that budget for steps where reasoning, ambiguity, or natural‑language understanding genuinely adds value.
+
+**The best architectures mix and match.** Let agents handle the *thinking*—intent recognition, multi-step planning, ambiguity resolution. Let deterministic code handle the *doing*—validation, routing, transformation, and anything with a known correct answer. The two aren't rivals; they're teammates with different job descriptions.
 ---
 
 ## 4. The Agent Framework

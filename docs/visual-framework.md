@@ -198,7 +198,7 @@ flowchart TD
     
     Dev -->|M365 integration| DevM365[M365 Agents SDK]
     Dev -->|Azure services| DevAzure[Microsoft Foundry - Azure]
-    Dev -->|Multi-agent orchestration| DevOrch[Agent Framework<br/><i>Public Preview</i>]
+    Dev -->|Multi-agent orchestration| DevOrch[Agent Framework]
     Dev -->|Multi-platform| DevChoice{Skill level?}
     Dev -->|Autonomous agents| DevAuto{Event-driven?}
     Dev -->|Custom UI streaming| DevAGUI[Agent Framework + AG-UI<br/><i>Preview</i>]
@@ -268,8 +268,8 @@ flowchart TD
 |------------|-------------|---------------|
 | **M365 Agents SDK** | Pro-code for M365-centric solutions, C#/JavaScript/Python, 10+ channels, BYO orchestrator | [M365 Agents SDK](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-custom-engine-agent) |
 | **Microsoft Foundry (Azure)** | Pro-code for Azure-centric solutions, custom models, full control | [Microsoft Foundry](https://learn.microsoft.com/en-us/azure/ai-foundry/what-is-foundry) |
-| **Microsoft Agent Framework** (Public Preview) | **Microsoft's investment direction** - Next-gen multi-agent orchestration framework (5 patterns: Sequential, Concurrent, Handoff, Group Chat, Magentic). **Use instead of Semantic Kernel** (maintenance mode). Works with M365 SDK or standalone. | [Agent Framework](https://learn.microsoft.com/en-us/agent-framework/) |
-| **Agent Framework + AG-UI** (Preview) | Protocol layer for web/mobile clients, supports SSE streaming, backend tool rendering, human approvals, shared/predictive state, and CopilotKit components. | [AG-UI Integration](https://learn.microsoft.com/en-us/agent-framework/integrations/ag-ui/) |
+| **Microsoft Agent Framework** | **Microsoft's investment direction** - Next-gen multi-agent orchestration framework (5 patterns: Sequential, Concurrent, Handoff, Group Chat, Magentic). **Use instead of Semantic Kernel** (maintenance mode). Works with M365 SDK or standalone. | [Agent Framework](https://learn.microsoft.com/en-us/agent-framework/) |
+| **Agent Framework + AG-UI** | Protocol layer for web/mobile clients, supports SSE streaming, backend tool rendering, human approvals, shared/predictive state, and CopilotKit components. | [AG-UI Integration](https://learn.microsoft.com/en-us/agent-framework/integrations/ag-ui/) |
 | **Copilot Studio + Custom Actions** | Mid-level developers, low-code with custom code extensibility | [Copilot Studio Extensibility](https://learn.microsoft.com/en-us/microsoft-copilot-studio/copilot-plugins-overview) |
 | **Logic Apps AI Agent Workflows** (Preview) | Event-driven autonomous agents, 1,400+ connectors | [Logic Apps Agent Workflows](https://learn.microsoft.com/en-us/azure/logic-apps/agent-workflows-concepts) |
 
@@ -675,7 +675,7 @@ flowchart TD
 |------------|---------------|-----------|----------------------------------|------------------------|---------------|
 | **Logic Apps Standard** (GA) | ⚠️ Autonomous execution (workflows) | ✅ Proactive (event-driven, 1,400+ connectors) | Workflow state + connector data | Granular Azure RBAC, VNet + private endpoints (Standard), managed identity, Customer Lockbox, FedRAMP/HIPAA/ISO 27001 | [Logic Apps Security](https://learn.microsoft.com/en-us/azure/logic-apps/security-controls-policy) |
 | **M365 Agents SDK** (GA) | ⚠️ Custom design (full developer responsibility) | ✅ Proactive (custom event handling) | Custom (developer implements) | Custom auth (MSAL, Entra ID), hosting platform RBAC, ⚠️ delegated OR application permissions, self-hosted = full network control | [M365 SDK Auth](https://learn.microsoft.com/en-us/microsoft-365/agents-sdk/microsoft-authentication-library-configuration-options) |
-| **Agent Framework** (Preview) | Inherits from host app | Inherits from host app | Inherits from host app | No built-in governance (library only), inherits from hosting platform | [Agent Framework](https://learn.microsoft.com/en-us/agent-framework/) |
+| **Agent Framework** (GA) | Inherits from host app | Inherits from host app | Inherits from host app | No built-in governance (library only), inherits from hosting platform | [Agent Framework](https://learn.microsoft.com/en-us/agent-framework/) |
 
 **Key Decision Criteria:**
 - **M365 tenant boundary required** → M365 Copilot (strict) or Copilot Studio (custom agents)
@@ -748,7 +748,7 @@ flowchart TD
 
 | Technology | Status | Orchestration Patterns | Documentation |
 |------------|--------|------------------------|---------------|
-| **Microsoft Agent Framework** | Public Preview | **Microsoft's investment direction** - Sequential, Concurrent, Handoff, Magentic (C#, Python) | [Agent Framework](https://learn.microsoft.com/en-us/agent-framework/) |
+| **Microsoft Agent Framework** | GA | **Microsoft's investment direction** - Sequential, Concurrent, Handoff, Magentic (C#, Python) | [Agent Framework](https://learn.microsoft.com/en-us/agent-framework/) |
 | **Semantic Kernel** | Maintenance mode | Sequential, Concurrent, Group Chat, Handoff, Magentic (**use Agent Framework for new projects**) | [Semantic Kernel Agents](https://learn.microsoft.com/semantic-kernel/frameworks/agent/) |
 | **M365 Agents SDK** | GA | BYO orchestrator (integrate Agent Framework or third-party) | [M365 SDK](https://learn.microsoft.com/microsoft-365-copilot/extensibility/create-deploy-agents-sdk) |
 | **LangGraph** | Third-party | State graph management for complex workflows | Third-party framework |

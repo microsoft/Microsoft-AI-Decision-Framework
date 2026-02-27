@@ -22,7 +22,7 @@
 # For more information: https://github.github.com/gh-aw/introduction/overview/
 #
 #
-# gh-aw-metadata: {"schema_version":"v1","frontmatter_hash":"1f201fb78deb1437f6e9951569ef6d0656a2367d38976068dc7cbac82b14f70b","compiler_version":"v0.50.7"}
+# gh-aw-metadata: {"schema_version":"v1","frontmatter_hash":"40ef3fa32bbc00ea25f0fe46a31ab94bf84d713f5fea689f32b7a6840d202487","compiler_version":"v0.50.7"}
 
 name: "Documentation Link Checker"
 "on":
@@ -282,8 +282,8 @@ jobs:
               engine_id: "copilot",
               engine_name: "GitHub Copilot CLI",
               model: process.env.GH_AW_MODEL_AGENT_COPILOT || "",
-              version: "latest",
-              agent_version: "latest",
+              version: "",
+              agent_version: "0.0.419",
               cli_version: "v0.50.7",
               workflow_name: "Documentation Link Checker",
               experimental: false,
@@ -316,7 +316,7 @@ jobs:
             // Set model as output for reuse in other steps/jobs
             core.setOutput('model', awInfo.model);
       - name: Install GitHub Copilot CLI
-        run: /opt/gh-aw/actions/install_copilot_cli.sh latest
+        run: /opt/gh-aw/actions/install_copilot_cli.sh 0.0.419
       - name: Install awf binary
         run: bash /opt/gh-aw/actions/install_awf_binary.sh v0.23.0
       - name: Determine automatic lockdown mode for GitHub MCP Server
@@ -1083,7 +1083,6 @@ jobs:
     timeout-minutes: 15
     env:
       GH_AW_ENGINE_ID: "copilot"
-      GH_AW_ENGINE_VERSION: "latest"
       GH_AW_WORKFLOW_ID: "link-checker"
       GH_AW_WORKFLOW_NAME: "Documentation Link Checker"
     outputs:

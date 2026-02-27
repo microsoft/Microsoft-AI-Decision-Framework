@@ -1,7 +1,6 @@
 ---
 engine:
   id: copilot
-  version: latest
 on:
   schedule: weekly
   workflow_dispatch:

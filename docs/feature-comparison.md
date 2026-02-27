@@ -283,6 +283,6 @@ Tooling snapshot for custom engine agents across Copilot Studio, Teams SDK, and 
 
 ---
 
-**Next:** [Quick Reference]({{ '/docs/quick-reference' | relative_url }}) - Fast lookup tables to accompany the matrices
+**Next:** [Visual Framework]({{ '/docs/visual-framework' | relative_url }}) - Walk the decision trees to apply what you've mastered
 
 ---

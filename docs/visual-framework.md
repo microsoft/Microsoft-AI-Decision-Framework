@@ -832,7 +832,7 @@ flowchart TD
 ---
 
 **Last Updated:** January 28, 2026  
-**Next:** [Evaluation Criteria]({{ '/docs/evaluation-criteria' | relative_url }}) - Score complexity, skills, budget, and governance after selecting a path
+**Next:** [Quick Reference]({{ '/docs/quick-reference' | relative_url }}) - Fast lookup tables to accompany the decision trees
 
 ---
 

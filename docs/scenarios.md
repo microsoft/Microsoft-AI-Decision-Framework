@@ -449,6 +449,6 @@ An enterprise has hundreds of legacy Java and .NET applications running on outda
 ---
 
 **Last Updated:** January 28, 2026  
-**Next:** [Visual Framework]({{ '/docs/visual-framework' | relative_url }}) - Walk the decision trees to choose the right path
+**Next:** [Evaluation Criteria]({{ '/docs/evaluation-criteria' | relative_url }}) - Score complexity, skills, budget, and governance to shortlist your technology choice
 
 ---

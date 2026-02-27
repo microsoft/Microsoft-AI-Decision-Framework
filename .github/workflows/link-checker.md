@@ -23,9 +23,6 @@ tools:
   edit:
   bash: ["curl", "grep", "find"]
   web-fetch:
-
-network:
-  allowed: ["*"]
 ---
 
 # Documentation Link Checker

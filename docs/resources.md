@@ -170,7 +170,7 @@ This page provides comprehensive links to official Microsoft documentation, trai
 - **M365 Agents SDK**
   - [Overview](https://learn.microsoft.com/en-us/microsoft-365/dev/m365-agents-sdk/overview)
   - [VS Code Toolkit](https://marketplace.visualstudio.com/items?itemName=msft-vscode-m365-agents.vscode-m365-agents)
-  - [Sample Gallery](https://github.com/microsoft/m365-agents-sdk)
+  - [Sample Gallery](https://github.com/microsoft/Agents)
 
 - **Microsoft Agent Framework**
   - [Overview](https://learn.microsoft.com/en-us/agent-framework/overview/agent-framework-overview)
@@ -227,8 +227,8 @@ This page provides comprehensive links to official Microsoft documentation, trai
 ### GitHub Repositories
 {: .no_toc }
 
-- [M365 Agents SDK Samples](https://github.com/microsoft/m365-agents-sdk)
-- [Microsoft Foundry samples](https://github.com/Azure-Samples/azure-ai-foundry)
+- [M365 Agents SDK Samples](https://github.com/microsoft/Agents)
+- [Microsoft Foundry samples](https://github.com/Azure-Samples/get-started-with-ai-agents)
 - [Semantic Kernel Samples](https://github.com/microsoft/semantic-kernel/tree/main/python/samples)
 - [Microsoft Agent Framework](https://github.com/microsoft/agent-framework)
 

@@ -1,0 +1,292 @@
+/* ========================================================
+   AIDF Decision Explorer
+   Colors sourced from _sass/custom/custom.scss
+   ======================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg: #0d1117;
+  --bg-panel: #111827;
+  --bg-panel-strong: #0f172a;
+  --bg-glass: rgba(255, 255, 255, 0.04);
+  --text: #d6deec;
+  --text-strong: #eef3fb;
+  --muted: #9cacc2;
+  --border: #1f2937;
+  --shadow: 0 16px 48px rgba(0, 0, 0, 0.35);
+  --shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.25);
+  --primary: #3b82f6;
+  --primary-strong: #2563eb;
+  --secondary: #f59e0b;
+  --success: #10b981;
+  --warning: #fbbf24;
+  --danger: #ef4444;
+  --link: #60a5fa;
+  --link-hover: #93c5fd;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* ── Header ── */
+.explorer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background: var(--bg-panel-strong);
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow-soft);
+  gap: 16px;
+  flex-wrap: wrap;
+  min-height: 52px;
+  z-index: 20;
+}
+
+.explorer-header h1 {
+  font-family: 'Sora', 'Source Sans 3', sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text-strong);
+  white-space: nowrap;
+  letter-spacing: -0.01em;
+}
+
+.explorer-header .controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.explorer-header select,
+.explorer-header button {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 13px;
+  padding: 5px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.explorer-header select:hover,
+.explorer-header button:hover {
+  border-color: var(--primary);
+  background: var(--bg-panel);
+}
+
+.explorer-header select:focus,
+.explorer-header button:focus {
+  outline: 2px solid var(--secondary);
+  outline-offset: 2px;
+}
+
+.explorer-header button.active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+
+/* ── Flow container ── */
+.flow-container {
+  height: calc(100% - 52px);
+  width: 100%;
+  position: relative;
+}
+
+/* ── React Flow overrides ── */
+.react-flow__minimap {
+  background: var(--bg-panel) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 6px !important;
+  box-shadow: var(--shadow-soft) !important;
+}
+
+.react-flow__controls {
+  border: 1px solid var(--border) !important;
+  border-radius: 6px !important;
+  overflow: hidden;
+  box-shadow: var(--shadow-soft) !important;
+}
+
+.react-flow__controls button {
+  background: var(--bg-panel) !important;
+  border-bottom: 1px solid var(--border) !important;
+  fill: var(--text) !important;
+  color: var(--text) !important;
+  width: 28px !important;
+  height: 28px !important;
+}
+
+.react-flow__controls button:hover {
+  background: var(--bg-panel-strong) !important;
+}
+
+.react-flow__background {
+  background: var(--bg) !important;
+}
+
+/* Edge labels */
+.react-flow__edge-text {
+  font-family: 'Source Sans 3', sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  fill: var(--muted) !important;
+}
+
+.react-flow__edge-textbg {
+  fill: var(--bg) !important;
+  fill-opacity: 0.85 !important;
+  rx: 3 !important;
+  ry: 3 !important;
+}
+
+/* Edges */
+.react-flow__edge path {
+  stroke: #334155 !important;
+  stroke-width: 1.5 !important;
+}
+
+.react-flow__edge.selected path,
+.react-flow__edge:hover path {
+  stroke: var(--primary) !important;
+  stroke-width: 2 !important;
+}
+
+/* ── Detail panel ── */
+.detail-panel {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 340px;
+  max-height: calc(100% - 24px);
+  overflow-y: auto;
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px;
+  z-index: 10;
+  box-shadow: var(--shadow);
+}
+
+.detail-panel h3 {
+  font-family: 'Sora', 'Source Sans 3', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-strong);
+  margin-bottom: 10px;
+  line-height: 1.35;
+}
+
+.detail-panel p {
+  font-size: 13.5px;
+  color: var(--muted);
+  line-height: 1.55;
+  margin-bottom: 10px;
+}
+
+.detail-panel a {
+  color: var(--link);
+  text-decoration: none;
+  font-size: 13.5px;
+  font-weight: 500;
+}
+
+.detail-panel a:hover {
+  color: var(--link-hover);
+  text-decoration: underline;
+}
+
+.detail-panel .close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+  padding: 4px;
+  border-radius: 4px;
+  transition: color 0.15s, background 0.15s;
+}
+
+.detail-panel .close-btn:hover {
+  color: var(--text-strong);
+  background: var(--bg-glass);
+}
+
+.detail-panel .status-badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  font-family: 'Source Sans 3', sans-serif;
+  color: #fff;
+  margin-bottom: 10px;
+  letter-spacing: 0.03em;
+}
+
+/* ── Branch legend ── */
+.branch-legend {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.branch-tag {
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.15s;
+  text-transform: capitalize;
+  font-weight: 500;
+}
+
+.branch-tag:hover {
+  border-color: var(--primary);
+  color: var(--text);
+  background: var(--bg-panel);
+}
+
+.branch-tag.active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+
+/* ── Back to docs link ── */
+.docs-link {
+  font-size: 13px;
+  color: var(--link);
+  text-decoration: none;
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+.docs-link:hover {
+  color: var(--link-hover);
+  text-decoration: underline;
+}

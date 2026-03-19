@@ -35,10 +35,23 @@ jobs:
           ruby-version: '3.1'
           bundler-cache: true
           cache-version: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: explorer/package-lock.json
       
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
+
+      - name: Build explorer app
+        working-directory: explorer
+        run: |
+          npm ci
+          npm run build
       
       - name: Build with Jekyll
         run: |
@@ -46,6 +59,11 @@ jobs:
           bundle exec jekyll build
         env:
           JEKYLL_ENV: production
+
+      - name: Merge explorer into site
+        run: |
+          mkdir -p _site/explorer
+          cp -r explorer/dist/* _site/explorer/
       
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

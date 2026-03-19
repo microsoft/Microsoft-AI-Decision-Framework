@@ -42,6 +42,7 @@ Use these diagrams after working through the [Decision Framework]({{ '/docs/deci
 ## Complete Decision Flow
 
 ```mermaid
+%%{init: {'theme':'dark'}}%%
 flowchart TD
     Start([Start: Need AI Solution]) --> Q1{User interaction<br/>pattern?}
     
@@ -186,6 +187,7 @@ flowchart TD
 ## Persona-Based Flow
 
 ```mermaid
+%%{init: {'theme':'dark'}}%%
 flowchart TD
     Start([Who are you?]) --> P1{Your role?}
     
@@ -295,6 +297,7 @@ flowchart TD
 ## Data Grounding Decision
 
 ```mermaid
+%%{init: {'theme':'dark'}}%%
 flowchart TD
     Start([Need to ground AI]) --> Q1{Where is<br/>your data?}
     
@@ -456,6 +459,7 @@ flowchart TD
 ## Complexity Assessment Flow
 
 ```mermaid
+%%{init: {'theme':'dark'}}%%
 flowchart TD
     Start([Assess Use Case]) --> Q1{How many<br/>data sources?}
     
@@ -495,6 +499,7 @@ flowchart TD
 ## Budget & Timeline Tradeoffs
 
 ```mermaid
+%%{init: {'theme':'dark'}}%%
 flowchart TD
     Start([Project Constraints]) --> Q1{AI setup<br/>budget?}
     
@@ -691,6 +696,7 @@ flowchart TD
 ## Multi-Agent Orchestration
 
 ```mermaid
+%%{init: {'theme':'dark'}}%%
 flowchart TD
     Start([Need Multi-Agent?]) --> Q1{Pattern Type?}
     
@@ -774,6 +780,7 @@ flowchart TD
 ## Upgrade Paths
 
 ```mermaid
+%%{init: {'theme':'dark'}}%%
 flowchart TD
     Start([Start: Low-Code Agent]) --> Q1{Need more<br/>capability?}
     

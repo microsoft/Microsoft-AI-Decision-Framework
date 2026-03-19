@@ -81,3 +81,14 @@ plugins:
   - jekyll-github-metadata
   - jekyll-include-cache
   - jekyll-remote-theme
+
+# Exclude React Flow explorer source from Jekyll processing
+exclude:
+  - explorer/node_modules
+  - explorer/src
+  - explorer/package.json
+  - explorer/package-lock.json
+  - explorer/tsconfig.json
+  - explorer/vite.config.ts
+  - explorer/.gitignore
+  - AGENTS.md

@@ -34,6 +34,8 @@ Use these diagrams after working through the [Decision Framework]({{ '/docs/deci
 | **6. Governance & Compliance** | Security and compliance requirements | [Evaluation Criteria: Governance]({{ '/docs/evaluation-criteria#governance--compliance' | relative_url }}) |
 | **7. Multi-Agent Orchestration** | Multi-agent patterns and frameworks | [Quick Reference: Orchestration Complexity]({{ '/docs/quick-reference#orchestration-complexity-decision-matrix' | relative_url }}) |
 | **8. Upgrade Paths** | Migration and progressive enhancement | [Implementation Patterns: Progressive Enhancement]({{ '/docs/implementation-patterns#progressive-enhancement-pattern' | relative_url }}) |
+| **9. Lifecycle Check** | Pre-flight readiness gate | [Evaluation Criteria: Lifecycle & Operational Readiness]({{ '/docs/evaluation-criteria' | relative_url }}) |
+| **10. IQ Layer Selection** | Knowledge grounding domain selection | [Capability Model: The Three Libraries]({{ '/docs/capability-model' | relative_url }}) |
 
 ---
 
@@ -828,6 +830,86 @@ flowchart TD
 
 **Evaluate readiness:**  
 → [Evaluation Criteria]({{ '/docs/evaluation-criteria' | relative_url }})
+
+---
+
+---
+
+## Lifecycle Check
+
+```mermaid
+%%{init: {'theme':'dark'}}%%
+flowchart TD
+    Start([Start: Pre-Flight Check]) --> Q0{Technology status?}
+    
+    Q0 -->|GA| GA_Path[✅ Production-safe]
+    Q0 -->|Preview / RC| Preview_Path[⚠️ Plan for change]
+    Q0 -->|Deprecated| Dep_Path[🚫 Identify successor]
+    
+    GA_Path --> Timeline{Retirement date<br/>within horizon?}
+    Preview_Path --> Timeline
+    Dep_Path --> Successor{Successor<br/>identified?}
+    
+    Timeline -->|No deadline| Proceed[✅ Proceed to<br/>Decision Framework]
+    Timeline -->|Deadline exists| Urgency{Go-live BEFORE<br/>deadline?}
+    
+    Urgency -->|Yes| Proceed
+    Urgency -->|No| Migrate[⚠️ Build on successor<br/>or migrate first]
+    
+    Successor -->|Yes| Migrate
+    Successor -->|No| Block[🚫 Block. Research<br/>successor path]
+    
+    Migrate --> Proceed
+    
+    style GA_Path fill:#1a6b3c,color:#fff
+    style Proceed fill:#1a6b3c,color:#fff
+    style Preview_Path fill:#8b6914,color:#fff
+    style Migrate fill:#8b6914,color:#fff
+    style Dep_Path fill:#8b1a1a,color:#fff
+    style Block fill:#8b1a1a,color:#fff
+```
+
+**Active Deadlines (as of March 2026):**
+- `azure-ai-inference` SDK → retires **May 30, 2026** (successor: `openai` SDK)
+- Assistants API → sunsets **Aug 26, 2026** (successor: Foundry Agents Service / Responses API)
+- Bot Framework → retired **Dec 31, 2025** (successor: M365 Agents SDK)
+
+---
+
+## IQ Layer Selection
+
+```mermaid
+%%{init: {'theme':'dark'}}%%
+flowchart TD
+    Start([What knowledge<br/>does the agent need?]) --> Domain{Primary data domain?}
+    
+    Domain -->|Enterprise docs,<br/>files, blobs, indexes| FIQ[Foundry IQ<br/><i>Preview</i>]
+    Domain -->|M365 collaboration<br/>emails, meetings, chats| WIQ[Work IQ<br/><i>Preview</i>]
+    Domain -->|Analytics, semantic<br/>models, dashboards| FBIQ[Fabric IQ<br/><i>Preview</i>]
+    Domain -->|Multiple domains| Multi[Combine IQ layers]
+    
+    FIQ --> FIQ_Detail[Azure AI Search<br/>knowledge bases via MCP<br/>ACL + Purview labels]
+    WIQ --> WIQ_Detail[MCP server catalog<br/>Mail, Calendar, Teams,<br/>SharePoint, OneDrive]
+    FBIQ --> FBIQ_Detail[Fabric Data Agents<br/>OneLake, Power BI,<br/>semantic models]
+    
+    Multi --> Combine[Each IQ layer is<br/>standalone. Agents<br/>can query 2 or 3]
+    
+    Combine --> FIQ_Detail
+    Combine --> WIQ_Detail
+    Combine --> FBIQ_Detail
+    
+    FIQ_Detail --> License1[Azure consumption]
+    WIQ_Detail --> License2[M365 Copilot license required]
+    FBIQ_Detail --> License3[Fabric capacity F2+]
+    
+    style FIQ fill:#264f78,color:#fff
+    style WIQ fill:#4a3278,color:#fff
+    style FBIQ fill:#783228,color:#fff
+    style Multi fill:#1a6b3c,color:#fff
+    style Combine fill:#1a6b3c,color:#fff
+```
+
+**Key distinction:** These three IQ layers are *not* interchangeable. Foundry IQ knowledge sources cannot be used in Copilot, and Copilot knowledge sources cannot be used in Foundry IQ. Choose based on data domain, not brand preference.
 
 ---
 

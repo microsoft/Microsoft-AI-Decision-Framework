@@ -11,7 +11,7 @@ description: "Key terms and definitions for Microsoft AI technologies"
 Quick reference for key terms used throughout the Microsoft AI Decision Framework. For detailed documentation links and resources, see [Resources]({{ '/docs/resources' | relative_url }}). For methodology and decision guidance, see [Decision Framework]({{ '/docs/decision-framework' | relative_url }}).
 
 {: .note }
-> **Last validated:** February 5, 2026. Microsoft's AI capabilities evolve rapidly - always verify with [official sources]({{ '/docs/resources' | relative_url }}) for production decisions.
+> **Last validated:** March 19, 2026. Microsoft's AI capabilities evolve rapidly - always verify with [official sources]({{ '/docs/resources' | relative_url }}) for production decisions.
 
 ---
 
@@ -44,7 +44,7 @@ A protocol enabling secure, peer-to-peer communication between AI agents, allowi
 Central inventory in the M365 admin center to publish, activate, deploy, pin, block, remove, delete, transfer ownership, or export agents; enforces governance and visibility across Copilot and custom agents ([Agent Registry](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/agent-registry?view=o365-worldwide#admin-actions-to-manage-agents), retrieved 2026-01-23).
 
 **Agent Settings templates (Preview)**  
-Reusable configuration templates in the M365 admin center that let admins apply consistent policies to multiple agents (e.g., enabled channels, publishing scope, owners), managed alongside Agent Registry entries ([Microsoft 365 Copilot release notes — November 24, 2025](https://learn.microsoft.com/en-us/copilot/microsoft-365/release-notes#november-24,-2025)).
+Reusable configuration templates in the M365 admin center that let admins apply consistent policies to multiple agents (e.g., enabled channels, publishing scope, owners), managed alongside Agent Registry entries ([Microsoft 365 Copilot release notes, November 24, 2025](https://learn.microsoft.com/en-us/copilot/microsoft-365/release-notes#november-24,-2025)).
 
 **Agentic Retrieval (Preview)**  
 An evolution of traditional RAG where AI agents dynamically reason about search queries, plan multi-step retrieval strategies, and adaptively refine results before generation. Unlike static RAG patterns, agentic retrieval enables agents to decompose complex questions, filter sources intelligently, and combine multiple search modes (vector, hybrid, semantic) based on context ([Agentic retrieval in Azure AI Search](https://learn.microsoft.com/en-us/azure/search/agentic-retrieval-overview), updated 2026-01-16). *When to use:* Choose agentic retrieval for complex research scenarios requiring multi-hop reasoning; use traditional RAG for straightforward document lookup. See Decision Framework Q3.
@@ -54,6 +54,12 @@ An open-source development kit for .NET and Python that unifies Semantic Kernel 
 
 **Assistant (generic)**  
 A conversational experience that relies primarily on an LLM prompt without owning orchestration, tool calls, or state. Assistants can become agents when they add tools (including MCP), memory, or workflows.
+
+**Agent Application**  
+A published agent promoted from a Microsoft Foundry project into a managed Azure resource with its own stable endpoint, Entra agent identity, RBAC scope, and Azure Policy integration. Publishing changes the agent's identity from the project's shared identity to a dedicated one, so permissions must be reassigned to the new identity for tool calls to work ([Publish and share agents in Microsoft Foundry](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/publish-agent), retrieved 2026-03-19).
+
+**Agent Skills**  
+Portable packages of instructions, scripts, and resources that give Agent Framework agents specialized capabilities and domain expertise. Skills follow an open specification and use progressive disclosure (advertise → load → read resources) to minimize context window usage while providing deep domain knowledge on demand ([Agent Skills](https://learn.microsoft.com/en-us/agent-framework/agents/skills), retrieved 2026-03-19).
 
 **Microsoft Foundry (Azure)**  
 *See [Microsoft Foundry](#m).* The cloud-based implementation of the Microsoft Foundry ecosystem.
@@ -110,6 +116,12 @@ A component of Windows AI Foundry that brings Microsoft Foundry (Azure) models a
 **Foundry Agent Service**  
 An **optional** managed PaaS runtime WITHIN Microsoft Foundry (Azure) that hosts and orchestrates agents with built-in infrastructure for compute, memory, and thread state. Provides 15+ built-in tools, connected agents (multi-agent systems), BYO storage (Cosmos DB, AI Search, Blob), RBAC, VNet isolation, and Azure Monitor tracing. GA since May 2025. **Key distinction:** You can use Microsoft Foundry WITHOUT Agent Service by deploying custom code with Agent Framework, LangChain, or other SDKs ([Foundry Agent Service Overview](https://learn.microsoft.com/en-us/azure/ai-services/agents/overview), updated 2026-01-21). *When to use:* Choose Agent Service for managed hosting with built-in tools and orchestration. Choose self-hosted deployment when you need full infrastructure control or have existing Azure landing zones. See [Hosted Agent](#h) for runtime details and Decision Framework Q4 for platform guidance.
 
+**Foundry IQ (Preview)**  
+Managed knowledge layer within Microsoft Foundry that provides agents with permission-aware, citation-backed responses grounded in enterprise data. A knowledge base groups one or more knowledge sources (Azure Blob Storage, SharePoint, OneLake, web via Bing) under a single MCP endpoint, with automatic chunking, vector embedding, ACL synchronization, and Purview sensitivity label enforcement. Agents connect via MCP tool calls. Foundry IQ is standalone but complements Work IQ (M365 collaboration context) and Fabric IQ (analytics context) ([Foundry IQ overview](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/what-is-foundry-iq), retrieved 2026-03-19).
+
+**Content Understanding (GA)**  
+Multimodal AI service in Foundry Tools that extracts semantic content from documents, images, audio, and video files. Provides prebuilt analyzers (RAG, domain-specific, content extraction), custom analyzers, and GA SDKs for Python, .NET, Java, and JavaScript/TypeScript targeting API version 2025-11-01. RAG analyzers (`prebuilt-documentSearch`, `prebuilt-videoSearch`, `prebuilt-audioSearch`, `prebuilt-imageSearch`) are optimized for retrieval-augmented generation scenarios ([Azure AI Content Understanding](https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/whats-new), retrieved 2026-03-19).
+
 ## G
 
 **Graph Connector**  
@@ -164,12 +176,20 @@ Microsoft Foundry (Azure)’s visual DAG environment for orchestrating LLMs, pro
 ## R
 
 **RAG (Retrieval Augmented Generation)**  
-A design pattern that pairs Azure AI Search retrieval with LLMs—now optimized by agentic retrieval that plans subqueries, runs hybrid search with semantic ranking, and returns structured grounding for high-fidelity answers ([Retrieval Augmented Generation (RAG) in Azure AI Search](https://learn.microsoft.com/en-us/azure/search/retrieval-augmented-generation-overview), updated 2026-01-15). *When to use:* Choose RAG when agents need current or proprietary data not present in the model's training set. RAG is preferred over fine-tuning when data changes frequently or when you need explicit source citations for compliance. For complex multi-hop reasoning, consider [Agentic Retrieval](#a) instead. See Decision Framework Q3 for data strategy guidance.
+A design pattern that pairs Azure AI Search retrieval with LLMs, now optimized by agentic retrieval that plans subqueries, runs hybrid search with semantic ranking, and returns structured grounding for high-fidelity answers ([Retrieval Augmented Generation (RAG) in Azure AI Search](https://learn.microsoft.com/en-us/azure/search/retrieval-augmented-generation-overview), updated 2026-01-15). *When to use:* Choose RAG when agents need current or proprietary data not present in the model's training set. RAG is preferred over fine-tuning when data changes frequently or when you need explicit source citations for compliance. For complex multi-hop reasoning, consider [Agentic Retrieval](#a) instead. See Decision Framework Q3 for data strategy guidance.
+
+**Responses API**  
+The modern API primitive that replaces the Assistants API in Microsoft Foundry. Uses Conversations (instead of Threads) and Response Items (instead of Runs) with stateful context retained automatically across calls. Supports background mode for long-running tools, durable streams for disconnect/reconnect, and serves as the invocation protocol for published Agent Applications. The Assistants API is deprecated and sunsets August 26, 2026 ([Use the Azure OpenAI Responses API](https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/responses), retrieved 2026-03-19; [Migration guide](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/migrate), retrieved 2026-03-19).
 
 ## S
 
 **Skills/Tools**  
-Function tools, hosted services, or built-in capabilities that agents attach at construction or per run—enabling actions like web search, file retrieval, or code execution within Agent Framework ChatClientAgent and ChatAgent implementations ([Agent Tools](https://learn.microsoft.com/en-us/agent-framework/user-guide/agents/agent-tools), updated 2025-09-24).
+Function tools, hosted services, or built-in capabilities that agents attach at construction or per run, enabling actions like web search, file retrieval, or code execution within Agent Framework ChatClientAgent and ChatAgent implementations ([Agent Tools](https://learn.microsoft.com/en-us/agent-framework/user-guide/agents/agent-tools), updated 2025-09-24).
+
+## W
+
+**Work IQ (Preview)**  
+The intelligence layer that powers Microsoft 365 Copilot, now available to your agents. Work IQ applies an extensive understanding of how your organization works (Data), builds persistent memory of priorities and work patterns (Memory), and reasons and acts through governed MCP tools under the Agent 365 control plane (Inference). Beyond the built-in MCP server catalog (Copilot, Calendar, Mail, SharePoint, OneDrive, Teams, User, Word, Dataverse/Dynamics 365), the MCP Management Server enables custom servers using 1,500+ connectors, Graph APIs, and REST endpoints. Extends into business data via Dataverse intelligence. Requires M365 Copilot license. Complements Foundry IQ (enterprise knowledge) and Fabric IQ (analytics context) ([Work IQ MCP overview](https://learn.microsoft.com/en-us/microsoft-agent-365/tooling-servers-overview), retrieved 2026-03-19; [Dataverse intelligence](https://learn.microsoft.com/en-us/power-apps/maker/data-platform/data-platform-intelligence), retrieved 2026-03-19).
 
 ---
 

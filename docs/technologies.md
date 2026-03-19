@@ -187,11 +187,22 @@ Use this page as a reference after you’ve narrowed the decision: it’s optimi
 - **Workflow and evaluation tooling:** Build end-to-end pipelines with prompt flow, evaluations, and integrated monitoring. (Microsoft Foundry documentation - Retrieved: 2026-01-14)
 - **Agent readiness:** Pair with Foundry Agent Service for managed agent orchestration using the same model deployments. (Microsoft Foundry documentation - Retrieved: 2026-01-14)
 
-**Recent Updates (2025):**
+**Recent Updates (2025–2026):**
 
+- **Mar 2026 (New Foundry Portal GA):** The new Microsoft Foundry portal reached general availability for core scenarios: model discovery and deployment, agent development (Agents v2 on Responses API), evaluations, fine-tuning, red teaming, and quota management. Enterprise capabilities include RBAC, audit logs, compliance controls, monitoring, and virtual network integration. Features exclusive to the new portal: Responses API (GA), Agents v2 (GA), tool catalog with 1,400+ tools (GA), Agent publishing to M365/Teams (GA), Foundry IQ (Preview), hosted agents (Preview), A2A protocol (Preview), multi-agent workflows (Preview), agent memory (Preview), and Foundry Control Plane (Preview). Classic portal is required for standalone Azure OpenAI resources, hub-based projects, assistant creation, Content Understanding, and audio playground. (New Microsoft Foundry portal GA overview - Retrieved: 2026-03-19)
+- **Voice Live (Preview):** Real-time voice agent capability powered by Azure Speech in Foundry Tools. Supports expanded model selection (GPT-Realtime, GPT-5, GPT-4.1, PHI), natural voice options, multilingual speech, semantic voice activity detection, avatar integration, and telephony via Azure Communication Services. Agents connect by agent ID, with no audio model deployment required (fully managed). SDKs available for Python, C#, JavaScript, and Java. Currently requires public endpoints (no VNet support). (Voice Live overview - Retrieved: 2026-03-19)
 - **Sep 2025:** GPT-5-codex reasoning model released for Codex CLI and VS Code integration. (What's new in Azure OpenAI - Updated: 2025-09-10)
 - **Aug 2025:** GPT-5 series, Sora image-to-video generation, GPT RealTime GA, and provisioned spillover reached GA. (What's new in Azure OpenAI - Updated: 2025-09-10)
 - **May 2025:** Sora video generation preview, prompt shield spotlighting, and model router preview introduced. (What's new in Azure OpenAI - Updated: 2025-09-10)
+
+**Lifecycle & Migration:**
+
+- **Platform naming evolution:** Azure AI Studio → Azure AI Foundry → Microsoft Foundry (current). Azure AI Services → Foundry Tools (current). The Azure resource type remains `Microsoft.CognitiveServices/accounts`. (Migrate from classic portal - Retrieved: 2026-03-19)
+- **Classic vs new portal:** Two portal experiences exist (classic and new) that do NOT have feature parity. Validate capabilities in the portal, SDK samples, and Microsoft Learn before committing. (Migrate from classic portal - Retrieved: 2026-03-19)
+- **SDK migration (`azure-ai-inference` retires May 30, 2026):** Replace `AzureOpenAI()` with standard `OpenAI()` client pointing to `services.ai.azure.com/openai/v1`. Follow the [migration guide](https://learn.microsoft.com/en-us/azure/foundry/how-to/model-inference-to-openai-migration). (Migrate from classic portal - Retrieved: 2026-03-19)
+- **Assistants API sunsets August 26, 2026:** Migrate to the Foundry Agents Service (Responses API). A [migration tool](https://aka.ms/agent/migrate/tool) is available. Threads → Conversations, Runs → Responses, Assistants → Agents (new). (Migrate from classic portal - Retrieved: 2026-03-19)
+- **Classic agents (v1) retire March 31, 2027:** Agents created with `client.agents.create_agent()` in earlier SDK versions must migrate to `client.agents.create_version()` with structured agent definitions (`kind`, `model`, `instructions` fields). The [migration guide](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/migrate#migrate-classic-agents-to-new-agents) covers code-level changes. GitHub Copilot can accelerate the rewrite. Assign the migration as an Issue and let the coding agent refactor the API calls. (Migrate to the new agents developer experience - Retrieved: 2026-03-19)
+- **`azure-ai-projects` 2.x replaces 1.x:** Version 2.x targets the new portal; version 1.x targets classic. Using mismatched versions causes errors. (Migrate from classic portal - Retrieved: 2026-03-19)
 
 **Context Windows:**
 
@@ -201,9 +212,11 @@ Use this page as a reference after you’ve narrowed the decision: it’s optimi
 
 **Network Isolation:**
 
-- **VNet integration:** Configure private endpoints for hubs and projects to keep traffic within customer VNets. (Configure a private link for Microsoft Foundry (Azure) - Retrieved: 2026-01-06)
-- **Managed virtual networks:** Secure hubs with inbound and outbound network isolation, NSGs, and customer-managed keys. (Create a secure Microsoft Foundry (Azure) hub - Retrieved: 2025-12-23)
-- **Ideal for:** Zero-trust deployments, regulated workloads, and sovereign data strategies.
+- **Inbound isolation (GA):** Disable public network access and configure private endpoints to your Foundry resource. Supports "Disabled" (private endpoint only) and "Selected networks" (IP/VNet allowlist) modes. (How to configure network isolation for Microsoft Foundry - Retrieved: 2026-03-19)
+- **Outbound isolation, BYO VNet (GA):** Inject the Agent client into a customer-managed virtual network subnet (delegated to `Microsoft.App/environments`, /27 or larger). Outbound traffic routes through your VNet to Azure PaaS resources over private endpoints. Bring your own Storage, AI Search, and Cosmos DB for end-to-end isolation. (How to configure network isolation for Microsoft Foundry - Retrieved: 2026-03-19)
+- **Outbound isolation, Managed VNet (Preview):** Microsoft provisions and manages the virtual network. Two modes: "Allow internet outbound" and "Allow only approved outbound" (restricts via service tags, private endpoints, and optional FQDN rules enforced through Azure Firewall). Simpler setup but currently in Preview. (Configure managed virtual network - Retrieved: 2026-03-19)
+- **Network isolation limitations:** Hosted Agents, Traces (with private Application Insights), Publish to Teams/M365, and Workflow Agents (outbound) do not yet support VNet. Voice Live requires public endpoints. Some agent tools (File Search, OpenAPI, Azure Functions, Browser Automation, Computer Use, Image Generation, A2A) are not supported behind VNet. MCP (private), AI Search, Code Interpreter, Function Calling, Bing Grounding, SharePoint Grounding, and Foundry IQ work behind VNet. (How to configure network isolation for Microsoft Foundry - Retrieved: 2026-03-19)
+- **Ideal for:** Zero-trust deployments, regulated workloads, and sovereign data strategies. Use BYO VNet for GA-supported production isolation; evaluate Managed VNet for simplified preview scenarios.
 
 **When Microsoft Foundry (Azure) is the Right Tool:**
 
@@ -221,6 +234,11 @@ Use this page as a reference after you’ve narrowed the decision: it’s optimi
 - [Microsoft Foundry documentation](https://learn.microsoft.com/en-us/azure/ai-foundry/) (Retrieved: 2026-01-14)
 - [How to configure a private link for Microsoft Foundry (Azure)](https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/configure-private-link) (Retrieved: 2026-01-06)
 - [Create a secure Microsoft Foundry (Azure) hub and project with a managed virtual network](https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/create-secure-ai-hub#create-a-hub) (Retrieved: 2025-12-23)
+- [New Microsoft Foundry portal GA overview](https://learn.microsoft.com/en-us/azure/foundry/concepts/general-availability) (Retrieved: 2026-03-19)
+- [How to configure network isolation for Microsoft Foundry](https://learn.microsoft.com/en-us/azure/foundry/how-to/configure-private-link) (Retrieved: 2026-03-19)
+- [Configure managed virtual network for Microsoft Foundry projects](https://learn.microsoft.com/en-us/azure/foundry/how-to/managed-virtual-network) (Retrieved: 2026-03-19)
+- [Voice Live overview](https://learn.microsoft.com/en-us/azure/ai-services/speech-service/voice-live) (Retrieved: 2026-03-19)
+- [Voice Agent with Foundry Agent Service quickstart](https://learn.microsoft.com/en-us/azure/ai-services/speech-service/voice-live-agents-quickstart) (Retrieved: 2026-03-19)
 
 ---
 
@@ -266,8 +284,17 @@ Use this page as a reference after you’ve narrowed the decision: it’s optimi
 
 **Agent Setup Options:**
 
-- **Basic Setup:** Microsoft-managed search and storage (files stored in MS-managed storage, vector stores in MS-managed search)
-- **Standard Setup:** BYO Azure AI Search + Blob Storage + Cosmos DB (files in your Blob, vector stores in your AI Search, thread storage in your Cosmos DB), private networking, no public egress by default
+- **Basic Setup:** Microsoft-managed search and storage (files stored in MS-managed storage, vector stores in MS-managed search). Fastest path to production; no customer infrastructure to manage.
+- **Standard Setup:** BYO Azure AI Search + Blob Storage + Cosmos DB (files in your Blob, vector stores in your AI Search, thread storage in your Cosmos DB), private networking, no public egress by default. Required for VNet-isolated deployments.
+
+**New in the Foundry (new) portal:**
+
+- **Responses API (GA):** Modern API primitive replacing the Assistants API. Uses Conversations (not Threads) and Response Items (not Runs) with stateful context, background mode, and durable streams.
+- **Agent Applications (GA):** Publish agents as Azure resources with dedicated Entra identity, stable endpoint, RBAC scope, and Azure Policy integration. One-click publish to M365 Copilot and Teams.
+- **Voice Live (Preview):** Real-time voice agents powered by Azure Speech. Connect Foundry agents to telephony, automotive, accessibility, and contact center scenarios via agent ID. SDKs for Python, C#, JavaScript, Java. Requires public endpoints (no VNet support yet).
+- **Foundry IQ (Preview):** Managed knowledge bases connecting agents to permission-aware enterprise data via MCP. See [Foundry IQ](#foundry-iq-preview).
+- **Multi-agent workflows (Preview):** Orchestrate multiple agents in coordinated workflows within the Foundry portal.
+- **Agent Memory (Preview):** Persistent context across sessions for agents.
 
 **Recent Updates (2025):**
 
@@ -282,12 +309,10 @@ Use this page as a reference after you’ve narrowed the decision: it’s optimi
 
 **Network Isolation:**
 
-- **VNet Support:** Full private networking support (same as Microsoft Foundry (Azure))
-- VNet integration with container injection
-- Private endpoints for all resources
-- Network Security Groups (NSGs) for traffic isolation
-- Standard Setup: No public egress by default
-- **Ideal for:** Managed PaaS with private networking requirements
+- **VNet Support (GA, Standard Setup):** Full private networking with BYO VNet injection. Agent client injected into a customer-managed subnet; outbound traffic routes through your VNet to Azure PaaS over private endpoints. Requires delegated subnet (`Microsoft.App/environments`, /27+) and BYO Storage, AI Search, Cosmos DB.
+- **Managed VNet (Preview):** Microsoft-provisioned network with managed private endpoints. Two modes: "Allow internet outbound" and "Allow only approved outbound." Simpler setup; no customer VNet required.
+- **Tool support behind VNet:** MCP (private), AI Search, Code Interpreter, Function Calling, Bing/SharePoint Grounding, and Foundry IQ work behind VNet. File Search, OpenAPI, Azure Functions, Browser Automation, Computer Use, Image Generation, and A2A are not yet supported. Voice Live requires public endpoints.
+- **Ideal for:** Managed PaaS with private networking requirements. Use Standard Setup + BYO VNet for GA-supported production isolation.
 
 > **Terminology clarification:** This guide uses three distinct terms: **(1) Microsoft Foundry** - the platform/portal (ai.azure.com) providing model catalog, prompt flow, and evaluations. Microsoft Foundry offers two portal experiences (classic and new) that do **not** have feature parity; the underlying APIs and feature rollouts differ. Validate capabilities in the portal, SDK samples, and Microsoft Learn before committing. **(2) Microsoft Foundry Agent Service** - an optional managed PaaS runtime WITHIN Foundry for hosting agents with built-in tools and orchestration. **(3) Hosted agents** - agents deployed to the Foundry Agent Service runtime (vs self-hosted agents running in your own infrastructure using Agent Framework, LangChain, or custom code). Additionally, **(4) Microsoft Agent Framework** - the open-source orchestration SDK for .NET/Python. You can use Microsoft Foundry WITHOUT Agent Service by deploying custom code.
 
@@ -374,6 +399,99 @@ Use this page as a reference after you’ve narrowed the decision: it’s optimi
 
 - [What's new in Azure AI Search (Nov 2025)](https://learn.microsoft.com/en-us/azure/search/whats-new#november-2025) (Updated: 2025-12-18)
 - [What's new in Azure AI Search (Sep 2025)](https://learn.microsoft.com/en-us/azure/search/whats-new#september-2025) (Updated: 2025-12-18)
+
+---
+
+## Foundry IQ (Preview) {: .tech-heading }
+
+**Description:** Managed knowledge layer within Microsoft Foundry that provides agents with permission-aware, citation-backed responses grounded in enterprise data. Foundry IQ creates configurable, multi-source knowledge bases that connect to Azure AI Search's agentic retrieval engine via MCP endpoints.  
+**Official Docs:** [Foundry IQ overview](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/what-is-foundry-iq)  
+**Status:** Preview
+
+**Key Features:**
+
+- **Knowledge bases as first-class assets:** Group one or more knowledge sources under a single MCP endpoint with configurable retrieval instructions, reasoning effort, and output mode. Multiple agents can share the same knowledge base. (Foundry IQ overview - Retrieved: 2026-03-19)
+- **Permission-aware retrieval:** Synchronize ACLs for indexed sources and enforce Microsoft Purview sensitivity labels at query time. Run queries under the caller's Microsoft Entra identity for end-to-end permission enforcement. (Foundry IQ overview - Retrieved: 2026-03-19)
+- **Automated document processing:** Auto-chunk documents, generate vector embeddings, extract metadata, and schedule incremental indexer runs for indexed knowledge sources (Azure Blob Storage, SharePoint, OneLake, existing search indexes). (Foundry IQ FAQ - Retrieved: 2026-03-19)
+- **Remote knowledge sources:** Query SharePoint via the Copilot Retrieval API and the web via Grounding with Bing without ingesting or storing data. (Foundry IQ FAQ - Retrieved: 2026-03-19)
+- **Agentic retrieval engine:** LLM-powered query planning decomposes user queries into subqueries, runs parallel searches across knowledge sources, applies semantic reranking, and returns extractive data with citations. (Foundry IQ overview - Retrieved: 2026-03-19)
+- **MCP integration with Foundry Agent Service:** Connect knowledge bases to agents via MCP tool calls. The `knowledge_base_retrieve` tool enables grounded responses in agent conversations. (Connect Foundry IQ to Foundry Agent Service - Retrieved: 2026-03-19)
+
+**Relationship to Work IQ and Fabric IQ:**
+
+Microsoft provides three IQ workloads for agent-native systems:
+- **Foundry IQ:** Enterprise knowledge (files, blobs, indexes, web). You are here.
+- **Work IQ:** Microsoft 365 collaboration context (emails, meetings, chats, documents). See [Work IQ](#work-iq-preview).
+- **Fabric IQ:** Business analytics (semantic models, ontologies, OneLake/Power BI).
+
+Each IQ workload is standalone, but they can work together to provide comprehensive organizational context for agents.
+
+**When to use:** Custom agents needing governed, permission-aware access to enterprise documents, web content, or SharePoint, with citation-backed responses and ACL enforcement. Pair with Foundry Agent Service for managed agent orchestration.
+
+**When NOT to use:** M365-only knowledge grounding (use Copilot connectors instead); analytics/semantic model queries (use Fabric IQ); simple document retrieval without permission enforcement (use Azure AI Search directly).
+
+**Sources:**
+
+- [Foundry IQ overview](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/what-is-foundry-iq) (Retrieved: 2026-03-19)
+- [Foundry IQ FAQ](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/foundry-iq-faq) (Retrieved: 2026-03-19)
+- [Connect Foundry IQ to Foundry Agent Service](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/foundry-iq-connect) (Retrieved: 2026-03-19)
+
+---
+
+## Work IQ (Preview) {: .tech-heading }
+
+**Description:** Work IQ is the intelligence layer that powers Microsoft 365 Copilot, and now your agents can use the same engine. It applies an extensive, continuously updated understanding of how your organization works to deliver personalized search, advanced reasoning, and semantic understanding grounded in real-time M365 signals. When you connect an agent to Work IQ, you're not adding a data connector; you're giving it the same contextual brain that Copilot uses to understand your emails, meetings, documents, chats, and business systems.  
+**Official Docs:** [Work IQ MCP overview](https://learn.microsoft.com/en-us/microsoft-agent-365/tooling-servers-overview)  
+**Status:** Preview (requires M365 Copilot license)
+
+**Key Features:**
+
+- **Three-layer architecture:** **Data** unifies signals from files, emails, meetings, chats, and business systems across M365. **Memory** builds persistent understanding of how people and teams work, so agents stay aligned to priorities and remain consistent across tasks, apps, and sessions. **Inference** brings together models, skills, and MCP tools so agents can reason and take action while the Agent 365 control plane ensures those actions remain observable, governed, and compliant. (Work IQ MCP overview - Retrieved: 2026-03-19)
+- **Built-in MCP server catalog:** Work IQ Copilot (cross-M365 semantic search), Calendar (create/update/delete events, resolve conflicts), Mail (send/reply, semantic search), SharePoint (upload, search, manage lists), OneDrive (file/folder management), Teams (chat, channel, member management), User (profile, manager, org chart), Word (create/read documents, comments), and Dataverse/Dynamics 365 (CRUD + domain-specific actions including Sales, Finance, Supply Chain, Service, ERP, Contact Center). Each server exposes deterministic, auditable tools (not chat responses, but governed actions). (Agent 365 tools catalog - Retrieved: 2026-03-19)
+- **Custom MCP servers via MCP Management Server:** Beyond the built-in catalog, build your own MCP servers using 1,500+ connectors (ServiceNow, JIRA, SAP), Microsoft Graph APIs, Dataverse custom APIs, or any REST endpoint. The MCP Management Server is fully API-driven: create, configure, and publish custom servers programmatically from VS Code or agent frameworks without building a UI. ISVs can certify and distribute their servers through the Copilot Studio catalog. (MCP Management Server - Retrieved: 2026-03-19)
+- **Dataverse intelligence:** Extends Work IQ to business data understanding. Define reusable business context (semantic models, organizational processes, data schemas) that agents use to understand what your data means, follow your organization's procedures, and read/update Dataverse records reliably. Define it once, use it across all agents. (Dataverse intelligence - Retrieved: 2026-03-19)
+- **Enterprise security and governance:** Admin control in the M365 Admin Center (allow/block servers org-wide), scoped permissions per agent, policy enforcement at runtime (rate limits, payload checks, security scans), full observability via Microsoft Defender Advanced Hunting (inspect tool call traces, monitor execution details, detect anomalies). All Work IQ MCP servers undergo continuous evaluation for accuracy, latency, and reliability. (Work IQ security and compliance - Retrieved: 2026-03-19)
+- **Multi-platform integration:** Extend agents with Work IQ tools in Copilot Studio (low-code), Microsoft Foundry (pro-code), or VS Code (direct MCP Management Server integration). The same tools work across all three surfaces. Build once, consume everywhere. (Work IQ MCP overview - Retrieved: 2026-03-19)
+- **Work IQ CLI:** Command-line interface and MCP server that bridges AI coding assistants (GitHub Copilot, VS Code) and M365 data. Query emails, meetings, documents, and Teams messages from the terminal. In MCP server mode, your coding assistant automatically pulls relevant workplace context when you're implementing features discussed in recent meetings. (Work IQ CLI - Retrieved: 2026-03-19)
+
+**When to use:** Any agent that needs to understand organizational context, not just "what's in a file" but "who decided what, when, in which meeting, and what happened after." Work IQ closes the gap between agents that answer questions about documents (Foundry IQ) and agents that understand how work actually happens. Pairs with Foundry IQ for governed enterprise knowledge and Fabric IQ for analytics. The custom MCP server ecosystem means you're not limited to M365. Any system with a connector or API can participate.
+
+**Sources:**
+
+- [Work IQ MCP overview (Agent 365)](https://learn.microsoft.com/en-us/microsoft-agent-365/tooling-servers-overview) (Retrieved: 2026-03-19)
+- [Work IQ in Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/use-work-iq) (Retrieved: 2026-03-19)
+- [Work IQ CLI](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/workiq-overview) (Retrieved: 2026-03-19)
+- [Dataverse intelligence](https://learn.microsoft.com/en-us/power-apps/maker/data-platform/data-platform-intelligence) (Retrieved: 2026-03-19)
+- [Built-in MCP servers catalog](https://learn.microsoft.com/en-us/microsoft-copilot-studio/mcp-microsoft-mcp-servers) (Retrieved: 2026-03-19)
+
+---
+
+## Azure AI Content Understanding {: .tech-heading }
+
+**Description:** Multimodal AI service in Foundry Tools that extracts semantic content from documents, images, audio, and video files. Optimized for retrieval-augmented generation (RAG) and automated workflows with prebuilt and custom analyzers.  
+**Official Docs:** [Azure AI Content Understanding](https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/)  
+**Status:** GA (API version 2025-11-01; GA SDKs for Python, .NET, Java, JavaScript/TypeScript)
+
+**Key Features:**
+
+- **RAG analyzers:** `prebuilt-documentSearch` (PDF, Office, images with layout preservation), `prebuilt-videoSearch` (visual frames + audio transcription), `prebuilt-audioSearch` (speaker diarization, multilingual), `prebuilt-imageSearch` (visual content descriptions). All return markdown + summaries optimized for search indexing. (Content Understanding what's-new - Retrieved: 2026-03-19)
+- **Domain-specific prebuilts:** Finance and tax (invoices, receipts, W-2s, 1099s), identity documents (passports, driver's licenses), procurement and contracts, mortgage and lending, utilities. (Content Understanding prebuilt analyzers - Retrieved: 2026-03-19)
+- **Custom analyzers:** Extend base analyzers with custom field schemas, training examples, and configurations for specialized extraction scenarios across all four modalities. (Content Understanding overview - Retrieved: 2026-03-19)
+- **Cross-region BYOC:** Bring Your Own Capacity now supports cross-regional model deployments, letting you use any Azure OpenAI deployments regardless of resource or region. (Content Understanding what's-new March 2026 - Retrieved: 2026-03-19)
+- **GA SDKs:** Python (`azure-ai-contentunderstanding`), .NET (`Azure.AI.ContentUnderstanding`), Java, and JavaScript/TypeScript, all targeting the 2025-11-01 GA API version with strongly-typed models and Azure SDK design guidelines. (Content Understanding what's-new March 2026 - Retrieved: 2026-03-19)
+
+**Recent Updates (2026):**
+
+- **Mar 2026:** GA SDKs across four languages, cross-region BYOC, larger analyzers for complex documents, nested schema depth raised to 7, RAG analyzers in Discover tab, GPT-4.1-mini model selection in Studio, .txt input support. (Content Understanding what's-new - Retrieved: 2026-03-19)
+- **Jan 2026:** Read and Layout models available in Foundry (new) portal without requiring LLM configuration. (Content Understanding what's-new - Retrieved: 2026-03-19)
+
+**When to use:** Multimodal document processing for RAG pipelines, form extraction for finance/tax/procurement, video/audio content indexing for knowledge bases. Pair with Azure AI Search for indexing extracted content into searchable indexes.
+
+**Sources:**
+
+- [What's new in Content Understanding](https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/whats-new) (Retrieved: 2026-03-19)
+- [Content Understanding overview](https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/) (Retrieved: 2026-03-19)
+- [Prebuilt analyzers](https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/concepts/prebuilt-analyzers) (Retrieved: 2026-03-19)
 
 ---
 
@@ -492,7 +610,7 @@ Use this page as a reference after you’ve narrowed the decision: it’s optimi
 ## Microsoft Agent Framework {: .tech-heading }
 
 **Description:** Microsoft's next-generation, type-safe orchestration SDK for composing multi-agent workflows with executors, edges, and reusable patterns. Successor to Semantic Kernel and AutoGen for building agents in .NET and Python.  
-**Status:** Public Preview (.NET, Python)  
+**Status:** Release Candidate (.NET, Python), targeting 1.0 GA  
 **Official Docs:** [Microsoft Agent Framework overview](https://learn.microsoft.com/en-us/agent-framework/overview/agent-framework-overview) | [Workflows overview](https://learn.microsoft.com/en-us/agent-framework/user-guide/workflows/overview) | [Workflows - Checkpoints](https://learn.microsoft.com/en-us/agent-framework/user-guide/workflows/checkpoints)
 
 **Key Features:**
@@ -502,6 +620,9 @@ Use this page as a reference after you’ve narrowed the decision: it’s optimi
 - **Type-safe execution + checkpointing:** Executors, edges, and checkpoint services provide deterministic routing, resumability, and human-approval loops. ([Workflows overview](https://learn.microsoft.com/en-us/agent-framework/user-guide/workflows/overview#overview) - Retrieved: 2025-09-12; [Workflows - Checkpoints](https://learn.microsoft.com/en-us/agent-framework/user-guide/workflows/checkpoints) - Updated: 2025-09-12)
 - **Observability instrumentation:** OpenTelemetry hooks capture workflow spans (`workflow.run`, `message.send`, etc.) via `ENABLE_OTEL` or `setup_observability()`. ([Workflows - Observability](https://learn.microsoft.com/en-us/agent-framework/user-guide/workflows/observability) - Retrieved: 2025-09-12)
 - **Workflows as agents:** Any workflow can be wrapped and exposed through the agent interface, enabling reuse across APIs or UI hosts. ([Workflows - Using workflows as agents](https://learn.microsoft.com/en-us/agent-framework/user-guide/workflows/as-agents) - Retrieved: 2025-09-12)
+- **Agent Skills:** Portable packages of instructions, scripts, and resources that give agents specialized capabilities. Skills use progressive disclosure (advertise ~100 tokens → load &lt;5000 tokens → read resources on demand) to minimize context window usage. ([Agent Skills](https://learn.microsoft.com/en-us/agent-framework/agents/skills) - Retrieved: 2026-03-19)
+- **Background responses:** Continuation token mechanism for long-running operations. Agents start processing in the background and return a token for polling or stream resumption. Currently supported by OpenAI Responses API-backed agents. ([Background Responses](https://learn.microsoft.com/en-us/agent-framework/agents/background-responses) - Retrieved: 2026-03-19)
+- **Evaluation guidance:** Foundry-hosted evaluation support for Agent Framework agents covering IntentResolution, ToolCallAccuracy, TaskAdherence, Relevance, and Groundedness metrics. ([Agent evaluation checklist](https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/evaluation-checklist) - Retrieved: 2026-03-19)
 
 ---
 
@@ -521,13 +642,13 @@ Use this page as a reference after you’ve narrowed the decision: it’s optimi
 
 ## Network Isolation Decision Matrix
 
-| Technology | VNet Support | Private Endpoints | Air-Gapped | Gateway Required | Best For |
-|------------|-------------|-------------------|------------|------------------|----------|
-| **Microsoft Foundry (Azure)** | Full | Yes | Yes | No | Zero-trust, air-gapped, sovereign data |
-| **Foundry Agent Service** | Full | Yes | Yes | No | Managed PaaS with private networking |
-| **Copilot Studio** | Gateway-based | Via gateway | No | Yes | Managed PaaS with Azure resource access |
-| **M365 Agents SDK** | Self-hosted | Yes | Yes | No | Custom network control |
-| **M365 Copilot** | No No | No No | No No | Yes For on-prem | Managed SaaS only |
+| Technology | VNet Support | Private Endpoints | Managed VNet | Air-Gapped | Best For |
+|------------|-------------|-------------------|--------------|------------|----------|
+| **Microsoft Foundry (Azure)** | Full (GA, BYO VNet injection) | Yes | Preview (managed outbound) | Yes | Zero-trust, regulated, sovereign data |
+| **Foundry Agent Service** | Full (GA, Standard Setup) | Yes (BYO Storage, Search, Cosmos DB) | Preview | Partial (some tools unsupported, see tool matrix) | Managed PaaS with private networking |
+| **Copilot Studio** | Gateway-based | Via VNet data gateway | No | No | Managed PaaS with Azure resource access |
+| **M365 Agents SDK** | Self-hosted | Yes (customer-managed) | No | Yes | Custom network control |
+| **M365 Copilot** | No | No | No | No (gateway for on-prem data) | Managed SaaS only |
 
 ---
 

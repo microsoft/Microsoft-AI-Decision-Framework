@@ -19,7 +19,7 @@ Master the art of selecting the right Microsoft AI technology for your business 
 
 ## The Challenge
 
-Microsoft's AI portfolio is broad and moving fast - **M365 Copilot, Copilot Studio, Microsoft Foundry, Agent Service, SDKs, and more** - and choosing the right starting point matters. When the solution and requirements don’t align, the consequences are real: wasted budget, security exposure, stalled pilots, or compliance risk.
+Microsoft's AI portfolio is broad and moving fast - **M365 Copilot, Copilot Studio, Microsoft Foundry, Agent Service, Agent Framework, Foundry IQ, Work IQ, and more** - and choosing the right starting point matters. The harder question is no longer "which product?" but "what lifecycle stage is it in, what migration deadline exists, and what governance path does it unlock?" When the solution and requirements don’t align, the consequences are real: wasted budget, security exposure, stalled pilots, or compliance risk.
 
 Decisions get harder in the messy middle: data boundaries, orchestration models, action safety, channel reach, governance, and operating models rarely fit a one-page decision tree. Static checklists miss the enterprise edge cases that drive success or failure.
 

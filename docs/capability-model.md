@@ -72,17 +72,17 @@ See [When not to use AI agents](https://learn.microsoft.com/en-us/azure/cloud-ad
 
 Even *inside* an agent architecture, not every step deserves an LLM call. State machines, rule engines, and well‑written `if/else` code give you what language models fundamentally lack: **predictability, observability, and recoverability**.
 
-There is a common misconception that deterministic code is the "expensive" path—that writing and maintaining code costs more than letting an agent figure it out at runtime. That argument had more weight before agentic coding tools (GitHub Copilot, coding agents) collapsed the cost of writing deterministic logic. Today, an AI can *write* the state machine for you in minutes. The code it produces runs faster, costs less per execution, and fails in ways you can actually debug. The agent call it replaces runs slower, costs more per invocation, and fails in ways that require prompt archaeology.
+There is a common misconception that deterministic code is the "expensive" path: that writing and maintaining code costs more than letting an agent figure it out at runtime. That argument had more weight before agentic coding tools (GitHub Copilot, coding agents) collapsed the cost of writing deterministic logic. Today, an AI can *write* the state machine for you in minutes. The code it produces runs faster, costs less per execution, and fails in ways you can actually debug. The agent call it replaces runs slower, costs more per invocation, and fails in ways that require prompt archaeology.
 
-**The anti-pattern:** Reaching for agentic orchestration to avoid writing code. Don't use nondeterminism as a shortcut when the logic is known. Every LLM call introduces latency, token cost, and unpredictable behavior—reserve that budget for steps where reasoning, ambiguity, or natural‑language understanding genuinely adds value.
+**The anti-pattern:** Reaching for agentic orchestration to avoid writing code. Don't use nondeterminism as a shortcut when the logic is known. Every LLM call introduces latency, token cost, and unpredictable behavior. Reserve that budget for steps where reasoning, ambiguity, or natural‑language understanding genuinely adds value.
 
-The best architectures mix and match. Let agents handle the *thinking*—intent recognition, multi-step planning, ambiguity resolution. Let deterministic code handle the *doing*—validation, routing, transformation, and anything with a known correct answer. The two aren't rivals; they're teammates with different job descriptions.
+The best architectures mix and match. Let agents handle the *thinking*: intent recognition, multi-step planning, ambiguity resolution. Let deterministic code handle the *doing*: validation, routing, transformation, and anything with a known correct answer. The two aren't rivals; they're teammates with different job descriptions.
 
 ---
 
 ## 4. The Agent Framework
 
-If you have determined you need an agent, use this framework to describe *what kind* of AI capability you’re building—before you name a product.
+If you have determined you need an agent, use this framework to describe *what kind* of AI capability you're building, before you name a product.
 
 ### What is an agent?
 In Microsoft guidance, agents can handle tasks, take actions, and operate in conversation or via triggers. They can be assistive or autonomous depending on how you design them. See [Copilot Studio overview](https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-what-is-copilot-studio).
@@ -95,16 +95,16 @@ These are the agents we look at. We poke them, and they poke back. They are conv
 *(Examples: Copilot, ChatGPT, GitHub Copilot).*
 
 **Side B: Invisible Agents (The Force)**
-Flip the coin. These are the agents that look at the world for us. They live in the background—monitoring data, waiting for triggers, and acting without us needing to be present.
+Flip the coin. These are the agents that look at the world for us. They live in the background, monitoring data, waiting for triggers, and acting without us needing to be present.
 
 ### How to Choose Your Agent: The 5 Dimensions
 Once you know which side of the coin you're on, you have to decide how that agent behaves.
 
 **1. Interface: The Conversation vs. The Trigger (UI vs. No-UI)**
-This defines how the engagement begins. Interactive Agents rely on **Conversational UI**—you talk, and it answers. Invisible Agents rely on **Triggers**—a new email arrives, a database updates, or a timer goes off. One is designed for human engagement; the other is designed for seamless system integration.
+This defines how the engagement begins. Interactive Agents rely on **Conversational UI**: you talk, and it answers. Invisible Agents rely on **Triggers**: a new email arrives, a database updates, or a timer goes off. One is designed for human engagement; the other is designed for seamless system integration.
 
 **2. Relationship: The Copilot vs. The Captain (Assistive vs. Autonomous)**
-This defines who holds the steering wheel. **Assistive** agents work *with* you—they wait for your input to move forward, keeping a human in the loop. **Autonomous** agents work *for* you—once you give them the goal, they drive themselves, making decisions and executing tasks until the job is done or they hit a guardrail.
+This defines who holds the steering wheel. **Assistive** agents work *with* you: they wait for your input to move forward, keeping a human in the loop. **Autonomous** agents work *for* you: once you give them the goal, they drive themselves, making decisions and executing tasks until the job is done or they hit a guardrail.
 
 **3. Logic: The Recipe vs. The Chef (Deterministic vs. Non-Deterministic)**
 This defines how the agent thinks. **Deterministic** flows are like a recipe: "If X happens, do Y." They are rigid, predictable, and 100% accurate, which is perfect for strict compliance tasks. **Non-Deterministic** agents use reasoning. You give them a goal ("Plan a travel itinerary"), and they figure out the necessary steps themselves, adding intelligence and adaptability to the process.
@@ -119,7 +119,7 @@ This defines how the team plays together. The true power of AI isn't just in iso
 
 ## 5. Capability Groupings (Building Blocks)
 
-Now that you have defined the behavior, map it to the right building block. These five groupings are not a maturity ladder—they are components you can mix and match.
+Now that you have defined the behavior, map it to the right building block. These five groupings are not a maturity ladder; they are components you can mix and match.
 
 ### 1. End‑user copilots (ready‑made UI)
 The capability is the **experience surface** itself (chat, in‑app assistants, agent menus).
@@ -146,6 +146,32 @@ Microsoft and partners ship specialized agents for specific domains.
 * **Azure SRE Agent (Preview):** Operational automation for Azure environments. [Azure SRE Agent overview](https://learn.microsoft.com/en-us/azure/sre-agent/overview)
 * **GitHub Copilot agent mode & coding agent:** Autonomous coding tasks. [GitHub Copilot in VS Code](https://code.visualstudio.com/docs/copilot/overview#_autonomous-coding)
 
+### The Three IQ Layers (How Agents Understand Your Organization)
+
+**The Concept:** An agent that can only search documents sees the organization through a keyhole. It finds what was written down, but it doesn't know what happened in last week's meeting, who owns the decision, or what the sales data says about the outcome. Real organizational intelligence requires three layers: knowing what was *recorded*, understanding what's *happening*, and interpreting what it all *means*.
+
+**The Analogy: Memory, Awareness, and Understanding.**
+
+Think about how a seasoned leader navigates a complex decision. They draw on three distinct kinds of organizational intelligence:
+
+* **Memory** is what the organization has written down. Policies, contracts, specifications, reports, research. It's the accumulated knowledge base. You can search it, cite it, and trust it because it's governed. But memory alone is static. It tells you what the answer *was*, not what the situation *is*.
+
+* **Awareness** is the live pulse of work. Who said what in which meeting. What the team agreed to in a Teams thread. What's on the calendar for next week. What the ServiceNow ticket says about the outage, what the SAP system shows for the purchase order, what the JIRA board reveals about sprint velocity. Awareness isn't just M365 signals; it extends through 1,500+ connectors into ServiceNow, SAP, Salesforce, Azure DevOps, Dynamics 365, and any system with a REST API. This is the layer that turns fragments of data into the full context of work.
+
+* **Understanding** is the business logic that gives data meaning. "Customer" isn't just a row in a table. It has relationships (places Orders, belongs to a Segment, has a Lifetime Value), rules (if inventory drops below threshold, trigger replenishment), and a semantic structure that's consistent across every dashboard, agent, and report. Understanding lets agents reason about the business itself, not just the files or conversations about it.
+
+Most teams start their agent journey with Memory (connect a knowledge base) and stop there. The agents that deliver breakthrough value are the ones that also have Awareness (they understand how work happens) and Understanding (they reason in the language of the business).
+
+**The Product Anchors:**
+
+* **Foundry IQ** (Preview) is the Memory layer. Managed knowledge bases built on Azure AI Search agentic retrieval, connected to agents via MCP. Auto-chunking, vector embedding, permission-aware retrieval with ACL sync and Purview sensitivity label enforcement. Citation-backed responses grounded in enterprise documents, SharePoint, OneLake, Azure Blob, and web sources.
+
+* **Work IQ** (Preview) is the Awareness layer, and it's the same intelligence layer that powers Microsoft 365 Copilot. When you connect an agent to Work IQ, you give it the same contextual brain Copilot uses. Built-in MCP servers cover Mail, Calendar, Teams, SharePoint, OneDrive, User profiles, Word, and Dataverse/Dynamics 365 (Sales, Finance, Supply Chain, Service, ERP, Contact Center). The MCP Management Server opens the ecosystem to custom MCP servers built on 1,500+ connectors (ServiceNow, SAP, JIRA, Azure DevOps, Salesforce) and any REST API. Dataverse intelligence extends Work IQ into structured business data understanding. Governed via the M365 Admin Center with Microsoft Defender observability. Requires M365 Copilot license.
+
+* **Fabric IQ** (Preview) is the Understanding layer. A semantic intelligence workload in Microsoft Fabric that defines the language of your business through ontologies (entity types, relationships, properties, business rules), graph models for cross-domain reasoning and dependency analysis, Power BI semantic models for trusted KPIs, and operations agents that can trigger governed actions when business conditions are met. Fabric IQ ensures that every agent, dashboard, and application speaks the same business vocabulary.
+
+Each IQ layer is standalone, but agents that combine two or three of them answer questions that no single layer can: "What does the policy say (Memory), who agreed to change it last quarter (Awareness), and what does the usage data show since the change (Understanding)?"
+
 ---
 
 ## 6. Mindset Shift: The Convergence of Low-Code & Pro-Code
@@ -154,7 +180,7 @@ We need to retire the idea that "Low-Code is for amateurs" and "Pro-Code is for 
 
 **For the Technical Professional:**
 Do not confuse "configuration" with "lack of capability." Tools like Copilot Studio are increasingly becoming IDEs for conversational AI. They offer code views, variable management, and API integrations that require an engineering mindset to wield effectively.
-* **Velocity:** Using a graphical interface to handle state management or auth flows isn't "cheating"—it's efficient.
+* **Velocity:** Using a graphical interface to handle state management or auth flows isn't "cheating"; it's efficient.
 * **The Hybrid Reality:** Modern "Pro-Code" tools (like Foundry) now include visual prompt flow builders, while "Low-Code" tools (like Copilot Studio) allow for raw code injection.
 
 **The New Rule:**
@@ -192,7 +218,7 @@ A robust AI solution often spans all three:
 3. **Microsoft 365 Copilot** acts as the user interface, allowing an engineer in Teams to query the specs without leaving their chat.
 
 ### Why the Economics Now Match the Architecture
-Historically, the "AND" conversation stalled at procurement: separate billing for Copilot Studio and Foundry forced teams into premature "OR" decisions driven by budget silos rather than architecture fit. The **Microsoft Agent Pre-Purchase Plan (P3)** removes that friction. Organizations purchase **Agent Commit Units (ACUs)** in a single pool that pays down both Copilot Credit and Microsoft Foundry usage—one contract, one meter, flexible allocation across layers. This is Microsoft financially codifying the "Better Together" architecture: build in Foundry, orchestrate in Studio, deploy to M365, and let a unified budget follow the workload. See [Agent Pre-Purchase Plan](https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/agent-pre-purchase).
+Historically, the "AND" conversation stalled at procurement: separate billing for Copilot Studio and Foundry forced teams into premature "OR" decisions driven by budget silos rather than architecture fit. The **Microsoft Agent Pre-Purchase Plan (P3)** removes that friction. Organizations purchase **Agent Commit Units (ACUs)** in a single pool that pays down both Copilot Credit and Microsoft Foundry usage. One contract, one meter, flexible allocation across layers. This is Microsoft financially codifying the "Better Together" architecture: build in Foundry, orchestrate in Studio, deploy to M365, and let a unified budget follow the workload. See [Agent Pre-Purchase Plan](https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/agent-pre-purchase).
 
 ---
 

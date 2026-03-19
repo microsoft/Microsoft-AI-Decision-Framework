@@ -9,7 +9,7 @@ description: Key takeaways and resources by role
 This page provides comprehensive links to official Microsoft documentation, training resources, and community support organized by technology area. For term definitions, see [Glossary]({{ '/docs/glossary' | relative_url }}). For methodology and decision guidance, see [Decision Framework]({{ '/docs/decision-framework' | relative_url }}).
 
 {: .note }
-> **Last validated:** January 28, 2026. Microsoft Learn documentation shows "Last Updated" dates on each page - always check before making production decisions. Preview features may reach GA without immediate documentation updates.
+> **Last validated:** March 19, 2026. Microsoft Learn documentation shows "Last Updated" dates on each page - always check before making production decisions. Preview features may reach GA without immediate documentation updates.
 
 ---
 
@@ -204,6 +204,33 @@ This page provides comprehensive links to official Microsoft documentation, trai
   - [Cosmos DB Vector Search](https://learn.microsoft.com/en-us/azure/cosmos-db/vector-search)
   - [Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/generative-ai-overview)
   - [SQL Server 2025 vector search](https://learn.microsoft.com/en-us/sql/sql-server/ai/vectors?view=sql-server-ver17)
+
+- **Foundry IQ**
+  - [Foundry IQ overview](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/what-is-foundry-iq)
+  - [Connect Foundry IQ to Foundry Agent Service](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/foundry-iq-connect)
+  - [Foundry IQ FAQ](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/foundry-iq-faq)
+
+- **Work IQ**
+  - [Work IQ MCP overview (Agent 365)](https://learn.microsoft.com/en-us/microsoft-agent-365/tooling-servers-overview)
+  - [Work IQ in Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/use-work-iq)
+  - [Work IQ CLI](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/workiq-overview)
+
+- **Azure AI Content Understanding**
+  - [Content Understanding documentation](https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/)
+  - [What's new in Content Understanding](https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/whats-new)
+
+- **Lifecycle & Migration**
+  - [Migrate from the Foundry (classic) portal](https://learn.microsoft.com/en-us/azure/foundry/how-to/navigate-from-classic)
+  - [Migrate to the new agents developer experience](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/migrate)
+  - [Migrate classic agents to new agents](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/migrate#migrate-classic-agents-to-new-agents)
+  - [Migration tool (automated)](https://aka.ms/agent/migrate/tool)
+  - [Responses API how-to](https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/responses)
+  - [New Microsoft Foundry portal GA overview](https://learn.microsoft.com/en-us/azure/foundry/concepts/general-availability)
+  - [Voice Live overview](https://learn.microsoft.com/en-us/azure/ai-services/speech-service/voice-live)
+
+- **Observability**
+  - [Monitor AI agents with Application Insights](https://learn.microsoft.com/en-us/azure/azure-monitor/app/agents-view)
+  - [Agent evaluation checklist](https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/evaluation-checklist)
 
 ---
 

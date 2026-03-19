@@ -416,6 +416,114 @@ An enterprise has hundreds of legacy Java and .NET applications running on outda
 
 ---
 
+## Scenario: Foundry Agent Published to Microsoft 365 Copilot
+
+### Business Context
+{: .no_toc }
+
+A development team has built a specialized compliance advisor in Microsoft Foundry that can search regulatory databases, analyze document risk, and generate audit summaries. The agent works well in the Foundry Chat Playground and via the Responses API. Now stakeholders want it accessible to every knowledge worker inside Word, Teams, and Outlook, with no separate app, separate login, or separate training.
+
+### Key Requirements
+{: .no_toc }
+
+- Agent must appear in the M365 Copilot Agent Store for organization-wide discovery
+- All Foundry tools (MCP, function calling, code interpreter) must continue working after publish
+- Agent identity must be governed: separate Entra identity, Azure Policy-managed, RBAC-scoped
+- Dual-channel support: custom app (Responses API) AND M365 Copilot simultaneously
+- Admin approval workflow for organization-wide deployment
+
+### Recommended Technologies
+{: .no_toc }
+
+| Component | Technology | Purpose |
+|-----------|------------|---------|
+| **Agent Runtime** | Foundry Agent Service | Managed hosting with tools, models, and thread state |
+| **Agent Packaging** | Agent Application (Azure resource) | Stable endpoint, dedicated Entra agent identity, RBAC scope |
+| **Distribution** | Publish to M365 Copilot (one-click) | Agent appears in Word, Teams, Outlook via Copilot Agent Store |
+| **Alternative Distribution** | M365 Agents Toolkit proxy app | Advanced scenarios: custom SSO, multi-environment CI/CD |
+| **Custom App Channel** | Responses API | Headless invocation for web/mobile integrations |
+| **Governance** | Foundry Control Plane + M365 Admin Center | Azure Policy at the agent resource level; admin approval for M365 |
+
+**Why This Stack:**
+
+- **Copilot is the UI for AI.** Publishing into M365 Copilot means the compliance advisor inherits a production-grade AI interface without building one: cross-app presence in Teams, Outlook, Word, Excel, and PowerPoint, unified discovery through the Agent Store, tenant-wide governance via the Copilot Control System and Agent Registry, adaptive card rendering for rich responses, built-in compliance and audit controls, usage analytics, mobile parity, and Entra ID-scoped security trimming. No front-end engineering, no design system, no cross-platform testing.
+- The one-click publish flow from Foundry eliminates custom glue code. The agent registers a Bot Service resource, provisions an Entra app registration, and packages itself for M365 automatically.
+- Publishing creates an Agent Application with a dedicated identity, so the compliance team can audit which agent accessed which resource, independent of the developer's project identity.
+- The Responses API endpoint stays live after publishing, so the same agent serves both the custom web app and M365 Copilot. One brain, two faces.
+
+### Implementation Steps
+{: .no_toc }
+
+1. **Build and test in Foundry:** Configure model, instructions, MCP tools, and knowledge sources. Validate thoroughly in the Chat Playground. (Pattern 2: Pro-Code First)
+2. **Publish as Agent Application:** Select "Publish Agent" to create the Azure resource. Note the new agent identity.
+3. **Reassign RBAC:** Grant the new agent identity the same Azure roles the project identity had (Storage Blob Reader, Search Index Data Reader, etc.). This step is mandatory. Skipping it causes authorization failures.
+4. **Distribute to M365 Copilot:** Select "Publish to Microsoft 365 Copilot and Teams", choose Individual or Organization scope, and trigger admin approval if organization-wide.
+5. **Validate dual-channel:** Test the agent in the Copilot Agent Store (Teams/Word) AND via the Responses API endpoint to confirm both paths work.
+
+### Alternative Approaches
+{: .no_toc }
+
+- **Copilot Studio-first** (Pattern 1): Faster for simple agents, but lacks Foundry's custom model selections and MCP tooling depth.
+- **Agents Toolkit proxy:** Use when you need SSO, environment-specific configuration, or CI/CD pipeline control over the M365 integration layer.
+
+**Cross-references:** [Pattern 9: Foundry Agent → M365 Copilot Publish Path]({{ '/docs/implementation-patterns#pattern-9-foundry-agent--m365-copilot-publish-path' | relative_url }}), [Evaluation Criteria: Lifecycle & Operational Readiness]({{ '/docs/evaluation-criteria' | relative_url }})
+
+---
+
+## Scenario: Work IQ-Enhanced Copilot Studio Agent
+
+### Business Context
+{: .no_toc }
+
+A project management office (PMO) wants an agent that helps managers prepare for weekly status meetings. The agent needs to summarize recent email threads about project risks, check what's on the team's calendars for the coming week, pull the latest status documents from SharePoint, and draft a meeting agenda, all without the manager switching between six apps.
+
+### Key Requirements
+{: .no_toc }
+
+- Agent must access emails, calendar, Teams messages, SharePoint files, and user profiles
+- All data access must respect M365 permissions, with no over-privileged service accounts
+- Low-code authoring (PMO team, not developers, will maintain the agent)
+- Published to M365 Copilot so managers interact with the agent inside Teams and Outlook without leaving their workflow, learning a new app, or managing a new login
+- Admin governance: ability to allow/block specific Work IQ MCP servers
+
+### Recommended Technologies
+{: .no_toc }
+
+| Component | Technology | Purpose |
+|-----------|------------|---------|
+| **Agent Platform** | Copilot Studio | Low-code authoring with connectors and MCP tool integration |
+| **Collaboration Context** | Work IQ MCP servers (Mail, Calendar, Teams, SharePoint, OneDrive, User) | Real-time access to M365 collaboration signals |
+| **Deployment** | Microsoft 365 Copilot (Teams, Outlook) | Users interact where they already work |
+| **Governance** | M365 Admin Center (MCP server allow/block), Power Platform admin | Centralized control over which MCP servers agents can use |
+| **Identity** | Delegated (user-scoped via M365 Copilot license) | Agent acts on behalf of the signed-in user |
+
+**Why This Stack:**
+
+- Work IQ MCP servers are first-class tools in Copilot Studio. Add them via the Tools tab with a few clicks. No API integration code needed.
+- Each MCP server (Mail, Calendar, Teams, etc.) exposes deterministic, auditable tools that the agent invokes through Copilot Studio's generative orchestration.
+- Admin governance is built in. MCP servers are managed in the M365 Admin Center, and admins can allow or block servers organization-wide.
+- The agent runs under the user's identity (M365 Copilot license required), so it only sees what the user is authorized to see, with no blast radius from over-privileged service accounts.
+
+### Implementation Steps
+{: .no_toc }
+
+1. **Create the agent** in Copilot Studio and define instructions for meeting preparation (summarize risks, check calendars, draft agenda).
+2. **Add Work IQ MCP tools:** Navigate to Tools > Add Tool > Model Context Protocol, add Work IQ Mail, Calendar, Teams, SharePoint, and User servers.
+3. **Create connections** for each MCP server. Authenticate with user credentials.
+4. **Test with sample prompts:** "Summarize the top 3 risk-related email threads from last week" or "What meetings does the engineering team have next Monday?"
+5. **Publish to M365 Copilot:** Deploy via the Microsoft 365 channel.
+6. **Configure admin policies:** In the M365 Admin Center, ensure Work IQ MCP servers are allowed for the target user group.
+
+### Alternative Approaches
+{: .no_toc }
+
+- **Microsoft Foundry + Work IQ:** Pro-code path for developers who need deeper orchestration control. Add Work IQ MCP tools in the Foundry portal's tool catalog.
+- **Work IQ CLI:** Direct terminal-based access for developers who want M365 context in their coding workflow (e.g., GitHub Copilot in VS Code via MCP server mode).
+
+**Cross-references:** [Work IQ]({{ '/docs/technologies#work-iq-preview' | relative_url }}), [Pattern 1: Start in Studio, Scale with Azure]({{ '/docs/implementation-patterns#pattern-1-start-in-studio-scale-with-azure' | relative_url }})
+
+---
+
 ## Scenario Comparison Matrix
 
 | Scenario | Complexity | Time to Prod | Skill Level | Key Technology |
@@ -429,6 +537,8 @@ An enterprise has hundreds of legacy Java and .NET applications running on outda
 | Copilot-to-Copilot Mesh | Medium | 3-4 weeks | Maker + light dev | Copilot Studio A2A + MCP tools |
 | Financial Reconciliation (Multi-Agent) | High | 4-6 weeks | Pro dev | Foundry Agent Service + Cosmos DB threads |
 | Multi-Channel Corporate Assistant | Medium | 3-5 weeks | Pro dev | M365 Agents SDK (Teams/Outlook/M365 Chat) |
+| Foundry Agent → M365 Copilot | Medium | 2-4 weeks | Pro dev | Foundry Agent Service + M365 Copilot publish |
+| Work IQ-Enhanced Studio Agent | Low-Medium | 2-3 weeks | Maker | Copilot Studio + Work IQ MCP servers |
 
 ---
 
@@ -448,7 +558,7 @@ An enterprise has hundreds of legacy Java and .NET applications running on outda
 
 ---
 
-**Last Updated:** January 28, 2026  
+**Last Updated:** March 19, 2026  
 **Next:** [Visual Framework]({{ '/docs/visual-framework' | relative_url }}) - Walk the decision trees to choose the right path
 
 ---

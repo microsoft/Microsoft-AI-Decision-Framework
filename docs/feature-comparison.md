@@ -12,7 +12,7 @@ description: Comprehensive side-by-side technology comparisons
 Detailed side-by-side comparisons of Microsoft AI technologies. Use this page after you’ve clarified requirements in the [Decision Framework]({{ '/docs/decision-framework' | relative_url }}), so the tables confirm trade-offs (rather than driving the decision by brand names alone).
 
 {: .note }
-**Sanity check before you compare:** If the work is deterministic, repeatable, or can be expressed as a clear function/workflow, **don’t use an agent**—use a workflow, API integration, or traditional code. Agents are best when the task is ambiguous, multi-step, and conversational, where the steps can’t be fully specified up front.[^when-not-agent]
+**Sanity check before you compare:** If the work is deterministic, repeatable, or can be expressed as a clear function/workflow, **don’t use an agent**. Use a workflow, API integration, or traditional code. Agents are best when the task is ambiguous, multi-step, and conversational, where the steps can’t be fully specified up front.[^when-not-agent]
 
 ---
 
@@ -112,7 +112,7 @@ Use this matrix to choose between Agent Framework Workflows, Logic Apps AI Agent
 - [Copilot Studio Agent Flows](https://learn.microsoft.com/en-us/microsoft-copilot-studio/flows-overview)
 - [Agent Flows vs Cloud Flows FAQ](https://learn.microsoft.com/en-us/microsoft-copilot-studio/flows-faqs)
 
-**Last Updated:** 2024-10-30
+**Last Updated:** 2026-03-19
 **Confidence Level:** High (official Microsoft documentation for all three technologies)
 
 ---
@@ -182,6 +182,48 @@ Use this matrix to choose between Agent Framework Workflows, Logic Apps AI Agent
 
 ---
 
+## IQ Layer Comparison
+
+Three intelligence layers give agents access to different aspects of your organization. Think of them as **The Three Libraries**. No single librarian covers all three.
+
+| Feature | **Foundry IQ** | **Work IQ** | **Fabric IQ** |
+|---------|---------------|------------|--------------|
+| **Domain** | Enterprise knowledge (files, blobs, indexes, web) | M365 organizational context + extensible business systems (the same intelligence layer that powers Copilot) | Business analytics (semantic models, ontologies, OneLake) |
+| **Status** | Preview | Preview | Preview |
+| **Data Boundary** | Azure | M365 tenant | Fabric capacity |
+| **Access Method** | MCP endpoint (agentic retrieval via knowledge bases) | Built-in MCP servers (Copilot, Calendar, Mail, SharePoint, OneDrive, Teams, User, Word, Dataverse/Dynamics 365) + custom MCP servers via MCP Management Server (1,500+ connectors, Graph APIs, REST) | Fabric Data Agents, SQL endpoint |
+| **Permission Model** | ACL sync + Purview labels + Entra identity at query time | M365 Copilot license + Entra identity + admin allow/block | Fabric RBAC + OneLake ACLs |
+| **Knowledge Sources** | Azure Blob, SharePoint (indexed + remote), OneLake, existing indexes, web (Bing) | M365 Graph signals (files, emails, meetings, chats, calendar, people) | Lakehouse, warehouse, KQL, semantic models |
+| **Consumers** | Foundry Agent Service, custom agents via MCP | Copilot Studio, Microsoft Foundry, VS Code, CLI | Copilot Studio, M365 Copilot, Power BI |
+| **Best For** | Custom agents with governed enterprise data + citation-backed responses | Agents that need organizational context: not just file contents, but who decided what, when, and what happened after. Extensible to any system via custom MCP servers | Chat-with-data and analytics scenarios |
+| **Licensing** | Azure consumption (free tier quotas for preview) | M365 Copilot license required | Fabric capacity (F2+) |
+
+**Sources:**
+- [Foundry IQ overview](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/what-is-foundry-iq)
+- [Work IQ MCP overview](https://learn.microsoft.com/en-us/microsoft-agent-365/tooling-servers-overview)
+- [Fabric IQ overview](https://learn.microsoft.com/en-us/fabric/iq/overview)
+
+---
+
+## Lifecycle & Operational Readiness Comparison
+
+Before selecting a platform, check the expiration date. This matrix flags active migration deadlines and governance readiness.
+
+| Dimension | **M365 Copilot** | **Copilot Studio** | **Microsoft Foundry** | **Agent Framework** | **GitHub Copilot** |
+|-----------|-----------------|-------------------|----------------------|--------------------|--------------------||
+| **Platform Status** | GA | GA | GA | RC (.NET, Python) | GA (various features Preview) |
+| **Active Deprecations** | None | None | `azure-ai-inference` (May 30, 2026); Assistants API (Aug 26, 2026) | Breaking changes tracked in upgrade guides | Model LTS policies active |
+| **Publish to M365 Copilot** | Native | Native | One-click from Foundry portal | Via M365 Agents SDK | N/A |
+| **Multi-Agent Orchestration** | Via Researcher agent (Preview) | Connected agents (Preview) | Foundry Agent Service connected agents (GA) | Sequential, Concurrent, Handoff, Magentic | N/A |
+| **MCP Compatibility** | N/A | Consumer (MCP tool integration) | Consumer + Producer (MCP tool GA) | N/A | Consumer (MCP servers in VS Code) |
+| **Permission-Aware Grounding** | Graph security trimming (automatic) | Via connectors + Work IQ MCP | Foundry IQ ACL/label sync; SharePoint ACL flow-through in AI Search | Inherits from host runtime | Repository-scoped |
+| **Built-in Evaluation** | N/A | Test sets + analytics | Foundry portal evals + continuous evaluation | OpenTelemetry hooks | N/A |
+| **Governance Export** | Agent Registry (export inventory) | Power Platform admin + Purview audit | Foundry Control Plane + Azure Policy + Defender | Application-level | Org admin telemetry |
+| **Observability** | M365 admin center | Purview audit + Application Insights | Application Insights agent details view | OpenTelemetry (ENABLE_OTEL) | Usage metrics + plan mode |
+| **Identity Model** | User-scoped (always) | Configurable (delegated or service account) | Managed identity + Entra Agent ID | Application-defined | GitHub identity |
+
+---
+
 ## Data Grounding Technology Comparison
 
 Side-by-side grounding options (Copilot connectors, AI Search, Fabric, Cosmos, PostgreSQL, SQL Database Engine family) by search mode, boundary, and best-fit workloads.
@@ -193,7 +235,7 @@ Side-by-side grounding options (Copilot connectors, AI Search, Fabric, Cosmos, P
 | **Data Boundary** | M365 tenant | Azure | Azure (OneLake) | Azure | Azure | Azure SQL DB & SQL MI: Azure. SQL Server 2025: On-prem or Azure VM. SQL database in Fabric: Fabric. |
 | **Index Target** | Microsoft Graph (connector ingestion) | Azure AI Search index / knowledge bases (agentic retrieval, preview) | Lakehouse Delta tables, Warehouse tables | Cosmos DB collection | PostgreSQL table | SQL table (VECTOR column) |
 | **Access Method** | Graph API (Copilot connector APIs) | REST API, SDKs (`2025-11-01-preview` for knowledge bases) | ADLS Gen2 APIs, SQL endpoint, Fabric Data Agents | SDKs, REST API | SQL, pgvector | T-SQL, VECTOR type, VECTOR_DISTANCE, VECTOR_SEARCH |
-| **Best For** | M365-centric knowledge (Copilot, Search, Context IQ) | Azure-native RAG with ACL/label enforcement and agentic retrieval | Analytics data + unified data platform | Transactional + vector data | PostgreSQL workloads with AI | SQL workloads with AI — choose deployment by existing estate (cloud PaaS, lift-and-shift, on-prem, Fabric) |
+| **Best For** | M365-centric knowledge (Copilot, Search, Context IQ) | Azure-native RAG with ACL/label enforcement and agentic retrieval | Analytics data + unified data platform | Transactional + vector data | PostgreSQL workloads with AI | SQL workloads with AI. Choose deployment by existing estate (cloud PaaS, lift-and-shift, on-prem, Fabric) |
 | **Licensing** | Included with M365 | Azure consumption (agentic retrieval preview on free tier quotas) | Fabric capacity (F2+) | Azure consumption | Azure consumption | Azure SQL DB/MI: Azure consumption. SQL Server 2025: SQL license. SQL in Fabric: Fabric capacity. |
 | **Status** | GA | GA (agentic retrieval preview) | GA (Platform), Preview (Data Agents) | GA | GA | VECTOR type GA. ANN index (DiskANN) Preview. |
 
@@ -204,7 +246,7 @@ Side-by-side grounding options (Copilot connectors, AI Search, Fabric, Cosmos, P
 - [Microsoft Foundry (Azure) FAQ](https://learn.microsoft.com/en-us/azure/ai-foundry/faq?view=foundry-classic) (Updated: 2026-01-23)
 - [Cosmos DB Vector Search](https://learn.microsoft.com/en-us/azure/cosmos-db/vector-search) (Updated: 2025-09-25)
 - [Azure Database for PostgreSQL AI](https://learn.microsoft.com/en-us/azure/postgresql/azure-ai/generative-ai-overview) (Updated: 2026-01-20)
-- [SQL Database Engine Vectors](https://learn.microsoft.com/en-us/sql/sql-server/ai/vectors?view=sql-server-ver17) — applies to SQL Server 2025, Azure SQL Database, Azure SQL MI, SQL database in Fabric (Updated: 2025-07-24)
+- [SQL Database Engine Vectors](https://learn.microsoft.com/en-us/sql/sql-server/ai/vectors?view=sql-server-ver17), applies to SQL Server 2025, Azure SQL Database, Azure SQL MI, SQL database in Fabric (Updated: 2025-07-24)
 - [Azure SQL Database AI](https://learn.microsoft.com/en-us/azure/azure-sql/database/ai-artificial-intelligence-intelligent-applications) (Updated: 2026-02-06)
 - [SQL database in Fabric](https://learn.microsoft.com/en-us/fabric/database/sql/overview) (Updated: 2026-02-06)
 
@@ -218,7 +260,7 @@ Side-by-side grounding options (Copilot connectors, AI Search, Fabric, Cosmos, P
 | Feature | Status | Notes | API Version | Documentation |
 |---------|--------|-------|-------------|----------------|
 | Knowledge bases (renamed from knowledge agents) | Preview | Routes `/knowledgebases/*`, `outputMode` replaces `outputConfiguration`, `retrievalReasoningEffort` (minimal/low/medium) replaces fast path; partial responses supported. | 2025-11-01-preview | [Agentic retrieval migration](https://learn.microsoft.com/en-us/azure/search/agentic-retrieval-how-to-migrate) |
-| Knowledge sources | Preview | Indexed/remote SharePoint, indexed OneLake, web/Bing, search index, Azure Blob; `ingestionParameters` wrap embeddings/chat models, schedules, `contentExtractionMode` (Content Understanding). Portal uses 2025-08-01-preview objects—migrate for 2025-11-01-preview. | 2025-11-01-preview | [Knowledge sources](https://learn.microsoft.com/en-us/azure/search/agentic-knowledge-source-overview) |
+| Knowledge sources | Preview | Indexed/remote SharePoint, indexed OneLake, web/Bing, search index, Azure Blob; `ingestionParameters` wrap embeddings/chat models, schedules, `contentExtractionMode` (Content Understanding). Portal uses 2025-08-01-preview objects. Migrate to 2025-11-01-preview. | 2025-11-01-preview | [Knowledge sources](https://learn.microsoft.com/en-us/azure/search/agentic-knowledge-source-overview) |
 | Content Understanding skill | Preview | Rich Markdown/table extraction and chunking without Text Split; billed to Foundry resource. | 2025-05-01-preview | [Content Understanding skill](https://learn.microsoft.com/en-us/azure/search/cognitive-search-skill-content-understanding) |
 | Semantic ranker on free tier | GA | Semantic reranking available on free tier with volume limits. | n/a | [Semantic ranker](https://learn.microsoft.com/en-us/azure/search/semantic-how-to-enable-disable) |
 | Hybrid/vector debug & control | Preview | `truncationDimension` for MRL embeddings, `filterOverride` for vector-only filters in hybrid queries, `debug` subscores for RRF, token-based Text Split parameters. | 2024-09-01-preview | [Hybrid search preview](https://learn.microsoft.com/en-us/azure/search/hybrid-search-how-to-query#example-hybrid-search-with-filters-targeting-vector-subqueries-preview) |

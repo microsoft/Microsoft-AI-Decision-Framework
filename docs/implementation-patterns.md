@@ -23,6 +23,9 @@ Use this page when you’ve identified a likely platform choice and want an exec
 - [Pattern 6 – Progressive Enhancement (Low-Code to Pro-Code Bridge)](#pattern-6-progressive-enhancement-low-code-to-pro-code-bridge)
 - [Pattern 7 – Translytical Agent (Fabric + Power BI)](#pattern-7-translytical-agent-fabric--power-bi)
 - [Pattern 8: Agentic DevOps Lifecycle](#pattern-8-agentic-devops-lifecycle)
+- [Pattern 9: Foundry Agent → M365 Copilot Publish Path](#pattern-9-foundry-agent--m365-copilot-publish-path)
+- [Pattern 10: Foundry IQ Grounded Agent](#pattern-10-foundry-iq-grounded-agent)
+- [Pattern 11: Responses API Migration (Assistants → Agents)](#pattern-11-responses-api-migration-assistants--agents)
 - [Pattern Selection Guide](#pattern-selection-guide)
 - [Pattern Decision Tree](#pattern-decision-tree)
 
@@ -126,7 +129,7 @@ Use this page when you’ve identified a likely platform choice and want an exec
 **Strengths:**
 
 - Safest path for **read-only** experiences; inherits Microsoft 365 identity, compliance, and data loss prevention controls without extra infrastructure.[^knowledge-sharepoint]
-- Minimal build effort—aligns with **low complexity / low budget** profiles in Evaluation Criteria while improving search and retrieval outcomes.
+- Minimal build effort. Aligns with **low complexity / low budget** profiles in Evaluation Criteria while improving search and retrieval outcomes.
 - Scales rapidly because indexing, security trimming, and citations are handled by Microsoft 365 knowledge services.
 
 **Trade-offs:**
@@ -164,20 +167,20 @@ Use this page when you’ve identified a likely platform choice and want an exec
 **Approach:**
 
 1. Scaffold a custom engine agent with the **Microsoft 365 Agents Toolkit** in Visual Studio/VS Code so you get channel adapters, debugging playground, and deployment templates out of the box.[^agents-toolkit]
-2. Implement orchestration inside the agent container—prefer **Microsoft Agent Framework** (Preview) for multi-agent workflows, or plug in your existing orchestrator through the SDK’s activity pipeline.[^agent-framework][^agentsdk-overview]
+2. Implement orchestration inside the agent container. Prefer **Microsoft Agent Framework** (Preview) for multi-agent workflows, or plug in your existing orchestrator through the SDK's activity pipeline.[^agent-framework][^agentsdk-overview]
 3. Connect enterprise knowledge and actions by wiring Azure AI Search, Azure OpenAI, Microsoft Graph connectors, or first-party APIs behind secured tool handlers.[^agentsdk-build]
 4. Configure channel reach and authentication using the Agents SDK adapters (Copilot, Teams, custom web, Direct Line) and align identity with Entra ID scopes.[^agentsdk-overview]
 5. Deploy the agent to your Azure landing zone (Container Apps, App Service, AKS) and publish through the Agents Toolkit so Microsoft 365 users can discover it in Copilot while other apps call the same endpoint.[^agents-toolkit][^bring-agents]
 
 **Strengths:**
 
-- Full control over orchestration, tooling, telemetry, and hosting—fits **high/very high complexity** profiles in Evaluation Criteria.[^agentsdk-build]
+- Full control over orchestration, tooling, telemetry, and hosting. Fits **high/very high complexity** profiles in Evaluation Criteria.[^agentsdk-build]
 - Single codebase can service Microsoft 365 Copilot, Teams, custom web or mobile clients using built-in channel adapters.[^agents-toolkit]
 - Integrates cleanly with existing Azure DevSecOps practices (CI/CD, logging, private networking) and reusable agent components.[^agents-toolkit]
 
 **Trade-offs:**
 
-- Requires pro-code engineering, multi-environment CI/CD, and sustained ownership—time-to-production typically **weeks → months**.[^agentsdk-build]
+- Requires pro-code engineering, multi-environment CI/CD, and sustained ownership. Time-to-production is typically **weeks → months**.[^agentsdk-build]
 - Agent Framework capabilities remain Preview; plan for API surface changes and feature flags.[^agent-framework]
 - Because you bring your own orchestrator and tooling, you own Responsible AI guardrails (content safety, approvals, auditing) inside the agent container.[^agentsdk-overview]
 
@@ -208,7 +211,7 @@ Use this page when you’ve identified a likely platform choice and want an exec
 
 1. Model the orchestration in **Agent Framework Workflows** to get type-safe executors, edges, and validation before anything runs.[^agent-workflows]
 2. Stand up specialized agents (Microsoft Foundry Agent Service, Microsoft Foundry, or custom ChatClient agents) and register them as workflow executors.[^agent-azure-workflow][^agent-azure-agent]
-3. Choose the right orchestration pattern—Sequential, Concurrent, Handoff, Group Chat, or Magentic—and configure routing rules that match each agent’s responsibilities.[^agent-orchestrations]
+3. Choose the right orchestration pattern (Sequential, Concurrent, Handoff, Group Chat, or Magentic) and configure routing rules that match each agent's responsibilities.[^agent-orchestrations]
 4. Add reliability primitives like checkpointing, event streaming, and human-in-the-loop gates before hosting the workflow runtime.[^agent-checkpoint]
 5. Expose the orchestrator through your preferred surface (M365 Agents SDK, web API, Logic Apps trigger) so downstream channels can invoke the multi-agent workflow. Use the AG-UI protocol (Preview) when you need streaming, shared state, or human-approval experiences in custom web or mobile clients.[^agentsdk-overview][^agui-integration]
 
@@ -227,7 +230,7 @@ Use this page when you’ve identified a likely platform choice and want an exec
 
 **Signals this fits:**
 
-- A single agent can’t reliably complete the workflow—each task needs a specialized agent or tool chain.[^agent-transparency]
+- A single agent can't reliably complete the workflow; each task needs a specialized agent or tool chain.[^agent-transparency]
 - You need deterministic control over multi-agent routing, sequencing, or human approvals.[^agent-workflows]
 - Teams already build in .NET or Python and can maintain preview SDKs.[^agentframework-overview]
 
@@ -371,6 +374,151 @@ Use this page when you’ve identified a likely platform choice and want an exec
 
 ---
 
+## Pattern 9: Foundry Agent → M365 Copilot Publish Path
+
+**Approach:**
+
+1. Build and test the agent in **Microsoft Foundry** using the Agent Builder. Select a model, add instructions, configure tools (MCP, function calling, code interpreter), and validate in the Chat Playground.[^foundry-publish]
+2. **Publish the agent as an Agent Application** to create a managed Azure resource with its own stable endpoint, Entra agent identity, and RBAC scope. This step separates the agent from the development project.[^foundry-publish-share]
+3. **Reassign permissions:** publishing switches the agent from the project's shared identity to a dedicated identity. RBAC roles for any Azure resources the agent accesses (Storage, Search, Cosmos DB) must be re-granted to the new identity.[^foundry-publish-share]
+4. **Distribute to M365 Copilot** using the one-click publish flow from the Foundry portal or the Microsoft 365 Agents Toolkit for advanced customization (SSO, multi-environment CI/CD).[^foundry-to-copilot]
+5. For organization-wide deployment, submit the agent through the Microsoft Admin Center for admin approval. Once approved, the agent appears under "Built by your org" in the Copilot Agent Store.[^foundry-to-copilot]
+
+**Strengths:**
+
+- Bridges the gap between Azure-built agents and Microsoft 365 distribution. One agent serves both custom apps (via Responses API) and M365 Copilot (via Teams/Outlook/Word).[^foundry-to-copilot]
+- Full code-first control over model selection, orchestration, and tooling while inheriting M365 Copilot's discovery and governance surface.[^foundry-publish-share]
+- The published Agent Application is an Azure resource governed by Azure Policy, enabling consistent security posture across the agent fleet.[^foundry-publish-share]
+
+**What you gain by surfacing inside M365 Copilot:**
+
+Publishing into M365 Copilot means your agent inherits a production-grade AI interface without building one. Copilot is the UI for AI. Your agent automatically appears across Teams, Outlook, Word, Excel, and PowerPoint with unified discovery through the Agent Store, tenant-wide governance via the Copilot Control System and Agent Registry, adaptive card rendering for rich interactive responses, built-in compliance and audit controls, usage analytics, mobile parity on iOS/Android, and Entra ID-scoped security trimming. No front-end engineering, no design system, no cross-platform testing. Just the agent logic and the experience it delivers.
+
+**Trade-offs:**
+
+- Identity handoff is manual: publishing switches to a dedicated Entra agent identity, and RBAC roles for any Azure resources the agent accesses must be re-granted to the new identity. Skipping this step causes authorization failures post-publish.[^foundry-publish-share]
+- Requires Azure Bot Service resource provisioning and Entra ID app registration, adding infrastructure management overhead.[^foundry-to-copilot]
+- If the agent requires a fully custom visual experience (e.g., generative UI, streaming canvas, or drag-and-drop interactions), consider the AG-UI protocol (Pattern 5) alongside or instead of the M365 Copilot channel. Not every experience fits a conversational surface, and that's fine.[^foundry-to-copilot]
+
+**Signals this fits:**
+
+- You already build agents in Foundry and want to reach users inside Microsoft 365 without rewriting the agent.
+- The agent needs to serve both a custom app endpoint (Responses API) and M365 Copilot simultaneously.
+- Governance teams require Azure Policy-governed agent resources with centralized identity management.
+
+**When to pivot:** If the agent is primarily M365-facing with no custom app requirement, start with **Pattern 1** (Copilot Studio) for faster time-to-value. If the agent needs bespoke UI with streaming and human approvals, stay in Foundry with the AG-UI protocol (Pattern 5) instead of publishing to Copilot.
+
+**Sources:**
+
+- [Publish and share agents in Microsoft Foundry](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/publish-agent)[^foundry-publish-share]
+- [Publish agents to Microsoft 365 Copilot and Teams](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/publish-copilot)[^foundry-to-copilot]
+- [Foundry Agent Service overview](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/overview?view=foundry)[^foundry-publish]
+
+**Status:** GA (Foundry Agent Service + M365 publish path)
+**Confidence Level:** High (official Microsoft documentation)
+
+---
+
+## Pattern 10: Foundry IQ Grounded Agent
+
+**Approach:**
+
+1. Create a **knowledge base** in Azure AI Search using the agentic retrieval API. Define knowledge sources (Azure Blob, SharePoint, OneLake, web via Bing), configure retrieval instructions, and set reasoning effort.[^foundry-iq-connect]
+2. Connect the knowledge base to a **Foundry Agent Service** agent via MCP. Create a project connection pointing to the knowledge base's MCP endpoint and configure the agent with the `knowledge_base_retrieve` tool.[^foundry-iq-connect]
+3. Write agent instructions that explicitly require using the knowledge base for grounding and returning "I don't know" when retrieval doesn't contain the answer. This prevents hallucination and enforces citation discipline.[^foundry-iq-connect]
+4. Enable **permission-aware retrieval** by synchronizing ACLs from source systems and configuring the agent to run queries under the caller's Entra identity.[^foundry-iq-overview]
+5. Test in the Chat Playground, then publish as an Agent Application or connect to a custom app via the Responses API.[^foundry-publish-share]
+
+**Strengths:**
+
+- Permission-aware by design: ACL sync and Purview label enforcement mean agents never expose content the user isn't authorized to see.[^foundry-iq-overview]
+- Citation-backed responses with extractive data give downstream agents raw content for reasoning, not pre-digested summaries.[^foundry-iq-overview]
+- Multiple agents can share a single knowledge base, eliminating redundant indexing and ensuring consistent grounding across agent workloads.[^foundry-iq-overview]
+
+**Trade-offs:**
+
+- Foundry IQ is in **Preview**. Not recommended for production workloads without accepting preview SLA terms.[^foundry-iq-overview]
+- LLM-based query planning adds cost and latency; use `minimal` reasoning effort for cost-sensitive scenarios that don't need multi-hop retrieval.[^foundry-iq-connect]
+- Knowledge source support is limited to the documented set. Custom databases or APIs require building your own indexer pipeline into AI Search first.[^foundry-iq-faq]
+
+**Signals this fits:**
+
+- The agent needs governed access to enterprise documents across multiple repositories with user-level permission enforcement.
+- Compliance teams require citation-backed responses with traceable source attribution.
+- You want a shared knowledge layer that multiple agents can query without duplicating indexing infrastructure.
+
+**When to pivot:** Use **Pattern 3** (M365 Knowledge Grounding) when data lives exclusively in M365 and users consume the agent inside Copilot. Use **Pattern 2** (Pro-Code First) with direct Azure AI Search calls when you need full control over the retrieval pipeline.
+
+**Sources:**
+
+- [Foundry IQ overview](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/what-is-foundry-iq)[^foundry-iq-overview]
+- [Connect Foundry IQ to Foundry Agent Service](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/foundry-iq-connect)[^foundry-iq-connect]
+- [Foundry IQ FAQ](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/foundry-iq-faq)[^foundry-iq-faq]
+
+**Status:** Preview (Foundry IQ) + GA (Foundry Agent Service)
+**Confidence Level:** Medium (preview knowledge layer + GA runtime)
+
+---
+
+## Pattern 11: Responses API Migration (Assistants → Agents)
+
+The Assistants API sunsets on **August 26, 2026**. This is not a deprecation warning buried in release notes. It is a hard cutoff. If you have production workloads on the Assistants API, migration is not a backlog item. It is the work.
+
+The good news: you don't have to do this alone, and you don't have to do it by hand.
+
+**Approach: Three Migration Paths**
+
+Choose the path that matches your team's velocity and codebase complexity. All three lead to the same destination: the Foundry Agents Service and Responses API.
+
+1. **Automated migration tool:** Microsoft provides a dedicated [migration tool](https://aka.ms/agent/migrate/tool) that inventories your existing Assistants API usage (threads, runs, assistant definitions) and automates structural conversion. Start here. It handles the mechanical translation: Threads become Conversations, Runs become Responses, Assistants become Agents (new), so your team can focus on testing business logic rather than rewriting boilerplate.[^agents-migrate]
+
+2. **GitHub Copilot-assisted migration:** For the parts the migration tool doesn't cover (custom orchestration logic, error handling, business rules wired into tool call loops), use **GitHub Copilot** to accelerate the rewrite. The coding agent can refactor Assistants API patterns to Responses API patterns across your codebase. It understands both API surfaces and can handle the mapping at scale. Assign the migration as a GitHub Issue, let the coding agent open a PR with the refactored code, and review the diff. For large codebases, this turns weeks of manual rewriting into days of review.[^agents-migrate]
+
+3. **Manual migration with the mapping guide:** For teams that prefer full control or have highly customized orchestration, use the official [migration guide](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/migrate) as your reference. The key API primitive changes are straightforward:[^agents-migrate]
+
+   | Before (Assistants API) | After (Responses API) | What Changed |
+   |---|---|---|
+   | Threads | Conversations | Supports streams of items, not just messages |
+   | Runs | Responses | Input/output items with explicit tool call loop management |
+   | Assistants | Agents (new) | Prompt-based, workflow-based, and hosted agent types with stateful context |
+
+4. **Update SDK packages:** Install `azure-ai-projects` 2.x (replaces 1.x) and initialize the `AIProjectClient` pointing to your Foundry project endpoint. Ensure the SDK version matches the portal experience. Mixing 1.x SDK with new portal (or vice versa) causes errors.[^agents-migrate]
+
+5. **Test and validate.** The new agents support all existing tools (file search, code interpreter, function calling) plus capabilities the Assistants API never had: MCP tool calling, image generation, browser automation (Preview), background mode for long-running operations, and durable streams for disconnect/reconnect resilience. Run integration tests against the new endpoint before cutting over.[^agents-migrate][^responses-api]
+
+**What you gain by migrating:**
+
+- **Future-proof.** New features and model support are only added to the new agents. The Assistants API is a frozen feature set counting down to removal.[^agents-migrate]
+- **Single-tenant storage.** Bring your own Cosmos DB for conversation state, keeping data in your security boundary instead of Microsoft-managed storage.[^agents-migrate]
+- **Agent Applications.** Published agents get their own Entra identity, stable endpoint, and Azure Policy integration. You can publish to M365 Copilot (Pattern 9), invoke via the Responses API, or both. The Assistants API never offered any of this.[^foundry-publish-share]
+- **Background responses.** Long-running tools return continuation tokens for polling or stream resumption, eliminating the timeout cliff that plagued complex Assistants API runs.[^responses-api]
+
+**Trade-offs:**
+
+- This is a breaking API change, not a configuration update. The migration tool and GitHub Copilot reduce the effort, but they don't eliminate testing.
+- Tool call loop management is now explicit rather than runtime-managed. This gives you more control but requires updating orchestration logic that previously relied on the Assistants API runtime to drive loops automatically.
+- The migration tool automates structure but not custom business logic. Plan for manual validation of complex workflows even when using automated paths.
+
+**Signals this fits:**
+
+- You have production workloads on the Assistants API. The August 26, 2026 sunset means this pattern applies to you.
+- You need single-tenant storage, MCP integration, or Agent Application publishing that the Assistants API cannot provide.
+- You want to invest migration effort once and land on the platform where all future agent capabilities will ship.
+
+**When to pivot:** If you're starting a *new* agent project, skip migration entirely and build directly on the new agents experience from day one. Don't learn the old API just to migrate off it.
+
+**Sources:**
+
+- [Migrate to the new agents developer experience](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/migrate)[^agents-migrate]
+- [Migration tool](https://aka.ms/agent/migrate/tool)
+- [Use the Azure OpenAI Responses API](https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/responses)[^responses-api]
+- [Publish and share agents in Microsoft Foundry](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/publish-agent)[^foundry-publish-share]
+
+**Status:** GA (Foundry Agents Service and Responses API). Migration deadline: August 26, 2026
+**Confidence Level:** High (official migration guidance with tooling)
+
+---
+
 ### Pattern Selection Guide
 {: .no_toc }
 
@@ -384,6 +532,9 @@ Use this page when you’ve identified a likely platform choice and want an exec
 | **Pattern 6 (Progressive)** | Moderate (weeks) | Medium | High | M365 Copilot, Teams |
 | **Pattern 7 (Translytical)** | Fast (days) | Medium | Medium | Power BI, Fabric |
 | **Pattern 8 (Agentic DevOps)** | Moderate (weeks) | Medium | High | GitHub, Azure DevOps |
+| **Pattern 9 (Foundry → M365)** | Moderate (weeks) | Medium | High | M365 Copilot, Custom Apps |
+| **Pattern 10 (Foundry IQ)** | Moderate (weeks) | High | Full | Custom agents with governed data |
+| **Pattern 11 (API Migration)** | Moderate (weeks) | Medium | N/A | Existing Assistants API workloads |
 
 ---
 
@@ -393,7 +544,7 @@ Use this page when you’ve identified a likely platform choice and want an exec
 
 #### Ground yourself first
 
-1. **Run the BXT gate.** Confirm viability, desirability, and feasibility in [Decision Framework Phase 1]({{ '/docs/decision-framework#phase-1-business-impact-assessment-bxt-framework' | relative_url }}). Any red score means pause here—capture the scenario in the [Scenarios backlog]({{ '/docs/scenarios#how-to-use-this-guide' | relative_url }})) instead of forcing a pattern.
+1. **Run the BXT gate.** Confirm viability, desirability, and feasibility in [Decision Framework Phase 1]({{ '/docs/decision-framework#phase-1-business-impact-assessment-bxt-framework' | relative_url }}). Any red score means pause here. Capture the scenario in the [Scenarios backlog]({{ '/docs/scenarios#how-to-use-this-guide' | relative_url }})) instead of forcing a pattern.
 
 2. **Anchor the user experience.**  
    - **M365-first surface** (Teams, Outlook, Word) → stay inside the Microsoft 365 trust boundary with **Pattern 3** for knowledge-only needs[^pattern3-knowledge] or **Pattern 1** when you need orchestrated actions and governance controls inside Copilot Studio[^pattern1-actions].  
@@ -416,8 +567,8 @@ Use this page when you’ve identified a likely platform choice and want an exec
 **Before you decide:** Validate your choice against the scenario playbooks in [Scenarios]({{ '/docs/scenarios' | relative_url }}) and the capability groupings in [Capability Model]({{ '/docs/capability-model' | relative_url }}) to ensure the pattern supports the right part of Microsoft’s AI portfolio. Use the comparison matrices in [Quick Reference]({{ '/docs/quick-reference' | relative_url }}) to double-check complexity, skills, budget, and governance trade-offs.
 
 [^pattern3-knowledge]: Add SharePoint as a knowledge source in Copilot Studio, Microsoft Learn. Updated: 2026-01-12. [https://learn.microsoft.com/en-us/microsoft-copilot-studio/knowledge-add-sharepoint](https://learn.microsoft.com/en-us/microsoft-copilot-studio/knowledge-add-sharepoint)
-[^pattern1-actions]: Microsoft 365 Copilot release notes — August 19, 2025, Microsoft Learn. [https://learn.microsoft.com/en-us/copilot/microsoft-365/release-notes#august-19,-2025](https://learn.microsoft.com/en-us/copilot/microsoft-365/release-notes#august-19,-2025)
-[^skills-matrix]: Evaluation Criteria — Skills & Resources, Microsoft AI Decision Framework. See `docs/evaluation-criteria.md`.
+[^pattern1-actions]: Microsoft 365 Copilot release notes, August 19, 2025, Microsoft Learn. [https://learn.microsoft.com/en-us/copilot/microsoft-365/release-notes#august-19,-2025](https://learn.microsoft.com/en-us/copilot/microsoft-365/release-notes#august-19,-2025)
+[^skills-matrix]: Evaluation Criteria: Skills & Resources, Microsoft AI Decision Framework. See `docs/evaluation-criteria.md`.
 [^agent-workflows]: Microsoft Agent Framework Workflows overview, Microsoft Learn. [https://learn.microsoft.com/en-us/agent-framework/user-guide/workflows/overview](https://learn.microsoft.com/en-us/agent-framework/user-guide/workflows/overview)
 [^agentsdk-overview]: Microsoft 365 Agents SDK overview, Microsoft Learn. [https://learn.microsoft.com/en-us/microsoft-365/agents-sdk/agents-sdk-overview](https://learn.microsoft.com/en-us/microsoft-365/agents-sdk/agents-sdk-overview)
 

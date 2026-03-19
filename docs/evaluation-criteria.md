@@ -41,7 +41,7 @@ Use this page to turn abstract requirements into defensible engineering decision
 | **Tier 1: Informational**<br>*(Read-Only)* | Single knowledge domain. No state retention. Answers questions based on grounded data. | **RAG (Retrieval Augmented Generation)** | **M365 Copilot**. *Leverage the Graph; no custom orchestration.* |
 | **Tier 2: Transactional**<br>*(Deterministic)* | Linear workflows ("If X, then Y"). Defined API calls. Human approval steps required. | **Orchestrated Workflow** | **Copilot Studio**. *Visual flow designer with Power Platform connectors.* |
 | **Tier 3: Reasoning**<br>*(Probabilistic)* | Multi-step planning. The agent must decide *which* tool to use. Latency-critical. Custom vector stores. | **ReAct / Plan-and-Execute** | **M365 Agents SDK** (if M365-hosted) or **Microsoft Foundry** (if Azure-hosted) or Microsoft Foundry + Copilot Studio. |
-| **Tier 4: Autonomous**<br>*(Nondeterministic)* | Multi-agent collaboration (Swarm). Recursive self-correction. Long-running asynchronous tasks. | **Multi-Agent Systems (MAS)** | **Microsoft Foundry, Agent Frameworkm, or Both**. *Full code-first control if needed* |
+| **Tier 4: Autonomous**<br>*(Nondeterministic)* | Multi-agent collaboration (Swarm). Recursive self-correction. Long-running asynchronous tasks. | **Multi-Agent Systems (MAS)** | **Microsoft Foundry, Agent Framework (RC), or Both**. *Full code-first control if needed* |
 
 ---
 
@@ -64,7 +64,7 @@ Use this page to turn abstract requirements into defensible engineering decision
 
 ## 3. Budget Assessment
 
-Architects must speak the language of finance. You need to capture Total Cost of Ownership (TCO)—licensing, consumption, and the engineering hours required to build it.
+Architects must speak the language of finance. You need to capture Total Cost of Ownership (TCO): licensing, consumption, and the engineering hours required to build it.
 
 **Question:** Is your budget model based on **Capital Expenditure** (Pre-paid seats) or **Operating Expenditure** (Consumption)?
 
@@ -159,6 +159,13 @@ async function executeToolWithApproval(toolName: string, params: any) {
 ## Evaluation Checklist
 
 Before moving to the [Implementation Patterns]({{ '/docs/implementation-patterns' | relative_url }}), confirm you have scored the scenario:
+
+**Lifecycle:**
+
+* [ ] Technology status (GA/Preview/RC/Deprecated) confirmed against [Quick Reference: Lifecycle Status]({{ '/docs/quick-reference' | relative_url }})?
+* [ ] Go-live date checked against any active retirement deadlines?
+* [ ] Publish targets validated for agent distribution?
+* [ ] Governance, observability, and evaluation tooling identified?
 
 **Architecture:**
 

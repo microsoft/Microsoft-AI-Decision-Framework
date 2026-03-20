@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import {
   ReactFlow,
   Background,
@@ -29,9 +29,24 @@ const STATUS_COLORS: Record<string, string> = {
   deprecated: '#ef4444',
 };
 
+/** Read URL search params once on mount. */
+function getUrlParams() {
+  const params = new URLSearchParams(window.location.search);
+  return {
+    flow: params.get('flow'),
+    embed: params.get('embed') === 'true',
+  };
+}
+
 export default function Explorer() {
   const flowKeys = Object.keys(flows);
-  const [activeFlowKey, setActiveFlowKey] = useState(flowKeys[0] ?? '');
+  const urlParams = useMemo(() => getUrlParams(), []);
+
+  // Resolve initial flow from ?flow= param or default to first
+  const initialFlow = urlParams.flow && flows[urlParams.flow] ? urlParams.flow : flowKeys[0] ?? '';
+  const isEmbed = urlParams.embed;
+
+  const [activeFlowKey, setActiveFlowKey] = useState(initialFlow);
   const [activeBranch, setActiveBranch] = useState<BranchId | 'all'>('all');
   const [selectedNode, setSelectedNode] = useState<NodeData | null>(null);
 
@@ -65,7 +80,7 @@ export default function Explorer() {
   const [edges, setEdges, onEdgesChange] = useEdgesState(layoutEdges);
 
   // Sync when layout changes
-  useMemo(() => {
+  useEffect(() => {
     setNodes(layoutNodes);
     setEdges(layoutEdges);
   }, [layoutNodes, layoutEdges, setNodes, setEdges]);
@@ -73,16 +88,20 @@ export default function Explorer() {
   const onNodeClick: NodeMouseHandler<Node<NodeData>> = useCallback((_event, node) => {
     const data = node.data as NodeData;
     if (data.docsUrl) {
-      window.open(data.docsUrl, '_blank', 'noopener');
+      window.open(data.docsUrl, isEmbed ? '_parent' : '_blank', 'noopener');
     }
     setSelectedNode(data);
-  }, []);
+  }, [isEmbed]);
 
   const handleFlowChange = useCallback(
-    (e: React.ChangeEvent<HTMLSelectElement>) => {
-      setActiveFlowKey(e.target.value);
+    (key: string) => {
+      setActiveFlowKey(key);
       setActiveBranch('all');
       setSelectedNode(null);
+      // Update URL without reload
+      const url = new URL(window.location.href);
+      url.searchParams.set('flow', key);
+      window.history.replaceState(null, '', url.toString());
     },
     [],
   );
@@ -96,26 +115,77 @@ export default function Explorer() {
 
   return (
     <div style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
-      {/* Header */}
-      <header className="explorer-header">
-        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-          <h1>AIDF Decision Explorer</h1>
-          <a className="docs-link" href={DOCS_BASE} target="_blank" rel="noopener noreferrer">
-            ← Back to Docs
+      {/* Header — hidden in embed mode */}
+      {!isEmbed && (
+        <header className="explorer-header">
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+            <h1>AIDF Decision Explorer</h1>
+            <a className="docs-link" href={DOCS_BASE} target="_blank" rel="noopener noreferrer">
+              ← Back to Docs
+            </a>
+          </div>
+
+          <div className="controls">
+            {/* Flow selector tabs */}
+            <div className="flow-tabs">
+              {flowKeys.map((key) => {
+                const f = flows[key];
+                return (
+                  <button
+                    key={key}
+                    className={`flow-tab ${activeFlowKey === key ? 'active' : ''}`}
+                    onClick={() => handleFlowChange(key)}
+                    title={f?.description}
+                  >
+                    {f?.title}
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Branch isolation */}
+            <div className="branch-legend">
+              <button
+                className={`branch-tag ${activeBranch === 'all' ? 'active' : ''}`}
+                onClick={() => handleBranchClick('all')}
+              >
+                All
+              </button>
+              {branches.map((b) => (
+                <button
+                  key={b}
+                  className={`branch-tag ${activeBranch === b ? 'active' : ''}`}
+                  onClick={() => handleBranchClick(b)}
+                >
+                  {b.replace(/-/g, ' ')}
+                </button>
+              ))}
+            </div>
+          </div>
+        </header>
+      )}
+
+      {/* Sub-header: flow context bar */}
+      {!isEmbed && (
+        <div className="flow-context-bar">
+          <span className="flow-context-title">{flow.title}</span>
+          <span className="flow-context-sep">·</span>
+          <span className="flow-context-ref">{flow.frameworkRef}</span>
+          <a
+            className="flow-context-link"
+            href={`${DOCS_BASE}${flow.docsSection}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View in Docs →
           </a>
         </div>
+      )}
 
-        <div className="controls">
-          {/* Flow selector */}
-          <select value={activeFlowKey} onChange={handleFlowChange}>
-            {flowKeys.map((key) => (
-              <option key={key} value={key}>
-                {flows[key]?.title}
-              </option>
-            ))}
-          </select>
-
-          {/* Branch isolation */}
+      {/* Embed-mode minimal toolbar */}
+      {isEmbed && (
+        <div className="embed-toolbar">
+          <span className="embed-title">{flow.title}</span>
           <div className="branch-legend">
             <button
               className={`branch-tag ${activeBranch === 'all' ? 'active' : ''}`}
@@ -133,11 +203,19 @@ export default function Explorer() {
               </button>
             ))}
           </div>
+          <a
+            className="embed-open"
+            href={`${DOCS_BASE}/explorer/?flow=${activeFlowKey}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Open full explorer ↗
+          </a>
         </div>
-      </header>
+      )}
 
       {/* Graph */}
-      <div className="flow-container">
+      <div className={`flow-container ${isEmbed ? 'flow-container--embed' : ''}`}>
         <ReactFlow
           nodes={nodes}
           edges={edges}

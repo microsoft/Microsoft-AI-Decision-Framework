@@ -41,6 +41,21 @@ Use these diagrams after working through the [Decision Framework]({{ '/docs/deci
 
 ## Complete Decision Flow
 
+{: .note }
+> **Interactive version available.** Pan, zoom, and click nodes in the embedded explorer below, or [open the full explorer]({{ site.baseurl }}/explorer/?flow=complete-decision){:target="_blank"}.
+
+<div style="border: 1px solid #1f2937; border-radius: 8px; overflow: hidden; margin-bottom: 1.5rem;">
+  <iframe
+    src="{{ site.baseurl }}/explorer/?flow=complete-decision&embed=true"
+    style="width: 100%; height: 520px; border: none; background: #0d1117;"
+    title="Complete Decision Flow — Interactive Explorer"
+    loading="lazy"
+  ></iframe>
+</div>
+
+<details>
+<summary>View as static Mermaid diagram</summary>
+
 ```mermaid
 %%{init: {'theme':'dark'}}%%
 flowchart TD
@@ -136,6 +151,8 @@ flowchart TD
     style AgentService fill:#a52617,color:#fff
     style WinAI fill:#004578,color:#fff
 ```
+
+</details>
 
 ### Validation Summary
 {: .no_toc }
@@ -296,6 +313,21 @@ flowchart TD
 
 ## Data Grounding Decision
 
+{: .note }
+> **Interactive version available.** Pan, zoom, and click nodes in the embedded explorer below, or [open the full explorer]({{ site.baseurl }}/explorer/?flow=data-grounding){:target="_blank"}.
+
+<div style="border: 1px solid #1f2937; border-radius: 8px; overflow: hidden; margin-bottom: 1.5rem;">
+  <iframe
+    src="{{ site.baseurl }}/explorer/?flow=data-grounding&embed=true"
+    style="width: 100%; height: 520px; border: none; background: #0d1117;"
+    title="Data Grounding Decision — Interactive Explorer"
+    loading="lazy"
+  ></iframe>
+</div>
+
+<details>
+<summary>View as static Mermaid diagram</summary>
+
 ```mermaid
 %%{init: {'theme':'dark'}}%%
 flowchart TD
@@ -384,6 +416,8 @@ flowchart TD
     style FabricPlatform fill:#8c5e00,color:#fff
     style FabricAgent fill:#8c5e00,color:#fff
 ```
+
+</details>
 
 ### Validation Summary - Data Grounding Decision
 {: .no_toc }

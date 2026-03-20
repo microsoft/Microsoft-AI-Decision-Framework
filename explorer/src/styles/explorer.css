@@ -103,11 +103,120 @@ html, body, #root {
   color: #fff;
 }
 
+/* ── Flow tabs (replaces select dropdown) ── */
+.flow-tabs {
+  display: flex;
+  gap: 4px;
+}
+
+.flow-tab {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 5px 14px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+
+.flow-tab:hover {
+  border-color: var(--primary);
+  color: var(--text);
+  background: var(--bg-panel);
+}
+
+.flow-tab.active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+
+/* ── Flow context bar ── */
+.flow-context-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 20px;
+  background: var(--bg-panel);
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+  min-height: 32px;
+}
+
+.flow-context-title {
+  font-weight: 600;
+  color: var(--text-strong);
+}
+
+.flow-context-sep {
+  color: var(--border);
+}
+
+.flow-context-ref {
+  color: var(--muted);
+  font-style: italic;
+}
+
+.flow-context-link {
+  margin-left: auto;
+  color: var(--link);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.flow-context-link:hover {
+  color: var(--link-hover);
+  text-decoration: underline;
+}
+
+/* ── Embed toolbar (minimal chrome for iframes) ── */
+.embed-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 12px;
+  background: var(--bg-panel-strong);
+  border-bottom: 1px solid var(--border);
+  min-height: 36px;
+  flex-wrap: wrap;
+}
+
+.embed-title {
+  font-family: 'Sora', 'Source Sans 3', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-strong);
+  white-space: nowrap;
+}
+
+.embed-open {
+  margin-left: auto;
+  color: var(--link);
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.embed-open:hover {
+  color: var(--link-hover);
+  text-decoration: underline;
+}
+
 /* ── Flow container ── */
 .flow-container {
-  height: calc(100% - 52px);
+  height: calc(100% - 84px);
   width: 100%;
   position: relative;
+}
+
+.flow-container--embed {
+  height: calc(100% - 36px);
 }
 
 /* ── React Flow overrides ── */

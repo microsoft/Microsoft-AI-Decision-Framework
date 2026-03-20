@@ -75,6 +75,8 @@ export interface FlowDefinition {
   description: string;
   /** Maps to the decision-framework question(s). */
   frameworkRef: string;
+  /** URL path to the relevant docs section for "View in Docs" link. */
+  docsSection: string;
   /** The raw node list (positions computed by dagre). */
   nodes: import('@xyflow/react').Node<NodeData>[];
   /** The raw edge list. */

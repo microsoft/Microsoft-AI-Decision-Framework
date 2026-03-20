@@ -159,6 +159,7 @@ export const completeDecisionFlow: FlowDefinition = {
   title: 'Complete Decision Flow',
   description: 'End-to-end technology selection covering interaction patterns, build approach, data grounding, and deployment.',
   frameworkRef: 'Phase 2: Q1-Q9 — All nine critical questions',
+  docsSection: '/docs/visual-framework#complete-decision-flow',
   nodes,
   edges,
 };

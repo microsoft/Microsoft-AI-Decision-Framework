@@ -147,6 +147,7 @@ export const dataGroundingFlow: FlowDefinition = {
   title: 'Data Grounding Decision',
   description: 'Navigate data strategy, knowledge sources, vector databases, and platform integration.',
   frameworkRef: 'Phase 2: Q4 — Data grounding patterns',
+  docsSection: '/docs/visual-framework#data-grounding-decision',
   nodes,
   edges,
 };

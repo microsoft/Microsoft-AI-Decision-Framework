@@ -203,6 +203,21 @@ flowchart TD
 
 ## Persona-Based Flow
 
+{: .note }
+> **Interactive version available.** Pan, zoom, and click nodes below, or [open the full explorer]({{ site.baseurl }}/explorer/?flow=persona){:target="_blank"}.
+
+<div style="border: 1px solid #1f2937; border-radius: 8px; overflow: hidden; margin-bottom: 1.5rem;">
+  <iframe
+    src="{{ site.baseurl }}/explorer/?flow=persona&embed=true"
+    style="width: 100%; height: 520px; border: none; background: #0d1117;"
+    title="Persona-Based Flow — Interactive Explorer"
+    loading="lazy"
+  ></iframe>
+</div>
+
+<details>
+<summary>View as static Mermaid diagram</summary>
+
 ```mermaid
 %%{init: {'theme':'dark'}}%%
 flowchart TD
@@ -261,6 +276,8 @@ flowchart TD
     style DSFoundry fill:#a52617,color:#fff
     style IntSpec fill:#004578,color:#fff
 ```
+
+</details>
 
 ### Validation Summary - Persona-Based Flow
 {: .no_toc }
@@ -492,6 +509,21 @@ flowchart TD
 
 ## Complexity Assessment Flow
 
+{: .note }
+> **Interactive version available.** Pan, zoom, and click nodes below, or [open the full explorer]({{ site.baseurl }}/explorer/?flow=complexity){:target="_blank"}.
+
+<div style="border: 1px solid #1f2937; border-radius: 8px; overflow: hidden; margin-bottom: 1.5rem;">
+  <iframe
+    src="{{ site.baseurl }}/explorer/?flow=complexity&embed=true"
+    style="width: 100%; height: 420px; border: none; background: #0d1117;"
+    title="Complexity Assessment Flow — Interactive Explorer"
+    loading="lazy"
+  ></iframe>
+</div>
+
+<details>
+<summary>View as static Mermaid diagram</summary>
+
 ```mermaid
 %%{init: {'theme':'dark'}}%%
 flowchart TD
@@ -528,9 +560,26 @@ flowchart TD
     style Complex fill:#a52617,color:#fff
 ```
 
+</details>
+
 ---
 
 ## Budget & Timeline Tradeoffs
+
+{: .note }
+> **Interactive version available.** Pan, zoom, and click nodes below, or [open the full explorer]({{ site.baseurl }}/explorer/?flow=budget){:target="_blank"}.
+
+<div style="border: 1px solid #1f2937; border-radius: 8px; overflow: hidden; margin-bottom: 1.5rem;">
+  <iframe
+    src="{{ site.baseurl }}/explorer/?flow=budget&embed=true"
+    style="width: 100%; height: 520px; border: none; background: #0d1117;"
+    title="Budget & Timeline Tradeoffs — Interactive Explorer"
+    loading="lazy"
+  ></iframe>
+</div>
+
+<details>
+<summary>View as static Mermaid diagram</summary>
 
 ```mermaid
 %%{init: {'theme':'dark'}}%%
@@ -574,6 +623,8 @@ flowchart TD
     style G_Slow fill:#8c5e00,color:#fff
     style S_Slow fill:#9a4300,color:#fff
 ```
+
+</details>
 
 ### Validation Summary - Budget & Timeline Tradeoffs
 {: .no_toc }
@@ -654,6 +705,21 @@ Organizations running workloads across **both** Copilot Studio and Microsoft Fou
 
 ## Governance & Compliance Path
 
+{: .note }
+> **Interactive version available.** Pan, zoom, and click nodes below, or [open the full explorer]({{ site.baseurl }}/explorer/?flow=governance){:target="_blank"}.
+
+<div style="border: 1px solid #1f2937; border-radius: 8px; overflow: hidden; margin-bottom: 1.5rem;">
+  <iframe
+    src="{{ site.baseurl }}/explorer/?flow=governance&embed=true"
+    style="width: 100%; height: 420px; border: none; background: #0d1117;"
+    title="Governance & Compliance Path — Interactive Explorer"
+    loading="lazy"
+  ></iframe>
+</div>
+
+<details>
+<summary>View as static Mermaid diagram</summary>
+
 ```mermaid
 %%{init: {'theme':'dark'}}%%
 flowchart TD
@@ -686,6 +752,8 @@ flowchart TD
     style G7 fill:#4b2070,color:#fff
     style G8 fill:#a52617,color:#fff
 ```
+
+</details>
 
 ### Validation Summary: Governance & Compliance Path
 {: .no_toc }
@@ -729,6 +797,21 @@ flowchart TD
 
 ## Multi-Agent Orchestration
 
+{: .note }
+> **Interactive version available.** Pan, zoom, and click nodes below, or [open the full explorer]({{ site.baseurl }}/explorer/?flow=multi-agent){:target="_blank"}.
+
+<div style="border: 1px solid #1f2937; border-radius: 8px; overflow: hidden; margin-bottom: 1.5rem;">
+  <iframe
+    src="{{ site.baseurl }}/explorer/?flow=multi-agent&embed=true"
+    style="width: 100%; height: 520px; border: none; background: #0d1117;"
+    title="Multi-Agent Orchestration — Interactive Explorer"
+    loading="lazy"
+  ></iframe>
+</div>
+
+<details>
+<summary>View as static Mermaid diagram</summary>
+
 ```mermaid
 %%{init: {'theme':'dark'}}%%
 flowchart TD
@@ -770,6 +853,8 @@ flowchart TD
     style Workflows fill:#8c5e00,color:#fff
     style EventDriven fill:#4b2070,color:#fff
 ```
+
+</details>
 
 ### Validation Summary: Multi-Agent Orchestration
 {: .no_toc }
@@ -813,6 +898,21 @@ flowchart TD
 
 ## Upgrade Paths
 
+{: .note }
+> **Interactive version available.** Pan, zoom, and click nodes below, or [open the full explorer]({{ site.baseurl }}/explorer/?flow=upgrade){:target="_blank"}.
+
+<div style="border: 1px solid #1f2937; border-radius: 8px; overflow: hidden; margin-bottom: 1.5rem;">
+  <iframe
+    src="{{ site.baseurl }}/explorer/?flow=upgrade&embed=true"
+    style="width: 100%; height: 420px; border: none; background: #0d1117;"
+    title="Upgrade Paths — Interactive Explorer"
+    loading="lazy"
+  ></iframe>
+</div>
+
+<details>
+<summary>View as static Mermaid diagram</summary>
+
 ```mermaid
 %%{init: {'theme':'dark'}}%%
 flowchart TD
@@ -834,6 +934,8 @@ flowchart TD
     style Path2 fill:#a52617,color:#fff
     style Path3 fill:#4b2070,color:#fff
 ```
+
+</details>
 
 ### Validation Summary: Upgrade Paths
 {: .no_toc }
@@ -878,6 +980,21 @@ flowchart TD
 
 ## Lifecycle Check
 
+{: .note }
+> **Interactive version available.** Pan, zoom, and click nodes below, or [open the full explorer]({{ site.baseurl }}/explorer/?flow=lifecycle){:target="_blank"}.
+
+<div style="border: 1px solid #1f2937; border-radius: 8px; overflow: hidden; margin-bottom: 1.5rem;">
+  <iframe
+    src="{{ site.baseurl }}/explorer/?flow=lifecycle&embed=true"
+    style="width: 100%; height: 420px; border: none; background: #0d1117;"
+    title="Lifecycle Check — Interactive Explorer"
+    loading="lazy"
+  ></iframe>
+</div>
+
+<details>
+<summary>View as static Mermaid diagram</summary>
+
 ```mermaid
 %%{init: {'theme':'dark'}}%%
 flowchart TD
@@ -910,6 +1027,8 @@ flowchart TD
     style Block fill:#8b1a1a,color:#fff
 ```
 
+</details>
+
 **Active Deadlines (as of March 2026):**
 - `azure-ai-inference` SDK → retires **May 30, 2026** (successor: `openai` SDK)
 - Assistants API → sunsets **Aug 26, 2026** (successor: Foundry Agents Service / Responses API)
@@ -918,6 +1037,21 @@ flowchart TD
 ---
 
 ## IQ Layer Selection
+
+{: .note }
+> **Interactive version available.** Pan, zoom, and click nodes below, or [open the full explorer]({{ site.baseurl }}/explorer/?flow=iq-layer){:target="_blank"}.
+
+<div style="border: 1px solid #1f2937; border-radius: 8px; overflow: hidden; margin-bottom: 1.5rem;">
+  <iframe
+    src="{{ site.baseurl }}/explorer/?flow=iq-layer&embed=true"
+    style="width: 100%; height: 420px; border: none; background: #0d1117;"
+    title="IQ Layer Selection — Interactive Explorer"
+    loading="lazy"
+  ></iframe>
+</div>
+
+<details>
+<summary>View as static Mermaid diagram</summary>
 
 ```mermaid
 %%{init: {'theme':'dark'}}%%
@@ -949,6 +1083,8 @@ flowchart TD
     style Multi fill:#1a6b3c,color:#fff
     style Combine fill:#1a6b3c,color:#fff
 ```
+
+</details>
 
 **Key distinction:** These three IQ layers are *not* interchangeable. Foundry IQ knowledge sources cannot be used in Copilot, and Copilot knowledge sources cannot be used in Foundry IQ. Choose based on data domain, not brand preference.
 

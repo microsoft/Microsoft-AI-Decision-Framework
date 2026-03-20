@@ -2,8 +2,8 @@ import dagre from '@dagrejs/dagre';
 import type { Node, Edge } from '@xyflow/react';
 import type { NodeData } from './types';
 
-const NODE_WIDTH = 220;
-const NODE_HEIGHT = 80;
+const NODE_WIDTH = 200;
+const NODE_HEIGHT = 64;
 
 /** Apply dagre auto-layout to position nodes in a top-down tree. */
 export function applyDagreLayout(
@@ -15,10 +15,10 @@ export function applyDagreLayout(
   g.setDefaultEdgeLabel(() => ({}));
   g.setGraph({
     rankdir: direction,
-    nodesep: 80,
-    ranksep: 100,
-    marginx: 50,
-    marginy: 50,
+    nodesep: 30,
+    ranksep: 50,
+    marginx: 20,
+    marginy: 20,
   });
 
   for (const node of nodes) {

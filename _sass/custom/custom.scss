@@ -111,7 +111,7 @@ body > header > div.d-md-block.d-none.site-footer {
 #main-content,
 .main-content {
 	margin: 0;
-	max-width: clamp(72ch, 85vw, 170ch);
+	max-width: 100%;
 	width: 100%;
 	padding: 1.25rem 1.5rem 3rem;
 }
@@ -128,14 +128,14 @@ body > header > div.d-md-block.d-none.site-footer {
 }
 
 .page {
-	max-width: 1220px;
+	max-width: 100%;
 	margin: 0 auto;
 	padding: 1.25rem 1.5rem 3rem;
 	flex: 1 1 auto;
 }
 
 .main-content {
-	max-width: min(96ch, 100%);
+	max-width: 100%;
 }
 
 /* Typography */

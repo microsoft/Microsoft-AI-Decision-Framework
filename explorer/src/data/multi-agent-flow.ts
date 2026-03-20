@@ -1,0 +1,70 @@
+import type { Node, Edge } from '@xyflow/react';
+import type { FlowDefinition, NodeData, EdgeData } from '../types';
+
+const nodes: Node<NodeData>[] = [
+  { id: 'Start', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'Need Multi-Agent?', category: 'start', branch: 'overview' } },
+  { id: 'Q1', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'Pattern Type?', category: 'question', branch: 'multi-agent' } },
+  { id: 'Connected', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'Connected mesh pattern', category: 'decision', branch: 'multi-agent', color: '#064e3b' } },
+  { id: 'Workflows', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'Agent Workflow Orchestration', category: 'decision', branch: 'multi-agent', color: '#78350f' } },
+  { id: 'EventDriven', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'Event-Driven Agents', category: 'decision', branch: 'multi-agent', color: '#4c1d95' } },
+  { id: 'C_Platform', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'Platform?', category: 'question', branch: 'multi-agent' } },
+  { id: 'C_Studio', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'Copilot Studio\nAgent2Agent A2A', category: 'recommendation', branch: 'multi-agent', status: 'preview', color: '#1e3a5f' } },
+  { id: 'C_Foundry', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'Microsoft Foundry Azure\nConnected agents', category: 'recommendation', branch: 'multi-agent', color: '#1e3a5f' } },
+  { id: 'W_Framework', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'Framework?', category: 'question', branch: 'multi-agent' } },
+  { id: 'W_AgentFW', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'Agent Framework\nSequential, Concurrent,\nHandoff, Magentic', category: 'recommendation', branch: 'multi-agent', color: '#4c1d95' } },
+  { id: 'W_SK', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'Semantic Kernel\n(maintenance mode)', category: 'recommendation', branch: 'multi-agent', color: '#4c1d95' } },
+  { id: 'W_SDK', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'M365 Agents SDK\nBYO orchestrator', category: 'recommendation', branch: 'multi-agent', color: '#4c1d95' } },
+  { id: 'W_LangGraph', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'LangGraph\n(Third-Party)', category: 'recommendation', branch: 'multi-agent', color: '#78350f' } },
+  { id: 'E_Type', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'Event source?', category: 'question', branch: 'multi-agent' } },
+  { id: 'E_Logic', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'Logic Apps\nAI Agent Workflows + MCP', category: 'recommendation', branch: 'multi-agent', status: 'preview', color: '#1e3a5f' } },
+  { id: 'E_Functions', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'Azure Functions\n+ Agent Service', category: 'recommendation', branch: 'multi-agent', color: '#1e3a5f' } },
+  { id: 'E_Custom', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'Event Grid + Foundry\nEvent routing', category: 'recommendation', branch: 'multi-agent', color: '#1e3a5f' } },
+  // Deploy outcomes
+  { id: 'Deploy1', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'Deploy', category: 'outcome', branch: 'multi-agent' } },
+  { id: 'Deploy2', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'Deploy', category: 'outcome', branch: 'multi-agent' } },
+  { id: 'Deploy3', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'Deploy', category: 'outcome', branch: 'multi-agent' } },
+  { id: 'Deploy4', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'Deploy', category: 'outcome', branch: 'multi-agent' } },
+  { id: 'Deploy5', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'Deploy', category: 'outcome', branch: 'multi-agent' } },
+  { id: 'Deploy6', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'Deploy', category: 'outcome', branch: 'multi-agent' } },
+  { id: 'Deploy7', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'Deploy', category: 'outcome', branch: 'multi-agent' } },
+  { id: 'Deploy8', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'Deploy', category: 'outcome', branch: 'multi-agent' } },
+  { id: 'Deploy9', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'Deploy', category: 'outcome', branch: 'multi-agent' } },
+];
+
+const edges: Edge<EdgeData>[] = [
+  { id: 'e-start', source: 'Start', target: 'Q1', data: { variant: 'default' } },
+  { id: 'e-q1-conn', source: 'Q1', target: 'Connected', label: 'Connected / Mesh A2A', data: { variant: 'default' } },
+  { id: 'e-q1-work', source: 'Q1', target: 'Workflows', label: 'Sequential / parallel', data: { variant: 'default' } },
+  { id: 'e-q1-event', source: 'Q1', target: 'EventDriven', label: 'Event triggers', data: { variant: 'default' } },
+  { id: 'e-conn-plat', source: 'Connected', target: 'C_Platform', data: { variant: 'default' } },
+  { id: 'e-cp-studio', source: 'C_Platform', target: 'C_Studio', label: 'Low-code', data: { variant: 'default' } },
+  { id: 'e-cp-foundry', source: 'C_Platform', target: 'C_Foundry', label: 'Azure', data: { variant: 'default' } },
+  { id: 'e-work-fw', source: 'Workflows', target: 'W_Framework', data: { variant: 'default' } },
+  { id: 'e-wf-agentfw', source: 'W_Framework', target: 'W_AgentFW', label: 'Microsoft', data: { variant: 'default' } },
+  { id: 'e-wf-sk', source: 'W_Framework', target: 'W_SK', label: 'Open source', data: { variant: 'default' } },
+  { id: 'e-wf-sdk', source: 'W_Framework', target: 'W_SDK', label: 'BYO', data: { variant: 'default' } },
+  { id: 'e-wf-lang', source: 'W_Framework', target: 'W_LangGraph', label: 'Third-party', data: { variant: 'default' } },
+  { id: 'e-event-type', source: 'EventDriven', target: 'E_Type', data: { variant: 'default' } },
+  { id: 'e-et-logic', source: 'E_Type', target: 'E_Logic', label: 'Enterprise systems', data: { variant: 'default' } },
+  { id: 'e-et-func', source: 'E_Type', target: 'E_Functions', label: 'Azure events', data: { variant: 'default' } },
+  { id: 'e-et-custom', source: 'E_Type', target: 'E_Custom', label: 'Custom events', data: { variant: 'default' } },
+  // Deploys
+  { id: 'e-cs-d1', source: 'C_Studio', target: 'Deploy1', data: { variant: 'default' } },
+  { id: 'e-cf-d2', source: 'C_Foundry', target: 'Deploy2', data: { variant: 'default' } },
+  { id: 'e-wa-d3', source: 'W_AgentFW', target: 'Deploy3', data: { variant: 'default' } },
+  { id: 'e-wsk-d4', source: 'W_SK', target: 'Deploy4', data: { variant: 'default' } },
+  { id: 'e-wsdk-d5', source: 'W_SDK', target: 'Deploy5', data: { variant: 'default' } },
+  { id: 'e-wlg-d6', source: 'W_LangGraph', target: 'Deploy6', data: { variant: 'default' } },
+  { id: 'e-el-d7', source: 'E_Logic', target: 'Deploy7', data: { variant: 'default' } },
+  { id: 'e-ef-d8', source: 'E_Functions', target: 'Deploy8', data: { variant: 'default' } },
+  { id: 'e-ec-d9', source: 'E_Custom', target: 'Deploy9', data: { variant: 'default' } },
+];
+
+export const multiAgentFlow: FlowDefinition = {
+  title: 'Multi-Agent Orchestration',
+  description: 'Multi-agent patterns: connected mesh, workflow orchestration, event-driven.',
+  frameworkRef: 'Quick Reference — Orchestration Complexity',
+  docsSection: '/docs/visual-framework#multi-agent-orchestration',
+  nodes,
+  edges,
+};

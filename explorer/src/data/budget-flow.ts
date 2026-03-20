@@ -1,0 +1,60 @@
+import type { Node, Edge } from '@xyflow/react';
+import type { FlowDefinition, NodeData, EdgeData } from '../types';
+
+const nodes: Node<NodeData>[] = [
+  { id: 'Start', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'Project Constraints', category: 'start', branch: 'overview' } },
+  { id: 'Q1', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'AI setup budget?', category: 'question', branch: 'budget' } },
+  { id: 'M365Only', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'M365-Only Path', category: 'decision', branch: 'budget' } },
+  { id: 'Starter', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'Starter Budget', category: 'decision', branch: 'budget' } },
+  { id: 'Growth', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'Growth Budget', category: 'decision', branch: 'budget' } },
+  { id: 'Enterprise', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'Enterprise Budget', category: 'decision', branch: 'budget' } },
+  { id: 'M365T', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'Timeline?', category: 'question', branch: 'budget' } },
+  { id: 'M365_Fast', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'M365 Copilot Chat\n$0 addl cost', category: 'outcome', branch: 'budget' } },
+  { id: 'M365_Med', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'M365 Copilot + Graph\n$0 addl cost', category: 'outcome', branch: 'budget' } },
+  { id: 'M365_Slow', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'Declarative Agents\n$0 or PAYG', category: 'recommendation', branch: 'budget', color: '#78350f' } },
+  { id: 'StarterT', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'Timeline?', category: 'question', branch: 'budget' } },
+  { id: 'S_Fast', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'Copilot Studio PAYG\n$200-500/mo', category: 'outcome', branch: 'budget' } },
+  { id: 'S_Med', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'Studio + AI Builder\n$200-500/mo', category: 'recommendation', branch: 'budget', color: '#78350f' } },
+  { id: 'S_Slow', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'Logic Apps AI Workflows\n~$200-400/mo', category: 'recommendation', branch: 'budget', status: 'preview', color: '#78350f' } },
+  { id: 'GrowthT', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'Timeline?', category: 'question', branch: 'budget' } },
+  { id: 'G_Fast', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'Copilot Studio Capacity\n$200+/mo prepaid', category: 'outcome', branch: 'budget' } },
+  { id: 'G_Med', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'M365 SDK + Azure\n$1-3K/mo', category: 'outcome', branch: 'budget' } },
+  { id: 'G_Slow', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'Foundry Azure Starter\n$1-5K/mo', category: 'recommendation', branch: 'budget', color: '#78350f' } },
+  { id: 'EntT', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'Timeline?', category: 'question', branch: 'budget' } },
+  { id: 'E_Fast', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'Foundry Serverless\n$5-15K/mo', category: 'recommendation', branch: 'budget', color: '#7f1d1d' } },
+  { id: 'E_Med', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'Foundry + Agent Service\n$10-30K/mo', category: 'outcome', branch: 'budget' } },
+  { id: 'E_Slow', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'Foundry PTU + Premium\n$30K+/mo', category: 'recommendation', branch: 'budget', color: '#7f1d1d' } },
+];
+
+const edges: Edge<EdgeData>[] = [
+  { id: 'e-start', source: 'Start', target: 'Q1', data: { variant: 'default' } },
+  { id: 'e-q1-m365', source: 'Q1', target: 'M365Only', label: 'Existing M365', data: { variant: 'default' } },
+  { id: 'e-q1-starter', source: 'Q1', target: 'Starter', label: '$200-500/mo', data: { variant: 'default' } },
+  { id: 'e-q1-growth', source: 'Q1', target: 'Growth', label: '$1K-5K/mo', data: { variant: 'default' } },
+  { id: 'e-q1-ent', source: 'Q1', target: 'Enterprise', label: '$5K+/mo', data: { variant: 'default' } },
+  { id: 'e-m365-t', source: 'M365Only', target: 'M365T', data: { variant: 'default' } },
+  { id: 'e-m365t-fast', source: 'M365T', target: 'M365_Fast', label: 'Days', data: { variant: 'default' } },
+  { id: 'e-m365t-med', source: 'M365T', target: 'M365_Med', label: '1-2 Weeks', data: { variant: 'default' } },
+  { id: 'e-m365t-slow', source: 'M365T', target: 'M365_Slow', label: '1 Month+', data: { variant: 'default' } },
+  { id: 'e-starter-t', source: 'Starter', target: 'StarterT', data: { variant: 'default' } },
+  { id: 'e-st-fast', source: 'StarterT', target: 'S_Fast', label: '1-2 Weeks', data: { variant: 'default' } },
+  { id: 'e-st-med', source: 'StarterT', target: 'S_Med', label: '1-2 Months', data: { variant: 'default' } },
+  { id: 'e-st-slow', source: 'StarterT', target: 'S_Slow', label: '3+ Months', data: { variant: 'default' } },
+  { id: 'e-growth-t', source: 'Growth', target: 'GrowthT', data: { variant: 'default' } },
+  { id: 'e-gt-fast', source: 'GrowthT', target: 'G_Fast', label: '2-4 Weeks', data: { variant: 'default' } },
+  { id: 'e-gt-med', source: 'GrowthT', target: 'G_Med', label: '1-3 Months', data: { variant: 'default' } },
+  { id: 'e-gt-slow', source: 'GrowthT', target: 'G_Slow', label: '3-6 Months', data: { variant: 'default' } },
+  { id: 'e-ent-t', source: 'Enterprise', target: 'EntT', data: { variant: 'default' } },
+  { id: 'e-et-fast', source: 'EntT', target: 'E_Fast', label: '4-8 Weeks', data: { variant: 'default' } },
+  { id: 'e-et-med', source: 'EntT', target: 'E_Med', label: '3-6 Months', data: { variant: 'default' } },
+  { id: 'e-et-slow', source: 'EntT', target: 'E_Slow', label: '6+ Months', data: { variant: 'default' } },
+];
+
+export const budgetFlow: FlowDefinition = {
+  title: 'Budget & Timeline',
+  description: 'Cost and time-to-production paths by budget tier.',
+  frameworkRef: 'Evaluation Criteria — Budget & Time',
+  docsSection: '/docs/visual-framework#budget--timeline-tradeoffs',
+  nodes,
+  edges,
+};

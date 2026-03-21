@@ -56,9 +56,9 @@ export default function Explorer() {
   const { layoutNodes, layoutEdges, branches } = useMemo(() => {
     if (!flow) return { layoutNodes: [], layoutEdges: [], branches: [] as BranchId[] };
 
-    // Collect unique branches
+    // Collect unique branches (exclude 'overview' — it only has the start node)
     const branchSet = new Set<BranchId>();
-    flow.nodes.forEach((n) => branchSet.add(n.data.branch));
+    flow.nodes.forEach((n) => { if (n.data.branch !== 'overview') branchSet.add(n.data.branch); });
     const branches = Array.from(branchSet);
 
     // Filter by branch

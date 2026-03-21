@@ -471,3 +471,4 @@ ehthumbs_vista.db
 # Sublime Text
 *.sublime-workspace
 *.sublime-project
+.vite/

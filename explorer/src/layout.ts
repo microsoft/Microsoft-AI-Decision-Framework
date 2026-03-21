@@ -19,8 +19,6 @@ export function applyDagreLayout(
     ranksep: 44,
     marginx: 16,
     marginy: 16,
-    align: 'UL',
-    ranker: 'tight-tree',
   });
 
   for (const node of nodes) {

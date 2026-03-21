@@ -19,20 +19,25 @@ const nodes: Node<NodeData>[] = [
 
 const edges: Edge<EdgeData>[] = [
   { id: 'e-start', source: 'Start', target: 'Domain', data: { variant: 'default' } },
+  // Domain → IQ choices
   { id: 'e-d-fiq', source: 'Domain', target: 'FIQ', label: 'Enterprise docs, files', data: { variant: 'default' } },
   { id: 'e-d-wiq', source: 'Domain', target: 'WIQ', label: 'M365 collaboration', data: { variant: 'default' } },
   { id: 'e-d-fbiq', source: 'Domain', target: 'FBIQ', label: 'Analytics, dashboards', data: { variant: 'default' } },
   { id: 'e-d-multi', source: 'Domain', target: 'Multi', label: 'Multiple domains', data: { variant: 'default' } },
-  { id: 'e-fiq-detail', source: 'FIQ', target: 'FIQ_Detail', data: { variant: 'default' } },
-  { id: 'e-wiq-detail', source: 'WIQ', target: 'WIQ_Detail', data: { variant: 'default' } },
-  { id: 'e-fbiq-detail', source: 'FBIQ', target: 'FBIQ_Detail', data: { variant: 'default' } },
+  // IQ choices → Licensing (moved up)
+  { id: 'e-fiq-lic', source: 'FIQ', target: 'License1', data: { variant: 'default' } },
+  { id: 'e-wiq-lic', source: 'WIQ', target: 'License2', data: { variant: 'default' } },
+  { id: 'e-fbiq-lic', source: 'FBIQ', target: 'License3', data: { variant: 'default' } },
+  // Licensing → Detail descriptions
+  { id: 'e-lic1-detail', source: 'License1', target: 'FIQ_Detail', data: { variant: 'default' } },
+  { id: 'e-lic2-detail', source: 'License2', target: 'WIQ_Detail', data: { variant: 'default' } },
+  { id: 'e-lic3-detail', source: 'License3', target: 'FBIQ_Detail', data: { variant: 'default' } },
+  // Multiple domains → Combine (at bottom)
   { id: 'e-multi-combine', source: 'Multi', target: 'Combine', data: { variant: 'default' } },
-  { id: 'e-combine-fiq', source: 'Combine', target: 'FIQ_Detail', data: { variant: 'default' } },
-  { id: 'e-combine-wiq', source: 'Combine', target: 'WIQ_Detail', data: { variant: 'default' } },
-  { id: 'e-combine-fbiq', source: 'Combine', target: 'FBIQ_Detail', data: { variant: 'default' } },
-  { id: 'e-fiqd-lic', source: 'FIQ_Detail', target: 'License1', data: { variant: 'default' } },
-  { id: 'e-wiqd-lic', source: 'WIQ_Detail', target: 'License2', data: { variant: 'default' } },
-  { id: 'e-fbiqd-lic', source: 'FBIQ_Detail', target: 'License3', data: { variant: 'default' } },
+  // Details also flow to Combine to show the connection
+  { id: 'e-fiqd-combine', source: 'FIQ_Detail', target: 'Combine', data: { variant: 'default' } },
+  { id: 'e-wiqd-combine', source: 'WIQ_Detail', target: 'Combine', data: { variant: 'default' } },
+  { id: 'e-fbiqd-combine', source: 'FBIQ_Detail', target: 'Combine', data: { variant: 'default' } },
 ];
 
 export const iqLayerFlow: FlowDefinition = {

@@ -320,9 +320,8 @@ Use this page as a reference after you’ve narrowed the decision: it’s optimi
 
 **Sources:**
 
-- [What's new in Foundry Agent Service](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/whats-new#june-2025) (Updated: 2025-10-08)
-- [What's new in Foundry Agent Service](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/whats-new#may-2025) (Updated: 2025-10-08)
-- [Foundry Agent Service Overview](https://learn.microsoft.com/en-us/azure/ai-services/agents/overview)
+- [What's new in Microsoft Foundry](https://learn.microsoft.com/en-us/azure/foundry/whats-new-foundry) (Updated: 2026-03-23)
+- [Foundry Agent Service overview](https://learn.microsoft.com/en-us/azure/foundry/agents/overview)
 - [Agent Tools Overview](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/how-to/tools/overview)
 - [Transparency Note for Azure Agent Service](https://learn.microsoft.com/en-us/azure/ai-foundry/responsible-ai/agents/transparency-note)
 - [Virtual Networks for Foundry](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/how-to/virtual-networks)
@@ -397,7 +396,7 @@ Use this page as a reference after you’ve narrowed the decision: it’s optimi
 
 **Sources:**
 
-- [What's new in Azure AI Search (Nov 2025)](https://learn.microsoft.com/en-us/azure/search/whats-new#november-2025) (Updated: 2025-12-18)
+- [What's new in Azure AI Search](https://learn.microsoft.com/en-us/azure/search/whats-new#2025-announcements) (Updated: 2025-12-18)
 - [What's new in Azure AI Search (Sep 2025)](https://learn.microsoft.com/en-us/azure/search/whats-new#september-2025) (Updated: 2025-12-18)
 
 ---

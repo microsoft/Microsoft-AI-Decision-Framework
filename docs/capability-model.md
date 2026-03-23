@@ -144,7 +144,7 @@ This grouping sits beneath apps: models, tools, retrieval, evaluations, and gove
 Microsoft and partners ship specialized agents for specific domains.
 * **Microsoft 365 Copilot agents:** Integrated into the Microsoft 365 Copilot experience.
 * **Azure SRE Agent (Preview):** Operational automation for Azure environments. [Azure SRE Agent overview](https://learn.microsoft.com/en-us/azure/sre-agent/overview)
-* **GitHub Copilot agent mode & coding agent:** Autonomous coding tasks. [GitHub Copilot in VS Code](https://code.visualstudio.com/docs/copilot/overview#_autonomous-coding)
+* **GitHub Copilot agent mode & coding agent:** Autonomous coding tasks. [GitHub Copilot agents in VS Code](https://code.visualstudio.com/docs/copilot/agents/overview)
 
 ### The Three IQ Layers (How Agents Understand Your Organization)
 
@@ -238,7 +238,7 @@ Historically, the "AND" conversation stalled at procurement: separate billing fo
 * [When not to use AI agents](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/business-strategy-plan#when-not-to-use-ai-agents) (Updated: 2025-12-05)
 * [Word, Excel, and PowerPoint Agents (Frontier)](https://learn.microsoft.com/en-us/copilot/microsoft-365/wordexcelppt-agents) (Updated: 2026-01-14)
 * [Azure SRE Agent overview](https://learn.microsoft.com/en-us/azure/sre-agent/overview) (Updated: 2025-12-08)
-* [GitHub Copilot in VS Code](https://code.visualstudio.com/docs/copilot/overview#_autonomous-coding) (Updated: 2026-01-08)
+* [GitHub Copilot agents in VS Code](https://code.visualstudio.com/docs/copilot/agents/overview) (Updated: 2026-03-18)
 * [About GitHub Copilot coding agent](https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-coding-agent) (Accessed: 2026-01-28)
 * [Agent Pre-Purchase Plan (P3)](https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/agent-pre-purchase) (Updated: 2026-01-15)
 * [Introducing Microsoft Agent Factory](https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/introducing-microsoft-agent-factory/4470732) (Published: 2025-11-18)

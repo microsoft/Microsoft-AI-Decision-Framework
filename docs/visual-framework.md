@@ -167,7 +167,7 @@ flowchart TD
 | **M365 Copilot** | 🔒 User-in-the-loop always | 🔄 Reactive only | Conversational chat in M365 apps [(docs)](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/) |
 | **Copilot Studio** | ⚠️ Actions can execute (add approval workflows) | 🔄 Reactive (conversational) or **✅ Autonomous (event triggers)** | Low-code, 13+ channels [(docs)](https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-what-is-copilot-studio) |
 | **M365 Agents SDK** | ⚠️ Custom action safety design | ✅ Proactive capable | Pro-code, 10+ channels, C#/JS/Python, BYO orchestrator [(docs)](https://learn.microsoft.com/en-us/microsoft-365/agents-sdk/agents-sdk-overview) |
-| **Microsoft Foundry (Azure)** | ⚠️ Autonomous planning loops | ✅ Proactive capable | Custom UI deployment [(docs)](https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/use-web-app) |
+| **Microsoft Foundry (Azure)** | ⚠️ Autonomous planning loops | ✅ Proactive capable | Custom UI deployment [(docs)](https://learn.microsoft.com/en-us/azure/foundry/what-is-foundry) |
 | **Agent Framework + AG-UI** (Preview) | ⚠️ Approvals via AG-UI middleware | ✅ Proactive capable (inherits host orchestration) | Protocol bridges agents to web/mobile UI with SSE streaming, backend tool rendering, shared state, and CopilotKit components [(docs)](https://learn.microsoft.com/en-us/agent-framework/integrations/ag-ui/) |
 
 #### Autonomous Agents
@@ -184,7 +184,7 @@ flowchart TD
 
 | Technology | Action Safety | Proactive | Description |
 |------------|---------------|-----------|-------------|
-| **Foundry Agent Service** | ⚠️ Autonomous planning loops | ✅ Proactive capable | REST API, managed PaaS [(docs)](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/quickstart) |
+| **Foundry Agent Service** | ⚠️ Autonomous planning loops | ✅ Proactive capable | REST API, managed PaaS [(docs)](https://learn.microsoft.com/en-us/azure/foundry/quickstarts/get-started-code) |
 | **Microsoft Foundry (Azure)** | ⚠️ Autonomous planning loops | ✅ Proactive capable | REST API deployment [(docs)](https://learn.microsoft.com/en-us/rest/api/aifoundry/) |
 
 #### Vector Databases
@@ -765,7 +765,7 @@ flowchart TD
 
 | Technology | Action Safety | Proactive | Data Grounding/Memory/Analytics | Key Governance Features | Documentation |
 |------------|---------------|-----------|----------------------------------|------------------------|---------------|
-| **M365 Copilot** (GA) | ✅ User-in-the-loop (drafts only) | ❌ Reactive only | Grounding only (M365 Graph per-request), no extractable memory | M365 trust boundary, auto DLP/sensitivity labels, user-scoped permissions, Purview audit, no training on tenant data | [M365 Copilot Security](https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-ai-security) |
+| **M365 Copilot** (GA) | ✅ User-in-the-loop (drafts only) | ❌ Reactive only | Grounding only (M365 Graph per-request), no extractable memory | M365 trust boundary, auto DLP/sensitivity labels, user-scoped permissions, Purview audit, no training on tenant data | [M365 Copilot Security](https://learn.microsoft.com/en-us/copilot/microsoft-365/security-microsoft-365-copilot) |
 | **Copilot Studio** (GA) | ⚠️ Actions execute (flows/connectors) | ✅ Autonomous (event triggers) | Grounding + Dataverse persistence (transcripts, variables), full analytics | Power Platform RBAC + DLP, environment-level governance, connector controls, ⚠️ web search leaves boundary, ⚠️ dual auth (user/service) | [Copilot Studio Security](https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance) |
 
 #### Azure Region Control Technologies
@@ -773,7 +773,7 @@ flowchart TD
 
 | Technology | Action Safety | Proactive | Data Grounding/Memory/Analytics | Key Governance Features | Documentation |
 |------------|---------------|-----------|----------------------------------|------------------------|---------------|
-| **Microsoft Foundry (Azure)** (GA) | ⚠️ Tool calling with autonomous planning | ✅ Proactive (Azure Functions, Logic Apps) | Grounding + BYO thread storage (Cosmos DB), Azure Monitor + OpenTelemetry | Azure RBAC (control + data plane), VNet + private endpoints, managed identity, CMK optional, ⚠️ API key OR Entra ID (Entra recommended) | [Microsoft Foundry security](https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/planning) |
+| **Microsoft Foundry (Azure)** (GA) | ⚠️ Tool calling with autonomous planning | ✅ Proactive (Azure Functions, Logic Apps) | Grounding + BYO thread storage (Cosmos DB), Azure Monitor + OpenTelemetry | Azure RBAC (control + data plane), VNet + private endpoints, managed identity, CMK optional, ⚠️ API key OR Entra ID (Entra recommended) | [Microsoft Foundry security](https://learn.microsoft.com/en-us/azure/foundry/concepts/rbac-foundry) |
 | **AI Agent Service** | ⚠️ Autonomous with action tools (Logic Apps, Functions, MCP) | ✅ Proactive (event triggers) | BYO thread storage (Cosmos DB), Azure Monitor project-scoped | Full RBAC (project + resource), VNet + private endpoints, BYO storage, no public egress by default, container injection for VNet | [Agent Service Security](https://learn.microsoft.com/en-us/azure/ai-foundry/responsible-ai/agents/data-privacy-security) |
 | **AI Builder** (GA) | Varies by model type | ❌ Reactive | Dataverse storage | Power Platform DLP, Dataverse RBAC, environment location | [AI Builder Governance](https://learn.microsoft.com/en-us/ai-builder/administer) |
 
@@ -867,8 +867,8 @@ flowchart TD
 | Technology | Status | Capabilities | Documentation |
 |------------|--------|--------------|---------------|
 | **Copilot Studio** | Preview | Agent2Agent (A2A) decentralized mesh, Connected agents, child agents, handoffs | [Connected Agents](https://learn.microsoft.com/microsoft-copilot-studio/advanced-connected-agents) |
-| **Foundry Agent Service** | GA | Connected agents with natural language sub-agent delegation | [Connected Agents](https://learn.microsoft.com/azure/ai-services/agents/concepts/connected-agents) |
-| **Fabric Data Agents** | Preview | Consumed by other agents for data grounding (NOT orchestrator) | [Fabric Integration](https://learn.microsoft.com/fabric/data-activator/data-agent-copilot-studio-integration) |
+| **Foundry Agent Service** | GA | Multi-agent workflows with orchestration patterns | [Agent Workflows](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/workflow) |
+| **Fabric Data Agents** | Preview | Consumed by other agents for data grounding (NOT orchestrator) | [Fabric Integration](https://learn.microsoft.com/en-us/fabric/data-science/data-agent-microsoft-copilot-studio) |
 
 #### Agent Workflow Orchestration
 {: .no_toc }
@@ -948,7 +948,7 @@ flowchart TD
 | Mechanism | Status | Description | Documentation |
 |-----------|--------|-------------|---------------|
 | **BYO Model** | Preview | Swap default Copilot Studio model for a specialized Foundry model (1,900+ options) | [BYO Model](https://learn.microsoft.com/microsoft-copilot-studio/advanced-generative-actions) |
-| **Agent Handoff** | Preview | Copilot Studio delegates to Foundry Agent Service for complex tasks | [Agent Handoff](https://learn.microsoft.com/azure/ai-foundry/agents/how-to/handoff-copilot) |
+| **Agent Handoff** | Preview | Copilot Studio delegates to Foundry Agent Service for complex tasks | [Connect to a Foundry agent](https://learn.microsoft.com/en-us/microsoft-copilot-studio/add-agent-foundry-agent) |
 | **Shared Knowledge** | GA | Both Copilot Studio and Custom Apps can consume the same Azure AI Search index | [Azure AI Search](https://learn.microsoft.com/azure/search/) |
 
 ---

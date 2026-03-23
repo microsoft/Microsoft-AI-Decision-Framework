@@ -231,7 +231,7 @@ Support team handles 1,000+ tickets per month with repetitive questions. Company
 
 **Why This Stack:**
 
-- Azure AI Search: Indexes multiple disparate sources (SharePoint, Confluence, databases, etc.) with agentic retrieval preview ([What's new in Azure AI Search, May 2025](https://learn.microsoft.com/en-us/azure/search/whats-new#may-2025))
+- Azure AI Search: Indexes multiple disparate sources (SharePoint, Confluence, databases, etc.) with agentic retrieval preview ([What's new in Azure AI Search](https://learn.microsoft.com/en-us/azure/search/whats-new#2025-announcements))
 - Copilot Studio BYOK: Connects to Azure AI Search for advanced RAG
 - Multi-channel: Same agent on website and Teams
 - Custom actions: Extend with ticket creation, order lookups
@@ -274,7 +274,7 @@ Support team handles 1,000+ tickets per month with repetitive questions. Company
 
 **If you need full control:**
 
-- Build with M365 Agents SDK or Microsoft Foundry (Azure) ([Foundry Agent Service GA, May 2025](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/whats-new#may-2025))
+- Build with M365 Agents SDK or Microsoft Foundry (Azure) ([Foundry Agent Service overview](https://learn.microsoft.com/en-us/azure/foundry/agents/overview))
 - Custom evaluation metrics
 - More complex deployment
 

@@ -44,7 +44,7 @@ A protocol enabling secure, peer-to-peer communication between AI agents, allowi
 Central inventory in the M365 admin center to publish, activate, deploy, pin, block, remove, delete, transfer ownership, or export agents; enforces governance and visibility across Copilot and custom agents ([Agent Registry](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/agent-registry?view=o365-worldwide#admin-actions-to-manage-agents), retrieved 2026-01-23).
 
 **Agent Settings templates (Preview)**  
-Reusable configuration templates in the M365 admin center that let admins apply consistent policies to multiple agents (e.g., enabled channels, publishing scope, owners), managed alongside Agent Registry entries ([Microsoft 365 Copilot release notes, November 24, 2025](https://learn.microsoft.com/en-us/copilot/microsoft-365/release-notes#november-24,-2025)).
+Reusable configuration templates in the M365 admin center that let admins apply consistent policies to multiple agents (e.g., enabled channels, publishing scope, owners), managed alongside Agent Registry entries ([Microsoft 365 Copilot release notes, November 25, 2025](https://learn.microsoft.com/en-us/copilot/microsoft-365/release-notes#november-25,-2025)).
 
 **Agentic Retrieval (Preview)**  
 An evolution of traditional RAG where AI agents dynamically reason about search queries, plan multi-step retrieval strategies, and adaptively refine results before generation. Unlike static RAG patterns, agentic retrieval enables agents to decompose complex questions, filter sources intelligently, and combine multiple search modes (vector, hybrid, semantic) based on context ([Agentic retrieval in Azure AI Search](https://learn.microsoft.com/en-us/azure/search/agentic-retrieval-overview), updated 2026-01-16). *When to use:* Choose agentic retrieval for complex research scenarios requiring multi-hop reasoning; use traditional RAG for straightforward document lookup. See Decision Framework Q3.
@@ -130,7 +130,7 @@ Copilot connector that ingests external content into Microsoft Graph’s semanti
 ## H
 
 **Hosted Agent**  
-An AI agent deployed to and running within the [Foundry Agent Service](#f) managed runtime, where Microsoft handles infrastructure (compute, memory, thread state) rather than self-hosted deployment in your own infrastructure. Hosted agents benefit from automatic managed identity integration (no secrets for downstream Azure service calls), Azure Monitor tracing, event triggers via Logic Apps, and VS Code debugging with the Foundry extension ([Foundry Agent Service RBAC + Managed Identity](https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/develop/vs-code-agents), updated 2025-10-22). *Deployment alternative:* Self-hosted agents using Agent Framework, LangChain, or custom code in Azure Container Apps, AKS, or Azure Functions. See Decision Framework Q4 and Implementation Patterns for deployment strategy guidance.
+An AI agent deployed to and running within the [Foundry Agent Service](#f) managed runtime, where Microsoft handles infrastructure (compute, memory, thread state) rather than self-hosted deployment in your own infrastructure. Hosted agents benefit from automatic managed identity integration (no secrets for downstream Azure service calls), Azure Monitor tracing, event triggers via Logic Apps, and VS Code debugging with the Foundry extension ([Hosted agents overview](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/hosted-agents), updated 2026-03-23). *Deployment alternative:* Self-hosted agents using Agent Framework, LangChain, or custom code in Azure Container Apps, AKS, or Azure Functions. See Decision Framework Q4 and Implementation Patterns for deployment strategy guidance.
 
 ## M
 
@@ -171,7 +171,7 @@ A managed platform for geospatial insights that allows customers to ingest, mana
 A term largely superseded by **Tool** or **MCP Server**. Originally referred to extensions for ChatGPT/Copilot; the ecosystem has shifted toward the Model Context Protocol (MCP) for standardized interoperability.
 
 **Prompt Flow**  
-Microsoft Foundry (Azure)’s visual DAG environment for orchestrating LLMs, prompts, and Python tools, comparing prompt variants, collaborating across teams, and deploying flows as managed endpoints ([Prompt flow in Microsoft Foundry portal](https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/prompt-flow), updated 2025-06-30).
+Microsoft Foundry (Azure)'s visual DAG environment for orchestrating LLMs, prompts, and Python tools, comparing prompt variants, collaborating across teams, and deploying flows as managed endpoints ([Prompt flow in Microsoft Foundry portal (classic)](https://learn.microsoft.com/en-us/azure/foundry-classic/concepts/prompt-flow), updated 2025-06-30). **Note:** Prompt Flow is available only in the Foundry (classic) portal. For new projects, use [Agent Framework Workflows](https://learn.microsoft.com/en-us/agent-framework/user-guide/workflows/overview).
 
 ## R
 

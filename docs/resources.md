@@ -55,9 +55,9 @@ This page provides comprehensive links to official Microsoft documentation, trai
 
 **Key Resources:**
 
-- [What's new in Foundry Agent Service](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/whats-new)
+- [What's new in Microsoft Foundry](https://learn.microsoft.com/en-us/azure/foundry/whats-new-foundry)
 - [M365 Copilot Extensibility Overview](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/)
-- [Microsoft 365 Copilot release notes - November 24, 2025](https://learn.microsoft.com/en-us/copilot/microsoft-365/release-notes#november-24,-2025)
+- [Microsoft 365 Copilot release notes - November 25, 2025](https://learn.microsoft.com/en-us/copilot/microsoft-365/release-notes#november-25,-2025)
 - [Agent Registry in the Microsoft 365 admin center](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/agent-registry?view=o365-worldwide#admin-actions-to-manage-agents) (Updated: 2026-01-23)
 - [Secure and govern Microsoft 365 Copilot agents (Purview blueprint)](https://learn.microsoft.com/en-us/purview/deploymentmodels/depmod-sc-agents-deployment)
 - [Cloud Adoption Framework for AI](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/ai/)
@@ -76,9 +76,9 @@ This page provides comprehensive links to official Microsoft documentation, trai
 
 **Key Resources:**
 
-- [Foundry Agent Service quickstart](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/quickstart)
-- [Microsoft Foundry Visual Studio Code extension](https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/develop/vs-code-agents?context=/azure/ai-services/agents/context/context)
-- [M365 Agents SDK Toolkit](https://marketplace.visualstudio.com/items?itemName=msft-vscode-m365-agents.vscode-m365-agents)
+- [Microsoft Foundry quickstart](https://learn.microsoft.com/en-us/azure/foundry/quickstarts/get-started-code)
+- [Microsoft Foundry Visual Studio Code extension](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/vs-code-agents-workflow-low-code)
+- [M365 Agents Toolkit (VS Code)](https://marketplace.visualstudio.com/items?itemName=TeamsDevApp.ms-teams-vscode-extension)
 - [Microsoft Agent Framework documentation](https://learn.microsoft.com/en-us/agent-framework/overview/agent-framework-overview)
 - [Semantic Kernel documentation](https://learn.microsoft.com/en-us/semantic-kernel/overview/)
 - [Agentic retrieval quickstart for Azure AI Search](https://learn.microsoft.com/en-us/azure/search/search-get-started-agentic-retrieval)
@@ -101,7 +101,7 @@ This page provides comprehensive links to official Microsoft documentation, trai
 - [What's new in Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/whats-new#october-2025)
 - [Copilot Studio documentation](https://learn.microsoft.com/en-us/microsoft-copilot-studio/)
 - [Copilot Studio learning paths](https://learn.microsoft.com/en-us/training/browse/?products=microsoft-copilot-studio)
-- [Power Platform community](https://powerusers.microsoft.com/)
+- [Power Platform community](https://community.powerplatform.com/)
 - [Copy an agent to Copilot Studio](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/copy-agent-to-copilot-studio) (Updated: 2026-01-26)
 
 ---
@@ -117,12 +117,12 @@ This page provides comprehensive links to official Microsoft documentation, trai
 
 **Key Resources:**
 
-- [Security for Microsoft 365 Copilot](https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-ai-security)
+- [Security for Microsoft 365 Copilot](https://learn.microsoft.com/en-us/copilot/microsoft-365/security-microsoft-365-copilot)
 - [M365 Copilot admin guide](https://learn.microsoft.com/en-us/microsoft-365-copilot/microsoft-365-copilot-setup)
 - [Integrated apps management](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/test-and-deploy-microsoft-365-apps)
 - [Graph connectors administration](https://learn.microsoft.com/en-us/microsoftsearch/configure-connector)
 - [Agent Registry in the Microsoft 365 admin center](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/agent-registry?view=o365-worldwide#admin-actions-to-manage-agents) (Updated: 2026-01-23)
-- [Microsoft 365 Copilot release notes - November 24, 2025](https://learn.microsoft.com/en-us/copilot/microsoft-365/release-notes#november-24,-2025)
+- [Microsoft 365 Copilot release notes - November 25, 2025](https://learn.microsoft.com/en-us/copilot/microsoft-365/release-notes#november-25,-2025)
 
 ---
 
@@ -134,7 +134,7 @@ This page provides comprehensive links to official Microsoft documentation, trai
 - **Microsoft 365 Copilot**
   - [Extensibility overview](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/)
   - [Adoption resources](https://adoption.microsoft.com/en-us/copilot/)
-  - [Security posture](https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-ai-security)
+  - [Security posture](https://learn.microsoft.com/en-us/copilot/microsoft-365/security-microsoft-365-copilot)
   - [Privacy and data safeguards](https://learn.microsoft.com/en-us/microsoft-365-copilot/microsoft-365-copilot-privacy)
 
 - **Microsoft Foundry (Platform)**
@@ -144,9 +144,9 @@ This page provides comprehensive links to official Microsoft documentation, trai
   - **Platform note:** Classic Foundry and the new Foundry portal use different APIs and do **not** have feature parity. Validate capability availability in the portal, SDK samples, and Microsoft Learn before committing to a design.
   
 - **Microsoft Foundry Agent Service (Optional Managed Runtime)**
-  - [What's new in Foundry Agent Service](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/whats-new#october-2025)
-  - [Agent Service quickstart](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/quickstart)
-  - [Foundry Agent Service Overview](https://learn.microsoft.com/en-us/azure/ai-services/agents/overview)
+  - [What's new in Microsoft Foundry](https://learn.microsoft.com/en-us/azure/foundry/whats-new-foundry)
+  - [Microsoft Foundry quickstart](https://learn.microsoft.com/en-us/azure/foundry/quickstarts/get-started-code)
+  - [Foundry Agent Service Overview](https://learn.microsoft.com/en-us/azure/foundry/agents/overview)
   - **Service note:** Optional PaaS runtime for hosting agents. Alternatively, deploy self-hosted agents using Agent Framework or custom code in your infrastructure.
 
 - **Copilot Studio**
@@ -169,7 +169,7 @@ This page provides comprehensive links to official Microsoft documentation, trai
 
 - **M365 Agents SDK**
   - [Overview](https://learn.microsoft.com/en-us/microsoft-365/dev/m365-agents-sdk/overview)
-  - [VS Code Toolkit](https://marketplace.visualstudio.com/items?itemName=msft-vscode-m365-agents.vscode-m365-agents)
+  - [VS Code Toolkit](https://marketplace.visualstudio.com/items?itemName=TeamsDevApp.ms-teams-vscode-extension)
   - [Sample Gallery](https://github.com/microsoft/Agents)
 
 - **Microsoft Agent Framework**
@@ -186,7 +186,7 @@ This page provides comprehensive links to official Microsoft documentation, trai
 
 - **LangChain Integration**
   - [Azure Integration Guide](https://learn.microsoft.com/en-us/azure/developer/python/get-started-app-chat-template)
-  - [LangChain Documentation](https://python.langchain.com/docs/integrations/platforms/microsoft/)
+  - [LangChain Documentation](https://docs.langchain.com/oss/python/integrations/providers/microsoft)
 
 ### Data & Grounding
 {: .no_toc }
@@ -241,7 +241,7 @@ This page provides comprehensive links to official Microsoft documentation, trai
 
 - [Microsoft 365 Copilot Community](https://techcommunity.microsoft.com/t5/microsoft-365-copilot/ct-p/Microsoft365Copilot)
 - [Azure AI Services Community](https://techcommunity.microsoft.com/t5/azure-ai-services/ct-p/AzureAIServices)
-- [Power Platform Community](https://powerusers.microsoft.com/)
+- [Power Platform Community](https://community.powerplatform.com/)
 
 ### Learning Paths
 {: .no_toc }
@@ -267,8 +267,8 @@ Microsoft's AI landscape evolves rapidly. To stay informed:
 
 1. **Follow Official Blogs:**
    - [Microsoft 365 Blog](https://www.microsoft.com/en-us/microsoft-365/blog/)
-   - [Azure AI Blog](https://azure.microsoft.com/en-us/blog/topics/ai-machine-learning/)
-   - [Copilot Studio Blog](https://powerapps.microsoft.com/en-us/blog/category/copilot-studio/)
+   - [Azure AI Blog](https://azure.microsoft.com/en-us/blog/tag/ai/)
+   - [Copilot Studio Blog](https://www.microsoft.com/en-us/power-platform/blog/)
 
 2. **Monitor Product Updates:**
    - [Microsoft 365 Roadmap](https://www.microsoft.com/en-us/microsoft-365/roadmap)

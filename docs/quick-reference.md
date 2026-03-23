@@ -116,7 +116,7 @@ Where can your agent appear? Match build platform to distribution surface.
 **Sources:**
 
 - [Copilot for all: Introducing Microsoft 365 Copilot Chat](https://www.microsoft.com/en-us/microsoft-365/blog/2025/01/15/copilot-for-all-introducing-microsoft-365-copilot-chat/) (Updated: 2025-01-15)
-- [Microsoft 365 Copilot release notes - November 24, 2025](https://learn.microsoft.com/en-us/copilot/microsoft-365/release-notes#november-24,-2025)
+- [Microsoft 365 Copilot release notes - November 25, 2025](https://learn.microsoft.com/en-us/copilot/microsoft-365/release-notes#november-25,-2025)
 - [Built-in enterprise readiness with standard agent setup](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/concepts/standard-agent-setup) (Updated: 2025-12-19)
 - [Overview of Microsoft Agent 365](https://learn.microsoft.com/en-us/microsoft-agent-365/overview) (Retrieved: 2025-12-15)
 - [Microsoft Agent 365 SDK](https://learn.microsoft.com/en-us/microsoft-agent-365/developer/agent-365-sdk) (Retrieved: 2026-01-09)
@@ -124,7 +124,7 @@ Where can your agent appear? Match build platform to distribution surface.
 - [What is Microsoft Entra Agent ID?](https://learn.microsoft.com/en-us/entra/agent-id/identity-professional/microsoft-entra-agent-identities-for-ai-agents) (Updated: 2025-11-10)
 - [Agent Registry in the Microsoft 365 admin center](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/agent-registry?view=o365-worldwide#admin-actions-to-manage-agents) (Updated: 2026-01-23)
 - [Foundry Control Plane overview](https://learn.microsoft.com/en-us/azure/ai-foundry/control-plane/overview) (Updated: 2025-11-05)
-- [Azure AI Search what's new](https://learn.microsoft.com/en-us/azure/search/whats-new#november-2025) (Updated: 2025-12-18)
+- [Azure AI Search what's new](https://learn.microsoft.com/en-us/azure/search/whats-new#2025-announcements) (Updated: 2025-12-18)
 - [Microsoft 365 Copilot Search API overview](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/api/ai-services/search/overview) (Updated: 2025-10-20)
 - [Workflows with AI agents and models in Azure Logic Apps (Preview)](https://learn.microsoft.com/en-us/azure/logic-apps/agent-workflows-concepts) (Updated: 2025-11-18)
 - [Microsoft 365 Agents Toolkit](https://learn.microsoft.com/en-us/microsoft-365/developer/overview-m365-agents-toolkit) (Updated: 2025-05-30)
@@ -154,7 +154,7 @@ Where can your agent appear? Match build platform to distribution surface.
 
 **Sources:**
 
-- [Azure AI Search what's new](https://learn.microsoft.com/en-us/azure/search/whats-new#november-2025) (Updated: 2025-12-18)
+- [Azure AI Search what's new](https://learn.microsoft.com/en-us/azure/search/whats-new#2025-announcements) (Updated: 2025-12-18)
 - [Retrieval-augmented generation with Azure AI Search](https://learn.microsoft.com/en-us/azure/search/retrieval-augmented-generation-overview) (Updated: 2026-01-15)
 - [Azure AI Content Understanding](https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview) (Updated: 2025-12-19)
 - [Built-in enterprise readiness with standard agent setup](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/concepts/standard-agent-setup) (Updated: 2025-12-19)
@@ -195,7 +195,7 @@ Where can your agent appear? Match build platform to distribution surface.
 
 - [Custom engine agents for Microsoft 365 overview](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-custom-engine-agent) (Updated: 2026-01-13)
 - [Microsoft 365 Agents Toolkit](https://learn.microsoft.com/en-us/microsoft-365/developer/overview-m365-agents-toolkit) (Updated: 2025-05-30)
-- [Teams AI Library overview](https://learn.microsoft.com/en-us/microsoftteams/platform/bots/how-to/teams-conversational-ai/teams-conversation-ai-overview) (Updated: 2025-11-17)
+- [Teams SDK overview](https://learn.microsoft.com/en-us/microsoftteams/platform/bots/how-to/teams-conversational-ai/teams-conversation-ai-overview) (Updated: 2025-11-17)
 
 **Confidence Level:** High (all GA, official Microsoft documentation)
 
@@ -303,8 +303,8 @@ Where can your agent appear? Match build platform to distribution surface.
 
 **Sources:**
 
-- [Microsoft Copilot Studio](https://www.microsoft.com/en-us/microsoft-copilot/microsoft-copilot-studio) (Pricing)
-- [Azure AI Services Pricing](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/) (Pricing)
+- [Microsoft Copilot Studio Pricing](https://learn.microsoft.com/en-us/microsoft-copilot-studio/billing-licensing) (Pricing)
+- [Foundry Tools Pricing](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/) (Pricing)
 - [Azure OpenAI Service Pricing](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/openai-service/) (Token-based consumption)
 
 **Confidence Level:** Medium (pricing models subject to change; verify current rates for production planning)

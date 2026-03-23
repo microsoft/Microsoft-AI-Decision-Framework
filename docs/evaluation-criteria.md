@@ -206,6 +206,11 @@ Before moving to the [Implementation Patterns]({{ '/docs/implementation-patterns
 ---
 
 [^p3-cost]: *Optimize Microsoft Foundry and Copilot Credit costs with Microsoft Agent pre-purchase plan*, Microsoft Learn. Updated 2026-01-15. [https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/agent-pre-purchase](https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/agent-pre-purchase)
+[^copilot-cost]: *Microsoft Copilot Studio licensing*, Microsoft Learn. [https://learn.microsoft.com/en-us/microsoft-copilot-studio/billing-licensing](https://learn.microsoft.com/en-us/microsoft-copilot-studio/billing-licensing)
+[^foundry-cost]: *Azure OpenAI Service pricing*, Microsoft Azure. [https://azure.microsoft.com/en-us/pricing/details/cognitive-services/openai-service/](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/openai-service/)
+[^humanreview]: *Use your prompt in Power Automate*, Microsoft Learn. [https://learn.microsoft.com/en-us/ai-builder/use-a-custom-prompt-in-flow](https://learn.microsoft.com/en-us/ai-builder/use-a-custom-prompt-in-flow)
+[^1]: *Provisioned Throughput Units (PTU) onboarding*, Microsoft Learn. [https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/provisioned-throughput-onboarding](https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/provisioned-throughput-onboarding)
+[^2]: *Microsoft Copilot Studio licensing — capacity packs*, Microsoft Learn. [https://learn.microsoft.com/en-us/microsoft-copilot-studio/billing-licensing#copilot-studio-pay-as-you-go](https://learn.microsoft.com/en-us/microsoft-copilot-studio/billing-licensing#copilot-studio-pay-as-you-go)
 
 **Last Updated:** February 5, 2026
 

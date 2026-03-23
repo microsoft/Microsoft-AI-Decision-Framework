@@ -108,7 +108,7 @@ Use this page when you’ve identified a likely platform choice and want an exec
 - [Foundry Agent Service overview](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/overview?view=foundry)[^agentservice-overview]
 - [Microsoft AI Feature Comparison]({{ '/docs/feature-comparison' | relative_url }})[^feature-comparison]
 - [Evaluation Criteria – Governance & Compliance]({{ '/docs/evaluation-criteria#governance--compliance' | relative_url }})[^evaluation-governance]
-- [API plugins for Microsoft 365 Copilot](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-api-plugins)[^api-plugins]
+- [Plugins for Microsoft 365 Copilot](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-plugins)[^api-plugins]
 - [Microsoft 365 Agents SDK overview](https://learn.microsoft.com/en-us/microsoft-365/agents-sdk/agents-sdk-overview)[^agentsdk-overview]
 
 **Status:** Recommended when enterprise teams lead with Azure-first architecture
@@ -154,7 +154,7 @@ Use this page when you’ve identified a likely platform choice and want an exec
 - [Add knowledge sources to declarative agents](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/agent-builder-add-knowledge)[^knowledge-sources]
 - [Microsoft 365 Copilot connectors overview](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-copilot-connector)[^graph-connectors]
 - [Declarative agents for Microsoft 365 Copilot overview](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-declarative-agent)[^declarative-agents]
-- [API plugins for Microsoft 365 Copilot](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-api-plugins)[^api-plugins]
+- [Plugins for Microsoft 365 Copilot](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-plugins)[^api-plugins]
 - [Add custom Copilot Studio agents to Microsoft 365](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/publish)[^studio-publish]
 
 **Status:** Recommended for M365-centric knowledge scenarios
@@ -366,8 +366,8 @@ Use this page when you’ve identified a likely platform choice and want an exec
 
 **Sources:**
 
-- [GitHub Copilot Workspace](https://githubnext.com/projects/copilot-workspace)
-- [Azure SRE Agent (Preview)](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/overview?view=foundry)
+- [About GitHub Copilot coding agent](https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-coding-agent)
+- [Azure SRE Agent (Preview)](https://learn.microsoft.com/en-us/azure/foundry/agents/overview)
 
 **Status:** Emerging Pattern (Preview)
 **Confidence Level:** Medium (Rapidly evolving)
@@ -596,7 +596,7 @@ Choose the path that matches your team's velocity and codebase complexity. All t
 [^integrate-mcs]: Integrate with Copilot Studio using the Microsoft 365 Agents SDK, Microsoft Learn. Retrieved: 2025-11-26. [https://learn.microsoft.com/en-us/microsoft-365/agents-sdk/integrate-with-mcs](https://learn.microsoft.com/en-us/microsoft-365/agents-sdk/integrate-with-mcs)
 [^feature-comparison]: See `docs/feature-comparison.md` for the detailed comparison matrices referenced in this pattern.
 [^evaluation-governance]: See Governance & Compliance in `docs/evaluation-criteria.md#governance--compliance` for scoring guidance.
-[^api-plugins]: API plugins for Microsoft 365 Copilot, Microsoft Learn. Retrieved: 2025-11-12. [https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-api-plugins](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-api-plugins)
+[^api-plugins]: Plugins for Microsoft 365 Copilot, Microsoft Learn. Retrieved: 2026-03-23. [https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-plugins](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-plugins)
 [^agents-toolkit]: Microsoft 365 Agents Toolkit overview, Microsoft Learn. Retrieved: 2025-05-30. [https://learn.microsoft.com/en-us/microsoft-365/developer/overview-m365-agents-toolkit](https://learn.microsoft.com/en-us/microsoft-365/developer/overview-m365-agents-toolkit)
 [^agentsdk-build]: Build custom engine agents with Microsoft 365 Agents SDK, Microsoft Learn. Retrieved: 2025-07-21. [https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/m365-agents-sdk](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/m365-agents-sdk)
 [^agentframework-overview]: Microsoft Agent Framework overview, Microsoft Learn. Retrieved: 2025-10-01. [https://learn.microsoft.com/en-us/agent-framework/overview/agent-framework-overview](https://learn.microsoft.com/en-us/agent-framework/overview/agent-framework-overview)

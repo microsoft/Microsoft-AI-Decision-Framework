@@ -471,12 +471,47 @@ pre code {
 	max-width: 52rem;
 	margin: 0 auto;
 
+	/* Page title — hero treatment */
+	h1 {
+		font-size: 2.6rem;
+		line-height: 1.15;
+		margin-bottom: 0.25rem;
+		background: linear-gradient(135deg, var(--text-strong) 0%, var(--link) 100%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+	}
+
 	/* Subtitle styling */
 	.ai-instinct-subtitle {
 		font-size: 1.35rem;
 		color: var(--muted);
 		font-style: italic;
-		margin-bottom: 0.25rem;
+		margin-bottom: 1.25rem;
+	}
+
+	/* Author block */
+	.ai-instinct-author {
+		display: flex;
+		flex-direction: column;
+		gap: 0.15rem;
+		padding: 0.75rem 0;
+		margin-bottom: 1rem;
+		border-top: 1px solid var(--border);
+		border-bottom: 1px solid var(--border);
+
+		.author-name {
+			font-family: 'Sora', sans-serif;
+			font-size: 1rem;
+			font-weight: 600;
+			color: var(--text-strong);
+		}
+
+		.author-role {
+			font-size: 0.9rem;
+			color: var(--muted);
+			letter-spacing: 0.01em;
+		}
 	}
 
 	/* Larger, more immersive body text */

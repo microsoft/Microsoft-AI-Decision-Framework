@@ -13,7 +13,10 @@ description: "Four instincts that make AI partnership as natural as breathing"
 *Four instincts that make AI partnership as natural as breathing. From effort to instinct.*
 {: .ai-instinct-subtitle }
 
-**By Chris McKee** — Principal AI Architect, Microsoft | Marine Corps Veteran
+<div class="ai-instinct-author">
+  <span class="author-name">Chris McKee</span>
+  <span class="author-role">Principal AI Architect, Microsoft · Marine Corps Veteran</span>
+</div>
 
 {: .note }
 > This is companion content to the [Capability Model]({{ '/docs/capability-model' | relative_url }}). While the Capability Model teaches how to *choose* AI technologies, AI Instinct teaches how to *partner* with AI as a human behavioral shift. [Download the PDF version]({{ '/assets/AI_Instinct.pdf' | relative_url }}).

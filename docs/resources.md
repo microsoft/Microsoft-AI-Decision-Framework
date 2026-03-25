@@ -136,6 +136,9 @@ This page provides comprehensive links to official Microsoft documentation, trai
   - [Adoption resources](https://adoption.microsoft.com/en-us/copilot/)
   - [Security posture](https://learn.microsoft.com/en-us/copilot/microsoft-365/security-microsoft-365-copilot)
   - [Privacy and data safeguards](https://learn.microsoft.com/en-us/microsoft-365-copilot/microsoft-365-copilot-privacy)
+  - [Wave 3: Powering Frontier Transformation](https://www.microsoft.com/en-us/microsoft-365/blog/2026/03/09/powering-frontier-transformation-with-copilot-and-agents/)
+  - [Copilot Cowork announcement](https://www.microsoft.com/en-us/microsoft-365/blog/2026/03/09/copilot-cowork-a-new-way-of-getting-work-done/)
+  - [Frontier Program enrollment](https://adoption.microsoft.com/en-us/copilot/frontier-program/)
 
 - **Microsoft Foundry (Platform)**
   - [Portal (ai.azure.com)](https://ai.azure.com/?cid=learnDocs)
@@ -147,6 +150,11 @@ This page provides comprehensive links to official Microsoft documentation, trai
   - [What's new in Microsoft Foundry](https://learn.microsoft.com/en-us/azure/foundry/whats-new-foundry)
   - [Microsoft Foundry quickstart](https://learn.microsoft.com/en-us/azure/foundry/quickstarts/get-started-code)
   - [Foundry Agent Service Overview](https://learn.microsoft.com/en-us/azure/foundry/agents/overview)
+  - [Deploy your first hosted agent](https://learn.microsoft.com/en-us/azure/foundry/agents/quickstarts/quickstart-hosted-agent)
+  - [Manage hosted agent lifecycle](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/manage-hosted-agent)
+  - [Quotas and limits for Agent Service](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/limits-quotas-regions)
+  - [Fireworks models on Microsoft Foundry (Preview)](https://learn.microsoft.com/en-us/azure/foundry/how-to/fireworks/enable-fireworks-models)
+  - [Configure Claude Code for Microsoft Foundry](https://learn.microsoft.com/en-us/azure/foundry/foundry-models/how-to/configure-claude-code)
   - **Service note:** Optional PaaS runtime for hosting agents. Alternatively, deploy self-hosted agents using Agent Framework or custom code in your infrastructure.
 
 - **Copilot Studio**
@@ -154,6 +162,12 @@ This page provides comprehensive links to official Microsoft documentation, trai
   - [Declarative agents](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/copilot-studio-declarative-agents)
   - [Custom engine agents overview](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-custom-engine-agent)
   - [Copilot Studio documentation](https://learn.microsoft.com/en-us/microsoft-copilot-studio/)
+  - [Computer Use (Preview)](https://learn.microsoft.com/en-us/microsoft-copilot-studio/computer-use)
+  - [Work IQ MCP in Copilot Studio (Preview)](https://learn.microsoft.com/en-us/microsoft-copilot-studio/use-work-iq)
+  - [Custom MCP server creation](https://learn.microsoft.com/en-us/microsoft-copilot-studio/mcp-create-new-server)
+  - [Connect to existing MCP server](https://learn.microsoft.com/en-us/microsoft-copilot-studio/mcp-add-existing-server-to-agent)
+  - [Copilot Studio Kit](https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/kit-overview)
+  - [VS Code extension](https://learn.microsoft.com/en-us/microsoft-copilot-studio/visual-studio-code-extension-overview)
 
 - **Microsoft Agent 365 (Frontier Preview)**
   - [Overview](https://learn.microsoft.com/en-us/microsoft-agent-365/overview)

@@ -167,7 +167,7 @@ Use this page when you’ve identified a likely platform choice and want an exec
 **Approach:**
 
 1. Scaffold a custom engine agent with the **Microsoft 365 Agents Toolkit** in Visual Studio/VS Code so you get channel adapters, debugging playground, and deployment templates out of the box.[^agents-toolkit]
-2. Implement orchestration inside the agent container. Prefer **Microsoft Agent Framework** (Preview) for multi-agent workflows, or plug in your existing orchestrator through the SDK's activity pipeline.[^agent-framework][^agentsdk-overview]
+2. Implement orchestration inside the agent container. Prefer **Microsoft Agent Framework** for multi-agent workflows, or plug in your existing orchestrator through the SDK's activity pipeline.[^agent-framework][^agentsdk-overview]
 3. Connect enterprise knowledge and actions by wiring Azure AI Search, Azure OpenAI, Microsoft Graph connectors, or first-party APIs behind secured tool handlers.[^agentsdk-build]
 4. Configure channel reach and authentication using the Agents SDK adapters (Copilot, Teams, custom web, Direct Line) and align identity with Entra ID scopes.[^agentsdk-overview]
 5. Deploy the agent to your Azure landing zone (Container Apps, App Service, AKS) and publish through the Agents Toolkit so Microsoft 365 users can discover it in Copilot while other apps call the same endpoint.[^agents-toolkit][^bring-agents]
@@ -181,7 +181,7 @@ Use this page when you’ve identified a likely platform choice and want an exec
 **Trade-offs:**
 
 - Requires pro-code engineering, multi-environment CI/CD, and sustained ownership. Time-to-production is typically **weeks → months**.[^agentsdk-build]
-- Agent Framework capabilities remain Preview; plan for API surface changes and feature flags.[^agent-framework]
+- Agent Framework capabilities are GA; monitor release notes for incremental API updates.[^agent-framework]
 - Because you bring your own orchestrator and tooling, you own Responsible AI guardrails (content safety, approvals, auditing) inside the agent container.[^agentsdk-overview]
 
 **Signals this fits:**
@@ -201,7 +201,7 @@ Use this page when you’ve identified a likely platform choice and want an exec
 - [Bring your agents into Microsoft 365 Copilot](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/bring-agents-to-copilot)[^bring-agents]
 
 **Status:** Recommended for enterprise-grade, pro-code agents spanning multiple channels
-**Confidence Level:** High (Agents SDK GA, Agent Framework Preview)
+**Confidence Level:** High (Agents SDK GA, Agent Framework GA)
 
 ---
 
@@ -224,7 +224,7 @@ Use this page when you’ve identified a likely platform choice and want an exec
 
 **Trade-offs:**
 
-- Microsoft Agent Framework is still in **Public Preview**; expect API churn and package updates.[^agentframework-overview]
+- Microsoft Agent Framework is GA; monitor release notes for incremental updates.[^agentframework-overview]
 - Advanced orchestration features (for example, Magentic) remain experimental and require tolerance for pre-release quality.[^agent-orchestrations]
 - Engineering teams must own hosting, monitoring, and Responsible AI guardrails across all agents in the workflow.[^agent-transparency]
 
@@ -246,8 +246,8 @@ Use this page when you’ve identified a likely platform choice and want an exec
 - [Microsoft Foundry Agents integration](https://learn.microsoft.com/en-us/agent-framework/user-guide/agents/agent-types/azure-ai-foundry-agent)[^agent-azure-agent]
 - [Foundry Agent Service transparency note](https://learn.microsoft.com/en-us/azure/ai-foundry/responsible-ai/agents/transparency-note?view=foundry#capabilities)[^agent-transparency]
 
-**Status:** Microsoft Agent Framework (Public Preview); Microsoft Foundry Agent Service (GA)
-**Confidence Level:** Medium (preview framework + GA runtime)
+**Status:** Microsoft Agent Framework (GA); Microsoft Foundry Agent Service (GA)
+**Confidence Level:** High (GA framework + GA runtime)
 
 ---
 

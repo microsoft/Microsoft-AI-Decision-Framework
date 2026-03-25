@@ -45,7 +45,7 @@ Quick view of core platforms (M365 Copilot, Studio, Foundry, Agent Framework, Lo
 | **Orchestration** | Built-in | Built-in | Custom | **Workflow-based (Executor/Edge)** | Inherits Agent Framework orchestration | Managed orchestration | BYO orchestrator | **Visual workflow** |
 | **Checkpointing** | N/A | No | Custom | **Yes (built-in)** | Inherits from orchestrator | No | Via orchestrator | **State management** |
 | **AI Agent Workflows** | N/A | Via agent flows | Via Microsoft Foundry Agent Service[^aafs-triggers] | N/A | N/A (UI protocol) | ✅ Yes | N/A | **✅ Yes (Preview)**[^logicapps-agents] |
-| **MCP Server** | N/A | ❌ No | ✅ Yes (MCP tool)[^aafs-mcp] | N/A | N/A | ⚠️ Custom | N/A | **✅ Yes (Preview)**[^logicapps-mcp] |
+| **MCP Server** | N/A | ✅ Yes (Preview) | ✅ Yes (MCP tool)[^aafs-mcp] | N/A | N/A | ⚠️ Custom | N/A | **✅ Yes (Preview)**[^logicapps-mcp] |
 | **Optimized For** | Productivity at scale | Speed to market + connectors | Latency & control | Workflow orchestration | Bespoke agent UI with streaming & approvals | Managed agents | Pro-code flexibility | **Enterprise integration** |
 | **Latency Profile** | <1s (M365 apps) | <1s (managed platform) | <100ms (direct API) | Workflow processing | SSE streaming (depends on backend) | <100ms (direct API) | <1s (M365 integration) | Workflow processing |
 | **Infrastructure Model** | Microsoft-managed | SaaS (managed) | PaaS (self-managed) | SDK (self-managed) | SDK bridging host + client | PaaS (self-managed) | SDK (self-managed) | PaaS (self-managed) |
@@ -102,8 +102,8 @@ Use this matrix to choose between Agent Framework Workflows, Logic Apps AI Agent
 | **Hosting** | Self-managed (Azure) | Azure Portal | Microsoft SaaS (managed) |
 | **Licensing** | Open-source (free SDK) | Azure consumption/Standard | Copilot Studio Credits |
 | **DevOps** | ✅ Yes (code-based CI/CD) | ✅ Yes (GitHub Actions, Azure DevOps) | ✅ Yes (Pipelines, GitHub Actions, Azure DevOps) |
-| **MCP Server** | ⚠️ Custom | ✅ Yes (Preview) | ❌ No |
-| **Status** | Public Preview | Preview (Consumption agent workflows), GA (core) | GA |
+| **MCP Server** | ⚠️ Custom | ✅ Yes (Preview) | ✅ Yes (Preview) |
+| **Status** | GA | Preview (Consumption agent workflows), GA (core) | GA |
 | **Best For** | Multi-agent orchestration + checkpointing | Enterprise integration + AI agents | Fast automation within Studio agents |
 
 **Sources:**
@@ -211,11 +211,11 @@ Before selecting a platform, check the expiration date. This matrix flags active
 
 | Dimension | **M365 Copilot** | **Copilot Studio** | **Microsoft Foundry** | **Agent Framework** | **GitHub Copilot** |
 |-----------|-----------------|-------------------|----------------------|--------------------|--------------------||
-| **Platform Status** | GA | GA | GA | RC (.NET, Python) | GA (various features Preview) |
+| **Platform Status** | GA | GA | GA | GA (.NET, Python) | GA (various features Preview) |
 | **Active Deprecations** | None | None | `azure-ai-inference` (May 30, 2026); Assistants API (Aug 26, 2026) | Breaking changes tracked in upgrade guides | Model LTS policies active |
 | **Publish to M365 Copilot** | Native | Native | One-click from Foundry portal | Via M365 Agents SDK | N/A |
-| **Multi-Agent Orchestration** | Via Researcher agent (Preview) | Connected agents (Preview) | Foundry Agent Service connected agents (GA) | Sequential, Concurrent, Handoff, Magentic | N/A |
-| **MCP Compatibility** | N/A | Consumer (MCP tool integration) | Consumer + Producer (MCP tool GA) | N/A | Consumer (MCP servers in VS Code) |
+| **Multi-Agent Orchestration** | Via Researcher agent (GA) + connected agents | Connected agents (Preview) | Foundry Agent Service connected agents (GA) | Sequential, Concurrent, Handoff, Magentic | N/A |
+| **MCP Compatibility** | N/A | Consumer + Producer (custom MCP servers, Preview → Apr GA) | Consumer + Producer (MCP tool GA) | N/A | Consumer (MCP servers in VS Code) |
 | **Permission-Aware Grounding** | Graph security trimming (automatic) | Via connectors + Work IQ MCP | Foundry IQ ACL/label sync; SharePoint ACL flow-through in AI Search | Inherits from host runtime | Repository-scoped |
 | **Built-in Evaluation** | N/A | Test sets + analytics | Foundry portal evals + continuous evaluation | OpenTelemetry hooks | N/A |
 | **Governance Export** | Agent Registry (export inventory) | Power Platform admin + Purview audit | Foundry Control Plane + Azure Policy + Defender | Application-level | Org admin telemetry |
@@ -275,7 +275,7 @@ Declarative vs custom engine: when to stay low-code with managed orchestration v
 
 | **Approach** | **Declarative Agents** | **Custom Engine Agents** |
 |--------------|------------------------|--------------------------|
-| **Definition** | Pre-built orchestration; configure instructions, knowledge, actions | Bring your own orchestrator (Agent Framework (Preview) recommended, LangChain (Third-party)) |
+| **Definition** | Pre-built orchestration; configure instructions, knowledge, actions | Bring your own orchestrator (Agent Framework recommended, LangChain (Third-party)) |
 | **Best For** | Simple → Moderate complexity; fast time-to-market | Complex workflows; multi-agent systems; custom reasoning |
 | **Development Model** | Low-code (Copilot Studio) or Pro-code (M365 Agents Toolkit) | Pro-code only; full control over logic |
 | **Orchestration** | Microsoft-managed orchestration (GPT-based) | You control orchestration framework and model selection |
@@ -298,7 +298,7 @@ Tooling snapshot for custom engine agents across Copilot Studio, Teams SDK, and 
 | **Tool** | **Copilot Studio** | **Teams SDK** | **M365 Agents SDK** |
 |----------|---------------------|----------------------|---------------------|
 | **Primary Use Case** | Low-code custom engine agents | Bot Framework migration path | Multi-channel pro-code agents |
-| **Orchestration Options** | Agent Framework (Preview) recommended, LangChain (Third-party) | Teams SDK (Action Planner) | Agent Framework (Preview) recommended, LangChain (Third-party) |
+| **Orchestration Options** | Agent Framework recommended, LangChain (Third-party) | Teams SDK (Action Planner) | Agent Framework recommended, LangChain (Third-party) |
 | **Deployment Channels** | Teams, M365 Copilot | Teams-focused | 10+ channels (Teams, Slack, web chat, etc.) |
 | **Developer Experience** | Visual designer + code | Code-first | Code-first with Toolkit in VS Code |
 | **Target Audience** | Makers and developers | Bot Framework developers | Professional developers |

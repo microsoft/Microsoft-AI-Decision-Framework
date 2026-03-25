@@ -71,8 +71,8 @@ Active migration deadlines and forced transitions. If your project timeline cros
 | Classic agents (v1) | **Deprecated** | Mar 31, 2027 | Foundry Agents v2 (`create_version()`) | **Plan migration.** [migration guide](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/migrate#migrate-classic-agents-to-new-agents) |
 | Classic Foundry portal | **Legacy** | Ongoing | Foundry (new) portal | **Transition.** Classic and new lack feature parity |
 | Bot Framework | **Retired** | Dec 31, 2025 (passed) | M365 Agents SDK + Toolkit | **Complete** |
-| `azure-ai-projects` 1.x | **Legacy** | Aligns with classic portal | `azure-ai-projects` 2.x | **Upgrade** |
-| Semantic Kernel (standalone) | **Maintenance** | Security patches only | Microsoft Agent Framework (RC) | **Migrate for new projects** |
+| `azure-ai-projects` 1.x | **Legacy** | Aligns with classic portal | `azure-ai-projects` 2.x (Preview) | **Upgrade.** 2.x targets the new Foundry portal and is the investment direction |
+| Semantic Kernel (standalone) | **Maintenance** | Security patches only | Microsoft Agent Framework | **Migrate for new projects** |
 
 **Sources:**
 - [Migrate from the Foundry (classic) portal](https://learn.microsoft.com/en-us/azure/foundry/how-to/navigate-from-classic) (Retrieved: 2026-03-19)
@@ -252,7 +252,7 @@ Where can your agent appear? Match build platform to distribution surface.
 **Sources:**
 
 - [Data, privacy, and security for Microsoft 365 Copilot](https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-privacy) (Updated: 2026-01-07)
-- [Control transcript access and retention](https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-transcript-controls) (Updated: 2025-03-07)
+- [Control transcript access and retention](https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-transcript-controls) (Updated: 2025-11-10)
 - [Manage Microsoft 365 Copilot in Teams calls](https://learn.microsoft.com/en-us/microsoftteams/copilot-teams-calling-transcription) (Updated: 2025-07-01)
 - [Built-in enterprise readiness with standard agent setup](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/concepts/standard-agent-setup) (Updated: 2025-12-19)
 - [Azure Cosmos DB integration with Microsoft Foundry Agent Service](https://learn.microsoft.com/en-us/azure/cosmos-db/gen-ai/azure-agent-service) (Updated: 2025-04-30)

@@ -826,7 +826,7 @@ flowchart TD
     C_Platform -->|Azure| C_Foundry[Microsoft Foundry Azure GA<br/>Connected agents<br/>Sub-agent delegation]
     
     Workflows --> W_Framework{Framework?}
-    W_Framework -->|Microsoft| W_AgentFW[Microsoft Agent Framework Preview<br/>Sequential, Concurrent, Handoff, Magentic]
+    W_Framework -->|Microsoft| W_AgentFW[Microsoft Agent Framework GA<br/>Sequential, Concurrent, Handoff, Magentic]
     W_Framework -->|Open source| W_SK[Semantic Kernel<br/>Sequential, Concurrent, Group Chat<br/>Handoff, Magentic]
     W_Framework -->|Bring your own| W_SDK[M365 Agents SDK<br/>Integrate Agent Framework or SK]
     W_Framework -->|Third-party state| W_LangGraph[LangGraph Third-Party<br/>State graphs]

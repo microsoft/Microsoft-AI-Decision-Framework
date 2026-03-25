@@ -310,7 +310,7 @@ Select a platform your organization can build and sustain.
 
 Determine whether the agent is purely reactive or must trigger events on its own.
 
-- **Reactive only** - M365 Copilot and Copilot Studio declarative agents wait for a user prompt before doing anything.[^m365reactive][^copilotstudioevent]
+- **Reactive with delegated execution** - M365 Copilot waits for a user prompt but can now sustain background execution via Copilot Cowork (Frontier Preview), breaking complex tasks into plans that run autonomously with human checkpoints. Copilot Studio declarative agents remain prompt-initiated.[^m365reactive][^copilotstudioevent]
 - **Proactive capable** - Copilot Studio custom engine agents (Power Automate triggers), Azure Logic Apps, Microsoft Foundry/Foundry Agent Service integrations, and M365 Agents SDK listeners can respond to schedules, webhooks, or system alerts.[^logicappstrigger][^agentservicega]
 Declarative agents are reactive by design; proactive workflows require custom engine orchestration or event-driven services.
 
@@ -332,10 +332,10 @@ These principles keep the framework durable as products rename or shift capabili
 ---
 
 [^uxguidance]: *Creating a dynamic UX: guidance for generative AI applications*, Microsoft Learn. Updated 2024-09-20. [https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/ux-guidance](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/ux-guidance)
-[^standardsetup]: *Built-in enterprise readiness with standard agent setup*, Microsoft Learn. Updated 2025-06-16. [https://learn.microsoft.com/en-us/azure/ai-foundry/agents/concepts/standard-agent-setup](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/concepts/standard-agent-setup)
+[^standardsetup]: *Built-in enterprise readiness with standard agent setup*, Microsoft Learn. Updated 2026-02-27. [https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/standard-agent-setup](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/standard-agent-setup)
 [^aiagentadoption]: *AI agent adoption*, Microsoft Learn. Updated 2025-12-03. [https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/)
 [^whennotagents]: *Business strategy plan: When not to use AI agents*, Microsoft Learn. Updated 2025-12-05. [https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/business-strategy-plan#when-not-to-use-ai-agents](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/business-strategy-plan#when-not-to-use-ai-agents)
-[^transcriptcontrols]: *Control transcript access and retention*, Microsoft Learn. Updated 2025-03-07. [https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-transcript-controls](https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-transcript-controls)
+[^transcriptcontrols]: *Control transcript access and retention*, Microsoft Learn. Updated 2025-11-10. [https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-transcript-controls](https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-transcript-controls)
 [^copilotcalls]: *Manage Microsoft 365 Copilot in Teams calls*, Microsoft Learn. Updated 2025-07-01. [https://learn.microsoft.com/en-us/microsoftteams/copilot-teams-calling-transcription](https://learn.microsoft.com/en-us/microsoftteams/copilot-teams-calling-transcription)
 [^m365admin]: *Copilot in Microsoft 365 admin centers*, Microsoft Learn. Updated 2025-10-23. [https://learn.microsoft.com/en-us/copilot/microsoft-365/copilot-for-microsoft-365-admin](https://learn.microsoft.com/en-us/copilot/microsoft-365/copilot-for-microsoft-365-admin)
 [^agentflows]: *Agent flows in Microsoft Copilot Studio FAQ*, Microsoft Learn. Updated 2025-04-14. [https://learn.microsoft.com/en-us/microsoft-copilot-studio/flows-faqs](https://learn.microsoft.com/en-us/microsoft-copilot-studio/flows-faqs)
@@ -360,7 +360,7 @@ These principles keep the framework durable as products rename or shift capabili
 [^cafaiadoption]: *AI adoption (CAF)*, Microsoft Learn. Updated 2026-01-07. [https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/ai/](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/ai/)
 [^cafaiarch]: *CAF AI PaaS architectures*, Microsoft Learn. Updated 2025-12-03. [https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/ai/platform/architectures](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/ai/platform/architectures)
 [^raistandard]: *Microsoft Responsible AI Standard v2 (PDF)*, Microsoft. [https://msblogs.thesourcemediaassets.com/sites/5/2022/06/Microsoft-Responsible-AI-Standard-v2-General-Requirements-3.pdf](https://msblogs.thesourcemediaassets.com/sites/5/2022/06/Microsoft-Responsible-AI-Standard-v2-General-Requirements-3.pdf)
-[^m365adoption]: *Microsoft 365 Copilot adoption guide*, Microsoft Learn. Updated 2025-05-20. [https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-enablement-resources](https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-enablement-resources)
+[^m365adoption]: *Microsoft 365 Copilot adoption guide*, Microsoft Learn. Updated 2026-03-24. [https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-enablement-resources](https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-enablement-resources)
 [^p3plan]: *Optimize Microsoft Foundry and Copilot Credit costs with Microsoft Agent pre-purchase plan*, Microsoft Learn. Updated 2026-01-15. [https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/agent-pre-purchase](https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/agent-pre-purchase)
 
 ## Phase 3: Scenario-Specific Selection

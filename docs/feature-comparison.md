@@ -57,7 +57,7 @@ Quick view of core platforms (M365 Copilot, Studio, Foundry, Agent Framework, Lo
 [^search-api]: Overview of the Microsoft 365 Copilot Search API (Preview) for hybrid semantic + lexical search across OneDrive via Graph `/beta`. Source: [Microsoft 365 Copilot Search API overview](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/api/ai-services/search/overview) (Retrieved: 2025-10-20).
 [^when-not-agent]: Agent Framework guidance on when *not* to use an agent (prefer deterministic functions/workflows). Source: [Microsoft Agent Framework overview](https://learn.microsoft.com/en-us/agent-framework/overview/agent-framework-overview).
 [^aafs-triggers]: *What is Microsoft Foundry Agent Service?*, Microsoft Learn. GA update includes Azure Logic Apps triggers for agents. Source: [Foundry Agent Service overview](https://learn.microsoft.com/en-us/azure/foundry/agents/overview) (Retrieved: 2026-03-23).
-[^logicapps-agents]: *Workflows with AI agents and models in Azure Logic Apps (Preview)*, Microsoft Learn. Source: [Logic Apps agent workflows concepts](https://learn.microsoft.com/en-us/azure/logic-apps/agent-workflows-concepts) (Retrieved: 2025-11-18).
+[^logicapps-agents]: *Workflows with AI agents and models in Azure Logic Apps (Preview)*, Microsoft Learn. Source: [Logic Apps agent workflows concepts](https://learn.microsoft.com/en-us/azure/logic-apps/agent-workflows-concepts) (Retrieved: 2026-02-19).
 [^aafs-mcp]: *What is Microsoft Foundry Agent Service?*, Microsoft Learn. MCP tool available as built-in agent tool. Source: [Foundry Agent Service overview](https://learn.microsoft.com/en-us/azure/foundry/agents/overview) (Retrieved: 2026-03-23).
 [^logicapps-mcp]: *Set up Standard logic apps as remote MCP servers (Preview)*, Microsoft Learn. Source: [Set up Standard logic apps as remote MCP servers](https://learn.microsoft.com/en-us/azure/logic-apps/set-up-model-context-protocol-server-standard) (Retrieved: 2025-11-18).
 [^p3-licensing]: The **Agent Pre-Purchase Plan (P3)** lets organizations buy Agent Commit Units (ACUs) in a single pool covering both Copilot Studio (metered messages) and Microsoft Foundry (Azure consumption) usage. This does not change per-platform licensing models but provides a unified pre-purchase option across platforms. Source: [Agent Pre-Purchase Plan](https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/agent-pre-purchase) (Updated: 2026-01-15).
@@ -112,7 +112,7 @@ Use this matrix to choose between Agent Framework Workflows, Logic Apps AI Agent
 - [Copilot Studio Agent Flows](https://learn.microsoft.com/en-us/microsoft-copilot-studio/flows-overview)
 - [Agent Flows vs Cloud Flows FAQ](https://learn.microsoft.com/en-us/microsoft-copilot-studio/flows-faqs)
 
-**Last Updated:** 2026-03-19
+**Last Updated:** 2026-03-25
 **Confidence Level:** High (official Microsoft documentation for all three technologies)
 
 ---
@@ -136,7 +136,7 @@ Use this matrix to choose between Agent Framework Workflows, Logic Apps AI Agent
 - No development team available
 
 **Sources:**
-- [Agent Framework Workflows Overview](https://learn.microsoft.com/en-us/agent-framework/overview/agent-framework-overview) (Updated: 2025-10-01)
+- [Agent Framework Workflows Overview](https://learn.microsoft.com/en-us/agent-framework/overview/agent-framework-overview) (Updated: 2026-02-20)
 
 ---
 
@@ -157,7 +157,7 @@ Use this matrix to choose between Agent Framework Workflows, Logic Apps AI Agent
 - Compile-time type safety is critical (use Agent Framework instead)
 
 **Sources:**
-- [Logic Apps Agent Workflows Concepts](https://learn.microsoft.com/en-us/azure/logic-apps/agent-workflows-concepts) (Updated: 2025-11-18)
+- [Logic Apps Agent Workflows Concepts](https://learn.microsoft.com/en-us/azure/logic-apps/agent-workflows-concepts) (Updated: 2026-02-19)
 
 ---
 
@@ -178,7 +178,7 @@ Use this matrix to choose between Agent Framework Workflows, Logic Apps AI Agent
 - MCP server capabilities needed
 
 **Sources:**
-- [Copilot Studio Flows Overview](https://learn.microsoft.com/en-us/microsoft-copilot-studio/flows-overview) (Updated: 2025-11-21)
+- [Copilot Studio Flows Overview](https://learn.microsoft.com/en-us/microsoft-copilot-studio/flows-overview) (Updated: 2026-03-20)
 
 ---
 
@@ -240,13 +240,13 @@ Side-by-side grounding options (Copilot connectors, AI Search, Fabric, Cosmos, P
 | **Status** | GA | GA (agentic retrieval preview) | GA (Platform), Preview (Data Agents) | GA | GA | VECTOR type GA. ANN index (DiskANN) Preview. |
 
 **Sources:**
-- [Microsoft 365 Copilot connectors overview](https://learn.microsoft.com/en-us/graph/connecting-external-content-connectors-overview) (Updated: 2025-07-21)
-- [Azure AI Search what's new](https://learn.microsoft.com/en-us/azure/search/whats-new#2025-announcements) (Updated: 2025-12-18)
-- [Microsoft Fabric Platform](https://learn.microsoft.com/en-us/fabric/fundamentals/microsoft-fabric-overview) (Updated: 2025-12-19)
+- [Microsoft 365 Copilot connectors overview](https://learn.microsoft.com/en-us/graph/connecting-external-content-connectors-overview) (Updated: 2026-02-25)
+- [Azure AI Search what's new](https://learn.microsoft.com/en-us/azure/search/whats-new#2025-announcements) (Updated: 2026-03-13)
+- [Microsoft Fabric Platform](https://learn.microsoft.com/en-us/fabric/fundamentals/microsoft-fabric-overview) (Updated: 2026-03-18)
 - [Microsoft Foundry (Azure) FAQ](https://learn.microsoft.com/en-us/azure/ai-foundry/faq?view=foundry-classic) (Updated: 2026-01-23)
-- [Cosmos DB Vector Search](https://learn.microsoft.com/en-us/azure/cosmos-db/vector-search) (Updated: 2025-09-25)
+- [Cosmos DB Vector Search](https://learn.microsoft.com/en-us/azure/cosmos-db/vector-search) (Updated: 2025-12-19)
 - [Azure Database for PostgreSQL AI](https://learn.microsoft.com/en-us/azure/postgresql/azure-ai/generative-ai-overview) (Updated: 2026-01-20)
-- [SQL Database Engine Vectors](https://learn.microsoft.com/en-us/sql/sql-server/ai/vectors?view=sql-server-ver17), applies to SQL Server 2025, Azure SQL Database, Azure SQL MI, SQL database in Fabric (Updated: 2025-07-24)
+- [SQL Database Engine Vectors](https://learn.microsoft.com/en-us/sql/sql-server/ai/vectors?view=sql-server-ver17), applies to SQL Server 2025, Azure SQL Database, Azure SQL MI, SQL database in Fabric (Updated: 2026-03-18)
 - [Azure SQL Database AI](https://learn.microsoft.com/en-us/azure/azure-sql/database/ai-artificial-intelligence-intelligent-applications) (Updated: 2026-02-06)
 - [SQL database in Fabric](https://learn.microsoft.com/en-us/fabric/database/sql/overview) (Updated: 2026-02-06)
 
@@ -309,8 +309,8 @@ Tooling snapshot for custom engine agents across Copilot Studio, Teams SDK, and 
 
 **Sources:**
 - [Copilot Studio Custom Engine Agents](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-custom-engine-agent) (Updated: 2026-01-13)
-- [Teams SDK Overview](https://learn.microsoft.com/en-us/microsoftteams/platform/teams-ai-library/welcome) (Updated: 2025-11-17)
-- [M365 Agents SDK](https://learn.microsoft.com/en-us/microsoft-365/agents-sdk/agents-sdk-overview) (Updated: 2025-11-21)
+- [Teams SDK Overview](https://learn.microsoft.com/en-us/microsoftteams/platform/teams-ai-library/welcome) (Updated: 2026-02-25)
+- [M365 Agents SDK](https://learn.microsoft.com/en-us/microsoft-365/agents-sdk/agents-sdk-overview) (Updated: 2025-11-24)
 
 **Confidence Level:** High (all GA, official Microsoft documentation)
 

@@ -26,7 +26,7 @@ Quick reference for key terms used throughout the Microsoft AI Decision Framewor
 ## A
 
 **Agent**  
-An AI system that uses an LLM to interpret user inputs, plan, call tools or MCP servers, and return responses, with optional threads, memory, and middleware to enrich interactions ([Microsoft Agent Framework](https://learn.microsoft.com/en-us/agent-framework/overview/agent-framework-overview), updated 2025-10-01).
+An AI system that uses an LLM to interpret user inputs, plan, call tools or MCP servers, and return responses, with optional threads, memory, and middleware to enrich interactions ([Microsoft Agent Framework](https://learn.microsoft.com/en-us/agent-framework/overview/agent-framework-overview), updated 2026-02-20).
 
 **Agent Commit Unit (ACU)**  
 The billing unit for the Microsoft Agent Pre-Purchase Plan (P3). 1 ACU ≈ $1 of retail usage. ACUs are purchased in a single pool and pay down both Copilot Studio Credit consumption and Microsoft Foundry usage, enabling unified budgeting across platforms. See [Agent Pre-Purchase Plan](https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/agent-pre-purchase) (updated 2026-01-15).
@@ -50,7 +50,7 @@ Reusable configuration templates in the M365 admin center that let admins apply 
 An evolution of traditional RAG where AI agents dynamically reason about search queries, plan multi-step retrieval strategies, and adaptively refine results before generation. Unlike static RAG patterns, agentic retrieval enables agents to decompose complex questions, filter sources intelligently, and combine multiple search modes (vector, hybrid, semantic) based on context ([Agentic retrieval in Azure AI Search](https://learn.microsoft.com/en-us/azure/search/agentic-retrieval-overview), updated 2026-01-16). *When to use:* Choose agentic retrieval for complex research scenarios requiring multi-hop reasoning; use traditional RAG for straightforward document lookup. See Decision Framework Q3.
 
 **Agent Framework**  
-An open-source development kit for .NET and Python that unifies Semantic Kernel and AutoGen concepts, adding stateful workflows and multi-agent orchestration for production-grade AI solutions ([Microsoft Agent Framework](https://learn.microsoft.com/en-us/agent-framework/overview/agent-framework-overview), updated 2025-10-01).
+An open-source development kit for .NET and Python that unifies Semantic Kernel and AutoGen concepts, adding stateful workflows and multi-agent orchestration for production-grade AI solutions ([Microsoft Agent Framework](https://learn.microsoft.com/en-us/agent-framework/overview/agent-framework-overview), updated 2026-02-20).
 
 **Assistant (generic)**  
 A conversational experience that relies primarily on an LLM prompt without owning orchestration, tool calls, or state. Assistants can become agents when they add tools (including MCP), memory, or workflows.
@@ -70,7 +70,7 @@ Portable packages of instructions, scripts, and resources that give Agent Framew
 Configuring Copilot Studio generative answers with knowledge sources such as SharePoint, Dataverse, connectors, files, and vetted web content so agents ground responses in governed enterprise data ([Knowledge sources summary](https://learn.microsoft.com/en-us/microsoft-copilot-studio/knowledge-copilot-studio), updated 2026-01-13).
 
 **BYOM (Bring Your Own Model)**  
-Connecting custom or fine-tuned language models to Microsoft AI platforms. The term has different meanings depending on context: **(1) AI Builder BYOM** - bring custom prompts/templates into Power Platform, **(2) Copilot Studio BYOM** - connect custom language models (e.g., Foundry deployments) to agent experiences, **(3) Microsoft Foundry BYOM** - deploy and manage fine-tuned models in the Foundry catalog ([Bring your own model for your prompts](https://learn.microsoft.com/en-us/ai-builder/byom-for-your-prompts), updated 2025-11-07). *When to use:* BYOM is appropriate when base models lack domain expertise, require specific tone/format, or must comply with specialized regulatory requirements. See [Feature Comparison]({{ '/docs/feature-comparison' | relative_url }}) for platform-specific capabilities.
+Connecting custom or fine-tuned language models to Microsoft AI platforms. The term has different meanings depending on context: **(1) AI Builder BYOM** - bring custom prompts/templates into Power Platform, **(2) Copilot Studio BYOM** - connect custom language models (e.g., Foundry deployments) to agent experiences, **(3) Microsoft Foundry BYOM** - deploy and manage fine-tuned models in the Foundry catalog ([Bring your own model for your prompts](https://learn.microsoft.com/en-us/ai-builder/byom-for-your-prompts), updated 2026-03-08). *When to use:* BYOM is appropriate when base models lack domain expertise, require specific tone/format, or must comply with specialized regulatory requirements. See [Feature Comparison]({{ '/docs/feature-comparison' | relative_url }}) for platform-specific capabilities.
 
 **BXT Framework**  
 A Business, Experience, and Technology evaluation that scores strategic fit, user desirability, and technical feasibility to prioritize AI scenarios with the greatest impact and execution readiness ([Evaluate and Prioritize an AI Use Case with Business Envisioning](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/business-envisioning), updated 2024-09-16).
@@ -106,7 +106,7 @@ Microsoft 365 Copilot extension that packages instructions, knowledge, and optio
 ## E
 
 **Entra Agent ID (Preview)**  
-Identity construct that extends Microsoft Entra controls (Conditional Access, identity protection, governance, network controls) to AI agents and agent users, providing unique identifiers and policy enforcement. Microsoft Entra Agent ID is part of Microsoft Agent 365 and is in Frontier preview ([What is Microsoft Entra Agent ID?](https://learn.microsoft.com/en-us/entra/agent-id/identity-professional/microsoft-entra-agent-identities-for-ai-agents), updated 2025-11-10).
+Identity construct that extends Microsoft Entra controls (Conditional Access, identity protection, governance, network controls) to AI agents and agent users, providing unique identifiers and policy enforcement. Microsoft Entra Agent ID is part of Microsoft Agent 365 and is in Frontier preview ([What is Microsoft Entra Agent ID?](https://learn.microsoft.com/en-us/entra/agent-id/identity-professional/microsoft-entra-agent-identities-for-ai-agents), updated 2026-03-25).
 
 ## F
 
@@ -114,7 +114,7 @@ Identity construct that extends Microsoft Entra controls (Conditional Access, id
 Conversational analytics agent for Q&A over Fabric OneLake sources (lakehouse, warehouse, semantic models, KQL) that respects user permissions; designed for insights, not for orchestrating other agents ([Create a Fabric data agent](https://learn.microsoft.com/en-us/fabric/data-science/how-to-create-data-agent), updated 2025-09-17).
 
 **Frontier (Copilot Frontier)**  
-Early access program for experimental and preview Copilot features across web apps, desktop apps, and agents. Organizations enable access in the Microsoft 365 admin center under **Copilot** > **Settings** > **User access** > **Copilot Frontier**; by default, no users have access ([Manage Microsoft 365 Copilot scenarios in the Microsoft 365 admin center](https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-page#user-access), retrieved 2025-11-18).
+Early access program for experimental and preview Copilot features across web apps, desktop apps, and agents. Organizations enable access in the Microsoft 365 admin center under **Copilot** > **Settings** > **User access** > **Copilot Frontier**; by default, no users have access ([Manage Microsoft 365 Copilot scenarios in the Microsoft 365 admin center](https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-page#user-access), retrieved 2026-03-16).
 
 **Foundry Local**  
 A component of Windows AI Foundry that brings Microsoft Foundry (Azure) models and capabilities to local devices (Windows 11, MacOS), enabling offline inferencing and hybrid AI scenarios ([Foundry Local overview](https://news.microsoft.com/build-2025-book-of-news/), updated 2025-05-19).
@@ -144,10 +144,10 @@ One of three [Foundry Agent Service](#f) agent types (alongside [Prompt Agents](
 ## M
 
 **MCP (Model Context Protocol)**  
-Open protocol for tools and resources that lets agents connect to external systems in a structured, stateful, and secure manner; supported by Microsoft via MCP servers (for example, Azure MCP Server) and client integrations ([What is the Azure MCP Server (Preview)?](https://learn.microsoft.com/en-us/azure/developer/azure-mcp-server/), retrieved 2025-11-17). Copilot Studio can both consume and produce MCP servers (custom MCP server authoring, Preview → Apr GA).
+Open protocol for tools and resources that lets agents connect to external systems in a structured, stateful, and secure manner; supported by Microsoft via MCP servers (for example, Azure MCP Server) and client integrations ([What is the Azure MCP Server (Preview)?](https://learn.microsoft.com/en-us/azure/developer/azure-mcp-server/), retrieved 2026-02-18). Copilot Studio can both consume and produce MCP servers (custom MCP server authoring, Preview → Apr GA).
 
 **Model Router (GA)**  
-Foundry model that selects among multiple underlying chat models based on routing profiles (quality vs. cost) and model subsets; GA version `2025-11-18` adds Anthropic models and supports reasoning_effort ([What's new in model router in Microsoft Foundry Models?](https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/whats-new-model-router), updated 2025-11-06).
+Foundry model that selects among multiple underlying chat models based on routing profiles (quality vs. cost) and model subsets; GA version `2025-11-18` adds Anthropic models and supports reasoning_effort ([What's new in model router in Microsoft Foundry Models?](https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/whats-new-model-router), updated 2026-03-24).
 
 **Microsoft Discovery**  
 An enterprise agentic platform designed to accelerate scientific research and discovery through hypothesis formulation, candidate generation, and simulation orchestration ([Microsoft Discovery](https://news.microsoft.com/build-2025-book-of-news/), updated 2025-05-19).
@@ -162,7 +162,7 @@ Enterprise bundle announced March 2026 at $99/user/month (GA May 1, 2026) that u
 The unified brand for Microsoft's AI development and management platforms, spanning Cloud (Microsoft Foundry (Azure)), Client (Windows AI Foundry), and Edge (Foundry Local). It provides a consistent toolchain for model selection, agent orchestration, and observability across all environments ([Microsoft Foundry overview](https://news.microsoft.com/build-2025-book-of-news/), updated 2025-05-19). The new Foundry portal reached general availability in March 2026 for core scenarios (model discovery, agent development, evaluations, fine-tuning, red teaming, quota management). **Platform note:** Microsoft Foundry (Azure) is available in two versions: **Classic Foundry** and **Next Gen Foundry** (same platform capabilities, different API name under the hood). Documentation uses `?view=foundry-classic` or `?view=foundry-nextgen` parameters. **Service distinction:** Microsoft Foundry is the PLATFORM (portal, model catalog, prompt flow, evaluations). [Foundry Agent Service](#f) is an OPTIONAL managed runtime within the platform for hosting agents. You can use Foundry without Agent Service by deploying custom code. See Decision Framework Q4 for platform vs service guidance.
 
 **Multi-Agent Orchestration**  
-Coordination patterns for multiple AI agents working together to solve complex problems. Microsoft supports three primary patterns: (1) **Connected Agents** - independent agents collaborating peer-to-peer through handoffs and shared context, (2) **Sub-Agents** - parent agents delegating specialized tasks to child agents in a hierarchy, and (3) **Agent Workflows** - sequential or concurrent agent execution managed by orchestration engines. Implemented through Agent Framework workflows, Foundry Agent Service, or custom orchestration logic ([Agent Framework Orchestration Patterns](https://learn.microsoft.com/en-us/agent-framework/user-guide/workflows/orchestrations/overview), updated 2025-09-12). *Cross-reference:* See [Visual Framework Diagram 7]({{ '/docs/visual-framework' | relative_url }}) for multi-agent architecture patterns.
+Coordination patterns for multiple AI agents working together to solve complex problems. Microsoft supports three primary patterns: (1) **Connected Agents** - independent agents collaborating peer-to-peer through handoffs and shared context, (2) **Sub-Agents** - parent agents delegating specialized tasks to child agents in a hierarchy, and (3) **Agent Workflows** - sequential or concurrent agent execution managed by orchestration engines. Implemented through Agent Framework workflows, Foundry Agent Service, or custom orchestration logic ([Agent Framework Orchestration Patterns](https://learn.microsoft.com/en-us/agent-framework/user-guide/workflows/orchestrations/overview), updated 2026-02-13). *Cross-reference:* See [Visual Framework Diagram 7]({{ '/docs/visual-framework' | relative_url }}) for multi-agent architecture patterns.
 
 ## N
 
@@ -172,7 +172,7 @@ An open project where web endpoints act as MCP servers, allowing websites to pro
 ## O
 
 **Orchestration**  
-Coordinating agents, workflows, and function calls to execute multi-step solutions, often implemented with Agent Framework workflows that provide routing, state management, and human-in-the-loop checkpoints ([Microsoft Agent Framework](https://learn.microsoft.com/en-us/agent-framework/overview/agent-framework-overview), updated 2025-10-01).
+Coordinating agents, workflows, and function calls to execute multi-step solutions, often implemented with Agent Framework workflows that provide routing, state management, and human-in-the-loop checkpoints ([Microsoft Agent Framework](https://learn.microsoft.com/en-us/agent-framework/overview/agent-framework-overview), updated 2026-02-20).
 
 ## P
 
@@ -202,7 +202,7 @@ The modern API primitive that replaces the Assistants API in Microsoft Foundry. 
 ## S
 
 **Skills/Tools**  
-Function tools, hosted services, or built-in capabilities that agents attach at construction or per run, enabling actions like web search, file retrieval, or code execution within Agent Framework ChatClientAgent and ChatAgent implementations ([Agent Tools](https://learn.microsoft.com/en-us/agent-framework/user-guide/agents/agent-tools), updated 2025-09-24).
+Function tools, hosted services, or built-in capabilities that agents attach at construction or per run, enabling actions like web search, file retrieval, or code execution within Agent Framework ChatClientAgent and ChatAgent implementations ([Agent Tools](https://learn.microsoft.com/en-us/agent-framework/user-guide/agents/agent-tools), updated 2026-02-13).
 
 ## W
 

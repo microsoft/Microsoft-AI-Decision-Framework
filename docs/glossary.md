@@ -106,7 +106,7 @@ Microsoft 365 Copilot extension that packages instructions, knowledge, and optio
 ## E
 
 **Entra Agent ID (Preview)**  
-Identity construct that extends Microsoft Entra controls (Conditional Access, identity protection, governance, network controls) to AI agents and agent users, providing unique identifiers and policy enforcement. Microsoft Entra Agent ID is part of Microsoft Agent 365 and is in Frontier preview ([What is Microsoft Entra Agent ID?](https://learn.microsoft.com/en-us/entra/agent-id/identity-professional/microsoft-entra-agent-identities-for-ai-agents), updated 2026-03-25).
+Identity construct that extends Microsoft Entra controls to AI agents across five pillars: Conditional Access (adaptive policies with Microsoft Managed Policies blocking high-risk agents), ID Governance (entitlement management with required sponsors, time-bound access packages), ID Protection (anomaly detection with risk-based automatic remediation), Network Controls (web categorization, file restrictions, prompt injection blocking, threat intelligence filtering), and an Agent Identity Platform for developers (auto-discovery, A2A/MCP authorization, standard protocol authentication). Part of Microsoft Agent 365; Frontier preview ([What is Microsoft Entra Agent ID?](https://learn.microsoft.com/en-us/entra/agent-id/identity-professional/microsoft-entra-agent-identities-for-ai-agents), updated 2026-03-25).
 
 ## F
 
@@ -147,7 +147,7 @@ One of three [Foundry Agent Service](#f) agent types (alongside [Prompt Agents](
 Open protocol for tools and resources that lets agents connect to external systems in a structured, stateful, and secure manner; supported by Microsoft via MCP servers (for example, Azure MCP Server) and client integrations ([What is the Azure MCP Server (Preview)?](https://learn.microsoft.com/en-us/azure/developer/azure-mcp-server/), retrieved 2026-02-18). Copilot Studio can both consume and produce MCP servers (custom MCP server authoring, Preview → Apr GA).
 
 **Model Router (GA)**  
-Foundry model that selects among multiple underlying chat models based on routing profiles (quality vs. cost) and model subsets; GA version `2025-11-18` adds Anthropic models and supports reasoning_effort ([What's new in model router in Microsoft Foundry Models?](https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/whats-new-model-router), updated 2026-03-24).
+Foundry model that selects among multiple underlying chat models based on routing profiles (quality vs. cost) and model subsets. GA version `2025-11-18` added Anthropic models and `reasoning_effort` support; March 2026 updates add `gpt-5.2`, `gpt-5.2-chat`, `Deepseek-v3.2` (Preview), and `claude-opus-4-6` (Preview), plus automatic failover when a routed model experiences instability ([What's new in model router in Microsoft Foundry Models?](https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/whats-new-model-router), updated 2026-03-24).
 
 **Microsoft Discovery**  
 An enterprise agentic platform designed to accelerate scientific research and discovery through hypothesis formulation, candidate generation, and simulation orchestration ([Microsoft Discovery](https://news.microsoft.com/build-2025-book-of-news/), updated 2025-05-19).

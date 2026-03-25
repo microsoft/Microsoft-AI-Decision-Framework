@@ -213,7 +213,7 @@ Use this page as a reference after you’ve narrowed the decision: it’s optimi
 
 - **Broad model catalog:** Access GPT-5, GPT-5-mini, GPT-5-nano, GPT-4.1, GPT-image-1, Sora video generation, and GPT RealTime audio models alongside open-source offerings. (What's new in Azure OpenAI - Updated: 2025-09-10)
 - **Provisioned throughput management:** Reserve PTUs and enable spillover to automatically route excess traffic to standard deployments. (What's new in Azure OpenAI - Updated: 2025-09-10)
-- **Safety and routing:** Use model router, prompt shields with spotlighting, and structured outputs to protect prompts and dynamically select optimal models; GA router version `2025-11-18` adds routing profiles, custom subsets, Anthropic models, and `reasoning_effort` passthrough (billing effective Nov 2025). (Model router GA - Updated: 2026-03-24)
+- **Safety and routing:** Use model router, prompt shields with spotlighting, and structured outputs to protect prompts and dynamically select optimal models; GA router version `2025-11-18` adds routing profiles, custom subsets, Anthropic models, and `reasoning_effort` passthrough (billing effective Nov 2025). March 2026 adds `gpt-5.2`, `gpt-5.2-chat`, `Deepseek-v3.2` (Preview), `claude-opus-4-6` (Preview), and built-in automatic failover for routed models. (Model router GA - Updated: 2026-03-24)
 - **Workflow and evaluation tooling:** Build end-to-end pipelines with prompt flow, evaluations, and integrated monitoring. (Microsoft Foundry documentation - Retrieved: 2026-01-14)
 - **Agent readiness:** Pair with Foundry Agent Service for managed agent orchestration using the same model deployments. (Microsoft Foundry documentation - Retrieved: 2026-01-14)
 
@@ -402,7 +402,7 @@ Not all agents are built the same way. Think of these as three levels of a kitch
 
 **How it fits together:**
 
-- **Microsoft Entra Agent ID (Preview):** Provides agent identities, blueprints, optional agent users, and policy enforcement (conditional access, identity governance, identity protection, network controls). (Microsoft Entra Agent ID - Updated: 2026-03-25; Agent identities - Retrieved: 2025-11-04)
+- **Microsoft Entra Agent ID (Preview):** Provides agent identities, blueprints, optional agent users, and policy enforcement across five pillars: Conditional Access (adaptive policies, Microsoft Managed Policies for high-risk agents), ID Governance (entitlement management, time-bound access), ID Protection (anomaly detection, risk-based remediation), Network Controls (prompt injection blocking, threat intelligence filtering), and Agent Identity Platform (auto-discovery, A2A/MCP authorization). (Microsoft Entra Agent ID - Updated: 2026-03-25; Agent identities - Retrieved: 2025-11-04)
 - **Agent registry + admin center observability:** Agent 365 surfaces agents in the Microsoft 365 admin center for inventory and management. (Overview of Microsoft Agent 365 - Retrieved: 2025-12-15)
 - **Agent 365 SDK (Preview):** Extends agents built on any SDK/platform with Entra-backed identity, notifications, OpenTelemetry observability, and governed MCP servers under blueprint policies. (Agent 365 SDK - Retrieved: 2026-01-09)
 - **Agent 365 CLI (Preview):** Cross-platform CLI to deploy and manage Agent 365 applications on Azure. Requires custom client app registration in Entra ID and uses `--prerelease` installs while the CLI evolves. (Agent 365 CLI - Retrieved: 2026-01-13)

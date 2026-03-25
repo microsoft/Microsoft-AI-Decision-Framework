@@ -165,9 +165,9 @@ Where can your agent appear? Match build platform to distribution surface.
 |--------------|------------------------|--------------------------|
 | **Definition** | Microsoft-managed orchestration where you supply instructions, knowledge, actions | Bring your own orchestration, models, and tooling for bespoke agents |
 | **Best For** | Rapid delivery of guided experiences in M365 apps | Advanced workflows, multi-agent patterns, or non-M365 channels |
-| **Development Model** | Low-code (Copilot Studio) or pro-code via Agents Toolkit scaffolding | Pro-code using Agents SDK, Teams AI Library, or custom frameworks |
+| **Development Model** | Low-code (Copilot Studio) or pro-code via Agents Toolkit scaffolding | Pro-code using Agents SDK, Teams SDK, or custom frameworks |
 | **Orchestration** | Microsoft 365 Copilot orchestrator handles planning and grounding | You decide orchestration (Semantic Kernel, LangChain, Teams AI action planner, etc.) |
-| **M365 Integration** | Native to Microsoft 365 Copilot UI and Teams | Requires explicit integration via M365 Agents SDK or Teams AI Library |
+| **M365 Integration** | Native to Microsoft 365 Copilot UI and Teams | Requires explicit integration via M365 Agents SDK or Teams SDK |
 | **Typical Timeline** | Days to a few weeks | Weeks to months |
 | **Skill Level** | Makers or full-stack developers | Professional developers |
 
@@ -182,7 +182,7 @@ Where can your agent appear? Match build platform to distribution surface.
 
 ## Custom Engine Agent Tool Comparison
 
-| **Tool** | **Copilot Studio** | **Teams AI Library** | **M365 Agents SDK** |
+| **Tool** | **Copilot Studio** | **Teams SDK** | **M365 Agents SDK** |
 |----------|---------------------|----------------------|---------------------|
 | **Primary Use Case** | Managed SaaS for custom agents with built-in governance | Collaborative agents inside Teams | Pro-code agents running across M365 and third-party channels |
 | **Orchestration** | Copilot Studio-managed orchestrator | Built-in Teams AI action planner | Bring your own orchestration (Semantic Kernel, LangChain, custom) |
@@ -269,7 +269,7 @@ Where can your agent appear? Match build platform to distribution surface.
 | **Moderate (Task Execution)** | Multi-turn, 1-5 actions, simple branching | Declarative Agents with API plugins, Microsoft Foundry Agent Service |
 | **Complex (Workflows)** | Sequential workflows, conditional logic | Declarative Agents + Power Automate, Agent Framework workflows |
 | **Advanced (Multi-Agent)** | Agent-to-agent delegation, parallel execution | Copilot Studio multi-agent, Microsoft Foundry Agent Service, Agent Framework |
-| **Expert (Custom Reasoning)** | Custom orchestration logic, model selection | Custom engine agents with Microsoft 365 Agents SDK, Teams AI Library, or Microsoft Foundry Agent Service |
+| **Expert (Custom Reasoning)** | Custom orchestration logic, model selection | Custom engine agents with Microsoft 365 Agents SDK, Teams SDK, or Microsoft Foundry Agent Service |
 
 **Sources:**
 

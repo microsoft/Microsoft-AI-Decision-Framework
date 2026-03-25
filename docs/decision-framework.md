@@ -295,7 +295,7 @@ Clarify action safety expectations and determine whether humans must remain in t
 Select a platform your organization can build and sustain.
 
 - **Makers / fusion teams** - Copilot Studio, AI Builder, Power Apps Plan Designer (AI-assisted architecture).[^copilotstudio][^aibuilderoverview]
-- **Professional developers** - M365 Agents SDK, Microsoft Foundry, Agent Framework, Teams AI Library, with full CI/CD ownership.[^declarativecomparison][^agentstoolkitoverview][^foundryoverview]
+- **Professional developers** - M365 Agents SDK, Microsoft Foundry, Agent Framework, Teams SDK, with full CI/CD ownership.[^declarativecomparison][^agentstoolkitoverview][^foundryoverview]
 - **AI/ML engineers** - Microsoft Foundry and Azure Machine Learning for custom models and evaluations.[^aiarchitecture]
 - **Integration architects** - Logic Apps, API Management, Power Automate for enterprise workflows and connector governance.[^logicappsoverview]
 
@@ -389,7 +389,7 @@ Think in experiment steps: start with the fastest viable option (often SaaS or m
 
 - Copilot Studio (custom engine agents with low-code)
 - Azure Logic Apps (visual designer + AI agent workflows)
-- M365 Agents SDK (with Teams AI Library for Teams-only)
+- M365 Agents SDK (with Teams SDK for Teams-only)
 
 **Months (Custom):**
 

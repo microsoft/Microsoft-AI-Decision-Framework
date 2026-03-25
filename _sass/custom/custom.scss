@@ -460,6 +460,196 @@ pre code {
 	border-radius: 6px;
 }
 
+/* ═══════════════════════════════════════════════════════════════
+   AI Instinct Page — Storytelling-first styling
+   Scoped to .ai-instinct-page so nothing leaks to other pages.
+   ═══════════════════════════════════════════════════════════════ */
+
+.ai-instinct-page {
+
+	/* Wider, more readable prose measure */
+	max-width: 52rem;
+	margin: 0 auto;
+
+	/* Subtitle styling */
+	.ai-instinct-subtitle {
+		font-size: 1.35rem;
+		color: var(--muted);
+		font-style: italic;
+		margin-bottom: 0.25rem;
+	}
+
+	/* Larger, more immersive body text */
+	> p,
+	> ul > li,
+	> ol > li {
+		font-size: 1.05rem;
+		line-height: 1.75;
+		color: var(--text);
+	}
+
+	/* Section headings — cleaner, less "card-like" */
+	h2 {
+		background: transparent;
+		border: none;
+		border-radius: 0;
+		box-shadow: none;
+		padding: 0;
+		margin-top: 3rem;
+		margin-bottom: 1rem;
+		font-size: 1.85rem;
+		position: relative;
+
+		&:after {
+			content: '';
+			position: absolute;
+			bottom: -0.5rem;
+			left: 0;
+			height: 3px;
+			width: 4rem;
+			background: var(--gradient-accent);
+			border-radius: 2px;
+		}
+	}
+
+	h3 {
+		background: transparent;
+		border: none;
+		border-radius: 0;
+		box-shadow: none;
+		padding: 0;
+		margin-top: 2rem;
+		font-size: 1.4rem;
+		color: var(--link);
+
+		&:after {
+			display: none;
+		}
+	}
+
+	/* Instinct section headers — distinctive accent */
+	h3[id*="ai-spine"],
+	h3[id*="ai-voice"],
+	h3[id*="ai-gravity"],
+	h3[id*="ai-rhythm"] {
+		font-size: 1.5rem;
+		padding: 1rem 1.25rem;
+		border-radius: 10px;
+		margin-top: 2.5rem;
+		color: var(--text-strong);
+		background: linear-gradient(135deg, rgba(59, 130, 246, 0.10), rgba(245, 158, 11, 0.08));
+		border-left: 4px solid var(--primary);
+	}
+
+	/* Pull quotes / trigger questions — standout treatment */
+	blockquote.highlight {
+		background: linear-gradient(135deg, rgba(59, 130, 246, 0.08), rgba(245, 158, 11, 0.06));
+		border-left: 4px solid var(--secondary);
+		border-radius: 10px;
+		padding: 1.25rem 1.5rem;
+		font-size: 1.1rem;
+		font-style: italic;
+		color: var(--text-strong);
+		margin: 1.5rem 0;
+		box-shadow: var(--shadow-soft);
+
+		strong {
+			color: var(--secondary);
+			font-style: normal;
+		}
+	}
+
+	/* Real-life examples — subtle visual distinction */
+	ul {
+		padding-left: 1.5rem;
+	}
+
+	li {
+		margin-bottom: 0.75rem;
+		padding-left: 0.25rem;
+	}
+
+	/* The four instincts summary table — polished */
+	table {
+		margin: 2rem 0;
+
+		th {
+			font-size: 0.85rem;
+			text-transform: uppercase;
+			letter-spacing: 0.06em;
+		}
+
+		td:first-child {
+			font-weight: 600;
+			color: var(--primary);
+			white-space: nowrap;
+		}
+	}
+
+	/* Phase sections — journey progression feel */
+	h3[id*="phase"] {
+		padding-left: 0;
+		border-left: none;
+		color: var(--text-strong);
+		font-size: 1.25rem;
+		position: relative;
+		padding-left: 2rem;
+		background: transparent;
+
+		&:before {
+			position: absolute;
+			left: 0;
+			top: 50%;
+			transform: translateY(-50%);
+			width: 1.4rem;
+			height: 1.4rem;
+			border-radius: 50%;
+			background: var(--gradient-accent);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 0.7rem;
+			font-weight: 700;
+			color: var(--bg);
+		}
+	}
+
+	h3[id*="phase-1"]:before { content: '1'; }
+	h3[id*="phase-2"]:before { content: '2'; }
+	h3[id*="phase-3"]:before { content: '3'; }
+	h3[id*="phase-4"]:before { content: '4'; }
+	h3[id*="phase-5"]:before { content: '5'; }
+
+	/* Image — full-width, rounded */
+	img {
+		border-radius: 12px;
+		box-shadow: var(--shadow);
+		margin: 2rem 0;
+		max-width: 100%;
+		height: auto;
+	}
+
+	/* Bold closer — signature line */
+	> p:last-of-type {
+		font-size: 0.95rem;
+		color: var(--muted);
+		font-style: italic;
+	}
+
+	/* Horizontal rules — subtle breath between sections */
+	hr {
+		border: none;
+		height: 1px;
+		background: linear-gradient(90deg, transparent, var(--border), transparent);
+		margin: 3rem 0;
+	}
+
+	/* "What AI Instinct Is Not" — bold items stand out */
+	> p > strong:first-child {
+		color: var(--text-strong);
+	}
+}
+
 /* Mermaid alignment */
 .mermaid {
 	background: transparent !important;

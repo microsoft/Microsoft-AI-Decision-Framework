@@ -5,10 +5,13 @@ nav_order: 11
 description: "Four instincts that make AI partnership as natural as breathing"
 ---
 
+<div class="ai-instinct-page" markdown="1">
+
 # AI Instinct: The Human Framework for Working with AI
 {: .no_toc }
 
 *Four instincts that make AI partnership as natural as breathing. From effort to instinct.*
+{: .ai-instinct-subtitle }
 
 **By Chris McKee** — Principal AI Architect, Microsoft | Marine Corps Veteran
 
@@ -295,3 +298,5 @@ All we are doing here is naming what is already happening. And once you can name
 > **Download:** [AI Instinct (PDF)]({{ '/assets/AI_Instinct.pdf' | relative_url }}) — the complete framework in a shareable format.
 
 *AI Instinct is a behavioral framework for everyone, regardless of role, industry, age, or technical background. These instincts belong to anyone willing to develop them.*
+
+</div>

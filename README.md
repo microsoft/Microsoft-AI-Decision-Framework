@@ -99,18 +99,22 @@ flowchart LR
     QR["Quick Reference"]
     RES["Resources"]
     GLOS["Glossary"]
+    AI["AI Instinct"]
 
     VF --- QR --- RES --- GLOS
+    RES --- AI
 
     style VF fill:#4b2070,stroke:#33154c,color:#fff
     style QR fill:#4b2070,stroke:#33154c,color:#fff
     style RES fill:#4b2070,stroke:#33154c,color:#fff
     style GLOS fill:#4b2070,stroke:#33154c,color:#fff
+    style AI fill:#8c5e00,stroke:#6a4700,color:#fff
 
     click VF "{{ site.baseurl }}/docs/visual-framework" "Open Visual Framework" _self
     click QR "{{ site.baseurl }}/docs/quick-reference" "Open Quick Reference" _self
     click RES "{{ site.baseurl }}/docs/resources" "Open Resources" _self
     click GLOS "{{ site.baseurl }}/docs/glossary" "Open Glossary" _self
+    click AI "{{ site.baseurl }}/docs/ai-instinct" "Open AI Instinct" _self
 ```
 
 ### The Progressive Path
@@ -125,7 +129,7 @@ flowchart LR
 | 6) | [Technologies]({{ site.baseurl }}/docs/technologies) | **Deep Dive** - Detailed specs, data boundaries, and status for Microsoft AI platforms/services | 30 min |
 | 7) | [Feature Comparison]({{ site.baseurl }}/docs/feature-comparison) | **Mastery** - Side-by-side matrices to justify trade-offs across orchestration, data, and workflows | 10 min |
 
-**Supplemental references (use as needed):** [Visual Framework]({{ site.baseurl }}/docs/visual-framework) | [Quick Reference]({{ site.baseurl }}/docs/quick-reference) | [Resources]({{ site.baseurl }}/docs/resources) | [Glossary]({{ site.baseurl }}/docs/glossary)
+**Supplemental references (use as needed):** [Visual Framework]({{ site.baseurl }}/docs/visual-framework) | [Quick Reference]({{ site.baseurl }}/docs/quick-reference) | [Resources]({{ site.baseurl }}/docs/resources) | [Glossary]({{ site.baseurl }}/docs/glossary) | [AI Instinct]({{ site.baseurl }}/docs/ai-instinct)
 
 **Total learning time:** ~2.7 hours for complete framework mastery
 
@@ -212,6 +216,18 @@ For experienced users who want a fast starting point:
 
 ---
 
+## Bonus: AI Instinct — The Human Side of AI Adoption
+
+This framework teaches you how to *choose* AI technologies. But technology choices are only half the equation. The other half is how people actually *partner* with AI once you've made the choice.
+
+[**AI Instinct**]({{ site.baseurl }}/docs/ai-instinct) is a companion framework written for everyone — not just architects or developers. Whether you're a nurse, a mechanic, a teacher, a parent, or a CEO, AI partnership is becoming as fundamental as reading and writing. AI Instinct names the four behavioral instincts (Spine, Voice, Gravity, Rhythm) that separate people who use AI occasionally from people who've made it part of how they think.
+
+This isn't a technical guide. It's the human foundation that makes every technical decision in this framework land. Share it with your team, your stakeholders, or anyone asking "why should I care about AI?"
+
+[Read AI Instinct]({{ site.baseurl }}/docs/ai-instinct){: .btn .fs-5 .mb-4 .mb-md-0 .mr-2 } [Download PDF]({{ '/assets/AI_Instinct.pdf' | relative_url }}){: .btn .btn-outline .fs-5 .mb-4 .mb-md-0 }
+
+---
+
 ## Framework Principles
 
 This guide is built on evidence-based research and systematic decision-making:
@@ -252,7 +268,7 @@ Begin with Scenarios to find use cases similar to yours, then explore referenced
 - Pattern-oriented (proven architecture approaches)
 - Validation-focused (all diagrams validated against official capabilities)
 
-**Maintenance:** This guide reflects the state as of **January 2026**. Microsoft's AI capabilities evolve rapidly—always verify with official sources for production decisions.
+**Maintenance:** This guide reflects the state as of **March 2026**. Microsoft's AI capabilities evolve rapidly—always verify with official sources for production decisions.
 
 ---
 

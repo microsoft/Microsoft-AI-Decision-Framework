@@ -8,14 +8,21 @@ description: "Capability framing for Microsoft AI choices"
 # Capability Model
 {: .no_toc }
 
-This page is **not a decision tree**. It is a teaching aid for *how to think* about AI choices before you pick a technology. Treat it like a workshop guide: start with people and outcomes, then move to capability groupings, and only later talk about platforms. Capabilities shift quickly, so validate your choices against current Microsoft Foundry and Copilot Studio documentation before committing.
+Every AI conversation starts in the wrong place.
+
+Someone walks into the room and says, "We need an agent." Or worse: "We need to use Foundry." They've jumped to a platform before they've named the outcome, described the user, or asked whether AI is even the right tool. This is how projects fail — not from bad technology, but from skipping the thinking that should come before the technology.
+
+This page teaches that thinking. Not a decision tree — those come later. This is the mental framework that makes decision trees *useful*. Learn it once, and it survives every product rename, every Build keynote, every "everything is an agent now" news cycle.
+
+The flow is always the same: **Outcomes → Behaviors → Platforms.** Who benefits and how? What does the AI actually *do*? Only then: which building blocks support that behavior?
 
 **How to use this page:**
 
-1. Start with **definitions and outcomes** (The 3 AI Buckets).
-2. Verify if AI is the right tool (**Checkpoint**).
-3. Determine behavior using the **Agent Framework** (The Spectrum & Dimensions).
-4. Map the work to the **Capability Groupings** and **Implementation Layers**.
+1. Start with **outcomes** — name who benefits and how (The 3 AI Buckets).
+2. Pass the **checkpoint** — verify AI is even the right tool.
+3. Define **behavior** — describe what the agent does before you name a product (The Coin & 5 Dimensions).
+4. Map to **building blocks** — match behaviors to Capability Groupings and the Three IQ Layers.
+5. Choose your **build path** — pick the right layer of the New Full Stack.
 
 For a detailed intake workflow, see [Decision Framework]({{ '/docs/decision-framework' | relative_url }}).
 
@@ -27,19 +34,7 @@ For a detailed intake workflow, see [Decision Framework]({{ '/docs/decision-fram
 
 ---
 
-## 1. Foundational Vocabulary
-
-Before reasoning about capabilities, we must align on the language.
-
-### Clarify the Language (copilot vs Copilot)
-* **copilot** (lowercase) = a *concept*: a natural‑language assistant that helps users create, reason, and act. See [Copilot glossary](https://learn.microsoft.com/en-us/copilot/glossary).
-* **Copilot** (uppercase) = a *product family*: Microsoft 365 Copilot, Dynamics 365 Copilot, Security Copilot, and more. See [ISV extensibility story](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/isv-extensibility-story).
-
-This distinction matters. You can build a copilot experience without using a Microsoft Copilot product, and you can extend Microsoft Copilot products without building your own UI.
-
----
-
-## 2. Orientation: The 3 AI Buckets
+## The 3 AI Buckets
 
 Start by naming **who benefits and how**. This keeps early conversations grounded in outcomes before you debate platforms.
 
@@ -60,7 +55,7 @@ If you don't separate these channels, you risk applying "life hack" advice to en
 
 ---
 
-## 3. Checkpoint: Do You Even Need an Agent?
+## Checkpoint: Do You Even Need an Agent?
 
 Not every AI problem needs an agent. Microsoft’s AI agent guidance explicitly calls out cases where **agents add unnecessary cost, latency, and risk**.
 
@@ -80,7 +75,7 @@ The best architectures mix and match. Let agents handle the *thinking*: intent r
 
 ---
 
-## 4. The Agent Framework
+## The Agent Framework
 
 If you have determined you need an agent, use this framework to describe *what kind* of AI capability you're building, before you name a product.
 
@@ -117,7 +112,7 @@ This defines how the team plays together. The true power of AI isn't just in iso
 
 ---
 
-## 5. Capability Groupings (Building Blocks)
+## Capability Groupings (Building Blocks)
 
 Now that you have defined the behavior, map it to the right building block. These five groupings are not a maturity ladder; they are components you can mix and match.
 
@@ -174,26 +169,19 @@ Each IQ layer is standalone, but agents that combine two or three of them answer
 
 ---
 
-## 6. Mindset Shift: The Convergence of Low-Code & Pro-Code
+## The New Full Stack
 
-We need to retire the idea that "Low-Code is for amateurs" and "Pro-Code is for developers." In the AI era, this binary is dead.
+The low-code vs. pro-code war is over. Here's what killed it.
 
-**For the Technical Professional:**
-Do not confuse "configuration" with "lack of capability." Tools like Copilot Studio are increasingly becoming IDEs for conversational AI. They offer code views, variable management, and API integrations that require an engineering mindset to wield effectively.
-* **Velocity:** Using a graphical interface to handle state management or auth flows isn't "cheating"; it's efficient.
-* **The Hybrid Reality:** Modern "Pro-Code" tools (like Foundry) now include visual prompt flow builders, while "Low-Code" tools (like Copilot Studio) allow for raw code injection.
+For years, the industry drew a bright line: "low-code is for citizen developers" on one side, "pro-code is for real engineers" on the other. The line made sense when code was expensive. Writing a state machine, wiring up auth flows, managing deployment pipelines — these tasks demanded specialized skills and weeks of calendar time. Low-code existed as a category because the alternative cost too much.
 
-**The New Rule:**
-Choose the tool based on the **problem complexity**, not your job title. A Principal Architect should use a low-code canvas if it solves the problem 10x faster, and a Business Analyst should respect the engineering rigor required to manage a complex agent workflow.
+That economics has collapsed. Agentic coding tools — GitHub Copilot, coding agents, AI-assisted development — have made writing deterministic logic fast and cheap. A coding agent can scaffold a validated state machine in minutes. The cost argument that justified the binary no longer holds. And on the other side, tools like Copilot Studio now offer code views, variable management, and API integrations that demand an engineering mindset to wield effectively. The "low-code" canvas has become an IDE for conversational AI.
 
----
+**The New Rule:** Choose the tool based on the **problem**, not your job title. A Principal Architect should use Copilot Studio if it solves the problem 10× faster. A Business Analyst working in Foundry isn't out of their depth — they're using the right tool for *their* use case. The tool does not define the role. The problem defines the tool.
 
-## 7. Implementation: The Right Tool for the Right Job
+### Three Layers, One Architecture
 
-Do not think of this as "Copilot Studio vs. Microsoft Foundry." Think of it as a **spectrum of control**. You will often use these tools together in an "AND" conversation, not an "OR" decision.
-
-### The Three Layers of Build
-Most enterprise architectures use a combination of all three layers.
+Do not think of this as "Copilot Studio vs. Microsoft Foundry." Think of it as a **spectrum of control** — three layers that most enterprise architectures use together. This is an "AND" conversation, not an "OR" decision.
 
 **1. The SaaS Layer (Microsoft 365 Copilot)**
 * **Focus:** Consumption & Configuration.
@@ -226,11 +214,13 @@ Historically, the "AND" conversation stalled at procurement: separate billing fo
 
 ---
 
+{: .note }
+> **The Human Side:** Technology choices are only half the equation. How your team *partners* with AI matters just as much as which platform they use. See [AI Instinct: The Human Framework]({{ '/docs/ai-instinct' | relative_url }}) for the four instincts that make AI partnership as natural as breathing.
+
+---
+
 ## Sources
 
-* [ISV extensibility story](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/isv-extensibility-story) (Updated: 2024-09-20)
-* [Capability Envisioning](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/capability-envisioning) (Updated: 2024-09-20)
-* [Copilot glossary](https://learn.microsoft.com/en-us/copilot/glossary) (Updated: 2024-05-13)
 * [Copilot Chat overview](https://learn.microsoft.com/en-us/copilot/overview) (Updated: 2026-01-13)
 * [Which Copilot is right for your organization](https://learn.microsoft.com/en-us/copilot/microsoft-365/which-copilot-for-your-organization) (Updated: 2026-03-24)
 * [Copilot Studio overview](https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-what-is-copilot-studio) (Updated: 2026-02-09)

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Decision Explorer
-nav_order: 13
+nav_order: 14
 description: "Interactive decision tree explorer with pan, zoom, and branch isolation"
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Glossary
-nav_order: 12
+nav_order: 13
 description: "Key terms and definitions for Microsoft AI technologies"
 ---
 

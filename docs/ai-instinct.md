@@ -10,7 +10,7 @@ description: "Four instincts that make AI partnership as natural as breathing"
 <div class="ai-instinct-banner">
   <div class="banner-label">Bonus Content</div>
   <div class="banner-text">
-    The Microsoft AI Decision Framework helps technical teams choose the right platform. This page is different. <strong>AI Instinct</strong> is for everyone — architects, makers, managers, teachers, parents — anyone building a working relationship with AI. It's not about which technology to pick. It's about developing the human instincts that make every technology choice land. Share it with your team, your stakeholders, or anyone asking <em>"where do I start with AI?"</em>
+    The Microsoft AI Decision Framework helps technical teams choose the right platform. This page is different. <strong>AI Instinct</strong> is for everyone — architects, makers, managers, teachers, parents — anyone building a working relationship with AI. It's not about which technology to pick. It's about the behavioral shift that turns AI from a tool you sometimes use into a partner you naturally work with. Share it with your team, your stakeholders, or anyone asking <em>"where do I start with AI?"</em>
   </div>
   <a href="{{ '/assets/AI_Instinct.pdf' | relative_url }}" class="banner-download">Download PDF ↓</a>
 </div>

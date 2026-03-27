@@ -7,6 +7,14 @@ description: "Four instincts that make AI partnership as natural as breathing"
 
 <div class="ai-instinct-page" markdown="1">
 
+<div class="ai-instinct-banner">
+  <div class="banner-label">Bonus Content</div>
+  <div class="banner-text">
+    The Microsoft AI Decision Framework helps technical teams choose the right platform. This page is different. <strong>AI Instinct</strong> is for everyone — architects, makers, managers, teachers, parents — anyone building a working relationship with AI. It's not about which technology to pick. It's about developing the human instincts that make every technology choice land. Share it with your team, your stakeholders, or anyone asking <em>"where do I start with AI?"</em>
+  </div>
+  <a href="{{ '/assets/AI_Instinct.pdf' | relative_url }}" class="banner-download">Download PDF ↓</a>
+</div>
+
 # AI Instinct: The Human Framework for Working with AI
 {: .no_toc }
 
@@ -17,9 +25,6 @@ description: "Four instincts that make AI partnership as natural as breathing"
   <span class="author-name">Chris McKee</span>
   <span class="author-role">Principal AI Architect, Microsoft · Marine Corps Veteran</span>
 </div>
-
-{: .note }
-> This is companion content to the [Capability Model]({{ '/docs/capability-model' | relative_url }}). While the Capability Model teaches how to *choose* AI technologies, AI Instinct teaches how to *partner* with AI as a human behavioral shift. [Download the PDF version]({{ '/assets/AI_Instinct.pdf' | relative_url }}).
 
 ## Table of contents
 {: .no_toc .text-delta }

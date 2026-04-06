@@ -10,7 +10,7 @@ const nodes: Node<NodeData>[] = [
   { id: 'GA_Deadline', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'Retirement date\nwithin horizon?', category: 'question', branch: 'lifecycle' } },
   { id: 'GA_Proceed', position: { x: 0, y: 0 }, type: 'decision', data: { label: '✅ Proceed to\nDecision Framework', category: 'outcome', branch: 'lifecycle' } },
 
-  // Column 2: Preview / RC
+  // Column 2: Preview
   { id: 'Preview_Path', position: { x: 0, y: 0 }, type: 'decision', data: { label: '⚠️ Plan for change', category: 'decision', branch: 'lifecycle', color: '#78350f' } },
   { id: 'Preview_Deadline', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'Go-live BEFORE\ndeadline?', category: 'question', branch: 'lifecycle' } },
   { id: 'Preview_Proceed', position: { x: 0, y: 0 }, type: 'decision', data: { label: '✅ Proceed with\ncaution', category: 'outcome', branch: 'lifecycle' } },
@@ -27,7 +27,7 @@ const edges: Edge<EdgeData>[] = [
   { id: 'e-start', source: 'Start', target: 'Q0', data: { variant: 'default' } },
   // Fan out: three status paths
   { id: 'e-q0-ga', source: 'Q0', target: 'GA_Path', label: 'GA', data: { variant: 'default' } },
-  { id: 'e-q0-preview', source: 'Q0', target: 'Preview_Path', label: 'Preview / RC', data: { variant: 'default' } },
+  { id: 'e-q0-preview', source: 'Q0', target: 'Preview_Path', label: 'Preview', data: { variant: 'default' } },
   { id: 'e-q0-dep', source: 'Q0', target: 'Dep_Path', label: 'Deprecated', data: { variant: 'default' } },
 
   // Column 1: GA → Deadline check → Proceed

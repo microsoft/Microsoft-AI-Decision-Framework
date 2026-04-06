@@ -301,9 +301,9 @@ Use this page as a reference after you’ve narrowed the decision: it’s optimi
 
 ## Foundry Agent Service {: .tech-heading }
 
-**Description:** Managed PaaS for agent orchestration, skills management, and runtime infrastructure within **Microsoft Foundry (Azure)**. Supports connected agents (multi-agent systems), 15+ built-in tools, full RBAC + VNet + BYO storage. GA with continuous feature additions. (Formerly **Azure AI Agent Service**).  
+**Description:** Managed PaaS for agent orchestration, skills management, and runtime infrastructure within **Microsoft Foundry (Azure)**. Supports connected agents (multi-agent systems), 15+ built-in tools, full RBAC + VNet + BYO storage. GA with continuous feature additions. The next-gen service is built on the OpenAI Responses API, making it wire-compatible with OpenAI's agentic protocol. (Formerly **Azure AI Agent Service**).  
 **Official Docs:** [Foundry Agent Service](https://learn.microsoft.com/en-us/azure/ai-services/agents/)  
-**Status:** GA (May 2025)
+**Status:** GA (May 2025; next-gen on Responses API: March 2026)
 
 **Key Features:**
 
@@ -315,6 +315,10 @@ Use this page as a reference after you’ve narrowed the decision: it’s optimi
 - **Event triggers:** Invoke agents from Azure Logic Apps or other workflows to respond to business events. (Foundry Agent Service GA - Updated: 2026-01-21)
 - **VS Code integration:** Microsoft Foundry VS Code extension deploys and configures agent tools, including MCP integrations. (Foundry Agent Service GA - Updated: 2026-01-21)
 - **MCP tool & Deep Research:** Connect to remote Model Context Protocol servers and run multi-step o3-deep-research investigations grounded by Bing Search. (What's new in Foundry Agent Service - Updated: 2025-10-08)
+- **Next-gen GA (Responses API):** Built on OpenAI Responses API, wire-compatible with OpenAI agents. Open model support across DeepSeek, xAI, Meta, LangChain, and LangGraph. ([Foundry Agent Service GA blog](https://devblogs.microsoft.com/foundry/foundry-agent-service-ga/) - Published: 2026-03-16)
+- **MCP authentication expansion:** Key-based, Entra Agent Identity, Managed Identity, and OAuth Identity Passthrough for user-delegated access patterns. ([Foundry Agent Service GA blog](https://devblogs.microsoft.com/foundry/foundry-agent-service-ga/) - Published: 2026-03-16)
+- **Evaluations (GA):** Out-of-the-box evaluators (coherence, relevance, groundedness, safety), custom evaluators, and continuous production monitoring via Azure Monitor. ([Foundry Agent Service GA blog](https://devblogs.microsoft.com/foundry/foundry-agent-service-ga/) - Published: 2026-03-16)
+- **SDK consolidation:** `azure-ai-agents` package deprecated; agents are now first-class operations on `AIProjectClient` in `azure-ai-projects` (Python 2.0.1 GA, Java 2.0.0 GA, .NET 2.0.0-beta.1). Use `get_openai_client()` to drive responses. ([Foundry Agent Service GA blog](https://devblogs.microsoft.com/foundry/foundry-agent-service-ga/) - Published: 2026-03-16)
 
 **Built-in Tools (Knowledge):**
 
@@ -348,7 +352,7 @@ Use this page as a reference after you’ve narrowed the decision: it’s optimi
 
 - **Responses API (GA):** Modern API primitive replacing the Assistants API. Uses Conversations (not Threads) and Response Items (not Runs) with stateful context, background mode, and durable streams.
 - **Agent Applications (GA):** Publish agents as Azure resources with dedicated Entra identity, stable endpoint, RBAC scope, and Azure Policy integration. One-click publish to M365 Copilot and Teams.
-- **Voice Live (Preview):** Real-time voice agents powered by Azure Speech. Connect Foundry agents to telephony, automotive, accessibility, and contact center scenarios via agent ID. SDKs for Python, C#, JavaScript, Java. Requires public endpoints (no VNet support yet).
+- **Voice Live (Preview):** Real-time voice agents powered by Azure Speech. Connect Foundry agents to telephony, automotive, accessibility, and contact center scenarios via agent ID. Integrates natively with Foundry agents. SDKs for Python, C#, JavaScript, Java. Requires public endpoints (no VNet support yet).
 - **Foundry IQ (Preview):** Managed knowledge bases connecting agents to permission-aware enterprise data via MCP. See [Foundry IQ](#foundry-iq-preview).
 - **Multi-agent workflows (Preview):** Orchestrate multiple agents in coordinated workflows within the Foundry portal.
 - **Agent Memory (Preview):** Persistent context across sessions for agents.
@@ -359,10 +363,11 @@ Not all agents are built the same way. Think of these as three levels of a kitch
 
 - **Prompt agents (GA):** Defined entirely through configuration — instructions, model selection, and tools. Create in the Foundry portal or via SDK/API. Agent Service handles orchestration and hosting automatically. Best for rapid prototyping and agents that don't need custom orchestration logic. See [Agent types overview](https://learn.microsoft.com/en-us/azure/foundry/agents/overview#agent-types).
 - **Workflow agents (Preview):** Orchestrate sequences of actions or coordinate multiple agents using declarative YAML definitions. Build visually in the Foundry portal or define in VS Code. Support branching logic, human-in-the-loop steps, and group-chat patterns. Best for multi-step orchestration without custom code.
-- **Hosted agents (Preview):** Code-based agents built with any framework (Agent Framework, LangGraph, custom) and deployed as containers on Agent Service. You write the orchestration logic; Foundry manages runtime, scaling, and infrastructure. Billing starts no earlier than April 1, 2026. Best for complex workflows requiring full control over agent behavior. See [Hosted agents overview](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/hosted-agents).
+- **Hosted agents (Preview):** Code-based agents built with any framework (Agent Framework, LangGraph, custom) and deployed as containers on Agent Service. You write the orchestration logic; Foundry manages runtime, scaling, and infrastructure. Billing enabled during preview; check the [Foundry pricing page](https://azure.microsoft.com/pricing/details/ai-foundry/) for current rates. Best for complex workflows requiring full control over agent behavior. See [Hosted agents overview](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/hosted-agents).
 
-**Recent Updates (2025):**
+**Recent Updates (2025–2026):**
 
+- **Mar 2026:** Next-gen Foundry Agent Service GA on Responses API. End-to-end private networking for MCP servers/AI Search/Fabric. MCP auth expansion (key, Entra Agent Identity, Managed Identity, OAuth Passthrough). Evaluations GA with continuous monitoring via Azure Monitor. Hosted agents expanded to 6 new regions. `azure-ai-agents` SDK deprecated in favor of `AIProjectClient` in `azure-ai-projects`. ([Foundry Agent Service GA blog](https://devblogs.microsoft.com/foundry/foundry-agent-service-ga/) - Published: 2026-03-16)
 - **General Availability:** Service went GA in May 2025
 - **Connected agents:** Multi-agent orchestration without external orchestrators (May 2025)
 - **MCP tool:** Connect to remote Model Context Protocol servers (June 2025)
@@ -374,12 +379,12 @@ Not all agents are built the same way. Think of these as three levels of a kitch
 
 **Network Isolation:**
 
-- **VNet Support (GA, Standard Setup):** Full private networking with BYO VNet injection. Agent client injected into a customer-managed subnet; outbound traffic routes through your VNet to Azure PaaS over private endpoints. Requires delegated subnet (`Microsoft.App/environments`, /27+) and BYO Storage, AI Search, Cosmos DB.
+- **VNet Support (GA, Standard Setup):** Full private networking with BYO VNet injection. Agent client injected into a customer-managed subnet; outbound traffic routes through your VNet to Azure PaaS over private endpoints. BYO VNet now extends to MCP servers, Azure AI Search, and Fabric data agents. Requires delegated subnet (`Microsoft.App/environments`, /27+) and BYO Storage, AI Search, Cosmos DB.
 - **Managed VNet (Preview):** Microsoft-provisioned network with managed private endpoints. Two modes: "Allow internet outbound" and "Allow only approved outbound." Simpler setup; no customer VNet required.
 - **Tool support behind VNet:** MCP (private), AI Search, Code Interpreter, Function Calling, Bing/SharePoint Grounding, and Foundry IQ work behind VNet. File Search, OpenAPI, Azure Functions, Browser Automation, Computer Use, Image Generation, and A2A are not yet supported. Voice Live requires public endpoints.
 - **Ideal for:** Managed PaaS with private networking requirements. Use Standard Setup + BYO VNet for GA-supported production isolation.
 
-> **Terminology clarification:** This guide uses three distinct terms: **(1) Microsoft Foundry** - the platform/portal (ai.azure.com) providing model catalog, prompt flow, and evaluations. Microsoft Foundry offers two portal experiences (classic and new) that do **not** have feature parity; the underlying APIs and feature rollouts differ. Validate capabilities in the portal, SDK samples, and Microsoft Learn before committing. **(2) Microsoft Foundry Agent Service** - an optional managed PaaS runtime WITHIN Foundry for hosting agents with built-in tools and orchestration. **(3) Hosted agents** - agents deployed to the Foundry Agent Service runtime (vs self-hosted agents running in your own infrastructure using Agent Framework, LangChain, or custom code). Additionally, **(4) Microsoft Agent Framework** - the open-source orchestration SDK for .NET/Python. You can use Microsoft Foundry WITHOUT Agent Service by deploying custom code.
+> **Terminology clarification:** This guide uses three distinct terms: **(1) Microsoft Foundry** - the platform/portal (ai.azure.com) providing model catalog, prompt flow, and evaluations. Microsoft Foundry offers two portal experiences (classic and new) that do **not** have feature parity; the underlying APIs and feature rollouts differ. Validate capabilities in the portal, SDK samples, and Microsoft Learn before committing. **(2) Microsoft Foundry Agent Service** - an optional managed PaaS runtime WITHIN Foundry for hosting agents with built-in tools and orchestration. **(3) Hosted agents** - agents deployed to the Foundry Agent Service runtime (vs self-hosted agents running in your own infrastructure using Agent Framework, LangChain, or custom code). Additionally, **(4) Microsoft Agent Framework** - the open-source orchestration SDK for .NET/Python (v1.0 GA, April 2026). You can use Microsoft Foundry WITHOUT Agent Service by deploying custom code.
 
 **When to use:** Managed agent orchestration at the PaaS runtime, scalable agent infrastructure, multi-agent systems, comprehensive built-in tool ecosystem, prefer Azure-managed RAG infrastructure, need enterprise security + observability
 
@@ -391,6 +396,7 @@ Not all agents are built the same way. Think of these as three levels of a kitch
 - [Transparency Note for Azure Agent Service](https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/agents/transparency-note)
 - [Virtual Networks for Foundry](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/virtual-networks)
 - [Azure Cosmos DB integration with Azure AI Agents Service](https://learn.microsoft.com/en-us/azure/cosmos-db/gen-ai/azure-agent-service#overview)
+- [Foundry Agent Service GA announcement](https://devblogs.microsoft.com/foundry/foundry-agent-service-ga/) (Published: 2026-03-16)
 
 ---
 
@@ -673,9 +679,11 @@ Each IQ workload is standalone, but they can work together to provide comprehens
 
 ## Microsoft Agent Framework {: .tech-heading }
 
-**Description:** Microsoft's next-generation, type-safe orchestration SDK for composing multi-agent workflows with executors, edges, and reusable patterns. Successor to Semantic Kernel and AutoGen for building agents in .NET and Python.  
-**Status:** GA (.NET, Python)  
-**Official Docs:** [Microsoft Agent Framework overview](https://learn.microsoft.com/en-us/agent-framework/overview/agent-framework-overview) | [Workflows overview](https://learn.microsoft.com/en-us/agent-framework/user-guide/workflows/overview) | [Workflows - Checkpoints](https://learn.microsoft.com/en-us/agent-framework/user-guide/workflows/checkpoints)
+**Description:** Type-safe orchestration SDK for composing multi-agent workflows with executors, edges, and reusable patterns. Successor to Semantic Kernel and AutoGen with stable APIs, multi-provider model support, and cross-runtime interoperability across .NET and Python.  
+**Status:** GA v1.0 (.NET, Python) — April 2026  
+**Official Docs:** [Microsoft Agent Framework overview](https://learn.microsoft.com/en-us/agent-framework/overview/agent-framework-overview) | [Workflows overview](https://learn.microsoft.com/en-us/agent-framework/user-guide/workflows/overview) | [Workflows - Checkpoints](https://learn.microsoft.com/en-us/agent-framework/user-guide/workflows/checkpoints)  
+**Packages:** NuGet: `Microsoft.Agents.AI` | PyPI: `agent-framework`  
+**GitHub:** [microsoft/agent-framework](https://github.com/microsoft/agent-framework)
 
 **Key Features:**
 
@@ -687,6 +695,33 @@ Each IQ workload is standalone, but they can work together to provide comprehens
 - **Agent Skills:** Portable packages of instructions, scripts, and resources that give agents specialized capabilities. Skills use progressive disclosure (advertise ~100 tokens → load &lt;5000 tokens → read resources on demand) to minimize context window usage. ([Agent Skills](https://learn.microsoft.com/en-us/agent-framework/agents/skills) - Retrieved: 2026-03-19)
 - **Background responses:** Continuation token mechanism for long-running operations. Agents start processing in the background and return a token for polling or stream resumption. Currently supported by OpenAI Responses API-backed agents. ([Background Responses](https://learn.microsoft.com/en-us/agent-framework/agents/background-responses) - Retrieved: 2026-03-19)
 - **Evaluation guidance:** Foundry-hosted evaluation support for Agent Framework agents covering IntentResolution, ToolCallAccuracy, TaskAdherence, Relevance, and Groundedness metrics. ([Agent evaluation checklist](https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/evaluation-checklist) - Retrieved: 2026-03-19)
+- **Service Connectors:** First-party connectors for Microsoft Foundry, Azure OpenAI, OpenAI, Anthropic Claude, Amazon Bedrock, Google Gemini, and Ollama. ([Agent Framework v1.0 blog](https://devblogs.microsoft.com/agent-framework/microsoft-agent-framework-version-1-0/) - Published: 2026-04-03)
+- **Middleware Hooks:** Intercept, transform, and extend agent behavior (content safety, logging, compliance) without modifying prompts. ([Agent Framework v1.0 blog](https://devblogs.microsoft.com/agent-framework/microsoft-agent-framework-version-1-0/) - Published: 2026-04-03)
+- **Agent Memory & Context Providers:** Pluggable memory via Foundry Agent Service Memory, Mem0, Redis, Neo4j, or custom stores. ([Agent Framework v1.0 blog](https://devblogs.microsoft.com/agent-framework/microsoft-agent-framework-version-1-0/) - Published: 2026-04-03)
+- **Declarative Agents & Workflows (YAML):** Define agents and orchestration topology in version-controlled YAML. ([Agent Framework v1.0 blog](https://devblogs.microsoft.com/agent-framework/microsoft-agent-framework-version-1-0/) - Published: 2026-04-03)
+- **MCP support (GA):** Dynamic discovery and invocation of tools via MCP-compliant servers; A2A protocol support coming soon. ([Agent Framework v1.0 blog](https://devblogs.microsoft.com/agent-framework/microsoft-agent-framework-version-1-0/) - Published: 2026-04-03)
+- **Migration Assistants:** Automated migration from Semantic Kernel and AutoGen with step-by-step guides. ([Agent Framework v1.0 blog](https://devblogs.microsoft.com/agent-framework/microsoft-agent-framework-version-1-0/) - Published: 2026-04-03)
+
+**Preview Features:**
+
+- **DevUI (Preview):** Browser-based local debugger for agent execution visualization.
+- **Foundry Hosted Agent Integration (Preview):** Run Agent Framework agents as managed services on Foundry or Azure Durable Functions.
+- **AG-UI / CopilotKit / ChatKit (Preview):** Stream agent output to frontend surfaces.
+- **Skills (Preview):** Reusable domain capability packages.
+- **GitHub Copilot SDK + Claude Code SDK (Preview):** Use as agent harnesses in orchestrations.
+- **Agent Harness (Preview):** Shell, filesystem, and messaging loop access for coding agents.
+
+**When to use:** Full code-first control over multi-agent orchestration with multi-provider model support, custom middleware, and workflow persistence. Use when Copilot Studio's low-code approach or Foundry Agent Service's managed runtime don't provide enough flexibility.
+
+**Recent Updates (2026):**
+
+- **Apr 2026:** Version 1.0 GA for .NET and Python. Stable APIs with backward-compatibility commitment. Service Connectors for 7 providers, Middleware Hooks, Agent Memory, Declarative YAML, MCP GA, and Migration Assistants from Semantic Kernel and AutoGen. ([Agent Framework v1.0 blog](https://devblogs.microsoft.com/agent-framework/microsoft-agent-framework-version-1-0/) - Published: 2026-04-03)
+
+**Sources:**
+
+- [Microsoft Agent Framework v1.0 announcement](https://devblogs.microsoft.com/agent-framework/microsoft-agent-framework-version-1-0/) (Published: 2026-04-03)
+- [Agent Framework documentation](https://learn.microsoft.com/en-us/agent-framework/)
+- [Agent Framework GitHub](https://github.com/microsoft/agent-framework)
 
 ---
 

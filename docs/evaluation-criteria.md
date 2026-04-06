@@ -162,7 +162,7 @@ Before moving to the [Implementation Patterns]({{ '/docs/implementation-patterns
 
 **Lifecycle:**
 
-* [ ] Technology status (GA/Preview/RC/Deprecated) confirmed against [Quick Reference: Lifecycle Status]({{ '/docs/quick-reference' | relative_url }})?
+* [ ] Technology status (GA/Preview/Deprecated) confirmed against [Quick Reference: Lifecycle Status]({{ '/docs/quick-reference' | relative_url }})?
 * [ ] Go-live date checked against any active retirement deadlines?
 * [ ] Publish targets validated for agent distribution?
 * [ ] Governance, observability, and evaluation tooling identified?

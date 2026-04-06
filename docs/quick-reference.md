@@ -71,7 +71,8 @@ Active migration deadlines and forced transitions. If your project timeline cros
 | Classic agents (v1) | **Deprecated** | Mar 31, 2027 | Foundry Agents v2 (`create_version()`) | **Plan migration.** [migration guide](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/migrate#migrate-classic-agents-to-new-agents) |
 | Classic Foundry portal | **Legacy** | Ongoing | Foundry (new) portal | **Transition.** Classic and new lack feature parity |
 | Bot Framework | **Retired** | Dec 31, 2025 (passed) | M365 Agents SDK + Toolkit | **Complete** |
-| `azure-ai-projects` 1.x | **Legacy** | Aligns with classic portal | `azure-ai-projects` 2.x (Preview) | **Upgrade.** 2.x targets the new Foundry portal and is the investment direction |
+| `azure-ai-agents` SDK | **Deprecated** | March 2026 | `AIProjectClient` in `azure-ai-projects` 2.x | **Remove** standalone `azure-ai-agents` pin; use `project_client.get_openai_client()` for agent responses |
+| `azure-ai-projects` 1.x | **Legacy** | Aligns with classic portal | `azure-ai-projects` 2.x (GA: Python 2.0.1, Java 2.0.0; Beta: .NET 2.0.0-beta.1) | **Upgrade.** 2.x targets the new Foundry portal and is the investment direction |
 | Semantic Kernel (standalone) | **Maintenance** | Security patches only | Microsoft Agent Framework | **Migrate for new projects** |
 
 **Sources:**

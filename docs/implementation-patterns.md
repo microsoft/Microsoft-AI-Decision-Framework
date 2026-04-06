@@ -209,8 +209,8 @@ Use this page when you’ve identified a likely platform choice and want an exec
 
 **Approach:**
 
-1. Model the orchestration in **Agent Framework Workflows** to get type-safe executors, edges, and validation before anything runs.[^agent-workflows]
-2. Stand up specialized agents (Microsoft Foundry Agent Service, Microsoft Foundry, or custom ChatClient agents) and register them as workflow executors.[^agent-azure-workflow][^agent-azure-agent]
+1. Model the orchestration in **Agent Framework Workflows** to get type-safe executors, edges, and validation before anything runs. For teams that prefer configuration over code, define agents, tools, and topology in **Declarative YAML files** and load the entire workflow with a single API call — keeping orchestration definitions version-controlled alongside your infrastructure-as-code.[^agent-workflows]
+2. Stand up specialized agents (Microsoft Foundry Agent Service, Microsoft Foundry, or custom ChatClient agents) and register them as workflow executors. Agents can discover and invoke external tools on any **MCP-compliant server** (GA), so your workflow isn't limited to first-party integrations.[^agent-azure-workflow][^agent-azure-agent]
 3. Choose the right orchestration pattern (Sequential, Concurrent, Handoff, Group Chat, or Magentic) and configure routing rules that match each agent's responsibilities.[^agent-orchestrations]
 4. Add reliability primitives like checkpointing, event streaming, and human-in-the-loop gates before hosting the workflow runtime.[^agent-checkpoint]
 5. Expose the orchestrator through your preferred surface (M365 Agents SDK, web API, Logic Apps trigger) so downstream channels can invoke the multi-agent workflow. Use the AG-UI protocol (Preview) when you need streaming, shared state, or human-approval experiences in custom web or mobile clients.[^agentsdk-overview][^agui-integration]
@@ -482,7 +482,7 @@ Choose the path that matches your team's velocity and codebase complexity. All t
    | Runs | Responses | Input/output items with explicit tool call loop management |
    | Assistants | Agents (new) | Prompt-based, workflow-based, and hosted agent types with stateful context |
 
-4. **Update SDK packages:** Install `azure-ai-projects` 2.x (replaces 1.x) and initialize the `AIProjectClient` pointing to your Foundry project endpoint. Ensure the SDK version matches the portal experience. Mixing 1.x SDK with new portal (or vice versa) causes errors.[^agents-migrate]
+4. **Update SDK packages:** Install `azure-ai-projects` 2.x (replaces 1.x) and initialize the `AIProjectClient` pointing to your Foundry project endpoint. The standalone `azure-ai-agents` package is deprecated — remove it and use `AIProjectClient` in `azure-ai-projects` as the single entry point. Ensure the SDK version matches the portal experience. Mixing 1.x SDK with new portal (or vice versa) causes errors.[^agents-migrate]
 
 5. **Test and validate.** The new agents support all existing tools (file search, code interpreter, function calling) plus capabilities the Assistants API never had: MCP tool calling, image generation, browser automation (Preview), background mode for long-running operations, and durable streams for disconnect/reconnect resilience. Run integration tests against the new endpoint before cutting over.[^agents-migrate][^responses-api]
 

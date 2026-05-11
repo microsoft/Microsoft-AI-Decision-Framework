@@ -866,7 +866,7 @@ flowchart TD
 
 | Technology | Status | Capabilities | Documentation |
 |------------|--------|--------------|---------------|
-| **Copilot Studio** | Preview | Agent2Agent (A2A) decentralized mesh, Connected agents, child agents, handoffs | [Connected Agents](https://learn.microsoft.com/microsoft-copilot-studio/advanced-connected-agents) |
+| **Copilot Studio** | Preview | Agent2Agent (A2A) decentralized mesh, Connected agents, child agents, handoffs | [Connected Agents](https://learn.microsoft.com/en-us/microsoft-copilot-studio/authoring-add-other-agents) |
 | **Foundry Agent Service** | GA | Multi-agent workflows with orchestration patterns | [Agent Workflows](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/workflow) |
 | **Fabric Data Agents** | Preview | Consumed by other agents for data grounding (NOT orchestrator) | [Fabric Integration](https://learn.microsoft.com/en-us/fabric/data-science/data-agent-microsoft-copilot-studio) |
 
@@ -885,7 +885,7 @@ flowchart TD
 
 | Technology | Status | Event Handling | Documentation |
 |------------|--------|----------------|---------------|
-| **Logic Apps AI Agent Workflows** | Preview | Event triggers + MCP Server (triggers SINGLE agent, NOT multi-agent orchestration) | [Logic Apps Workflows](https://learn.microsoft.com/azure/logic-apps/create-run-ai-agent-workflow) |
+| **Logic Apps AI Agent Workflows** | Preview | Event triggers + MCP Server (triggers SINGLE agent, NOT multi-agent orchestration) | [Logic Apps Workflows](https://learn.microsoft.com/en-us/azure/logic-apps/create-autonomous-agent-workflows) |
 | **Azure Functions + Agent Service** | GA | Event-driven single agent invocation (event routing, NOT coordination) | [Agent Service](https://learn.microsoft.com/azure/ai-foundry/responsible-ai/agents/transparency-note) |
 | **Event Grid + Foundry** | GA | Event routing to trigger agents independently (NOT orchestration) | [Azure Event Grid](https://learn.microsoft.com/azure/event-grid/) |
 

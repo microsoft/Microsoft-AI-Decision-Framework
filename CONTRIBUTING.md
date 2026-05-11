@@ -11,7 +11,7 @@ We welcome contributions from developers and organizations worldwide! Our goal i
 - **Scenario contributions**: Add real-world use cases with validated technology recommendations
 - **Technology research**: Validate capabilities against official Microsoft Learn documentation
 - **Framework enhancements**: Improve BXT methodology, evaluation criteria, or implementation patterns
-- **Community engagement**: Participate in [discussions](https://github.com/microsoft/microsoft-ai-decision-framework/discussions), answer questions, share experiences
+- **Community engagement**: Participate in [issues](https://github.com/microsoft/Microsoft-AI-Decision-Framework/issues), answer questions, share experiences
 
 ## Philosophy: Right Technology, Right Context
 
@@ -141,7 +141,7 @@ Before submitting your PR, verify:
 
 ## Questions or Need Help?
 
-- **Documentation questions**: Create a [discussion](https://github.com/microsoft/microsoft-ai-decision-framework/discussions)
+- **Documentation questions**: Open an [issue](https://github.com/microsoft/Microsoft-AI-Decision-Framework/issues)
 - **Bug reports**: File an [issue](https://github.com/microsoft/microsoft-ai-decision-framework/issues)
 - **Feature requests**: File an [issue](https://github.com/microsoft/microsoft-ai-decision-framework/issues) with detailed description
 - **Security vulnerabilities**: See [SECURITY.md](SECURITY.md)

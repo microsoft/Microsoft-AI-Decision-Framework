@@ -656,7 +656,7 @@ flowchart TD
 |----------|--------------|---------------|
 | **Copilot Studio Capacity Packs** | $200/month per 25,000 credits | Prepaid [(docs)](https://learn.microsoft.com/en-us/microsoft-copilot-studio/billing-licensing#copilot-studio-prepaid-copilot-credits-subscription) |
 | **M365 SDK + Azure** | $600-2.3K/mo | SDK free; Azure hosting (App Service ~$100-300/mo) + Azure OpenAI PAYG (~$500-2K/mo tokens) [(docs)](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/cost-considerations#agents-in-copilot) |
-| **Microsoft Foundry (Azure) Starter** | $1-5K/mo estimate | PAYG tokens + AI Search Basic (~$75/mo) [(OpenAI pricing)](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) \| [(AI Search pricing)](https://learn.microsoft.com/en-us/azure/search/search-sku-tier#tier-descriptions) |
+| **Microsoft Foundry (Azure) Starter** | $1-5K/mo estimate | PAYG tokens + AI Search Basic (~$75/mo) [(OpenAI pricing)](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/openai-service/) \| [(AI Search pricing)](https://learn.microsoft.com/en-us/azure/search/search-sku-tier#tier-descriptions) |
 
 #### Enterprise ($5K+/mo)
 {: .no_toc }
@@ -696,7 +696,7 @@ Organizations running workloads across **both** Copilot Studio and Microsoft Fou
 
 - [Copilot Studio Licensing](https://learn.microsoft.com/en-us/microsoft-copilot-studio/billing-licensing) (Updated: 2025-11-05)
 - [M365 Copilot Cost Considerations](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/cost-considerations) (Updated: 2025-11-25)
-- [Azure OpenAI Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) (Updated: 2025)
+- [Azure OpenAI Pricing](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/openai-service/) (Updated: 2025)
 - [Azure AI Search Tiers](https://learn.microsoft.com/en-us/azure/search/search-sku-tier) (Updated: 2025-11-06)
 - [Logic Apps AI Agent Workflows](https://learn.microsoft.com/en-us/azure/logic-apps/agent-workflows-concepts) (Preview, Updated: 2026-02-19)
 - [AI Builder Overview](https://learn.microsoft.com/en-us/ai-builder/overview) (Updated: 2026-01-14)

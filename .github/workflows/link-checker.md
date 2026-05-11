@@ -35,9 +35,9 @@ steps:
         --exclude-mail
         --exclude-loopback
         --exclude '^(mailto|tel|file):'
-        --format json
-        --output /tmp/lychee-report.json
         './**/*.md'
+      format: json
+      output: /tmp/lychee-report.json
       fail: false
       jobSummary: true
     env:

@@ -10,41 +10,60 @@ engine:
   id: copilot
   model: claude-sonnet-4.6
 
-timeout-minutes: 20
+timeout-minutes: 25
 
 permissions:
   contents: read
   issues: read
   pull-requests: read
 
+# `steps:` runs OUTSIDE the firewall sandbox before the agent starts.
+# We use lychee here because the agent's bash sandbox can't reach arbitrary
+# external URLs — link checking inherently hits domains we can't pre-list.
+# The agent only sees lychee's JSON report and reasons about fixes.
+steps:
+  - name: Run lychee link check
+    id: lychee
+    uses: lycheeverse/lychee-action@82202e5e9c2f4ef1a55a3d02563e1cb6041e5332 # v2.4.1
+    with:
+      args: >-
+        --no-progress
+        --max-concurrency 16
+        --timeout 20
+        --max-retries 1
+        --accept 200..=299,403,429
+        --exclude-mail
+        --exclude-loopback
+        --exclude '^(mailto|tel|file):'
+        --format json
+        --output /tmp/lychee-report.json
+        './**/*.md'
+      fail: false
+      jobSummary: true
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  - name: Stage lychee report for agent
+    run: |
+      mkdir -p /tmp/gh-aw
+      cp /tmp/lychee-report.json /tmp/gh-aw/lychee-report.json
+      echo "lychee report ready ($(wc -c < /tmp/gh-aw/lychee-report.json) bytes)"
+
 network:
   allowed:
     - defaults
     - github
-    # Broad allowlist required because link checking validates arbitrary external URLs.
-    # Keep this scoped to docs domains we actually link to; expand as needed.
-    - "learn.microsoft.com"
-    - "azure.microsoft.com"
-    - "techcommunity.microsoft.com"
-    - "microsoft.github.io"
-    - "platform.openai.com"
-    - "www.anthropic.com"
-    - "openai.com"
-    - "ai.google.dev"
 
 tools:
-  github:
-    toolsets: [default]
   edit:
-  bash: ["curl", "grep", "find", "awk", "sed"]
-  web-fetch:
+  bash: ["cat", "jq", "grep", "find", "awk", "sed", "head", "tail", "wc"]
 
 safe-outputs:
   create-pull-request:
     title-prefix: "[Maintenance] Fix broken links"
     labels: [documentation, automation]
     draft: true
-    fallback-as-issue: true   # Microsoft org may block PR creation by Actions; fall back to an issue.
+    fallback-as-issue: true   # Microsoft org may block PR creation by Actions.
   create-issue:
     title-prefix: "[Maintenance] Broken links needing review"
     labels: [documentation, needs-triage]
@@ -53,41 +72,42 @@ safe-outputs:
 
 # Documentation Link Checker
 
-You are a careful documentation maintainer. Find broken links in the docs, propose only high-confidence replacements, and surface the rest for human review. Respect the project's storytelling voice — never rewrite prose, only swap URLs.
+A link checker (`lychee`) has already validated every URL in `**/*.md` from a regular GitHub Actions step **outside** the AI sandbox — so the network is no longer your problem. Your job is to read its report and propose only high-confidence fixes.
 
-## Phase 1: Discover
+The report is at `/tmp/gh-aw/lychee-report.json`. It is the source of truth for which links are broken; do not re-check URLs yourself.
 
-1. Enumerate all markdown files in the repo, focused on `README.md` and `docs/**/*.md`.
-2. Extract every URL (markdown links `[text](url)` and bare URLs). Skip `mailto:`, anchors, and intra-repo relative links unless the target file is missing.
-3. Deduplicate the URL list.
+## Phase 1: Read the report
 
-## Phase 2: Validate
+1. Load `/tmp/gh-aw/lychee-report.json`. The schema is roughly:
+   ```json
+   { "success_map": { "<file>": [ { "url": "...", "status": { ... } } ] },
+     "error_map":   { "<file>": [ { "url": "...", "status": { ... } } ] } }
+   ```
+2. Use `cat` and `jq` to extract every entry in `error_map` (these are the broken links).
+3. Print a quick count by status code so the run log is useful even if nothing else is.
 
-1. For each external URL, run `curl -sIL -o /dev/null -w "%{http_code} %{url_effective}\n" --max-time 15 <url>` and capture the final status code after redirects.
-2. Treat as broken: `404`, `410`, `5xx`, and connection failures. Treat `403` as suspicious (some sites block CI user-agents) — flag for human review, don't auto-patch.
-3. For relative links, verify the target file exists in the repo.
+## Phase 2: Triage into three buckets
 
-## Phase 3: Plan
+For each broken link, decide which bucket it belongs in.
 
-Group findings into three buckets:
+- **Auto-fix:** You can name a replacement URL with high confidence based on documentation knowledge — for example, a Microsoft Learn page that moved under a new path, or a GitHub repo that was renamed. The replacement must be a well-known canonical URL. **Do not invent URLs.** If you are guessing, it belongs in "Needs review".
+- **Needs review:** The link is broken but the right replacement isn't obvious, or multiple candidates exist, or the status was `403`/`429` (could be CI-blocking, not actually dead).
+- **Skip:** Transient errors, or links inside `node_modules/`, build outputs, or vendored content.
 
-- **Auto-fix (high confidence):** Microsoft Learn page moved to a new canonical URL, a `github.com` repo renamed with an obvious redirect target, or a clearly versioned doc path. Confirm the replacement returns `200` before proposing it.
-- **Needs review:** `403`, ambiguous redirects, or any case where multiple plausible replacements exist.
-- **Skip:** Transient `5xx` on one attempt — retry once; if it still fails, move to "Needs review".
+## Phase 3: Execute
 
-## Phase 4: Execute
-
-1. For Auto-fix items, edit the markdown files to swap only the URL. Preserve link text, surrounding prose, and markdown formatting exactly.
-2. Open a draft pull request via the `create-pull-request` safe output summarizing:
-   - Total links scanned
-   - Auto-fixed (table: file, old URL, new URL, reason)
-   - Needs review (table: file, URL, status code, suggested action)
-   - Skipped
-3. If the org blocks Actions-created PRs, the safe output falls back to an issue automatically — no extra work needed.
-4. If only "Needs review" items exist (nothing safe to auto-fix), use `create-issue` instead of opening an empty PR.
+1. For **Auto-fix** items only, edit the markdown files to swap **only the URL**. Preserve link text, prose, indentation, and markdown formatting exactly. Never touch surrounding sentences.
+2. Open a draft pull request via the `create-pull-request` safe output. The body must contain:
+   - Total links scanned, total broken (from the lychee report)
+   - **Auto-fixed** table: file, old URL → new URL, reason
+   - **Needs review** table: file, URL, status code, your best guess (or "no clear replacement")
+   - Skipped count
+3. If you have **nothing** to auto-fix (zero high-confidence changes), call `create-issue` instead of opening an empty PR.
+4. If the org blocks Actions-created PRs, `fallback-as-issue: true` converts the PR into an issue automatically — no extra work needed.
 
 ## Guardrails
 
-- **Never** modify surrounding prose, headings, or formatting. URL swaps only.
-- **Never** invent replacement URLs. If you can't verify a candidate returns `200`, mark it "Needs review".
-- **Never** touch `CONSTITUTION.md` or `.github/copilot-instructions.md` link policies — those are governed separately.
+- **URL swaps only.** Never modify prose, headings, code blocks, or formatting.
+- **Never invent replacements.** If you can't cite the new canonical URL from documentation you actually know, the item belongs in "Needs review".
+- **Never touch** `CONSTITUTION.md`, `.github/copilot-instructions.md`, or anything under `.github/aw/`.
+- **Never alter** more than 20 files in a single PR. If you'd exceed that, group fixes by domain and only ship the most confident batch; flag the rest for review.

@@ -35,6 +35,7 @@ steps:
         --exclude-mail
         --exclude-loopback
         --exclude '^(mailto|tel|file):'
+        --exclude 'azure\.microsoft\.com/.*/pricing/'
         './**/*.md'
       format: json
       output: /tmp/lychee-report.json

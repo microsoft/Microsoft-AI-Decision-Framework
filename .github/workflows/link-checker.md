@@ -35,7 +35,6 @@ steps:
         --exclude-mail
         --exclude-loopback
         --exclude '^(mailto|tel|file):'
-        --exclude 'azure\.microsoft\.com/.*/pricing/'
         './**/*.md'
       format: json
       output: /tmp/lychee-report.json
@@ -92,8 +91,24 @@ The report is at `/tmp/gh-aw/lychee-report.json`. It is the source of truth for 
 For each broken link, decide which bucket it belongs in.
 
 - **Auto-fix:** You can name a replacement URL with high confidence based on documentation knowledge — for example, a Microsoft Learn page that moved under a new path, or a GitHub repo that was renamed. The replacement must be a well-known canonical URL. **Do not invent URLs.** If you are guessing, it belongs in "Needs review".
-- **Needs review:** The link is broken but the right replacement isn't obvious, or multiple candidates exist, or the status was `403`/`429` (could be CI-blocking, not actually dead).
-- **Skip:** Transient errors, or links inside `node_modules/`, build outputs, or vendored content.
+- **Needs review:** The link is broken but the right replacement isn't obvious, or multiple candidates exist, and the host is not on the rate-limiting allowlist below.
+- **Skip:** Transient errors, or links inside `node_modules/`, build outputs, or vendored content. **Also skip rate-limited or timed-out responses from hosts that are known to block CI crawlers** (see below) — these are environmental, not broken links.
+
+### Rate-limiting hosts (treat timeouts / 403 / 429 as Skip, not Needs review)
+
+Several Microsoft and partner hosts actively block, throttle, or time out automated crawlers like the GitHub-hosted runner lychee uses. A failure from one of these hosts is almost never a real broken link — it's the host refusing the bot. Categorize them as **Skip** and do **not** file them under "Needs review" (filing them just churns a new issue every week for a link that's actually fine).
+
+Treat the following as rate-limited unless you have other evidence the page is genuinely gone:
+
+- `azure.microsoft.com/**/pricing/**` — Azure pricing pages aggressively block crawlers; the canonical pricing URLs are still cited verbatim by Microsoft Learn.
+- `azure.microsoft.com/**/products/**` — same crawler-blocking behavior as pricing.
+- `learn.microsoft.com/**` — occasional 403/429 under burst load; almost always recovers on the next run.
+- `techcommunity.microsoft.com/**` — frequent 403 to non-browser user agents.
+- `devblogs.microsoft.com/**` and `*.microsoft.com/en-us/legal/**` — same pattern.
+
+Heuristic: if the lychee status is `Timeout`, `403`, or `429` **and** the host matches one of the patterns above, it goes in **Skip**. Only escalate to "Needs review" when the same URL has failed on multiple consecutive runs *and* you can't load it manually, or the host is not on this allowlist.
+
+When you skip a link for this reason, mention it in the report's "Skipped" section with a one-line note like `azure.microsoft.com pricing — known CI rate-limiting, link verified canonical`. That keeps the audit trail honest.
 
 ## Phase 3: Execute
 

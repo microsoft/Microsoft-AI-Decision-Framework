@@ -141,7 +141,7 @@ Where can your agent appear? Match build platform to distribution surface.
 [^agent365-sdk-qr]: Agent 365 SDK (Preview) extends agents with Entra-backed identity, notifications, OpenTelemetry observability, and governed MCP servers. Agent 365 platform is GA; SDK remains Preview. Source: Agent 365 SDK (Retrieved: 2026-01-09).
 [^agent365-cli-qr]: Agent 365 CLI (Preview) is a cross-platform CLI for deploying and managing Agent 365 apps on Azure; install via dotnet tool with `--prerelease`. Agent 365 platform is GA; CLI remains Preview. Source: Agent 365 CLI (Retrieved: 2026-01-13).
 [^search-api-qr]: Microsoft 365 Copilot Search API (Preview) for hybrid semantic + lexical search across OneDrive via Graph `/beta`. Source: Search API overview (Updated: 2025-10-20).
-[^copy-to-studio-qr]: Copy to Copilot Studio (rolling out) copies agent data sources and actions; GPTs and custom actions must be reattached. Feature availability may vary by tenant. Source: Declarative agents overview (Updated: 2025-12-01).
+[^copy-to-studio-qr]: Copy to Copilot Studio copies agent data sources and actions; GPTs and custom actions must be reattached. Feature availability may vary by tenant. Source: Declarative agents overview (Updated: 2025-12-01).
 [^m365-memory-qr]: Microsoft 365 Copilot user-level memory allows personalized experiences based on user preferences and context. This is distinct from org-wide conversation logging; memory is user-controlled, while conversation history follows Purview retention policies. Source: Data, privacy, and security for Microsoft 365 Copilot (Updated: 2026-01-07).
 
 ---

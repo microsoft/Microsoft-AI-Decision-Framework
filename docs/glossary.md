@@ -208,6 +208,9 @@ A [Foundry Agent Service](#f) agent defined entirely through configuration (inst
 **RAG (Retrieval Augmented Generation)**
 A design pattern that pairs Azure AI Search retrieval with LLMs, now optimized by agentic retrieval that plans subqueries, runs hybrid search with semantic ranking, and returns structured grounding for high-fidelity answers ([Retrieval Augmented Generation (RAG) in Azure AI Search](https://learn.microsoft.com/en-us/azure/search/retrieval-augmented-generation-overview), updated 2026-01-15). *When to use:* Choose RAG when agents need current or proprietary data not present in the model's training set. RAG is preferred over fine-tuning when data changes frequently or when you need explicit source citations for compliance. For complex multi-hop reasoning, consider [Agentic Retrieval](#a) instead. See Decision Framework Q3 for data strategy guidance.
 
+**Rayfin (Preview)**
+Open-source SDK and CLI for defining and deploying a managed application backend on Microsoft Fabric. Rayfin lets developers or coding agents describe backend components such as databases, business logic, APIs, identity, and access policies in code, then deploy them onto Fabric so app data lands in OneLake under Fabric governance. Use it when building AI-enabled applications that need a production backend close to governed Fabric data ([Rayfin product page](https://www.microsoft.com/en-us/microsoft-fabric/features/rayfin), retrieved 2026-06-08).
+
 **Researcher Agent (GA)**
 Pre-installed agent in Microsoft 365 Copilot Chat that performs multi-step research across web and work data sources. Admins can connect specialized declarative agents to Researcher for domain-specific task delegation, creating multi-agent workflows within the M365 trust boundary. GA since July 2025 ([Researcher and Analyst GA](https://www.microsoft.com/microsoft-365/blog/2025/06/02/researcher-and-analyst-are-now-generally-available-in-microsoft-365-copilot/), published 2025-06-02).
 

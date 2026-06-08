@@ -219,6 +219,10 @@ This page provides comprehensive links to official Microsoft documentation, trai
   - [Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/generative-ai-overview)
   - [SQL Server 2025 vector search](https://learn.microsoft.com/en-us/sql/sql-server/ai/vectors?view=sql-server-ver17)
 
+- **Microsoft Fabric App Backends**
+  - [Rayfin product page](https://www.microsoft.com/en-us/microsoft-fabric/features/rayfin)
+  - [Microsoft Build 2026: Building agentic apps with Microsoft Fabric and Microsoft Databases](https://azure.microsoft.com/en-us/blog/microsoft-build-2026-building-agentic-apps-with-microsoft-fabric-and-microsoft-databases)
+
 - **Foundry IQ**
   - [Foundry IQ overview](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/what-is-foundry-iq)
   - [Connect Foundry IQ to Foundry Agent Service](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/foundry-iq-connect)

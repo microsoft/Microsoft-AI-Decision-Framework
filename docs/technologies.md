@@ -617,10 +617,18 @@ Each IQ capability is standalone, but they can work together to provide comprehe
 **Key Features:**
 
 - **Fabric Data Agents (Preview):** Q&A-style conversational agents that retrieve insights from OneLake sources while respecting data access permissions; consumable by Copilot Studio and M365 Copilot. Not an orchestrator-use Foundry Agent Service or Agent Framework for multi-step coordination.
+- **Rayfin (Preview):** Open-source SDK and CLI for defining and deploying a managed application backend on Microsoft Fabric. Developers or coding agents can describe databases, business logic, APIs, identity, and access policies in code while app data lands in OneLake under Fabric governance.
 - **Cosmos DB in Fabric (Preview):** Deploy Cosmos DB (NoSQL) directly within Fabric for unified operational and analytical data without ETL.
 - **OneLake Shortcut Transformations (Preview):** Apply AI transformations (summarize, translate, classify) via Microsoft Foundry (Azure) during data ingestion.
 - **Translytical Task Flows (Preview):** Trigger write-back actions and workflows directly from Power BI reports.
 - **Digital Twin Builder (Preview):** No-code tool in Real-Time Intelligence to map physical assets to digital twins.
+
+**When to use Rayfin:** Building AI-enabled or analytics-driven applications where the app backend should live close to governed Fabric data. Rayfin belongs in the "AI as a Product or Feature" bucket, and it also matters to "AI for Your Codebase" because coding agents can generate backend definitions that Fabric deploys and governs.
+
+**Sources:**
+
+- [Rayfin product page](https://www.microsoft.com/en-us/microsoft-fabric/features/rayfin) (Retrieved: 2026-06-08)
+- [Microsoft Build 2026: Building agentic apps with Microsoft Fabric and Microsoft Databases](https://azure.microsoft.com/en-us/blog/microsoft-build-2026-building-agentic-apps-with-microsoft-fabric-and-microsoft-databases) (Published: 2026-06-02)
 
 ---
 

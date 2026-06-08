@@ -95,7 +95,7 @@ Microsoft Graph `/beta` API that delivers hybrid semantic + lexical search over 
 **Copilot Cowork (Frontier Preview)**
 Long-running, multi-step execution engine in Microsoft 365 Copilot that delegates complex tasks using Anthropic's agentic model grounded by Work IQ. Breaks requests into plans with visible checkpoints, human steering, and pause/resume capability. Produces coordinated outputs across Word, Excel, PowerPoint, and Outlook. Runs in a sandboxed cloud environment within M365 security and governance boundaries. Currently in Research Preview, available through the Frontier program in late March 2026 ([Copilot Cowork](https://www.microsoft.com/en-us/microsoft-365/blog/2026/03/09/copilot-cowork-a-new-way-of-getting-work-done/), published 2026-03-09).
 
-**Computer Use Agent (CUA) (Preview)**
+**Computer Use Agent (CUA) (GA)**
 Copilot Studio tool that lets agents automate web and desktop applications using vision-based AI models (OpenAI CUA, Anthropic Claude Sonnet 4.5) with virtual mouse and keyboard control. Includes stored credentials (internal or Azure Key Vault), URL/application access control allowlists, human supervision gates via email, Cloud PC pooling for scalable execution, and session replay audit logging. Billed at 5 Copilot Credits per step. US regions only during preview. Best for automating legacy systems or applications that lack APIs ([Computer Use](https://learn.microsoft.com/en-us/microsoft-copilot-studio/computer-use), updated 2026-04-03).
 
 **Copy to Copilot Studio**

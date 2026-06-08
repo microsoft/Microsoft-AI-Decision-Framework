@@ -33,8 +33,8 @@ Use this page as a reference after you’ve narrowed the decision: it’s optimi
 ## Microsoft 365 Copilot
 
 {: .tech-heading }
-**Description:** Integrated AI assistant across M365 apps (Word, Excel, Teams, Outlook, PowerPoint, OneNote) with tenant context and Graph security. Supports extensibility via declarative agents (low-code) and custom engine agents (pro-code) for tailored productivity experiences.  
-**Official Docs:** [Microsoft 365 Copilot Overview](https://learn.microsoft.com/en-us/microsoft-365-copilot/)  
+**Description:** Integrated AI assistant across M365 apps (Word, Excel, Teams, Outlook, PowerPoint, OneNote) with tenant context and Graph security. Supports extensibility via declarative agents (low-code) and custom engine agents (pro-code) for tailored productivity experiences.
+**Official Docs:** [Microsoft 365 Copilot Overview](https://learn.microsoft.com/en-us/microsoft-365-copilot/)
 **Status:** GA
 
 **Key Features:**
@@ -46,8 +46,8 @@ Use this page as a reference after you’ve narrowed the decision: it’s optimi
 - **Grounded knowledge:** Agents can draw from Teams meetings, SharePoint, OneDrive, email, Dataverse, and approved connectors with tenant-scoped security. (Extend Microsoft 365 Copilot with agents - Retrieved: 2025-12-15)
 - **Fine-tuning (Preview):** Copilot Tuning lets makers fine-tune declarative agent models using tenant data under admin control. (Microsoft 365 Copilot release notes - Retrieved: 2026-03-25)
 - **Copilot Cowork (Frontier Preview):** Long-running, multi-step execution engine that delegates complex tasks using Anthropic's agentic model + Work IQ grounding. Breaks requests into plans with visible checkpoints, human steering, and coordinated outputs across Word, Excel, PowerPoint, and Outlook. Runs in sandboxed cloud environment; auditable, permission-scoped, governed. Currently in Research Preview, rolling to Frontier program in late March 2026. ([Copilot Cowork announcement](https://www.microsoft.com/en-us/microsoft-365/blog/2026/03/09/copilot-cowork-a-new-way-of-getting-work-done/) - Published: 2026-03-09)
-- **Wave 3 multi-model intelligence:** Automatic model routing across OpenAI (GPT-5.2) and Anthropic (Claude) providers. Copilot selects the right model for each task — users choose Quick Response or Think Deeper modes without managing model selection. Claude available in mainline Copilot Chat via Frontier. ([Wave 3 announcement](https://www.microsoft.com/en-us/microsoft-365/blog/2026/03/09/powering-frontier-transformation-with-copilot-and-agents/) - Published: 2026-03-09)
-- **Agentic Copilot in apps (GA):** Edit with Copilot in Excel and Word (formerly "Agent Mode") creates, edits, and refines content using app-native tools — formulas, PivotTables, charts, tables. No longer a separate mode; this is core Copilot. PowerPoint and Outlook rolling out through spring 2026. ([Wave 3 announcement](https://www.microsoft.com/en-us/microsoft-365/blog/2026/03/09/powering-frontier-transformation-with-copilot-and-agents/) - Published: 2026-03-09)
+- **Wave 3 multi-model intelligence:** Automatic model routing across OpenAI (GPT-5.2) and Anthropic (Claude) providers. Copilot selects the right model for each task - users choose Quick Response or Think Deeper modes without managing model selection. Claude available in mainline Copilot Chat via Frontier. ([Wave 3 announcement](https://www.microsoft.com/en-us/microsoft-365/blog/2026/03/09/powering-frontier-transformation-with-copilot-and-agents/) - Published: 2026-03-09)
+- **Agentic Copilot in apps (GA):** Edit with Copilot in Excel and Word (formerly "Agent Mode") creates, edits, and refines content using app-native tools - formulas, PivotTables, charts, tables. No longer a separate mode; this is core Copilot. PowerPoint and Outlook rolling out through spring 2026. ([Wave 3 announcement](https://www.microsoft.com/en-us/microsoft-365/blog/2026/03/09/powering-frontier-transformation-with-copilot-and-agents/) - Published: 2026-03-09)
 - **Researcher agent (GA):** Pre-installed multi-step research agent with connected agent delegation. Admins connect specialized declarative agents to Researcher for domain-specific task handoff. ([Microsoft 365 Copilot release notes](https://learn.microsoft.com/en-us/copilot/microsoft-365/release-notes) - Retrieved: 2026-03-25)
 - **Multi-agent workflows:** Declarative agents can connect to other agents for coordinated task completion. Researcher delegates to connected agents; users see inter-agent interaction. ([Microsoft 365 Copilot release notes - Jan 27, 2026](https://learn.microsoft.com/en-us/copilot/microsoft-365/release-notes#january-27,-2026) - Retrieved: 2026-03-25)
 - **Copilot Memory (Preview):** Persistent personalization across sessions using Graph signals and conversation history. Users control, view, manage, disable, or clear memory at any time. ([Microsoft 365 Copilot release notes - Sep 3, 2025](https://learn.microsoft.com/en-us/copilot/microsoft-365/release-notes#september-3,-2025) - Retrieved: 2026-03-25)
@@ -62,7 +62,7 @@ Use this page as a reference after you’ve narrowed the decision: it’s optimi
 - **Jan 13, 2026:** Copilot Library for centralized AI-generated assets, GPT-5 in Agent Builder for declarative agents, admin AI disclaimer customization. (Microsoft 365 Copilot release notes - Retrieved: 2026-03-25)
 - **Jan 27, 2026:** GPT-5.2 model selector (Quick Response vs Think Deeper), multi-agent workflows (Researcher delegates to connected agents), Foundry agent publish to M365 Copilot (one-click), Loop-to-PowerPoint generation, copy Agent Builder agents to Copilot Studio. (Microsoft 365 Copilot release notes - Retrieved: 2026-03-25)
 - **Feb 24, 2026:** Declarative agents upgraded to GPT-5.1 with auto-architecture, scoped grounding for declarative agents to specific data sources, embedded knowledge (up to 10 local files), URL-based dialogs to keep users in Copilot, connector authentication simplification. (Microsoft 365 Copilot release notes - Retrieved: 2026-03-25)
-- **Mar 9, 2026 (Wave 3):** Copilot Cowork (Frontier Preview) — long-running multi-step execution with Anthropic + Work IQ. Multi-model intelligence (Claude in mainline Chat via Frontier). Agentic Copilot GA in Excel/Word (formerly Agent Mode). Agents in chat for end-to-end workflows (schedule meetings, draft emails, create docs from conversation). Microsoft 365 E7 announced ($99/user/month, GA May 1: M365 Copilot + Agent 365 + Entra Suite + E5 security). Agent 365 GA May 1 ($15/user/month). ([Wave 3 blog](https://www.microsoft.com/en-us/microsoft-365/blog/2026/03/09/powering-frontier-transformation-with-copilot-and-agents/) - Published: 2026-03-09)
+- **Mar 9, 2026 (Wave 3):** Copilot Cowork (Frontier Preview) - long-running multi-step execution with Anthropic + Work IQ. Multi-model intelligence (Claude in mainline Chat via Frontier). Agentic Copilot GA in Excel/Word (formerly Agent Mode). Agents in chat for end-to-end workflows (schedule meetings, draft emails, create docs from conversation). Microsoft 365 E7 announced ($99/user/month, GA May 1: M365 Copilot + Agent 365 + Entra Suite + E5 security). Agent 365 GA May 1 ($15/user/month). ([Wave 3 blog](https://www.microsoft.com/en-us/microsoft-365/blog/2026/03/09/powering-frontier-transformation-with-copilot-and-agents/) - Published: 2026-03-09)
 - **Mar 10-24, 2026:** Context IQ for Teams channels, delegate calendar search, AI skill inferencing for E3/E5 users, Copilot Chat agent recommendations, explainable AI with inline citations for connectors. (Microsoft 365 Copilot release notes - Retrieved: 2026-03-25)
 
 **Network Isolation:**
@@ -93,8 +93,8 @@ Use this page as a reference after you’ve narrowed the decision: it’s optimi
 
 ## Word, Excel, and PowerPoint Agents (Frontier) {: .tech-heading }
 
-**Description:** Frontier creation agents inside Microsoft 365 Copilot Chat that draft Word, Excel, and PowerPoint files powered exclusively by Anthropic models after explicit admin opt-in. Available to both Copilot-licensed and unlicensed (Copilot Chat) M365 users.  
-**Official Docs:** [Word, Excel, and PowerPoint Agents (Frontier)](https://learn.microsoft.com/en-us/copilot/microsoft-365/wordexcelppt-agents)  
+**Description:** Frontier creation agents inside Microsoft 365 Copilot Chat that draft Word, Excel, and PowerPoint files powered exclusively by Anthropic models after explicit admin opt-in. Available to both Copilot-licensed and unlicensed (Copilot Chat) M365 users.
+**Official Docs:** [Word, Excel, and PowerPoint Agents (Frontier)](https://learn.microsoft.com/en-us/copilot/microsoft-365/wordexcelppt-agents)
 **Status:** Frontier Preview (experimental; requires Frontier enrollment; available to Copilot-licensed AND unlicensed M365 users)
 
 **Key Features:**
@@ -119,8 +119,8 @@ Use this page as a reference after you’ve narrowed the decision: it’s optimi
 ## Copilot Studio
 
 {: .tech-heading }
-**Description:** Low-code and pro-code authoring environment for building declarative and custom engine agents with governance, analytics, and multi-channel delivery. Available as a standalone web app and inside Microsoft Teams.  
-**Official Docs:** [Copilot Studio Documentation](https://learn.microsoft.com/en-us/microsoft-copilot-studio/)  
+**Description:** Low-code and pro-code authoring environment for building declarative and custom engine agents with governance, analytics, and multi-channel delivery. Available as a standalone web app and inside Microsoft Teams.
+**Official Docs:** [Copilot Studio Documentation](https://learn.microsoft.com/en-us/microsoft-copilot-studio/)
 **Implementation Guide:** [aka.ms/CopilotStudioImplementationGuide](https://aka.ms/CopilotStudioImplementationGuide)
 
 **Key Features:**
@@ -134,7 +134,7 @@ Use this page as a reference after you’ve narrowed the decision: it’s optimi
 - **Agent2Agent (A2A) Protocol:** Publish agents as skills that can be discovered and invoked by other agents in a decentralized mesh. (Preview: 2025-05-21)
 - **Channel reach:** Publish agents to Microsoft 365 Copilot, Teams, web, and messaging channels including WhatsApp via Azure Communications Service. (Publish agents to WhatsApp - GA: 2025-09-08)
 - **Orchestration modes:** Generative orchestration (default) handles multi-intent planning; makers can switch to Classic NLU/Classic NLU+ for deterministic topic routing or connect Azure AI Language (CLU) for advanced entity extraction when licensing allows. (Natural language understanding overview - Updated: 2025-07-07; Create and edit topics - Updated: 2025-11-11)
-- **Work IQ MCP integration (Preview):** Add Work IQ MCP tools (Mail, Calendar, Teams, SharePoint, OneDrive) directly from the Tools tab to give agents real-time organizational context — the same intelligence layer that powers M365 Copilot. Requires M365 Copilot license. ([Work IQ MCP in Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/use-work-iq) - Updated: 2026-03-11)
+- **Work IQ MCP integration (Preview):** Add Work IQ MCP tools (Mail, Calendar, Teams, SharePoint, OneDrive) directly from the Tools tab to give agents real-time organizational context - the same intelligence layer that powers M365 Copilot. Requires M365 Copilot license. ([Work IQ MCP in Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/use-work-iq) - Updated: 2026-03-11)
 - **Custom MCP server authoring (Preview → Apr GA):** Create or clone governed MCP servers that combine connector actions, tools from other MCPs, and custom APIs. Servers are reusable across Microsoft Copilot, VS Code, GitHub, Claude, and other agents. DLP policies and access controls apply at server and tool level. ([Custom MCP servers](https://learn.microsoft.com/en-us/power-platform/release-plan/2026wave1/microsoft-copilot-studio/connect-agent-external-data-custom-mcp-servers) - Updated: 2026-03-18)
 - **Computer Use Agents (Preview):** Automate web and desktop applications using Computer-Using Agents (CUA) with vision and reasoning. Supports OpenAI CUA and Anthropic Claude Sonnet 4.5 models. Includes stored credentials (internal or Azure Key Vault), URL/app access control allowlists, human supervision gates, Cloud PC pooling, and session replay audit logging. Billed at 5 Copilot Credits per step. US regions only during preview. ([Computer Use](https://learn.microsoft.com/en-us/microsoft-copilot-studio/computer-use) - Updated: 2026-04-03)
 - **Multi-model prompt builder:** Select from GPT (GPT-5.2 chat, GPT-5.2 reasoning *experimental*) and Anthropic Claude (Opus 4.6, Opus 4.5 *experimental*, Sonnet 4.5) models per prompt. Mini/General/Deep model taxonomy for intent-based selection; GPT-4o retired (Oct 2025). Configurable content moderation at agent, topic, and prompt levels. ([Prompt model settings](https://learn.microsoft.com/en-us/microsoft-copilot-studio/prompt-model-settings) - Updated: 2026-03-06)
@@ -148,7 +148,7 @@ Use this page as a reference after you’ve narrowed the decision: it’s optimi
 - **Dec 2025:** Side-by-side agent version comparison for evaluation test sets. (What's new in Copilot Studio - Updated: 2026-03-06)
 - **Jan 2026:** Agent evaluation enhancements with activity maps, thumbs feedback, and CSV test set import (Preview). Computer Use expanded with Cloud PC pooling, stored credentials, and session replay audit logging (Preview). VS Code extension GA. (What's new in Copilot Studio - Updated: 2026-03-06)
 - **Feb 2026:** Claude Sonnet 4.5 for Computer Use agents. Prompt builder: Claude Opus 4.6 and Claude Sonnet 4.5 model selection, per-prompt content moderation sensitivity, inline editing. Improved ServiceNow and Azure DevOps connector responses. (What's new in Copilot Studio - Updated: 2026-03-06)
-- **Mar 2026:** Work IQ MCP tools integration (Preview). Custom MCP server authoring — create or clone governed MCP servers from connector actions, other MCP tools, and custom APIs (Preview, GA target Apr 2026). BYOM for generative responses (Preview). Advanced approvals GA. Generative AI response quality analytics GA. Code interpreter on SharePoint sources (Preview). (What's new in Copilot Studio - Updated: 2026-03-06)
+- **Mar 2026:** Work IQ MCP tools integration (Preview). Custom MCP server authoring - create or clone governed MCP servers from connector actions, other MCP tools, and custom APIs (Preview, GA target Apr 2026). BYOM for generative responses (Preview). Advanced approvals GA. Generative AI response quality analytics GA. Code interpreter on SharePoint sources (Preview). (What's new in Copilot Studio - Updated: 2026-03-06)
 - **Sep 2025:** General availability of WhatsApp channel publishing for customer-facing agents. (Publish agents to WhatsApp - GA: 2025-09-08)
 - **Jun 2025:** Weekly active user insights for Copilot Studio agent reports in Viva Insights dashboards. (Microsoft 365 Copilot release notes - Retrieved: 2026-03-25)
 
@@ -187,8 +187,8 @@ Use this page as a reference after you’ve narrowed the decision: it’s optimi
 ## Power Apps Plan Designer
 
 {: .tech-heading }
-**Description:** AI-assisted solution architect that generates Dataverse tables, security roles, and app structures from natural language descriptions. Accelerates the "Feasibility" phase of development.  
-**Official Docs:** [Power Apps AI Overview](https://learn.microsoft.com/en-us/power-apps/maker/canvas-apps/ai-overview)  
+**Description:** AI-assisted solution architect that generates Dataverse tables, security roles, and app structures from natural language descriptions. Accelerates the "Feasibility" phase of development.
+**Official Docs:** [Power Apps AI Overview](https://learn.microsoft.com/en-us/power-apps/maker/canvas-apps/ai-overview)
 **Status:** GA
 
 **Key Features:**
@@ -206,8 +206,8 @@ Use this page as a reference after you’ve narrowed the decision: it’s optimi
 
 {: .tech-heading }
 
-**Description:** The cloud-based implementation of the Microsoft Foundry ecosystem. A code-first environment for building, evaluating, and deploying AI solutions with Azure OpenAI, open-source, and custom models. Integrates with workforce tools such as Foundry Agent Service, prompt flow, and safety guardrails.  
-**Official Docs:** [What is Microsoft Foundry (Azure)?](https://learn.microsoft.com/en-us/azure/foundry/what-is-foundry)  
+**Description:** The cloud-based implementation of the Microsoft Foundry ecosystem. A code-first environment for building, evaluating, and deploying AI solutions with Azure OpenAI, open-source, and custom models. Integrates with workforce tools such as Foundry Agent Service, prompt flow, and safety guardrails.
+**Official Docs:** [What is Microsoft Foundry (Azure)?](https://learn.microsoft.com/en-us/azure/foundry/what-is-foundry)
 **Status:** GA
 
 **Key Features:**
@@ -229,7 +229,7 @@ Use this page as a reference after you’ve narrowed the decision: it’s optimi
   | **Discover** | Overview, Model catalog, Tools, Solution Templates, Search | Agent Manifests, Ask AI |
   | **Build** | Agents, Models, Fine-tuning, Tools, Data, Evaluations, Red teaming, Speech playgrounds | Workflows, Tracing, Optimization, Knowledge, Memory, Guardrails (agents), Monitoring |
   | **Operate** | Quota, Admin | Overview, Assets, Compliance, AI Gateway |
-  | **Other** | Home, Docs | — |
+  | **Other** | Home, Docs | - |
 
   **Not supported in the new portal at GA (use Foundry classic):** Standalone Azure OpenAI resources, Assistant creation, Audio playground, AI service fine-tuning, Content Understanding, prebuilt video prompts.
 
@@ -242,7 +242,7 @@ Use this page as a reference after you’ve narrowed the decision: it’s optimi
 
 - **Platform naming evolution:** Azure AI Studio → Azure AI Foundry → Microsoft Foundry (current). Azure AI Services → Foundry Tools (current). The Azure resource type remains `Microsoft.CognitiveServices/accounts`. (Migrate from classic portal - Retrieved: 2026-03-19)
 
-  **The Rosetta Stone — Foundry Terminology Evolution:**
+  **The Rosetta Stone - Foundry Terminology Evolution:**
 
   If you've been reading blogs, watching sessions, or referencing pre-2026 documentation, the vocabulary has shifted under your feet. This decoder ring maps old terms to current ones:
 
@@ -302,8 +302,8 @@ Use this page as a reference after you’ve narrowed the decision: it’s optimi
 
 ## Foundry Agent Service {: .tech-heading }
 
-**Description:** Managed PaaS for agent orchestration, skills management, and runtime infrastructure within **Microsoft Foundry (Azure)**. Supports connected agents (multi-agent systems), 15+ built-in tools, full RBAC + VNet + BYO storage. GA with continuous feature additions. The next-gen service is built on the OpenAI Responses API, making it wire-compatible with OpenAI's agentic protocol. (Formerly **Azure AI Agent Service**).  
-**Official Docs:** [Foundry Agent Service](https://learn.microsoft.com/en-us/azure/ai-services/agents/)  
+**Description:** Managed PaaS for agent orchestration, skills management, and runtime infrastructure within **Microsoft Foundry (Azure)**. Supports connected agents (multi-agent systems), 15+ built-in tools, full RBAC + VNet + BYO storage. GA with continuous feature additions. The next-gen service is built on the OpenAI Responses API, making it wire-compatible with OpenAI's agentic protocol. (Formerly **Azure AI Agent Service**).
+**Official Docs:** [Foundry Agent Service](https://learn.microsoft.com/en-us/azure/ai-services/agents/)
 **Status:** GA (May 2025; next-gen on Responses API: March 2026)
 
 **Key Features:**
@@ -334,7 +334,7 @@ Use this page as a reference after you’ve narrowed the decision: it’s optimi
 **Built-in Tools (Action):**
 
 - **Function Calling:** Custom stateless functions
-- **Azure Functions:** Intelligent, event-driven serverless code execution (classic agents only; not available in new Responses API agents — use MCP or Logic Apps instead)
+- **Azure Functions:** Intelligent, event-driven serverless code execution (classic agents only; not available in new Responses API agents - use MCP or Logic Apps instead)
 - **Azure Logic Apps:** 1,400+ connector-based workflows
 - **Code Interpreter:** Write and run Python code in sandboxed environment (data handling, visuals)
 - **OpenAPI 3.0 Specified Tool:** Connect to external APIs via OpenAPI spec
@@ -358,11 +358,11 @@ Use this page as a reference after you’ve narrowed the decision: it’s optimi
 - **Multi-agent workflows (Preview):** Orchestrate multiple agents in coordinated workflows within the Foundry portal.
 - **Agent Memory (Preview):** Persistent context across sessions for agents.
 
-**Agent Types — The Three Flavors:**
+**Agent Types - The Three Flavors:**
 
-Not all agents are built the same way. Think of these as three levels of a kitchen — from the microwave meal to the full professional kitchen:
+Not all agents are built the same way. Think of these as three levels of a kitchen - from the microwave meal to the full professional kitchen:
 
-- **Prompt agents (GA):** Defined entirely through configuration — instructions, model selection, and tools. Create in the Foundry portal or via SDK/API. Agent Service handles orchestration and hosting automatically. Best for rapid prototyping and agents that don't need custom orchestration logic. See [Agent types overview](https://learn.microsoft.com/en-us/azure/foundry/agents/overview#agent-types).
+- **Prompt agents (GA):** Defined entirely through configuration - instructions, model selection, and tools. Create in the Foundry portal or via SDK/API. Agent Service handles orchestration and hosting automatically. Best for rapid prototyping and agents that don't need custom orchestration logic. See [Agent types overview](https://learn.microsoft.com/en-us/azure/foundry/agents/overview#agent-types).
 - **Workflow agents (Preview):** Orchestrate sequences of actions or coordinate multiple agents using declarative YAML definitions. Build visually in the Foundry portal or define in VS Code. Support branching logic, human-in-the-loop steps, and group-chat patterns. Best for multi-step orchestration without custom code.
 - **Hosted agents (Preview):** Code-based agents built with any framework (Agent Framework, LangGraph, custom) and deployed as containers on Agent Service. You write the orchestration logic; Foundry manages runtime, scaling, and infrastructure. Billing enabled during preview; check the [Foundry pricing page](https://azure.microsoft.com/pricing/details/ai-foundry/) for current rates. Best for complex workflows requiring full control over agent behavior. See [Hosted agents overview](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/hosted-agents).
 
@@ -403,9 +403,9 @@ Not all agents are built the same way. Think of these as three levels of a kitch
 
 ## Agent 365 {: .tech-heading }
 
-**Description:** Frontier preview governance layer that assigns each agent a Microsoft Entra Agent ID for identity, lifecycle, and access management, with centralized observability in the Microsoft 365 admin center.
-**Official Docs:** [Agent 365](https://learn.microsoft.com/en-us/microsoft-agent-365/overview)  
-**Status:** Frontier Preview (GA target: **May 1, 2026** at **$15/user/month**)
+**Description:** Governance layer that assigns each agent a Microsoft Entra Agent ID for identity, lifecycle, and access management, with centralized observability in the Microsoft 365 admin center.
+**Official Docs:** [Agent 365](https://learn.microsoft.com/en-us/microsoft-agent-365/overview)
+**Status:** GA (May 2026; **$15/user/month** standalone, bundled in M365 E7 at $99/user/month)
 
 **How it fits together:**
 
@@ -414,7 +414,7 @@ Not all agents are built the same way. Think of these as three levels of a kitch
 - **Agent 365 SDK (Preview):** Extends agents built on any SDK/platform with Entra-backed identity, notifications, OpenTelemetry observability, and governed MCP servers under blueprint policies. (Agent 365 SDK - Retrieved: 2026-01-09)
 - **Agent 365 CLI (Preview):** Cross-platform CLI to deploy and manage Agent 365 applications on Azure. Requires custom client app registration in Entra ID and uses `--prerelease` installs while the CLI evolves. (Agent 365 CLI - Retrieved: 2026-01-13)
 
-**Frontier requirements & caution:** Frontier is the early access program for experimental/preview Copilot features. Tenants must enroll and enable **Copilot Frontier** in the Microsoft 365 admin center. At GA (May 1, 2026), licensing is per-user — agents acting on behalf of a licensed user are covered. Included in the M365 E7 bundle ($99/user/month). Capabilities (especially CLI workflows) are still evolving, so plan for change and avoid production commitments until GA. (Overview of Microsoft Agent 365 - Retrieved: 2026-03-13; Manage Microsoft 365 Copilot scenarios - Retrieved: 2026-03-16)
+**Licensing and rollout:** Agent 365 is GA with per-user licensing at $15/user/month. Agents acting on behalf of a licensed user are covered. Included in the M365 E7 bundle ($99/user/month). The Agent 365 SDK and CLI remain in Preview; plan for API surface changes in tooling workflows. (Overview of Microsoft Agent 365 - Retrieved: 2026-03-13)
 
 **When to use:** Establish identity, registry, and governance for cross-platform agents while piloting early Agent 365 capabilities; pair with Copilot Studio or Microsoft Foundry runtimes for execution.
 
@@ -432,7 +432,7 @@ Not all agents are built the same way. Think of these as three levels of a kitch
 ## Foundry Control Plane {: .tech-heading }
 
 **Description:** Centralized registry and security posture hub for agents built in Microsoft Foundry. Integrates Azure Policy, Microsoft Defender, and Purview for unified governance.
-**Official Docs:** [Foundry Control Plane](https://learn.microsoft.com/en-us/azure/ai-foundry/control-plane/overview)  
+**Official Docs:** [Foundry Control Plane](https://learn.microsoft.com/en-us/azure/ai-foundry/control-plane/overview)
 **Status:** GA (Nov 2025)
 
 **Key Features:**
@@ -453,12 +453,12 @@ Not all agents are built the same way. Think of these as three levels of a kitch
 ## Azure AI Search {: .tech-heading }
 
 **Description:** Azure-native search and retrieval platform with vector, hybrid, and agentic retrieval (knowledge bases) for RAG and grounding.
-**Official Docs:** [Azure AI Search Documentation](https://learn.microsoft.com/en-us/azure/search/)  
-**Status:** GA (agentic retrieval features in preview API version `2025-11-01-preview`)
+**Official Docs:** [Azure AI Search Documentation](https://learn.microsoft.com/en-us/azure/search/)
+**Status:** GA (agentic retrieval has mixed status: selected REST API features GA in `2026-04-01`; portal and newer capabilities remain Preview)
 
 **Key Features:**
 
-- **Agentic retrieval / knowledge bases (Preview):** Knowledge sources with `retrievalInstructions`, partial responses, and `reasoning_effort` to reduce latency; Foundry IQ lets Agent Service agents call knowledge bases. (What's new - Updated: 2026-03-13)
+- **Agentic retrieval / knowledge bases (mixed status):** Selected programmatic REST API features reached GA in `2026-04-01`, while Foundry portal, Azure portal, answer synthesis, multi-turn retrieval, and newer source types remain Preview. Foundry IQ lets Agent Service agents call knowledge bases through MCP. (Agentic retrieval overview - Updated: 2026-06-02; Foundry IQ overview - Updated: 2026-06-05)
 - **Security & governance:** SharePoint indexer ACL flow-through (Preview), sensitivity label enforcement, and confidential computing (GA, +~10% surcharge). (What's new - Updated: 2026-03-13; Sep 2025)
 - **Knowledge sources:** Indexed/remote SharePoint, indexed OneLake, and web sources with content extraction powered by Azure AI Content Understanding. (What's new - Updated: 2026-03-13)
 - **Ranking & analytics:** Semantic ranker and agentic retrieval available on free tier (limited quotas); scoring function aggregation and facet aggregations for analytics. (What's new - Updated: 2026-03-13)
@@ -473,11 +473,11 @@ Not all agents are built the same way. Think of these as three levels of a kitch
 
 ---
 
-## Foundry IQ (Preview) {: .tech-heading }
+## Foundry IQ {: .tech-heading }
 
-**Description:** Managed knowledge layer within Microsoft Foundry that provides agents with permission-aware, citation-backed responses grounded in enterprise data. Foundry IQ creates configurable, multi-source knowledge bases that connect to Azure AI Search's agentic retrieval engine via MCP endpoints.  
-**Official Docs:** [Foundry IQ overview](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/what-is-foundry-iq)  
-**Status:** Preview
+**Description:** Managed knowledge layer within Microsoft Foundry that provides agents with permission-aware, citation-backed responses grounded in enterprise data. Foundry IQ creates configurable, multi-source knowledge bases that connect to Azure AI Search's agentic retrieval engine via MCP endpoints.
+**Official Docs:** [Foundry IQ overview](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/what-is-foundry-iq)
+**Status:** Mixed. Core knowledge source types and the `2026-04-01` REST API are GA; answer synthesis, multi-turn retrieval, non-minimal reasoning effort, portal experience, and additional source types remain Preview. Treat as Preview for production planning unless your workload uses only GA-surface features.
 
 **Key Features:**
 
@@ -488,14 +488,15 @@ Not all agents are built the same way. Think of these as three levels of a kitch
 - **Agentic retrieval engine:** LLM-powered query planning decomposes user queries into subqueries, runs parallel searches across knowledge sources, applies semantic reranking, and returns extractive data with citations. (Foundry IQ overview - Retrieved: 2026-03-19)
 - **MCP integration with Foundry Agent Service:** Connect knowledge bases to agents via MCP tool calls. The `knowledge_base_retrieve` tool enables grounded responses in agent conversations. (Connect Foundry IQ to Foundry Agent Service - Retrieved: 2026-03-19)
 
-**Relationship to Work IQ and Fabric IQ:**
+**Relationship to Microsoft IQ:**
 
-Microsoft provides three IQ workloads for agent-native systems:
+Microsoft provides four IQ capabilities for agent-native systems:
 - **Foundry IQ:** Enterprise knowledge (files, blobs, indexes, web). You are here.
 - **Work IQ:** Microsoft 365 collaboration context (emails, meetings, chats, documents). See [Work IQ](#work-iq-preview).
 - **Fabric IQ:** Business analytics (semantic models, ontologies, OneLake/Power BI).
+- **Web IQ:** Public web context and fresh external information. See [Web IQ](#web-iq-limited-access).
 
-Each IQ workload is standalone, but they can work together to provide comprehensive organizational context for agents.
+Each IQ capability is standalone, but they can work together to provide comprehensive organizational and external context for agents.
 
 **When to use:** Custom agents needing governed, permission-aware access to enterprise documents, web content, or SharePoint, with citation-backed responses and ACL enforcement. Pair with Foundry Agent Service for managed agent orchestration.
 
@@ -511,9 +512,9 @@ Each IQ workload is standalone, but they can work together to provide comprehens
 
 ## Work IQ (Preview) {: .tech-heading }
 
-**Description:** Work IQ is the intelligence layer that powers Microsoft 365 Copilot, and now your agents can use the same engine. It applies an extensive, continuously updated understanding of how your organization works to deliver personalized search, advanced reasoning, and semantic understanding grounded in real-time M365 signals. When you connect an agent to Work IQ, you're not adding a data connector; you're giving it the same contextual brain that Copilot uses to understand your emails, meetings, documents, chats, and business systems.  
-**Official Docs:** [Work IQ MCP overview](https://learn.microsoft.com/en-us/microsoft-agent-365/tooling-servers-overview)  
-**Status:** Preview (requires M365 Copilot license)
+**Description:** Work IQ is the intelligence layer that powers Microsoft 365 Copilot, and now your agents can use the same engine. It applies an extensive, continuously updated understanding of how your organization works to deliver personalized search, advanced reasoning, and semantic understanding grounded in real-time M365 signals. When you connect an agent to Work IQ, you're not adding a data connector; you're giving it the same contextual brain that Copilot uses to understand your emails, meetings, documents, chats, and business systems.
+**Official Docs:** [Work IQ MCP overview](https://learn.microsoft.com/en-us/microsoft-agent-365/tooling-servers-overview)
+**Status:** Preview (Work IQ MCP tools and the Work IQ API are Preview as of June 2026; requires M365 Copilot license)
 
 **Key Features:**
 
@@ -537,10 +538,33 @@ Each IQ workload is standalone, but they can work together to provide comprehens
 
 ---
 
+## Web IQ (Limited Access) {: .tech-heading }
+
+**Description:** The public web intelligence layer within the Microsoft IQ family. Where Work IQ gives agents organizational context and Foundry IQ gives them enterprise documents, Web IQ gives them fresh public web information. Think of it as the difference between a researcher who only reads internal memos and one who also scans the outside world.
+**Official Docs:** [Microsoft IQ](https://learn.microsoft.com/en-us/microsoft-iq/) | [Web IQ product page](https://www.microsoft.com/en-us/WebIQ)
+**Status:** Limited Access (enrollment required; no self-service provisioning)
+
+**Key Features:**
+
+- **Web-scale grounding:** Agents use an agent-native web grounding surface for real-time public information.
+- **Part of Microsoft IQ:** Web IQ complements Work IQ (organizational context), Foundry IQ (enterprise knowledge), and Fabric IQ (analytics). Together they form the four IQ capabilities under the Microsoft IQ umbrella.
+
+**When to use:** Agents that need current public information -- news, regulations, product specs, research papers -- alongside enterprise data. Pair with Foundry IQ or Work IQ so the agent can cross-reference public facts against internal context.
+
+**When NOT to use:** Scenarios where all required data is internal (use Work IQ or Foundry IQ); analytics workloads (use Fabric IQ); workloads that cannot tolerate Limited Access enrollment gates.
+
+**Sources:**
+
+- [Microsoft IQ documentation](https://learn.microsoft.com/en-us/microsoft-iq/) (Retrieved: 2026-06-08)
+- [Web IQ product page](https://www.microsoft.com/en-us/WebIQ) (Retrieved: 2026-06-08)
+- [Announcing Microsoft Web IQ](https://blogs.bing.com/search/June-2026/Announcing-Microsoft-Web-IQ) (Published: 2026-06)
+
+---
+
 ## Azure AI Content Understanding {: .tech-heading }
 
-**Description:** Multimodal AI service in Foundry Tools that extracts semantic content from documents, images, audio, and video files. Optimized for retrieval-augmented generation (RAG) and automated workflows with prebuilt and custom analyzers.  
-**Official Docs:** [Azure AI Content Understanding](https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/)  
+**Description:** Multimodal AI service in Foundry Tools that extracts semantic content from documents, images, audio, and video files. Optimized for retrieval-augmented generation (RAG) and automated workflows with prebuilt and custom analyzers.
+**Official Docs:** [Azure AI Content Understanding](https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/)
 **Status:** GA (API version 2025-11-01; GA SDKs for Python, .NET, Java, JavaScript/TypeScript)
 
 **Key Features:**
@@ -568,8 +592,8 @@ Each IQ workload is standalone, but they can work together to provide comprehens
 
 ## AI Builder {: .tech-heading }
 
-**Description:** Power Platform AI services for document processing, vision, text analysis, and predictions. Backed by Azure AI Document Intelligence and GPT models. Callable from Copilot Studio agents, Power Automate, and Power Apps.  
-**Official Docs:** [AI Builder Documentation](https://learn.microsoft.com/en-us/ai-builder/)  
+**Description:** Power Platform AI services for document processing, vision, text analysis, and predictions. Backed by Azure AI Document Intelligence and GPT models. Callable from Copilot Studio agents, Power Automate, and Power Apps.
+**Official Docs:** [AI Builder Documentation](https://learn.microsoft.com/en-us/ai-builder/)
 **Status:** GA
 
 **Key Features:**
@@ -586,8 +610,8 @@ Each IQ workload is standalone, but they can work together to provide comprehens
 
 ## Microsoft Fabric {: .tech-heading }
 
-**Description:** Unified data and analytics platform that provides the "OneLake" foundation for AI. Includes Real-Time Intelligence, Data Engineering, and the new "Fabric Data Agents" for conversational analytics.  
-**Official Docs:** [Microsoft Fabric Documentation](https://learn.microsoft.com/en-us/fabric/)  
+**Description:** Unified data and analytics platform that provides the "OneLake" foundation for AI. Includes Real-Time Intelligence, Data Engineering, and the new "Fabric Data Agents" for conversational analytics.
+**Official Docs:** [Microsoft Fabric Documentation](https://learn.microsoft.com/en-us/fabric/)
 **Status:** GA
 
 **Key Features:**
@@ -600,25 +624,75 @@ Each IQ workload is standalone, but they can work together to provide comprehens
 
 ---
 
+### Local and Edge AI {: .no_toc }
+
+Not every inference call should travel to the cloud. Latency-sensitive, offline-capable, or data-sovereignty-constrained workloads need models that run where the data lives. Think of cloud AI as the power grid and local AI as a generator: you want the grid for scale, but the generator keeps the lights on when the connection drops.
+
+## Foundry Local {: .tech-heading }
+
+**Description:** A component of Windows AI Foundry that brings Microsoft Foundry (Azure) models and capabilities to local devices (Windows 11, macOS), enabling offline inferencing, low-latency scenarios, and hybrid cloud/edge architectures. Models downloaded once, run locally with the same API surface as cloud Foundry.
+**Official Docs:** [Foundry Local overview](https://learn.microsoft.com/en-us/azure/foundry/foundry-local/foundry-local-overview)
+**Status:** Availability varies by model and platform. Validate current Learn documentation before production use.
+
+**Key Features:**
+
+- **Cloud-parity API:** Same REST and SDK surface as Microsoft Foundry (Azure), so code migrates between local and cloud with a config change.
+- **Hybrid deployment:** Run models locally for latency or compliance, then use cloud Foundry for workloads that need larger models or elastic scale.
+- **Model catalog subset:** Supports a curated set of SLMs (Phi family, Mistral, others) optimized for device-class hardware.
+
+## Foundry Local on Azure Local (Preview) {: .tech-heading }
+
+**Description:** Edge deployment option for running selected Foundry Local capabilities in customer-controlled Azure Local environments. It is relevant when the boundary is not just a device, but a branch, lab, factory, or disconnected site.
+**Official Docs:** [Foundry Local on Azure Local](https://learn.microsoft.com/en-us/azure/azure-sovereign-clouds/private/foundry-local/overview)
+**Status:** Preview
+
+**When to use:** Sovereign, disconnected, or edge workloads where inference must stay in a customer-controlled environment but still needs centralized platform operations. Also relevant for latency-critical inferencing, air-gapped environments, or data residency constraints that prohibit cloud egress.
+
+## Windows AI APIs and Windows ML {: .tech-heading }
+
+**Description:** Platform-level AI primitives built into Windows 11 for on-device inference. Windows AI APIs provide high-level access to system models (text, image, speech) without managing runtimes. Windows ML provides the lower-level ONNX Runtime integration for custom models.
+**Official Docs:** [Windows AI overview](https://learn.microsoft.com/en-us/windows/ai/)
+**Status:** GA (Windows AI APIs); GA (Windows ML / ONNX Runtime)
+
+**Key Features:**
+
+- **Windows AI APIs:** Pre-built capabilities for text intelligence, image generation, and OCR that run entirely on-device using the system's NPU, GPU, or CPU.
+- **Windows ML:** Load and run custom ONNX models on DirectML-accelerated hardware. Useful for specialized vision, NLP, or sensor-fusion models.
+- **NPU acceleration:** Both API layers take advantage of Neural Processing Units on Copilot+ PCs for power-efficient inference.
+
+**When to use:** Client-side intelligence in Windows apps (real-time captions, local document summarization, image classification) where round-tripping to a cloud endpoint adds unacceptable latency or cost.
+
+## Microsoft Execution Containers (MXC) (Early Preview) {: .tech-heading }
+
+**Description:** Policy-driven local containment for agent tools and code execution. MXC lets a host describe what an agent can access, then relies on operating-system primitives to enforce those boundaries.
+**Official Docs:** [Windows platform security for AI agents](https://blogs.windows.com/windowsdeveloper/2026/06/02/windows-platform-security-for-ai-agents/)
+**Status:** Early Preview
+
+**When to use:** Emerging local-agent scenarios where tool execution must be contained on the user's machine. Treat it as a design signal, not a production security boundary, until Microsoft Learn publishes stable guidance.
+
+---
+
 ### Developer Tools {: .no_toc }
 
 ## GitHub Copilot {: .tech-heading }
 
-**Description:** AI-powered developer platform that has evolved from an in-editor assistant to a suite of autonomous agents and tools for the entire software lifecycle.  
-**Official Docs:** [GitHub Copilot Documentation](https://docs.github.com/en/copilot)  
+**Description:** AI-powered developer platform that has evolved from an in-editor assistant to a suite of autonomous agents and tools for the entire software lifecycle.
+**Official Docs:** [GitHub Copilot Documentation](https://docs.github.com/en/copilot)
 **Status:** GA (Various features in Preview)
 
 **Key Features:**
 
 - **Copilot Coding Agent (Preview):** Autonomous agent integrated into GitHub.com that can be assigned issues to refactor code, fix bugs, and implement features asynchronously. It creates PRs, runs tests, and iterates on feedback.
+- **GitHub Copilot app (Technical Preview):** Standalone agent-native surface for managing parallel coding-agent sessions, worktrees, reviews, and agent progress across repositories.
+- **Expanded coding-agent triggers (Preview):** Coding agents can start from issues, PR feedback, direct prompts, schedules, or repository events depending on feature availability.
 - **Copilot Agent Mode (Preview):** "Peer programmer" mode in VS Code that can edit multiple files, run terminal commands, and self-heal errors during development.
 - **Copilot Extensions:** Ecosystem of third-party tools (DataStax, Sentry, Azure) that Copilot can invoke to perform specialized tasks.
 - **Copilot Workspace:** Natural language environment to plan, build, test, and run code in a cloud-based dev environment.
 
 ## GitHub Models {: .tech-heading }
 
-**Description:** Models as a Service (MaaS) platform integrated directly into GitHub, allowing developers to discover, test, and compare models (OpenAI, Meta, Mistral, Microsoft) without leaving their workflow.  
-**Official Docs:** [GitHub Models Documentation](https://docs.github.com/en/github-models)  
+**Description:** Models as a Service (MaaS) platform integrated directly into GitHub, allowing developers to discover, test, and compare models (OpenAI, Meta, Mistral, Microsoft) without leaving their workflow.
+**Official Docs:** [GitHub Models Documentation](https://docs.github.com/en/github-models)
 **Status:** Preview
 
 **Key Features:**
@@ -630,8 +704,8 @@ Each IQ workload is standalone, but they can work together to provide comprehens
 
 ## Visual Studio Code {: .tech-heading }
 
-**Description:** The world's most popular code editor, now serving as the primary interface for "Agentic IDE" experiences.  
-**Official Docs:** [VS Code Documentation](https://code.visualstudio.com/)  
+**Description:** The world's most popular code editor, now serving as the primary interface for "Agentic IDE" experiences.
+**Official Docs:** [VS Code Documentation](https://code.visualstudio.com/)
 **Status:** GA
 
 **Key Features:**
@@ -644,8 +718,8 @@ Each IQ workload is standalone, but they can work together to provide comprehens
 
 ## Microsoft 365 Agents SDK & Toolkit {: .tech-heading }
 
-**Description:** Pro-code framework and tooling for multi-channel Microsoft 365 agents. Combines the Agents SDK (C#, JavaScript/TypeScript, Python) with Agents Toolkit extensions for VS Code, Visual Studio, GitHub Copilot, and CLI-based automation. Successor to Bot Framework for custom engine agents.  
-**Status:** GA (C#, JavaScript/TypeScript, Python)  
+**Description:** Pro-code framework and tooling for multi-channel Microsoft 365 agents. Combines the Agents SDK (C#, JavaScript/TypeScript, Python) with Agents Toolkit extensions for VS Code, Visual Studio, GitHub Copilot, and CLI-based automation. Successor to Bot Framework for custom engine agents.
+**Status:** GA (C#, JavaScript/TypeScript, Python)
 **Official Docs:** [M365 Agents SDK](https://learn.microsoft.com/en-us/microsoft-365/agents-sdk/agents-sdk-overview) | [M365 Agents Toolkit](https://learn.microsoft.com/en-us/microsoft-365/developer/overview-m365-agents-toolkit) | [Bot Framework Migration](https://aka.ms/bfmigrationguidance)
 
 **Key Features:**
@@ -680,10 +754,10 @@ Each IQ workload is standalone, but they can work together to provide comprehens
 
 ## Microsoft Agent Framework {: .tech-heading }
 
-**Description:** Type-safe orchestration SDK for composing multi-agent workflows with executors, edges, and reusable patterns. Successor to Semantic Kernel and AutoGen with stable APIs, multi-provider model support, and cross-runtime interoperability across .NET and Python.  
-**Status:** GA v1.0 (.NET, Python) — April 2026  
-**Official Docs:** [Microsoft Agent Framework overview](https://learn.microsoft.com/en-us/agent-framework/overview/agent-framework-overview) | [Workflows overview](https://learn.microsoft.com/en-us/agent-framework/user-guide/workflows/overview) | [Workflows - Checkpoints](https://learn.microsoft.com/en-us/agent-framework/user-guide/workflows/checkpoints)  
-**Packages:** NuGet: `Microsoft.Agents.AI` | PyPI: `agent-framework`  
+**Description:** Type-safe orchestration SDK for composing multi-agent workflows with executors, edges, and reusable patterns. Successor to Semantic Kernel and AutoGen with stable APIs, multi-provider model support, and cross-runtime interoperability across .NET and Python.
+**Status:** GA v1.0 (.NET, Python) - April 2026
+**Official Docs:** [Microsoft Agent Framework overview](https://learn.microsoft.com/en-us/agent-framework/overview/agent-framework-overview) | [Workflows overview](https://learn.microsoft.com/en-us/agent-framework/user-guide/workflows/overview) | [Workflows - Checkpoints](https://learn.microsoft.com/en-us/agent-framework/user-guide/workflows/checkpoints)
+**Packages:** NuGet: `Microsoft.Agents.AI` | PyPI: `agent-framework`
 **GitHub:** [microsoft/agent-framework](https://github.com/microsoft/agent-framework)
 
 **Key Features:**
@@ -723,6 +797,21 @@ Each IQ workload is standalone, but they can work together to provide comprehens
 - [Microsoft Agent Framework v1.0 announcement](https://devblogs.microsoft.com/agent-framework/microsoft-agent-framework-version-1-0/) (Published: 2026-04-03)
 - [Agent Framework documentation](https://learn.microsoft.com/en-us/agent-framework/)
 - [Agent Framework GitHub](https://github.com/microsoft/agent-framework)
+
+---
+
+### Agent Runtime Alternatives (Preview) {: .no_toc }
+
+Beyond Foundry Agent Service and self-hosted containers, Microsoft has introduced several specialized runtimes for agent workloads. Each trades off isolation, scale model, and operational overhead differently.
+
+| Runtime | Status | What It Does | Best For |
+|---------|--------|-------------|----------|
+| **Azure Container Apps Sandboxes** | Public Preview | Stateful sandbox groups for isolating agent-generated or user-provided code. | Agents that need persistent but contained execution workspaces |
+| **Azure Functions Serverless Agents Runtime** | Preview | Event-driven, consumption-billed hosting for lightweight agents using Functions triggers and stateful orchestration. | Cost-sensitive agents with bursty or event-driven traffic |
+| **Azure Connector Namespace** | Public Preview | Managed connector surface that exposes Logic Apps connectors as MCP servers for agent runtimes. | Agents needing enterprise system integration without custom adapters |
+| **API Management Unified Model API** | Preview | OpenAI-compatible gateway that routes to multiple model providers behind central policies. | Teams standardizing auth, quotas, model aliases, and governance across providers |
+
+> **Verify before committing:** These runtimes are in Preview with evolving APIs and no production SLA. Check Microsoft Learn for current status before designing production architectures around them.
 
 ---
 

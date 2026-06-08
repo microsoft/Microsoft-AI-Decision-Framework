@@ -10,19 +10,19 @@ description: "Capability framing for Microsoft AI choices"
 
 Every AI conversation starts in the wrong place.
 
-Someone walks into the room and says, "We need an agent." Or worse: "We need to use Foundry." They've jumped to a platform before they've named the outcome, described the user, or asked whether AI is even the right tool. This is how projects fail — not from bad technology, but from skipping the thinking that should come before the technology.
+Someone walks into the room and says, "We need an agent." Or worse: "We need to use Foundry." They've jumped to a platform before they've named the outcome, described the user, or asked whether AI is even the right tool. This is how projects fail - not from bad technology, but from skipping the thinking that should come before the technology.
 
-This page teaches that thinking. Not a decision tree — those come later. This is the mental framework that makes decision trees *useful*. Learn it once, and it survives every product rename, every Build keynote, every "everything is an agent now" news cycle.
+This page teaches that thinking. Not a decision tree - those come later. This is the mental framework that makes decision trees *useful*. Learn it once, and it survives every product rename, every Build keynote, every "everything is an agent now" news cycle.
 
 The flow is always the same: **Outcomes → Behaviors → Platforms.** Who benefits and how? What does the AI actually *do*? Only then: which building blocks support that behavior?
 
 **How to use this page:**
 
-1. Start with **outcomes** — name who benefits and how (The 3 AI Buckets).
-2. Pass the **checkpoint** — verify AI is even the right tool.
-3. Define **behavior** — describe what the agent does before you name a product (The Coin & 5 Dimensions).
-4. Map to **building blocks** — match behaviors to Capability Groupings and the Three IQ Layers.
-5. Choose your **build path** — pick the right layer of the New Full Stack.
+1. Start with **outcomes** - name which AI conversation you are in (The 3 AI Buckets).
+2. Pass the **checkpoint** - verify AI is even the right tool.
+3. Define **behavior** - describe what the agent does before you name a product (The Coin & 5 Dimensions).
+4. Map to **building blocks**: match behaviors to Capability Groupings and the Microsoft IQ layers.
+5. Choose your **build path** - pick the right layer of the New Full Stack.
 
 For a detailed intake workflow, see [Decision Framework]({{ '/docs/decision-framework' | relative_url }}).
 
@@ -40,18 +40,24 @@ Start by naming **who benefits and how**. This keeps early conversations grounde
 
 | Bucket | What It Is | Key Distinction |
 | :--- | :--- | :--- |
-| **Copilot for Everyone** | AI as personal assistant | Helps people do *their* work and life tasks. |
-| **AI as Product/Capability** | AI is the value delivered to end users | Standalone agents, embedded features, or LLM‑powered integrations where users consume AI outcomes. |
-| **Agentic Coding** | Autonomous technical builder | AI builds software or systems; the output may or may not contain AI features. |
+| **AI for You** | Tools for all users in the enterprise | Helps people do *their* work with Microsoft 365 Copilot, app copilots, and governed personal productivity agents. |
+| **AI as a Product or Feature** | AI built into your apps or agents | AI becomes part of what your organization ships: custom agents, embedded features, RAG, semantic search, image generation, knowledge graphs, or business workflows. |
+| **AI for Your Codebase** | AI inside the developer workflow | AI helps build, refactor, review, test, document, and modernize software. The output may or may not contain AI features. |
 
 ### The "AI Podcast" Problem
-Why do we need these buckets? Imagine searching for "AI" in a podcast app. The results are a chaotic flood because they mix three different intents:
+Why do we need these buckets? Because "AI" has become a uselessly broad search term.
 
-* **The "Life Hack" Listener:** Wants to know how to use Copilot and ChatGPT for parenting advice or "10 tips to organize my day." *(Bucket 1: Personal Productivity)*
-* **The AI Architect:** Wants to know how to orchestrate multi-agent systems to ship a new feature to their customers. *(Bucket 2: Shipping Value)*
-* **The Developer:** Wants to know how to use an autonomous coding agent to refactor legacy code in the background. *(Bucket 3: Agentic Coding)*
+Imagine opening Spotify, Apple Podcasts, or YouTube and searching for "AI." The results look relevant, but they are actually three different conversations stacked on top of each other:
 
-If you don't separate these channels, you risk applying "life hack" advice to enterprise architecture. Three AI buckets, three different conversations.
+* **The Employee** wants to get through the workday faster with Microsoft 365 Copilot. *(AI for You)*
+* **The Product Builder** wants to put AI inside an app, agent, or business workflow. *(AI as a Product or Feature)*
+* **The Developer** wants agentic help building the codebase itself, from GitHub Copilot to coding agents. *(AI for Your Codebase)*
+
+All three episodes might have "AI" in the title. Only one is useful for the problem in front of you.
+
+That vagueness is what this model fixes. Before you search, listen, ask, or debate, name the bucket. "I want an AI podcast" is too broad. "I want AI for You" means productivity and personal work. "I want AI as a Product or Feature" means architecture and product design. "I want AI for Your Codebase" means developer workflow and software delivery.
+
+The bucket is the filter you set before you hit play. Choose the wrong one and you import the wrong assumptions, the wrong governance model, and the wrong advice.
 
 ---
 
@@ -82,6 +88,30 @@ If you have determined you need an agent, use this framework to describe *what k
 ### What is an agent?
 In Microsoft guidance, agents can handle tasks, take actions, and operate in conversation or via triggers. They can be assistive or autonomous depending on how you design them. See [Copilot Studio overview](https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-what-is-copilot-studio).
 
+### The Anatomy of an Agent: Five Parts
+
+Before you argue about *which* agent, know what every agent is made of. Microsoft’s agent guidance breaks it into five parts. Picture a new hire on their first day.
+
+| Part | Plain-English role | Failure mode if ignored |
+| :--- | :--- | :--- |
+| **Model** | The reasoning engine | The agent cannot interpret ambiguity |
+| **Instructions** | The job description and boundaries | The agent wanders outside its lane |
+| **Retrieval** | The trusted knowledge it can consult | The agent guesses when it should cite |
+| **Actions** | The tools and APIs it can use | The agent talks but cannot do |
+| **Memory** | The state it carries forward | The agent forgets the work in progress |
+
+Take away retrieval and you get confident fiction. Take away actions and you get a clever talker who never ships. Most "the agent is broken" complaints trace back to one missing part, not a bad model.
+
+### Three Altitudes of Agent
+
+Agents fly at three altitudes, and altitude sets how much trust and governance you owe them.
+
+1. **Retrieval (the Librarian):** Finds and synthesizes information for a human to act on. Lowest risk, fastest to value.
+2. **Action (the Clerk):** Takes a defined step inside a workflow: updates a record, files a ticket, triggers a process. It needs guardrails because it touches systems.
+3. **Automation (the Operator):** Runs multi-step work with little oversight, deciding when to proceed, stop, or escalate. Highest value, highest blast radius, strictest governance.
+
+Climb only as high as the outcome demands. A Librarian dressed up as an Operator is just risk you did not need.
+
 ### Two Sides of the Spectrum (The Coin)
 When thinking about agents, consider two ends of a spectrum.
 
@@ -99,13 +129,15 @@ Once you know which side of the coin you're on, you have to decide how that agen
 This defines how the engagement begins. Interactive Agents rely on **Conversational UI**: you talk, and it answers. Invisible Agents rely on **Triggers**: a new email arrives, a database updates, or a timer goes off. One is designed for human engagement; the other is designed for seamless system integration.
 
 **2. Relationship: The Copilot vs. The Captain (Assistive vs. Autonomous)**
-This defines who holds the steering wheel. **Assistive** agents work *with* you: they wait for your input to move forward, keeping a human in the loop. **Autonomous** agents work *for* you: once you give them the goal, they drive themselves, making decisions and executing tasks until the job is done or they hit a guardrail. The line is blurring — Copilot Cowork (Frontier Preview) lets M365 Copilot take the wheel for minutes or hours while you steer at checkpoints, occupying a middle ground between Copilot and Captain.
+This defines who holds the steering wheel. **Assistive** agents work *with* you: they wait for your input to move forward, keeping a human in the loop. **Autonomous** agents work *for* you: once you give them the goal, they drive themselves, making decisions and executing tasks until the job is done or they hit a guardrail. The line is blurring - Copilot Cowork (Frontier Preview) lets M365 Copilot take the wheel for minutes or hours while you steer at checkpoints, occupying a middle ground between Copilot and Captain.
 
 **3. Logic: The Recipe vs. The Chef (Deterministic vs. Non-Deterministic)**
 This defines how the agent thinks. **Deterministic** flows are like a recipe: "If X happens, do Y." They are rigid, predictable, and 100% accurate, which is perfect for strict compliance tasks. **Non-Deterministic** agents use reasoning. You give them a goal ("Plan a travel itinerary"), and they figure out the necessary steps themselves, adding intelligence and adaptability to the process.
 
 **4. Structure: The Soloist vs. The Orchestra (Single-Agent vs. Multi-Agent)**
-This defines the scope of capability. A **Single Agent** is a generalist; it tries to handle the query alone. **Multi-Agent** systems function like a department of specialists. One agent might be the "Researcher," another the "Writer," and another the "Editor," passing the work between them to solve complex problems that a single model couldn't handle effectively.
+This defines how many workers the job really needs. A **Single Agent** keeps the work in one place. It is faster to test, easier to govern, and cheaper to operate. A **Multi-Agent** system separates specialists when the business process crosses security boundaries, involves multiple accountable teams, or is expected to grow into several domains.
+
+The default move is not "build an orchestra." The default move is "audition the soloist." Start with a single-agent test unless a boundary forces separation.
 
 **5. Collaboration: The Handoff (Agent-to-Agent Workflow)**
 This defines how the team plays together. The true power of AI isn't just in isolated agents, but in **Orchestration**. In an advanced workflow, an Invisible Agent (Side B) might detect a server crash and immediately wake up an Interactive Agent (Side A) to alert the engineer, handing off all the context instantly. It connects the two sides of the coin into a single, fluid operation.
@@ -141,13 +173,15 @@ Microsoft and partners ship specialized agents for specific domains.
 * **Azure SRE Agent (Preview):** Operational automation for Azure environments. [Azure SRE Agent overview](https://learn.microsoft.com/en-us/azure/sre-agent/overview)
 * **GitHub Copilot agent mode & coding agent:** Autonomous coding tasks. [GitHub Copilot agents in VS Code](https://code.visualstudio.com/docs/copilot/agents/overview)
 
-### The Three IQ Layers (How Agents Understand Your Organization)
+### Microsoft IQ: The Four Intelligence Layers
 
-**The Concept:** An agent that can only search documents sees the organization through a keyhole. It finds what was written down, but it doesn't know what happened in last week's meeting, who owns the decision, or what the sales data says about the outcome. Real organizational intelligence requires three layers: knowing what was *recorded*, understanding what's *happening*, and interpreting what it all *means*.
+**The Concept:** An agent that can only search documents sees the organization through a keyhole. It finds what was written down, but it doesn't know what happened in last week's meeting, who owns the decision, what the sales data says about the outcome, or what's happening in the market outside the building. Real intelligence requires four layers: knowing what was *recorded*, understanding what's *happening*, interpreting what it all *means*, and seeing what's *out there*.
 
-**The Analogy: Memory, Awareness, and Understanding.**
+Microsoft IQ is the umbrella for four intelligence surfaces that give agents distinct kinds of awareness. You can adopt each layer independently, but agents that combine multiple layers answer questions no single layer can.
 
-Think about how a seasoned leader navigates a complex decision. They draw on three distinct kinds of organizational intelligence:
+**The Analogy: Memory, Awareness, Understanding, and Horizon.**
+
+Think about how a seasoned leader navigates a complex decision. They draw on four distinct kinds of intelligence:
 
 * **Memory** is what the organization has written down. Policies, contracts, specifications, reports, research. It's the accumulated knowledge base. You can search it, cite it, and trust it because it's governed. But memory alone is static. It tells you what the answer *was*, not what the situation *is*.
 
@@ -155,17 +189,21 @@ Think about how a seasoned leader navigates a complex decision. They draw on thr
 
 * **Understanding** is the business logic that gives data meaning. "Customer" isn't just a row in a table. It has relationships (places Orders, belongs to a Segment, has a Lifetime Value), rules (if inventory drops below threshold, trigger replenishment), and a semantic structure that's consistent across every dashboard, agent, and report. Understanding lets agents reason about the business itself, not just the files or conversations about it.
 
-Most teams start their agent journey with Memory (connect a knowledge base) and stop there. The agents that deliver breakthrough value are the ones that also have Awareness (they understand how work happens) and Understanding (they reason in the language of the business).
+* **Horizon** is what's happening beyond the organization's walls. Market shifts, competitor moves, regulatory changes, breaking news, academic research, emerging trends. No company operates in a vacuum, and no agent should either. Horizon intelligence lets agents ground their reasoning in the live web, so the answer isn't just "what do *we* know?" but "what does the *world* know right now?"
+
+Most teams start their agent journey with Memory (connect a knowledge base) and stop there. The agents that deliver breakthrough value are the ones that also have Awareness (they understand how work happens), Understanding (they reason in the language of the business), and Horizon (they see what's happening outside the building).
 
 **The Product Anchors:**
 
-* **Foundry IQ** (Preview) is the Memory layer. Managed knowledge bases built on Azure AI Search agentic retrieval, connected to agents via MCP. Auto-chunking, vector embedding, permission-aware retrieval with ACL sync and Purview sensitivity label enforcement. Citation-backed responses grounded in enterprise documents, SharePoint, OneLake, Azure Blob, and web sources.
+* **Foundry IQ** is the Memory layer. Status varies by surface: agentic retrieval and managed knowledge bases are GA via REST API, while the portal experience and newer capabilities remain in Preview. Built on Azure AI Search agentic retrieval, connected to agents via MCP. Auto-chunking, vector embedding, permission-aware retrieval with ACL sync and Purview sensitivity label enforcement. Citation-backed responses grounded in enterprise documents, SharePoint, OneLake, Azure Blob, and web sources.
 
-* **Work IQ** (Preview) is the Awareness layer, and it's the same intelligence layer that powers Microsoft 365 Copilot. When you connect an agent to Work IQ, you give it the same contextual brain Copilot uses. Built-in MCP servers cover Mail, Calendar, Teams, SharePoint, OneDrive, User profiles, Word, and Dataverse/Dynamics 365 (Sales, Finance, Supply Chain, Service, ERP, Contact Center). The MCP Management Server opens the ecosystem to custom MCP servers built on 1,500+ connectors (ServiceNow, SAP, JIRA, Azure DevOps, Salesforce) and any REST API. Dataverse intelligence extends Work IQ into structured business data understanding. Governed via the M365 Admin Center with Microsoft Defender observability. Requires M365 Copilot license.
+* **Work IQ** (Preview; MCP and API access in Preview as of June 2026) is the Awareness layer, and it's the same intelligence layer that powers Microsoft 365 Copilot. When you connect an agent to Work IQ, you give it the same contextual brain Copilot uses. Built-in MCP servers cover Mail, Calendar, Teams, SharePoint, OneDrive, User profiles, Word, and Dataverse/Dynamics 365 (Sales, Finance, Supply Chain, Service, ERP, Contact Center). The MCP Management Server opens the ecosystem to custom MCP servers built on 1,500+ connectors (ServiceNow, SAP, JIRA, Azure DevOps, Salesforce) and any REST API. Dataverse intelligence extends Work IQ into structured business data understanding. Governed via the M365 Admin Center with Microsoft Defender observability. Requires M365 Copilot license.
 
-* **Fabric IQ** (Preview) is the Understanding layer. A semantic intelligence workload in Microsoft Fabric that defines the language of your business through ontologies (entity types, relationships, properties, business rules), graph models for cross-domain reasoning and dependency analysis, Power BI semantic models for trusted KPIs, and operations agents that can trigger governed actions when business conditions are met. Fabric IQ ensures that every agent, dashboard, and application speaks the same business vocabulary.
+* **Fabric IQ** is the Understanding layer. A semantic intelligence workload in Microsoft Fabric, part of the Microsoft IQ family. It defines the language of your business through ontologies (entity types, relationships, properties, business rules), graph models for cross-domain reasoning and dependency analysis, Power BI semantic models for trusted KPIs, and operations agents that can trigger governed actions when business conditions are met. Some features carry Preview caveats at the individual feature level. Fabric IQ ensures that every agent, dashboard, and application speaks the same business vocabulary.
 
-Each IQ layer is standalone, but agents that combine two or three of them answer questions that no single layer can: "What does the policy say (Memory), who agreed to change it last quarter (Awareness), and what does the usage data show since the change (Understanding)?"
+* **Web IQ** (Limited Access) is the Horizon layer. It provides web-grounded intelligence for agents, enabling them to search, synthesize, and reason over live internet content. Where Foundry IQ grounds agents in your documents and Work IQ grounds them in organizational activity, Web IQ grounds them in the broader world. This opens a class of behaviors where agents can autonomously research external sources, monitor competitive landscapes, or validate internal assumptions against public data. No dedicated Microsoft Learn page is available as of June 2026.
+
+Each IQ layer is standalone, but agents that combine two, three, or all four answer questions that no single layer can: "What does the policy say (Memory), who agreed to change it last quarter (Awareness), what does the usage data show since the change (Understanding), and how does our approach compare to what the industry is doing (Horizon)?"
 
 ---
 
@@ -173,15 +211,15 @@ Each IQ layer is standalone, but agents that combine two or three of them answer
 
 The low-code vs. pro-code war is over. Here's what killed it.
 
-For years, the industry drew a bright line: "low-code is for citizen developers" on one side, "pro-code is for real engineers" on the other. The line made sense when code was expensive. Writing a state machine, wiring up auth flows, managing deployment pipelines — these tasks demanded specialized skills and weeks of calendar time. Low-code existed as a category because the alternative cost too much.
+For years, the industry drew a bright line: "low-code is for citizen developers" on one side, "pro-code is for real engineers" on the other. The line made sense when code was expensive. Writing a state machine, wiring up auth flows, managing deployment pipelines - these tasks demanded specialized skills and weeks of calendar time. Low-code existed as a category because the alternative cost too much.
 
-That economics has collapsed. Agentic coding tools — GitHub Copilot, coding agents, AI-assisted development — have made writing deterministic logic fast and cheap. A coding agent can scaffold a validated state machine in minutes. The cost argument that justified the binary no longer holds. And on the other side, tools like Copilot Studio now offer code views, variable management, and API integrations that demand an engineering mindset to wield effectively. The "low-code" canvas has become an IDE for conversational AI.
+That economics has collapsed. Agentic coding tools - GitHub Copilot, coding agents, AI-assisted development - have made writing deterministic logic fast and cheap. A coding agent can scaffold a validated state machine in minutes. The cost argument that justified the binary no longer holds. And on the other side, tools like Copilot Studio now offer code views, variable management, and API integrations that demand an engineering mindset to wield effectively. The "low-code" canvas has become an IDE for conversational AI.
 
-**The New Rule:** Choose the tool based on the **problem**, not your job title. A Principal Architect should use Copilot Studio if it solves the problem 10× faster. A Business Analyst working in Foundry isn't out of their depth — they're using the right tool for *their* use case. The tool does not define the role. The problem defines the tool.
+**The New Rule:** Choose the tool based on the **problem**, not your job title. A Principal Architect should use Copilot Studio if it solves the problem 10× faster. A Business Analyst working in Foundry isn't out of their depth - they're using the right tool for *their* use case. The tool does not define the role. The problem defines the tool.
 
 ### Three Layers, One Architecture
 
-Do not think of this as "Copilot Studio vs. Microsoft Foundry." Think of it as a **spectrum of control** — three layers that most enterprise architectures use together. This is an "AND" conversation, not an "OR" decision.
+Do not think of this as "Copilot Studio vs. Microsoft Foundry." Think of it as a **spectrum of control** - three layers that most enterprise architectures use together. This is an "AND" conversation, not an "OR" decision.
 
 **1. The SaaS Layer (Microsoft 365 Copilot)**
 * **Focus:** Consumption & Configuration.

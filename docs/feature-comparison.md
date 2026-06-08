@@ -69,16 +69,16 @@ Quick view of core platforms (M365 Copilot, Studio, Foundry, Agent Framework, Lo
 
 Contrast packaged Microsoft agents (Coding, SRE, App Modernization) by trigger, action scope, and human-in-the-loop expectations.
 
-| Feature | GitHub Copilot Coding Agent | Azure SRE Agent | GitHub Copilot App Modernization |
-|---------|-----------------------------|-----------------|----------------------------------|
-| **Primary Role** | Autonomous Developer | Site Reliability Engineer | Migration Specialist |
-| **Trigger** | GitHub Issue | Azure Monitor Alert | Manual Invocation |
-| **Action Space** | Codebase (Read/Write), Tests | Azure Resources (Read/Action), Logs | Codebase (Mass Refactor) |
-| **Output** | Pull Request | RCA Report, Fix PR | Upgrade Plan, PR |
-| **Human Loop** | PR Review | Alert Acknowledgment | Plan Approval, PR Review |
-| **Underlying Model** | Optimized Coding Models | Specialized SRE Models | Migration-Tuned Models |
-| **Context Window** | Repository-aware | Log/Metric-aware | Dependency-aware |
-| **Status** | Preview | Preview | Preview |
+| Feature | GitHub Copilot Coding Agent | GitHub Copilot app | Azure SRE Agent | GitHub Copilot App Modernization |
+|---------|-----------------------------|--------------------|-----------------|----------------------------------|
+| **Primary Role** | Autonomous Developer | Agent-native control surface | Site Reliability Engineer | Migration Specialist |
+| **Trigger** | Issue, PR feedback, prompt, schedule, or repository event | User opens or manages agent sessions | Azure Monitor Alert | Manual Invocation |
+| **Action Space** | Codebase (Read/Write), Tests, PR iteration | Worktrees, parallel sessions, review and merge coordination | Azure Resources (Read/Action), Logs | Codebase (Mass Refactor) |
+| **Output** | Pull Request | Managed agent work queue and session state | RCA Report, Fix PR | Upgrade Plan, PR |
+| **Human Loop** | PR Review, CI gates, optional Agent Merge gates | Developer steering and approval | Alert Acknowledgment | Plan Approval, PR Review |
+| **Underlying Model** | Optimized Coding Models | Copilot agent runtime | Specialized SRE Models | Migration-Tuned Models |
+| **Context Window** | Repository-aware | Repository and session-aware | Log/Metric-aware | Dependency-aware |
+| **Status** | Preview | Technical Preview | Preview | Preview |
 
 ---
 
@@ -184,24 +184,26 @@ Use this matrix to choose between Agent Framework Workflows, Logic Apps AI Agent
 
 ## IQ Layer Comparison
 
-Three intelligence layers give agents access to different aspects of your organization. Think of them as **The Three Libraries**. No single librarian covers all three.
+Four intelligence layers -- collectively branded **Microsoft IQ** -- give agents access to different slices of your world. Think of them as **The Four Libraries**: one holds your enterprise documents, one remembers every meeting and email, one crunches your business metrics, and one reads every public source on the internet. No single librarian covers all four, but together they give an agent near-total recall.
 
-| Feature | **Foundry IQ** | **Work IQ** | **Fabric IQ** |
-|---------|---------------|------------|--------------|
-| **Domain** | Enterprise knowledge (files, blobs, indexes, web) | M365 organizational context + extensible business systems (the same intelligence layer that powers Copilot) | Business analytics (semantic models, ontologies, OneLake) |
-| **Status** | Preview | Preview | Preview |
-| **Data Boundary** | Azure | M365 tenant | Fabric capacity |
-| **Access Method** | MCP endpoint (agentic retrieval via knowledge bases) | Built-in MCP servers (Copilot, Calendar, Mail, SharePoint, OneDrive, Teams, User, Word, Dataverse/Dynamics 365) + custom MCP servers via MCP Management Server (1,500+ connectors, Graph APIs, REST) | Fabric Data Agents, SQL endpoint |
-| **Permission Model** | ACL sync + Purview labels + Entra identity at query time | M365 Copilot license + Entra identity + admin allow/block | Fabric RBAC + OneLake ACLs |
-| **Knowledge Sources** | Azure Blob, SharePoint (indexed + remote), OneLake, existing indexes, web (Bing) | M365 Graph signals (files, emails, meetings, chats, calendar, people) | Lakehouse, warehouse, KQL, semantic models |
-| **Consumers** | Foundry Agent Service, custom agents via MCP | Copilot Studio, Microsoft Foundry, VS Code, CLI | Copilot Studio, M365 Copilot, Power BI |
-| **Best For** | Custom agents with governed enterprise data + citation-backed responses | Agents that need organizational context: not just file contents, but who decided what, when, and what happened after. Extensible to any system via custom MCP servers | Chat-with-data and analytics scenarios |
-| **Licensing** | Azure consumption (free tier quotas for preview) | M365 Copilot license required | Fabric capacity (F2+) |
+| Feature | **Foundry IQ** | **Work IQ** | **Web IQ** | **Fabric IQ** |
+|---------|---------------|------------|-----------|--------------|
+| **Domain** | Enterprise knowledge (files, blobs, indexes, web) | M365 organizational context + extensible business systems (the intelligence layer that powers Copilot) | Public web and fresh external signals | Business analytics (semantic models, ontologies, OneLake) |
+| **Status** | Partial GA (core knowledge source types + `2026-04-01` REST API GA; portal, answer synthesis, multi-turn remain Preview) | Preview (MCP tools and API as of June 2026) | Limited Access (enrollment required) | Preview |
+| **Data Boundary** | Azure | M365 tenant | Limited Access web grounding service | Fabric capacity |
+| **Access Method** | MCP endpoint (agentic retrieval via knowledge bases) | Built-in MCP servers (Copilot, Calendar, Mail, SharePoint, OneDrive, Teams, User, Word, Dataverse/Dynamics 365) + custom MCP servers via MCP Management Server (1,500+ connectors, Graph APIs, REST) | Agent-native web grounding APIs | Fabric Data Agents, SQL endpoint |
+| **Permission Model** | ACL sync + Purview labels + Entra identity at query time | M365 Copilot license + Entra identity + admin allow/block | Limited Access terms and web-source policies | Fabric RBAC + OneLake ACLs |
+| **Knowledge Sources** | Azure Blob, SharePoint (indexed + remote), OneLake, existing indexes, web (Bing) | M365 Graph signals (files, emails, meetings, chats, calendar, people) | Web pages, news, public information sources | Lakehouse, warehouse, KQL, semantic models |
+| **Consumers** | Foundry Agent Service, custom agents via MCP | Copilot Studio, Microsoft Foundry, VS Code, CLI | Limited Access agent scenarios | Copilot Studio, M365 Copilot, Power BI |
+| **Best For** | Custom agents with governed enterprise data + citation-backed responses | Agents that need organizational context: not just file contents, but who decided what, when, and what happened after | Agents needing current public information (news, research, regulations) | Chat-with-data and analytics scenarios |
+| **Licensing** | Azure consumption | M365 Copilot license required | Limited Access enrollment | Fabric capacity (F2+) |
 
 **Sources:**
 - [Foundry IQ overview](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/what-is-foundry-iq)
 - [Work IQ MCP overview](https://learn.microsoft.com/en-us/microsoft-agent-365/tooling-servers-overview)
 - [Fabric IQ overview](https://learn.microsoft.com/en-us/fabric/iq/overview)
+- [Microsoft IQ overview](https://learn.microsoft.com/en-us/microsoft-iq/)
+- [Web IQ product page](https://www.microsoft.com/en-us/WebIQ) (Limited Access; no dedicated Learn page as of June 2026)
 
 ---
 
@@ -269,6 +271,25 @@ Side-by-side grounding options (Copilot connectors, AI Search, Fabric, Cosmos, P
 
 ---
 
+## Local and Edge AI Comparison
+
+Not every model belongs in the cloud. This compact matrix helps you decide where inference should run -- the datacenter, the device, or somewhere in between.
+
+| Feature | **Foundry Local** | **Windows AI APIs** | **Windows ML (ONNX)** |
+|---------|-------------------|---------------------|-----------------------|
+| **What It Does** | Runs Foundry-catalog SLMs locally with cloud-parity API | Pre-built on-device intelligence (text, image, speech) | Custom ONNX model execution on DirectML hardware |
+| **Status** | Verify current scope on Learn | GA (Windows 11) | GA |
+| **Platforms** | Windows 11, macOS, Azure Local | Windows 11 (Copilot+ PCs preferred) | Windows 10/11 |
+| **Hardware** | CPU/GPU (device-class) | NPU, GPU, CPU (auto-selected) | DirectML (GPU/NPU) |
+| **Model Source** | Foundry catalog subset (Phi, Mistral, others) | System-provided models | Bring your own ONNX model |
+| **Offline Capable** | Yes (after model download) | Yes (built-in) | Yes |
+| **Best For** | Hybrid cloud/edge agents, air-gapped environments, dev inner loop | Client-side features (captions, OCR, summarization) in Windows apps | Specialized vision, NLP, or sensor models in Windows apps |
+| **Cloud Fallback** | Yes (same API targets Foundry cloud) | No (device-only) | No (device-only) |
+
+**The trade-off:** Foundry Local gives you cloud portability at the cost of a narrower model catalog. Windows AI APIs give you zero-setup device intelligence but no custom model support. Windows ML gives you full model control but requires ONNX conversion and DirectML expertise. Choose based on whether you need *portability*, *simplicity*, or *specialization*.
+
+---
+
 ## Agent Development Approach Comparison
 
 Declarative vs custom engine: when to stay low-code with managed orchestration versus bringing your own orchestrator and hosting.
@@ -319,7 +340,7 @@ Tooling snapshot for custom engine agents across Copilot Studio, Teams SDK, and 
 {: .note-title }
 > Related Pages
 >
-> - For technology selection guidance, see [Decision Framework]({{ '/docs/decision-framework' | relative_url }})    
+> - For technology selection guidance, see [Decision Framework]({{ '/docs/decision-framework' | relative_url }})
 > - For fast lookup tables, see [Quick Reference]({{ '/docs/quick-reference' | relative_url }})
 > - For architecture patterns, see [Implementation Patterns]({{ '/docs/implementation-patterns' | relative_url }})
 

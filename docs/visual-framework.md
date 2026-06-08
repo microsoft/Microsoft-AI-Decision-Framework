@@ -35,7 +35,7 @@ Use these diagrams after working through the [Decision Framework]({{ '/docs/deci
 | **7. Multi-Agent Orchestration** | Multi-agent patterns and frameworks | [Quick Reference: Orchestration Complexity]({{ '/docs/quick-reference#orchestration-complexity-decision-matrix' | relative_url }}) |
 | **8. Upgrade Paths** | Migration and progressive enhancement | [Implementation Patterns: Progressive Enhancement]({{ '/docs/implementation-patterns#progressive-enhancement-pattern' | relative_url }}) |
 | **9. Lifecycle Check** | Pre-flight readiness gate | [Evaluation Criteria: Lifecycle & Operational Readiness]({{ '/docs/evaluation-criteria' | relative_url }}) |
-| **10. IQ Layer Selection** | Knowledge grounding domain selection | [Capability Model: The Three Libraries]({{ '/docs/capability-model' | relative_url }}) |
+| **10. IQ Layer Selection** | Knowledge grounding domain selection | [Capability Model: Microsoft IQ]({{ '/docs/capability-model' | relative_url }}) |
 
 ---
 
@@ -48,7 +48,7 @@ Use these diagrams after working through the [Decision Framework]({{ '/docs/deci
   <iframe
     src="{{ site.baseurl }}/explorer/?flow=complete-decision&embed=true"
     style="width: 100%; height: 520px; border: none; background: #0d1117;"
-    title="Complete Decision Flow — Interactive Explorer"
+    title="Complete Decision Flow - Interactive Explorer"
     loading="lazy"
   ></iframe>
 </div>
@@ -60,37 +60,37 @@ Use these diagrams after working through the [Decision Framework]({{ '/docs/deci
 %%{init: {'theme':'dark'}}%%
 flowchart TD
     Start([Start: Need AI Solution]) --> Q1{User interaction<br/>pattern?}
-    
+
     Q1 -->|Conversational/Chat UI| UI_Path[UI-Based Agent]
     Q1 -->|Autonomous/Event-driven| Auto_Path[Autonomous Agent]
     Q1 -->|API/Headless Service| API_Path[Headless Service]
-    
+
     UI_Path --> Q2{Where will users<br/>interact?}
     Q2 -->|M365 apps only| M365[M365 Copilot]
     Q2 -->|Teams + custom| Q3{Build approach?}
     Q2 -->|Multi-channel| Q3
-    
+
     Q3 -->|Low-code| Studio[Copilot Studio]
     Q3 -->|Pro-code| Q4{Primary platform?}
-    
+
     Q4 -->|M365-centric| SDK[M365 Agents SDK]
     Q4 -->|Azure-centric| Q4Azure{Need custom UI<br/>protocol?}
 
     Q4Azure -->|Yes| AGUI[Agent Framework + AG-UI<br/><i>Preview</i>]
     Q4Azure -->|No| Foundry[Microsoft Foundry - Azure]
-    
+
     Auto_Path --> Q5{Build approach?}
     Q5 -->|Low-code| StudioAuto[Copilot Studio<br/>with Event Triggers]
     Q5 -->|Pro-code| Q6{Primary workflow type?}
-    
+
     Q6 -->|Enterprise integration| LogicApps[Azure Logic Apps<br/>AI Agent Workflows<br/><i>Preview</i>]
     Q6 -->|Custom orchestration| Foundry
-    
+
     API_Path --> Q7{Hosting preference?}
     Q7 -->|Managed PaaS| AgentService[Foundry Agent Service]
     Q7 -->|Self-hosted| Foundry
     Q7 -->|Local/Edge| WinAI[Microsoft Foundry - Windows<br/><i>Local</i>]
-    
+
     M365 --> DataQ{Need custom data?}
     Studio --> DataQ
     StudioAuto --> DataQ
@@ -99,22 +99,22 @@ flowchart TD
     Foundry --> DataQ
     LogicApps --> DataQ
     AgentService --> DataQ
-    
+
     DataQ -->|M365 data| GraphConn[Graph Connectors]
     DataQ -->|Documents| AISearch[Azure AI Search<br/>Agentic retrieval - ACL/labels]
     DataQ -->|Structured data| VectorDB{Vector DB choice?}
     DataQ -->|Analytics data| Fabric[Microsoft Fabric]
     DataQ -->|No grounding| DirectDeploy
-    
+
     VectorDB -->|Global scale NoSQL| CosmosDB[Cosmos DB<br/>IVF/HNSW/DiskANN]
     VectorDB -->|Relational, OSS| PostgreSQL[PostgreSQL<br/>pgvector]
     VectorDB -->|SQL Database Engine| SQLFamily{Where does<br/>SQL run?}
-    
+
     SQLFamily -->|Cloud PaaS| AzureSQL[Azure SQL Database<br/>VECTOR type<br/>ANN Index <i>Preview</i>]
     SQLFamily -->|Lift-and-shift PaaS| SQLMI[Azure SQL MI<br/>VECTOR type<br/>ANN Index <i>Preview</i>]
     SQLFamily -->|On-prem / VM| SQLServer[SQL Server 2025<br/>VECTOR type<br/>ANN Index <i>Preview</i>]
     SQLFamily -->|Fabric-native| SQLFabric[SQL database in Fabric<br/>VECTOR type<br/>ANN Index <i>Preview</i>]
-    
+
     GraphConn --> DeployConfig
     AISearch --> DeployConfig
     CosmosDB --> DeployConfig
@@ -125,22 +125,22 @@ flowchart TD
     SQLFabric --> DeployConfig
     Fabric --> DeployConfig
     DirectDeploy --> DeployConfig
-    
+
     DeployConfig[Configure Deployment] --> Q8{Deployment needs?}
     Q8 -->|M365 Copilot| Deploy_M365[Publish to M365 Copilot]
     Q8 -->|Teams| Deploy_Teams[Publish to Teams]
     Q8 -->|Web/Mobile| Deploy_Web[Web/Mobile Channels]
     Q8 -->|Multiple channels| Deploy_Multi[Multi-channel:<br/>10+ channels via SDK]
     Q8 -->|Azure service| Deploy_Azure[Azure Container Apps/<br/>App Service/AKS]
-    
+
     Deploy_M365 --> Monitor[Monitor & Govern]
     Deploy_Teams --> Monitor
     Deploy_Web --> Monitor
     Deploy_Multi --> Monitor
     Deploy_Azure --> Monitor
-    
+
     Monitor --> End([Production])
-    
+
     style M365 fill:#004578,color:#fff
     style Studio fill:#004578,color:#fff
     style StudioAuto fill:#004578,color:#fff
@@ -210,7 +210,7 @@ flowchart TD
   <iframe
     src="{{ site.baseurl }}/explorer/?flow=persona&embed=true"
     style="width: 100%; height: 520px; border: none; background: #0d1117;"
-    title="Persona-Based Flow — Interactive Explorer"
+    title="Persona-Based Flow - Interactive Explorer"
     loading="lazy"
   ></iframe>
 </div>
@@ -222,32 +222,32 @@ flowchart TD
 %%{init: {'theme':'dark'}}%%
 flowchart TD
     Start([Who are you?]) --> P1{Your role?}
-    
+
     P1 -->|End user| User[Use M365 Copilot]
     P1 -->|Business maker| Maker{Dev support?}
     P1 -->|Developer| Dev{Focus area?}
     P1 -->|Data scientist/analyst| DS{Primary workload?}
     P1 -->|Integration specialist| IntSpec[Azure Logic Apps<br/>AI Agent Workflows<br/><i>Preview</i>]
-    
+
     Maker -->|No devs| MakerStudio[Copilot Studio]
     Maker -->|Occasional help| MakerPlus[Studio + Custom Actions]
-    
+
     Dev -->|M365 integration| DevM365[M365 Agents SDK]
     Dev -->|Azure services| DevAzure[Microsoft Foundry - Azure]
     Dev -->|Multi-agent orchestration| DevOrch[Agent Framework]
     Dev -->|Multi-platform| DevChoice{Skill level?}
     Dev -->|Autonomous agents| DevAuto{Event-driven?}
     Dev -->|Custom UI streaming| DevAGUI[Agent Framework + AG-UI<br/><i>Preview</i>]
-    
+
     DevChoice -->|Mid-level| DevStudio[Copilot Studio<br/>+ Custom Actions]
     DevChoice -->|Senior| DevSDK[M365 SDK or Foundry]
-    
+
     DevAuto -->|Yes| DevLogic[Logic Apps<br/>AI Agent Workflows<br/><i>Preview</i>]
     DevAuto -->|Custom orchestration| DevFoundry[Microsoft Foundry - Azure<br/>+ Agent Service]
-    
+
     DS -->|Analytics/BI| DSFabric[Fabric Data Agents<br/><i>Preview</i>]
     DS -->|ML/Custom models| DSFoundry[Microsoft Foundry - Azure]
-    
+
     User --> UserEnd([Start using Copilot])
     MakerStudio --> MakerEnd([Build in Studio])
     MakerPlus --> MakerPlusEnd([Studio + code])
@@ -262,7 +262,7 @@ flowchart TD
     DSFabric --> DSFabricEnd([Data agent])
     DSFoundry --> DSFoundryEnd([ML pipeline])
     IntSpec --> IntSpecEnd([Enterprise workflows])
-    
+
     style User fill:#0b6a0b,color:#fff
     style MakerStudio fill:#004578,color:#fff
     style MakerPlus fill:#004578,color:#fff
@@ -337,7 +337,7 @@ flowchart TD
   <iframe
     src="{{ site.baseurl }}/explorer/?flow=data-grounding&embed=true"
     style="width: 100%; height: 520px; border: none; background: #0d1117;"
-    title="Data Grounding Decision — Interactive Explorer"
+    title="Data Grounding Decision - Interactive Explorer"
     loading="lazy"
   ></iframe>
 </div>
@@ -349,47 +349,47 @@ flowchart TD
 %%{init: {'theme':'dark'}}%%
 flowchart TD
     Start([Need to ground AI]) --> Q1{Where is<br/>your data?}
-    
+
     Q1 -->|M365 only| M365Data{Data type?}
     Q1 -->|Azure only| AzureData{Data type?}
     Q1 -->|Both| Hybrid{Primary<br/>location?}
     Q1 -->|Analytics platform| FabricData[Microsoft Fabric]
-    
+
     M365Data -->|SharePoint, OneDrive| Graph[Microsoft Graph Connectors]
     M365Data -->|Teams messages| GraphTeams[Graph Connectors]
     M365Data -->|Custom M365 app| GraphCustom[Custom Graph Connector]
-    
+
     AzureData -->|Documents, PDFs| Q2{File count?}
     AzureData -->|Structured DB| DB{Database?}
     AzureData -->|Unstructured| Blob[Blob Storage with AI Search]
-    
+
     Q2 -->|Under 10,000 files<br/>Simple setup| FileSearch{Platform?}
     Q2 -->|Production scale<br/>Custom chunking| Search[Azure AI Search]
     Q2 -->|Multimodal content| ContentUnderstanding[Azure AI Content Understanding<br/>with AI Search<br/>Preview]
-    
+
     FileSearch -->|Azure Agent Service| AgentFileSearch[Agent Service File Search<br/>Auto chunk and embed]
     FileSearch -->|Copilot Studio| StudioKnowledge[Studio Knowledge Base<br/>Up to 1,000 files<br/>SharePoint or OneDrive]
-    
+
     DB -->|Global scale, NoSQL| Cosmos{Vector algorithm?}
     DB -->|Relational, OSS| Postgres[PostgreSQL with pgvector]
     DB -->|SQL Database Engine| SQLFamily{Where does<br/>your SQL run?}
-    
+
     SQLFamily -->|Cloud PaaS| AzureSQL[Azure SQL Database<br/>VECTOR type, DiskANN<br/>ANN Index Preview]
     SQLFamily -->|Lift-and-shift PaaS| SQLMI[Azure SQL MI<br/>VECTOR type<br/>ANN Index Preview]
     SQLFamily -->|On-prem / VM| SQL[SQL Server 2025<br/>VECTOR type<br/>ANN Index Preview]
     SQLFamily -->|Fabric-native| SQLFabric[SQL database in Fabric<br/>VECTOR type<br/>ANN Index Preview]
-    
+
     Cosmos -->|Flat index| CosmosIVF[Cosmos DB IVF]
     Cosmos -->|Graph-based| CosmosHNSW[Cosmos DB HNSW]
     Cosmos -->|Disk-optimized| CosmosDiskANN[Cosmos DB DiskANN]
-    
+
     Hybrid -->|M365 primary| HybridM365[Graph with BYOK]
     Hybrid -->|Azure primary| HybridAzure[AI Search with Graph API]
-    
+
     FabricData --> Q3{Access method?}
     Q3 -->|Direct platform access| FabricPlatform[Fabric Lakehouse and Warehouse<br/>OneLake with SQL endpoint]
     Q3 -->|Conversational agent| FabricAgent[Fabric Data Agents<br/>Preview]
-    
+
     Graph --> Platform{Which<br/>platform?}
     GraphTeams --> Platform
     GraphCustom --> Platform
@@ -410,13 +410,13 @@ flowchart TD
     HybridAzure --> Platform
     FabricPlatform --> Platform
     FabricAgent --> Platform
-    
+
     Platform -->|M365 Copilot| PlatformM365([Use built-in])
     Platform -->|Copilot Studio| PlatformStudio([Configure Studio])
     Platform -->|M365 SDK| PlatformSDK([Code integration])
     Platform -->|Microsoft Foundry Azure| PlatformFoundry([Configure Foundry])
     Platform -->|Logic Apps| PlatformLogicApps([MCP Server<br/>Connector])
-    
+
     style Graph fill:#004578,color:#fff
     style AgentFileSearch fill:#004578,color:#fff
     style StudioKnowledge fill:#4b2070,color:#fff
@@ -516,7 +516,7 @@ flowchart TD
   <iframe
     src="{{ site.baseurl }}/explorer/?flow=complexity&embed=true"
     style="width: 100%; height: 420px; border: none; background: #0d1117;"
-    title="Complexity Assessment Flow — Interactive Explorer"
+    title="Complexity Assessment Flow - Interactive Explorer"
     loading="lazy"
   ></iframe>
 </div>
@@ -528,33 +528,33 @@ flowchart TD
 %%{init: {'theme':'dark'}}%%
 flowchart TD
     Start([Assess Use Case]) --> Q1{How many<br/>data sources?}
-    
+
     Q1 -->|1| Simple
     Q1 -->|2 to 3| Q2{Workflow<br/>complexity?}
     Q1 -->|4 or more| Complex
-    
+
     Q2 -->|Linear| Medium
     Q2 -->|Branching| Complex
-    
+
     Simple[Low Complexity] --> S_Tech{Skills?}
     S_Tech -->|Makers| S_M365[M365 Copilot with Graph]
     S_Tech -->|Devs| S_Studio[Copilot Studio]
-    
+
     Medium[Medium Complexity] --> M_Tech{Skills?}
     M_Tech -->|Makers| M_Studio[Copilot Studio]
     M_Tech -->|Devs| M_SDK[Studio with Custom Actions]
-    
+
     Complex[High Complexity] --> C_Tech{Need custom<br/>models?}
     C_Tech -->|No| C_SDK[M365 Agents SDK]
     C_Tech -->|Yes| C_Foundry[Microsoft Foundry Azure]
-    
+
     S_M365 --> Timeline1[Days to deploy]
     S_Studio --> Timeline2[1 to 2 weeks]
     M_Studio --> Timeline3[2 to 4 weeks]
     M_SDK --> Timeline4[1 to 2 months]
     C_SDK --> Timeline5[2 to 3 months]
     C_Foundry --> Timeline6[3 to 6 months]
-    
+
     style Simple fill:#0b6a0b,color:#fff
     style Medium fill:#8c5e00,color:#fff
     style Complex fill:#a52617,color:#fff
@@ -573,7 +573,7 @@ flowchart TD
   <iframe
     src="{{ site.baseurl }}/explorer/?flow=budget&embed=true"
     style="width: 100%; height: 520px; border: none; background: #0d1117;"
-    title="Budget & Timeline Tradeoffs — Interactive Explorer"
+    title="Budget & Timeline Tradeoffs - Interactive Explorer"
     loading="lazy"
   ></iframe>
 </div>
@@ -585,32 +585,32 @@ flowchart TD
 %%{init: {'theme':'dark'}}%%
 flowchart TD
     Start([Project Constraints]) --> Q1{AI setup<br/>budget?}
-    
+
     Q1 -->|Existing M365| M365Only[M365-Only Path]
     Q1 -->|USD 200 to 500 per month| Starter[Starter Budget]
     Q1 -->|USD 1K to 5K per month| Growth[Growth Budget]
     Q1 -->|USD 5K or more per month| Enterprise[Enterprise Budget]
-    
+
     M365Only --> M365T{Timeline?}
     M365T -->|Days| M365_Fast[M365 Copilot Chat<br/>0 addl cost included with M365<br/>Instruction-based agents]
     M365T -->|1 to 2 Weeks| M365_Med[M365 Copilot with Graph<br/>0 addl cost<br/>Knowledge grounding]
     M365T -->|1 Month or more| M365_Slow[Declarative Agents<br/>0 addl cost or PAYG<br/>Custom instructions and data]
-    
+
     Starter --> StarterT{Timeline?}
     StarterT -->|1 to 2 Weeks| S_Fast[Copilot Studio PAYG<br/>USD 200 to 500 per month avg<br/>USD 0.01 per credit, low-code]
     StarterT -->|1 to 2 Months| S_Med[Studio with AI Builder<br/>USD 200 to 500 per month<br/>Document processing]
     StarterT -->|3 or more Months| S_Slow[Logic Apps AI Workflows<br/>Approx 200 to 400 per month<br/>Preview, event-driven]
-    
+
     Growth --> GrowthT{Timeline?}
     GrowthT -->|2 to 4 Weeks| G_Fast[Copilot Studio Capacity<br/>200 or more per month prepaid<br/>25K credits per pack]
     GrowthT -->|1 to 3 Months| G_Med[M365 SDK with Azure Basic<br/>USD 1 to 3K per month<br/>Custom agents, Azure hosting]
     GrowthT -->|3 to 6 Months| G_Slow[Microsoft Foundry Azure Starter<br/>USD 1 to 5K per month<br/>PAYG tokens with AI Search Basic]
-    
+
     Enterprise --> EntT{Timeline?}
     EntT -->|4 to 8 Weeks| E_Fast[Foundry Serverless<br/>Approx 5 to 15K per month est<br/>PAYG with AI Search Standard]
     EntT -->|3 to 6 Months| E_Med[Foundry with Agent Service<br/>USD 10 to 30K per month est<br/>Managed orchestration]
     EntT -->|6 or more Months| E_Slow[Foundry PTU with Premium<br/>30K or more per month<br/>PTU reservation with S2 or S3 Search]
-    
+
     style M365_Fast fill:#0b6a0b,color:#fff
     style M365_Med fill:#0b6a0b,color:#fff
     style S_Fast fill:#0b6a0b,color:#fff
@@ -712,7 +712,7 @@ Organizations running workloads across **both** Copilot Studio and Microsoft Fou
   <iframe
     src="{{ site.baseurl }}/explorer/?flow=governance&embed=true"
     style="width: 100%; height: 420px; border: none; background: #0d1117;"
-    title="Governance & Compliance Path — Interactive Explorer"
+    title="Governance & Compliance Path - Interactive Explorer"
     loading="lazy"
   ></iframe>
 </div>
@@ -724,25 +724,25 @@ Organizations running workloads across **both** Copilot Studio and Microsoft Fou
 %%{init: {'theme':'dark'}}%%
 flowchart TD
     Start([Governance Requirements]) --> Q1{Data residency<br/>requirement?}
-    
+
     Q1 -->|M365 tenant only<br/>Strict boundary| R1[M365 Tenant Boundary]
     Q1 -->|Azure region<br/>Configurable| R2[Azure Region Control]
     Q1 -->|Flexible<br/>Multi-region OK| R3[Flexible Residency]
-    
+
     R1 --> Q2{Built-in DLP<br/>sufficient?}
     Q2 -->|Yes, inherit M365| G1[M365 Copilot<br/>M365 Boundary with DLP]
     Q2 -->|Need custom agents| G2[Copilot Studio<br/>Power Platform Governance]
-    
+
     R2 --> Q3{Network<br/>isolation?}
     Q3 -->|VNet with private<br/>endpoints required| G3[Microsoft Foundry Azure<br/>VNet with Private Endpoints]
     Q3 -->|Managed runtime<br/>with VNet needed| G4[AI Agent Service<br/>Full Azure Governance]
     Q3 -->|Power Platform<br/>governance sufficient| G5[AI Builder<br/>Power Platform DLP]
-    
+
     R3 --> Q4{Development<br/>model?}
     Q4 -->|Enterprise workflows<br/>with integration| G6[Logic Apps Standard<br/>Azure RBAC with VNet]
     Q4 -->|Multi-channel<br/>custom agents| G7[M365 Agents SDK<br/>Custom Auth with Hosting]
     Q4 -->|Orchestration<br/>library only| G8[Agent Framework<br/>Host inherited governance]
-    
+
     style G1 fill:#0b6a0b,color:#fff
     style G2 fill:#004578,color:#fff
     style G3 fill:#004578,color:#fff
@@ -804,7 +804,7 @@ flowchart TD
   <iframe
     src="{{ site.baseurl }}/explorer/?flow=multi-agent&embed=true"
     style="width: 100%; height: 520px; border: none; background: #0d1117;"
-    title="Multi-Agent Orchestration — Interactive Explorer"
+    title="Multi-Agent Orchestration - Interactive Explorer"
     loading="lazy"
   ></iframe>
 </div>
@@ -816,29 +816,29 @@ flowchart TD
 %%{init: {'theme':'dark'}}%%
 flowchart TD
     Start([Need Multi-Agent?]) --> Q1{Pattern Type?}
-    
+
     Q1 -->|Connected agents<br/>Mesh A2A| Connected[Connected mesh pattern]
     Q1 -->|Sequential or parallel<br/>workflows| Workflows[Agent Workflow Orchestration]
     Q1 -->|Event triggers| EventDriven[Event-Driven Agents]
-    
+
     Connected --> C_Platform{Platform?}
     C_Platform -->|Low-code| C_Studio[Copilot Studio Preview<br/>Agent2Agent A2A<br/>Decentralized Mesh]
     C_Platform -->|Azure| C_Foundry[Microsoft Foundry Azure GA<br/>Connected agents<br/>Sub-agent delegation]
-    
+
     Workflows --> W_Framework{Framework?}
     W_Framework -->|Microsoft| W_AgentFW[Microsoft Agent Framework GA<br/>Sequential, Concurrent, Handoff, Magentic]
     W_Framework -->|Open source| W_SK[Semantic Kernel<br/>Sequential, Concurrent, Group Chat<br/>Handoff, Magentic]
     W_Framework -->|Bring your own| W_SDK[M365 Agents SDK<br/>Integrate Agent Framework or SK]
     W_Framework -->|Third-party state| W_LangGraph[LangGraph Third-Party<br/>State graphs]
-    
+
     EventDriven --> E_Type{Event source?}
     E_Type -->|Enterprise systems| E_Logic[Logic Apps Preview<br/>AI Agent Workflows<br/>MCP Server<br/>Single agent event triggered]
     E_Type -->|Azure events| E_Functions[Azure Functions<br/>Agent Service<br/>Single agent event triggered]
     E_Type -->|Custom events| E_Custom[Event Grid with Foundry<br/>Event routing to agents]
-    
+
     C_Studio --> Note1[Can connect Fabric Data Agents<br/>as data grounding participants]
     C_Foundry --> Note2[Fabric Data Agents can integrate<br/>as connected agents]
-    
+
     C_Studio --> Deploy1([Deploy])
     C_Foundry --> Deploy2([Deploy])
     W_AgentFW --> Deploy3([Deploy])
@@ -848,7 +848,7 @@ flowchart TD
     E_Logic --> Deploy7([Deploy])
     E_Functions --> Deploy8([Deploy])
     E_Custom --> Deploy9([Deploy])
-    
+
     style Connected fill:#0b6a0b,color:#fff
     style Workflows fill:#8c5e00,color:#fff
     style EventDriven fill:#4b2070,color:#fff
@@ -905,7 +905,7 @@ flowchart TD
   <iframe
     src="{{ site.baseurl }}/explorer/?flow=upgrade&embed=true"
     style="width: 100%; height: 420px; border: none; background: #0d1117;"
-    title="Upgrade Paths — Interactive Explorer"
+    title="Upgrade Paths - Interactive Explorer"
     loading="lazy"
   ></iframe>
 </div>
@@ -917,18 +917,18 @@ flowchart TD
 %%{init: {'theme':'dark'}}%%
 flowchart TD
     Start([Start: Low-Code Agent]) --> Q1{Need more<br/>capability?}
-    
+
     Q1 -->|No| Stay[Copilot Studio<br/>Standard]
     Q1 -->|Yes| Q2{What kind of<br/>capability?}
-    
+
     Q2 -->|Better Reasoning/LLM| Path1[Enhance<br/>BYO Model - Foundry<br/><i>Preview</i>]
     Q2 -->|Complex Orchestration| Path2[Extend<br/>Handoff to Agent Service<br/><i>Preview</i>]
     Q2 -->|Custom UI/Protocol| Path3[Migrate<br/>M365 Agents SDK<br/>or Foundry]
-    
+
     Path1 --> Result1([Copilot Studio<br/>+ Specialized Model])
     Path2 --> Result2([Copilot Studio UI<br/>+ Azure Agent Brain])
     Path3 --> Result3([Full Pro-Code<br/>Solution])
-    
+
     style Stay fill:#004578,color:#fff
     style Path1 fill:#8c5e00,color:#fff
     style Path2 fill:#a52617,color:#fff
@@ -965,13 +965,13 @@ flowchart TD
 ## Next Steps
 {: .no_toc }
 
-**Detailed comparisons:**  
+**Detailed comparisons:**
 → [Feature Comparison]({{ '/docs/feature-comparison' | relative_url }})
 
-**Real-world examples:**  
+**Real-world examples:**
 → [Scenarios]({{ '/docs/scenarios' | relative_url }})
 
-**Evaluate readiness:**  
+**Evaluate readiness:**
 → [Evaluation Criteria]({{ '/docs/evaluation-criteria' | relative_url }})
 
 ---
@@ -987,7 +987,7 @@ flowchart TD
   <iframe
     src="{{ site.baseurl }}/explorer/?flow=lifecycle&embed=true"
     style="width: 100%; height: 420px; border: none; background: #0d1117;"
-    title="Lifecycle Check — Interactive Explorer"
+    title="Lifecycle Check - Interactive Explorer"
     loading="lazy"
   ></iframe>
 </div>
@@ -999,26 +999,26 @@ flowchart TD
 %%{init: {'theme':'dark'}}%%
 flowchart TD
     Start([Start: Pre-Flight Check]) --> Q0{Technology status?}
-    
+
     Q0 -->|GA| GA_Path[✅ Production-safe]
     Q0 -->|Preview / RC| Preview_Path[⚠️ Plan for change]
     Q0 -->|Deprecated| Dep_Path[🚫 Identify successor]
-    
+
     GA_Path --> Timeline{Retirement date<br/>within horizon?}
     Preview_Path --> Timeline
     Dep_Path --> Successor{Successor<br/>identified?}
-    
+
     Timeline -->|No deadline| Proceed[✅ Proceed to<br/>Decision Framework]
     Timeline -->|Deadline exists| Urgency{Go-live BEFORE<br/>deadline?}
-    
+
     Urgency -->|Yes| Proceed
     Urgency -->|No| Migrate[⚠️ Build on successor<br/>or migrate first]
-    
+
     Successor -->|Yes| Migrate
     Successor -->|No| Block[🚫 Block. Research<br/>successor path]
-    
+
     Migrate --> Proceed
-    
+
     style GA_Path fill:#1a6b3c,color:#fff
     style Proceed fill:#1a6b3c,color:#fff
     style Preview_Path fill:#8b6914,color:#fff
@@ -1045,7 +1045,7 @@ flowchart TD
   <iframe
     src="{{ site.baseurl }}/explorer/?flow=iq-layer&embed=true"
     style="width: 100%; height: 420px; border: none; background: #0d1117;"
-    title="IQ Layer Selection — Interactive Explorer"
+    title="IQ Layer Selection - Interactive Explorer"
     loading="lazy"
   ></iframe>
 </div>
@@ -1057,41 +1057,45 @@ flowchart TD
 %%{init: {'theme':'dark'}}%%
 flowchart TD
     Start([What knowledge<br/>does the agent need?]) --> Domain{Primary data domain?}
-    
-    Domain -->|Enterprise docs,<br/>files, blobs, indexes| FIQ[Foundry IQ<br/><i>Preview</i>]
+
+    Domain -->|Enterprise docs,<br/>files, blobs, indexes| FIQ[Foundry IQ<br/><i>Partial GA; KB features Preview</i>]
     Domain -->|M365 collaboration<br/>emails, meetings, chats| WIQ[Work IQ<br/><i>Preview</i>]
     Domain -->|Analytics, semantic<br/>models, dashboards| FBIQ[Fabric IQ<br/><i>Preview</i>]
+    Domain -->|Public web,<br/>real-time information| WEBIQ[Web IQ<br/><i>Limited Access</i>]
     Domain -->|Multiple domains| Multi[Combine IQ layers]
-    
+
     FIQ --> FIQ_Detail[Azure AI Search<br/>knowledge bases via MCP<br/>ACL + Purview labels]
     WIQ --> WIQ_Detail[MCP server catalog<br/>Mail, Calendar, Teams,<br/>SharePoint, OneDrive]
     FBIQ --> FBIQ_Detail[Fabric Data Agents<br/>OneLake, Power BI,<br/>semantic models]
-    
-    Multi --> Combine[Each IQ layer is<br/>standalone. Agents<br/>can query 2 or 3]
-    
+    WEBIQ --> WEBIQ_Detail[Grounding with Bing<br/>real-time web search,<br/>custom domain scoping]
+
+    Multi --> Combine[Each IQ layer is<br/>standalone. Agents<br/>can combine any subset]
+
     Combine --> FIQ_Detail
     Combine --> WIQ_Detail
     Combine --> FBIQ_Detail
-    
+    Combine --> WEBIQ_Detail
+
     FIQ_Detail --> License1[Azure consumption]
     WIQ_Detail --> License2[M365 Copilot license required]
     FBIQ_Detail --> License3[Fabric capacity F2+]
-    
+    WEBIQ_Detail --> License4[Grounding API consumption;<br/>Limited Access application required]
+
     style FIQ fill:#264f78,color:#fff
     style WIQ fill:#4a3278,color:#fff
     style FBIQ fill:#783228,color:#fff
+    style WEBIQ fill:#0e5a6f,color:#fff
     style Multi fill:#1a6b3c,color:#fff
     style Combine fill:#1a6b3c,color:#fff
 ```
 
 </details>
 
-**Key distinction:** These three IQ layers are *not* interchangeable. Foundry IQ knowledge sources cannot be used in Copilot, and Copilot knowledge sources cannot be used in Foundry IQ. Choose based on data domain, not brand preference.
+**Key distinction:** These four Microsoft IQ capabilities are *not* interchangeable. Each layer grounds agents in a different data domain: enterprise documents (Foundry IQ), collaboration signals (Work IQ), analytics and business logic (Fabric IQ), or live web information (Web IQ). Choose based on data domain, not brand preference. Foundry IQ has mixed status: selected REST API features are GA, while portal authoring and newer capabilities remain Preview. Web IQ is currently Limited Access and requires a separate application.
 
 ---
 
-**Last Updated:** January 28, 2026  
+**Last Updated:** June 8, 2026
 **Next:** [Evaluation Criteria]({{ '/docs/evaluation-criteria' | relative_url }}) - Score complexity, skills, budget, and governance after selecting a path
 
 ---
-

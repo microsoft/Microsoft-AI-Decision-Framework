@@ -9,7 +9,7 @@ description: Key takeaways and resources by role
 This page provides comprehensive links to official Microsoft documentation, training resources, and community support organized by technology area. For term definitions, see [Glossary]({{ '/docs/glossary' | relative_url }}). For methodology and decision guidance, see [Decision Framework]({{ '/docs/decision-framework' | relative_url }}).
 
 {: .note }
-> **Last validated:** March 19, 2026. Microsoft Learn documentation shows "Last Updated" dates on each page - always check before making production decisions. Preview features may reach GA without immediate documentation updates.
+> **Last validated:** June 8, 2026. Microsoft Learn documentation shows "Last Updated" dates on each page - always check before making production decisions. Preview features may reach GA without immediate documentation updates.
 
 ---
 
@@ -145,7 +145,7 @@ This page provides comprehensive links to official Microsoft documentation, trai
   - [Azure OpenAI Service overview](https://learn.microsoft.com/en-us/azure/ai-services/openai/)
   - [Azure AI Search service](https://learn.microsoft.com/en-us/azure/search/)
   - **Platform note:** Classic Foundry and the new Foundry portal use different APIs and do **not** have feature parity. Validate capability availability in the portal, SDK samples, and Microsoft Learn before committing to a design.
-  
+
 - **Microsoft Foundry Agent Service (Optional Managed Runtime)**
   - [What's new in Microsoft Foundry](https://learn.microsoft.com/en-us/azure/foundry/whats-new-foundry)
   - [Microsoft Foundry quickstart](https://learn.microsoft.com/en-us/azure/foundry/quickstarts/get-started-code)
@@ -169,10 +169,10 @@ This page provides comprehensive links to official Microsoft documentation, trai
   - [Copilot Studio Kit](https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/kit-overview)
   - [VS Code extension](https://learn.microsoft.com/en-us/microsoft-copilot-studio/visual-studio-code-extension-overview)
 
-- **Microsoft Agent 365 (Frontier Preview)**
+- **Microsoft Agent 365 (GA)**
   - [Overview](https://learn.microsoft.com/en-us/microsoft-agent-365/overview)
-  - [Agent 365 SDK](https://learn.microsoft.com/en-us/microsoft-agent-365/developer/agent-365-sdk)
-  - [Agent 365 CLI](https://learn.microsoft.com/en-us/microsoft-agent-365/developer/agent-365-cli)
+  - [Agent 365 SDK (Preview)](https://learn.microsoft.com/en-us/microsoft-agent-365/developer/agent-365-sdk)
+  - [Agent 365 CLI (Preview)](https://learn.microsoft.com/en-us/microsoft-agent-365/developer/agent-365-cli)
 
 - **Microsoft Entra Agent ID (Preview)**
   - [What is Microsoft Entra Agent ID?](https://learn.microsoft.com/en-us/entra/agent-id/identity-professional/microsoft-entra-agent-identities-for-ai-agents)
@@ -194,7 +194,7 @@ This page provides comprehensive links to official Microsoft documentation, trai
   - [Documentation](https://learn.microsoft.com/en-us/semantic-kernel/overview/)
   - [GitHub Repository](https://github.com/microsoft/semantic-kernel)
   - [Migrate to Agent Framework](https://learn.microsoft.com/en-us/agent-framework/migration-guide/from-semantic-kernel/index)
-  
+
   {: .note }
   > Semantic Kernel is in maintenance mode (security patches only). For new projects, use Microsoft Agent Framework which provides enhanced multi-agent orchestration, stateful workflows, and production-grade capabilities.
 
@@ -228,6 +228,42 @@ This page provides comprehensive links to official Microsoft documentation, trai
   - [Work IQ MCP overview (Agent 365)](https://learn.microsoft.com/en-us/microsoft-agent-365/tooling-servers-overview)
   - [Work IQ in Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/use-work-iq)
   - [Work IQ CLI](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/workiq-overview)
+  - [Work IQ API overview (Preview)](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/work-iq/api-overview)
+
+- **Web IQ (Limited Access)**
+  - [Web IQ product page](https://www.microsoft.com/en-us/WebIQ)
+  - [Announcing Microsoft Web IQ](https://blogs.bing.com/search/June-2026/Announcing-Microsoft-Web-IQ)
+
+- **Microsoft IQ**
+  - [Microsoft IQ overview](https://learn.microsoft.com/en-us/microsoft-iq/)
+
+### Local and Edge AI
+{: .no_toc }
+
+- **Foundry Local**
+  - [Foundry Local overview](https://learn.microsoft.com/en-us/azure/foundry/foundry-local/foundry-local-overview)
+  - [Foundry Local on Azure Local](https://learn.microsoft.com/en-us/azure/azure-sovereign-clouds/private/foundry-local/overview)
+
+- **Windows AI**
+  - [Windows AI overview](https://learn.microsoft.com/en-us/windows/ai/)
+  - [Windows ML / ONNX Runtime](https://learn.microsoft.com/en-us/windows/ai/windows-ml/)
+  - [Windows platform security for AI agents](https://blogs.windows.com/windowsdeveloper/2026/06/02/windows-platform-security-for-ai-agents/)
+
+### Trust and Safety
+{: .no_toc }
+
+- **ASSERT**
+  - [ASSERT repository](https://github.com/responsibleai/ASSERT)
+
+- **Agent Control Specification (ACS) (Preview)**
+  - [Agent Governance Toolkit repository](https://github.com/microsoft/agent-governance-toolkit)
+
+### Specialized Agents
+{: .no_toc }
+
+- **Microsoft Discovery**
+  - [What is Microsoft Discovery?](https://learn.microsoft.com/en-us/azure/microsoft-discovery/overview-what-is-microsoft-discovery)
+  - [Microsoft Discovery and the Microsoft Discovery app](https://learn.microsoft.com/en-us/azure/microsoft-discovery/concept-discovery-and-discovery-app)
 
 - **Azure AI Content Understanding**
   - [Content Understanding documentation](https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/)

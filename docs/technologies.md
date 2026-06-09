@@ -136,7 +136,7 @@ Use this page as a reference after you’ve narrowed the decision: it’s optimi
 - **Orchestration modes:** Generative orchestration (default) handles multi-intent planning; makers can switch to Classic NLU/Classic NLU+ for deterministic topic routing or connect Azure AI Language (CLU) for advanced entity extraction when licensing allows. (Natural language understanding overview - Updated: 2025-07-07; Create and edit topics - Updated: 2025-11-11)
 - **Work IQ MCP integration (Preview):** Add Work IQ MCP tools (Mail, Calendar, Teams, SharePoint, OneDrive) directly from the Tools tab to give agents real-time organizational context - the same intelligence layer that powers M365 Copilot. Requires M365 Copilot license. ([Work IQ MCP in Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/use-work-iq) - Updated: 2026-03-11)
 - **Custom MCP server authoring (Preview → Apr GA):** Create or clone governed MCP servers that combine connector actions, tools from other MCPs, and custom APIs. Servers are reusable across Microsoft Copilot, VS Code, GitHub, Claude, and other agents. DLP policies and access controls apply at server and tool level. ([Custom MCP servers](https://learn.microsoft.com/en-us/power-platform/release-plan/2026wave1/microsoft-copilot-studio/connect-agent-external-data-custom-mcp-servers) - Updated: 2026-03-18)
-- **Computer Use Agents (Preview):** Automate web and desktop applications using Computer-Using Agents (CUA) with vision and reasoning. Supports OpenAI CUA and Anthropic Claude Sonnet 4.5 models. Includes stored credentials (internal or Azure Key Vault), URL/app access control allowlists, human supervision gates, Cloud PC pooling, and session replay audit logging. Billed at 5 Copilot Credits per step. US regions only during preview. ([Computer Use](https://learn.microsoft.com/en-us/microsoft-copilot-studio/computer-use) - Updated: 2026-04-03)
+- **Computer Use Agents (GA):** Automate web and desktop applications using Computer-Using Agents (CUA) with vision and reasoning. Supports OpenAI CUA and Anthropic Claude Sonnet 4.5 models. Includes stored credentials (internal or Azure Key Vault), URL/app access control allowlists, human supervision gates, Cloud PC pooling, and session replay audit logging. Billed at 5 Copilot Credits per step. Generally available across commercial Power Platform geographies (GA: May 13, 2026). ([Computer Use](https://learn.microsoft.com/en-us/microsoft-copilot-studio/computer-use) - Updated: 2026-04-03)
 - **Multi-model prompt builder:** Select from GPT (GPT-5.2 chat, GPT-5.2 reasoning *experimental*) and Anthropic Claude (Opus 4.6, Opus 4.5 *experimental*, Sonnet 4.5) models per prompt. Mini/General/Deep model taxonomy for intent-based selection; GPT-4o retired (Oct 2025). Configurable content moderation at agent, topic, and prompt levels. ([Prompt model settings](https://learn.microsoft.com/en-us/microsoft-copilot-studio/prompt-model-settings) - Updated: 2026-03-06)
 - **VS Code extension (GA):** Build, edit, and manage agents inside Visual Studio Code for advanced developer workflows. ([VS Code extension](https://learn.microsoft.com/en-us/microsoft-copilot-studio/visual-studio-code-extension-overview) - GA: 2026-01-01)
 
@@ -176,7 +176,7 @@ Use this page as a reference after you’ve narrowed the decision: it’s optimi
 - [VNet data gateway overview](https://learn.microsoft.com/en-us/power-platform/admin/vnet-support-overview) (Retrieved: 2026-01-06)
 - [Natural language understanding (NLU) overview](https://learn.microsoft.com/en-us/microsoft-copilot-studio/nlu-overview) (Updated: 2025-07-07)
 - [Create and edit topics in Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/authoring-create-edit-topics) (Updated: 2025-11-11)
-- [Computer Use (Preview)](https://learn.microsoft.com/en-us/microsoft-copilot-studio/computer-use) (Updated: 2026-04-03)
+- [Computer Use (GA)](https://learn.microsoft.com/en-us/microsoft-copilot-studio/computer-use) (Updated: 2026-04-03)
 - [Work IQ MCP in Copilot Studio (Preview)](https://learn.microsoft.com/en-us/microsoft-copilot-studio/use-work-iq) (Updated: 2026-03-11)
 - [Custom MCP servers](https://learn.microsoft.com/en-us/power-platform/release-plan/2026wave1/microsoft-copilot-studio/connect-agent-external-data-custom-mcp-servers) (Updated: 2026-03-18)
 - [VS Code extension for Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/visual-studio-code-extension-overview) (GA: 2026-01-01)
@@ -454,10 +454,11 @@ Not all agents are built the same way. Think of these as three levels of a kitch
 
 **Description:** Azure-native search and retrieval platform with vector, hybrid, and agentic retrieval (knowledge bases) for RAG and grounding.
 **Official Docs:** [Azure AI Search Documentation](https://learn.microsoft.com/en-us/azure/search/)
-**Status:** GA (agentic retrieval has mixed status: selected REST API features GA in `2026-04-01`; portal and newer capabilities remain Preview)
+**Status:** GA (agentic retrieval has mixed status: selected REST API features GA in `2026-04-01`; portal and newer capabilities remain Preview). A consumption-based **Serverless** tier is in Public Preview alongside the dedicated tiers.
 
 **Key Features:**
 
+- **Serverless (consumption) tier (Public Preview):** Pay only for compute (Compute Units per hour) and indexed storage (per GB per month), with scale-to-zero when idle, alongside the existing dedicated (provisioned) tiers. Ideal for variable, bursty, or unpredictable workloads. Billing is not enabled during preview (Microsoft gives at least 30 days' notice before GA), available in select regions, and tier migration is not supported during preview. Advanced add-ons (semantic ranker, agentic retrieval, image extraction, skill execution) are billed separately. (Azure AI Search Serverless cost optimization - Updated: 2026-06)
 - **Agentic retrieval / knowledge bases (mixed status):** Selected programmatic REST API features reached GA in `2026-04-01`, while Foundry portal, Azure portal, answer synthesis, multi-turn retrieval, and newer source types remain Preview. Foundry IQ lets Agent Service agents call knowledge bases through MCP. (Agentic retrieval overview - Updated: 2026-06-02; Foundry IQ overview - Updated: 2026-06-05)
 - **Security & governance:** SharePoint indexer ACL flow-through (Preview), sensitivity label enforcement, and confidential computing (GA, +~10% surcharge). (What's new - Updated: 2026-03-13; Sep 2025)
 - **Knowledge sources:** Indexed/remote SharePoint, indexed OneLake, and web sources with content extraction powered by Azure AI Content Understanding. (What's new - Updated: 2026-03-13)
@@ -470,6 +471,7 @@ Not all agents are built the same way. Think of these as three levels of a kitch
 
 - [What's new in Azure AI Search](https://learn.microsoft.com/en-us/azure/search/whats-new#2025-announcements) (Updated: 2026-03-13)
 - [What's new in Azure AI Search (Sep 2025)](https://learn.microsoft.com/en-us/azure/search/whats-new#september-2025) (Updated: 2026-03-13)
+- [Optimize costs for Azure AI Search Serverless (Public Preview)](https://learn.microsoft.com/en-us/azure/search/serverless-cost-optimization) (Updated: 2026-06)
 
 ---
 

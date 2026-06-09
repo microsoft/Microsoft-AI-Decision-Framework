@@ -141,9 +141,9 @@ async function executeToolWithApproval(toolName: string, params: any) {
 
 Approval flows catch mistakes at decision points, but what about the space *between* decisions? An agent approved to call an API can still pass malformed arguments, exfiltrate context to an unintended endpoint, or loop indefinitely. Two open-source projects from Microsoft address this gap:
 
-* **Agent Control Specification** ([GitHub](https://github.com/microsoft/agent-control-specification)) defines declarative policies for what an agent *can* do at runtime: which tools it may call, what arguments are permitted, what data it can access. Think of it as a firewall ruleset for agent behavior, enforced at the execution layer rather than hoped for in the prompt.
+* **Agent Control Specification** ([GitHub](https://github.com/microsoft/agent-governance-toolkit)) defines declarative policies for what an agent *can* do at runtime: which tools it may call, what arguments are permitted, what data it can access. Think of it as a firewall ruleset for agent behavior, enforced at the execution layer rather than hoped for in the prompt.
 
-* **ASSERT** ([GitHub](https://github.com/microsoft/ASSERT)) provides a framework for evaluating agent safety through systematic testing of failure modes: prompt injection resilience, tool misuse, over-delegation, and information leakage. It's the penetration test for your agent, run before production, not after an incident.
+* **ASSERT** ([GitHub](https://github.com/responsibleai/ASSERT)) provides a framework for evaluating agent safety through systematic testing of failure modes: prompt injection resilience, tool misuse, over-delegation, and information leakage. It's the penetration test for your agent, run before production, not after an incident.
 
 {: .warning }
 > **Status:** Both projects are open-source reference implementations introduced at Build, not GA platform features with SLA guarantees. Evaluate them as design patterns and testing frameworks for your agent governance strategy.

@@ -238,14 +238,15 @@ Side-by-side grounding options (Copilot connectors, AI Search, Fabric, Cosmos, P
 | **Index Target** | Microsoft Graph (connector ingestion) | Azure AI Search index / knowledge bases (agentic retrieval, preview) | Lakehouse Delta tables, Warehouse tables | Cosmos DB collection | PostgreSQL table | SQL table (VECTOR column) |
 | **Access Method** | Graph API (Copilot connector APIs) | REST API, SDKs (`2025-11-01-preview` for knowledge bases) | ADLS Gen2 APIs, SQL endpoint, Fabric Data Agents | SDKs, REST API | SQL, pgvector | T-SQL, VECTOR type, VECTOR_DISTANCE, VECTOR_SEARCH |
 | **Best For** | M365-centric knowledge (Copilot, Search, Context IQ) | Azure-native RAG with ACL/label enforcement and agentic retrieval | Analytics data + unified data platform | Transactional + vector data | PostgreSQL workloads with AI | SQL workloads with AI. Choose deployment by existing estate (cloud PaaS, lift-and-shift, on-prem, Fabric) |
-| **Licensing** | Included with M365 | Azure consumption (agentic retrieval preview on free tier quotas) | Fabric capacity (F2+) | Azure consumption | Azure consumption | Azure SQL DB/MI: Azure consumption. SQL Server 2025: SQL license. SQL in Fabric: Fabric capacity. |
-| **Status** | GA | GA (agentic retrieval preview) | GA (Platform), Preview (Data Agents) | GA | GA | VECTOR type GA. ANN index (DiskANN) Preview. |
+| **Licensing** | Included with M365 | Azure consumption: dedicated tiers, plus a serverless consumption tier (Public Preview, pay-per-use, scale-to-zero); agentic retrieval preview on free tier quotas | Fabric capacity (F2+) | Azure consumption | Azure consumption | Azure SQL DB/MI: Azure consumption. SQL Server 2025: SQL license. SQL in Fabric: Fabric capacity. |
+| **Status** | GA | GA (dedicated tiers); Serverless tier Preview; agentic retrieval preview | GA (Platform), Preview (Data Agents) | GA | GA | VECTOR type GA. ANN index (DiskANN) Preview. |
 
 **Fabric app-backend note:** Rayfin is not a grounding store. It is a Preview SDK and CLI for defining and deploying managed application backends on Microsoft Fabric, so app data lands in OneLake and inherits Fabric governance. Use it when the question is "Where should this AI-enabled app backend live?" rather than "Which retrieval engine should ground this answer?"
 
 **Sources:**
 - [Microsoft 365 Copilot connectors overview](https://learn.microsoft.com/en-us/graph/connecting-external-content-connectors-overview) (Updated: 2026-02-25)
 - [Azure AI Search what's new](https://learn.microsoft.com/en-us/azure/search/whats-new#2025-announcements) (Updated: 2026-03-13)
+- [Optimize costs for Azure AI Search Serverless (Public Preview)](https://learn.microsoft.com/en-us/azure/search/serverless-cost-optimization) (Updated: 2026-06)
 - [Microsoft Fabric Platform](https://learn.microsoft.com/en-us/fabric/fundamentals/microsoft-fabric-overview) (Updated: 2026-03-18)
 - [Rayfin product page](https://www.microsoft.com/en-us/microsoft-fabric/features/rayfin) (Retrieved: 2026-06-08)
 - [Microsoft Foundry (Azure) FAQ](https://learn.microsoft.com/en-us/azure/ai-foundry/faq?view=foundry-classic) (Updated: 2026-01-23)

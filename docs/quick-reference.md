@@ -103,15 +103,15 @@ Where can your agent appear? Match build platform to distribution surface.
 
 | **Where Users Interact** | **Recommended Technologies** | **Use When** |
 |---------------------------|------------------------------|--------------|
-| **Microsoft 365 Apps** | **Free** Microsoft 365 Copilot Chat (included) + Copilot connectors (Graph connectors) for baseline pilots; Microsoft 365 Copilot add-on + declarative agents for work-grounded copilots; **Frontier Word/Excel/PowerPoint creation agents (Preview)** require admin Frontier opt-in[^frontier-qr] and Anthropic data-sharing consent; mobile parity for custom engine/message-extension agents (iOS/Android)[^mobile-ext-qr]; Copy to Copilot Studio (rolling out) copies data sources/actions but GPTs/custom actions must be reattached[^copy-to-studio-qr] | Need managed copilots embedded in Word, Excel, Outlook, or Teams with tenant-level governance. Start with the free chat surface and graduate to the add-on when Graph grounding or in-app assistants are required; use Frontier creation agents only for controlled pilots |
+| **Microsoft 365 Apps** | **Free** Microsoft 365 Copilot Chat (included) + Copilot connectors (Graph connectors) for baseline pilots; Microsoft 365 Copilot add-on + declarative agents for work-grounded copilots; **Frontier Word/Excel/PowerPoint creation agents (Preview)** require admin Frontier opt-in[^frontier-qr] and Anthropic data-sharing consent; mobile parity for custom engine/message-extension agents (iOS/Android)[^mobile-ext-qr]; Copy to Copilot Studio copies data sources/actions but GPTs/custom actions must be reattached[^copy-to-studio-qr] | Need managed copilots embedded in Word, Excel, Outlook, or Teams with tenant-level governance. Start with the free chat surface and graduate to the add-on when Graph grounding or in-app assistants are required; use Frontier creation agents only for controlled pilots |
 | **Microsoft Teams Only** | Copilot Studio, M365 Agents SDK | Teams-centric chat or calling scenarios where admins may enforce "only during the call" retention |
 | **Custom Web/Mobile App** | Microsoft Foundry, Microsoft Foundry Agent Service (Standard setup) | Building standalone applications while keeping files, search, and thread storage in customer-owned Azure resources |
-| **Governance / Registry** | Microsoft Agent 365 (Frontier Preview; Entra Agent ID + SDK/CLI)[^agent365-sdk-qr][^agent365-cli-qr]; Foundry Control Plane; M365 Agent Registry lifecycle (publish/activate/deploy/pin/block/remove/delete/owner transfer/export)[^agent-registry-qr] | Centralize agent identity/registry, conditional access, and security posture across M365/Azure agents |
+| **Governance / Registry** | Microsoft Agent 365 (GA; selected SDK/CLI and cross-cloud discovery surfaces remain Preview)[^agent365-sdk-qr][^agent365-cli-qr]; Foundry Control Plane; M365 Agent Registry lifecycle (publish/activate/deploy/pin/block/remove/delete/owner transfer/export)[^agent-registry-qr] | Centralize agent identity/registry, conditional access, and security posture across M365/Azure agents |
 | **Custom Web/Mobile UI with streaming** | Microsoft Agent Framework + AG-UI protocol (Preview) | Need Server-Sent Events streaming, backend tool rendering, shared state, and human approvals in bespoke front-ends |
 | **Multiple Channels** | M365 Agents SDK | Deliver one agent across Microsoft 365 Copilot, Teams, web, email, SMS, and other channels |
 | **Power Platform** | Copilot Studio, AI Builder | Integrated with low-code Power Apps/Power Automate workloads |
 | **Enterprise Workflows** | Azure Logic Apps AI Agents (Preview), MCP Server | Workflow automation that needs autonomous/conversational agent patterns with Easy Auth guardrails |
-| **Data Grounding / RAG** | Azure AI Search knowledge bases (agentic retrieval, preview); Copilot connectors (M365); Microsoft 365 Copilot Search API (Preview) for OneDrive hybrid semantic+lexical search[^search-api-qr] | ACL- and label-aware search with reasoning effort/partial responses (Search); tenant-scoped content for M365 copilots (Connectors); hybrid OneDrive search for custom engine agents (Search API) |
+| **Data Grounding / RAG** | Microsoft IQ: Foundry IQ (mixed GA/Preview), Work IQ (Preview), Fabric IQ, Web IQ (Limited Access); Copilot connectors (M365); Microsoft 365 Copilot Search API (Preview) for OneDrive hybrid semantic+lexical search[^search-api-qr] | Match the grounding layer to the data domain: enterprise documents (Foundry IQ), work context (Work IQ), business semantics (Fabric IQ), public web (Web IQ), tenant-scoped content (Connectors), or hybrid OneDrive search (Search API) |
 | **Developer Tools** | GitHub Copilot Extensions | IDE and development workflow integration |
 
 **Sources:**
@@ -119,7 +119,8 @@ Where can your agent appear? Match build platform to distribution surface.
 - [Copilot for all: Introducing Microsoft 365 Copilot Chat](https://www.microsoft.com/en-us/microsoft-365/blog/2025/01/15/copilot-for-all-introducing-microsoft-365-copilot-chat/) (Updated: 2025-01-15)
 - [Microsoft 365 Copilot release notes - November 25, 2025](https://learn.microsoft.com/en-us/copilot/microsoft-365/release-notes#november-25,-2025)
 - [Built-in enterprise readiness with standard agent setup](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/concepts/standard-agent-setup) (Updated: 2026-02-27)
-- [Overview of Microsoft Agent 365](https://learn.microsoft.com/en-us/microsoft-agent-365/overview) (Retrieved: 2025-12-15)
+- [Overview of Microsoft Agent 365](https://learn.microsoft.com/en-us/microsoft-agent-365/overview) (Retrieved: 2026-06-08)
+- [Microsoft IQ overview](https://learn.microsoft.com/en-us/microsoft-iq/) (Retrieved: 2026-06-08)
 - [Microsoft Agent 365 SDK](https://learn.microsoft.com/en-us/microsoft-agent-365/developer/agent-365-sdk) (Retrieved: 2026-01-09)
 - [Agent 365 CLI](https://learn.microsoft.com/en-us/microsoft-agent-365/developer/agent-365-cli) (Retrieved: 2026-01-13)
 - [What is Microsoft Entra Agent ID?](https://learn.microsoft.com/en-us/entra/agent-id/identity-professional/microsoft-entra-agent-identities-for-ai-agents) (Updated: 2026-03-25)
@@ -132,22 +133,22 @@ Where can your agent appear? Match build platform to distribution surface.
 - [AG-UI integration with Agent Framework](https://learn.microsoft.com/en-us/agent-framework/integrations/ag-ui/) (Preview, Updated: 2025-11-07)
 - [Declarative agents for Microsoft 365 Copilot overview](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-declarative-agent) (Updated: 2025-12-01)
 
-**Confidence Level:** High (all technologies GA except Logic Apps AI Agents Preview)
+**Confidence Level:** High for placement guidance; status varies by capability and should be verified in the linked Microsoft Learn pages before production planning.
 
 [^mobile-ext-qr]: Mobile parity for custom engine agents and message-extension agents on iOS/Android. Source: Microsoft 365 Copilot release notes (November 24, 2025).
 [^frontier-qr]: Copilot Frontier is the early access program for experimental and preview features in Copilot apps and agents; enable via Microsoft 365 admin center > Copilot > Settings > User access > Copilot Frontier. Source: Manage Microsoft 365 Copilot scenarios (Retrieved: 2026-03-16).
 [^agent-registry-qr]: Agent Registry lifecycle actions in M365 admin center: publish, activate, deploy, pin, block, remove, delete, reassign owner, export inventory. Source: Agent Registry documentation (Updated: 2026-01-23).
-[^agent365-sdk-qr]: Agent 365 SDK extends agents with Entra-backed identity, notifications, OpenTelemetry observability, and governed MCP servers. Source: Agent 365 SDK (Retrieved: 2026-01-09).
-[^agent365-cli-qr]: Agent 365 CLI is a preview cross-platform CLI for deploying and managing Agent 365 apps on Azure; install via dotnet tool with `--prerelease`. Source: Agent 365 CLI (Retrieved: 2026-01-13).
+[^agent365-sdk-qr]: Agent 365 SDK (Preview) extends agents with Entra-backed identity, notifications, OpenTelemetry observability, and governed MCP servers. Agent 365 platform is GA; SDK remains Preview. Source: Agent 365 SDK (Retrieved: 2026-01-09).
+[^agent365-cli-qr]: Agent 365 CLI (Preview) is a cross-platform CLI for deploying and managing Agent 365 apps on Azure; install via dotnet tool with `--prerelease`. Agent 365 platform is GA; CLI remains Preview. Source: Agent 365 CLI (Retrieved: 2026-01-13).
 [^search-api-qr]: Microsoft 365 Copilot Search API (Preview) for hybrid semantic + lexical search across OneDrive via Graph `/beta`. Source: Search API overview (Updated: 2025-10-20).
-[^copy-to-studio-qr]: Copy to Copilot Studio (rolling out) copies agent data sources and actions; GPTs and custom actions must be reattached. Feature availability may vary by tenant. Source: Declarative agents overview (Updated: 2025-12-01).
+[^copy-to-studio-qr]: Copy to Copilot Studio copies agent data sources and actions; GPTs and custom actions must be reattached. Feature availability may vary by tenant. Source: Declarative agents overview (Updated: 2025-12-01).
 [^m365-memory-qr]: Microsoft 365 Copilot user-level memory allows personalized experiences based on user preferences and context. This is distinct from org-wide conversation logging; memory is user-controlled, while conversation history follows Purview retention policies. Source: Data, privacy, and security for Microsoft 365 Copilot (Updated: 2026-01-07).
 
 ---
 
 ## Agentic Retrieval Quick Facts
 
-- Knowledge agents are now **knowledge bases** (Preview, `2025-11-01-preview`); routes `/knowledgebases/*`, `outputMode` + `retrievalReasoningEffort` (minimal/low/medium) replace fast path.
+- Knowledge agents are now **knowledge bases**. Selected agentic retrieval REST API features are GA in `2026-04-01`; portal authoring, answer synthesis, multi-turn retrieval, and newer source types remain Preview.
 - Knowledge sources (Preview): indexed SharePoint, remote SharePoint (Copilot Retrieval API, ACL-trimmed), indexed OneLake, web/Bing, search index, Azure Blob; `ingestionParameters` wraps embeddings/chat models/Content Understanding; portal creates `2025-08-01-preview` objects. Migrate to `2025-11-01-preview`.
 - Semantic ranker is available on **free tier** (quota limits); enable on the service before using KBs.
 - Hybrid/vector preview (`2024-09-01-preview`): MRL `truncationDimension`, `filterOverride` for vector-only filters, `debug` subscores for RRF, token-based Text Split parameters.

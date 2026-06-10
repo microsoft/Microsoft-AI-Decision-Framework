@@ -57,7 +57,7 @@ Use this page to turn abstract requirements into defensible engineering decision
 | **Pro Developers** | **Lifecycle.** Focus on CI/CD, unit testing, and version control. | **M365 Agents SDK, Foundry, Foundry Agent Service, Agent Framework**. Code-first approaches that fit into existing developer skills. |
 | **Data Scientists** | **Precision.** Technical experts focused on data, grounding, and model behavior (not necessarily app dev). | **Foundry Agent Service or Copilot Studio.** Allows technical non-developers to deploy custom models as agents without managing full-stack infrastructure or writing application code. |
 
-{: .tip } 
+{: .tip }
 > **The Convergence Principle:** Do not treat "Pro Code" and "Low Code" as binary. A Principal Architect often uses **Copilot Studio** to handle authentication and UI state, while delegating complex reasoning to a **Foundry** Azure Function.
 
 ---
@@ -137,6 +137,17 @@ async function executeToolWithApproval(toolName: string, params: any) {
 }
 ```
 
+### Deterministic Runtime Controls
+
+Approval flows catch mistakes at decision points, but what about the space *between* decisions? An agent approved to call an API can still pass malformed arguments, exfiltrate context to an unintended endpoint, or loop indefinitely. Two open-source projects from Microsoft address this gap:
+
+* **Agent Control Specification** ([GitHub](https://github.com/microsoft/agent-governance-toolkit)) defines declarative policies for what an agent *can* do at runtime: which tools it may call, what arguments are permitted, what data it can access. Think of it as a firewall ruleset for agent behavior, enforced at the execution layer rather than hoped for in the prompt.
+
+* **ASSERT** ([GitHub](https://github.com/responsibleai/ASSERT)) provides a framework for evaluating agent safety through systematic testing of failure modes: prompt injection resilience, tool misuse, over-delegation, and information leakage. It's the penetration test for your agent, run before production, not after an incident.
+
+{: .warning }
+> **Status:** Both projects are open-source reference implementations introduced at Build, not GA platform features with SLA guarantees. Evaluate them as design patterns and testing frameworks for your agent governance strategy.
+
 ---
 
 ## 6. Scale & Performance (The Envelope)
@@ -191,16 +202,16 @@ Before moving to the [Implementation Patterns]({{ '/docs/implementation-patterns
 
 ## Next Steps
 
-**Feature comparison:**  
+**Feature comparison:**
 → [Feature Comparison]({{ '/docs/feature-comparison' | relative_url }})
 
-**Visual guidance:**  
+**Visual guidance:**
 → [Visual Framework]({{ '/docs/visual-framework' | relative_url }})
 
-**Real examples:**  
+**Real examples:**
 → [Scenarios]({{ '/docs/scenarios' | relative_url }})
 
-**Architecture patterns:**  
+**Architecture patterns:**
 → [Implementation Patterns]({{ '/docs/implementation-patterns' | relative_url }})
 
 ---
@@ -210,8 +221,8 @@ Before moving to the [Implementation Patterns]({{ '/docs/implementation-patterns
 [^foundry-cost]: *Azure OpenAI Service pricing*, Microsoft Azure. [https://azure.microsoft.com/en-us/pricing/details/cognitive-services/openai-service/](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/openai-service/)
 [^humanreview]: *Use your prompt in Power Automate*, Microsoft Learn. [https://learn.microsoft.com/en-us/ai-builder/use-a-custom-prompt-in-flow](https://learn.microsoft.com/en-us/ai-builder/use-a-custom-prompt-in-flow)
 [^1]: *Provisioned Throughput Units (PTU) onboarding*, Microsoft Learn. [https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/provisioned-throughput-onboarding](https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/provisioned-throughput-onboarding)
-[^2]: *Microsoft Copilot Studio licensing — capacity packs*, Microsoft Learn. [https://learn.microsoft.com/en-us/microsoft-copilot-studio/billing-licensing#copilot-studio-pay-as-you-go](https://learn.microsoft.com/en-us/microsoft-copilot-studio/billing-licensing#copilot-studio-pay-as-you-go)
+[^2]: *Microsoft Copilot Studio licensing - capacity packs*, Microsoft Learn. [https://learn.microsoft.com/en-us/microsoft-copilot-studio/billing-licensing#copilot-studio-pay-as-you-go](https://learn.microsoft.com/en-us/microsoft-copilot-studio/billing-licensing#copilot-studio-pay-as-you-go)
 
-**Last Updated:** February 5, 2026
+**Last Updated:** June 8, 2026
 
 **Next:** [Implementation Patterns]({{ '/docs/implementation-patterns' | relative_url }}) - Apply the scoring outcomes to pick execution patterns

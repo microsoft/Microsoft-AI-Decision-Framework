@@ -209,7 +209,7 @@ Use this page when you’ve identified a likely platform choice and want an exec
 
 **Approach:**
 
-1. Model the orchestration in **Agent Framework Workflows** to get type-safe executors, edges, and validation before anything runs. For teams that prefer configuration over code, define agents, tools, and topology in **Declarative YAML files** and load the entire workflow with a single API call — keeping orchestration definitions version-controlled alongside your infrastructure-as-code.[^agent-workflows]
+1. Model the orchestration in **Agent Framework Workflows** to get type-safe executors, edges, and validation before anything runs. For teams that prefer configuration over code, define agents, tools, and topology in **Declarative YAML files** and load the entire workflow with a single API call - keeping orchestration definitions version-controlled alongside your infrastructure-as-code.[^agent-workflows]
 2. Stand up specialized agents (Microsoft Foundry Agent Service, Microsoft Foundry, or custom ChatClient agents) and register them as workflow executors. Agents can discover and invoke external tools on any **MCP-compliant server** (GA), so your workflow isn't limited to first-party integrations.[^agent-azure-workflow][^agent-azure-agent]
 3. Choose the right orchestration pattern (Sequential, Concurrent, Handoff, Group Chat, or Magentic) and configure routing rules that match each agent's responsibilities.[^agent-orchestrations]
 4. Add reliability primitives like checkpointing, event streaming, and human-in-the-loop gates before hosting the workflow runtime.[^agent-checkpoint]
@@ -335,42 +335,71 @@ Use this page when you’ve identified a likely platform choice and want an exec
 
 ## Pattern 8: Agentic DevOps Lifecycle
 
+**The Trade-off: Autonomy vs. Oversight**
+
+The promise of agentic DevOps is seductive: assign a task, walk away, come back to a finished PR. But autonomy without governance is just chaos with a bot account. This pattern works when you treat agent autonomy as a *dial*, not a switch, and pair every increase in freedom with a corresponding increase in observability and control.
+
+**The Analogy: "The Sous Chef Who Earned the Keys."** Early coding agents were line cooks: they could only work when you handed them a ticket (a GitHub Issue). Build 2026 expanded the role. Now the sous chef responds to customer complaints directly (PR comments), preps mise en place on a schedule (event triggers), and can even plate and send a dish without calling the head chef over (Agent Merge). But the head chef still sets the menu (Agent Control Specification), the health inspector still runs audits (ASSERT evals), and there are cameras in every corner of the kitchen (OpenTelemetry). More freedom, more guardrails. That is the pattern.
+
 **Approach:**
 
-1.  **Plan:** Developer assigns a task (refactor, test, feature) to **GitHub Copilot Coding Agent** via a GitHub Issue.
-2.  **Code:** Coding Agent autonomously creates a branch, writes code, runs tests, and opens a Pull Request.
-3.  **Review:** Developer reviews the PR in **VS Code (Agent Mode)** or GitHub.com.
-4.  **Deploy:** CI/CD pipeline deploys the change.
-5.  **Monitor:** **Azure SRE Agent** monitors the application in production.
-6.  **Fix:** If an alert fires, SRE Agent performs RCA and creates a new GitHub Issue for the Coding Agent to fix.
+1.  **Install the control plane:** Add the **GitHub Copilot app** (Technical Preview) to your organization. This is the entry point for all agent capabilities on GitHub.com.
+2.  **Plan:** Trigger the **Coding Agent** (Preview) from any of its expanded entry points: GitHub Issues, PR review comments, direct prompts via `@copilot`, or scheduled/event-driven workflows. Each trigger type suits different work: issues for planned tasks, PR comments for "fix this review feedback," schedules for recurring maintenance like dependency bumps.
+3.  **Code:** The Coding Agent spins up an isolated **agent worktree**, a sandboxed branch environment, to write code, run tests, and iterate. Worktrees prevent agents from stepping on each other or on your in-progress work.
+4.  **Review:** Layer **Copilot Code Review** on top of human review. Use structural review for bugs and style, rubber-duck mode ("explain this change back to me") for comprehension, and security review for focused vulnerability analysis. AI review augments human judgment; it does not replace it.
+5.  **Merge:** For trusted, well-tested changes, **Agent Merge** allows the agent to merge its own PR after CI passes and required reviews are approved. Start with low-risk tasks (dependency bumps, test additions) before expanding scope.
+6.  **Deploy:** CI/CD pipeline deploys the change. No magic here: your existing pipeline is the agent's pipeline.
+7.  **Monitor:** **Azure SRE Agent** (Preview) watches the application in production, monitoring metrics, logs, and alerts.
+8.  **Fix:** If an alert fires, SRE Agent performs root cause analysis and creates a new GitHub Issue, restarting the loop at step 2. The loop closes itself.
+
+**Governance layer (non-negotiable for production use):**
+
+- **Agent Control Specification (Public Preview, open-source):** A declarative spec that defines what the agent is allowed to do at runtime: which files it can touch, which commands it can run, which APIs it can call. Think of it as the agent's job description, machine-readable and auditable. Without it, you are trusting the model's judgment on scope.
+- **ASSERT (open-source):** Executable evaluations for agent behavior. If ACS is the job description, ASSERT is the performance review: did the agent follow the spec? Did it produce correct code? Run ASSERT evals in CI alongside your existing test suite.
+- **OpenTelemetry observability:** Agent actions emit structured traces. When the agent creates a file, runs a test, or calls an API, you can see it in your existing observability stack (Grafana, Datadog, Azure Monitor). This is how you build trust incrementally: start by watching everything, then relax oversight as patterns prove reliable.
 
 **Strengths:**
 
-- **Asynchronous Productivity:** Developers offload routine tasks and focus on architecture/review.
-- **Self-Healing:** The loop between SRE Agent (Monitor) and Coding Agent (Fix) reduces MTTR.
-- **Integrated Context:** Agents share context via the GitHub platform (Issues, PRs, Code).
+- **Asynchronous Productivity:** Developers offload routine tasks (test coverage, dependency updates, boilerplate) and focus on architecture and review.
+- **Graduated Autonomy:** Expanded triggers and Agent Merge create a spectrum from "agent as helper" to "agent as teammate," tunable per repository and per task type.
+- **Self-Healing Loop:** The connection between SRE Agent (Monitor) and Coding Agent (Fix) reduces mean time to resolution. Production issues become code fixes without a human playing telephone.
+- **Auditable by Default:** ACS + ASSERT + OpenTelemetry create a governance story that satisfies security teams before they have to ask.
 
 **Trade-offs:**
 
-- **Trust & Verification:** Requires rigorous testing and review gates; "autonomy" does not mean "unsupervised".
-- **Cost:** Agent usage (Coding Agent, SRE Agent) is metered; monitor token consumption.
-- **Complexity:** Requires setting up multiple agents and ensuring they have correct permissions (Repo write, Azure Monitor read).
+- **Trust is Earned, Not Configured:** Agent Merge and expanded triggers are powerful, but premature adoption in repos without strong CI coverage leads to silent regressions. Start conservative.
+- **Cost:** Agent usage (Coding Agent, SRE Agent) is metered. Monitor token consumption, especially for scheduled triggers that can generate volume.
+- **Tooling Maturity:** Several components are in Preview or Technical Preview (GitHub Copilot app, ACS, ASSERT). Expect iteration. Pin versions and track changelogs.
+- **Complexity:** Requires setting up multiple agents with correct permissions (repo write for Coding Agent, Azure Monitor read for SRE Agent, ACS policies per repo).
 
 **Signals this fits:**
 
 - Team spends significant time on maintenance, boilerplate, or firefighting.
 - Mature DevOps practices (CI/CD, automated testing) are already in place.
 - "Inner loop" velocity is a bottleneck.
+- Security and compliance teams need an auditable governance story for AI-generated code.
 
-**When to pivot:** If the codebase is too legacy or lacks tests, start with **Scenario 8 (App Modernization)** to clean it up first.
+**When to pivot:** If the codebase is too legacy or lacks tests, start with **Scenario 8 (App Modernization)** to clean it up first. An agent without a test suite is a merge request without a safety net.
 
 **Sources:**
 
 - [About GitHub Copilot coding agent](https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-coding-agent)
 - [Azure SRE Agent (Preview)](https://learn.microsoft.com/en-us/azure/foundry/agents/overview)
 
-**Status:** Emerging Pattern (Preview)
-**Confidence Level:** Medium (Rapidly evolving)
+**Component Status:**
+
+| Component | Status |
+|-----------|--------|
+| GitHub Copilot Coding Agent | Preview |
+| GitHub Copilot app | Technical Preview |
+| Copilot Code Review | Preview |
+| Agent Merge | Preview |
+| Agent Control Specification | Public Preview (open-source) |
+| ASSERT | Open-source |
+| Azure SRE Agent | Preview |
+
+**Status:** Emerging Pattern (Multiple Preview components)
+**Confidence Level:** Medium-High (Governance tooling now available; core loop maturing)
 
 ---
 
@@ -482,7 +511,7 @@ Choose the path that matches your team's velocity and codebase complexity. All t
    | Runs | Responses | Input/output items with explicit tool call loop management |
    | Assistants | Agents (new) | Prompt-based, workflow-based, and hosted agent types with stateful context |
 
-4. **Update SDK packages:** Install `azure-ai-projects` 2.x (replaces 1.x) and initialize the `AIProjectClient` pointing to your Foundry project endpoint. The standalone `azure-ai-agents` package is deprecated — remove it and use `AIProjectClient` in `azure-ai-projects` as the single entry point. Ensure the SDK version matches the portal experience. Mixing 1.x SDK with new portal (or vice versa) causes errors.[^agents-migrate]
+4. **Update SDK packages:** Install `azure-ai-projects` 2.x (replaces 1.x) and initialize the `AIProjectClient` pointing to your Foundry project endpoint. The standalone `azure-ai-agents` package is deprecated - remove it and use `AIProjectClient` in `azure-ai-projects` as the single entry point. Ensure the SDK version matches the portal experience. Mixing 1.x SDK with new portal (or vice versa) causes errors.[^agents-migrate]
 
 5. **Test and validate.** The new agents support all existing tools (file search, code interpreter, function calling) plus capabilities the Assistants API never had: MCP tool calling, image generation, browser automation (Preview), background mode for long-running operations, and durable streams for disconnect/reconnect resilience. Run integration tests against the new endpoint before cutting over.[^agents-migrate][^responses-api]
 
@@ -546,22 +575,22 @@ Choose the path that matches your team's velocity and codebase complexity. All t
 
 1. **Run the BXT gate.** Confirm viability, desirability, and feasibility in [Decision Framework Phase 1]({{ '/docs/decision-framework#phase-1-business-impact-assessment-bxt-framework' | relative_url }}). Any red score means pause here. Capture the scenario in the [Scenarios backlog]({{ '/docs/scenarios#how-to-use-this-guide' | relative_url }})) instead of forcing a pattern.
 
-2. **Anchor the user experience.**  
-   - **M365-first surface** (Teams, Outlook, Word) → stay inside the Microsoft 365 trust boundary with **Pattern 3** for knowledge-only needs[^pattern3-knowledge] or **Pattern 1** when you need orchestrated actions and governance controls inside Copilot Studio[^pattern1-actions].  
+2. **Anchor the user experience.**
+   - **M365-first surface** (Teams, Outlook, Word) → stay inside the Microsoft 365 trust boundary with **Pattern 3** for knowledge-only needs[^pattern3-knowledge] or **Pattern 1** when you need orchestrated actions and governance controls inside Copilot Studio[^pattern1-actions].
    - **Multi-channel or custom apps** (web, mobile, SMS, API) → continue to step 3 with **Patterns 2 or 4** in play.
 
-3. **Clarify delivery ownership (avoid the low-code vs pro-code trap).** Use the skills, time, and funding matrices in [Evaluation Criteria]({{ '/docs/evaluation-criteria#skills--resources' | relative_url }}). Decide who will build and run the backlog, not which UI they click.  
-   - **Maker-led or mixed squads** who will operate inside Copilot Studio, yet can still call custom APIs or child agents, start with **Pattern 1** and expand to Azure as needed.  
-   - **Engineer-led product teams** with CI/CD, observability, and landing-zone governance treat **Pattern 2** (Azure-first) or **Pattern 4** (Agents SDK distribution) as the default.  
+3. **Clarify delivery ownership (avoid the low-code vs pro-code trap).** Use the skills, time, and funding matrices in [Evaluation Criteria]({{ '/docs/evaluation-criteria#skills--resources' | relative_url }}). Decide who will build and run the backlog, not which UI they click.
+   - **Maker-led or mixed squads** who will operate inside Copilot Studio, yet can still call custom APIs or child agents, start with **Pattern 1** and expand to Azure as needed.
+   - **Engineer-led product teams** with CI/CD, observability, and landing-zone governance treat **Pattern 2** (Azure-first) or **Pattern 4** (Agents SDK distribution) as the default.
    - **Hybrid hand-offs** (makers capturing intent, engineers owning orchestration) combine **Pattern 1** for the front door with **Pattern 2**/**Pattern 4** services behind it.[^skills-matrix]
 
-4. **Decide the governance boundary.** Align with the governance table in [Evaluation Criteria]({{ '/docs/evaluation-criteria#governance--compliance' | relative_url }}).  
-   - **Stay inside Microsoft 365 tenant controls** → **Pattern 1** or **Pattern 3**.  
-   - **Require VNet isolation, private endpoints, or custom compliance** → **Pattern 2** or **Pattern 4**.  
+4. **Decide the governance boundary.** Align with the governance table in [Evaluation Criteria]({{ '/docs/evaluation-criteria#governance--compliance' | relative_url }}).
+   - **Stay inside Microsoft 365 tenant controls** → **Pattern 1** or **Pattern 3**.
+   - **Require VNet isolation, private endpoints, or custom compliance** → **Pattern 2** or **Pattern 4**.
    - **Hybrid front door** (Copilot Studio + Azure runtime) → combine **Pattern 1** and **Pattern 2** as described in Pattern 1’s “Scale with Azure” step.
 
-5. **Assess orchestration complexity.** Mirror the “Multi-Agent Orchestration” diagram in [Visual Framework]({{ '/docs/visual-framework#multi-agent-orchestration' | relative_url }}).  
-   - **Managed connected/child agents or Logic Apps AI Agent workflows suffice** → stay with **Patterns 1 or 2** and lean on those tooling features.  
+5. **Assess orchestration complexity.** Mirror the “Multi-Agent Orchestration” diagram in [Visual Framework]({{ '/docs/visual-framework#multi-agent-orchestration' | relative_url }}).
+   - **Managed connected/child agents or Logic Apps AI Agent workflows suffice** → stay with **Patterns 1 or 2** and lean on those tooling features.
    - **Need programmable routing, checkpointing, or specialized agent collaboration** → invest in **Pattern 5** (Agent Framework workflows) and surface them through **Pattern 2** or **Pattern 4** channels.[^agent-workflows][^agentsdk-overview]
 
 **Before you decide:** Validate your choice against the scenario playbooks in [Scenarios]({{ '/docs/scenarios' | relative_url }}) and the capability groupings in [Capability Model]({{ '/docs/capability-model' | relative_url }}) to ensure the pattern supports the right part of Microsoft’s AI portfolio. Use the comparison matrices in [Quick Reference]({{ '/docs/quick-reference' | relative_url }}) to double-check complexity, skills, budget, and governance trade-offs.

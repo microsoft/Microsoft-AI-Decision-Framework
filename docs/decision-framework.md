@@ -118,6 +118,22 @@ Use the Business Envisioning scorecard to rank candidate use cases before you fu
 
 See [Business Envisioning](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/business-envisioning) for the scoring and prioritization approach.
 
+### CAF Use-Case Score: The Three-Lens Sanity Check
+
+{: .no_toc }
+
+BXT tells you whether the idea is worth caring about. CAF helps you decide whether it is worth funding now.
+
+Score each candidate from 1 to 5:
+
+| Lens | Ask |
+| :--- | :--- |
+| **Business impact** | Does this move a funded priority, reduce cost, improve speed, or change customer or employee experience? |
+| **Technical feasibility** | Do we have the data, safeguards, integrations, skills, and operating model to make it real? |
+| **User desirability** | Will the affected people trust it, use it, and change their workflow for it? |
+
+The winning use case is rarely the flashiest one. It is the one with enough value, enough readiness, and enough user pull to survive contact with production.
+
 ### Decision Gate
 
 {: .no_toc }
@@ -211,6 +227,16 @@ Separate how you ground answers from how you persist history or analytics.
 - **Memory** - Decide if conversations should persist (Copilot Studio Dataverse variables, Foundry Agent Service thread stores in Cosmos DB, custom implementations).
 - **Analytics** - Plan transcript retention, telemetry, and review processes before launch. Use **Translytical Task Flows** in Fabric to trigger actions directly from analytical reports.
 
+Before selecting the platform, document the data contract:
+
+- **Authoritative sources:** Which systems are allowed to ground answers?
+- **Retrieval pattern:** Search, API, MCP tool, or a blend?
+- **Permission model:** Does the agent inherit user permissions or use service-level access?
+- **Freshness requirement:** Is yesterday's index good enough, or does the agent need live data?
+- **Audit trail:** Can you explain which source informed the answer or action?
+
+CAF's data warning is simple: agents synthesize information, they do not magically fix bad data. If the estate is fragmented, stale, or over-permissioned, the agent inherits that mess.
+
 {: .tip }
 > See [Implementation Patterns]({{ '/docs/implementation-patterns#pattern-3-microsoft-365-knowledge-grounding' | relative_url }}) for ingestion blueprints and [Evaluation Criteria]({{ '/docs/evaluation-criteria#memory-analytics--conversation-history' | relative_url }}) for scoring considerations.
 
@@ -234,6 +260,8 @@ The strongest architectures connect both sides. An **Invisible Agent** (Side B) 
 *   **Single Agent (The Soloist):** One agent using tools. Good for simple Q&A. (Declarative Agents).
 *   **Multi-Agent (The Orchestra):** A central "brain" directs specific workers. Good for complex tasks within one boundary. (Hub-and-Spoke).
 *   **Connected Agents (The Mesh):** Independent agents across different organizations or tools discover and message each other. Good for enterprise-wide collaboration without a central bottleneck. (Agent2Agent).
+
+**The default is a Soloist.** Do not start with an orchestra because the problem *sounds* complex. CAF's rule is blunt: begin with a single agent and test it. Reach for multiple agents only when one of three things is true: you cross a security or compliance boundary, separate teams own separate domains, or you already know the system will keep growing. Everything else starts single, because every handoff you add buys latency, cost, and a new way to fail. Earn the second agent with evidence, not with a hunch.
 
 {: .note }
 > The orchestration comparison tables in [Feature Comparison]({{ '/docs/feature-comparison' | relative_url }}) highlight the trade-offs.
@@ -298,6 +326,16 @@ Select a platform your organization can build and sustain.
 - **Professional developers** - M365 Agents SDK, Microsoft Foundry, Agent Framework, Teams SDK, with full CI/CD ownership.[^declarativecomparison][^agentstoolkitoverview][^foundryoverview]
 - **AI/ML engineers** - Microsoft Foundry and Azure Machine Learning for custom models and evaluations.[^aiarchitecture]
 - **Integration architects** - Logic Apps, API Management, Power Automate for enterprise workflows and connector governance.[^logicappsoverview]
+
+Also name the operating model:
+
+| Owner | Accountability |
+| :--- | :--- |
+| **Platform team** | Shared guardrails, identity, network, policy, observability, and approved patterns |
+| **Workload team** | Business outcome, domain data, user experience, testing, and day-to-day improvement |
+| **AI CoE** | Standards, reusable assets, intake process, skills development, and advisory review |
+
+If nobody owns the agent after launch, you did not build a product. You created a liability with a chat interface.
 
 {: .tip }
 > The skills matrix in [Evaluation Criteria]({{ '/docs/evaluation-criteria#skills--resources' | relative_url }}) keeps the decision evidence-based.
@@ -585,6 +623,20 @@ After applying all criteria, document your selection:
 **Trade-offs Accepted:** [What you're giving up, reference [Evaluation Criteria]({{ '/docs/evaluation-criteria' | relative_url }})]
 
 **Next Steps:** [Pilot, POC, or full deployment]
+
+---
+
+## Phase 4: Operate, Govern Continuously, and Retire
+
+Selection is the start of the job, not the end. Governance is not a gate you pass once. It is the nightly service. Treat the running estate the way an air traffic controller treats a sky full of planes: every agent on the board, named, owned, and watched.
+
+- **One board, one control plane:** Keep every agent in a single inventory or registry. No shadow deployments.
+- **One identity per agent:** Actions must be attributable. Bind each agent to a distinct identity and owner.
+- **Watch for drift:** Behavior and risk change after launch. Monitor activity and red-team after major model or architecture changes.
+- **Manage the meter:** Cap tokens, right-size models, and route deterministic steps to plain code.
+- **Retire what went quiet:** Audit on a schedule and decommission dormant agents.
+
+An agent you cannot see, attribute, or switch off is not in production. It is just at large.
 
 ---
 

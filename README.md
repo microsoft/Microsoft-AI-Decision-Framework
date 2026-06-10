@@ -41,6 +41,25 @@ By following this framework, you'll gain:
 
 ---
 
+## The Lifecycle Behind the Choice
+
+Picking a technology is one decision inside a longer loop. Microsoft's Cloud Adoption Framework names six stops on that loop, and the smartest teams treat them like a relay, not a checklist you do once.
+
+Think of it as running a restaurant, not catering one dinner. Strategy is deciding what kind of restaurant you are. Plan is the menu and the hiring. Ready is building the kitchen. Govern and Secure are the health code and the locks on the door. Manage is the nightly service that never stops: you taste, you adjust, you retire the dish nobody orders.
+
+| CAF stage | The question it answers |
+| :--- | :--- |
+| **Strategy** | What outcomes and use cases are worth funding? |
+| **Plan** | What skills, data, and proofs of concept do we need first? |
+| **Ready** | Is the environment, network, identity, and data foundation in place? |
+| **Govern** | What rules apply, and who is accountable? |
+| **Secure** | How do we protect the data, model, tools, and actions? |
+| **Manage** | How do we monitor, optimize cost, improve, and retire what no longer earns its keep? |
+
+This guide lives mostly inside Strategy and Plan. Keep the other four in view so the tool you pick is one you can actually run.
+
+---
+
 ## Who This Framework Serves
 
 This framework is written for readers who can reason across business, experience, and technology concerns and want a reusable evaluation pattern rather than a one-page answer. Expect to synthesize enterprise constraints, justify architecture choices, and extend the framework as Microsoft ships new capabilities.
@@ -216,11 +235,11 @@ For experienced users who want a fast starting point:
 
 ---
 
-## Bonus: AI Instinct — The Human Side of AI Adoption
+## Bonus: AI Instinct - The Human Side of AI Adoption
 
 This framework teaches you how to *choose* AI technologies. But technology choices are only half the equation. The other half is how people actually *partner* with AI once you've made the choice.
 
-[**AI Instinct**]({{ site.baseurl }}/docs/ai-instinct) is a companion framework written for everyone — not just architects or developers. Whether you're a nurse, a mechanic, a teacher, a parent, or a CEO, AI partnership is becoming as fundamental as reading and writing. AI Instinct names the four behavioral instincts (Spine, Voice, Gravity, Rhythm) that separate people who use AI occasionally from people who've made it part of how they think.
+[**AI Instinct**]({{ site.baseurl }}/docs/ai-instinct) is a companion framework written for everyone, not just architects or developers. Whether you're a nurse, a mechanic, a teacher, a parent, or a CEO, AI partnership is becoming as fundamental as reading and writing. AI Instinct names the four behavioral instincts (Spine, Voice, Gravity, Rhythm) that separate people who use AI occasionally from people who've made it part of how they think.
 
 This isn't a technical guide. It's the human foundation that makes every technical decision in this framework land. Share it with your team, your stakeholders, or anyone asking "why should I care about AI?"
 
@@ -268,7 +287,7 @@ Begin with Scenarios to find use cases similar to yours, then explore referenced
 - Pattern-oriented (proven architecture approaches)
 - Validation-focused (all diagrams validated against official capabilities)
 
-**Maintenance:** This guide reflects the state as of **March 2026**. Microsoft's AI capabilities evolve rapidly—always verify with official sources for production decisions.
+**Maintenance:** This guide reflects the state as of **June 2026**. Microsoft's AI capabilities evolve rapidly, so always verify with official sources for production decisions.
 
 ---
 

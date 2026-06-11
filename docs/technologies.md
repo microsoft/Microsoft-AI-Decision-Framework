@@ -116,6 +116,31 @@ Use this page as a reference after you’ve narrowed the decision: it’s optimi
 
 ---
 
+## Microsoft Scout (Experimental) {: .tech-heading }
+
+**Description:** Microsoft's first Autopilot agent - an always-on personal agent that works autonomously in the background to coordinate work across Teams, Outlook, OneDrive, and SharePoint. Scout represents a new category of agents that hold your priorities and act on your behalf under your control, without needing to be prompted each time.
+**Official Docs:** [Microsoft Scout setup instructions](https://learn.microsoft.com/microsoft-scout)
+**Status:** Experimental (Private Preview via Frontier; requires Frontier enrollment, Intune policy configuration, and a GitHub Copilot license)
+
+**Key Features:**
+
+- **Autopilot category:** Scout belongs to a new class of always-on agents that operate with their own Entra identity, carry out tasks within org-defined permissions and policies, and keep work moving without constant prompting. Distinct from interactive (prompt-driven) copilots and from reactive trigger-based agents.
+- **Proactive work coordination:** Schedules and coordinates meetings across time zones, flags important meetings, generates prep materials, blocks calendar time for upcoming deliverables, and identifies risks such as stalled decisions before they become blockers.
+- **Work IQ grounding:** Powered by Work IQ - the same contextual intelligence layer that underlies Microsoft 365 Copilot. Connects to Teams, Outlook, OneDrive, SharePoint, chats, email, calendar, and contacts. Users interact with Scout in Teams; the desktop app extends reach to the browser, local resources, and MCP servers.
+- **OpenClaw open-source foundation:** Built on OpenClaw open-source technology. Microsoft contributes policy conformance directly upstream, enabling organizations running OpenClaw to validate security and compliance configuration with an auditable answer.
+- **Enterprise identity and access controls:** Each Scout session operates under a governed Microsoft Entra identity (not a shared service account). Credentials are scoped to the task, redacted from logs, and managed with first-party security rigor. Sensitive actions can require human sign-off before proceeding.
+- **Purview integration:** Microsoft Purview sensitivity labels and data loss prevention policies are enforced in the moment, before data is sent or written. Scout does not bypass existing data protection controls.
+- **Frontier access model:** Available as an experimental release through the Microsoft Frontier program. Requires Frontier enrollment, Intune policy configuration, and an opt-in attestation. Users with a GitHub Copilot license then download and install the experience.
+
+**When to use:** Organizations in the Frontier program exploring always-on personal agents for proactive coordination, calendar management, and risk identification. Not suitable for production workloads until Microsoft releases broader availability. Use Microsoft 365 Copilot (prompt-driven) or Copilot Cowork (Frontier, task delegation with checkpoints) for work that does not require continuous autonomous background activity.
+
+**Sources:**
+
+- [Introducing Microsoft Scout: your always-on personal agent](https://www.microsoft.com/en-us/microsoft-365/blog/2026/06/02/introducing-microsoft-scout-your-always-on-personal-agent/) (Published: 2026-06-02)
+- [Microsoft Scout setup instructions](https://learn.microsoft.com/microsoft-scout) (Retrieved: 2026-06-11)
+
+---
+
 ## Copilot Studio
 
 {: .tech-heading }

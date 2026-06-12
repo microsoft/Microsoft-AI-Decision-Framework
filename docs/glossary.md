@@ -11,7 +11,7 @@ description: "Key terms and definitions for Microsoft AI technologies"
 Quick reference for key terms used throughout the Microsoft AI Decision Framework. For detailed documentation links and resources, see [Resources]({{ '/docs/resources' | relative_url }}). For methodology and decision guidance, see [Decision Framework]({{ '/docs/decision-framework' | relative_url }}).
 
 {: .note }
-> **Last validated:** June 8, 2026. Microsoft's AI capabilities evolve rapidly - always verify with [official sources]({{ '/docs/resources' | relative_url }}) for production decisions.
+> **Last validated:** June 11, 2026. Microsoft's AI capabilities evolve rapidly - always verify with [official sources]({{ '/docs/resources' | relative_url }}) for production decisions.
 
 ---
 
@@ -69,6 +69,9 @@ An open specification and reference implementation for defining runtime guardrai
 
 **ASSERT**
 Open-source evaluation framework for turning behavior specifications into executable tests for agents, including prompt-injection, tool-use, and policy-adherence scenarios. Use it as a pre-production evaluation pattern alongside conventional tests and red teaming, not as a managed service with SLA guarantees ([ASSERT](https://github.com/responsibleai/ASSERT)).
+
+**Autopilot**
+A new category of always-on agents introduced at Microsoft Build 2026. Autopilots work autonomously with their own Entra identity, acting on a user's behalf continuously without needing to be prompted each time. They stay active in the background, understand how work gets done across apps and systems, and take action within the permissions and policies the user and organization have set. Microsoft Scout is the first Autopilot agent. See [Introducing Microsoft Scout](https://www.microsoft.com/en-us/microsoft-365/blog/2026/06/02/introducing-microsoft-scout-your-always-on-personal-agent/) (published 2026-06-02).
 
 ## B
 
@@ -172,6 +175,9 @@ The unified brand for Microsoft's AI development and management platforms, spann
 
 **Microsoft IQ**
 Microsoft's enterprise intelligence layer for agents and copilots, made up of four capabilities: Foundry IQ for enterprise knowledge, Work IQ for work context, Fabric IQ for business semantics and analytics, and Web IQ for public web grounding ([Microsoft IQ overview](https://learn.microsoft.com/en-us/microsoft-iq/), retrieved 2026-06-08).
+
+**Microsoft Scout (Experimental)**
+Microsoft's first Autopilot agent: an always-on personal agent that works autonomously in the background to coordinate work across Teams, Outlook, OneDrive, and SharePoint, powered by Work IQ and OpenClaw open-source technology. Available as an experimental release through the Frontier program, requiring Frontier enrollment, Intune policy configuration, and a GitHub Copilot license. See [Technologies: Microsoft Scout]({{ '/docs/technologies' | relative_url }}) for full capability details and access requirements.
 
 **MXC (Microsoft Execution Containers) (Early Preview)**
 Policy-driven local containment for agent tools and code execution on Windows. MXC lets a host application describe what an agent can access, then relies on operating-system primitives to enforce those boundaries at runtime. Relevant to local-agent scenarios where tool execution must be sandboxed on the user's machine. Early Preview; treat as a design signal, not a production security boundary, until Microsoft Learn publishes stable guidance ([Windows platform security for AI agents](https://blogs.windows.com/windowsdeveloper/2026/06/02/windows-platform-security-for-ai-agents/)).

@@ -122,6 +122,8 @@ These are the agents we look at. We poke them, and they poke back. They are conv
 **Side B: Invisible Agents (The Force)**
 Flip the coin. These are the agents that look at the world for us. They live in the background, monitoring data, waiting for triggers, and acting without us needing to be present.
 
+A new sub-category of Invisible Agents is the **Autopilot**: always-on agents that work autonomously with their own identity, continuously acting on your behalf across apps and systems without needing to be prompted each time. Microsoft Scout (Experimental, Frontier) is the first Autopilot agent, staying active in the background to coordinate work across Teams, Outlook, OneDrive, and SharePoint.
+
 ### How to Choose Your Agent: The 5 Dimensions
 Once you know which side of the coin you're on, you have to decide how that agent behaves.
 
@@ -170,6 +172,7 @@ This grouping sits beneath apps: models, tools, retrieval, evaluations, and gove
 ### 5. Specialized agents (don’t rebuild what already exists)
 Microsoft and partners ship specialized agents for specific domains.
 * **Microsoft 365 Copilot agents:** Integrated into the Microsoft 365 Copilot experience.
+* **Microsoft Scout (Experimental, Frontier):** Microsoft's first Autopilot agent - an always-on personal agent that proactively coordinates work across Teams, Outlook, OneDrive, and SharePoint. Powered by OpenClaw open-source technology and Work IQ. Access requires Frontier enrollment, Intune policy configuration, and a GitHub Copilot license. [Introducing Microsoft Scout](https://www.microsoft.com/en-us/microsoft-365/blog/2026/06/02/introducing-microsoft-scout-your-always-on-personal-agent/) | [Setup instructions](https://learn.microsoft.com/microsoft-scout)
 * **Azure SRE Agent (Preview):** Operational automation for Azure environments. [Azure SRE Agent overview](https://learn.microsoft.com/en-us/azure/sre-agent/overview)
 * **GitHub Copilot agent mode & coding agent:** Autonomous coding tasks. [GitHub Copilot agents in VS Code](https://code.visualstudio.com/docs/copilot/agents/overview)
 
@@ -270,3 +273,4 @@ Historically, the "AND" conversation stalled at procurement: separate billing fo
 * [About GitHub Copilot coding agent](https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-coding-agent) (Accessed: 2026-01-28)
 * [Agent Pre-Purchase Plan (P3)](https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/agent-pre-purchase) (Updated: 2026-01-15)
 * [Introducing Microsoft Agent Factory](https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/introducing-microsoft-agent-factory/4470732) (Published: 2025-11-18)
+* [Introducing Microsoft Scout](https://www.microsoft.com/en-us/microsoft-365/blog/2026/06/02/introducing-microsoft-scout-your-always-on-personal-agent/) (Published: 2026-06-02)

@@ -245,7 +245,7 @@ This page provides comprehensive links to official Microsoft documentation, trai
 {: .no_toc }
 
 - **Foundry Local**
-  - [Foundry Local overview](https://learn.microsoft.com/en-us/azure/foundry/foundry-local/foundry-local-overview)
+  - [Foundry Local overview](https://learn.microsoft.com/en-us/azure/foundry-local/what-is-foundry-local)
   - [Foundry Local on Azure Local](https://learn.microsoft.com/en-us/azure/azure-sovereign-clouds/private/foundry-local/overview)
 
 - **Windows AI**

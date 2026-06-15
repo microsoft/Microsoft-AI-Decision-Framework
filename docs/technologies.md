@@ -641,7 +641,7 @@ Not every inference call should travel to the cloud. Latency-sensitive, offline-
 ## Foundry Local {: .tech-heading }
 
 **Description:** A component of Windows AI Foundry that brings Microsoft Foundry (Azure) models and capabilities to local devices (Windows 11, macOS), enabling offline inferencing, low-latency scenarios, and hybrid cloud/edge architectures. Models downloaded once, run locally with the same API surface as cloud Foundry.
-**Official Docs:** [Foundry Local overview](https://learn.microsoft.com/en-us/azure/foundry/foundry-local/foundry-local-overview)
+**Official Docs:** [Foundry Local overview](https://learn.microsoft.com/en-us/azure/foundry-local/what-is-foundry-local)
 **Status:** Availability varies by model and platform. Validate current Learn documentation before production use.
 
 **Key Features:**

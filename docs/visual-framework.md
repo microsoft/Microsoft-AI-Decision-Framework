@@ -185,7 +185,7 @@ flowchart TD
 | Technology | Action Safety | Proactive | Description |
 |------------|---------------|-----------|-------------|
 | **Foundry Agent Service** | ⚠️ Autonomous planning loops | ✅ Proactive capable | REST API, managed PaaS [(docs)](https://learn.microsoft.com/en-us/azure/foundry/quickstarts/get-started-code) |
-| **Microsoft Foundry (Azure)** | ⚠️ Autonomous planning loops | ✅ Proactive capable | REST API deployment [(docs)](https://learn.microsoft.com/en-us/rest/api/aifoundry/) |
+| **Microsoft Foundry (Azure)** | ⚠️ Autonomous planning loops | ✅ Proactive capable | REST API deployment [(docs)](https://learn.microsoft.com/en-us/rest/api/aifoundry/aiprojects/) |
 
 #### Vector Databases
 {: .no_toc }

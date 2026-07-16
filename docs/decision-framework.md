@@ -206,7 +206,7 @@ Instead of a binary choice (Low-Code vs. Pro-Code), map your need to the **Spect
 2.  **Meal Kit (Orchestration/Low-Code):** You get the ingredients and the recipe, but you assemble it. Faster than scratch, but adjustable. (Example: **Copilot Studio**).
 3.  **Scratch Cooking (Foundation/Pro-Code):** You buy raw ingredients and own the kitchen. Infinite possibility, but you do the dishes. (Example: **Microsoft Foundry / Agent SDK**).
 
-*   **SaaS Layer:** Default here. Use declarative agents or built-in Copilot extensibility.
+*   **SaaS Layer:** Default here. Use Declarative Agents or built-in Copilot extensibility.
 *   **Orchestration Layer:** Use Copilot Studio when you need custom logic but want managed infrastructure.
 *   **Foundation Layer:** Use Foundry or Agent Framework only when you need custom model tuning, private networking, or complex non-standard behaviors.
 
@@ -277,7 +277,7 @@ Answer "Where does my data go, and who can act on it?" before choosing a platfor
 - **M365 trust boundary** - Prompts, responses, and Graph data remain inside Microsoft 365; best for regulated organizations needing tenant guarantees.
 - **Power Platform boundary** - Copilot Studio keeps core data in-region but inherits the compliance posture of every connector you call and sends web search queries to Bing consumer services.[^transcriptcontrols][^copilotcalls]
 - **Azure landing zone** - Microsoft Foundry and Foundry Agent Service adopt your subscription's network, identity, and policy controls, with private networking and customer-managed keys available by design.
-- **Hybrid approaches** - Mix declarative and custom agents, or route everything through Azure API Management for centralized policy enforcement.
+- **Hybrid approaches** - Mix Declarative Agents and custom agents, or route everything through Azure API Management for centralized policy enforcement.
 
 {: .note }
 > Detailed matrices for network isolation, identity, and governance live in [Technologies]({{ '/docs/technologies#network-isolation-decision-matrix' | relative_url }}) and [Evaluation Criteria]({{ '/docs/evaluation-criteria#governance--compliance' | relative_url }}).
@@ -348,9 +348,9 @@ If nobody owns the agent after launch, you did not build a product. You created 
 
 Determine whether the agent is purely reactive or must trigger events on its own.
 
-- **Reactive with delegated execution** - M365 Copilot waits for a user prompt but can now sustain background execution via Copilot Cowork (Frontier Preview), breaking complex tasks into plans that run autonomously with human checkpoints. Copilot Studio declarative agents remain prompt-initiated.[^m365reactive][^copilotstudioevent]
+- **Reactive with delegated execution** - M365 Copilot waits for a user prompt but can now sustain background execution via Copilot Cowork (Frontier Preview), breaking complex tasks into plans that run autonomously with human checkpoints. Copilot Studio Declarative Agents remain prompt-initiated.[^m365reactive][^copilotstudioevent]
 - **Proactive capable** - Copilot Studio custom engine agents (Power Automate triggers), Azure Logic Apps, Microsoft Foundry/Foundry Agent Service integrations, and M365 Agents SDK listeners can respond to schedules, webhooks, or system alerts.[^logicappstrigger][^agentservicega]
-Declarative agents are reactive by design; proactive workflows require custom engine orchestration or event-driven services.
+Declarative Agents are reactive by design; proactive workflows require custom engine orchestration or event-driven services.
 
 {: .tip }
 > Use the automation sections in [Implementation Patterns]({{ '/docs/implementation-patterns#pattern-4-multi-channel-custom-engine-agent-with-m365-agents-sdk' | relative_url }}) to blueprint event-driven designs.
@@ -382,7 +382,7 @@ These principles keep the framework durable as products rename or shift capabili
 [^agentssdk]: *Create and deploy an agent with Microsoft 365 Agents SDK*, Microsoft Learn. Updated 2025-09-23. [https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/create-deploy-agents-sdk](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/create-deploy-agents-sdk)
 [^copilotstudio]: *Copilot Studio overview*, Microsoft Learn. Updated 2026-02-09. [https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-what-is-copilot-studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-what-is-copilot-studio)
 [^aibuilderoverview]: *Overview of AI Builder*, Microsoft Learn. Updated 2026-01-14. [https://learn.microsoft.com/en-us/ai-builder/overview](https://learn.microsoft.com/en-us/ai-builder/overview)
-[^declarativecomparison]: *Choose the right tool to build your declarative agent*, Microsoft Learn. Updated 2026-02-04. [https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/declarative-agent-tool-comparison](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/declarative-agent-tool-comparison)
+[^declarativecomparison]: *Choose the right tool to build your Declarative Agent*, Microsoft Learn. Updated 2026-02-04. [https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/declarative-agent-tool-comparison](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/declarative-agent-tool-comparison)
 [^agentstoolkitoverview]: *Microsoft 365 Agents Toolkit Overview*, Microsoft Learn. Updated 2025-09-03. [https://learn.microsoft.com/en-us/microsoftteams/platform/toolkit/agents-toolkit-fundamentals](https://learn.microsoft.com/en-us/microsoftteams/platform/toolkit/agents-toolkit-fundamentals)
 [^foundryoverview]: *What is Microsoft Foundry?*, Microsoft Learn. Updated 2026-03-13. [https://learn.microsoft.com/en-us/azure/foundry/what-is-foundry](https://learn.microsoft.com/en-us/azure/foundry/what-is-foundry)
 [^aiarchitecture]: *AI architecture design*, Microsoft Learn. Updated 2026-01-13. [https://learn.microsoft.com/en-us/azure/architecture/ai-ml/](https://learn.microsoft.com/en-us/azure/architecture/ai-ml/)
@@ -421,7 +421,7 @@ Think in experiment steps: start with the fastest viable option (often SaaS or m
 **Days (Immediate):**
 
 - M365 Copilot (built-in agents, no setup)
-- Copilot Studio templates (declarative agents)
+- Copilot Studio templates (Declarative Agents)
 
 **Weeks (Fast):**
 
@@ -476,7 +476,7 @@ Prefer platforms and connectors that support open/interoperable patterns (e.g., 
 
 **Low Complexity (Simple Q&A, basic actions):**
 
-- Copilot Studio declarative agents
+- Copilot Studio Declarative Agents
 - M365 Copilot with Graph Connectors
 - AI Builder models (prebuilt document processing)
 
@@ -570,7 +570,7 @@ Prefer platforms and connectors that support open/interoperable patterns (e.g., 
 
 **Need Multi-Agent Collaboration?**
 
-- **Foundry Agent Service** (connected agents, managed orchestration)
+- **Foundry Agent Service** (incoming A2A endpoint **Preview** for lightweight direct delegation; not deterministic workflow orchestration)
 - **Copilot Studio** (child agents + connected agents, supports Fabric data agents)
 - **Agent Framework** (Handoff/Magentic patterns)
 

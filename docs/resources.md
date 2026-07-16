@@ -77,7 +77,7 @@ This page provides comprehensive links to official Microsoft documentation, trai
 **Key Resources:**
 
 - [Microsoft Foundry quickstart](https://learn.microsoft.com/en-us/azure/foundry/quickstarts/get-started-code)
-- [Microsoft Foundry Visual Studio Code extension](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/vs-code-agents-workflow-low-code)
+- [Microsoft Agent Framework workflows](https://learn.microsoft.com/en-us/agent-framework/user-guide/workflows/overview)
 - [M365 Agents Toolkit (VS Code)](https://marketplace.visualstudio.com/items?itemName=TeamsDevApp.ms-teams-vscode-extension)
 - [Microsoft Agent Framework documentation](https://learn.microsoft.com/en-us/agent-framework/overview/agent-framework-overview)
 - [Semantic Kernel documentation](https://learn.microsoft.com/en-us/semantic-kernel/overview/)
@@ -152,14 +152,15 @@ This page provides comprehensive links to official Microsoft documentation, trai
   - [Foundry Agent Service Overview](https://learn.microsoft.com/en-us/azure/foundry/agents/overview)
   - [Deploy your first hosted agent](https://learn.microsoft.com/en-us/azure/foundry/agents/quickstarts/quickstart-hosted-agent)
   - [Manage hosted agent lifecycle](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/manage-hosted-agent)
+  - [Hosted agent isolation, sessions, compute, storage, networking, and regions](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/hosted-agents)
   - [Quotas and limits for Agent Service](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/limits-quotas-regions)
   - [Fireworks models on Microsoft Foundry (Preview)](https://learn.microsoft.com/en-us/azure/foundry/how-to/fireworks/enable-fireworks-models)
   - [Configure Claude Code for Microsoft Foundry](https://learn.microsoft.com/en-us/azure/foundry/foundry-models/how-to/configure-claude-code)
-  - **Service note:** Optional PaaS runtime for hosting agents. Alternatively, deploy self-hosted agents using Agent Framework or custom code in your infrastructure.
+  - **Service note:** Optional PaaS runtime. Choose Hosted Agents only when per-session VM isolation is worth the complete [Hosted Agent Constraint Card]({{ '/docs/technologies#the-hosted-agent-constraint-card' | relative_url }}); otherwise use Azure Container Apps or AKS for more scalable customer-operated hosting.
 
 - **Copilot Studio**
   - [What's new in Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/whats-new#october-2025)
-  - [Declarative agents](https://learn.microsoft.com/microsoft-365/copilot/extensibility/overview-declarative-agent)
+  - [Declarative Agents](https://learn.microsoft.com/microsoft-365/copilot/extensibility/overview-declarative-agent)
   - [Custom engine agents overview](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-custom-engine-agent)
   - [Copilot Studio documentation](https://learn.microsoft.com/en-us/microsoft-copilot-studio/)
   - [Computer Use (Preview)](https://learn.microsoft.com/en-us/microsoft-copilot-studio/computer-use)
@@ -259,8 +260,11 @@ This page provides comprehensive links to official Microsoft documentation, trai
 - **ASSERT**
   - [ASSERT repository](https://github.com/responsibleai/ASSERT)
 
-- **Agent Control Specification (ACS) (Preview)**
-  - [Agent Governance Toolkit repository](https://github.com/microsoft/agent-governance-toolkit)
+- **Agent Governance Toolkit (Public Preview, MIT-licensed OSS)**
+  - [Microsoft Open Source announcement](https://opensource.microsoft.com/blog/2026/04/02/introducing-the-agent-governance-toolkit-open-source-runtime-security-for-ai-agents/)
+  - [Repository](https://github.com/microsoft/agent-governance-toolkit)
+  - [Changelog](https://github.com/microsoft/agent-governance-toolkit/blob/main/CHANGELOG.md)
+  - **Release note:** v4.1.0 is the latest formal release; main v5 is unreleased. There are zero GA features. ACS is a beta policy layer. This is self-operated application middleware with evolving APIs—not a managed Microsoft service or SLA-backed control plane.
 
 ### Specialized Agents
 {: .no_toc }
@@ -274,6 +278,7 @@ This page provides comprehensive links to official Microsoft documentation, trai
   - [What's new in Content Understanding](https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/whats-new)
 
 - **Lifecycle & Migration**
+  - [Foundry Workflow retirement and role-based migration](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/workflow) — **Retiring from Preview without a GA path on December 1, 2026**
   - [Migrate from the Foundry (classic) portal](https://learn.microsoft.com/en-us/azure/foundry/how-to/navigate-from-classic)
   - [Migrate to the new agents developer experience](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/migrate)
   - [Migrate classic agents to new agents](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/migrate#migrate-classic-agents-to-new-agents)

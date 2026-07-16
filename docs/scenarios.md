@@ -54,59 +54,34 @@ Employees need instant answers to HR questions (policies, benefits, PTO) without
 ### Recommended Technologies
 {: #scenario1-recommended .no_toc }
 
-**Primary Solution:** Employee Self-Service agent for Microsoft 365 Copilot
+{: .warning }
+> **Evidence gate—Employee Self-Service unverified:** No stable, accessible current official source was available at the July 13, 2026 review cutoff to reconfirm the product, entitlement, extension packs, connectors, or deployment claims. This scenario therefore makes **no Employee Self-Service recommendation** until each dependency is reverified.
 
-| Component | Technology | Purpose |
-|-----------|------------|---------|
-| **Agent Platform** | Employee Self-Service managed solution in Copilot Studio | Prebuilt HR + IT agent with guardrails, instructions, telemetry |
-| **Knowledge Sources** | SharePoint knowledge connectors with filtering | Serve curated HR policies and official answers |
-| **HR/IT Transactions** | Workday, ServiceNow, SAP SuccessFactors extension packs | Read/write employee data and tickets with packaged Power Platform flows |
-| **Deployment** | Microsoft 365 Copilot (Teams, Outlook) | Keeps experiences inside M365 tenant and Entra ID |
-| **Governance** | Power Platform ALM (dev/test/prod) | Enforces DLP, approvals, and monitoring
+**The Analogy: The Locked HR Filing Room.** A sign saying “employee self-service” does not prove who has the key, which cabinets it opens, or whether it can file a ticket. Verify each door separately.
 
-**Why This Stack:**
-
-- Employee Self-Service (ESS) combines Copilot Studio hosting, knowledge sources, and out-of-box HR/IT instructions so makers can configure without code while staying in Microsoft 365 Copilot ([An introduction to Employee Self-Service, Nov 5 2025](https://learn.microsoft.com/en-us/copilot/microsoft-365/employee-self-service/overview)).
-- Extension packs expose managed flows and connectors for Workday, ServiceNow, and SAP SuccessFactors so agents can retrieve employee context or open tickets instead of staying knowledge-only ([Integrate Workday with your Employee Self-Service deployment, Nov 12 2025](https://learn.microsoft.com/en-us/copilot/microsoft-365/employee-self-service/workday); [Integrate ServiceNow HRSD and ITSM with Employee Self-Service, Nov 5 2025](https://learn.microsoft.com/en-us/copilot/microsoft-365/employee-self-service/servicenow-hrsd-itsm)).
-- Governance guidance (official-source badging, SharePoint filtering, telemetry, ALM) helps HR own the solution within the M365 trust boundary while still allowing third-party APIs through allowlisted connectors ([Customize the Employee Self-Service agent, Nov 5 2025](https://learn.microsoft.com/en-us/copilot/microsoft-365/employee-self-service/customize); [SharePoint advanced filtering for Employee Self-Service, Nov 5 2025](https://learn.microsoft.com/en-us/copilot/microsoft-365/employee-self-service/sharepoint-filtering)).
-- Licensing is straightforward: employees with Microsoft 365 Copilot can use ESS at no extra cost, while other audiences draw from Copilot Studio prepaid or Pay-as-you-go meters (plan this during prerequisites) ([Prerequisites to deploy the Employee Self-Service agent, Nov 5 2025](https://learn.microsoft.com/en-us/copilot/microsoft-365/employee-self-service/prerequisites)).
+| Decision Gate | Evidence Required Before Selection |
+|-----------|------------|
+| **Knowledge** | Current official support for the exact SharePoint sources, filtering, citations, and permission trimming |
+| **Transactions** | Current connector action, read/write scope, identity mode, licensing, and approval behavior for each HR system |
+| **Distribution** | Current supported Microsoft 365 and Teams channels plus admin approval requirements |
+| **Governance** | DLP, environment strategy, audit, retention, telemetry, and sensitive-topic escalation |
+| **Entitlement** | Current per-user, capacity, and connector rights—no “included” assumption |
 
 ### Implementation Steps
 {: #scenario1-implementation .no_toc }
 
-1. **Prepare Environment & Prerequisites** (1-2 days)
-   - Confirm Microsoft 365 Copilot licensing or Copilot Studio prepaid/Pay-as-you-go coverage
-   - Provision dev/test/prod Power Platform environments and allow required connectors per DLP policies
-   - Assign Global Admin, Power Platform Admin, security, and HR owners for the rollout ([Prerequisites to deploy the Employee Self-Service agent, Nov 5 2025](https://learn.microsoft.com/en-us/copilot/microsoft-365/employee-self-service/prerequisites))
-
-2. **Install Employee Self-Service Solution** (1 day)
-   - Import ESS managed solution from Copilot Studio into dev
-   - Add Workday/ServiceNow/SAP extension packs as needed to unlock packaged flows ([An introduction to Employee Self-Service, Nov 5 2025](https://learn.microsoft.com/en-us/copilot/microsoft-365/employee-self-service/overview))
-   - Connect to Microsoft 365 Copilot channel in Teams for testing
-
-3. **Configure Knowledge & Systems** (3-4 days)
-   - Audit SharePoint HR site, tag authoritative pages, and configure knowledge sources with KQL filtering ([SharePoint advanced filtering for Employee Self-Service, Nov 5 2025](https://learn.microsoft.com/en-us/copilot/microsoft-365/employee-self-service/sharepoint-filtering))
-   - Configure Workday reports (RaaS), ServiceNow OAuth apps, and SAP credentials for the extension packs ([Integrate Workday with your Employee Self-Service deployment, Jan 20 2026](https://learn.microsoft.com/en-us/copilot/microsoft-365/employee-self-service/workday); [Integrate ServiceNow HRSD and ITSM with Employee Self-Service, Nov 12 2025](https://learn.microsoft.com/en-us/copilot/microsoft-365/employee-self-service/servicenow-hrsd-itsm))
-   - Customize instructions, welcome experience, and official-source badges for HR tone ([Customize the Employee Self-Service agent, Dec 15 2025](https://learn.microsoft.com/en-us/copilot/microsoft-365/employee-self-service/customize))
-
-4. **Test & Govern** (3-5 days)
-   - Build golden prompts, regression suites, and telemetry dashboards
-   - Pilot with HR stewards, validate ticket creation, and review safety rails
-   - Document handoff procedures for sensitive topics or low confidence responses ([Customize the Employee Self-Service agent, Dec 15 2025](https://learn.microsoft.com/en-us/copilot/microsoft-365/employee-self-service/customize))
-
-5. **Deploy & Monitor** (1 day)
-   - Promote managed solution to production via ALM pipeline ([Employee Self-Service agent deployment overview, Nov 5 2025](https://learn.microsoft.com/en-us/copilot/microsoft-365/employee-self-service/deploy-overview-alm))
-   - Publish to Microsoft 365 Copilot, announce in Teams, and watch telemetry for the first 30 days
-
-**Time to Production:** 2-3 weeks (depends on connector entitlement)  
-**Ongoing Maintenance:** HR team updates SharePoint content, monitors connectors, and evolves prompts via ESS telemetry
+1. Verify every item in the evidence gate against current official documentation.
+2. Build a read-only policy pilot before enabling HR transactions.
+3. Test each transaction under the real caller identity and require explicit confirmation for writes.
+4. Run sensitive-topic, permission-trimming, and low-confidence escalation tests.
+5. Estimate timeline only after entitlement, connector, and channel evidence is complete.
 
 ### Alternative Approaches
 {: #scenario1-alternatives .no_toc }
 
-**If you cannot adopt ESS yet:**
+**If you need a fallback candidate:**
 
-- Stay with Copilot Studio + SharePoint knowledge connectors for a knowledge-only bot, then graduate to ESS once Power Platform environments and connector allowlists are ready.
+- Evaluate a read-only Copilot Studio and SharePoint pattern only after reconfirming its exact licensing, knowledge-source, identity, and channel requirements. Do not treat it as an evidence-free default.
 
 **If you need bespoke orchestration:**
 
@@ -296,36 +271,39 @@ Field technicians need to analyze schematics and summarize repair logs while wor
 {: #scenario6-key-requirements .no_toc }
 
 - **Offline Capability:** Must function without internet access.
-- **Zero Data Exfiltration:** Inference must happen locally on the device.
-- **Low Latency:** Instant analysis of text/images.
+- **Controlled Data Egress:** Inference and document processing must stay on the validated device during offline operation.
+- **Measured Latency:** Text and schematic-label extraction must meet a tested device target.
 - **Cost Efficiency:** High volume of queries shouldn't incur cloud token costs.
 
 ### Recommended Technologies
 {: #scenario6-recommended .no_toc }
 
-**Primary Solution:** Windows AI Foundry (Phi-4-mini + Windows ML)
+**Primary Architecture:** Microsoft Foundry Local + a verified Windows OCR capability on a tested device profile
 
 | Component | Technology | Purpose |
 |-----------|------------|---------|
-| **Local Model** | Phi-4-mini (via Foundry Local) | High-quality reasoning on-device (3.8B params) |
-| **Runtime** | Windows ML (ONNX) | Hardware-accelerated inference (NPU/GPU) |
+| **Local Model** | A currently supported Foundry Local text model | Summarize repair logs after local download |
+| **Vision/OCR** | Windows AI text-recognition capability | Extract printed labels and annotations from schematics; do not claim full diagram reasoning |
+| **Runtime** | Foundry Local / supported Windows runtime | Execute on the validated CPU, GPU, or NPU path documented for the selected model and device |
 | **App Framework** | Windows App SDK | Native Windows application |
 | **Data Access** | Local File System | Secure access to schematics/logs |
 
 **Why This Stack:**
 
-- **Privacy:** Data never leaves the device; meets strict compliance.
-- **Offline:** Full functionality without connectivity.
-- **Cost:** Zero cloud inference costs; leverages client hardware.
-- **Performance:** NPU acceleration ensures low latency.
+- **The Airplane-Mode Test:** “Local” is a deployment claim; “offline and private” is a test result. Prove the app starts, extracts text, reasons over logs, and writes outputs with networking disabled.
+- Foundry Local runs selected models locally, but model availability, first-download behavior, acceleration, and performance vary by model and device.
+- A text model does not become a vision model because the input came from a schematic. OCR handles labels; broader visual interpretation requires a separately documented vision-capable model and acceptance tests.
 
 ### Implementation Steps
 {: #scenario6-implementation .no_toc }
 
-1. **Model Selection:** Use `foundry model list` to select Phi-4-mini.
-2. **App Integration:** Use Windows App SDK to integrate the model via Windows ML.
-3. **Optimization:** Use AI Toolkit for VS Code to quantize/optimize the model for the target device.
-4. **Deployment:** Package the app with the model (or download on first run).
+1. **Define the device profile:** Pin Windows version, CPU/GPU/NPU, RAM, storage, and driver baseline.
+2. **Verify capabilities:** Select a currently supported Foundry Local text model and a documented Windows OCR API. If full schematic interpretation is required, stop until a vision-capable local model is verified.
+3. **Package deliberately:** Decide whether the model ships with the app or requires a first-run download; a first-run download is not offline deployment.
+4. **Test airplane mode:** Measure startup, OCR accuracy, response latency, memory, battery, and failure behavior with networking disabled.
+5. **Validate privacy:** Inspect telemetry, crash reporting, update checks, model acquisition, temporary files, and logs. “Local inference” alone does not prove zero egress.
+
+**Status:** Foundry Local and Windows capabilities vary by model, API, Windows release, and device. Verify the current [Foundry Local documentation](https://learn.microsoft.com/en-us/azure/foundry-local/what-is-foundry-local) and [Windows AI comparison](https://learn.microsoft.com/en-us/windows/ai/windows-ai-comparison) before procurement.
 
 ---
 
@@ -342,34 +320,35 @@ A software development team is bogged down by routine maintenance, technical deb
 - **Autonomous Coding:** Delegate complex tasks (refactoring, testing) to an AI agent.
 - **Asynchronous Work:** Agent works in the background without blocking the developer.
 - **Production Monitoring:** AI proactively detects and diagnoses production issues.
-- **Self-Healing:** Automated root cause analysis and fix suggestions.
+- **Assisted Remediation:** Root-cause evidence becomes a governed issue and reviewed pull request.
 
 ### Recommended Technologies
 {: #scenario7-recommended .no_toc }
 
-**Primary Solution:** GitHub Copilot Coding Agent + Azure SRE Agent
+**Primary Pattern:** GitHub Copilot cloud agent + Azure SRE Agent (GA), joined through governed GitHub artifacts
 
 | Component | Technology | Purpose |
 |-----------|------------|---------|
-| **Developer Agent** | GitHub Copilot Coding Agent | Autonomous coding, testing, and refactoring |
-| **Operations Agent** | Azure SRE Agent | Production monitoring, alert response, RCA |
-| **Platform** | GitHub | Unified workflow (Issues, PRs, CI/CD) |
+| **Developer Agent** | GitHub Copilot cloud agent | Asynchronous code changes on a branch and pull request |
+| **Operations Agent** | Azure SRE Agent (GA) | Investigation, operational evidence, and approved actions |
+| **Handoff** | GitHub Issue / incident record | Human-triaged boundary; no unverified direct agent handoff |
+| **Platform** | GitHub | Issues, PRs, CI/CD, code owners, and branch protection |
 | **IDE** | VS Code (Agent Mode) | "Peer programmer" for complex local tasks |
 
 **Why This Stack:**
 
-- **Coding Agent:** Moves beyond "autocomplete" to "autonomy". It can take a GitHub Issue ("Fix the login bug") and independently write code, run tests, and open a PR.
-- **SRE Agent:** Connects production reality back to development. It detects an outage, analyzes logs, identifies the root cause, and can even assign a fix task to the Coding Agent.
-- **Unified Flow:** The entire lifecycle (Code -> Deploy -> Monitor -> Fix) is orchestrated by agents working together.
+- **The Two-Key Repair Shop:** SRE Agent writes the work order; the cloud agent prepares the repair. A human and branch policy hold the keys to merge and deployment.
+- No current official source establishes a direct SRE-to-cloud-agent handoff. Use a reviewed issue or incident record to transfer evidence and acceptance criteria.
+- Copilot review augments evidence. It does not count as approval.
 
 ### Implementation Steps
 {: #scenario7-implementation .no_toc }
 
-1. **Enable Agents:** Activate GitHub Copilot Coding Agent and Azure SRE Agent (Preview).
-2. **Configure SRE Agent:** Connect to Azure Monitor and Kubernetes clusters.
-3. **Delegate Tasks:** Developers assign routine refactoring and test coverage tasks to the Coding Agent via GitHub Issues.
-4. **Monitor & Respond:** SRE Agent watches production. Upon alert, it performs RCA and logs findings.
-5. **Review & Merge:** Developers review the PRs created by the Coding Agent (either for features or SRE fixes) and merge.
+1. **Configure SRE Agent (GA):** Grant least privilege to the required Azure resources and telemetry.
+2. **Record evidence:** Put findings in an incident record or GitHub Issue; require human triage before coding begins.
+3. **Delegate safely:** Assign a bounded issue to the GitHub Copilot cloud agent with build, test, scan, and rollback criteria.
+4. **Review the PR:** Require CI, security checks, code-owner approval, and branch protection. The agent does not self-approve or self-merge.
+5. **Deploy and verify:** Use the existing pipeline, then have SRE Agent confirm recovery from production evidence.
 
 ---
 
@@ -378,7 +357,7 @@ A software development team is bogged down by routine maintenance, technical deb
 ### Business Context
 {: #scenario8-business-context .no_toc }
 
-An enterprise has hundreds of legacy Java and .NET applications running on outdated frameworks. Manual upgrades are cost-prohibitive and risky. Security vulnerabilities in old dependencies are a major risk.
+An enterprise has hundreds of legacy Java, .NET, and C++ applications running on outdated frameworks and toolchains. Manual upgrades are cost-prohibitive and risky. Security vulnerabilities in old dependencies are a major risk.
 
 ### Key Requirements
 {: #scenario8-key-requirements .no_toc }
@@ -391,28 +370,35 @@ An enterprise has hundreds of legacy Java and .NET applications running on outda
 ### Recommended Technologies
 {: #scenario8-recommended .no_toc }
 
-**Primary Solution:** GitHub Copilot App Modernization
+**Primary Solution:** GitHub Copilot Modernization
 
 | Component | Technology | Purpose |
 |-----------|------------|---------|
-| **Modernization Agent** | GitHub Copilot App Modernization | Specialized agent for Java/.NET upgrades |
-| **Platform** | GitHub | Repository hosting and CI/CD |
-| **Validation** | GitHub Actions | Automated testing of upgraded code |
+| **Assessment and Planning** | Modernization agent CLI (**Public Preview**) | Assess and plan modernization across multiple applications, then hand plans to developers |
+| **Developer Execution** | GitHub Copilot Modernization IDE extensions | **GA** language/framework/tool upgrades for .NET, Java, and C++; **GA** Azure migration for supported .NET and Java applications |
+| **Transformation** | Modernization tasks and OpenRewrite where supported | Upgrade dependencies and runtimes, transform code, remediate CVEs, and prepare containerization |
+| **Validation** | Product build/test checks + repository CI/security tooling | Require successful builds, tests, dependency policy, vulnerability scans, and human acceptance |
+| **Deployment Assets** | Container, IaC, and Azure deployment generation for supported scenarios | Proposed migration assets—not automatic production approval |
 
 **Why This Stack:**
 
-- **Specialized Knowledge:** The agent is specifically trained on migration patterns (e.g., .NET Framework to .NET 8, Java 8 to 17).
-- **Plan & Execute:** It doesn't just write code; it generates a comprehensive upgrade plan, executes it across thousands of files, and summarizes the changes.
-- **Risk Reduction:** Automated remediation of security vulnerabilities during the upgrade process.
+- **The Renovation Crew:** GitHub Copilot Modernization is a solution collection delivered through complementary IDE extensions and the Modernize CLI. It is not one standalone agent, and Microsoft does not document a special underlying model.
+- The solution can assess applications, create plans, upgrade dependencies/runtimes, apply supported OpenRewrite transformations, validate builds/tests, address CVEs, and generate container, IaC, and deployment assets.
+- Feature status follows the surface: IDE upgrade paths are **GA** for .NET, Java, and C++; IDE Azure migration is **GA** for .NET and Java; the Modernization agent CLI is **Public Preview**.
+- Automation accelerates the renovation; it does not certify the building. Human review, repository policy, build/test evidence, security scans, and deployment gates remain authoritative.
 
 ### Implementation Steps
 {: #scenario8-implementation .no_toc }
 
-1. **Assessment:** Point the App Modernization agent at the legacy repository.
-2. **Plan Generation:** Review the AI-generated upgrade plan (identified dependencies, breaking changes).
-3. **Execution:** Authorize the agent to execute the plan. It modifies project files, code, and configurations.
-4. **Validation:** Agent runs local builds/tests.
-5. **Review:** Developer reviews the massive PR (often touching hundreds of files) and merges.
+1. **Baseline:** Capture current build, test, dependency, vulnerability, runtime, deployment, and performance results.
+2. **Choose the surface:** Use the Modernization agent CLI (**Public Preview**) for portfolio assessment and planning; use the applicable IDE extension for supported developer transformations.
+3. **Review the plan:** Confirm target runtime/framework versions, Azure migration scope, unsupported dependencies, rollback, and acceptance criteria before changing code.
+4. **Execute in slices:** Apply bounded dependency/runtime upgrades and supported transformations. Use OpenRewrite-backed tasks where the selected Java path documents them; avoid one heroic repository-wide change.
+5. **Validate:** Require clean builds, regression and migrated unit tests, dependency-policy checks, CVE scans, and measurable performance targets. Treat product-generated fixes as proposals until the gates pass.
+6. **Prepare deployment:** For supported Azure migration scenarios, review generated containers, IaC, CI/CD, and deployment assets under the organization’s normal cloud controls.
+7. **Approve:** A human reviews the diff, evidence, deployment plan, and rollback path before merge or release.
+
+**Status:** IDE language/framework/tool upgrades **GA** for .NET, Java, and C++; IDE Azure migration **GA** for .NET and Java; Modernization agent CLI **Public Preview**. See [GitHub Copilot Modernization overview](https://learn.microsoft.com/en-us/azure/developer/github-copilot-app-modernization/overview) (updated June 12, 2026).
 
 ---
 
@@ -421,50 +407,47 @@ An enterprise has hundreds of legacy Java and .NET applications running on outda
 ### Business Context
 {: .no_toc }
 
-A development team has built a specialized compliance advisor in Microsoft Foundry that can search regulatory databases, analyze document risk, and generate audit summaries. The agent works well in the Foundry Chat Playground and via the Responses API. Now stakeholders want it accessible to every knowledge worker inside Word, Teams, and Outlook, with no separate app, separate login, or separate training.
+A development team has built a specialized compliance advisor in Microsoft Foundry that works through its current endpoint. Stakeholders want to evaluate Microsoft 365 Copilot and Teams as additional channels without assuming the Preview distribution path preserves every tool, identity, or rendering behavior.
 
 ### Key Requirements
 {: .no_toc }
 
-- Agent must appear in the M365 Copilot Agent Store for organization-wide discovery
-- All Foundry tools (MCP, function calling, code interpreter) must continue working after publish
-- Agent identity must be governed: separate Entra identity, Azure Policy-managed, RBAC-scoped
-- Dual-channel support: custom app (Responses API) AND M365 Copilot simultaneously
-- Admin approval workflow for organization-wide deployment
+- Microsoft 365 distribution must be treated as **Early Access Preview**
+- Every tool and identity path must be tested rather than promised
+- The current agent endpoint remains the custom-app baseline
+- Admin approval and rollback must be documented for each enabled channel
 
 ### Recommended Technologies
 {: .no_toc }
 
 | Component | Technology | Purpose |
 |-----------|------------|---------|
-| **Agent Runtime** | Foundry Agent Service | Managed hosting with tools, models, and thread state |
-| **Agent Packaging** | Agent Application (Azure resource) | Stable endpoint, dedicated Entra agent identity, RBAC scope |
-| **Distribution** | Publish to M365 Copilot (one-click) | Agent appears in Word, Teams, Outlook via Copilot Agent Store |
-| **Alternative Distribution** | M365 Agents Toolkit proxy app | Advanced scenarios: custom SSO, multi-environment CI/CD |
-| **Custom App Channel** | Responses API | Headless invocation for web/mobile integrations |
-| **Governance** | Foundry Control Plane + M365 Admin Center | Azure Policy at the agent resource level; admin approval for M365 |
+| **Agent Runtime** | Prompt Agent (GA) or [Hosted Agent (mixed maturity)]({{ '/docs/technologies#the-hosted-agent-constraint-card' | relative_url }}) | Choose configuration or code ownership; Hosted Agents qualify only when the complete linked constraint card fits |
+| **Endpoint / Identity** | Current Foundry agent model | Programmatic baseline with explicit RBAC testing |
+| **Distribution** | M365 Copilot and Teams (**Early Access Preview**) | Additional channel, not a GA parity promise |
+| **Custom App Channel** | Current agent endpoint | Stable acceptance baseline for headless invocation |
+| **Governance** | Foundry and M365 admin controls | Approval, least privilege, audit, and rollback by channel |
 
 **Why This Stack:**
 
-- **Copilot is the UI for AI.** Publishing into M365 Copilot means the compliance advisor inherits a production-grade AI interface without building one: cross-app presence in Teams, Outlook, Word, Excel, and PowerPoint, unified discovery through the Agent Store, tenant-wide governance via the Copilot Control System and Agent Registry, adaptive card rendering for rich responses, built-in compliance and audit controls, usage analytics, mobile parity, and Entra ID-scoped security trimming. No front-end engineering, no design system, no cross-platform testing.
-- The one-click publish flow from Foundry eliminates custom glue code. The agent registers a Bot Service resource, provisions an Entra app registration, and packages itself for M365 automatically.
-- Publishing creates an Agent Application with a dedicated identity, so the compliance team can audit which agent accessed which resource, independent of the developer's project identity.
-- The Responses API endpoint stays live after publishing, so the same agent serves both the custom web app and M365 Copilot. One brain, two faces.
+- **One brain, inspected doors.** Reusing agent logic can reduce duplicate orchestration, but each Microsoft 365 door still needs tool, identity, rendering, audit, and lifecycle acceptance tests.
+- Legacy Agent Applications are deprecated. Use the current endpoint and identity model; do not design a new solution around the legacy promotion step.
+- Hosted Agents are appropriate only when per-session VM isolation matters and the complete [Hosted Agent Constraint Card]({{ '/docs/technologies#the-hosted-agent-constraint-card' | relative_url }}) fits. Otherwise use Azure Container Apps or AKS for more scalable hosting.
 
 ### Implementation Steps
 {: .no_toc }
 
-1. **Build and test in Foundry:** Configure model, instructions, MCP tools, and knowledge sources. Validate thoroughly in the Chat Playground. (Pattern 2: Pro-Code First)
-2. **Publish as Agent Application:** Select "Publish Agent" to create the Azure resource. Note the new agent identity.
-3. **Reassign RBAC:** Grant the new agent identity the same Azure roles the project identity had (Storage Blob Reader, Search Index Data Reader, etc.). This step is mandatory. Skipping it causes authorization failures.
-4. **Distribute to M365 Copilot:** Select "Publish to Microsoft 365 Copilot and Teams", choose Individual or Organization scope, and trigger admin approval if organization-wide.
-5. **Validate dual-channel:** Test the agent in the Copilot Agent Store (Teams/Word) AND via the Responses API endpoint to confirm both paths work.
+1. **Choose the current agent type:** Use Prompt Agent for configuration-defined behavior or Hosted Agent only after passing its [constraint card]({{ '/docs/technologies#the-hosted-agent-constraint-card' | relative_url }}).
+2. **Validate the current endpoint:** Test model, instructions, tools, identity, RBAC, safety, and audit behavior before adding channels.
+3. **Enable Preview distribution:** Follow the current Microsoft 365 Copilot/Teams Early Access documentation and admin approval path.
+4. **Run a channel matrix:** Test every tool and identity mode in each documented target surface; remove unsupported combinations.
+5. **Pilot and roll back:** Start with a controlled audience and preserve the endpoint-only path if Preview channel behavior fails acceptance criteria.
 
 ### Alternative Approaches
 {: .no_toc }
 
-- **Copilot Studio-first** (Pattern 1): Faster for simple agents, but lacks Foundry's custom model selections and MCP tooling depth.
-- **Agents Toolkit proxy:** Use when you need SSO, environment-specific configuration, or CI/CD pipeline control over the M365 integration layer.
+- **Copilot Studio-first** (Pattern 1): Evaluate when the experience is primarily Microsoft 365-facing and its documented capabilities fit.
+- **Customer-hosted channel adapter:** Use Azure Container Apps or AKS when scalable hosting and infrastructure control matter more than Hosted Agent session isolation.
 
 **Cross-references:** [Pattern 9: Foundry Agent → M365 Copilot Publish Path]({{ '/docs/implementation-patterns#pattern-9-foundry-agent--m365-copilot-publish-path' | relative_url }}), [Evaluation Criteria: Lifecycle & Operational Readiness]({{ '/docs/evaluation-criteria' | relative_url }})
 
@@ -528,16 +511,16 @@ A project management office (PMO) wants an agent that helps managers prepare for
 
 | Scenario | Complexity | Time to Prod | Skill Level | Key Technology |
 |----------|-----------|--------------|-------------|----------------|
-| HR Knowledge Base | Low | 2-3 weeks | Maker | Employee Self-Service + Workday/ServiceNow packs |
+| HR Knowledge Base | Unscored pending evidence | TBD | Maker + governance owner | Employee Self-Service unverified; pass evidence gate first |
 | Invoice Processing | Low-Medium | 3-4 weeks | Maker | AI Builder + Power Automate |
 | Customer Support | Medium | 6-8 weeks | Professional dev | Copilot Studio + Azure AI Search (agentic retrieval) |
-| Privacy-First Field Agent | Medium | 4-8 weeks | Professional dev | Windows AI Foundry (Local Phi-4-mini) |
-| Agentic DevOps | High | 4-6 weeks | Professional dev | GitHub Copilot Coding Agent + Azure SRE Agent |
-| Legacy App Modernization | High | 3-6 months | Professional dev | GitHub Copilot App Modernization |
+| Privacy-First Field Agent | Medium | Test-dependent | Professional dev | Foundry Local text model + verified Windows OCR on a pinned device |
+| Agentic DevOps | High | 4-6 weeks | Professional dev | GitHub Copilot cloud agent + Azure SRE Agent (GA), artifact handoff |
+| Legacy App Modernization | High | 3-6 months | Professional dev | GitHub Copilot Modernization: GA IDE paths + Modernization agent CLI (Public Preview), with CI/security gates |
 | Copilot-to-Copilot Mesh | Medium | 3-4 weeks | Maker + light dev | Copilot Studio A2A + MCP tools |
-| Financial Reconciliation (Multi-Agent) | High | 4-6 weeks | Pro dev | Foundry Agent Service + Cosmos DB threads |
+| Financial Reconciliation (Multi-Agent) | High | 4-6 weeks | Pro dev | Agent Framework (**GA core**) for deterministic code-first orchestration; incoming Foundry A2A endpoint (**Preview**) only for direct delegation; [Hosted Agents (mixed maturity)]({{ '/docs/technologies#the-hosted-agent-constraint-card' | relative_url }}) only when the constraint card fits |
 | Multi-Channel Corporate Assistant | Medium | 3-5 weeks | Pro dev | M365 Agents SDK (Teams/Outlook/M365 Chat) |
-| Foundry Agent → M365 Copilot | Medium | 2-4 weeks | Pro dev | Foundry Agent Service + M365 Copilot publish |
+| Foundry Agent → M365 Copilot | Medium | Pilot-dependent | Pro dev | Current Foundry endpoint + M365 distribution (Early Access Preview) |
 | Work IQ-Enhanced Studio Agent | Low-Medium | 2-3 weeks | Maker | Copilot Studio + Work IQ MCP servers |
 
 ---
@@ -558,7 +541,7 @@ A project management office (PMO) wants an agent that helps managers prepare for
 
 ---
 
-**Last Updated:** March 19, 2026  
+**Last Updated:** July 13, 2026
 **Next:** [Visual Framework]({{ '/docs/visual-framework' | relative_url }}) - Walk the decision trees to choose the right path
 
 ---

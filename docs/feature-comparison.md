@@ -234,7 +234,7 @@ Before selecting a platform, check the expiration date. This matrix flags active
 | **Active Deprecations** | None | None | Foundry Workflows: **Retiring from Preview without a GA path on December 1, 2026**; Assistants API (Aug 26, 2026); `azure-ai-agents` deprecated | Breaking changes tracked in upgrade guides | Model LTS policies active |
 | **Publish to M365 Copilot** | Native | Native | **Early Access Preview**; validate each tool and identity path | Via M365 Agents SDK | N/A |
 | **Multi-Agent Orchestration** | Via Researcher agent (GA) + connected agents | Connected agents (Preview) | Incoming A2A endpoint (Preview); use Agent Framework for code-first orchestration | Custom workflow graphs; built-in Sequential, Concurrent, Handoff, Group Chat, and Magentic-One patterns | N/A |
-| **MCP Compatibility** | N/A | Consumer + Producer (custom MCP servers, Preview → Apr GA) | Consumer + Producer (MCP tool GA) | Consumer (GA) | Consumer (MCP servers in VS Code) |
+| **MCP Compatibility** | N/A | Consumer (GA) | Consumer + Producer (MCP tool GA) | Consumer (GA) | Consumer (MCP servers in VS Code) |
 | **Permission-Aware Grounding** | Graph security trimming (automatic) | Via connectors + Work IQ MCP | Foundry IQ ACL/label sync; SharePoint ACL flow-through in AI Search | Inherits from host runtime | Repository-scoped |
 | **Built-in Evaluation** | N/A | Test sets + analytics | Foundry portal evals + continuous evaluation | OpenTelemetry hooks | N/A |
 | **Governance Export** | Agent Registry (export inventory) | Power Platform admin + Purview audit | Foundry Control Plane + Azure Policy + Defender | Application-level | Org admin telemetry |

@@ -150,32 +150,29 @@ Use this page as a reference after you’ve narrowed the decision: it’s optimi
 
 **Key Features:**
 
-- **Unified authoring:** Makers use the refreshed authoring canvas, trigger management, and analytics across lite and full experiences. (Upgrade to Copilot Studio unified authoring - Retrieved: 2025-05-21)
-- **Model choice:** GPT-4.1 is now the default model for generative orchestration with GPT-5 available in preview, while GPT-4o retires in managed tenants. (What's new in Copilot Studio - Updated: 2026-03-06)
-- **Real-time data connectors:** Makers can ground agents with structured data from Microsoft and selected third-party systems for live responses. (Microsoft 365 Copilot release notes - Retrieved: 2026-03-25)
-- **Grounding controls:** "Allow ungrounded responses" toggle, Tenant Graph semantic search (requires M365 Copilot license), and content moderation at three levels (agent, topic, prompt). ([Knowledge sources](https://learn.microsoft.com/en-us/microsoft-copilot-studio/knowledge-copilot-studio) - Updated: 2026-04-03)
-- **Expanded knowledge capacity:** Agents can use up to 1000 SharePoint or OneDrive files with grouped instructions for precise responses. (Use up to 1000 files per agent - GA: 2025-10-06)
-- **MCP tool integration:** Agents can call remote Model Context Protocol servers to reach external tools securely. (What's new in Copilot Studio - Updated: 2026-03-06)
-- **Agent2Agent (A2A) Protocol:** Publish agents as skills that can be discovered and invoked by other agents in a decentralized mesh. (Preview: 2025-05-21)
-- **Channel reach:** Publish agents to Microsoft 365 Copilot, Teams, web, and messaging channels including WhatsApp via Azure Communications Service. (Publish agents to WhatsApp - GA: 2025-09-08)
-- **Orchestration modes:** Generative orchestration (default) handles multi-intent planning; makers can switch to Classic NLU/Classic NLU+ for deterministic topic routing or connect Azure AI Language (CLU) for advanced entity extraction when licensing allows. (Natural language understanding overview - Updated: 2025-07-07; Create and edit topics - Updated: 2025-11-11)
-- **Work IQ MCP integration (Preview):** Add Work IQ MCP tools (Mail, Calendar, Teams, SharePoint, OneDrive) directly from the Tools tab to give agents real-time organizational context - the same intelligence layer that powers M365 Copilot. Requires M365 Copilot license. ([Work IQ MCP in Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/use-work-iq) - Updated: 2026-03-11)
-- **Custom MCP server authoring (Preview → Apr GA):** Create or clone governed MCP servers that combine connector actions, tools from other MCPs, and custom APIs. Servers are reusable across Microsoft Copilot, VS Code, GitHub, Claude, and other agents. DLP policies and access controls apply at server and tool level. ([Custom MCP servers](https://learn.microsoft.com/en-us/power-platform/release-plan/2026wave1/microsoft-copilot-studio/connect-agent-external-data-custom-mcp-servers) - Updated: 2026-03-18)
-- **Computer Use Agents (GA):** Automate web and desktop applications using Computer-Using Agents (CUA) with vision and reasoning. Supports OpenAI CUA and Anthropic Claude Sonnet 4.5 models. Includes stored credentials (internal or Azure Key Vault), URL/app access control allowlists, human supervision gates, Cloud PC pooling, and session replay audit logging. Billed at 5 Copilot Credits per step. Generally available across commercial Power Platform geographies (GA: May 13, 2026). ([Computer Use](https://learn.microsoft.com/en-us/microsoft-copilot-studio/computer-use) - Updated: 2026-04-03)
-- **Multi-model prompt builder:** Select from GPT (GPT-5.2 chat, GPT-5.2 reasoning *experimental*) and Anthropic Claude (Opus 4.6, Opus 4.5 *experimental*, Sonnet 4.5) models per prompt. Mini/General/Deep model taxonomy for intent-based selection; GPT-4o retired (Oct 2025). Configurable content moderation at agent, topic, and prompt levels. ([Prompt model settings](https://learn.microsoft.com/en-us/microsoft-copilot-studio/prompt-model-settings) - Updated: 2026-03-06)
-- **VS Code extension (GA):** Build, edit, and manage agents inside Visual Studio Code for advanced developer workflows. ([VS Code extension](https://learn.microsoft.com/en-us/microsoft-copilot-studio/visual-studio-code-extension-overview) - GA: 2026-01-01)
+- **New agent experience (Production-ready preview):** A modern authoring/runtime path with enhanced orchestration quality, running alongside the classic experience. (What's new in Copilot Studio - Updated: 2026-07-15)
+- **Microsoft IQ and Foundry IQ connectivity:** Ground agents with Microsoft 365 organizational context (emails, calendar, files, chats, people) and optionally connect to a tuned Azure AI Foundry knowledge base. (What's new in Copilot Studio - Updated: 2026-07-15)
+- **Composable skills and memory:** Reusable skills can be authored once and shared across agents; memory can persist per-user preferences and patterns for more personalized responses. (What's new in Copilot Studio - Updated: 2026-07-15)
+- **Model portfolio and selection:** GA support now includes Claude Sonnet 5 and GPT-5.5 Chat as primary models, with additional managed/external model options depending on region and policy. (What's new in Copilot Studio - Updated: 2026-07-15)
+- **Computer use automation (GA):** Agents can automate web and desktop apps with governance controls, and standalone computer-use tools can be reused across agents and flows (Preview). (What's new in Copilot Studio - Updated: 2026-07-15)
+- **Agent-to-agent orchestration:** A2A is GA, and the new experience also adds preview support for connecting specialist agents for delegated execution patterns. (What's new in Copilot Studio - Updated: 2026-07-15)
+- **Workflow resilience:** Asynchronous responses allow long-running agent flows to complete beyond the prior two-minute synchronous window. (What's new in Copilot Studio - Updated: 2026-07-15)
+- **Voice agent expansion:** Real-time voice agents (Preview), Teams Phone Agent integration (Preview), consent-based recording, and hold/resume controls support more production-ready calling scenarios. (What's new in Copilot Studio - Updated: 2026-07-15)
+- **Governance and operations:** Agent inventory schema, readiness status views (Preview), and per-agent Entra Agent IDs (Preview) strengthen enterprise governance and troubleshooting. (What's new in Copilot Studio - Updated: 2026-07-15)
+- **Evaluation maturity:** Agent evaluations are GA, with multi-turn tests and REST API automation (Preview) for CI/CD-aligned quality gates. (What's new in Copilot Studio - Updated: 2026-07-15)
+- **Channel reach and extensibility:** Publish to Microsoft 365 Copilot, Teams, web, and channels such as WhatsApp, while integrating external tools through MCP. (What's new in Copilot Studio - Updated: 2026-07-15)
 
 **Recent Updates (2025–2026):**
 
-- **Oct 2025:** Default model upgrade to GPT-4.1, GPT-5 preview access, MCP server tool, analytics enhancements, and flow express mode to reduce timeouts. (What's new in Copilot Studio - Updated: 2026-03-06)
-- **Oct 2025:** Knowledge management improvements, including grouped instructions and 1000-file limits for SharePoint/OneDrive uploads. (Group files with instructions - GA: 2025-10-01; Use up to 1000 files per agent - GA: 2025-10-06)
-- **Nov 2025:** GPT-5 Chat GA for EU/US regions, Entra agent identities for individual agents (Preview), connected agents for multi-agent orchestration, SharePoint metadata filters for knowledge retrieval, MIP sensitivity labels across channels (Preview), request-for-information action in agent flows (Preview), copy agents from M365 Copilot to Studio, component collections with MCP support. (What's new in Copilot Studio - Updated: 2026-03-06)
-- **Dec 2025:** Side-by-side agent version comparison for evaluation test sets. (What's new in Copilot Studio - Updated: 2026-03-06)
-- **Jan 2026:** Agent evaluation enhancements with activity maps, thumbs feedback, and CSV test set import (Preview). Computer Use expanded with Cloud PC pooling, stored credentials, and session replay audit logging (Preview). VS Code extension GA. (What's new in Copilot Studio - Updated: 2026-03-06)
-- **Feb 2026:** Claude Sonnet 4.5 for Computer Use agents. Prompt builder: Claude Opus 4.6 and Claude Sonnet 4.5 model selection, per-prompt content moderation sensitivity, inline editing. Improved ServiceNow and Azure DevOps connector responses. (What's new in Copilot Studio - Updated: 2026-03-06)
-- **Mar 2026:** Work IQ MCP tools integration (Preview). Custom MCP server authoring - create or clone governed MCP servers from connector actions, other MCP tools, and custom APIs (Preview, GA target Apr 2026). BYOM for generative responses (Preview). Advanced approvals GA. Generative AI response quality analytics GA. Code interpreter on SharePoint sources (Preview). (What's new in Copilot Studio - Updated: 2026-03-06)
-- **Sep 2025:** General availability of WhatsApp channel publishing for customer-facing agents. (Publish agents to WhatsApp - GA: 2025-09-08)
-- **Jun 2025:** Weekly active user insights for Copilot Studio agent reports in Viva Insights dashboards. (Microsoft 365 Copilot release notes - Retrieved: 2026-03-25)
+- **Jun 2026:** New agent experience (production-ready preview), Microsoft IQ integration, reusable skills, and memory capabilities were introduced; Windows 365 for Agents MCP server reached GA; Foundry IQ and specialist-agent connections entered preview. (What's new in Copilot Studio - Updated: 2026-07-15)
+- **May 2026:** Computer use reached GA; asynchronous responses for long-running flows, M365 Copilot workflow nodes, and consent-based recording expanded enterprise automation and voice patterns. (What's new in Copilot Studio - Updated: 2026-07-15)
+- **Apr 2026:** A2A became GA, while real-time voice agents, automated evaluations via REST API, and custom analytics metrics advanced testing and operations. (What's new in Copilot Studio - Updated: 2026-07-15)
+- **Mar 2026:** Agent evaluations became GA with multi-turn test support; Work IQ integration (Preview) and expanded model availability accelerated grounded enterprise agents. (What's new in Copilot Studio - Updated: 2026-07-15)
+- **Oct-Nov 2025:** MCP tooling, GPT-5 rollout milestones, SharePoint retrieval improvements, connected agents, and request-for-information workflow actions established the foundation for 2026 orchestration features. (What's new in Copilot Studio - Updated: 2026-07-15)
+- **Roadmap signal:** Planned features continue through the Power Platform Release Planner, with delivery timing subject to Microsoft release-plan policy. (Power Platform release plan overview - Updated: 2026-07-02)
+
+{: .note }
+> Feature maturity varies by capability. Verify per-feature GA/Preview status in Microsoft Learn before production commitments.
 
 **Network Isolation:**
 
@@ -192,20 +189,11 @@ Use this page as a reference after you’ve narrowed the decision: it’s optimi
 
 **Sources:**
 
-- [What's new in Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/whats-new#notable-changes) (Updated: 2026-03-06)
-- [Microsoft 365 Copilot release notes - Aug 5, 2025](https://learn.microsoft.com/en-us/copilot/microsoft-365/release-notes#august-5,-2025) (Retrieved: 2026-03-25)
-- [Use up to 1000 files per agent for SharePoint and OneDrive uploads](https://learn.microsoft.com/en-us/power-platform/release-plan/2025wave1/microsoft-copilot-studio/use-up-1000-files-per-agent-sharepoint-onedrive-uploads) (GA: 2025-10-06)
-- [Group files with instructions to guide agent answers](https://learn.microsoft.com/en-us/power-platform/release-plan/2025wave2/microsoft-copilot-studio/group-files-instructions-guide-agent-answers) (GA: 2025-10-01)
-- [Publish agents to WhatsApp](https://learn.microsoft.com/en-us/power-platform/release-plan/2025wave1/microsoft-copilot-studio/deploy-copilots-whatsapp-azure-communications-service-chat-sms-channels) (GA: 2025-09-08)
-- [Upgrade to Copilot Studio unified authoring](https://learn.microsoft.com/en-us/microsoft-copilot-studio/unified-authoring-conversion) (Retrieved: 2025-05-21)
+- [What's new in Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/whats-new#notable-changes) (Updated: 2026-07-15)
+- [Released versions of Microsoft Copilot Studio](https://learn.microsoft.com/en-us/power-platform/released-versions/copilotstudio) (Updated: 2026-06-30; weekly Tuesday updates)
+- [Power Platform 2025 release wave 2 overview](https://learn.microsoft.com/en-us/power-platform/release-plan/2025wave2/) (Updated: 2026-07-02)
+- [Copilot Studio documentation](https://learn.microsoft.com/en-us/microsoft-copilot-studio/)
 - [VNet data gateway overview](https://learn.microsoft.com/en-us/power-platform/admin/vnet-support-overview) (Retrieved: 2026-01-06)
-- [Natural language understanding (NLU) overview](https://learn.microsoft.com/en-us/microsoft-copilot-studio/nlu-overview) (Updated: 2025-07-07)
-- [Create and edit topics in Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/authoring-create-edit-topics) (Updated: 2025-11-11)
-- [Computer Use (GA)](https://learn.microsoft.com/en-us/microsoft-copilot-studio/computer-use) (Updated: 2026-04-03)
-- [Work IQ MCP in Copilot Studio (Preview)](https://learn.microsoft.com/en-us/microsoft-copilot-studio/use-work-iq) (Updated: 2026-03-11)
-- [Custom MCP servers](https://learn.microsoft.com/en-us/power-platform/release-plan/2026wave1/microsoft-copilot-studio/connect-agent-external-data-custom-mcp-servers) (Updated: 2026-03-18)
-- [VS Code extension for Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/visual-studio-code-extension-overview) (GA: 2026-01-01)
-- [Copilot Studio Kit](https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/kit-overview) (Retrieved: 2026-03-25)
 
 ---
 
@@ -539,25 +527,25 @@ Each IQ capability is standalone, but they can work together to provide comprehe
 
 ## Work IQ (Preview) {: .tech-heading }
 
-**Description:** Work IQ is the intelligence layer that powers Microsoft 365 Copilot, and now your agents can use the same engine. It applies an extensive, continuously updated understanding of how your organization works to deliver personalized search, advanced reasoning, and semantic understanding grounded in real-time M365 signals. When you connect an agent to Work IQ, you're not adding a data connector; you're giving it the same contextual brain that Copilot uses to understand your emails, meetings, documents, chats, and business systems.
-**Official Docs:** [Work IQ MCP overview](https://learn.microsoft.com/en-us/microsoft-agent-365/tooling-servers-overview)
-**Status:** Preview (Work IQ MCP tools and the Work IQ API are Preview as of June 2026; requires M365 Copilot license)
+**Description:** Work IQ is the intelligence layer that powers Microsoft 365 Copilot and can be used directly by custom agents and apps. It delivers chat, context, tools, and workspace capabilities through a single platform surface with built-in governance.
+**Official Docs:** [Work IQ overview](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/work-iq/)
+**Status:** Usage-based service model with endpoint access via MCP, REST API, and A2A
 
 **Key Features:**
 
-- **Three-layer architecture:** **Data** unifies signals from files, emails, meetings, chats, and business systems across M365. **Memory** builds persistent understanding of how people and teams work, so agents stay aligned to priorities and remain consistent across tasks, apps, and sessions. **Inference** brings together models, skills, and MCP tools so agents can reason and take action while the Agent 365 control plane ensures those actions remain observable, governed, and compliant. (Work IQ MCP overview - Retrieved: 2026-03-19)
-- **Built-in MCP server catalog:** Work IQ Copilot (cross-M365 semantic search), Calendar (create/update/delete events, resolve conflicts), Mail (send/reply, semantic search), SharePoint (upload, search, manage lists), OneDrive (file/folder management), Teams (chat, channel, member management), User (profile, manager, org chart), Word (create/read documents, comments), and Dataverse/Dynamics 365 (CRUD + domain-specific actions including Sales, Finance, Supply Chain, Service, ERP, Contact Center). Each server exposes deterministic, auditable tools (not chat responses, but governed actions). (Agent 365 tools catalog - Retrieved: 2026-03-19)
-- **Custom MCP servers via MCP Management Server:** Beyond the built-in catalog, build your own MCP servers using 1,500+ connectors (ServiceNow, JIRA, SAP), Microsoft Graph APIs, Dataverse custom APIs, or any REST endpoint. The MCP Management Server is fully API-driven: create, configure, and publish custom servers programmatically from VS Code or agent frameworks without building a UI. ISVs can certify and distribute their servers through the Copilot Studio catalog. (MCP Management Server - Retrieved: 2026-03-19)
+- **Unified endpoint model:** Work IQ API endpoints include a remote MCP server, REST API, and A2A so the same intelligence layer can be consumed from Copilot Studio, custom apps, and agent-to-agent flows.
+- **Compact tool surface:** Work IQ MCP collapses large operation catalogs into a small set of generic tools that can retrieve and act across mail, calendar, files, people, chat, and sites.
+- **Runtime data discovery:** Agents can discover data structure at runtime through self-describing resource paths instead of relying on brittle, pre-modeled integrations.
 - **Dataverse intelligence:** Extends Work IQ to business data understanding. Define reusable business context (semantic models, organizational processes, data schemas) that agents use to understand what your data means, follow your organization's procedures, and read/update Dataverse records reliably. Define it once, use it across all agents. (Dataverse intelligence - Retrieved: 2026-03-19)
-- **Enterprise security and governance:** Admin control in the M365 Admin Center (allow/block servers org-wide), scoped permissions per agent, policy enforcement at runtime (rate limits, payload checks, security scans), full observability via Microsoft Defender Advanced Hunting (inspect tool call traces, monitor execution details, detect anomalies). All Work IQ MCP servers undergo continuous evaluation for accuracy, latency, and reliability. (Work IQ security and compliance - Retrieved: 2026-03-19)
-- **Multi-platform integration:** Extend agents with Work IQ tools in Copilot Studio (low-code), Microsoft Foundry (pro-code), or VS Code (direct MCP Management Server integration). The same tools work across all three surfaces. Build once, consume everywhere. (Work IQ MCP overview - Retrieved: 2026-03-19)
+- **Enterprise security and governance:** Centralized authorization boundaries, Rego-based policy enforcement, user-scoped execution, auditability, usage analytics, and rate limiting are built into the platform.
+- **Multi-platform integration:** Use the same Work IQ endpoint from Copilot Studio (MCP), custom web/apps (REST), and agent meshes (A2A).
 - **Work IQ CLI:** Command-line interface and MCP server that bridges AI coding assistants (GitHub Copilot, VS Code, Claude Code) and M365 data. Query emails, meetings, documents, and Teams messages from the terminal. In MCP server mode, your coding assistant automatically pulls relevant workplace context when you're implementing features discussed in recent meetings. Coding agent setup guides available for Claude Code and GitHub Copilot CLI. (Work IQ CLI - Retrieved: 2026-04-03)
 
-**When to use:** Any agent that needs to understand organizational context, not just "what's in a file" but "who decided what, when, in which meeting, and what happened after." Work IQ closes the gap between agents that answer questions about documents (Foundry IQ) and agents that understand how work actually happens. Pairs with Foundry IQ for governed enterprise knowledge and Fabric IQ for analytics. The custom MCP server ecosystem means you're not limited to M365. Any system with a connector or API can participate.
+**When to use:** Any agent that needs organizational context, not just document retrieval. Work IQ closes the gap between "what the content says" and "how work actually happened" across people, meetings, files, chats, and business systems. Use MCP for tool-based agent integration, REST for app integration, and A2A for agent collaboration.
 
 **Sources:**
 
-- [Work IQ MCP overview (Agent 365)](https://learn.microsoft.com/en-us/microsoft-agent-365/tooling-servers-overview) (Retrieved: 2026-04-03)
+- [Work IQ overview](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/work-iq/) (Updated: 2026-06-17)
 - [Work IQ in Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/use-work-iq) (Retrieved: 2026-03-19)
 - [Work IQ CLI](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/workiq-overview) (Retrieved: 2026-03-19)
 - [Dataverse intelligence](https://learn.microsoft.com/en-us/power-apps/maker/data-platform/data-platform-intelligence) (Retrieved: 2026-03-19)
@@ -755,12 +743,12 @@ Not every inference call should travel to the cloud. Latency-sensitive, offline-
 
 **Description:** Pro-code framework and tooling for multi-channel Microsoft 365 agents. Combines the Agents SDK (C#, JavaScript/TypeScript, Python) with Agents Toolkit extensions for VS Code, Visual Studio, GitHub Copilot, and CLI-based automation. Successor to Bot Framework for custom engine agents.
 **Status:** GA (C#, JavaScript/TypeScript, Python)
-**Official Docs:** [M365 Agents SDK](https://learn.microsoft.com/en-us/microsoft-365/agents-sdk/agents-sdk-overview) | [M365 Agents Toolkit](https://learn.microsoft.com/en-us/microsoft-365/developer/overview-m365-agents-toolkit) | [Bot Framework Migration](https://aka.ms/bfmigrationguidance)
+**Official Docs:** [Create and deploy with M365 Agents SDK](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/create-deploy-agents-sdk) | [M365 Agents Toolkit](https://learn.microsoft.com/en-us/microsoft-365/developer/overview-m365-agents-toolkit) | [Bot Framework Migration](https://aka.ms/bfmigrationguidance)
 
 **Key Features:**
 
 - **Channel reach:** Deploy custom engine agents to Microsoft 365 Copilot, Teams (chat, channels, meetings), web, email, SMS, and third-party messaging channels. ([Microsoft 365 Agents Toolkit](https://learn.microsoft.com/en-us/microsoft-365/developer/overview-m365-agents-toolkit) - Updated: 2026-01-29)
-- **Model + orchestrator choice:** Bring Azure OpenAI, Microsoft Foundry (Azure), Anthropic, or other APIs and pair with Microsoft Agent Framework or alternate orchestrators. ([Microsoft 365 Agents SDK overview](https://learn.microsoft.com/en-us/microsoft-365/agents-sdk/agents-sdk-overview) - Updated: 2025-11-24)
+- **Model + orchestrator choice:** Bring Azure OpenAI, Microsoft Foundry (Azure), Anthropic, or other APIs and pair with Microsoft Agent Framework or alternate orchestrators. ([Create and deploy with Microsoft 365 Agents SDK](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/create-deploy-agents-sdk) - Updated: 2025-12-02)
 - **Toolkit formats:** Use VS Code, Visual Studio, GitHub Copilot, or CLI tooling for scaffolding, debugging, publishing, and CI/CD automation. ([Microsoft 365 Agents Toolkit](https://learn.microsoft.com/en-us/microsoft-365/developer/overview-m365-agents-toolkit#formats) - Updated: 2026-01-29)
 - **Agents Playground:** Local sandbox simulates Teams to iterate without a tenant or tunneling, supporting rapid agent debugging. ([Microsoft 365 Agents Toolkit](https://learn.microsoft.com/en-us/microsoft-365/developer/overview-m365-agents-toolkit#build-and-iterate-quickly-with-microsoft-365-agents-playground) - Updated: 2026-01-29)
 - **Migration path:** Bot Framework retirement on Dec 31, 2025, routes existing solutions to the Agents SDK + Toolkit stack. ([Bot Framework Migration Guide](https://aka.ms/bfmigrationguidance))
@@ -780,7 +768,7 @@ Not every inference call should travel to the cloud. Latency-sensitive, offline-
 **Sources:**
 
 - [Microsoft 365 Agents Toolkit](https://learn.microsoft.com/en-us/microsoft-365/developer/overview-m365-agents-toolkit) (Updated: 2026-01-29)
-- [Microsoft 365 Agents SDK overview](https://learn.microsoft.com/en-us/microsoft-365/agents-sdk/agents-sdk-overview) (Updated: 2025-11-24)
+- [Create and deploy with Microsoft 365 Agents SDK](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/create-deploy-agents-sdk) (Updated: 2025-12-02)
 - [Microsoft 365 Copilot release notes - June 24, 2025](https://learn.microsoft.com/en-us/copilot/microsoft-365/release-notes#june-24,-2025) (Retrieved: 2026-03-25)
 - [Microsoft 365 Agents Toolkit command line interface](https://learn.microsoft.com/en-us/microsoftteams/platform/toolkit/microsoft-365-agents-toolkit-cli) (Retrieved: 2025-05-19)
 - [Bot Framework Migration Guide](https://aka.ms/bfmigrationguidance)

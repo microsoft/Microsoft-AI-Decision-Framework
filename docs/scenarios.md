@@ -232,9 +232,9 @@ Support team handles 1,000+ tickets per month with repetitive questions. Company
 **Why This Stack:**
 
 - Azure AI Search: Indexes multiple disparate sources (SharePoint, Confluence, databases, etc.) with agentic retrieval preview ([What's new in Azure AI Search](https://learn.microsoft.com/en-us/azure/search/whats-new#2025-announcements))
-- Copilot Studio BYOK: Connects to Azure AI Search for advanced RAG
+- Copilot Studio BYOK: Connects to Azure AI Search for advanced RAG, while the newer agent experience improves orchestration quality for complex multi-intent support scenarios ([What's new in Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/whats-new#notable-changes))
 - Multi-channel: Same agent on website and Teams
-- Custom actions: Extend with ticket creation, order lookups
+- Custom actions: Extend with ticket creation and order lookups, and use asynchronous responses when backend work exceeds synchronous limits ([What's new in Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/whats-new#notable-changes))
 
 ### Implementation Steps
 {: #scenario3-implementation .no_toc }
@@ -249,6 +249,7 @@ Support team handles 1,000+ tickets per month with repetitive questions. Company
    - Create agent with generative answers
    - Configure BYOK to connect Azure AI Search
    - Test answer quality and citations
+   - If available in your tenant, validate in the new agent experience and compare with classic behavior for retrieval-heavy prompts
    - Add topics for specific workflows (create ticket, track order)
 
 3. **Build Custom Actions** (1-2 weeks)
@@ -263,6 +264,7 @@ Support team handles 1,000+ tickets per month with repetitive questions. Company
 
 5. **Monitor & Improve** (Ongoing)
    - Track resolution rate and customer satisfaction
+   - Add agent evaluation test sets and multi-turn tests for escalations and handoff quality
    - Review unresolved questions
    - Add new topics and refine prompts
 
@@ -282,6 +284,14 @@ Support team handles 1,000+ tickets per month with repetitive questions. Company
 
 - Start with Copilot Studio + SharePoint only (no Azure AI Search)
 - Expand data sources gradually
+
+**Recent platform updates to watch (Copilot Studio):**
+
+- **Jun 2026:** New agent experience (production-ready preview), reusable skills, and memory can improve support personalization and response consistency over time.
+- **May 2026:** Asynchronous responses support long-running action flows often used in CRM/ticket integrations.
+- **Apr-Mar 2026:** Agent evaluations reached GA, with multi-turn testing and API automation options for CI/CD-aligned quality checks.
+
+Sources: [What's new in Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/whats-new#notable-changes), [Released versions of Microsoft Copilot Studio](https://learn.microsoft.com/en-us/power-platform/released-versions/copilotstudio)
 
 ---
 
@@ -484,7 +494,7 @@ A project management office (PMO) wants an agent that helps managers prepare for
 - All data access must respect M365 permissions, with no over-privileged service accounts
 - Low-code authoring (PMO team, not developers, will maintain the agent)
 - Published to M365 Copilot so managers interact with the agent inside Teams and Outlook without leaving their workflow, learning a new app, or managing a new login
-- Admin governance: ability to allow/block specific Work IQ MCP servers
+- Admin governance: ability to govern Work IQ endpoint access, policies, and usage controls
 
 ### Recommended Technologies
 {: .no_toc }
@@ -492,33 +502,42 @@ A project management office (PMO) wants an agent that helps managers prepare for
 | Component | Technology | Purpose |
 |-----------|------------|---------|
 | **Agent Platform** | Copilot Studio | Low-code authoring with connectors and MCP tool integration |
-| **Collaboration Context** | Work IQ MCP servers (Mail, Calendar, Teams, SharePoint, OneDrive, User) | Real-time access to M365 collaboration signals |
+| **Collaboration Context** | Work IQ single endpoint (MCP, REST API, A2A) | Real-time, permission-aware M365 collaboration context and actions |
 | **Deployment** | Microsoft 365 Copilot (Teams, Outlook) | Users interact where they already work |
-| **Governance** | M365 Admin Center (MCP server allow/block), Power Platform admin | Centralized control over which MCP servers agents can use |
+| **Governance** | M365 Admin Center (Work IQ policy and cost controls), Power Platform admin | Centralized control, observability, and compliance enforcement |
 | **Identity** | Delegated (user-scoped via M365 Copilot license) | Agent acts on behalf of the signed-in user |
 
 **Why This Stack:**
 
-- Work IQ MCP servers are first-class tools in Copilot Studio. Add them via the Tools tab with a few clicks. No API integration code needed.
-- Each MCP server (Mail, Calendar, Teams, etc.) exposes deterministic, auditable tools that the agent invokes through Copilot Studio's generative orchestration.
-- Admin governance is built in. MCP servers are managed in the M365 Admin Center, and admins can allow or block servers organization-wide.
+- Work IQ provides a single endpoint surface that can be consumed through MCP, REST API, or A2A, so teams can use one integration model across low-code and pro-code paths.
+- The endpoint exposes a compact, generic tool surface for retrieval and actions across M365 data while keeping execution deterministic and auditable.
+- Admin governance is built in through centralized Work IQ policy, observability, and cost controls in the M365 Admin Center.
 - The agent runs under the user's identity (M365 Copilot license required), so it only sees what the user is authorized to see, with no blast radius from over-privileged service accounts.
+- Copilot Studio's recent platform updates (new agent experience, memory, and skills) align well with PMO assistant scenarios that require repeatable weekly workflows plus lightweight personalization ([What's new in Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/whats-new#notable-changes)).
 
 ### Implementation Steps
 {: .no_toc }
 
 1. **Create the agent** in Copilot Studio and define instructions for meeting preparation (summarize risks, check calendars, draft agenda).
-2. **Add Work IQ MCP tools:** Navigate to Tools > Add Tool > Model Context Protocol, add Work IQ Mail, Calendar, Teams, SharePoint, and User servers.
-3. **Create connections** for each MCP server. Authenticate with user credentials.
+2. **Add Work IQ endpoint:** In Copilot Studio, add the Work IQ MCP endpoint from the Tools experience.
+3. **Create connection** for the Work IQ endpoint and authenticate with user credentials.
 4. **Test with sample prompts:** "Summarize the top 3 risk-related email threads from last week" or "What meetings does the engineering team have next Monday?"
 5. **Publish to M365 Copilot:** Deploy via the Microsoft 365 channel.
-6. **Configure admin policies:** In the M365 Admin Center, ensure Work IQ MCP servers are allowed for the target user group.
+6. **Configure admin policies:** In the M365 Admin Center, configure Work IQ access, policy, and budget controls for the target user group.
 
 ### Alternative Approaches
 {: .no_toc }
 
-- **Microsoft Foundry + Work IQ:** Pro-code path for developers who need deeper orchestration control. Add Work IQ MCP tools in the Foundry portal's tool catalog.
+- **Microsoft Foundry + Work IQ:** Pro-code path for deeper orchestration control using the same Work IQ endpoint through REST API, A2A, or MCP.
 - **Work IQ CLI:** Direct terminal-based access for developers who want M365 context in their coding workflow (e.g., GitHub Copilot in VS Code via MCP server mode).
+
+**Recent platform updates to watch (Studio + Work IQ path):**
+
+- **Jun 2026:** Microsoft IQ integration and memory features in the new agent experience strengthen collaboration-context scenarios.
+- **May 2026:** M365 Copilot workflow node and asynchronous responses improve reliability when meeting-prep tasks fan out to multiple tool calls.
+- **Mar 2026:** Work IQ integration (Preview) established the endpoint model now used across MCP, REST API, and A2A.
+
+Sources: [What's new in Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/whats-new#notable-changes), [Work IQ overview](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/work-iq/)
 
 **Cross-references:** [Work IQ]({{ '/docs/technologies#work-iq-preview' | relative_url }}), [Pattern 1: Start in Studio, Scale with Azure]({{ '/docs/implementation-patterns#pattern-1-start-in-studio-scale-with-azure' | relative_url }})
 
@@ -538,7 +557,7 @@ A project management office (PMO) wants an agent that helps managers prepare for
 | Financial Reconciliation (Multi-Agent) | High | 4-6 weeks | Pro dev | Foundry Agent Service + Cosmos DB threads |
 | Multi-Channel Corporate Assistant | Medium | 3-5 weeks | Pro dev | M365 Agents SDK (Teams/Outlook/M365 Chat) |
 | Foundry Agent → M365 Copilot | Medium | 2-4 weeks | Pro dev | Foundry Agent Service + M365 Copilot publish |
-| Work IQ-Enhanced Studio Agent | Low-Medium | 2-3 weeks | Maker | Copilot Studio + Work IQ MCP servers |
+| Work IQ-Enhanced Studio Agent | Low-Medium | 2-3 weeks | Maker | Copilot Studio + Work IQ endpoint (MCP/API/A2A) |
 
 ---
 
@@ -558,7 +577,7 @@ A project management office (PMO) wants an agent that helps managers prepare for
 
 ---
 
-**Last Updated:** March 19, 2026  
+**Last Updated:** July 18, 2026  
 **Next:** [Visual Framework]({{ '/docs/visual-framework' | relative_url }}) - Walk the decision trees to choose the right path
 
 ---

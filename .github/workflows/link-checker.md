@@ -68,6 +68,8 @@ safe-outputs:
     title-prefix: "[Maintenance] Broken links needing review"
     labels: [documentation, needs-triage]
     max: 1
+  noop:
+    report-as-issue: false
 ---
 
 # Documentation Link Checker

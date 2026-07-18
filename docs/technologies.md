@@ -150,33 +150,6 @@ Use this page as a reference after you’ve narrowed the decision: it’s optimi
 
 **Key Features:**
 
-<<<<<<< HEAD
-- **Unified authoring:** Makers use the refreshed authoring canvas, trigger management, and analytics across lite and full experiences. (Upgrade to Copilot Studio unified authoring - Retrieved: 2025-05-21)
-- **Model choice:** GPT-4.1 is now the default model for generative orchestration with GPT-5 available in preview, while GPT-4o retires in managed tenants. (What's new in Copilot Studio - Updated: 2026-03-06)
-- **Real-time data connectors:** Makers can ground agents with structured data from Microsoft and selected third-party systems for live responses. (Microsoft 365 Copilot release notes - Retrieved: 2026-03-25)
-- **Grounding controls:** "Allow ungrounded responses" toggle, Tenant Graph semantic search (requires M365 Copilot license), and content moderation at three levels (agent, topic, prompt). ([Knowledge sources](https://learn.microsoft.com/en-us/microsoft-copilot-studio/knowledge-copilot-studio) - Updated: 2026-04-03)
-- **Expanded knowledge capacity:** Agents can use up to 1000 SharePoint or OneDrive files with grouped instructions for precise responses. (Use up to 1000 files per agent - GA: 2025-10-06)
-- **MCP tool integration (GA):** Agents can call remote Model Context Protocol servers to reach external tools securely. ([Extend your agent with Model Context Protocol](https://learn.microsoft.com/en-us/microsoft-copilot-studio/agent-extend-action-mcp) - Updated: 2026-04-17)
-- **Agent2Agent (A2A) Protocol:** Publish agents as skills that can be discovered and invoked by other agents in a decentralized mesh. (Preview: 2025-05-21)
-- **Channel reach:** Publish agents to Microsoft 365 Copilot, Teams, web, and messaging channels including WhatsApp via Azure Communications Service. (Publish agents to WhatsApp - GA: 2025-09-08)
-- **Orchestration modes:** Generative orchestration (default) handles multi-intent planning; makers can switch to Classic NLU/Classic NLU+ for deterministic topic routing or connect Azure AI Language (CLU) for advanced entity extraction when licensing allows. (Natural language understanding overview - Updated: 2025-07-07; Create and edit topics - Updated: 2025-11-11)
-- **Work IQ MCP integration (Preview):** Add Work IQ MCP tools (Mail, Calendar, Teams, SharePoint, OneDrive) directly from the Tools tab to give agents real-time organizational context - the same intelligence layer that powers M365 Copilot. Requires M365 Copilot license. ([Work IQ MCP in Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/use-work-iq) - Updated: 2026-03-11)
-- **Computer Use Agents (GA):** Automate web and desktop applications using Computer-Using Agents (CUA) with vision and reasoning. Supports OpenAI CUA and Anthropic Claude Sonnet 4.5 models. Includes stored credentials (internal or Azure Key Vault), URL/app access control allowlists, human supervision gates, Cloud PC pooling, and session replay audit logging. Billed at 5 Copilot Credits per step. Generally available across commercial Power Platform geographies (GA: May 13, 2026). ([Computer Use](https://learn.microsoft.com/en-us/microsoft-copilot-studio/computer-use) - Updated: 2026-04-03)
-- **Multi-model prompt builder:** Select from GPT (GPT-5.2 chat, GPT-5.2 reasoning *experimental*) and Anthropic Claude (Opus 4.6, Opus 4.5 *experimental*, Sonnet 4.5) models per prompt. Mini/General/Deep model taxonomy for intent-based selection; GPT-4o retired (Oct 2025). Configurable content moderation at agent, topic, and prompt levels. ([Prompt model settings](https://learn.microsoft.com/en-us/microsoft-copilot-studio/prompt-model-settings) - Updated: 2026-03-06)
-- **VS Code extension (GA):** Build, edit, and manage agents inside Visual Studio Code for advanced developer workflows. ([VS Code extension](https://learn.microsoft.com/en-us/microsoft-copilot-studio/visual-studio-code-extension-overview) - GA: 2026-01-01)
-
-**Recent Updates (2025–2026):**
-
-- **Oct 2025:** Default model upgrade to GPT-4.1, GPT-5 preview access, MCP server tool, analytics enhancements, and flow express mode to reduce timeouts. (What's new in Copilot Studio - Updated: 2026-03-06)
-- **Oct 2025:** Knowledge management improvements, including grouped instructions and 1000-file limits for SharePoint/OneDrive uploads. (Group files with instructions - GA: 2025-10-01; Use up to 1000 files per agent - GA: 2025-10-06)
-- **Nov 2025:** GPT-5 Chat GA for EU/US regions, Entra agent identities for individual agents (Preview), connected agents for multi-agent orchestration, SharePoint metadata filters for knowledge retrieval, MIP sensitivity labels across channels (Preview), request-for-information action in agent flows (Preview), copy agents from M365 Copilot to Studio, component collections with MCP support. (What's new in Copilot Studio - Updated: 2026-03-06)
-- **Dec 2025:** Side-by-side agent version comparison for evaluation test sets. (What's new in Copilot Studio - Updated: 2026-03-06)
-- **Jan 2026:** Agent evaluation enhancements with activity maps, thumbs feedback, and CSV test set import (Preview). Computer Use expanded with Cloud PC pooling, stored credentials, and session replay audit logging (Preview). VS Code extension GA. (What's new in Copilot Studio - Updated: 2026-03-06)
-- **Feb 2026:** Claude Sonnet 4.5 for Computer Use agents. Prompt builder: Claude Opus 4.6 and Claude Sonnet 4.5 model selection, per-prompt content moderation sensitivity, inline editing. Improved ServiceNow and Azure DevOps connector responses. (What's new in Copilot Studio - Updated: 2026-03-06)
-- **Mar 2026:** Work IQ MCP tools integration (Preview). BYOM for generative responses (Preview). Advanced approvals GA. Generative AI response quality analytics GA. Code interpreter on SharePoint sources (Preview). (What's new in Copilot Studio - Updated: 2026-03-06)
-- **Sep 2025:** General availability of WhatsApp channel publishing for customer-facing agents. (Publish agents to WhatsApp - GA: 2025-09-08)
-- **Jun 2025:** Weekly active user insights for Copilot Studio agent reports in Viva Insights dashboards. (Microsoft 365 Copilot release notes - Retrieved: 2026-03-25)
-=======
 - **New agent experience (Production-ready preview):** A modern authoring/runtime path with enhanced orchestration quality, running alongside the classic experience. (What's new in Copilot Studio - Updated: 2026-07-15)
 - **Microsoft IQ and Foundry IQ connectivity:** Ground agents with Microsoft 365 organizational context (emails, calendar, files, chats, people) and optionally connect to a tuned Azure AI Foundry knowledge base. (What's new in Copilot Studio - Updated: 2026-07-15)
 - **Composable skills and memory:** Reusable skills can be authored once and shared across agents; memory can persist per-user preferences and patterns for more personalized responses. (What's new in Copilot Studio - Updated: 2026-07-15)
@@ -200,7 +173,6 @@ Use this page as a reference after you’ve narrowed the decision: it’s optimi
 
 {: .note }
 > Feature maturity varies by capability. Verify per-feature GA/Preview status in Microsoft Learn before production commitments.
->>>>>>> origin/main
 
 **Network Isolation:**
 
@@ -222,15 +194,10 @@ Use this page as a reference after you’ve narrowed the decision: it’s optimi
 - [Power Platform 2025 release wave 2 overview](https://learn.microsoft.com/en-us/power-platform/release-plan/2025wave2/) (Updated: 2026-07-02)
 - [Copilot Studio documentation](https://learn.microsoft.com/en-us/microsoft-copilot-studio/)
 - [VNet data gateway overview](https://learn.microsoft.com/en-us/power-platform/admin/vnet-support-overview) (Retrieved: 2026-01-06)
-<<<<<<< HEAD
-- [Natural language understanding (NLU) overview](https://learn.microsoft.com/en-us/microsoft-copilot-studio/nlu-overview) (Updated: 2025-07-07)
-- [Create and edit topics in Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/authoring-create-edit-topics) (Updated: 2025-11-11)
 - [Computer Use (GA)](https://learn.microsoft.com/en-us/microsoft-copilot-studio/computer-use) (Updated: 2026-04-03)
 - [Work IQ MCP in Copilot Studio (Preview)](https://learn.microsoft.com/en-us/microsoft-copilot-studio/use-work-iq) (Updated: 2026-03-11)
 - [VS Code extension for Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/visual-studio-code-extension-overview) (GA: 2026-01-01)
 - [Copilot Studio Kit](https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/kit-overview) (Retrieved: 2026-03-25)
-=======
->>>>>>> origin/main
 
 ---
 

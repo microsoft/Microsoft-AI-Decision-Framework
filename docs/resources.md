@@ -159,13 +159,8 @@ This page provides comprehensive links to official Microsoft documentation, trai
   - **Service note:** Optional PaaS runtime. Choose Hosted Agents only when per-session VM isolation is worth the complete [Hosted Agent Constraint Card]({{ '/docs/technologies#the-hosted-agent-constraint-card' | relative_url }}); otherwise use Azure Container Apps or AKS for more scalable customer-operated hosting.
 
 - **Copilot Studio**
-<<<<<<< HEAD
-  - [What's new in Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/whats-new#october-2025)
-  - [Declarative Agents](https://learn.microsoft.com/microsoft-365/copilot/extensibility/overview-declarative-agent)
-=======
   - [What's new in Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/whats-new#notable-changes)
   - [Declarative agents](https://learn.microsoft.com/microsoft-365/copilot/extensibility/overview-declarative-agent)
->>>>>>> origin/main
   - [Custom engine agents overview](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-custom-engine-agent)
   - [Copilot Studio documentation](https://learn.microsoft.com/en-us/microsoft-copilot-studio/)
   - [Computer Use (GA)](https://learn.microsoft.com/en-us/microsoft-copilot-studio/computer-use)

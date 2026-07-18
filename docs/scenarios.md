@@ -539,13 +539,8 @@ Sources: [What's new in Copilot Studio](https://learn.microsoft.com/en-us/micros
 | Copilot-to-Copilot Mesh | Medium | 3-4 weeks | Maker + light dev | Copilot Studio A2A + MCP tools |
 | Financial Reconciliation (Multi-Agent) | High | 4-6 weeks | Pro dev | Agent Framework (**GA core**) for deterministic code-first orchestration; incoming Foundry A2A endpoint (**Preview**) only for direct delegation; [Hosted Agents (mixed maturity)]({{ '/docs/technologies#the-hosted-agent-constraint-card' | relative_url }}) only when the constraint card fits |
 | Multi-Channel Corporate Assistant | Medium | 3-5 weeks | Pro dev | M365 Agents SDK (Teams/Outlook/M365 Chat) |
-<<<<<<< HEAD
-| Foundry Agent → M365 Copilot | Medium | Pilot-dependent | Pro dev | Current Foundry endpoint + M365 distribution (Early Access Preview) |
-| Work IQ-Enhanced Studio Agent | Low-Medium | 2-3 weeks | Maker | Copilot Studio + Work IQ MCP servers |
-=======
 | Foundry Agent → M365 Copilot | Medium | 2-4 weeks | Pro dev | Foundry Agent Service + M365 Copilot publish |
 | Work IQ-Enhanced Studio Agent | Low-Medium | 2-3 weeks | Maker | Copilot Studio + Work IQ endpoint (MCP/API/A2A) |
->>>>>>> origin/main
 
 ---
 
@@ -565,11 +560,7 @@ Sources: [What's new in Copilot Studio](https://learn.microsoft.com/en-us/micros
 
 ---
 
-<<<<<<< HEAD
-**Last Updated:** July 13, 2026
-=======
 **Last Updated:** July 18, 2026  
->>>>>>> origin/main
 **Next:** [Visual Framework]({{ '/docs/visual-framework' | relative_url }}) - Walk the decision trees to choose the right path
 
 ---

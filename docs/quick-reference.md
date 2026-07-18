@@ -90,25 +90,16 @@ Active migration deadlines and forced transitions. If your project timeline cros
 Where can your agent appear? Match build platform to distribution surface.
 
 | Agent Built In | Can Publish To |
-<<<<<<< HEAD
-|---------------|----------------|
-| **Foundry Agent Service** | Current agent endpoint; M365 Copilot and Teams distribution (**Early Access Preview**); validate tools and identity per channel |
-=======
 | --- | --- |
 | **Foundry Agent Service** | M365 Copilot (one-click), Teams, custom app (Responses API), Agent 365 digital worker (Frontier) |
->>>>>>> origin/main
 | **Copilot Studio** | M365 Copilot, Teams, web, WhatsApp, custom channels, messaging channels via Azure Communications |
 | **M365 Agent Builder** | M365 Copilot (copy to Copilot Studio for deeper customization) |
 | **M365 Agents SDK** | M365 Copilot, Teams, web, email, SMS, custom channels (10+ via channel adapters) |
 | **Agent Framework** | Custom apps, web APIs, AG-UI protocol (Preview); surface via M365 Agents SDK for Copilot/Teams |
 
 **Sources:**
-<<<<<<< HEAD
-- [Publish agents to Microsoft 365 Copilot and Teams (Early Access Preview)](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/publish-copilot) (Updated: 2026-07-10)
-=======
 
-- [Publish agents to Microsoft 365 Copilot and Teams](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/publish-copilot) (Retrieved: 2026-03-19)
->>>>>>> origin/main
+- [Publish agents to Microsoft 365 Copilot and Teams](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/publish-copilot) (Updated: 2026-07-10)
 - [Publish agents to WhatsApp](https://learn.microsoft.com/en-us/power-platform/release-plan/2025wave1/microsoft-copilot-studio/deploy-copilots-whatsapp-azure-communications-service-chat-sms-channels) (GA: 2025-09-08)
 
 ---
@@ -116,13 +107,8 @@ Where can your agent appear? Match build platform to distribution surface.
 ## Technology by User Experience
 
 | **Where Users Interact** | **Recommended Technologies** | **Use When** |
-<<<<<<< HEAD
-|---------------------------|------------------------------|--------------|
-| **Microsoft 365 Apps** | **Free** Microsoft 365 Copilot Chat (included) + Copilot connectors (Graph connectors) for baseline pilots; Microsoft 365 Copilot add-on + Declarative Agents for work-grounded copilots; **Frontier Word/Excel/PowerPoint creation agents (Preview)** require admin Frontier opt-in[^frontier-qr] and Anthropic data-sharing consent; mobile parity for custom engine/message-extension agents (iOS/Android)[^mobile-ext-qr]; Copy to Copilot Studio copies data sources/actions but GPTs/custom actions must be reattached[^copy-to-studio-qr] | Need managed copilots embedded in Word, Excel, Outlook, or Teams with tenant-level governance. Start with the free chat surface and graduate to the add-on when Graph grounding or in-app assistants are required; use Frontier creation agents only for controlled pilots |
-=======
 | --- | --- | --- |
 | **Microsoft 365 Apps** | **Free** Microsoft 365 Copilot Chat (included) + Copilot connectors (Graph connectors) for baseline pilots; Microsoft 365 Copilot add-on + declarative agents for work-grounded copilots; **Frontier Word/Excel/PowerPoint creation agents (Preview)** require admin Frontier opt-in[^frontier-qr] and Anthropic data-sharing consent; mobile parity for custom engine/message-extension agents (iOS/Android)[^mobile-ext-qr]; Copy to Copilot Studio copies data sources/actions but GPTs/custom actions must be reattached[^copy-to-studio-qr] | Need managed copilots embedded in Word, Excel, Outlook, or Teams with tenant-level governance. Start with the free chat surface and graduate to the add-on when Graph grounding or in-app assistants are required; use Frontier creation agents only for controlled pilots |
->>>>>>> origin/main
 | **Autopilot Agents (Experimental)** | **Microsoft Scout (Experimental, Frontier)** - always-on personal agent for background coordination; requires Frontier enrollment, Intune policy configuration, and a GitHub Copilot license | Need a proactively acting, always-on personal agent to coordinate meetings, block calendar time, and surface risks across Teams, Outlook, OneDrive, and SharePoint without prompt-driven interaction |
 | **Microsoft Teams Only** | Teams SDK, Copilot Studio, M365 Agents SDK | Teams-centric chat, channels, meetings, or calling scenarios where admins may enforce "only during the call" retention |
 | **Custom Web/Mobile App** | Microsoft Foundry, Microsoft Foundry Agent Service (Standard setup) | Building standalone applications while keeping files, search, and thread storage in customer-owned Azure resources |
@@ -197,13 +183,8 @@ Where can your agent appear? Match build platform to distribution surface.
 
 **Sources:**
 
-<<<<<<< HEAD
-- [Declarative Agents for Microsoft 365 Copilot overview](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-declarative-agent) (Updated: 2025-12-01)
-- [Custom engine agents for Microsoft 365 overview](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-custom-engine-agent) (Updated: 2026-01-13)
-=======
 - [Declarative agents for Microsoft 365 Copilot overview](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-declarative-agent) (Updated: 2025-12-01)
 - [Custom engine agents for Microsoft 365 overview](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-custom-engine-agent) (Updated: 2026-07-02)
->>>>>>> origin/main
 
 **Confidence Level:** High (official Microsoft guidance)
 
@@ -301,19 +282,11 @@ Teams SDK and M365 Agents SDK coexist with differentiated fit: Teams SDK for Tea
 ## Orchestration Complexity Decision Matrix
 
 | **Complexity Level** | **Characteristics** | **Recommended Technologies** |
-<<<<<<< HEAD
-|----------------------|---------------------|------------------------------|
+| --- | --- | --- |
 | **Simple (Q&A)** | Static lookup, single-turn answers, basic RAG | Search or classic RAG first; add an agent only for action, adaptation, or open-ended reasoning |
 | **Moderate (Task Execution)** | Multi-turn, 1-5 actions, simple branching | Declarative Agents with API plugins; Foundry Prompt Agents when Foundry-managed configuration fits |
-| **Complex (Workflows)** | Sequential workflows, conditional logic | Declarative Agents + Power Automate; Agent Framework workflows |
-| **Advanced (Multi-Agent)** | Agent-to-agent delegation, parallel execution | Copilot Studio connected agents (**Preview**); Foundry incoming A2A endpoint (**Preview**) for direct delegation; Agent Framework (**GA core**) for code-first orchestration |
-=======
-| --- | --- | --- |
-| **Simple (Q&A)** | Single-turn conversations, basic RAG | Declarative Agents (Copilot Studio or M365 Agents Toolkit) |
-| **Moderate (Task Execution)** | Multi-turn, 1-5 actions, simple branching | Declarative Agents with API plugins, Microsoft Foundry Agent Service |
 | **Complex (Workflows)** | Sequential workflows, conditional logic | Declarative Agents + Power Automate, Agent Framework workflows |
-| **Advanced (Multi-Agent)** | Agent-to-agent delegation, parallel execution | Copilot Studio multi-agent, Microsoft Foundry Agent Service, Agent Framework |
->>>>>>> origin/main
+| **Advanced (Multi-Agent)** | Agent-to-agent delegation, parallel execution | Copilot Studio multi-agent; Foundry incoming A2A endpoint (**Preview**) for direct delegation; Agent Framework (**GA core**) for code-first orchestration |
 | **Expert (Custom Reasoning)** | Custom orchestration logic, model selection | Custom engine agents with Microsoft 365 Agents SDK, Teams SDK, or Microsoft Foundry Agent Service |
 
 **Component fit heuristic (Copilot Studio modern orchestrator):**

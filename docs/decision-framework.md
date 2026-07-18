@@ -570,8 +570,13 @@ Prefer platforms and connectors that support open/interoperable patterns (e.g., 
 
 **Need Multi-Agent Collaboration?**
 
+<<<<<<< HEAD
 - **Foundry Agent Service** (incoming A2A endpoint **Preview** for lightweight direct delegation; not deterministic workflow orchestration)
 - **Copilot Studio** (child agents + connected agents, supports Fabric data agents)
+=======
+- **Foundry Agent Service** (connected agents, managed orchestration)
+- **Copilot Studio** (child agents + connected agents, supports Fabric data agents, Foundry Agents, and A2A)
+>>>>>>> origin/main
 - **Agent Framework** (Handoff/Magentic patterns)
 
 **Need Workflow Automation + AI?**

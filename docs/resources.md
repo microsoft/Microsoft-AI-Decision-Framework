@@ -9,7 +9,7 @@ description: Key takeaways and resources by role
 This page provides comprehensive links to official Microsoft documentation, training resources, and community support organized by technology area. For term definitions, see [Glossary]({{ '/docs/glossary' | relative_url }}). For methodology and decision guidance, see [Decision Framework]({{ '/docs/decision-framework' | relative_url }}).
 
 {: .note }
-> **Last validated:** June 8, 2026. Microsoft Learn documentation shows "Last Updated" dates on each page - always check before making production decisions. Preview features may reach GA without immediate documentation updates.
+> **Last validated:** July 18, 2026. Microsoft Learn documentation shows "Last Updated" dates on each page - always check before making production decisions. Preview features may reach GA without immediate documentation updates.
 
 ---
 
@@ -98,7 +98,7 @@ This page provides comprehensive links to official Microsoft documentation, trai
 
 **Key Resources:**
 
-- [What's new in Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/whats-new#october-2025)
+- [What's new in Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/whats-new#notable-changes)
 - [Copilot Studio documentation](https://learn.microsoft.com/en-us/microsoft-copilot-studio/)
 - [Copilot Studio learning paths](https://learn.microsoft.com/en-us/training/browse/?products=microsoft-copilot-studio)
 - [Power Platform community](https://community.powerplatform.com/)
@@ -158,11 +158,11 @@ This page provides comprehensive links to official Microsoft documentation, trai
   - **Service note:** Optional PaaS runtime for hosting agents. Alternatively, deploy self-hosted agents using Agent Framework or custom code in your infrastructure.
 
 - **Copilot Studio**
-  - [What's new in Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/whats-new#october-2025)
+  - [What's new in Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/whats-new#notable-changes)
   - [Declarative agents](https://learn.microsoft.com/microsoft-365/copilot/extensibility/overview-declarative-agent)
   - [Custom engine agents overview](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-custom-engine-agent)
   - [Copilot Studio documentation](https://learn.microsoft.com/en-us/microsoft-copilot-studio/)
-  - [Computer Use (Preview)](https://learn.microsoft.com/en-us/microsoft-copilot-studio/computer-use)
+  - [Computer Use (GA)](https://learn.microsoft.com/en-us/microsoft-copilot-studio/computer-use)
   - [Work IQ MCP in Copilot Studio (Preview)](https://learn.microsoft.com/en-us/microsoft-copilot-studio/use-work-iq)
   - [Custom MCP server creation](https://learn.microsoft.com/en-us/microsoft-copilot-studio/mcp-create-new-server)
   - [Connect to existing MCP server](https://learn.microsoft.com/en-us/microsoft-copilot-studio/mcp-add-existing-server-to-agent)

@@ -109,7 +109,7 @@ Use this page when you’ve identified a likely platform choice and want an exec
 - [Microsoft AI Feature Comparison]({{ '/docs/feature-comparison' | relative_url }})[^feature-comparison]
 - [Evaluation Criteria – Governance & Compliance]({{ '/docs/evaluation-criteria#governance--compliance' | relative_url }})[^evaluation-governance]
 - [Plugins for Microsoft 365 Copilot](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-plugins)[^api-plugins]
-- [Microsoft 365 Agents SDK overview](https://learn.microsoft.com/en-us/microsoft-365/agents-sdk/agents-sdk-overview)[^agentsdk-overview]
+- [Create and deploy with Microsoft 365 Agents SDK](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/create-deploy-agents-sdk)[^agentsdk-overview]
 
 **Status:** Recommended when enterprise teams lead with Azure-first architecture
 **Confidence Level:** High (official Microsoft guidance + internal comparison tables)
@@ -194,8 +194,8 @@ Use this page when you’ve identified a likely platform choice and want an exec
 
 **Sources:**
 
-- [Microsoft 365 Agents SDK overview](https://learn.microsoft.com/en-us/microsoft-365/agents-sdk/agents-sdk-overview)[^agentsdk-overview]
-- [Build custom engine agents with Microsoft 365 Agents SDK](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/m365-agents-sdk)[^agentsdk-build]
+- [Create and deploy with Microsoft 365 Agents SDK](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/create-deploy-agents-sdk)[^agentsdk-overview]
+- [Custom engine agents for Microsoft 365 overview](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-custom-engine-agent)[^agentsdk-build]
 - [Microsoft 365 Agents Toolkit](https://learn.microsoft.com/en-us/microsoft-365/developer/overview-m365-agents-toolkit)[^agents-toolkit]
 - [Microsoft Agent Framework overview](https://learn.microsoft.com/en-us/agent-framework/overview/agent-framework-overview)[^agent-framework]
 - [Bring your agents into Microsoft 365 Copilot](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/bring-agents-to-copilot)[^bring-agents]
@@ -599,7 +599,7 @@ Choose the path that matches your team's velocity and codebase complexity. All t
 [^pattern1-actions]: Microsoft 365 Copilot release notes, August 19, 2025, Microsoft Learn. [https://learn.microsoft.com/en-us/copilot/microsoft-365/release-notes#august-19,-2025](https://learn.microsoft.com/en-us/copilot/microsoft-365/release-notes#august-19,-2025)
 [^skills-matrix]: Evaluation Criteria: Skills & Resources, Microsoft AI Decision Framework. See `docs/evaluation-criteria.md`.
 [^agent-workflows]: Microsoft Agent Framework Workflows overview, Microsoft Learn. [https://learn.microsoft.com/en-us/agent-framework/user-guide/workflows/overview](https://learn.microsoft.com/en-us/agent-framework/user-guide/workflows/overview)
-[^agentsdk-overview]: Microsoft 365 Agents SDK overview, Microsoft Learn. [https://learn.microsoft.com/en-us/microsoft-365/agents-sdk/agents-sdk-overview](https://learn.microsoft.com/en-us/microsoft-365/agents-sdk/agents-sdk-overview)
+[^agentsdk-overview]: Create and deploy a custom engine agent with Microsoft 365 Agents SDK, Microsoft Learn. Updated: 2025-12-02. [https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/create-deploy-agents-sdk](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/create-deploy-agents-sdk)
 
 ---
 
@@ -627,7 +627,7 @@ Choose the path that matches your team's velocity and codebase complexity. All t
 [^evaluation-governance]: See Governance & Compliance in `docs/evaluation-criteria.md#governance--compliance` for scoring guidance.
 [^api-plugins]: Plugins for Microsoft 365 Copilot, Microsoft Learn. Retrieved: 2026-03-23. [https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-plugins](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-plugins)
 [^agents-toolkit]: Microsoft 365 Agents Toolkit overview, Microsoft Learn. Retrieved: 2026-01-29. [https://learn.microsoft.com/en-us/microsoft-365/developer/overview-m365-agents-toolkit](https://learn.microsoft.com/en-us/microsoft-365/developer/overview-m365-agents-toolkit)
-[^agentsdk-build]: Build custom engine agents with Microsoft 365 Agents SDK, Microsoft Learn. Retrieved: 2025-07-21. [https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/m365-agents-sdk](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/m365-agents-sdk)
+[^agentsdk-build]: Custom engine agents for Microsoft 365 overview, Microsoft Learn. Updated: 2026-07-02. [https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-custom-engine-agent](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-custom-engine-agent)
 [^agentframework-overview]: Microsoft Agent Framework overview, Microsoft Learn. Retrieved: 2026-02-20. [https://learn.microsoft.com/en-us/agent-framework/overview/agent-framework-overview](https://learn.microsoft.com/en-us/agent-framework/overview/agent-framework-overview)
 [^agent-orchestrations]: Agent Framework orchestration overview, Microsoft Learn. Retrieved: 2026-02-13. [https://learn.microsoft.com/en-us/agent-framework/user-guide/workflows/orchestrations/overview](https://learn.microsoft.com/en-us/agent-framework/user-guide/workflows/orchestrations/overview)
 [^agent-checkpoint]: Checkpointing and resuming workflows, Microsoft Learn. Retrieved: 2026-03-11. [https://learn.microsoft.com/en-us/agent-framework/tutorials/workflows/checkpointing-and-resuming](https://learn.microsoft.com/en-us/agent-framework/tutorials/workflows/checkpointing-and-resuming)

@@ -23,6 +23,7 @@ This framework is built on the principle that **there are no "winners" or "loser
 - **Balanced perspective**: Each technology has strengths for specific use cases; the framework helps you find the best fit
 
 **When contributing, please maintain this balanced, objective approach:**
+
 - Avoid strongly opinionated language that favors one technology over others without context
 - Present trade-offs clearly (e.g., "Technology A is simpler for basic scenarios; Technology B provides more control for complex requirements")
 - Don't "trash talk" or dismiss any Microsoft AI technology — instead, clarify when each is most appropriate
@@ -43,11 +44,13 @@ This project has adopted the [Microsoft Open Source Code of Conduct](https://ope
 **CRITICAL**: All technology capabilities, features, and status (GA/Preview/Experimental) MUST be validated against official Microsoft Learn documentation.
 
 **Never:**
+
 - Guess or assume features based on product naming
 - Rely on pretraining knowledge without verification
 - Accept "common knowledge" without source confirmation
 
 **Always:**
+
 - Search Microsoft Learn documentation first
 - Cite sources with URLs and last updated dates
 - Note when information is unavailable or unclear
@@ -58,6 +61,7 @@ This project has adopted the [Microsoft Open Source Code of Conduct](https://ope
 **"Shoeboxing"** = Forcing a technology into a capability it doesn't actually support because we didn't research properly.
 
 **Validation workflow when adding/editing content:**
+
 1. Identify every technology mentioned
 2. Search Microsoft Learn for official documentation
 3. Verify the specific capability claimed
@@ -67,6 +71,7 @@ This project has adopted the [Microsoft Open Source Code of Conduct](https://ope
 ### Documentation Standards
 
 **When updating Markdown files:**
+
 - Follow existing front matter format (layout, title, nav_order, description)
 - Maintain heading hierarchy (H1 for page title, H2 for major sections)
 - Use descriptive link text: `[Capability Model](capability-model.md)`
@@ -74,6 +79,7 @@ This project has adopted the [Microsoft Open Source Code of Conduct](https://ope
 - Add status annotations: `(GA)`, `(Preview)`, `(Experimental)`
 
 **When updating Mermaid diagrams:**
+
 - Use dark theme: `%%{init: {'theme':'dark'}}`
 - Follow color coding conventions:
   - Blue (#0078D4): Microsoft primary technologies
@@ -118,6 +124,7 @@ This project has adopted the [Microsoft Open Source Code of Conduct](https://ope
 Before submitting your PR, verify:
 
 **Content Quality:**
+
 - [ ] All technology claims backed by Microsoft Learn sources
 - [ ] Source URLs included with last updated dates
 - [ ] GA/Preview/Experimental status explicitly marked
@@ -127,6 +134,7 @@ Before submitting your PR, verify:
 - [ ] Recommendations tied to specific requirements, not personal preferences
 
 **Diagram Quality (if applicable):**
+
 - [ ] Mermaid syntax valid (tested locally)
 - [ ] Dark theme applied
 - [ ] Color coding follows conventions
@@ -134,6 +142,7 @@ Before submitting your PR, verify:
 - [ ] Validation summary present with sources
 
 **Navigation & Structure:**
+
 - [ ] Front matter includes correct nav_order
 - [ ] Cross-references use descriptive link text
 - [ ] File under 1000 lines

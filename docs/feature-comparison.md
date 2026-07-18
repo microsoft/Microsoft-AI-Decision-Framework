@@ -310,7 +310,7 @@ Declarative vs custom engine: when to stay low-code with managed orchestration v
 
 **Sources:**
 - [Declarative Agents for Microsoft 365 Copilot](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-declarative-agent) (Updated: 2025-12-01)
-- [Custom Engine Agents Overview](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-custom-engine-agent) (Updated: 2026-01-13)
+- [Custom Engine Agents Overview](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-custom-engine-agent) (Updated: 2026-07-02)
 
 **Confidence Level:** High (official Microsoft guidance)
 
@@ -318,24 +318,33 @@ Declarative vs custom engine: when to stay low-code with managed orchestration v
 
 ## Custom Engine Agent Tool Comparison
 
-Tooling snapshot for custom engine agents across Copilot Studio, Teams SDK, and M365 Agents SDK (channels, orchestration fit, developer experience).
+Tooling snapshot for custom engine agents across Copilot Studio, Teams SDK, and M365 Agents SDK (channels, orchestration fit, developer experience). Microsoft guidance positions Teams SDK and M365 Agents SDK as coexisting options with different optimization targets, not a strict replacement path.
 
 | **Tool** | **Copilot Studio** | **Teams SDK** | **M365 Agents SDK** |
 |----------|---------------------|----------------------|---------------------|
-| **Primary Use Case** | Low-code custom engine agents | Bot Framework migration path | Multi-channel pro-code agents |
-| **Orchestration Options** | Agent Framework recommended, LangChain (Third-party) | Teams SDK (Action Planner) | Agent Framework recommended, LangChain (Third-party) |
-| **Deployment Channels** | Teams, M365 Copilot | Teams-focused | 10+ channels (Teams, Slack, web chat, etc.) |
+| **Primary Use Case** | Low-code custom engine agents | Teams-first collaborative agents (channels/meetings), including Bot Framework migration | Multi-channel pro-code agents with bring-your-own orchestration |
+| **Orchestration Options** | Copilot Studio orchestration (classic topics or modern orchestrator), plus Agent Flows and connected agents for cross-agent patterns | Teams SDK (Action Planner) | Bring your own orchestration (Agent Framework recommended, LangChain (Third-party), custom planners) |
+| **Deployment Channels** | Microsoft 365 Copilot, Teams, SharePoint, custom websites, and mobile endpoints | Microsoft 365 Copilot + Teams, optimized for collaborative Teams surfaces | 10+ channels (Teams, Slack, web chat, etc.) |
 | **Developer Experience** | Visual designer + code | Code-first | Code-first with Toolkit in VS Code |
-| **Target Audience** | Makers and developers | Bot Framework developers | Professional developers |
-| **Licensing Model** | Per-user subscription | Included with M365 | Included with Azure Bot Service |
+| **Target Audience** | Makers and developers | Teams app/agent developers | Professional developers and ISVs |
+| **Licensing Model** | Per-user subscription or consumption (prepaid/Pay-as-you-go) | Included with M365 | Included with Azure Bot Service |
 | **Status** | GA | GA | GA |
 
 **Publishing scope:** Only agents built with the Teams SDK, M365 Agents SDK, or Foundry can be published to the Microsoft Commercial Store via Agents Toolkit; Copilot Studio agents are org-only by default. Source: [Custom engine agents for Microsoft 365 overview](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-custom-engine-agent).
 
+**Coexistence guidance:**
+
+- Use **Teams SDK** when the primary experience is collaborative and Teams-centric (channels, meetings, team conversations).
+- Use **M365 Agents SDK** when you need broader cross-channel distribution and full control over orchestration/model stack.
+
+{: .note }
+> Capability maturity in Copilot Studio and adjacent SDKs can shift month-to-month. Validate GA/Preview status per feature in the Copilot Studio "What's new" feed before production commitments.
+
 **Sources:**
-- [Copilot Studio Custom Engine Agents](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-custom-engine-agent) (Updated: 2026-01-13)
-- [Teams SDK Overview](https://learn.microsoft.com/en-us/microsoftteams/platform/teams-ai-library/welcome) (Updated: 2026-02-25)
-- [M365 Agents SDK](https://learn.microsoft.com/en-us/microsoft-365/agents-sdk/agents-sdk-overview) (Updated: 2025-11-24)
+
+- [Custom Engine Agents for Microsoft 365](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-custom-engine-agent) (Updated: 2026-07-02)
+- [Teams SDK welcome](https://learn.microsoft.com/en-us/microsoftteams/platform/teams-sdk/welcome) (Updated: 2026-07-07)
+- [Create and deploy with Microsoft 365 Agents SDK](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/create-deploy-agents-sdk) (Updated: 2025-12-02)
 
 **Confidence Level:** High (all GA, official Microsoft documentation)
 

@@ -214,13 +214,16 @@ For experienced users who want a fast starting point:
 
 -> **[Azure AI Search + Content Understanding (Preview)]({{ '/docs/scenarios#scenario-5-multimodal-compliance-copilot-rich-pdfs-tables-and-images' | relative_url }})** (hybrid/vector + layout-aware citations)
 
-### "I need multi-agent orchestration without coding a graph"
+### "I need multi-agent orchestration without writing a graph"
 
--> **[Foundry Workflows (new portal)]({{ '/docs/scenarios#scenario-9-foundry-multi-agent-workflow-approvals--triage' | relative_url }})** (template-based orchestration with agent nodes and tool catalog)
+-> **Match the role before the tool:** use **[Logic Apps agent workflows (Preview)](https://learn.microsoft.com/en-us/azure/logic-apps/agent-workflows-concepts)** for visual business processes, **[Agent Framework (GA)]({{ '/docs/technologies#microsoft-agent-framework' | relative_url }})** for code-first orchestration, or **A2A (Preview)** for lightweight direct delegation.
 
-### "I need to publish an agent to Teams/M365 fast"
+{: .warning }
+> **Foundry Workflows:** Retiring from Preview without a GA path on December 1, 2026. Do not start new solutions on it. Existing definitions can move by role: code-first graphs to Agent Framework, visual business processes to Logic Apps, direct delegation to A2A, or exported YAML to Hosted Agents only when the [complete constraint card]({{ '/docs/technologies#the-hosted-agent-constraint-card' | relative_url }}) fits.
 
--> **[Foundry publish to Copilot/Teams]({{ '/docs/scenarios#scenario-10-publish-foundry-agent-to-microsoft-365teams' | relative_url }})** (org-scoped store listing, Entra + Bot Service wiring)
+### "I need to evaluate a Foundry agent in Teams/M365"
+
+-> **[Foundry → M365 distribution pattern (Early Access Preview)]({{ '/docs/implementation-patterns#pattern-9-foundry-agent--m365-copilot-publish-path' | relative_url }})**. Keep the current agent endpoint as the baseline and test every tool, identity, and channel path; do not assume universal parity.
 
 ### "I need a governed M365 copilot with better SharePoint answers"
 
@@ -254,7 +257,7 @@ This guide is built on evidence-based research and systematic decision-making:
 1. **Source-First Research** - All content backed by official Microsoft documentation
 2. **Framework-Driven** - BXT methodology + 9 critical questions + scenario criteria, aligned with the CAF AI agent adoption path (plan, govern & secure, build, operate)
 3. **Pattern-Oriented** - Proven implementation approaches from real deployments
-4. **Governance-Aware** - Maintain agent inventory and lifecycle via Agent Registry/Agent 365 where applicable
+4. **Governance-Aware** - Combine fleet controls such as Agent Registry/Agent 365 with application-layer enforcement where needed. The Microsoft-origin **Agent Governance Toolkit v4.1.0 (Public Preview, MIT-licensed OSS)** is middleware, not a managed service; it has no GA features or SLA.
 5. **Progressive Learning** - Foundation -> Context -> Application -> Mastery
 6. **Start Simple, Scale Smart** - Choose the simplest technology that meets requirements
 

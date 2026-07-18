@@ -90,6 +90,9 @@ Certain files have a specific educational purpose.
 * **`docs/decision-framework.md` (The "How"):**
     * **Intent:** Defines the *methodology* and *intake process* (BXT, 9 Questions).
     * **Guardrail:** Do not clutter this with technology specs. It is about the *process* of choosing.
+* **`docs/evaluation-criteria.md` (The "Measure and Apply"):**
+    * **Intent:** Defines the product-independent criteria used to measure complexity, delivery capability, economics, governance, and scale—then shows how those measurements translate into practical Microsoft paths.
+    * **Guardrail:** Article VI governs **sequence, not product exclusion**. Establish the concept, analogy, rubric, and required evidence first; then provide concise Microsoft product anchors that operationalize the result. Products must not define the criterion or turn the page into a league table, but the page must answer, “How do I apply this measure with Microsoft technology?”
 
 ### Article VII: The Teaching Mandate
 #### "Explain the 'Why' before the 'What'."

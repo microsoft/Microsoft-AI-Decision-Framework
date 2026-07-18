@@ -81,7 +81,13 @@ Rigorously distinguish **GA**, **Public Preview**, and **Experimental**. Flag no
 
 Frame technologies as **roles in a cast** — teammates, not rivals. "Copilot Studio plays the Orchestrator; Foundry plays the Engine." Never say one is "better" than another.
 
-### 5. Mermaid Diagram Conventions
+### 5. Keep Agent Names Product-Specific
+
+* **Declarative Agent** refers to Microsoft 365 Copilot and Copilot Studio agents built from instructions, knowledge, and actions with platform-managed orchestration.
+* **Prompt Agent** refers to the configuration-defined agent type in Microsoft Foundry Agent Service.
+* Never normalize one term into the other. Name the platform when context could be ambiguous.
+
+### 6. Mermaid Diagram Conventions
 
 Every diagram in `docs/visual-framework.md` must have:
 1. Dark theme (default Mermaid config)

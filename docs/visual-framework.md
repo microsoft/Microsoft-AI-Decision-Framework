@@ -594,7 +594,7 @@ flowchart TD
     M365Only --> M365T{Timeline?}
     M365T -->|Days| M365_Fast[M365 Copilot Chat<br/>0 addl cost included with M365<br/>Instruction-based agents]
     M365T -->|1 to 2 Weeks| M365_Med[M365 Copilot with Graph<br/>0 addl cost<br/>Knowledge grounding]
-    M365T -->|1 Month or more| M365_Slow[Declarative Agents<br/>0 addl cost or PAYG<br/>Custom instructions and data]
+M365T -->|1 Month or more| M365_Slow[Declarative Agents<br/>0 addl cost or PAYG<br/>Custom instructions and data]
 
     Starter --> StarterT{Timeline?}
     StarterT -->|1 to 2 Weeks| S_Fast[Copilot Studio PAYG<br/>USD 200 to 500 per month avg<br/>USD 0.01 per credit, low-code]
@@ -815,15 +815,16 @@ flowchart TD
 ```mermaid
 %%{init: {'theme':'dark'}}%%
 flowchart TD
-    Start([Need Multi-Agent?]) --> Q1{Pattern Type?}
+    Start([Need coordination?]) --> IsMulti{More than one agent?}
+    IsMulti -->|No| SingleExit[Single-agent event trigger<br/>Not multi-agent orchestration]
+    IsMulti -->|Yes| Q1{Pattern Type?}
 
     Q1 -->|Connected agents<br/>Mesh A2A| Connected[Connected mesh pattern]
     Q1 -->|Sequential or parallel<br/>workflows| Workflows[Agent Workflow Orchestration]
-    Q1 -->|Event triggers| EventDriven[Event-Driven Agents]
 
     Connected --> C_Platform{Platform?}
-    C_Platform -->|Low-code| C_Studio[Copilot Studio Preview<br/>Agent2Agent A2A<br/>Decentralized Mesh]
-    C_Platform -->|Azure| C_Foundry[Microsoft Foundry Azure GA<br/>Connected agents<br/>Sub-agent delegation]
+    C_Platform -->|Low-code| C_Studio[Copilot Studio <i>Preview</i><br/>Agent2Agent A2A<br/>Decentralized Mesh]
+    C_Platform -->|Azure| C_Foundry[Foundry Agent Service<br/>Incoming A2A endpoint<br/><i>Preview</i>]
 
     Workflows --> W_Framework{Framework?}
     W_Framework -->|Microsoft| W_AgentFW[Microsoft Agent Framework GA<br/>Sequential, Concurrent, Handoff, Magentic]
@@ -831,13 +832,8 @@ flowchart TD
     W_Framework -->|Bring your own| W_SDK[M365 Agents SDK<br/>Integrate Agent Framework or SK]
     W_Framework -->|Third-party state| W_LangGraph[LangGraph Third-Party<br/>State graphs]
 
-    EventDriven --> E_Type{Event source?}
-    E_Type -->|Enterprise systems| E_Logic[Logic Apps Preview<br/>AI Agent Workflows<br/>MCP Server<br/>Single agent event triggered]
-    E_Type -->|Azure events| E_Functions[Azure Functions<br/>Agent Service<br/>Single agent event triggered]
-    E_Type -->|Custom events| E_Custom[Event Grid with Foundry<br/>Event routing to agents]
-
     C_Studio --> Note1[Can connect Fabric Data Agents<br/>as data grounding participants]
-    C_Foundry --> Note2[Fabric Data Agents can integrate<br/>as connected agents]
+    C_Foundry --> Note2[Direct delegation is not<br/>deterministic workflow orchestration]
 
     C_Studio --> Deploy1([Deploy])
     C_Foundry --> Deploy2([Deploy])
@@ -845,13 +841,11 @@ flowchart TD
     W_SK --> Deploy4([Deploy])
     W_SDK --> Deploy5([Deploy])
     W_LangGraph --> Deploy6([Deploy])
-    E_Logic --> Deploy7([Deploy])
-    E_Functions --> Deploy8([Deploy])
-    E_Custom --> Deploy9([Deploy])
+    SingleExit --> Deploy7([Choose single-agent trigger path])
 
     style Connected fill:#0b6a0b,color:#fff
     style Workflows fill:#8c5e00,color:#fff
-    style EventDriven fill:#4b2070,color:#fff
+    style SingleExit fill:#4b2070,color:#fff
 ```
 
 </details>
@@ -859,7 +853,7 @@ flowchart TD
 ### Validation Summary: Multi-Agent Orchestration
 {: .no_toc }
 
-**Last Validated:** January 2026
+**Last Validated:** July 13, 2026
 
 #### Connected Agents / Sub-Agent Pattern
 {: .no_toc }
@@ -867,11 +861,13 @@ flowchart TD
 | Technology | Status | Capabilities | Documentation |
 |------------|--------|--------------|---------------|
 | **Copilot Studio** | Preview | Agent2Agent (A2A) decentralized mesh, Connected agents, child agents, handoffs | [Connected Agents](https://learn.microsoft.com/en-us/microsoft-copilot-studio/authoring-add-other-agents) |
-| **Foundry Agent Service** | GA | Multi-agent workflows with orchestration patterns | [Agent Workflows](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/workflow) |
+| **Foundry Agent Service** | Preview (incoming A2A endpoint) | Lightweight direct delegation; direction and protocol support must be validated | [A2A integration](https://learn.microsoft.com/en-us/agent-framework/integrations/a2a) |
 | **Fabric Data Agents** | Preview | Consumed by other agents for data grounding (NOT orchestrator) | [Fabric Integration](https://learn.microsoft.com/en-us/fabric/data-science/data-agent-microsoft-copilot-studio) |
 
 #### Agent Workflow Orchestration
 {: .no_toc }
+
+**Foundry Workflows: Retiring from Preview without a GA path on December 1, 2026.** It is not a new-solution option. Use Agent Framework for code-first orchestration, Logic Apps for visual business processes, A2A for lightweight direct delegation, or exported YAML on Hosted Agents only when the [complete constraint card]({{ '/docs/technologies#the-hosted-agent-constraint-card' | relative_url }}) fits.
 
 | Technology | Status | Orchestration Patterns | Documentation |
 |------------|--------|------------------------|---------------|

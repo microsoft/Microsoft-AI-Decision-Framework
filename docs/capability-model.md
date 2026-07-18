@@ -164,7 +164,7 @@ See [ISV extensibility story](https://learn.microsoft.com/en-us/microsoft-cloud/
 
 ### 3. Build AI apps and agents (hybrid by default)
 This grouping is for **custom experiences**. Your app may be 95% deterministic and still include a meaningful AI feature.
-* **Agent flows and workflows:** Support mixing deterministic steps with AI reasoning (e.g., Copilot Studio agent flows, Foundry multi‑agent workflows).
+* **Agent flows and workflows:** Support mixing deterministic steps with AI reasoning. Think of the workflow as the railroad and the agent as the rover: use fixed tracks for known routes and reasoning only where the terrain is uncertain. Product anchors include Copilot Studio agent flows, Logic Apps agent workflows (Preview), and Agent Framework workflows (GA). **Foundry Workflows: Retiring from Preview without a GA path on December 1, 2026.** It is not a new-solution building block.
 
 ### 4. AI services and building blocks
 This grouping sits beneath apps: models, tools, retrieval, evaluations, and governance. Microsoft Foundry unifies agents, models, and tools with enterprise‑grade management. See [Microsoft Foundry overview](https://learn.microsoft.com/en-us/azure/ai-foundry/what-is-foundry?view=foundry&preserve-view=true).

@@ -104,8 +104,9 @@ All technology capabilities, features, and status annotations (GA/Preview/Experi
     * **Rule:** Do not clutter this with technology specs. It is about the *process* of choosing.
 
 3.  **`docs/evaluation-criteria.md` (The "Measure")**
-    * **Purpose:** Defines *metrics* (Complexity, Governance, Skills).
-    * **Rule:** Do not add product comparison tables here. This file defines the *ruler*, not the objects being measured.
+    * **Purpose:** Defines product-independent measures (Complexity, Governance, Skills, Economics, Scale) and then maps measured outcomes to practical Microsoft paths.
+    * **Rule:** Follow **Concept → Analogy → Rubric/Evidence → Microsoft Product Path**. Products must not define the criterion or create a winner/loser league table, but concise product-alignment tables or columns are expected after the measure so readers can operationalize it.
+    * **Operational guardrail:** Do not strip Microsoft anchors in the name of neutrality. Preserve the evidence/readiness column, status-label non-GA paths, source volatile mappings, and explain each product's role and boundary.
 
 ### Writing Style & Voice (The Storyteller)
 
@@ -132,6 +133,12 @@ Match their rhythm. Match their boldness. If it reads like a product spec sheet,
 ---
 
 ## Key Concepts & Terminology
+
+### Agent Naming Boundary
+
+- **Declarative Agent** means a Microsoft 365 Copilot or Copilot Studio agent built from instructions, knowledge, and actions with platform-managed orchestration.
+- **Prompt Agent** means the configuration-defined agent type in Microsoft Foundry Agent Service.
+- Never use these names interchangeably. Product context must be explicit when a sentence could refer to either platform.
 
 ### Capability Model: Five Groupings
 **Grouping 1: End‑user copilots** - M365 Copilot, built-in agents, Agent Store

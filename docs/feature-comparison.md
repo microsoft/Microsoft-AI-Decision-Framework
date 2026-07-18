@@ -67,18 +67,20 @@ Quick view of core platforms (M365 Copilot, Studio, Foundry, Agent Framework, Lo
 ## Developer Agent Comparison
 {: .tech-heading }
 
-Contrast packaged Microsoft agents (Coding, SRE, App Modernization) by trigger, action scope, and human-in-the-loop expectations.
+The comparison below covers four developer-agent roles: asynchronous repository work, parallel development-session coordination, Azure reliability operations, and supported application-stack modernization. GitHub Copilot cloud agent is **the remote worker**, GitHub Copilot app is **the dispatch desk**, Azure SRE Agent is **the reliability engineer**, and GitHub Copilot Modernization is **the renovation crew**. Their capabilities overlap; their primary jobs differ.
 
-| Feature | GitHub Copilot Coding Agent | GitHub Copilot app | Azure SRE Agent | GitHub Copilot App Modernization |
-|---------|-----------------------------|--------------------|-----------------|----------------------------------|
-| **Primary Role** | Autonomous Developer | Agent-native control surface | Site Reliability Engineer | Migration Specialist |
-| **Trigger** | Issue, PR feedback, prompt, schedule, or repository event | User opens or manages agent sessions | Azure Monitor Alert | Manual Invocation |
-| **Action Space** | Codebase (Read/Write), Tests, PR iteration | Worktrees, parallel sessions, review and merge coordination | Azure Resources (Read/Action), Logs | Codebase (Mass Refactor) |
-| **Output** | Pull Request | Managed agent work queue and session state | RCA Report, Fix PR | Upgrade Plan, PR |
-| **Human Loop** | PR Review, CI gates, optional Agent Merge gates | Developer steering and approval | Alert Acknowledgment | Plan Approval, PR Review |
-| **Underlying Model** | Optimized Coding Models | Copilot agent runtime | Specialized SRE Models | Migration-Tuned Models |
-| **Context Window** | Repository-aware | Repository and session-aware | Log/Metric-aware | Dependency-aware |
-| **Status** | Preview | Technical Preview | Preview | Preview |
+| Feature | GitHub Copilot cloud agent | GitHub Copilot app | Azure SRE Agent | GitHub Copilot Modernization |
+|---------|----------------------------|--------------------|-----------------|------------------------------|
+| **Primary Role** | Asynchronous repository research, planning, code changes, and pull requests in a GitHub Actions-powered environment | Desktop control surface for parallel agent-driven development and GitHub pull-request lifecycle management | Azure operational investigation, diagnosis, and approved remediation | Modernization solution delivered through complementary IDE extensions and the Modernize CLI—not a standalone agent product |
+| **Execution Surface** | GitHub-hosted session working on one branch and up to one pull request per assigned task | Local repository, dedicated worktree, or GitHub-hosted cloud sandbox (**Public Preview**) | Configured Azure resources, telemetry, connectors, and operational controls | IDE extensions for developer execution; Modernize CLI for portfolio assessment, planning, and orchestration |
+| **Planning and Autonomy** | Can research a repository, create a plan, change code, and optionally open a pull request | Interactive, Plan, and Autopilot modes; model and reasoning-effort selection per session | Investigation and action scope follow configured permissions and approvals | Assessment and modernization plans guide transformations; developers choose and review the work to execute |
+| **Parallelism and Isolation** | Separate cloud-agent sessions; each task remains branch-scoped | Multiple isolated sessions in parallel, each with its own branch/worktree; cloud sandbox isolation is **Public Preview** | Multiple investigations can run within configured service and quota boundaries | Modernize CLI can coordinate assessment and planning across multiple applications; IDE work remains project/repository scoped |
+| **GitHub Workflow** | Tasks can begin from issues or Copilot prompts; work is visible through commits, logs, and pull requests | Browse issues/PRs, start sessions with issue context, review diffs and CI, comment or request fixes, and use Agent Merge when GitHub rules allow | Use governed issues or incident records as the handoff to coding workflows; no direct SRE-to-coding-agent protocol is assumed | Produces reviewed code and deployment changes that should flow through normal branches, builds, tests, scans, and pull requests |
+| **Steering and Review** | Developers manage sessions and decide whether to create or merge the pull request | Steer and archive sessions, switch modes/models, review diffs/comments, inspect CI, and use canvases where the workflow benefits from a shared custom surface | Human approval gates remain required for consequential actions | Human review remains mandatory; successful transformation does not guarantee application correctness, security, or production readiness |
+| **Modernization Scope** | General-purpose repository work; no modernization-specific guarantee | General-purpose session and PR management | Operations, not application framework modernization | Java, .NET, and C++ language/framework/tool upgrades; supported .NET/Java Azure migration; dependency/runtime upgrades, OpenRewrite transformations, build/test validation, CVE remediation, containerization, IaC, and deployment assets |
+| **Feature-Level Status** | Available for paid Copilot plans; related capabilities carry their own availability labels | App available for all Copilot plans; cloud sandboxes **Public Preview** | **GA** | IDE language/framework/tool upgrades **GA** for .NET, Java, and C++; IDE Azure migration **GA** for .NET and Java; Modernization agent CLI **Public Preview** |
+
+**Sources:** [GitHub Copilot cloud agent](https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent); [GitHub Copilot app](https://docs.github.com/en/copilot/concepts/agents/github-copilot-app); [agent sessions](https://docs.github.com/en/copilot/how-tos/github-copilot-app/agent-sessions); [issues and pull requests](https://docs.github.com/en/copilot/how-tos/github-copilot-app/managing-issues-and-pull-requests); [Azure SRE Agent](https://learn.microsoft.com/en-us/azure/sre-agent/overview); [GitHub Copilot Modernization](https://learn.microsoft.com/en-us/azure/developer/github-copilot-app-modernization/overview) (updated June 12, 2026).
 
 ---
 
@@ -182,6 +184,21 @@ Use this matrix to choose between Agent Framework Workflows, Logic Apps AI Agent
 
 ---
 
+## Agent Governance Layering Guide
+
+Agent governance requires several complementary layers: runtime policy enforcement, fleet and lifecycle administration, platform guardrails, and behavioral evaluation. The guide below maps each layer to its responsibility and product anchors. It is a framework-authored composition model; Microsoft does not publish it as an official product comparison.
+
+| Layer | Role | Product Anchor | Status / Scope | Configuration Caveat |
+| :--- | :--- | :--- | :--- | :--- |
+| **Runtime checkpoint** | Intercept agent actions and enforce application policy | Agent Governance Toolkit (Microsoft-origin, MIT OSS) | **Public Preview v4.1.0; zero GA features; ACS policy layer beta** | Self-hosted middleware; pin versions; APIs and schemas can change; no managed-service SLA or Microsoft product support contract |
+| **Fleet and lifecycle** | Inventory, identity, access, and administrative posture | Agent 365, Agent Registry, or Foundry control surfaces | Status varies by exact surface | Registration does not automatically intercept every in-process tool call |
+| **Platform guardrails** | Apply identity, network, data, and service policies | Hosting and cloud platform controls | Status varies by control | Coverage follows the configured service boundary, not arbitrary application code |
+| **Behavioral evaluation** | Test whether an agent follows policy and fails safely | ASSERT and platform evaluation tools | Project/service status varies | Tests provide evidence; they do not enforce runtime decisions |
+
+**Authorship and method:** This framework authored the layering model from official product scopes and the AGT repository/release record. It compares architectural responsibility, enforcement point, operational owner, and lifecycle—not feature counts. See the [Microsoft announcement](https://opensource.microsoft.com/blog/2026/04/02/introducing-the-agent-governance-toolkit-open-source-runtime-security-for-ai-agents/), [AGT repository](https://github.com/microsoft/agent-governance-toolkit), and [v4.1.0 changelog](https://github.com/microsoft/agent-governance-toolkit/blob/main/CHANGELOG.md).
+
+---
+
 ## IQ Layer Comparison
 
 Four intelligence layers -- collectively branded **Microsoft IQ** -- give agents access to different slices of your world. Think of them as **The Four Libraries**: one holds your enterprise documents, one remembers every meeting and email, one crunches your business metrics, and one reads every public source on the internet. No single librarian covers all four, but together they give an agent near-total recall.
@@ -212,12 +229,12 @@ Four intelligence layers -- collectively branded **Microsoft IQ** -- give agents
 Before selecting a platform, check the expiration date. This matrix flags active migration deadlines and governance readiness.
 
 | Dimension | **M365 Copilot** | **Copilot Studio** | **Microsoft Foundry** | **Agent Framework** | **GitHub Copilot** |
-|-----------|-----------------|-------------------|----------------------|--------------------|--------------------||
+|-----------|-----------------|-------------------|----------------------|--------------------|--------------------|
 | **Platform Status** | GA | GA | GA | GA (.NET, Python) | GA (various features Preview) |
-| **Active Deprecations** | None | None | `azure-ai-inference` (May 30, 2026); Assistants API (Aug 26, 2026); `azure-ai-agents` (deprecated → `AIProjectClient` in `azure-ai-projects`) | Breaking changes tracked in upgrade guides | Model LTS policies active |
-| **Publish to M365 Copilot** | Native | Native | One-click from Foundry portal | Via M365 Agents SDK | N/A |
-| **Multi-Agent Orchestration** | Via Researcher agent (GA) + connected agents | Connected agents (Preview) | Foundry Agent Service connected agents (GA) | Sequential, Concurrent, Handoff, Group Chat, Magentic-One | N/A |
-| **MCP Compatibility** | N/A | Consumer + Producer (custom MCP servers, Preview → Apr GA) | Consumer + Producer (MCP tool GA) | Consumer (GA) | Consumer (MCP servers in VS Code) |
+| **Active Deprecations** | None | None | Foundry Workflows: **Retiring from Preview without a GA path on December 1, 2026**; Assistants API (Aug 26, 2026); `azure-ai-agents` deprecated | Breaking changes tracked in upgrade guides | Model LTS policies active |
+| **Publish to M365 Copilot** | Native | Native | **Early Access Preview**; validate each tool and identity path | Via M365 Agents SDK | N/A |
+| **Multi-Agent Orchestration** | Via Researcher agent (GA) + connected agents | Connected agents (Preview) | Incoming A2A endpoint (Preview); use Agent Framework for code-first orchestration | Custom workflow graphs; built-in Sequential, Concurrent, Handoff, Group Chat, and Magentic-One patterns | N/A |
+| **MCP Compatibility** | N/A | Consumer (GA) | Consumer + Producer (MCP tool GA) | Consumer (GA) | Consumer (MCP servers in VS Code) |
 | **Permission-Aware Grounding** | Graph security trimming (automatic) | Via connectors + Work IQ MCP | Foundry IQ ACL/label sync; SharePoint ACL flow-through in AI Search | Inherits from host runtime | Repository-scoped |
 | **Built-in Evaluation** | N/A | Test sets + analytics | Foundry portal evals + continuous evaluation | OpenTelemetry hooks | N/A |
 | **Governance Export** | Agent Registry (export inventory) | Power Platform admin + Purview audit | Foundry Control Plane + Azure Policy + Defender | Application-level | Org admin telemetry |
@@ -296,7 +313,7 @@ Not every model belongs in the cloud. This compact matrix helps you decide where
 
 ## Agent Development Approach Comparison
 
-Declarative vs custom engine: when to stay low-code with managed orchestration versus bringing your own orchestrator and hosting.
+Declarative vs custom engine: when to stay with managed orchestration versus bringing your own orchestrator and hosting.
 
 | **Approach** | **Declarative Agents** | **Custom Engine Agents** |
 |--------------|------------------------|--------------------------|

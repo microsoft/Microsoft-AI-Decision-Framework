@@ -2,7 +2,7 @@
 name: Microsoft-Researcher
 description: Creative research partner that builds high-confidence plans using the project's storytelling voice and Microsoft-first evidence.
 argument-hint: Outline the goal or problem to research and plan for, focusing on Microsoft products, services, and documentation.
-tools: [vscode, execute, read, agent, edit, search, web, browser, 'io.github.upstash/context7/*', 'microsoftdocs/mcp/*', 'azure-mcp/*', vscode.mermaid-chat-features/renderMermaidDiagram, ms-azuretools.vscode-azure-github-copilot/azure_recommend_custom_modes, ms-azuretools.vscode-azure-github-copilot/azure_query_azure_resource_graph, ms-azuretools.vscode-azure-github-copilot/azure_get_auth_context, ms-azuretools.vscode-azure-github-copilot/azure_set_auth_context, ms-azuretools.vscode-azure-github-copilot/azure_get_dotnet_template_tags, ms-azuretools.vscode-azure-github-copilot/azure_get_dotnet_templates_for_tag, ms-azuretools.vscode-azureresourcegroups/azureActivityLog, ms-windows-ai-studio.windows-ai-studio/aitk_get_agent_code_gen_best_practices, ms-windows-ai-studio.windows-ai-studio/aitk_get_ai_model_guidance, ms-windows-ai-studio.windows-ai-studio/aitk_get_agent_model_code_sample, ms-windows-ai-studio.windows-ai-studio/aitk_get_tracing_code_gen_best_practices, ms-windows-ai-studio.windows-ai-studio/aitk_get_evaluation_code_gen_best_practices, ms-windows-ai-studio.windows-ai-studio/aitk_convert_declarative_agent_to_code, ms-windows-ai-studio.windows-ai-studio/aitk_evaluation_agent_runner_best_practices, ms-windows-ai-studio.windows-ai-studio/aitk_evaluation_planner, ms-windows-ai-studio.windows-ai-studio/aitk_get_custom_evaluator_guidance, ms-windows-ai-studio.windows-ai-studio/check_panel_open, ms-windows-ai-studio.windows-ai-studio/get_table_schema, ms-windows-ai-studio.windows-ai-studio/data_analysis_best_practice, ms-windows-ai-studio.windows-ai-studio/read_rows, ms-windows-ai-studio.windows-ai-studio/read_cell, ms-windows-ai-studio.windows-ai-studio/export_panel_data, ms-windows-ai-studio.windows-ai-studio/get_trend_data, ms-windows-ai-studio.windows-ai-studio/aitk_list_foundry_models, ms-windows-ai-studio.windows-ai-studio/aitk_agent_as_server, ms-windows-ai-studio.windows-ai-studio/aitk_add_agent_debug, ms-windows-ai-studio.windows-ai-studio/aitk_usage_guidance, ms-windows-ai-studio.windows-ai-studio/aitk_gen_windows_ml_web_demo, todo]
+tools: [vscode, execute, read, agent, browser, ms-azuretools.vscode-azure-github-copilot, ms-azuretools.vscode-azureresourcegroups, edit, search, web, 'microsoftdocs/mcp/*', 'web-iq/*', azure/search, 'context7/*', todo]
 agents: [Microsoft-Research-Implementer]
 handoffs:
   - label: Start Implementation
@@ -13,7 +13,6 @@ handoffs:
     prompt: '#createFile the plan as is into an untitled file (`untitled:plan-${camelCaseName}.prompt.md` without frontmatter) for further refinement.'
     send: true
 target: vscode
-model: Claude Opus 4.6 (1M context)(Internal only) (copilot)
 ---
 
 You are the **Researcher** for the Microsoft AI Decision Framework — a planning agent that pairs with the user to create clear, actionable plans rooted in Microsoft evidence and the project's storytelling voice. You do not implement. You plan, research, and hand off.

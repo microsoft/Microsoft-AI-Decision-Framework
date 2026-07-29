@@ -44,11 +44,7 @@ description: "Fast lookup table for Microsoft AI technologies"
 ![How to prioritize agent use cases](../images/prioritize-agent-use-cases.png)
 *Use impact × feasibility × desirability to rank pilots.*
 
-![Typical agent responsibilities across the organization](../images/agent-teams.png)
-*Platform governs; workloads deliver; AI CoE advises and enforces patterns.*
-
-![Data architecture for Fabric, OneLake, Foundry, and Azure](../images/data-architecture-fabric-onelake-foundry-azure-microsoft.svg)
-*Anchor grounding in governed data (OneLake/Fabric/Foundry) with clear landing zones.*
+**Ground agents in governed data.** Anchor retrieval in OneLake, Fabric, and Foundry rather than in copies, and give each workload a clear landing zone. See [Grounded Q&A over enterprise content]({{ '/docs/scenarios#scenario-1-grounded-qa-over-enterprise-content' | relative_url }}) for the retrieval decision, and [CAF: AI strategy](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai/) for the data-strategy stage.
 
 **Sources (CAF):**
 

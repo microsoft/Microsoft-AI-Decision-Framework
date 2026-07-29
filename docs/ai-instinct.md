@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "AI Instinct: The Human Framework"
-nav_order: 11
+nav_order: 12
 description: "Four instincts that make AI partnership as natural as breathing"
 ---
 
@@ -10,7 +10,7 @@ description: "Four instincts that make AI partnership as natural as breathing"
 <div class="ai-instinct-banner">
   <div class="banner-label">Bonus Content</div>
   <div class="banner-text">
-    The Microsoft AI Decision Framework helps technical teams choose the right platform. This page is different. <strong>AI Instinct</strong> is for everyone — architects, makers, managers, teachers, parents — anyone building a working relationship with AI. It's not about which technology to pick. It's about the behavioral shift that turns AI from a tool you sometimes use into a partner you naturally work with. Share it with your team, your stakeholders, or anyone asking <em>"where do I start with AI?"</em>
+    The Microsoft AI Decision Framework helps technical teams choose the right platform. This page is different. <strong>AI Instinct</strong> is for everyone. Architects, makers, managers, teachers, parents: anyone building a working relationship with AI. It's not about which technology to pick. It's about the behavioral shift that turns AI from a tool you sometimes use into a partner you naturally work with. Share it with your team, your stakeholders, or anyone asking <em>"where do I start with AI?"</em>
   </div>
   <a href="{{ '/assets/AI_Instinct.pdf' | relative_url }}" class="banner-download">Download PDF ↓</a>
 </div>
@@ -23,7 +23,7 @@ description: "Four instincts that make AI partnership as natural as breathing"
 
 <div class="ai-instinct-author">
   <span class="author-name">Chris McKee</span>
-  <span class="author-role">Principal AI Architect, Microsoft · Marine Corps Veteran</span>
+  <span class="author-role">Director of Agentic AI and AI Business Solutions, Microsoft · Marine Corps Veteran</span>
 </div>
 
 ## Table of contents
@@ -50,7 +50,7 @@ Think about it the way you think about any other capability that changed the wor
 
 ### The Cost of Choosing Not to Learn
 
-Here is where we need to be honest. Choosing not to engage with AI is a choice. And unlike most technology waves, this one moves fast enough that waiting has real consequences. Not understanding AI does not protect you from it. It just means someone else — your competitor, your colleague, your kid's classmate — is building the advantage you are leaving on the table.
+Here is where we need to be honest. Choosing not to engage with AI is a choice. And unlike most technology waves, this one moves fast enough that waiting has real consequences. Not understanding AI does not protect you from it. It just means someone else (your competitor, your colleague, your kid's classmate) is building the advantage you are leaving on the table.
 
 This is not about fear. This is about a growth mindset. The same mindset that tells you to learn a new skill, to stay curious, to invest in yourself. You owe it to yourself, your family, your career, and your future to understand what AI can do, what it cannot do, and how to make smart decisions about when and where to use it.
 
@@ -72,7 +72,7 @@ That shift, from conscious effort to unconscious competence, is what happens wit
 
 The parent who opens ChatGPT before opening the fridge to figure out what to make for dinner. The small business owner who drafts every client email with AI and then edits it in her own voice. The college student who starts every research paper by exploring ideas with an AI partner. The mechanic who photographs an engine code and asks AI to help diagnose it. None of these people think of themselves as "AI users." They are just people who found a better way to get things done, and now they cannot imagine going back.
 
-AI Instinct is the name for what they have developed. It is the point where working with AI stops being a separate activity and starts being woven into how you think, create, and solve problems. It is not a technology skill. It is a behavioral shift — a set of instincts that, once developed, change the way you approach everything.
+AI Instinct is the name for what they have developed. It is the point where working with AI stops being a separate activity and starts being woven into how you think, create, and solve problems. It is not a technology skill. It is a behavioral shift. A set of instincts that, once developed, change the way you approach everything.
 
 ### Why "Instinct" and Not "Skill"?
 
@@ -98,10 +98,10 @@ The people who will struggle are not the ones who partner with AI. They are the 
 
 ## The Four Instincts
 
-### 1. AI Spine — Organize your world so AI can help
+### 1. AI Spine: Organize your world so AI can help
 {: .no_toc }
 
-Before you can have a great conversation with anyone — a coworker, a doctor, a financial advisor — you need to be organized enough to explain what you need. The same is true with AI. The people who get the most from AI are not necessarily the ones who write the best prompts. They are the ones whose information, documents, notes, and thinking are structured in ways that make AI partnership effortless. AI Spine is the instinct to create things — notes, files, plans, data, even the way you organize your thoughts — in a way that works for both you and AI. It is the backbone that makes everything else possible.
+Before you can have a great conversation with anyone, whether a coworker, a doctor, or a financial advisor, you need to be organized enough to explain what you need. The same is true with AI. The people who get the most from AI are not necessarily the ones who write the best prompts. They are the ones whose information, documents, notes, and thinking are structured in ways that make AI partnership effortless. AI Spine is the instinct to create things (notes, files, plans, data, even the way you organize your thoughts) in a way that works for both you and AI. It is the backbone that makes everything else possible.
 
 **What this looks like in real life:**
 
@@ -118,10 +118,10 @@ The more often your answer is "it could just work with this," the stronger your 
 
 ---
 
-### 2. AI Voice — Talk to AI like a trusted collaborator
+### 2. AI Voice: Talk to AI like a trusted collaborator
 {: .no_toc }
 
-Everyone remembers their first interaction with AI. Most people type something vague — "help me with my resume" or "write me an email" — and get back something generic. Some people stop there, concluding AI is not that useful. But others start learning something crucial: how you talk to AI matters enormously. AI Voice is the instinct for communicating with AI effectively. It is not about memorizing formulas or learning technical tricks. It is about developing a natural sense of what AI needs from you to do its best work — the same way you develop a sense for how to explain things to different people in your life. You talk to your kid differently than your boss. You explain things to a new hire differently than a veteran colleague. AI Voice is learning how to talk to AI in the way that brings out the best in it.
+Everyone remembers their first interaction with AI. Most people type something vague, like "help me with my resume" or "write me an email," and get back something generic. Some people stop there, concluding AI is not that useful. But others start learning something crucial: how you talk to AI matters enormously. AI Voice is the instinct for communicating with AI effectively. It is not about memorizing formulas or learning technical tricks. It is about developing a natural sense of what AI needs from you to do its best work. The same way you develop a sense for how to explain things to different people in your life. You talk to your kid differently than your boss. You explain things to a new hire differently than a veteran colleague. AI Voice is learning how to talk to AI in the way that brings out the best in it.
 
 **What this looks like in real life:**
 
@@ -134,14 +134,14 @@ Everyone remembers their first interaction with AI. Most people type something v
 {: .highlight }
 > **The question that builds this instinct:** "Am I giving my AI partner what it needs to do its best work, or am I making it guess?"
 
-The more specific, contextual, and clear your communication becomes — without having to think hard about it — the stronger your AI Voice.
+The more specific, contextual, and clear your communication becomes, without having to think hard about it, the stronger your AI Voice.
 
 ---
 
-### 3. AI Gravity — Start with AI, not as an afterthought
+### 3. AI Gravity: Start with AI, not as an afterthought
 {: .no_toc }
 
-This is the instinct that marks the biggest behavioral shift — and it is the one most people can feel happening to them. There is a moment, and almost everyone who uses AI regularly can pinpoint it, where your default changes. Before that moment, you do your work and occasionally think, "Maybe I should try AI for this." After that moment, you start with AI and occasionally think, "I should probably do this part myself." That flip is AI Gravity. It is the pull that reorients your default behavior so that AI partnership is where you begin, not where you end up when you are stuck.
+This is the instinct that marks the biggest behavioral shift. It is also the one most people can feel happening to them. There is a moment, and almost everyone who uses AI regularly can pinpoint it, where your default changes. Before that moment, you do your work and occasionally think, "Maybe I should try AI for this." After that moment, you start with AI and occasionally think, "I should probably do this part myself." That flip is AI Gravity. It is the pull that reorients your default behavior so that AI partnership is where you begin, not where you end up when you are stuck.
 
 **What this looks like in real life:**
 
@@ -158,7 +158,7 @@ The more often AI is your starting point rather than your safety net, the strong
 
 ---
 
-### 4. AI Rhythm — Make AI partnership continuous, automatic, woven into everything
+### 4. AI Rhythm: Make AI partnership continuous, automatic, woven into everything
 {: .no_toc }
 
 The first three instincts are about specific capabilities: how you organize, how you communicate, and where you begin. AI Rhythm is what happens when those capabilities fuse into something bigger: a sustained, ongoing partnership that runs through your entire day without stopping and starting. Think about how a musician relates to rhythm. Early on, they count beats consciously. They think about timing. They make deliberate decisions about when to play each note. But eventually, rhythm becomes something they feel. They do not count anymore. The music flows through them. AI Rhythm is that same evolution applied to how you work and live. It is the instinct where AI partnership stops being a series of individual interactions and becomes a continuous presence woven into your day.
@@ -207,35 +207,35 @@ Together, they form a complete system: structure your world for partnership, com
 
 Developing AI Instinct follows a path that is remarkably similar across all kinds of people, whether you are a CEO, a student, a stay-at-home parent, or a plumber. Understanding where you are helps you see what comes next.
 
-### Phase 1: AI Aware — Curiosity without action
+### Phase 1: AI Aware (curiosity without action)
 {: .no_toc }
 
 You know AI exists and is changing things, but you have not really engaged with it personally. You have seen the headlines. Maybe you have watched a colleague or family member use it. You might have tried it once and thought, "That is interesting," then went back to your normal way of doing things. Most people in this phase are not resistant to AI. They just do not see why it matters to them, right now, in their life. Research shows that 63% of non-adopters simply "don't see a need." They are not anti-technology. They are waiting for a reason that feels personal.
 
 **What moves you forward:** One genuine experience where AI saves you real time or effort on something you actually care about. Not a demo someone shows you. Not a news article. A moment where you try it, and it works. That is the spark.
 
-### Phase 2: AI Curious — Experimenting after the first "wow"
+### Phase 2: AI Curious (experimenting after the first "wow")
 {: .no_toc }
 
 Something clicked. Maybe AI helped you draft a difficult email in thirty seconds. Maybe it explained your kid's math homework in a way that finally made sense. Maybe it turned a rambling idea into a clear plan. Now you are trying it for other things. Some work great, some fall flat. You are developing a sense of what AI is good at and where it struggles.
 
 **What moves you forward:** Finding two or three reliable use cases that deliver consistent value in your specific life or work. Not trying to use AI for everything. Just finding the handful of things where the difference is obvious and repeatable. Your personal "I'm never going back" moments.
 
-### Phase 3: AI Practiced — Regular use that still takes effort
+### Phase 3: AI Practiced (regular use that still takes effort)
 {: .no_toc }
 
 You have built real habits. You know which tasks to bring to AI. You have gotten noticeably better at communicating what you need. People around you have probably started asking, "How did you do that so fast?" But it still feels like a tool you pick up and put down, not an extension of how you think. You sometimes forget to use AI for things it would clearly help with. This is where most regular AI users are today, and it is where many people get stuck. The gap between "practiced" and "instinctive" is the hardest to cross, because it requires a change in your default behavior, not just improvement in a skill.
 
 **What moves you forward:** Deliberately building routines that include AI until you stop having to think about it. Start every project with an AI conversation. Review every important document with AI before sending it. Use AI for weekly planning every Sunday. The repetition is what makes it automatic, just like driving.
 
-### Phase 4: AI Instinctive — It is just how you work now
+### Phase 4: AI Instinctive (it is just how you work now)
 {: .no_toc }
 
-This is the destination the framework is named for. Your four instincts are developed and working together. Your world is organized for AI partnership (Spine). You communicate with AI naturally and effectively (Voice). AI is your default starting point (Gravity). And it all flows through your day as a continuous, automatic rhythm (Rhythm). You have stopped thinking of yourself as "someone who uses AI." It is just how you work and live now. You would notice the absence of AI the same way you would notice the absence of your phone — not because you are dependent, but because it has become part of how you operate.
+This is the destination the framework is named for. Your four instincts are developed and working together. Your world is organized for AI partnership (Spine). You communicate with AI naturally and effectively (Voice). AI is your default starting point (Gravity). And it all flows through your day as a continuous, automatic rhythm (Rhythm). You have stopped thinking of yourself as "someone who uses AI." It is just how you work and live now. You would notice the absence of AI the same way you would notice the absence of your phone, not because you are dependent, but because it has become part of how you operate.
 
-**What moves you forward:** Staying curious as AI evolves. New capabilities emerge constantly, and instinctive users stay open to them rather than locking into habits. They also naturally start helping others — and teaching deepens your own instincts more than anything else.
+**What moves you forward:** Staying curious as AI evolves. New capabilities emerge constantly, and instinctive users stay open to them rather than locking into habits. They also naturally start helping others. Teaching deepens your own instincts more than anything else.
 
-### Phase 5: AI Evolutionary — Pushing boundaries and bringing others along
+### Phase 5: AI Evolutionary (pushing boundaries and bringing others along)
 {: .no_toc }
 
 Some people go beyond personal instinct to become catalysts for the people around them. They experiment at the edges of what AI can do. They discover new ways to use it, develop better approaches, and, most importantly, share what they learn. These are the parents who teach their kids to use AI thoughtfully. The managers who create safe spaces for their teams to experiment. The teachers reimagining how students learn. The small business owners showing their peers what is possible. They are not just adapted to AI. They are helping everyone around them adapt too.
@@ -252,7 +252,7 @@ There is a pattern that repeats with every major technological shift: a small gr
 
 More than a billion people are using AI tools every month. Workers with AI skills earn a 56% wage premium over peers in the same roles without AI skills. Industries most exposed to AI have seen 4x productivity growth since 2022. Research consistently shows 10 to 55% productivity gains from AI-assisted work, with the biggest gains going to people newest to their roles. AI is not just making experts faster. It is an equalizer that helps everyone perform at a higher level.
 
-But here is the most important number: only about 1% of organizations have reached what researchers call mature AI integration. The overwhelming majority — of people and organizations alike — are still in the early phases. The window to build these instincts ahead of the curve is wide open. It will not be open forever.
+But here is the most important number: only about 1% of organizations have reached what researchers call mature AI integration. The overwhelming majority, of people and organizations alike, are still in the early phases. The window to build these instincts ahead of the curve is wide open. It will not be open forever.
 
 The encouraging reality: you do not need a class, a certification, or a technical background. People develop these instincts naturally through use. Every time you organize your notes a little more clearly, talk to AI a little more specifically, start a project with AI instead of staring at a blank page, or feel the rhythm of partnership flowing through your day, you are building AI Instinct.
 
@@ -266,7 +266,7 @@ The encouraging reality: you do not need a class, a certification, or a technica
 
 **It is not about being technical.** You do not need to understand how AI works any more than you need to understand engines to be a great driver. AI Instinct is about behavior, not technology.
 
-**It is not about any one tool.** ChatGPT, Claude, Gemini, Copilot — the tools will keep evolving. The instincts transfer across all of them. You are building a capability that outlasts any product.
+**It is not about any one tool.** ChatGPT, Claude, Gemini, Copilot: the tools will keep evolving. The instincts transfer across all of them. You are building a capability that outlasts any product.
 
 **It is not about doing everything faster.** Speed is a side effect, not the goal. The real goal is spending your time and energy on what matters most: the thinking, the creativity, the relationships, the care, the decisions that only you can make. And letting AI handle the parts that drain you without using your gifts.
 
@@ -276,7 +276,7 @@ The encouraging reality: you do not need a class, a certification, or a technica
 
 You do not need to work on all four instincts at once. Start where you will feel the difference fastest.
 
-**If you are brand new to AI, start with Voice.** Pick one thing you do regularly — writing emails, researching a question, planning your week, helping with homework — and try doing it with AI. Just notice what happens when you give AI more context and specifics. Your voice develops naturally through practice.
+**If you are brand new to AI, start with Voice.** Pick one thing you do regularly (writing emails, researching a question, planning your week, helping with homework) and try doing it with AI. Just notice what happens when you give AI more context and specifics. Your voice develops naturally through practice.
 
 **If you use AI sometimes but inconsistently, focus on Gravity.** For one week, try starting every task with AI instead of going to it only when stuck. Not everything will benefit, but you will discover things that completely transform when AI is your starting point. That discovery is what makes the shift stick.
 
@@ -288,7 +288,7 @@ You do not need to work on all four instincts at once. Start where you will feel
 
 ## The Invitation
 
-AI Instinct is not a certification. It is not a course you complete or a badge you earn. It is a way of working — and living — that develops through practice, curiosity, and a willingness to let your habits evolve.
+AI Instinct is not a certification. It is not a course you complete or a badge you earn. It is a way of working (and living) that develops through practice, curiosity, and a willingness to let your habits evolve.
 
 You do not have to be technical. You do not have to be young. You do not have to work in tech. You do not have to be "good with computers." You just have to be willing to try, to notice what works, and to keep going.
 
@@ -296,14 +296,14 @@ These instincts are already forming everywhere. In kitchens and classrooms. Repa
 
 People are finding their AI Voice. Organizing their world for partnership with AI Spine. Reaching for AI first with AI Gravity. Finding their AI Rhythm.
 
-All we are doing here is naming what is already happening. And once you can name it, you can build on it — intentionally, confidently, and at your own pace.
+All we are doing here is naming what is already happening. And once you can name it, you can build on it. Intentionally, confidently, and at your own pace.
 
 **AI Instinct. From effort to instinct.**
 
 ---
 
 {: .note }
-> **Download:** [AI Instinct (PDF)]({{ '/assets/AI_Instinct.pdf' | relative_url }}) — the complete framework in a shareable format.
+> **Download:** [AI Instinct (PDF)]({{ '/assets/AI_Instinct.pdf' | relative_url }}). The complete framework in a shareable format.
 
 *AI Instinct is a behavioral framework for everyone, regardless of role, industry, age, or technical background. These instincts belong to anyone willing to develop them.*
 

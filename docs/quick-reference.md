@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Quick Reference
-nav_order: 10
+nav_order: 11
 description: "Fast lookup table for Microsoft AI technologies"
 ---
 
@@ -27,7 +27,7 @@ description: "Fast lookup table for Microsoft AI technologies"
 
 ## CAF Agent Adoption Quick Cues
 
-- **Phases in one line:** Plan (business + tech + org + data), Govern & secure (responsible AI, controls, environment prep), Build (single vs multi, orchestrate, secure process), Operate (integrate, monitor, retire). [CAF AI agent adoption](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/).
+- **Phases in one line:** Plan for agents (business + tech + org + data), Govern & secure agents (responsible AI, controls, environment prep), Build agents (single vs multi, orchestrate, secure process), Manage agents (integrate, monitor, retire). [CAF AI agent adoption](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/).
 - **When not to use an agent:** Highly deterministic workflows or static Q&A/content generation → use code or plain RAG. [Business plan](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/business-strategy-plan).
 - **SaaS vs build:** Use SaaS agents when they meet requirements; if not, prototype on Foundry or Copilot Studio before committing to custom builds. [Technology plan](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/technology-solutions-plan-strategy).
 - **Single vs multi:** Start single; go multi-agent only for hard security/compliance boundaries, distinct owning teams, or planned modular growth. [Single vs multiple](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/single-agent-multiple-agents).
@@ -69,8 +69,8 @@ Active migration deadlines and forced transitions. If your project timeline cros
 | Technology / API | Current Status | Deadline | Successor | Action |
 | --- | --- | --- | --- | --- |
 | `azure-ai-inference` SDK | **Deprecated** | May 30, 2026 | `openai` SDK (standard `OpenAI()` client) | **Migrate now** |
-| Assistants API | **Deprecated** | Aug 26, 2026 | Foundry Agents Service (Responses API) | **Plan migration.** [migration tool](https://aka.ms/agent/migrate/tool) available |
-| Classic agents (v1) | **Deprecated** | Mar 31, 2027 | Foundry Agents v2 (`create_version()`) | **Plan migration.** [migration guide](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/migrate#migrate-classic-agents-to-new-agents) |
+| Assistants API | **Deprecated** | Aug 26, 2026 (date **unconfirmed** against current Microsoft Learn, verify before planning) | Foundry Agents Service (Responses API) | **Plan migration.** [migration tool](https://aka.ms/agent/migrate/tool) available |
+| Classic agents (v1) | **Deprecated** | Mar 31, 2027 (date **unconfirmed** against current Microsoft Learn, verify before planning) | Foundry Agents v2 (`create_version()`) | **Plan migration.** [migration guide](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/migrate#migrate-classic-agents-to-new-agents) |
 | Foundry Workflows | **Retiring from Preview without a GA path on December 1, 2026** | Dec 1, 2026 | Role-dependent: Agent Framework, Logic Apps, A2A, or exported YAML on [Hosted Agents (mixed maturity)]({{ '/docs/technologies#the-hosted-agent-constraint-card' | relative_url }}) | **Do not start new solutions.** Map code-first orchestration, visual process, direct delegation, and hosted YAML separately |
 | Classic Foundry portal | **Legacy** | Ongoing | Foundry (new) portal | **Transition.** Classic and new lack feature parity |
 | Bot Framework | **Retired** | Dec 31, 2025 (passed) | M365 Agents SDK + Toolkit | **Complete** |
@@ -109,36 +109,37 @@ Where can your agent appear? Match build platform to distribution surface.
 | **Where Users Interact** | **Recommended Technologies** | **Use When** |
 | --- | --- | --- |
 | **Microsoft 365 Apps** | **Free** Microsoft 365 Copilot Chat (included) + Copilot connectors (Graph connectors) for baseline pilots; Microsoft 365 Copilot add-on + declarative agents for work-grounded copilots; **Frontier Word/Excel/PowerPoint creation agents (Preview)** require admin Frontier opt-in[^frontier-qr] and Anthropic data-sharing consent; mobile parity for custom engine/message-extension agents (iOS/Android)[^mobile-ext-qr]; Copy to Copilot Studio copies data sources/actions but GPTs/custom actions must be reattached[^copy-to-studio-qr] | Need managed copilots embedded in Word, Excel, Outlook, or Teams with tenant-level governance. Start with the free chat surface and graduate to the add-on when Graph grounding or in-app assistants are required; use Frontier creation agents only for controlled pilots |
-| **Autopilot Agents (Experimental)** | **Microsoft Scout (Experimental, Frontier)** - always-on personal agent for background coordination; requires Frontier enrollment, Intune policy configuration, and a GitHub Copilot license | Need a proactively acting, always-on personal agent to coordinate meetings, block calendar time, and surface risks across Teams, Outlook, OneDrive, and SharePoint without prompt-driven interaction |
+| **Always-On Personal Agent (Experimental, Frontier)** | **Microsoft Scout (Experimental, Frontier)** - always-on personal agent for background coordination; requires Frontier enrollment, Intune policy configuration, and a GitHub Copilot Business/Enterprise license alongside an active Microsoft 365 Copilot license[^autopilots-qr] | Need a proactively acting, always-on personal agent to coordinate meetings, block calendar time, and surface risks across Teams, Outlook, OneDrive, and SharePoint without prompt-driven interaction |
 | **Microsoft Teams Only** | Teams SDK, Copilot Studio, M365 Agents SDK | Teams-centric chat, channels, meetings, or calling scenarios where admins may enforce "only during the call" retention |
 | **Custom Web/Mobile App** | Microsoft Foundry, Microsoft Foundry Agent Service (Standard setup) | Building standalone applications while keeping files, search, and thread storage in customer-owned Azure resources |
-| **Governance / Registry** | Microsoft Agent 365 (GA; selected SDK/CLI and cross-cloud discovery surfaces remain Preview)[^agent365-sdk-qr][^agent365-cli-qr]; Foundry Control Plane; M365 Agent Registry; Agent Governance Toolkit v4.1.0 (**Public Preview OSS middleware; zero GA features**) | Compose fleet governance with application-layer enforcement; AGT is not a managed registry or service |
+| **Governance / Registry** | Microsoft Agent 365 (**GA 2026-05-01**; per-user, E5 recommended prerequisite, included in M365 E7; Agent 365 SDK and CLI remain Preview)[^agent365-sdk-qr][^agent365-cli-qr]; Foundry Control Plane; M365 Agent Registry[^agent-registry-qr]; Agent Governance Toolkit v4.1.0 (**Public Preview OSS middleware; zero GA features**) | Compose fleet governance with application-layer enforcement; AGT is not a managed registry or service |
 | **Custom Web/Mobile UI with streaming** | Microsoft Agent Framework + AG-UI protocol (Preview) | Need Server-Sent Events streaming, backend tool rendering, shared state, and human approvals in bespoke front-ends |
 | **Multiple Channels** | M365 Agents SDK | Deliver one agent across Microsoft 365 Copilot, Teams, web, email, SMS, and other channels |
 | **Power Platform** | Copilot Studio, AI Builder | Integrated with low-code Power Apps/Power Automate workloads |
-| **Enterprise Workflows** | Azure Logic Apps AI Agents (Preview), MCP Server | Workflow automation that needs autonomous/conversational agent patterns with Easy Auth guardrails |
-| **Data Grounding / RAG** | Microsoft IQ: Foundry IQ (mixed GA/Preview), Work IQ (Preview), Fabric IQ, Web IQ (Limited Access); Copilot connectors (M365); Microsoft 365 Copilot Search API (Preview) for OneDrive hybrid semantic+lexical search[^search-api-qr] | Match the grounding layer to the data domain: enterprise documents (Foundry IQ), work context (Work IQ), business semantics (Fabric IQ), public web (Web IQ), tenant-scoped content (Connectors), or hybrid OneDrive search (Search API) |
-| **Developer Tools** | GitHub Copilot Extensions | IDE and development workflow integration |
+| **Enterprise Workflows** | Azure Logic Apps **agentic workflows** with an **agent loop** (Consumption **explicitly in preview**; Standard carries no preview banner on the agent loop, but Microsoft never states Standard is GA and some Standard capabilities are marked preview; check the exact capability), MCP Server | Workflow automation that needs autonomous/conversational agent patterns with Easy Auth guardrails |
+| **Data Grounding / RAG** | Microsoft IQ: Foundry IQ (mixed GA/Preview), Work IQ (**APIs GA**; **Work IQ MCP is Preview**), Fabric IQ (**Preview** workload), Web IQ (Limited Access); Copilot connectors (M365); Microsoft 365 Copilot Search API (Preview) for OneDrive hybrid semantic+lexical search[^search-api-qr] | Match the grounding layer to the data domain: enterprise documents (Foundry IQ), work context (Work IQ), business semantics (Fabric IQ), public web (Web IQ), tenant-scoped content (Connectors), or hybrid OneDrive search (Search API) |
+| **Developer Tools** | GitHub Copilot in the IDE; **Copilot cloud agent** (async, renamed from "coding agent"); MCP servers | IDE and development workflow integration. Note: GitHub App-based Copilot Extensions were deprecated **2025-11-10** with **MCP servers** as the migration target; client-side VS Code Copilot Extensions remain supported |
 
 **Sources:**
 
 - [Copilot for all: Introducing Microsoft 365 Copilot Chat](https://www.microsoft.com/en-us/microsoft-365/blog/2025/01/15/copilot-for-all-introducing-microsoft-365-copilot-chat/) (Updated: 2025-01-15)
-- [Microsoft 365 Copilot release notes - November 25, 2025](https://learn.microsoft.com/en-us/copilot/microsoft-365/release-notes#november-25,-2025)
+- [Microsoft 365 Copilot release notes - November 25, 2025](https://learn.microsoft.com/en-us/microsoft-365/copilot/release-notes#november-25,-2025)
 - [Built-in enterprise readiness with standard agent setup](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/concepts/standard-agent-setup) (Updated: 2026-02-27)
 - [Overview of Microsoft Agent 365](https://learn.microsoft.com/en-us/microsoft-agent-365/overview) (Retrieved: 2026-06-08)
 - [Microsoft IQ overview](https://learn.microsoft.com/en-us/microsoft-iq/) (Retrieved: 2026-06-08)
 - [Introducing Microsoft Scout](https://www.microsoft.com/en-us/microsoft-365/blog/2026/06/02/introducing-microsoft-scout-your-always-on-personal-agent/) (Published: 2026-06-02)
 - [Microsoft Agent 365 SDK](https://learn.microsoft.com/en-us/microsoft-agent-365/developer/agent-365-sdk) (Retrieved: 2026-01-09)
 - [Agent 365 CLI](https://learn.microsoft.com/en-us/microsoft-agent-365/developer/agent-365-cli) (Retrieved: 2026-01-13)
-- [What is Microsoft Entra Agent ID?](https://learn.microsoft.com/en-us/entra/agent-id/identity-professional/microsoft-entra-agent-identities-for-ai-agents) (Updated: 2026-03-25)
+- [What is Microsoft Entra Agent ID?](https://learn.microsoft.com/en-us/entra/agent-id/what-is-microsoft-entra-agent-id): generally available; *"available for all Microsoft Entra customers"*
 - [Agent Registry in the Microsoft 365 admin center](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/agent-registry?view=o365-worldwide#admin-actions-to-manage-agents) (Updated: 2026-01-23)
 - [Foundry Control Plane overview](https://learn.microsoft.com/en-us/azure/ai-foundry/control-plane/overview) (Updated: 2026-02-27)
 - [Azure AI Search what's new](https://learn.microsoft.com/en-us/azure/search/whats-new#2025-announcements) (Updated: 2026-03-13)
-- [Microsoft 365 Copilot Search API overview](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/api/ai-services/search/overview) (Updated: 2025-10-20)
-- [Workflows with AI agents and models in Azure Logic Apps (Preview)](https://learn.microsoft.com/en-us/azure/logic-apps/agent-workflows-concepts) (Updated: 2026-02-19)
+- [Microsoft 365 Copilot Search API overview](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/api/ai-services/search/overview) (Updated: 2025-10-20)
+- [Workflows with AI agents and models in Azure Logic Apps](https://learn.microsoft.com/en-us/azure/logic-apps/agent-workflows-concepts): official term "agentic workflows"; Consumption explicitly in preview (Updated: 2026-02-19)
+- [Copilot cloud agent](https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent): GA on paid plans including Student; not on Copilot Free
 - [Microsoft 365 Agents Toolkit](https://learn.microsoft.com/en-us/microsoft-365/developer/overview-m365-agents-toolkit) (Updated: 2026-01-29)
 - [AG-UI integration with Agent Framework](https://learn.microsoft.com/en-us/agent-framework/integrations/ag-ui/) (Preview, Updated: 2025-11-07)
-- [Declarative Agents for Microsoft 365 Copilot overview](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-declarative-agent) (Updated: 2025-12-01)
+- [Declarative Agents for Microsoft 365 Copilot overview](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/overview-declarative-agent) (Updated: 2025-12-01)
 
 **Confidence Level:** High for placement guidance; status varies by capability and should be verified in the linked Microsoft Learn pages before production planning.
 
@@ -150,12 +151,13 @@ Where can your agent appear? Match build platform to distribution surface.
 [^search-api-qr]: Microsoft 365 Copilot Search API (Preview) for hybrid semantic + lexical search across OneDrive via Graph `/beta`. Source: Search API overview (Updated: 2025-10-20).
 [^copy-to-studio-qr]: Copy to Copilot Studio copies agent data sources and actions; GPTs and custom actions must be reattached. Feature availability may vary by tenant. Source: Declarative Agents overview (Updated: 2025-12-01).
 [^m365-memory-qr]: Microsoft 365 Copilot user-level memory allows personalized experiences based on user preferences and context. This is distinct from org-wide conversation logging; memory is user-controlled, while conversation history follows Purview retention policies. Source: Data, privacy, and security for Microsoft 365 Copilot (Updated: 2026-01-07).
+[^autopilots-qr]: **A word on "Autopilots."** The term appears only in a Microsoft 365 marketing blog (2026-06-02). There is **no Microsoft Learn page defining it**, so it is not a documented agent category and should not be used to build a taxonomy or a purchasing decision. Scout is the single named illustration. Separately, do not confuse any of this with **Windows Autopilot**, the long-standing Windows device provisioning service. Unrelated product, unrelated problem space. Microsoft Learn defines Scout as a desktop AI application for Windows 11 and macOS 12+ in Frontier/private preview; the Teams interaction surface is blog-sourced only.
 
 ---
 
 ## Agentic Retrieval Quick Facts
 
-- Knowledge agents are now **knowledge bases**. Selected agentic retrieval REST API features are GA in `2026-04-01`; portal authoring, answer synthesis, multi-turn retrieval, and newer source types remain Preview.
+- Knowledge agents are now **knowledge bases**. Agentic retrieval is **GA via the `2026-04-01` REST API**; **portal experiences remain preview-only**, as do answer synthesis, multi-turn retrieval, and newer source types.
 - Knowledge sources (Preview): indexed SharePoint, remote SharePoint (Copilot Retrieval API, ACL-trimmed), indexed OneLake, web/Bing, search index, Azure Blob; `ingestionParameters` wraps embeddings/chat models/Content Understanding; portal creates `2025-08-01-preview` objects. Migrate to `2025-11-01-preview`.
 - Semantic ranker is available on **free tier** (quota limits); enable on the service before using KBs.
 - Hybrid/vector preview (`2024-09-01-preview`): MRL `truncationDimension`, `filterOverride` for vector-only filters, `debug` subscores for RRF, token-based Text Split parameters.
@@ -183,8 +185,8 @@ Where can your agent appear? Match build platform to distribution surface.
 
 **Sources:**
 
-- [Declarative agents for Microsoft 365 Copilot overview](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-declarative-agent) (Updated: 2025-12-01)
-- [Custom engine agents for Microsoft 365 overview](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-custom-engine-agent) (Updated: 2026-07-02)
+- [Declarative agents for Microsoft 365 Copilot overview](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/overview-declarative-agent) (Updated: 2025-12-01)
+- [Custom engine agents for Microsoft 365 overview](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/overview-custom-engine-agent) (Updated: 2026-07-02)
 
 **Confidence Level:** High (official Microsoft guidance)
 
@@ -209,10 +211,10 @@ Teams SDK and M365 Agents SDK coexist with differentiated fit: Teams SDK for Tea
 
 **Sources:**
 
-- [Custom engine agents for Microsoft 365 overview](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-custom-engine-agent) (Updated: 2026-07-02)
+- [Custom engine agents for Microsoft 365 overview](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/overview-custom-engine-agent) (Updated: 2026-07-02)
 - [Microsoft 365 Agents Toolkit](https://learn.microsoft.com/en-us/microsoft-365/developer/overview-m365-agents-toolkit) (Updated: 2026-01-29)
 - [Teams SDK welcome](https://learn.microsoft.com/en-us/microsoftteams/platform/teams-sdk/welcome) (Updated: 2026-07-07)
-- [Create and deploy with Microsoft 365 Agents SDK](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/create-deploy-agents-sdk) (Updated: 2025-12-02)
+- [Create and deploy with Microsoft 365 Agents SDK](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/create-deploy-agents-sdk) (Updated: 2025-12-02)
 - [New Orchestrator, New Rules? CAT's Got You](https://microsoft.github.io/mcscatblog/posts/new-orchestrator-resources/) (Updated: 2026-07-15)
 
 **Confidence Level:** High (all GA, official Microsoft documentation)
@@ -228,22 +230,81 @@ Teams SDK and M365 Agents SDK coexist with differentiated fit: Teams SDK for Tea
 | **Unstructured Documents** | Vector search with chunking | Azure AI Search, Azure OpenAI Embeddings |
 | **Real-Time Transactional Data** | API-based grounding | API plugins, Functions, Logic Apps agent workflows |
 | **Multimodal Content** | Azure AI Content Understanding (Preview) | Process documents, images, audio, video with reasoning |
-| **Database Vectors** | AI-capable databases with managed embeddings | Azure Cosmos DB for NoSQL (standard setup: 3 × 1000 RU containers), PostgreSQL (GA), Azure SQL Database (GA), Azure SQL MI (GA), SQL Server 2025 (GA), SQL database in Fabric (GA). ANN indexes Preview across SQL Database Engine family. |
+| **Database Vectors** | AI-capable databases with managed embeddings | Azure Cosmos DB for NoSQL (flat, quantized flat, DiskANN; standard setup: 3 × 1000 RU containers; **no GA date stated in docs**), Azure Database for PostgreSQL (**pgvector GA**, plus `azure_ai` for in-database embeddings), Azure SQL Database / SQL MI / SQL Server 2025 / SQL database in Fabric (**`VECTOR_SEARCH` is Preview on all three platforms**) |
 | **Microsoft Fabric Platform** | Direct data access | Lakehouse (Delta tables), Warehouse (T-SQL), OneLake (ADLS Gen2 APIs), SQL analytics endpoint |
-| **Microsoft Fabric via Agent** | Conversational data layer | Fabric Data Agents (Preview) with Copilot Studio or Microsoft Foundry Agent Service |
+| **Microsoft Fabric via Agent** | Conversational data layer | **Fabric data agent (GA**, formerly "AI skill"; requires F2+ or P1+ capacity) with Copilot Studio or Microsoft Foundry Agent Service |
 
 **Sources:**
 
-- [Microsoft 365 Copilot connectors overview](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-copilot-connector) (Updated: 2026-02-25)
+- [Microsoft 365 Copilot connectors overview](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/overview-copilot-connector) (Updated: 2026-02-25)
 - [Retrieval-augmented generation with Azure AI Search](https://learn.microsoft.com/en-us/azure/search/retrieval-augmented-generation-overview) (Updated: 2026-01-15)
 - [Azure AI Content Understanding](https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview) (Updated: 2025-12-19)
 - [Built-in enterprise readiness with standard agent setup](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/concepts/standard-agent-setup) (Updated: 2026-02-27)
 - [Azure Cosmos DB integration with Microsoft Foundry Agent Service](https://learn.microsoft.com/en-us/azure/cosmos-db/gen-ai/azure-agent-service) (Updated: 2026-02-23)
-- [Workflows with AI agents and models in Azure Logic Apps (Preview)](https://learn.microsoft.com/en-us/azure/logic-apps/agent-workflows-concepts) (Updated: 2026-02-19)
+- [Workflows with AI agents and models in Azure Logic Apps](https://learn.microsoft.com/en-us/azure/logic-apps/agent-workflows-concepts): "agentic workflows"; Consumption explicitly in preview (Updated: 2026-02-19)
 - [Microsoft Fabric overview](https://learn.microsoft.com/en-us/fabric/fundamentals/microsoft-fabric-overview) (Updated: 2026-03-18)
+- [Fabric data agent concept](https://learn.microsoft.com/en-us/fabric/data-science/concept-data-agent): GA; F2+/P1+ capacity
+- [`VECTOR_SEARCH` (Transact-SQL)](https://learn.microsoft.com/en-us/sql/t-sql/functions/vector-search-transact-sql): Preview on Azure SQL Database, SQL database in Fabric, and SQL Server 2025
+- [Use pgvector on Azure Database for PostgreSQL](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-use-pgvector): GA
 - [Microsoft Foundry FAQ](https://learn.microsoft.com/en-us/azure/ai-foundry/faq?view=foundry-classic) (Updated: 2026-01-23)
 
-**Confidence Level:** High for GA technologies, Medium for Preview (Fabric Data Agents, Content Understanding)
+**Confidence Level:** High for GA technologies (Fabric data agent, pgvector); Medium for Preview capabilities (`VECTOR_SEARCH`, Content Understanding)
+
+---
+
+## Developer Loop Quick Reference
+
+One agent, four handoffs. This is the relay race a developer's work actually runs: from the keyboard, to the cloud, to a governed runtime. Each leg has a different baton.
+
+| Leg | Surface | Status | What it is for |
+| --- | --- | --- | --- |
+| **1. Inner loop** | GitHub Copilot in the IDE | GA | Synchronous, developer-in-the-seat editing and chat |
+| **2. Async loop** | **Copilot cloud agent** (renamed from "coding agent") | GA on paid plans **including Student; not available on Copilot Free** | Hand off an issue or prompt; the agent works on a branch and opens a pull request |
+| **3. Behavior as config** | Custom agents (`.md` with YAML front matter) + **`AGENTS.md`** agent instructions | Custom agents GA for cloud agent, VS Code, and Visual Studio; Public Preview for JetBrains/Eclipse/Xcode | Version your agent's personality and rules alongside the code. GitHub's own caveat: agent instructions are *"currently not supported by all Copilot features"* |
+| **4. Embed it in your product** | **GitHub Copilot SDK** | **GA**: Python, TypeScript, Go, .NET, Java, Rust | Wraps the Copilot CLI engine over JSON-RPC. BYOK to OpenAI, Microsoft Foundry, or Anthropic; Entra/managed identity works via `bearerTokenProvider` composition with the Azure Identity SDK |
+| **5. Run it under governance** | **Microsoft Foundry Hosted Agents** | See the [Hosted Agent constraint card]({{ '/docs/technologies#the-hosted-agent-constraint-card' | relative_url }}) | Managed endpoint, scaling, identity, and observability for your own agent container |
+
+{: .warning }
+> **The seam that bites: Foundry Hosted agents support Python and C# only.**
+>
+> Microsoft Foundry does list the GitHub Copilot SDK among the frameworks you can bring to a Hosted agent. But the hosted-agent runtime states plainly: *"Hosted agents support Python and C#."* So a **Go, Rust, or Java** Copilot SDK agent is **not directly hostable on Foundry Hosted Agents**. You host it yourself (Azure Container Apps, AKS, or your own runtime) and integrate via the Responses API. Choose your SDK language with the hosting endgame in mind, not the other way round.
+
+**Sources:**
+
+- [About the Copilot cloud agent](https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent)
+- [About custom agents](https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-custom-agents)
+- [Copilot response customization (agent instructions / `AGENTS.md`)](https://docs.github.com/en/copilot/concepts/response-customization)
+- [GitHub Copilot SDK: getting started](https://docs.github.com/en/copilot/how-tos/copilot-sdk/getting-started)
+- [Microsoft Foundry Agent Service overview](https://learn.microsoft.com/en-us/azure/foundry/agents/overview): lists the GitHub Copilot SDK as a hosted-agent framework
+- [Hosted agents concepts](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/hosted-agents): language support statement
+
+---
+
+## Data Plane Quick Reference
+
+Grounding is not one product. It is a shelf of stores with different shapes, different guarantees, and, critically, different maturity labels.
+
+| Store | Retrieval capability | Status | Pick it when |
+| --- | --- | --- | --- |
+| **Azure AI Search** (name unchanged) | Agentic retrieval, hybrid, vector, semantic ranking | Agentic retrieval **GA via the `2026-04-01` REST API**; **portal experiences remain preview-only** | You need governed enterprise retrieval with ACL/label enforcement; it is the engine underneath Foundry IQ |
+| **Azure Database for PostgreSQL** | `pgvector` similarity search; `azure_ai` extension for in-database embeddings and LLM calls | **pgvector GA** | Your operational data already lives in Postgres and you want retrieval next to it. Note: there is **no "PostgreSQL agent" product** |
+| **Azure Cosmos DB** | Vector search: flat/kNN, quantized flat, **DiskANN**; must be enabled as a feature | **No GA date stated in the docs**; ultra-high-throughput vector search is Private Preview | Globally distributed transactional data that also needs vector lookup |
+| **Azure SQL / SQL MI / SQL Server 2025 / SQL database in Fabric** | `VECTOR_SEARCH()` over the native `vector` type | **`VECTOR_SEARCH` is Preview on all three platforms** (SQL Server 2025 also needs the `PREVIEW_FEATURES` database-scoped configuration; `TOP_N` is deprecated) | Your system of record is SQL and you want retrieval without a second datastore, with eyes open about preview status |
+| **Microsoft Fabric / OneLake** | Fabric data agent over lakehouse, warehouse, KQL, semantic models | **Fabric data agent GA** (formerly "AI skill"), F2+/P1+ capacity; **Fabric IQ is a Preview workload** | The question is analytical ("what happened, and why") rather than document lookup |
+| **Azure Managed Redis** | Vector and cache-side retrieval | **GA**, Entra-native, built on Redis Enterprise | You need low-latency semantic caching or session state beside the agent |
+
+{: .note }
+> **Infrastructure deadline worth putting on the calendar:** Azure Cache for Redis **Enterprise and Enterprise Flash retire 2027-03-31** (disabled 2027-04-01); **Basic, Standard, and Premium retire 2028-09-30** (disabled 2028-10-01). Azure Managed Redis is the forward path.
+
+**Sources:**
+
+- [Agentic retrieval in Azure AI Search](https://learn.microsoft.com/en-us/azure/search/search-agentic-retrieval-concept)
+- [Use pgvector on Azure Database for PostgreSQL](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-use-pgvector)
+- [Vector search in Azure Cosmos DB for NoSQL](https://learn.microsoft.com/en-us/azure/cosmos-db/nosql/vector-search)
+- [`VECTOR_SEARCH` (Transact-SQL)](https://learn.microsoft.com/en-us/sql/t-sql/functions/vector-search-transact-sql)
+- [Fabric data agent concept](https://learn.microsoft.com/en-us/fabric/data-science/concept-data-agent)
+- [Fabric IQ (Preview)](https://learn.microsoft.com/en-us/fabric/iq/)
+- [Azure Managed Redis overview](https://learn.microsoft.com/en-us/azure/redis/overview)
 
 ---
 
@@ -269,7 +330,7 @@ Teams SDK and M365 Agents SDK coexist with differentiated fit: Teams SDK for Tea
 
 **Sources:**
 
-- [Data, privacy, and security for Microsoft 365 Copilot](https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-privacy) (Updated: 2026-01-07)
+- [Data, privacy, and security for Microsoft 365 Copilot](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-privacy) (Updated: 2026-01-07)
 - [Control transcript access and retention](https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-transcript-controls) (Updated: 2025-11-10)
 - [Manage Microsoft 365 Copilot in Teams calls](https://learn.microsoft.com/en-us/microsoftteams/copilot-teams-calling-transcription) (Updated: 2025-07-01)
 - [Built-in enterprise readiness with standard agent setup](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/concepts/standard-agent-setup) (Updated: 2026-02-27)
@@ -286,7 +347,7 @@ Teams SDK and M365 Agents SDK coexist with differentiated fit: Teams SDK for Tea
 | **Simple (Q&A)** | Static lookup, single-turn answers, basic RAG | Search or classic RAG first; add an agent only for action, adaptation, or open-ended reasoning |
 | **Moderate (Task Execution)** | Multi-turn, 1-5 actions, simple branching | Declarative Agents with API plugins; Foundry Prompt Agents when Foundry-managed configuration fits |
 | **Complex (Workflows)** | Sequential workflows, conditional logic | Declarative Agents + Power Automate, Agent Framework workflows |
-| **Advanced (Multi-Agent)** | Agent-to-agent delegation, parallel execution | Copilot Studio multi-agent; Foundry incoming A2A endpoint (**Preview**) for direct delegation; Agent Framework (**GA core**) for code-first orchestration |
+| **Advanced (Multi-Agent)** | Agent-to-agent delegation, parallel execution | Copilot Studio multi-agent (per-feature status varies: the what's-new feed shows "Connect other agents" as **Preview**; Microsoft states no blanket GA); Foundry incoming A2A endpoint (**Preview**) for direct delegation; Agent Framework (**GA core**) for code-first orchestration |
 | **Expert (Custom Reasoning)** | Custom orchestration logic, model selection | Custom engine agents with Microsoft 365 Agents SDK, Teams SDK, or Microsoft Foundry Agent Service |
 
 **Component fit heuristic (Copilot Studio modern orchestrator):**
@@ -299,7 +360,7 @@ Teams SDK and M365 Agents SDK coexist with differentiated fit: Teams SDK for Tea
 **Sources:**
 
 - [Microsoft Foundry Agent Service overview](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/overview) (Updated: 2026-01-21)
-- [Custom engine agents for Microsoft 365 overview](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-custom-engine-agent) (Updated: 2026-07-02)
+- [Custom engine agents for Microsoft 365 overview](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/overview-custom-engine-agent) (Updated: 2026-07-02)
 - [Microsoft 365 Agents Toolkit](https://learn.microsoft.com/en-us/microsoft-365/developer/overview-m365-agents-toolkit) (Updated: 2026-01-29)
 
 **Confidence Level:** High (official patterns documented)
@@ -316,15 +377,36 @@ Teams SDK and M365 Agents SDK coexist with differentiated fit: Teams SDK for Tea
 | **Extend M365 Copilot (Knowledge + Actions)** | Declarative Agent (Copilot Studio, 1-2 weeks) | Declarative Agent (M365 Agents Toolkit, 2-4 weeks) |
 | **Custom Multi-Channel Agent** | M365 Agents SDK with templates (2-4 weeks) | Microsoft Foundry (consumption-based, 4-8 weeks) |
 | **Multi-Agent Orchestration** | Copilot Studio connected agents (**Preview**) for low-code delegation | Agent Framework (**GA core**) for code-first orchestration; Foundry A2A (**Preview**) only for direct delegation |
-| **Enterprise Workflow Automation** | Azure Logic Apps AI Agents Preview (1-2 weeks) | Microsoft Foundry + Agent Framework (4-8 weeks) |
+| **Enterprise Workflow Automation** | Azure Logic Apps agentic workflows (1-2 weeks; Consumption **explicitly in preview**, Standard status not stated by Microsoft) | Microsoft Foundry + Agent Framework (4-8 weeks) |
 
 **Key Budget Considerations:**
 
 - **M365-Centric:** Per-user licensing (Copilot Studio, M365 Copilot add-on)
 - **Azure-Native:** Consumption-based (Azure OpenAI tokens, AI Search queries, compute)
 - **Hybrid:** Mix of per-user and consumption models
-- **Unified Pre-Purchase (P3):** Agent Commit Units (ACUs) in a single pool covering both Copilot Studio and Foundry; best when workloads span both platforms. See [Evaluation Criteria: Budget]({{ '/docs/evaluation-criteria#3-budget-assessment' | relative_url }})
+- **Two prepurchase plans, not one:** Microsoft sells **two distinct Azure reservation products**. The **Copilot Credit Pre-Purchase Plan** buys **CCCUs** against eligible Copilot Credit usage. The **Microsoft Agent Prepurchase Plan** buys **ACUs** against *"select services across Microsoft Foundry, Microsoft Copilot Studio\*, Microsoft Fabric, and GitHub costs"* (\* = Copilot Studio, Dynamics 365 first-party agents, and Copilot). **1 ACU pays down US$1 of qualifying retail cost, purchased at a tiered discount.** Coverage of Copilot Cowork and Work IQ is **not stated by Microsoft**. Do not assume it. See [Evaluation Criteria: Budget]({{ '/docs/evaluation-criteria#3-budget-assessment' | relative_url }})
+- **Discount precedence (verbatim):** *"Reservations always apply before prepurchase plans."* The order is **Microsoft Foundry PTU Reservations → Microsoft Fabric Capacity Reservations → Copilot Credit Prepurchase Plan → Microsoft Agent Prepurchase Plan** (applied last, to remaining AI usage across all platforms). The governing principle is simple: **narrow benefits burn before broad benefits.**
 - **Hidden Costs:** Team training, governance setup, responsible AI evaluation, ongoing maintenance
+
+### Billing Currencies: The Five Wallets
+{: .no_toc }
+
+Microsoft does not have one AI meter. It has five, and they do not convert into each other. Track all of them or your forecast is fiction.
+
+| Wallet | Unit | What it meters | Notes |
+| --- | --- | --- | --- |
+| **Copilot Credits** | Credit | Microsoft 365 side: agent usage, Copilot Cowork task tiers, Work IQ APIs | Pay-as-you-go at **US$0.01 per credit** |
+| **GitHub AI credits** | Credit | GitHub Copilot premium usage | **1 credit = US$0.01.** Copilot Business **1,900**/user/month; Enterprise **3,900**/user/month. A promotional **3,000 / 7,000** allowance runs from 2026-06-01 and **ends 2026-09-01** |
+| **Azure consumption** | Tokens, PTU, batch | Microsoft Foundry models and platform services | Pay-per-token, Provisioned Throughput Units, batch, and priority processing |
+| **Fabric Capacity Units** | CU | Fabric workloads, including Fabric data agents and Foundry Tools in Fabric | F2 to F8192; Fabric data agents require F2+ or P1+ |
+| **Azure SRE Agent AAU** | **AAU** | Azure SRE Agent runtime | **4 AAU per agent-hour** always-on, plus variable usage. (The term is *AAU*; "Azure Agent Units" is not a Microsoft term) |
+
+**Sources:**
+
+- [Copilot Credit Pre-Purchase Plan](https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/copilot-credit-p3)
+- [Microsoft Agent Prepurchase Plan](https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/agent-pre-purchase)
+- [GitHub Copilot billing and AI credits](https://docs.github.com/en/copilot/concepts/billing)
+- [Azure SRE Agent pricing and billing](https://learn.microsoft.com/en-us/azure/sre-agent/pricing-billing)
 
 **Sources:**
 
@@ -359,7 +441,7 @@ Teams SDK and M365 Agents SDK coexist with differentiated fit: Teams SDK for Tea
 
 **Sources:**
 
-- [Data, privacy, and security for Microsoft 365 Copilot](https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-privacy) (Updated: 2026-01-07)
+- [Data, privacy, and security for Microsoft 365 Copilot](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-privacy) (Updated: 2026-01-07)
 - [Manage Microsoft 365 Copilot in Teams calls](https://learn.microsoft.com/en-us/microsoftteams/copilot-teams-calling-transcription) (Updated: 2025-07-01)
 - [Azure OpenAI Service data, privacy, and security](https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/use-your-data) (Updated: 2025-12-02)
 - [Microsoft Foundry control plane overview](https://learn.microsoft.com/en-us/azure/ai-foundry/control-plane/overview) (Updated: 2026-02-27)

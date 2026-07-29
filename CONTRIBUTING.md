@@ -10,12 +10,12 @@ We welcome contributions from developers and organizations worldwide! Our goal i
 - **Diagram updates**: Enhance Mermaid decision trees, add new decision paths
 - **Scenario contributions**: Add real-world use cases with validated technology recommendations
 - **Technology research**: Validate capabilities against official Microsoft Learn documentation
-- **Framework enhancements**: Improve BXT methodology, evaluation criteria, or implementation patterns
+- **Framework enhancements**: Improve the intake methodology, evaluation criteria, or implementation patterns
 - **Community engagement**: Participate in [issues](https://github.com/microsoft/Microsoft-AI-Decision-Framework/issues), answer questions, share experiences
 
 ## Philosophy: Right Technology, Right Context
 
-This framework is built on the principle that **there are no "winners" or "losers" among Microsoft AI technologies** — only the right technology for your specific requirements and context.
+This framework is built on the principle that **there are no "winners" or "losers" among Microsoft AI technologies**, only the right technology for your specific requirements and context.
 
 - **Evidence-based decisions**: Technology recommendations must be backed by validated capabilities, not opinions or preferences
 - **Context matters**: What works best for one scenario may not be optimal for another
@@ -26,7 +26,7 @@ This framework is built on the principle that **there are no "winners" or "loser
 
 - Avoid strongly opinionated language that favors one technology over others without context
 - Present trade-offs clearly (e.g., "Technology A is simpler for basic scenarios; Technology B provides more control for complex requirements")
-- Don't "trash talk" or dismiss any Microsoft AI technology — instead, clarify when each is most appropriate
+- Don't "trash talk" or dismiss any Microsoft AI technology. Instead, clarify when each is most appropriate
 - Focus on helping users make informed decisions based on their specific needs, not on promoting a particular technology
 
 ## Before You Start

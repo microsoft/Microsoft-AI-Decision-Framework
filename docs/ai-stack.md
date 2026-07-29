@@ -46,7 +46,7 @@ That distinction is the part most frameworks skip. Three teams can climb the ide
 
 **Normal ceiling: rung 4.** Nearly all the value here is won in the first two rungs.
 
-**Rung 1: Use what's already switched on.** **Microsoft 365 Copilot Chat** requires no add-on and meters any agents you use pay-as-you-go. **Microsoft 365 Copilot** is the licensed add-on that grounds answers in your actual work. If the problem dies here, you are finished. Celebrate rather than escalate.
+**Rung 1: Use what's already switched on.** **Microsoft 365 Copilot Chat** is the entry point most organizations already have, metering any agents you use as you go. **Microsoft 365 Copilot** is the step up that grounds answers in your actual work. If the problem dies here, you are finished. Celebrate rather than escalate.
 
 **Rung 2: Browse before you build.** Microsoft ships agents you would otherwise spend a quarter building. **Researcher** and **Analyst** handle deep multi-step research and data analysis, already governed, already in the tenant. **Copilot Cowork** belongs on this rung too, and the placement is the lesson: it changes the unit of delegation from keystrokes to hours of work with checkpoints, and you get there by *enabling* it, not by building it. Capability that arrives as a setting still counts as capability.
 
@@ -83,13 +83,9 @@ Two things this rung asks of you that the others don't. First, somebody has to a
 
 So the destination is not the decision. Your users end up in Microsoft 365 Copilot and Teams either way. What you are actually choosing at rung 5 is **which authoring surface fits the team that will own this thing for the next three years**: a maker-friendly canvas with governance built into Power Platform, or a developer surface with SDK authoring, source control, and CI/CD. Pick for the owner, not for the destination.
 
-**Rung 6: Build a custom engine.** You are here when the model choice, the eval harness, the hosting boundary, or the orchestration semantics must be *yours*. Not configured, but written. **Microsoft Foundry** is the engine room, with a catalog of **over 10,000 models**, agents, and tools under one management plane; a Foundry **Hosted agent** is the container-based sibling of the prompt agent, for when configuration genuinely runs out. **Microsoft Agent Framework** is the code-first orchestration path, described by Microsoft as the *"direct successor… next generation of both"* Semantic Kernel and AutoGen, with migration guides from each and **no sunset dates announced for either**.
+**Rung 6: Build a custom engine.** You are here when the model choice, the eval harness, the hosting boundary, or the orchestration semantics must be *yours*. Not configured, but written. **Microsoft Foundry** is the engine room, putting a very large model catalog, agents, and tools under one management plane; a Foundry **Hosted agent** is the container-based sibling of the prompt agent, for when configuration genuinely runs out. **Microsoft Agent Framework** is the code-first orchestration path, described by Microsoft as the *"direct successor… next generation of both"* Semantic Kernel and AutoGen, with migration guides from each.
 
-One dated fact you must design around, verbatim:
-
-> *"Microsoft Foundry is retiring workflows on December 1, 2026. If you're looking to build new workflows, use Microsoft Agent Framework. To migrate existing workflows, see the Migration guide section of this article for all supported paths."*
-
-Migration targets are **Agent Framework** (recommended; exported YAML reuses with minimal changes), **Azure Logic Apps** (when you want to keep a visual designer for business-process automation), and **agent-to-agent handoffs** for lightweight cases. YAML definitions remain executable when deployed as Hosted Agents; after the date, the visual designer and in-portal execution are unsupported. Do not start a new build on Foundry Workflows.
+**One structural fact to design around.** Foundry Workflows is on a retirement path, so do not start new work on it. Move by role: **Agent Framework** for code-first graphs (recommended, since exported definitions carry over with little change), **Azure Logic Apps** when you want to keep a visual designer for business-process automation, and **agent-to-agent handoffs** for lightweight cases. The retirement date and the exact support boundaries live in [Technologies]({{ '/docs/technologies' | relative_url }}) and the [Migration Calendar]({{ '/' | relative_url }}#the-migration-calendar), because those are the details most likely to move.
 
 **And underneath all six rungs sits the foundation.** The thing that finally decides whether any of this is good isn't the rung you stopped on; it's the data the agent stands on. Hold that thought. It returns at the end of this page, because it is true for all three buckets.
 
@@ -309,9 +305,9 @@ See [The agent archetype framework](https://learn.microsoft.com/en-us/agents/age
 
 The low-code vs. pro-code war is over. Here's what killed it.
 
-For years, the industry drew a bright line: "low-code is for citizen developers" on one side, "pro-code is for real engineers" on the other. The line made sense when code was expensive. Writing a state machine, wiring up auth flows, managing deployment pipelines - these tasks demanded specialized skills and weeks of calendar time. Low-code existed as a category because the alternative cost too much.
+For years, the industry drew a bright line: "low-code is for citizen developers" on one side, "pro-code is for real engineers" on the other. The line made sense when code was expensive. Writing a state machine, wiring up auth flows, managing deployment pipelines: these tasks demanded specialized skills and weeks of calendar time. Low-code existed as a category because the alternative cost too much.
 
-That economics has collapsed. Agentic coding tools - GitHub Copilot, coding agents, AI-assisted development - have made writing deterministic logic fast and cheap. A coding agent can scaffold a validated state machine in minutes. The cost argument that justified the binary no longer holds. And on the other side, tools like Copilot Studio now offer code views, variable management, and API integrations that demand an engineering mindset to wield effectively. The "low-code" canvas has become an IDE for conversational AI.
+That economics has collapsed. Agentic coding tools (GitHub Copilot, coding agents, AI-assisted development) have made writing deterministic logic fast and cheap. A coding agent can scaffold a validated state machine in minutes. The cost argument that justified the binary no longer holds. And on the other side, tools like Copilot Studio now offer code views, variable management, and API integrations that demand an engineering mindset to wield effectively. The "low-code" canvas has become an IDE for conversational AI.
 
 **The New Rule:** Choose the tool based on the **problem**, not your job title. A Principal Architect should use Copilot Studio if it solves the problem 10× faster. A Business Analyst working in Foundry isn't out of their depth - they're using the right tool for *their* use case. The tool does not define the role. The problem defines the tool.
 
@@ -355,7 +351,7 @@ Do not think of this as "Copilot Studio vs. Microsoft Foundry." Think of it as a
 **Why these two planes come last.** Not because they matter least, but because they matter to *everyone*. Walk the three bucket journeys and you'll notice the employee, the product team, and the engineering org disagree about almost everything except two facts: their agents are only as good as the data underneath them, and every one of those agents needs an identity and an owner. Layers 1 to 3 are choices. Planes 4 and 5 are the bill that arrives regardless.
 
 ### The "Better Together" Architecture
-A robust AI solution often spans all five:
+A production AI solution often spans all five:
 
 1. **Foundry** hosts a custom-tuned model for analyzing proprietary engineering specs.
 2. **Azure AI Search** grounds it in the actual spec library, with permissions intact.

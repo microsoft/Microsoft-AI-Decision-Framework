@@ -174,7 +174,7 @@ The first three instincts are about specific capabilities: how you organize, how
 {: .highlight }
 > **The question that builds this instinct:** "Is AI woven into my rhythm, or am I breaking stride to use it?"
 
-The more seamlessly AI flows through your day without interrupting it, the stronger your AI Rhythm.
+The more naturally AI flows through your day without interrupting it, the stronger your AI Rhythm.
 
 ---
 

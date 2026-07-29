@@ -23,7 +23,6 @@ Read the trade-off before the diagram. The architecture is the easy part.
 {:toc}
 
 ---
----
 
 ## Pattern 1: Start in Studio, Scale with Azure
 
@@ -46,7 +45,7 @@ Read the trade-off before the diagram. The architecture is the easy part.
 
 - Advanced orchestration, custom routing, or strict VNet isolation still require an Azure landing zone.[^agentservice-overview]
 - Connected agents are Preview and require agents to live in the same environment; plan ALM accordingly.[^connected-agents]
-- Service-account execution must be reviewed to avoid over-privileged actions (align with the [Action Safety Guardrail Playbook]({{ '/docs/evaluation-criteria#action-safety-guardrail-playbook' | relative_url }})).
+- Service-account execution must be reviewed to avoid over-privileged actions (align with the [Action Safety Guardrail Playbook]({{ '/docs/evaluation-criteria#the-action-safety-guardrail-playbook' | relative_url }})).
 - Consumption is metered per message, so sustained high-volume scenarios should model capacity vs. Azure consumption costs before scaling.
 
 **Signals this fits (Evaluation Criteria crosswalk):**
@@ -104,7 +103,7 @@ Read the trade-off before the diagram. The architecture is the easy part.
 
 - [Foundry Agent Service overview](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/overview?view=foundry)[^agentservice-overview]
 - [Microsoft AI Feature Comparison]({{ '/docs/feature-comparison' | relative_url }})[^feature-comparison]
-- [Evaluation Criteria: Governance & Compliance]({{ '/docs/evaluation-criteria#governance--compliance' | relative_url }})[^evaluation-governance]
+- [Evaluation Criteria: Governance & Compliance]({{ '/docs/evaluation-criteria#governance--compliance-the-security-perimeter' | relative_url }})[^evaluation-governance]
 - [Plugins for Microsoft 365 Copilot](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/overview-plugins)[^api-plugins]
 - [Create and deploy with Microsoft 365 Agents SDK](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/create-deploy-agents-sdk)[^agentsdk-overview]
 
@@ -562,7 +561,7 @@ Choose the path that matches your team's velocity and codebase complexity. All t
    | Runs | Responses | Input/output items with explicit tool call loop management |
    | Assistants | Current agents | Prompt Agent or Hosted Agent definitions with current endpoints and identity |
 
-4. **Update SDK packages:** Install `azure-ai-projects` 2.x (replaces 1.x) and initialize the `AIProjectClient` pointing to your Foundry project endpoint. The standalone `azure-ai-agents` package is deprecated - remove it and use `AIProjectClient` in `azure-ai-projects` as the single entry point. Ensure the SDK version matches the portal experience. Mixing 1.x SDK with new portal (or vice versa) causes errors.[^agents-migrate]
+4. **Update SDK packages:** Install `azure-ai-projects` 2.x (replaces 1.x) and initialize the `AIProjectClient` pointing to your Foundry project endpoint. The standalone `azure-ai-agents` package is deprecated, so remove it and use `AIProjectClient` in `azure-ai-projects` as the single entry point. Ensure the SDK version matches the portal experience. Mixing 1.x SDK with new portal (or vice versa) causes errors.[^agents-migrate]
 
 5. **Test and validate.** The new agents support all existing tools (file search, code interpreter, function calling) plus capabilities the Assistants API never had: MCP tool calling, image generation, browser automation (Preview), background mode for long-running operations, and durable streams for disconnect/reconnect resilience. Run integration tests against the new endpoint before cutting over.[^agents-migrate][^responses-api]
 
@@ -631,12 +630,12 @@ Choose the path that matches your team's velocity and codebase complexity. All t
    - **M365-first surface** (Teams, Outlook, Word) → stay inside the Microsoft 365 trust boundary with **Pattern 3** for knowledge-only needs[^pattern3-knowledge] or **Pattern 1** when you need orchestrated actions and governance controls inside Copilot Studio[^pattern1-actions].
    - **Multi-channel or custom apps** (web, mobile, SMS, API) → continue to step 3 with **Patterns 2 or 4** in play.
 
-3. **Clarify delivery ownership (avoid the low-code vs pro-code trap).** Use the skills, time, and funding matrices in [Evaluation Criteria]({{ '/docs/evaluation-criteria#skills--resources' | relative_url }}). Decide who will build and run the backlog, not which UI they click.
+3. **Clarify delivery ownership (avoid the low-code vs pro-code trap).** Use the skills, time, and funding matrices in [Evaluation Criteria]({{ '/docs/evaluation-criteria#skills--resources-delivery-team' | relative_url }}). Decide who will build and run the backlog, not which UI they click.
    - **Maker-led or mixed squads** who will operate inside Copilot Studio, yet can still call custom APIs or child agents, start with **Pattern 1** and expand to Azure as needed.
    - **Engineer-led product teams** with CI/CD, observability, and landing-zone governance treat **Pattern 2** (Azure-first) or **Pattern 4** (Agents SDK distribution) as the default.
    - **Hybrid hand-offs** (makers capturing intent, engineers owning orchestration) combine **Pattern 1** for the front door with **Pattern 2**/**Pattern 4** services behind it.[^skills-matrix]
 
-4. **Decide the governance boundary.** Align with the governance table in [Evaluation Criteria]({{ '/docs/evaluation-criteria#governance--compliance' | relative_url }}).
+4. **Decide the governance boundary.** Align with the governance table in [Evaluation Criteria]({{ '/docs/evaluation-criteria#governance--compliance-the-security-perimeter' | relative_url }}).
    - **Stay inside Microsoft 365 tenant controls** → **Pattern 1** or **Pattern 3**.
    - **Require VNet isolation, private endpoints, or custom compliance** → **Pattern 2** or **Pattern 4**.
    - **Hybrid front door** (Copilot Studio + Azure runtime) → combine **Pattern 1** and **Pattern 2** as described in Pattern 1’s “Scale with Azure” step.
@@ -661,7 +660,7 @@ Choose the path that matches your team's velocity and codebase complexity. All t
 > - For technology comparison tables, see [Quick Reference]({{ '/docs/quick-reference' | relative_url }})
 > - For real-world applications of these patterns, see [Scenarios]({{ '/docs/scenarios' | relative_url }})
 > - For evaluation criteria, see [Evaluation Criteria]({{ '/docs/evaluation-criteria' | relative_url }})
-> - For guardrail guidance, see [Action Safety Guardrail Playbook]({{ '/docs/evaluation-criteria#action-safety-guardrail-playbook' | relative_url }})
+> - For guardrail guidance, see [Action Safety Guardrail Playbook]({{ '/docs/evaluation-criteria#the-action-safety-guardrail-playbook' | relative_url }})
 
 ---
 

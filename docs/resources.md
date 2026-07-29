@@ -28,16 +28,13 @@ Treat it as a reading list with a shelf life. Microsoft Learn stamps every page 
 2. **Choose simplest tool that meets requirements**: Developers can use low-code or pro-code; makers limited to low-code; let complexity and time-to-market decide
 3. **Match governance approach to your needs**: M365 tenant-integrated (ready to use, fast) vs Azure workload-tailored (precise control for specific requirements)
 4. **Plan for scale**: Start simple, architect for growth
-5. **Leverage integration**: Technologies work together, not in isolation
+5. **Integration matters**: Technologies work together, not in isolation
 6. **Prioritize governance**: Especially for Microsoft 365 Copilot extensions and custom agents; keep agent inventory current via Agent Registry/Agent 365
 7. **Adopt staged security blueprints**: Use Microsoft Purview deployment models to secure agent data and interactions
 8. **Think beyond agents**: Connectors, plugins, and extensibility matter
 9. **Budget appropriately**: Understand per-user, consumption, and the **two distinct Azure prepurchase plans**: the Copilot Credit Pre-Purchase Plan (CCCUs) and the Microsoft Agent Prepurchase Plan (ACUs)
 10. **Iterate and learn**: Start small, measure, expand
 11. **Stay current**: Capabilities evolving rapidly, especially in preview
----
-
-
 ---
 
 ## Role-Based Next Steps

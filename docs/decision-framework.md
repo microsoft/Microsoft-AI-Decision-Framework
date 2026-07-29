@@ -195,7 +195,7 @@ Before you choose approaches, confirm whether the problem truly requires an agen
 - **Structured, predictable work** → deterministic code or non‑generative AI
 - **Static knowledge retrieval** → classic RAG without tool execution or multi‑step reasoning
 
-Agents introduce nondeterminism, latency, and cost - use them only when reasoning or tool orchestration is required. See [When not to use AI agents](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/business-strategy-plan#when-not-to-use-ai-agents).[^whennotagents]
+Agents introduce nondeterminism, latency, and cost. Use them only when reasoning or tool orchestration is required. See [When not to use AI agents](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/business-strategy-plan#when-not-to-use-ai-agents).[^whennotagents]
 
 ---
 
@@ -384,7 +384,7 @@ Before selecting the platform, write these five answers down. If you cannot, you
 - **Audit trail:** Can you explain which source informed a given answer or action?
 
 {: .tip }
-> See [Implementation Patterns]({{ '/docs/implementation-patterns#pattern-3-microsoft-365-knowledge-grounding' | relative_url }}) for ingestion blueprints and [Evaluation Criteria]({{ '/docs/evaluation-criteria#memory-analytics--conversation-history' | relative_url }}) for scoring considerations.
+> See [Implementation Patterns]({{ '/docs/implementation-patterns#pattern-3-microsoft-365-knowledge-grounding' | relative_url }}) for ingestion blueprints and [Evaluation Criteria]({{ '/docs/evaluation-criteria#complexity-assessment-architectural-load' | relative_url }}) for scoring considerations.
 
 ---
 
@@ -399,7 +399,7 @@ Use **"The Coin"** mental model (from the [Capability Model]({{ '/docs/capabilit
 *   **Side B (The Force):** Invisible agents that monitor systems/triggers (e.g., Logic Apps, Foundry Agent Service). Optimized for reliability and duration.
 
 **The Advanced Scenario: Convergence**
-The strongest architectures connect both sides. An **Invisible Agent** (Side B) might monitor a database for days. When it finds an anomaly, it doesn't just log it - it wakes up an **Interactive Agent** (Side A) to ping the human user with context.
+The strongest architectures connect both sides. An **Invisible Agent** (Side B) might monitor a database for days. When it finds an anomaly, it doesn't just log it. It wakes up an **Interactive Agent** (Side A) to ping the human user with context.
 *   *Decision:* If you need both behaviors, do not choose between them. Use **Copilot Studio** as the "front office" (User Interaction) and **Foundry/Logic Apps** as the "back office" (Deep Work), connected via API or Agent protocols.
 
 **The Complexity Spectrum:**
@@ -496,7 +496,7 @@ Two operational facts to design around: Intune policy propagation takes **15 min
 **Treat this as a decision input, not an afterthought.** If your people can install an autonomous local agent on a device that touches corporate data, that is a trust-boundary question, and you must answer it *before* you architect anything, because it changes what "inside the boundary" means. The uncomfortable version of the question: *would I know?*
 
 {: .note }
-> Detailed matrices for network isolation, identity, and governance live in [Technologies]({{ '/docs/technologies#network-isolation-decision-matrix' | relative_url }}) and [Evaluation Criteria]({{ '/docs/evaluation-criteria#governance--compliance' | relative_url }}).
+> Detailed matrices for network isolation, identity, and governance live in [Technologies]({{ '/docs/technologies#network-isolation-decision-matrix' | relative_url }}) and [Evaluation Criteria]({{ '/docs/evaluation-criteria#governance--compliance-the-security-perimeter' | relative_url }}).
 
 ---
 
@@ -544,7 +544,7 @@ Microsoft offers **two distinct prepurchase plans**, and people routinely mistak
 > **Read the terms before you commit.** Both plans are Azure Reservations with a **1-year term**, **auto-renew is ON by default**, and **all purchases are final**: no cancellation, exchange, split, or merge. This is one of the few genuinely irreversible decisions in this entire framework. Treat it accordingly.
 
 {: .note }
-> See [Evaluation Criteria]({{ '/docs/evaluation-criteria#scale--performance' | relative_url }}) for capacity planning guidance and [Technologies]({{ '/docs/technologies' | relative_url }}) for service-specific quota references.
+> See [Evaluation Criteria]({{ '/docs/evaluation-criteria#scale--performance-the-envelope' | relative_url }}) for capacity planning guidance and [Technologies]({{ '/docs/technologies' | relative_url }}) for service-specific quota references.
 
 ---
 
@@ -567,7 +567,7 @@ So ask the question plainly. *Does this thing change state in a system of record
 Pair this with the risk tiers in Question 5. They are the same idea viewed from the governance side rather than the design side. And keep Microsoft's instruction in view: **"Sort every agent by what it does, not by how impressive it looks."**
 
 {: .tip }
-> Use the [Action Safety Guardrail Playbook]({{ '/docs/evaluation-criteria#action-safety-guardrail-playbook' | relative_url }}) for guardrail recipes and [Evaluation Criteria]({{ '/docs/evaluation-criteria#action-safety--content-safety' | relative_url }}) to score risk.
+> Use the [Action Safety Guardrail Playbook]({{ '/docs/evaluation-criteria#the-action-safety-guardrail-playbook' | relative_url }}) for guardrail recipes and [Evaluation Criteria]({{ '/docs/evaluation-criteria#action-safety--content-safety' | relative_url }}) to score risk.
 
 ---
 
@@ -593,7 +593,7 @@ Also name the operating model:
 If nobody owns the agent after launch, you did not build a product. You created a liability with a chat interface.
 
 {: .tip }
-> The skills matrix in [Evaluation Criteria]({{ '/docs/evaluation-criteria#skills--resources' | relative_url }}) keeps the decision evidence-based.
+> The skills matrix in [Evaluation Criteria]({{ '/docs/evaluation-criteria#skills--resources-delivery-team' | relative_url }}) keeps the decision evidence-based.
 
 ---
 

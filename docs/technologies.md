@@ -224,7 +224,7 @@ Read the scope before you panic. This applies to **makers on a Teams plan**, who
 
 - Rapidly extend Microsoft 365 Copilot with Declarative Agents tailored to teams or departments.
 - Build custom engine agents that orchestrate complex workflows while remaining inside Microsoft-controlled infrastructure.
-- Leverage Power Platform connectors, triggers, and ALM tooling without deep ML engineering.
+- Use Power Platform connectors, triggers, and ALM tooling without deep ML engineering.
 
 **Sources:**
 
@@ -394,7 +394,7 @@ Read the scope before you panic. This applies to **makers on a Teams plan**, who
 - **Grounding with Bing Search:** Access real-time web information
 - **Grounding with Bing Custom Search (GA June 2025):** Enhanced responses with selected web domains
 - **Microsoft Fabric (GA March 2025):** Integrate with Fabric Data Agents for data analysis capabilities
-- **SharePoint (Preview):** Chat with private SharePoint documents, OBO authentication for security-trimmed access, leverages M365 Copilot API built-in indexing
+- **SharePoint (Preview):** Chat with private SharePoint documents, OBO authentication for security-trimmed access, uses M365 Copilot API built-in indexing
 - **Licensed Data:** Proprietary data via licensed API keys (TripAdvisor, Morningstar, LexisNexis, LEGALFLY, etc.)
 
 **Built-in Tools (Action):**

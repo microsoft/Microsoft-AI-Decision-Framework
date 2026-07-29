@@ -26,14 +26,14 @@ Use these diagrams after working through the [Decision Framework]({{ '/docs/deci
 
 | Diagram | Purpose | Maps To Framework |
 |---------|---------|-------------------|
-| **1. Complete Decision Flow** | End-to-end technology selection | [Phase 2: Q1-Q9]({{ '/docs/decision-framework#phase-2-technology-groupings-question-0-nine-critical-questions' | relative_url }}) - All nine critical questions |
+| **1. Complete Decision Flow** | End-to-end technology selection | [Phase 2: Q1-Q9]({{ '/docs/decision-framework#phase-2-technology-groupings-question-0--nine-critical-questions' | relative_url }}) - All nine critical questions |
 | **2. Data Grounding Decision** | Data strategy and knowledge sources | [Phase 2: Q3]({{ '/docs/decision-framework#question-3-data-grounding-pattern' | relative_url }}) - Data grounding patterns |
 | **3. Persona-Based Flow** | Selection by role and skill level | [Phase 2: Q2]({{ '/docs/decision-framework#question-2-the-spectrum-of-control-build-style' | relative_url }}) - Build approach + [Scenarios]({{ '/docs/scenarios' | relative_url }}) |
-| **4. Complexity Assessment** | Technical complexity evaluation | [Evaluation Criteria: Complexity]({{ '/docs/evaluation-criteria#technical-complexity-assessment' | relative_url }}) |
+| **4. Complexity Assessment** | Technical complexity evaluation | [Evaluation Criteria: Complexity]({{ '/docs/evaluation-criteria#complexity-assessment-architectural-load' | relative_url }}) |
 | **5. Budget & Timeline** | Cost and time-to-production paths | [Evaluation Criteria: Budget & Time]({{ '/docs/evaluation-criteria#budget-assessment' | relative_url }}) |
-| **6. Governance & Compliance** | Security and compliance requirements | [Evaluation Criteria: Governance]({{ '/docs/evaluation-criteria#governance--compliance' | relative_url }}) |
+| **6. Governance & Compliance** | Security and compliance requirements | [Evaluation Criteria: Governance]({{ '/docs/evaluation-criteria#governance--compliance-the-security-perimeter' | relative_url }}) |
 | **7. Multi-Agent Orchestration** | Multi-agent patterns and frameworks | [Quick Reference: Orchestration Complexity]({{ '/docs/quick-reference#orchestration-complexity-decision-matrix' | relative_url }}) |
-| **8. Upgrade Paths** | Migration and progressive enhancement | [Implementation Patterns: Progressive Enhancement]({{ '/docs/implementation-patterns#progressive-enhancement-pattern' | relative_url }}) |
+| **8. Upgrade Paths** | Migration and progressive enhancement | [Implementation Patterns: Progressive Enhancement]({{ '/docs/implementation-patterns#pattern-6-progressive-enhancement-low-code-to-pro-code-bridge' | relative_url }}) |
 | **9. Lifecycle Check** | Pre-flight readiness gate | [Evaluation Criteria: Lifecycle & Operational Readiness]({{ '/docs/evaluation-criteria' | relative_url }}) |
 | **10. IQ Layer Selection** | Knowledge grounding domain selection | [Microsoft AI Stack: Microsoft IQ]({{ '/docs/ai-stack' | relative_url }}) |
 
@@ -735,7 +735,7 @@ M365T -->|1 Month or more| M365_Slow[Declarative Agents<br/>0 addl cost or PAYG<
 | **Days** | M365 built-in features, no development | [(scenarios)](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/overview) |
 | **1-2 Weeks** | Low-code platforms (Copilot Studio Employee Self-Service, Logic Apps) | [(HR Knowledge Base scenario)]({{ '/docs/scenarios' | relative_url }}) |
 | **1-3 Months** | Custom agents with SDKs, moderate complexity | [(Customer Support scenario)]({{ '/docs/scenarios' | relative_url }}) |
-| **3-6 Months** | Microsoft Foundry (Azure) custom solutions, complex orchestration | [(evaluation-criteria)]({{ '/docs/evaluation-criteria#time-to-production' | relative_url }}) |
+| **3-6 Months** | Microsoft Foundry (Azure) custom solutions, complex orchestration | [(evaluation-criteria)]({{ '/docs/evaluation-criteria#time-to-production-the-runway' | relative_url }}) |
 | **6+ Months** | Enterprise-scale with PTU, fine-tuning, advanced patterns | |
 
 #### Cross-Tier: The Two Prepurchase Plans
@@ -764,7 +764,7 @@ Both are 1-year terms with auto-renew **on** by default, and **all purchases are
 {: .warning }
 > **Do not assume coverage.** Whether Copilot Cowork and Work IQ consumption draws down these plans is **inferred, not stated** in Microsoft's documentation. Confirm with your account team before you model it into a business case.
 
-See [Evaluation Criteria: Budget]({{ '/docs/evaluation-criteria#3-budget-assessment' | relative_url }}).
+See [Evaluation Criteria: Budget]({{ '/docs/evaluation-criteria#budget-assessment' | relative_url }}).
 
 #### Cost Calculation Notes
 {: .no_toc }
@@ -1219,8 +1219,6 @@ flowchart TD
 
 **Evaluate readiness:**
 → [Evaluation Criteria]({{ '/docs/evaluation-criteria' | relative_url }})
-
----
 
 ---
 

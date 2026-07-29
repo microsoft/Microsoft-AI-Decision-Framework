@@ -10,9 +10,9 @@ description: "Capability framing for Microsoft AI choices"
 
 Every AI conversation starts in the wrong place.
 
-Someone walks into the room and says, "We need an agent." Or worse: "We need to use Foundry." They've jumped to a platform before they've named the outcome, described the user, or asked whether AI is even the right tool. This is how projects fail - not from bad technology, but from skipping the thinking that should come before the technology.
+Someone walks into the room and says, "We need an agent." Or worse: "We need to use Foundry." They've jumped to a platform before they've named the outcome, described the user, or asked whether AI is even the right tool. This is how projects fail. Not from bad technology, but from skipping the thinking that should come before the technology.
 
-This page teaches that thinking. Not a decision tree - those come later. This is the mental framework that makes decision trees *useful*. Learn it once, and it survives every product rename, every Build keynote, every "everything is an agent now" news cycle.
+This page teaches that thinking. It is not a decision tree; those come later. This is the mental framework that makes decision trees *useful*. Learn it once, and it survives every product rename, every Build keynote, every "everything is an agent now" news cycle.
 
 The flow is always the same: **Outcomes → Behaviors → Platforms.** Who benefits and how? What does the AI actually *do*? Only then: which building blocks support that behavior?
 
@@ -83,7 +83,7 @@ Read those in order and a ladder falls out:
 
 Notice what does *not* change as you climb: the bucket. Climbing is not how you move from *AI for You* to *AI for Your Codebase*. Those are separate conversations that never merge. Climbing is how far you descend into the stack **within** the conversation you're already in. A developer bucket has its own SaaS rung (Copilot in the editor) and its own IaaS rung (your own harness on your own compute), and an employee-productivity bucket has both too. Same ladder, different building.
 
-The rungs are the same for everyone. What changes is what they *mean*. "Configure" means pointing an agent at a document library if you're an employee, and means writing a system prompt with tool schemas if you're a product team. So we walk the ladder three times, once per bucket, [later on this page](#the-ladder-walked-three-times), after we've settled what your agent actually needs to *do*.
+The rungs are the same for everyone. What changes is what they *mean*. "Configure" means pointing an agent at a document library if you're an employee, and means writing a system prompt with tool schemas if you're a product team. So we walk the ladder three times, once per bucket, [on the next page]({{ '/docs/ai-stack#the-ladder-walked-three-times' | relative_url }}), after we've settled what your agent actually needs to *do*.
 
 Outcomes first, then behavior, then the climb. In that order, every time.
 
@@ -178,7 +178,7 @@ Microsoft pairs the line with **three risk tiers**, and the pairing is what make
 | **Tier 2: Medium risk** (expert-knowledge and internal service agents) | "answer domain questions or run internal services where a wrong answer can mislead people or disrupt operations" | Named owner **plus** a domain-expert validator; knowledge-quality monitoring; formal release gate; accuracy tracking and feedback loops |
 | **Tier 3: High risk** (business-critical and external-facing agents) | "Tier 3 covers agents embedded in core processes or facing customers, where a failure hits revenue, compliance, or trust. These agents execute consequential actions and often act with autonomy." | A named owner **plus** a formal process owner accountable for the business process; production-grade SLA monitoring; a security review and a responsible AI assessment before release; a decision-rights framework setting what the agent may decide alone and what needs a human; an incident-response plan for when the agent behaves incorrectly; a quarterly maturity review |
 
-Read the tiers next to the delegation levels and the map is obvious: **Recommend** usually lands in Tier 1, **Act within bounds** in Tier 2, **Own the outcome** in Tier 3. It is not a law - a Recommend-level agent pointed at regulated clinical content is a Tier 2 problem all day. But it is a very good first guess, and it gives you something to argue *against* instead of a blank page. See [Govern agents by risk](https://learn.microsoft.com/en-us/agents/center-of-excellence/govern-agents-risk).
+Read the tiers next to the delegation levels and the map is obvious: **Recommend** usually lands in Tier 1, **Act within bounds** in Tier 2, **Own the outcome** in Tier 3. It is not a law. A Recommend-level agent pointed at regulated clinical content is a Tier 2 problem all day. But it is a very good first guess, and it gives you something to argue *against* instead of a blank page. See [Govern agents by risk](https://learn.microsoft.com/en-us/agents/center-of-excellence/govern-agents-risk).
 
 ### Two Sides of the Spectrum (The Coin)
 When thinking about agents, consider two ends of a spectrum.
@@ -206,7 +206,7 @@ Once you know which side of the coin you're on, you have to decide how that agen
 > **Don't confuse these with the five parts.** CAF's *five core components* (model, instructions, retrieval, actions, memory) are the agent's **anatomy**, what it is built out of. The five axes below are **design decisions**, how you choose to shape it. Anatomy is assembly; axes are intent. Both have five members, which is unfortunate, so we say "parts" for CAF's and "axes" for ours.
 
 **1. Interface: The Conversation vs. The Trigger (UI vs. No-UI)**
-This defines how the engagement begins. Interactive Agents rely on **Conversational UI**: you talk, and it answers. Invisible Agents rely on **Triggers**: a new email arrives, a database updates, or a timer goes off. One is designed for human engagement; the other is designed for seamless system integration.
+This defines how the engagement begins. Interactive Agents rely on **Conversational UI**: you talk, and it answers. Invisible Agents rely on **Triggers**: a new email arrives, a database updates, or a timer goes off. One is designed for human engagement; the other is designed to plug into systems.
 
 **2. Relationship: The Copilot vs. The Captain (Assistive vs. Autonomous)**
 This defines who holds the steering wheel. **Assistive** agents work *with* you: they wait for your input to move forward, keeping a human in the loop. **Autonomous** agents work *for* you: once you give them the goal, they drive themselves, making decisions and executing tasks until the job is done or they hit a guardrail. The line is blurring. Delegated work like **Copilot Cowork** lets a copilot take the wheel for minutes or hours while you steer at checkpoints. It occupies a middle ground between Copilot and Captain that the old binary has no word for.

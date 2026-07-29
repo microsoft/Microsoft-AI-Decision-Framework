@@ -33,7 +33,7 @@ The term the industry has settled on for the disciplined practice of building so
 
 ⚠️ **Vocabulary note.** Microsoft and GitHub do not use this term institutionally. They coined their own for the same territory: **agentic DevOps**, **spec-driven development**, and **context engineering**. Learn both dialects; your engineers speak one, your vendor documentation speaks the other.
 
-**Agent Commit Unit (ACU)**The billing unit for the **Microsoft Agent Prepurchase Plan** (Microsoft's docs render it as "Agent CUs"). **1 ACU pays down US$1 of qualifying retail cost, purchased at a tiered discount**. It is not "$1 each," which is the mistake that wrecks a budget model. ACUs sit in a single pool that covers *"select services across Microsoft Foundry, Microsoft Copilot Studio\*, Microsoft Fabric, and GitHub costs"* (where the asterisk covers Copilot Studio, Dynamics 365 first-party agents, and Copilot). See [Microsoft Agent Prepurchase Plan](https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/agent-pre-purchase) (updated 2026-07-17).
+**Agent CUs (ACU)**The billing unit for the **Microsoft Agent Prepurchase Plan** (Microsoft's docs render it as "Agent CUs"). **1 ACU pays down US$1 of qualifying retail cost, purchased at a tiered discount**. It is not "$1 each," which is the mistake that wrecks a budget model. ACUs sit in a single pool that covers *"select services across Microsoft Foundry, Microsoft Copilot Studio\*, Microsoft Fabric, and GitHub costs"* (where the asterisk covers Copilot Studio, Dynamics 365 first-party agents, and Copilot). See [Microsoft Agent Prepurchase Plan](https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/agent-pre-purchase) (updated 2026-07-17).
 
 **Agent Factory**
 A Microsoft program (not a product) that accelerates enterprise agent adoption through three pillars: prepurchase-based unified billing (see [Microsoft Agent Prepurchase Plan](#a)), Forward Deployed Engineers (FDEs) for hands-on architecture support, and customized training. See [Introducing Microsoft Agent Factory](https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/introducing-microsoft-agent-factory/4470732) (published 2025-11-18).
@@ -46,7 +46,7 @@ Microsoft's functional decomposition of agent behavior, verbatim *"categories, c
 
 **Agent Prepurchase Plan (Microsoft Agent Prepurchase Plan)**
 {: #agent-prepurchase-plan }
-A one-year Azure reservation denominated in **Agent Commit Units (ACUs)** that pays down *"select services across Microsoft Foundry, Microsoft Copilot Studio\*, Microsoft Fabric, and GitHub costs."* It is **one of two distinct prepurchase products** (the other is the [Copilot Credit Pre-Purchase Plan](#c)), and they are not interchangeable.
+A one-year Azure reservation denominated in **Agent CUs (ACUs)** that pays down *"select services across Microsoft Foundry, Microsoft Copilot Studio\*, Microsoft Fabric, and GitHub costs."* It is **one of two distinct prepurchase products** (the other is the [Copilot Credit Pre-Purchase Plan](#c)), and they are not interchangeable.
 
 **The precedence chain, verbatim:** *"Reservations always apply before prepurchase plans."* Order of application: **1.** Microsoft Foundry PTU Reservations → **2.** Microsoft Fabric Capacity Reservations → **3.** Copilot Credit Prepurchase Plan → **4.** Microsoft Agent Prepurchase Plan, *"applied last to remaining AI usage across all platforms."* The governing principle is simple: **narrow benefits burn before broad benefits.** One-year term, auto-renew **on by default**, and **all purchases are final**: no cancel, exchange, split, or merge.
 
@@ -70,7 +70,7 @@ Central inventory in the M365 admin center to publish, activate, deploy, pin, bl
 **Agent Settings templates (Preview)**
 Reusable configuration templates in the M365 admin center that let admins apply consistent policies to multiple agents (e.g., enabled channels, publishing scope, owners), managed alongside Agent Registry entries ([Microsoft 365 Copilot release notes, November 25, 2025](https://learn.microsoft.com/en-us/microsoft-365/copilot/release-notes#november-25,-2025)).
 
-**Agentic Retrieval (Preview)**
+**Agentic Retrieval (REST API GA; portal experiences Preview)**
 An evolution of traditional RAG where AI agents dynamically reason about search queries, plan multi-step retrieval strategies, and adaptively refine results before generation. Unlike static RAG patterns, agentic retrieval enables agents to decompose complex questions, filter sources intelligently, and combine multiple search modes (vector, hybrid, semantic) based on context ([Agentic retrieval in Azure AI Search](https://learn.microsoft.com/en-us/azure/search/agentic-retrieval-overview), updated 2026-01-16). *When to use:* Choose agentic retrieval for complex research scenarios requiring multi-hop reasoning; use traditional RAG for straightforward document lookup. See Decision Framework Q3.
 
 **Agent Framework**

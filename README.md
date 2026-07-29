@@ -93,7 +93,7 @@ Choosing a technology is one decision inside a longer loop. Microsoft's Cloud Ad
 
 **This guide lives mostly in Strategy and Plan.** Keep the other four in view, because the goal is picking a tool you can actually run. ([CAF: AI adoption](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai/))
 
-It's written for people who have to defend a choice: **architects, technical decision makers, engineering teams, and the makers and fusion teams who build alongside them.** The common thread isn't a job title. It's that you need a reusable way to reason, not a one-page answer, and you'll be asked to explain the trade-off to someone who wasn't in the room.
+It's written for people who have to defend a choice: **architects, technical decision makers, engineering teams, and the makers and fusion teams who build alongside them.** What they share is not a job title. It's needing a reusable way to reason rather than a one-page answer, and knowing they'll be asked to explain the trade-off to someone who wasn't in the room.
 
 ---
 
@@ -164,10 +164,10 @@ flowchart LR
 | What you said | Where to start |
 | :--- | :--- |
 | *"I need something in production next week"* | **[M365 Copilot]({{ '/docs/technologies#microsoft-365-copilot' | relative_url }})** once IT completes [tenant readiness](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-setup), or **[Copilot Studio]({{ '/docs/technologies#copilot-studio' | relative_url }})** from a template |
-| *"I have makers but no developers"* | **[Copilot Studio]({{ '/docs/technologies#copilot-studio' | relative_url }})** plus **[AI Builder]({{ '/docs/ai-stack#4-ai-services-and-building-blocks' | relative_url }})** |
+| *"I have makers but no developers"* | **[Copilot Studio]({{ '/docs/technologies#copilot-studio' | relative_url }})** plus **[AI Builder]({{ '/docs/ai-stack#ai-services-and-building-blocks' | relative_url }})** |
 | *"I have a dev team and complex requirements"* | **[Microsoft Foundry]({{ '/docs/technologies#microsoft-foundry-azure' | relative_url }})** or the **[M365 Agents SDK]({{ '/docs/technologies#microsoft-365-agents-sdk--toolkit' | relative_url }})** |
-| *"I need enterprise integration plus AI"* | **[Azure Logic Apps]({{ '/docs/technologies#azure-logic-apps' | relative_url }})**, 1,400+ connectors plus agentic workflows. Status varies by hosting model; check before you commit |
-| *"I need to extend M365 Copilot"* | **[Graph Connectors]({{ '/docs/ai-stack#2-extensibility-into-existing-copilots' | relative_url }})** for data, **[Declarative Agents]({{ '/docs/ai-stack#2-extensibility-into-existing-copilots' | relative_url }})** for custom skills |
+| *"I need enterprise integration plus AI"* | **[Azure Logic Apps](https://learn.microsoft.com/en-us/azure/logic-apps/agent-workflows-concepts)**, 1,400+ connectors plus agentic workflows. Status varies by hosting model; check before you commit |
+| *"I need to extend M365 Copilot"* | **[Graph Connectors]({{ '/docs/ai-stack#extensibility-into-existing-copilots' | relative_url }})** for data, **[Declarative Agents]({{ '/docs/ai-stack#extensibility-into-existing-copilots' | relative_url }})** for custom skills |
 | *"I need an intranet copilot with citations"* | **[Grounded Q&A]({{ '/docs/scenarios#scenario-1-grounded-qa-over-enterprise-content' | relative_url }})**. Settle the trust boundary before you pick a store. If content lives in M365 and the audience is employees, permission trimming is inherited rather than implemented |
 | *"I need answers from PDFs with tables and diagrams"* | **[Grounded Q&A]({{ '/docs/scenarios#scenario-1-grounded-qa-over-enterprise-content' | relative_url }})**. Layout-aware extraction is a retrieval-quality problem, not an agent problem. Fix the chunking before you add tools |
 | *"I need multi-agent orchestration without writing a graph"* | Match the role before the tool: **[Logic Apps agentic workflows](https://learn.microsoft.com/en-us/azure/logic-apps/agent-workflows-concepts)** for visual business processes, **[Agent Framework]({{ '/docs/technologies#microsoft-agent-framework' | relative_url }})** for code-first orchestration, **A2A** for lightweight delegation. Read [the warning]({{ '/docs/scenarios#a-warning-about-multi-agent-orchestration' | relative_url }}) first |
@@ -213,7 +213,7 @@ Undated but directionally certain: Semantic Kernel and AutoGen both point forwar
 
 **We are not competing with Microsoft's guidance. We're the connective tissue between the pieces of it.**
 
-Microsoft publishes a great deal of high-quality agent guidance, and it publishes it in parallel, from different teams, with different vocabularies. Our research counted **seven concurrent agent taxonomies across Microsoft Learn, none of which supersedes, reconciles, or even cross-references another.** That isn't a criticism; it's what shipping fast looks like from the inside. But it means an architect reading three official pages can come away with three different mental models and no way to tell whether they conflict.
+Microsoft publishes a great deal of high-quality agent guidance, and it publishes it in parallel, from different teams, with different vocabularies. Our research counted **seven concurrent agent taxonomies (six documented on Microsoft Learn, one blog-only), none of which supersedes, reconciles, or even cross-references another.** That isn't a criticism; it's what shipping fast looks like from the inside. But it means an architect reading three official pages can come away with three different mental models and no way to tell whether they conflict.
 
 That gap is our job. Microsoft's docs answer *"what does this product do?"* extremely well. This framework answers *"which of these am I actually in, and what will I regret in six months?"* Read theirs for authority. Read ours for judgment. Then go build.
 
@@ -228,7 +228,7 @@ That gap is our job. Microsoft's docs answer *"what does this product do?"* extr
 
 ---
 
-## Bonus: AI Instinct - The Human Side of AI Adoption
+## Bonus: AI Instinct, the Human Side of AI Adoption
 
 This framework teaches you how to *choose* AI technologies. But technology choices are only half the equation. The other half is how people actually *partner* with AI once you've made the choice.
 

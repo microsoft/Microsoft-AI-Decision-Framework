@@ -407,8 +407,8 @@ Microsoft does not have one AI meter. It has five, and they do not convert into 
 **Sources:**
 
 - [Microsoft Copilot Studio Pricing](https://learn.microsoft.com/en-us/microsoft-copilot-studio/billing-licensing) (Pricing)
-- [Foundry Tools Pricing](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/) (Pricing)
-- [Azure OpenAI Service Pricing](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/openai-service/) (Token-based consumption)
+- [Foundry Tools Pricing](https://azure.microsoft.com/en-us/pricing/details/foundry-tools/) (Pricing)
+- [Azure OpenAI Service Pricing](https://azure.microsoft.com/en-us/pricing/details/azure-openai/) (Token-based consumption)
 
 **Confidence Level:** Medium (pricing models subject to change; verify current rates for production planning)
 

@@ -437,7 +437,7 @@ There is a moment in every successful developer-loop experiment where the tool s
 
 **Sources:**
 
-- [GitHub Copilot SDK](https://docs.github.com/en/copilot/concepts/copilot-sdk)
+- [GitHub Copilot SDK](https://github.com/github/copilot-sdk)
 - [Microsoft Foundry Agent Service overview](https://learn.microsoft.com/en-us/azure/foundry/agents/overview) (Hosted agents: Python and C# only)
 
 **Status:** Copilot SDK **GA**; Foundry Hosted agents have mixed maturity and a hard language limit

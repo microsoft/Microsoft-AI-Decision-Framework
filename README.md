@@ -144,12 +144,15 @@ flowchart LR
 |------|--------|-------------------|-----------------|
 | 1) | [Capability Model]({{ site.baseurl }}/docs/capability-model) | **Foundation** - Name the conversation you're in, verify you need an agent at all, and learn to describe behavior before naming a product | 15 min |
 | 2) | [Microsoft AI Stack]({{ site.baseurl }}/docs/ai-stack) | **Landscape** - Climb the buy-before-build ladder, find your capability grouping, and see the five planes every solution stands on | 35 min |
-| 3) | [Decision Framework]({{ site.baseurl }}/docs/decision-framework) | **Methodology** - Intake gates and nine critical questions to stay simple before scaling | 20 min |
-| 4) | [Scenarios]({{ site.baseurl }}/docs/scenarios) | **Context** - Ten patterns of demand with recommended stacks, honest alternatives, and the failure mode for each | 15 min |
+| 3) | [Decision Framework]({{ site.baseurl }}/docs/decision-framework) | **Methodology** - Intake gates and nine critical questions to stay simple before scaling | 40 min |
+| 4) | [Scenarios]({{ site.baseurl }}/docs/scenarios) | **Context** - Ten patterns of demand with recommended stacks, honest alternatives, and the failure mode for each | 45 min |
 | 5) | [Evaluation Criteria]({{ site.baseurl }}/docs/evaluation-criteria) | **Assessment** - Score complexity, skills, budget, governance, and action safety/time-to-production | 15 min |
-| 6) | [Implementation Patterns]({{ site.baseurl }}/docs/implementation-patterns) | **Execution** - Repeatable patterns (Studio-to-Azure, multi-agent, grounding) with pivot signals | 15 min |
-| 7) | [Technologies]({{ site.baseurl }}/docs/technologies) | **Deep Dive** - Detailed specs, data boundaries, and status for Microsoft AI platforms/services | 30 min |
-| 8) | [Feature Comparison]({{ site.baseurl }}/docs/feature-comparison) | **Mastery** - Side-by-side matrices to justify trade-offs across orchestration, data, and workflows | 10 min |
+| 6) | [Implementation Patterns]({{ site.baseurl }}/docs/implementation-patterns) | **Execution** - Repeatable patterns (Studio-to-Azure, multi-agent, grounding) with pivot signals | 30 min |
+| 7) | [Technologies]({{ site.baseurl }}/docs/technologies) | **Deep Dive** - Detailed specs, data boundaries, and status for Microsoft AI platforms/services | 60 min |
+| 8) | [Feature Comparison]({{ site.baseurl }}/docs/feature-comparison) | **Mastery** - Side-by-side matrices to justify trade-offs across orchestration, data, and workflows | 15 min |
+
+{: .note }
+> **On the times.** These are measured, not aspirational: prose at 250 words per minute, reference tables at half that because you scan them rather than read them. Steps 7 and 8 are reference material and behave like it. Nobody reads the Technologies page end to end, and it isn't built to be read that way. Look up what you need and leave.
 
 **Supplemental references (use as needed):** [Visual Framework]({{ site.baseurl }}/docs/visual-framework) | [Quick Reference]({{ site.baseurl }}/docs/quick-reference) | [Resources]({{ site.baseurl }}/docs/resources) | [Glossary]({{ site.baseurl }}/docs/glossary) | [AI Instinct]({{ site.baseurl }}/docs/ai-instinct)
 

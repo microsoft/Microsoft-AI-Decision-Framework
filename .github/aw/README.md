@@ -1,10 +1,10 @@
-# GitHub Agentic Workflows — Setup Notes
+# GitHub Agentic Workflows: Setup Notes
 
 This repo uses [GitHub Agentic Workflows (`gh-aw`)](https://github.github.com/gh-aw/). Workflows live in `.github/workflows/*.md`; each compiles to a `*.lock.yml` that GitHub Actions actually runs.
 
 ## 1. The `COPILOT_GITHUB_TOKEN` SSO gotcha (Microsoft org)
 
-The Copilot engine requires a repository secret named `COPILOT_GITHUB_TOKEN`. **It must be a fine-grained Personal Access Token whose Resource Owner is your personal account — not the Microsoft organization.** GitHub Apps, OAuth tokens, and classic PATs are not supported for this secret.
+The Copilot engine requires a repository secret named `COPILOT_GITHUB_TOKEN`. **It must be a fine-grained Personal Access Token whose Resource Owner is your personal account, not the Microsoft organization.** GitHub Apps, OAuth tokens, and classic PATs are not supported for this secret.
 
 Why org-owned PATs fail here:
 
@@ -32,13 +32,13 @@ Your personal account must have an active Copilot subscription. AI usage is bill
 
 ### When you actually do need a Microsoft-org token
 
-Only needed for *additional* GitHub auth (cross-repo reads, project updates, triggering CI on agent-created PRs). For those, use a **GitHub App** scoped to the repos you need (`tools.github.github-app:` / `safe-outputs.github-app:`) — it avoids the SSO dance entirely and mints short-lived tokens per run. See [Authentication](https://github.github.com/gh-aw/reference/auth/#using-a-github-app-for-authentication).
+Only needed for *additional* GitHub auth (cross-repo reads, project updates, triggering CI on agent-created PRs). For those, use a **GitHub App** scoped to the repos you need (`tools.github.github-app:` / `safe-outputs.github-app:`). It avoids the SSO dance entirely and mints short-lived tokens per run. See [Authentication](https://github.github.com/gh-aw/reference/auth/#using-a-github-app-for-authentication).
 
 ## 2. Keep the runtime current
 
 `actions-lock.json` currently pins `github/gh-aw/actions/setup@v0.50.7`. Latest is `v0.71.5`.
 
-> Avoid versions `0.68.4` through `0.71.3` — upstream flagged a billing-impact bug in that range.
+> Avoid versions `0.68.4` through `0.71.3`; upstream flagged a billing-impact bug in that range.
 
 Update locally (requires a token with public-repo read; your personal `COPILOT_GITHUB_TOKEN` is fine):
 
@@ -57,7 +57,7 @@ Commit both `actions-lock.json` and any updated `*.lock.yml`.
 
 ## 4. PR creation in Microsoft-managed repos
 
-Microsoft org policy frequently blocks PR creation by `GITHUB_TOKEN`. The link-checker workflow uses `fallback-as-issue: true`, so a blocked PR automatically becomes an issue with the diff attached — no workflow failure. If you want real PRs end-to-end, set a `GH_AW_CI_TRIGGER_TOKEN` secret to a fine-grained PAT with `contents: read & write` on this repo (see [Triggering CI](https://github.github.com/gh-aw/reference/triggering-ci/)).
+Microsoft org policy frequently blocks PR creation by `GITHUB_TOKEN`. The link-checker workflow uses `fallback-as-issue: true`, so a blocked PR automatically becomes an issue with the diff attached, and the workflow does not fail. If you want real PRs end-to-end, set a `GH_AW_CI_TRIGGER_TOKEN` secret to a fine-grained PAT with `contents: read & write` on this repo (see [Triggering CI](https://github.github.com/gh-aw/reference/triggering-ci/)).
 
 ## 5. Useful commands
 

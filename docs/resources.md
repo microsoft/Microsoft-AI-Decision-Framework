@@ -366,8 +366,8 @@ Read these before you read any product page. They are the maps; everything below
 ### Microsoft Tech Community
 {: .no_toc }
 
-- [Microsoft 365 Copilot Community](https://techcommunity.microsoft.com/t5/microsoft-365-copilot/ct-p/Microsoft365Copilot)
-- [Azure AI Services Community](https://techcommunity.microsoft.com/t5/azure-ai-services/ct-p/AzureAIServices)
+- [Microsoft 365 Copilot Community](https://techcommunity.microsoft.com/category/Microsoft365Copilot)
+- [Azure AI Services Community](https://techcommunity.microsoft.com/category/AzureAIServices)
 - [Power Platform Community](https://community.powerplatform.com/)
 
 ### Learning Paths

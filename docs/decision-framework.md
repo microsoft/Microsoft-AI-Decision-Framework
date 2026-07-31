@@ -446,6 +446,8 @@ Answer "Where does my data go, and who can act on it?" before choosing a platfor
 
 **Microsoft Entra Agent ID** is the product that supplies it. Note the word *product*, which is Microsoft's own: *"Microsoft Entra Agent ID is a product within Microsoft Entra that provides the platform for creating and managing agent identities and agent identity blueprints."* It is **generally available**, and Microsoft states plainly that *"Agent ID is available for all Microsoft Entra customers."*[^entraagentid] Design your agents assuming each one carries a distinct identity, because the platform now assumes it too.
 
+**Then ask the second question, because the identity does not answer it.** Attribution and authorization are separate: the identity decides whose name appears in the log, and the authentication flow decides whose permissions fetch the data. Microsoft states that agents *"can sign in with either user-delegated or app-only permissions,"* so an agent with its own identity may still be reaching your systems on a human's behalf. For interactive agents that is usually correct, since the agent cannot exceed the person using it. The pattern that deserves scrutiny is the one where **a single human's credentials are captured once and then used for everyone**, which is how a convenience becomes a privilege-escalation path nobody documented. Ask of every agent: *whose permissions does this carry, and when were they captured?*
+
 #### Inventory: the board you watch
 
 {: .no_toc }

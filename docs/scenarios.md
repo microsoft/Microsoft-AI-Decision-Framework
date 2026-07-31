@@ -346,7 +346,7 @@ So the framing inverts from most scenarios in this catalog. The question is not 
 - **Human authority preserved on consequential actions**: account disablement, isolation, mass deletion.
 - **Full audit trail**, because this queue eventually appears in an incident review.
 - **Feedback that changes behavior**, not a thumbs-down button routed to a mailbox.
-- **A governable identity for whatever acts.** Anything that can close an alert or touch code needs to be distinguishable from a person in your logs. This requirement is easy to satisfy with a prebuilt agent and surprisingly hard with your own. See *What Usually Goes Wrong*.
+- **Clarity about whose permissions the agent carries.** Anything that can close an alert needs a documented answer to *"whose access does this run with?"* On Microsoft platforms the agent gets its own identity automatically, which settles the audit trail. It does not settle the data question. See *What Usually Goes Wrong*.
 
 ### Recommended Technologies
 {: #scenario5-recommended .no_toc }
@@ -388,9 +388,22 @@ Above both lanes sits **Project Perception**, which Microsoft has announced as a
 
 **Somebody builds it.** A capable security engineering team, given this problem and a budget, will produce a working triage agent in a quarter, and then own its detection quality, its tuning, and its on-call rotation forever, against a vendor product that improves continuously at no marginal cost. This is the most expensive avoidable build in the catalog.
 
-**A custom agent here becomes an ungoverned privileged identity.** This is the finding most teams miss, and it is decisive. But note carefully where it applies. In **Security Copilot**, the option to give an agent its own dedicated identity is currently available for Microsoft-built agents. A custom or partner-built one connects using an *existing user account* and **inherits that person's access and permissions while it runs**. So the moment you build your own Security Copilot agent, its actions appear in every log you own as the sponsoring human's activity, with that human's blast radius and no separate principal to scope, review, or revoke.
+**You inherit a human's permissions without meaning to.** This is the finding most teams miss, and it generalizes far beyond security, so it is worth getting the mental model right.
 
-What makes this worth pausing on is that it is **not** how the rest of Microsoft's platform behaves. Copilot Studio now creates a dedicated agent identity for every new agent automatically, and Foundry provisions a dedicated one when an agent is published (before that, agents in a project share a common project identity). Same vendor, same identity system underneath, three different answers depending on which door you walked through. **Check which one you are standing in front of before you assume the identity story is handled**, and see [Agent governance and agent sprawl](#scenario-10-agent-governance-and-agent-sprawl).
+Start with the rule rather than the product: **for interactive agents, the Microsoft default is that the agent acts as the person talking to it.** Copilot Studio calls this authenticating with Microsoft, and it uses the on-behalf-of flow, so a SharePoint knowledge source returns only what that user could already open. That default is usually the *right* one. It means the agent cannot become a privilege-escalation path.
+
+Now separate two questions that look like one:
+
+| Question | What it means | What settles it |
+| :--- | :--- | :--- |
+| **Attribution** | Whose name appears in the log as having acted? | The agent identity |
+| **Authorization** | Whose permissions decide what data comes back? | The authentication flow |
+
+**These move independently, and that is the part people get wrong.** Microsoft states it plainly: agents *"can sign in with either user-delegated or app-only permissions."* Every Copilot Studio agent already receives its own Entra agent identity when it is created, so attribution is handled for you. Data access is a separate, deliberate decision, and it does not change just because the agent has an identity of its own.
+
+Where this bites in the security context is **which human, and when their credentials were captured.** Security Copilot's custom and partner-built agents connect using an existing user account and inherit that person's access while running. That is not the on-behalf-of pattern; the credentials are fixed at setup time, so every invocation carries the setup person's permissions no matter who triggered it. Copilot Studio has its own version of this trap: an event-triggered agent can only use the maker's credentials, and Microsoft's warning is unusually direct, saying it *"might allow users of an agent without their own authorization the ability to access data and systems they shouldn't."*
+
+**So the question to ask of any agent is not "does it have an identity?" It is "whose permissions does it carry, and when were they captured?"** An agent running on one named human's fixed credentials is the pattern to scrutinize, wherever you find it. See [Agent governance and agent sprawl](#scenario-10-agent-governance-and-agent-sprawl).
 
 **Agentic code scanning asks you to lower your own defenses.** Microsoft's guidance for MDASH is explicit: configure a dedicated model endpoint with content filters set permissively and **prompt-injection protections turned off**, because security content trips filters designed for other purposes. Microsoft's own words: set every severity threshold to *"the lowest possible level"* and turn off *"Prompt Shields for Jailbreak"* and *"Prompt Shields for Indirect Attack."* The reasoning is sound, and the documented mitigation is a dedicated endpoint: *"Create and use a dedicated Microsoft Foundry endpoint for MDASH only. Do not use this endpoint for any other workload."* But understand what you are accepting: a pipeline that ingests attacker-influenceable content, including third-party dependencies and contributed code, into a model endpoint with indirect prompt-injection defenses deliberately disabled. **That is a considered trade, not a free one.** Isolate the endpoint exactly as documented, and never reuse it for another workload. Note that endpoint isolation is the *only* mitigation Microsoft documents here; the scanner host itself requires outbound access to a published allowlist of Microsoft domains, so do not assume an air-gapped runner is part of the design.
 
@@ -692,7 +705,7 @@ That said, the framework's whole thesis lands here. Every other scenario in this
 
 - **Discovery.** You cannot govern what you cannot enumerate, and the enumeration will surprise you.
 - **A named human owner for every agent**, with the same seriousness applied to an application owner.
-- **Distinct identity per agent**, so actions are attributable to the agent rather than to the person who created it.
+- **Distinct identity per agent**, so actions are attributable to the agent rather than to the person who created it. Then, separately, **a documented answer to whose permissions it runs with**, because the identity does not decide that.
 - **Lifecycle, including the end of it.** Provisioning is easy and universally implemented. Decommissioning is neither, and orphaned agents are the actual risk.
 - **Data protection that applies to agents**, because an agent reading a sensitive document is a data flow your DLP policy was probably not written to consider.
 - **Cost attribution**, since consumption without an owner is how a platform bill becomes a governance crisis.
@@ -717,7 +730,19 @@ That said, the framework's whole thesis lands here. Every other scenario in this
 
 Read that bottom row twice. **The agents least likely to be governed are the ones a control plane cannot see on its own**, and they are also the ones most likely to hold real credentials. Discovery tooling grades your Microsoft-platform estate generously and your custom estate not at all.
 
-Identity coverage has its own unevenness, and it is worth checking rather than assuming. Copilot Studio now creates a dedicated agent identity for every new agent automatically; Foundry provisions a dedicated one at publish, and shares a single project identity across everything still in development; Security Copilot's custom and partner-built agents still run on a borrowed user account. **Same directory underneath, three different answers.** Ask which door each of your agents came through.
+Identity coverage is more subtle than it looks, and this is where most governance programs declare victory too early. Every Copilot Studio agent receives its own Entra agent identity the moment it is created, and Foundry provisions a dedicated one when an agent is published (agents still in development share a project identity). So the inventory question, *does this thing have an identity*, is largely answered for you on Microsoft platforms.
+
+**The question that is not answered for you is whose permissions the agent carries.** An identity settles attribution: the log entry names an agent rather than a person. It does not settle authorization. Microsoft is explicit that an agent *"can sign in with either user-delegated or app-only permissions,"* and those are separate architectural choices. An agent with a perfectly good identity of its own can still be reaching your data using a human's delegated permissions.
+
+Three patterns to look for, because they carry very different blast radii:
+
+| Pattern | Whose permissions apply | Where you meet it |
+| :--- | :--- | :--- |
+| **On behalf of the invoking user** | Each caller's own | The interactive default. Usually the safe one, since the agent cannot exceed the person using it |
+| **A fixed human's credentials** | One named person, captured at setup or authoring time | Copilot Studio event triggers use the maker's credentials; Security Copilot custom and partner agents use a connected user account |
+| **The agent's own** | Roles assigned to the agent itself | Foundry tool calls by default, and any deliberate move to app-only access |
+
+**The middle row is the one to hunt.** It is the pattern where an agent quietly carries one person's reach to everyone who invokes it, and Microsoft's own warning on event triggers is blunt about the consequence: it *"might allow users of an agent without their own authorization the ability to access data and systems they shouldn't."* Nothing about that is a defect. It is a documented, sometimes necessary design. But it needs to be a decision somebody made on purpose and wrote down, rather than a default nobody examined.
 
 Do this early. Retrofitting identity onto a population of agents that already exists is the same project as retrofitting it onto a population of applications, and everyone who has done that remembers it.
 

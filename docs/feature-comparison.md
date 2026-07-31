@@ -246,8 +246,8 @@ Before selecting a platform, check the expiration date. This matrix flags active
 | **Built-in Evaluation** | N/A | Test sets + analytics | Foundry portal evals + continuous evaluation | OpenTelemetry hooks | N/A |
 | **Governance Export** | Agent Registry (export inventory) | Power Platform admin + Purview audit | Foundry Control Plane + Azure Policy + Defender | Application-level | Org admin telemetry |
 | **Observability** | M365 admin center | Purview audit + Application Insights | Application Insights agent details view | OpenTelemetry (ENABLE_OTEL) | Usage metrics + plan mode |
-| **Identity Model** (attribution) | User-scoped (always) | Entra agent identity created automatically per agent | Shared project identity; dedicated identity at publish | Application-defined | GitHub identity |
-| **Data Access Model** (authorization) | Invoking user's permissions | Delegated to invoking user by default; **maker's credentials on event triggers** | App-only against the agent's own RBAC by default; OBO available | Application-defined | Repository-scoped |
+| **Identity Model** (attribution) | User-scoped (always) | Entra agent identity created automatically per **new** agent; pre-rollout agents remain on app registrations pending migration | Shared project identity; dedicated identity at publish | Application-defined | GitHub identity |
+| **Data Access Model** (authorization) | Invoking user's permissions | Set **per tool**: delegated to the invoking user by default, maker's credentials as an override, and maker-only on event triggers | App-only against the agent's own RBAC by default; OBO available | Application-defined | Repository-scoped |
 
 ---
 

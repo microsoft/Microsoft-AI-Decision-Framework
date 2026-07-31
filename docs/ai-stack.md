@@ -2,7 +2,7 @@
 layout: default
 title: Microsoft AI Stack
 nav_order: 3
-description: "Map agent behavior onto Microsoft's building blocks - the ladder, the capability groupings, and the five planes of the stack"
+description: "Map agent behavior onto Microsoft's building blocks: the ladder, the capability groupings, and the five planes of the stack"
 ---
 
 # Microsoft AI Stack
@@ -141,7 +141,13 @@ There is a second reason to take this rung seriously, and it is about attention 
 
 **Rung 5: Make the workflow itself a reviewable artifact.** Above configuration sits automation: agent work that triggers on events and runs without a human starting it. The concept worth carrying is how it is made safe. The workflow is authored in the open, then *compiled* into a locked artifact that runs under explicit permissions, with the outputs it is allowed to produce declared up front rather than discovered at runtime. That inversion is the point. Your agent usage stops being a habit distributed across individuals and becomes infrastructure: versioned, diffable, bounded by design rather than by hope.
 
-**Rung 6: Build on the harness.** The *harness* is the loop the agent actually runs in: the orchestration around the model that decides what it can see, what it can call, and when it stops. GitHub's own advice is worth taking literally: learn the harness before you decorate it. Most of the gain comes from understanding the loop, not from the accessories bolted onto it. You reach rung 6 when you stop *using* that loop and start *embedding* it. That is the moment a developer tool becomes a component inside something you ship, and the developer bucket quietly rejoins the product bucket.
+**Rung 6: Build on the harness.** The *harness* is the loop the agent actually runs in: the orchestration around the model that decides what it can see, what it can call, what happens when a call fails, and when it stops. A model answers and stops. A harness gives it legs.
+
+**This is the part of the stack most teams underestimate, and there is evidence rather than opinion behind that claim.** The research group that built SWE-agent found that deliberately designing this interface, which they named the **Agent-Computer Interface**, produced several-fold improvement on coding benchmarks *without changing the model underneath*. Then the same group published a simpler successor: **mini-SWE-agent**, a deliberately minimal harness with almost no custom tooling, which they report as matching the far more elaborate original. Read those two findings together, because separately each one misleads. Design of the loop matters enormously; **elaboration of the loop does not**, at least on coding benchmarks and on today's stronger models, which is the scope of the evidence rather than a law of nature. That is still the single most useful thing to know before you build one.
+
+GitHub's own advice follows from it: learn the harness before you decorate it. You reach rung 6 when you stop *using* that loop and start *embedding* it. That is the moment a developer tool becomes a component inside something you ship, and the developer bucket quietly rejoins the product bucket.
+
+**A note on vocabulary, because this one is genuinely confusing.** Nobody agrees on the word. Researchers say *agent-computer interface*. Practitioners say *harness*. GitHub calls its SDK a *"production-tested agent runtime."* Copilot Studio's newer agent experience speaks of an *"enhanced orchestration runtime."* Microsoft Agent Framework, to its credit, publishes the clearest definition of the lot: *"An agent harness is the scaffolding that turns a language model into an agent that can actually do things... you need a runtime wrapped around the model, and that runtime is the harness."* These are one architectural slot wearing several labels. When someone hands you an architecture diagram, find this layer regardless of what it is called, because it determines more of the system's behavior than the box marked "model."
 
 **A caution that applies to the top of this ladder in particular.** This field is roughly two years old and moving weekly. GitHub's own engineers put it more bluntly than we would dare: a lot of what is today's magical incantation will be tomorrow's anti-pattern. Prefer the simplest arrangement that produces a repeatable, high-quality result, and be suspicious of elaborate agent choreography that nobody can explain to a new hire.
 
@@ -309,7 +315,15 @@ For years, the industry drew a bright line: "low-code is for citizen developers"
 
 That economics has collapsed. Agentic coding tools (GitHub Copilot, coding agents, AI-assisted development) have made writing deterministic logic fast and cheap. A coding agent can scaffold a validated state machine in minutes. The cost argument that justified the binary no longer holds. And on the other side, tools like Copilot Studio now offer code views, variable management, and API integrations that demand an engineering mindset to wield effectively. The "low-code" canvas has become an IDE for conversational AI.
 
-**The New Rule:** Choose the tool based on the **problem**, not your job title. A Principal Architect should use Copilot Studio if it solves the problem 10× faster. A Business Analyst working in Foundry isn't out of their depth - they're using the right tool for *their* use case. The tool does not define the role. The problem defines the tool.
+**There is a second collapse underway, and it is the more consequential one.** For most of this field's short history, choosing a building tool meant accepting three things as a bundle: the **model** that reasons, the **harness** it runs in, and the **surface** where users meet it. Pick a low-code builder and you took its loop. Pick a coding SDK and you wrote your own. The bundle was the product.
+
+Those three layers are coming apart. Model choice is already an explicit setting in Copilot Studio rather than a property of the platform. And the harness has started to become a component you obtain rather than author: Microsoft Agent Framework ships one and says so plainly, offering *"a ready-made harness so you don't have to build this scaffolding yourself."* Once the loop is something a vendor hands you, the question of which loop you are running becomes a real choice rather than a consequence of the tool you opened.
+
+**This is directional rather than settled**, and the specifics will change, so treat it as a way to read announcements rather than a procurement checklist. But it explains why the low-code and pro-code camps keep converging: when the engine becomes portable, the authoring experience stops determining the ceiling.
+
+Note that this cuts the stack a different way than the Five Planes below. **The planes divide it by control**, showing what you tune versus what you own. **This divides it by what is becoming independently selectable**, which is a question about portability across vendors rather than about depth inside one. Both readings are useful and neither replaces the other.
+
+**The New Rule:** Choose the tool based on the **problem**, not your job title. A Principal Architect should use Copilot Studio if it solves the problem 10× faster. A Business Analyst working in Foundry isn't out of their depth; they're using the right tool for *their* use case. The tool does not define the role. The problem defines the tool.
 
 ### Five Planes, One Architecture
 

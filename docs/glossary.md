@@ -11,7 +11,7 @@ description: "Key terms and definitions for Microsoft AI technologies"
 Quick reference for key terms used throughout the Microsoft AI Decision Framework. For detailed documentation links and resources, see [Resources]({{ '/docs/resources' | relative_url }}). For methodology and decision guidance, see [Decision Framework]({{ '/docs/decision-framework' | relative_url }}).
 
 {: .note }
-> **Last validated:** July 29, 2026. Microsoft's AI capabilities evolve rapidly - always verify with [official sources]({{ '/docs/resources' | relative_url }}) for production decisions.
+> **Last validated:** July 29, 2026. Microsoft's AI capabilities evolve rapidly, so always verify with [official sources]({{ '/docs/resources' | relative_url }}) for production decisions.
 
 ---
 
@@ -32,6 +32,9 @@ An AI system that uses an LLM to interpret user inputs, plan, call tools or MCP 
 The term the industry has settled on for the disciplined practice of building software with AI agents: professionals directing agents with *more* rigor rather than less (specs, tests, planning, review, and guardrails) to claim the leverage agents offer **without compromising software quality**. It supersedes **vibe engineering**, whose own coiner conceded the point and moved to this term. It is the direct opposite of **vibe coding**, and the two are indistinguishable from the outside: same tools, same editor, similar-looking pull requests. What separates them is the verification machinery built around the work. The practical discriminator is no longer *"do you read every line?"* (serious engineers have largely stopped doing that) but ***"can you prove it works?"***
 
 ⚠️ **Vocabulary note.** Microsoft and GitHub do not use this term institutionally. They coined their own for the same territory: **agentic DevOps**, **spec-driven development**, and **context engineering**. Learn both dialects; your engineers speak one, your vendor documentation speaks the other.
+
+**Agent-Computer Interface (ACI)**
+The academic name for what practitioners call a **harness**: the designed interface through which an agent perceives and acts on its environment, covering how files are presented, how commands are structured, and what feedback returns after each action. Introduced in the [SWE-agent paper](https://arxiv.org/abs/2405.15793) (Yang et al., NeurIPS 2024). Worth knowing because it is the term you will meet in research papers and evaluation work, while *harness* is the term you will hear in engineering channels. Same concept, two dialects. See [Harness](#h).
 
 **Agent CUs (ACU)**The billing unit for the **Microsoft Agent Prepurchase Plan** (Microsoft's docs render it as "Agent CUs"). **1 ACU pays down US$1 of qualifying retail cost, purchased at a tiered discount**. It is not "$1 each," which is the mistake that wrecks a budget model. ACUs sit in a single pool that covers *"select services across Microsoft Foundry, Microsoft Copilot Studio\*, Microsoft Fabric, and GitHub costs"* (where the asterisk covers Copilot Studio, Dynamics 365 first-party agents, and Copilot). See [Microsoft Agent Prepurchase Plan](https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/agent-pre-purchase) (updated 2026-07-17).
 
@@ -216,6 +219,14 @@ The point where the coding agent stops being a tool you use and becomes a compon
 Copilot connector that ingests external content into Microsoft Graph’s semantic index so Copilot and Microsoft Search can ground answers in authenticated enterprise data, with semantic indexing and inline results requirements managed by admins ([Microsoft 365 Copilot connectors overview](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/overview-copilot-connector), updated 2025-07-21).
 
 ## H
+
+**Harness**
+The software layer that turns a model into a working agent: the loop that decides what the model can see, which tools it may call, what happens when a call fails, and when to stop. A model answers and stops; a harness gives it legs. The term is borrowed from *test harness* in software engineering and is the practitioner shorthand for what the SWE-agent research group named the **Agent-Computer Interface** (see below). Adjacent terms are not synonyms: an **agent framework** is the library you build a harness with, an **orchestrator** is the part that decides what runs next, and an **agentic loop** is the observe-plan-act cycle the harness wraps and governs.
+
+Microsoft does not use one canonical word for this. GitHub calls the Copilot SDK a *"production-tested agent runtime,"* Copilot Studio's newer agent experience refers to an *"enhanced orchestration runtime,"* and Microsoft Agent Framework publishes the clearest first-party definition: *"An agent harness is the scaffolding that turns a language model into an agent that can actually do things"* ([Agent Harnesses](https://learn.microsoft.com/en-us/agent-framework/agents/harness), updated 2026-07-10). Different words, same architectural slot. Knowing that saves you an argument in a design review.
+
+**Harness quality**
+The observation that how an agent is wrapped can matter as much as which model is inside it. The [SWE-agent paper](https://arxiv.org/abs/2405.15793) (Yang et al., NeurIPS 2024) found that deliberately designing the agent-computer interface produced several-fold improvement on the same underlying model. The counterweight arrived from the same research group: **mini-SWE-agent**, a deliberately minimal harness with no custom tooling beyond bash, matches its far more elaborate predecessor. **Complexity is not the variable; design is.** Treat both findings as coding-benchmark evidence rather than a measured claim about enterprise workloads.
 
 **Hosted Agent**
 A code-based, containerized Python or C# agent on Foundry Agent Service. You can use Microsoft Agent Framework, LangGraph, Semantic Kernel, another framework, or custom code. You own orchestration and runtime behavior; Foundry manages deployment, a dedicated endpoint and Entra agent identity, per-session compute and persistent files, scale-to-zero and state restoration, immutable versions and weighted rollouts, lifecycle, and Application Insights/OpenTelemetry observability. Hosted Agents can expose Responses, arbitrary-JSON Invocations, WebSocket, Activity, and Preview A2A protocols. Foundry-managed tools are consumed through a Toolbox MCP endpoint rather than attached directly to the agent definition.

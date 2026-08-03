@@ -325,7 +325,7 @@ flowchart TD
 | Technology | Description | Documentation |
 |------------|-------------|---------------|
 | **Copilot Studio** | Low-code platform, no dev support needed | [Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-what-is-copilot-studio) |
-| **Copilot Studio + Custom Actions** | Low-code with occasional developer support for custom connectors/flows | [Custom Actions](https://learn.microsoft.com/en-us/microsoft-copilot-studio/copilot-plugins-overview) |
+| **Copilot Studio + Custom Actions** | Low-code with occasional developer support for custom connectors/flows | [Add tools to custom agents](https://learn.microsoft.com/en-us/microsoft-copilot-studio/advanced-plugin-actions) |
 
 #### Developer (GA unless noted)
 {: .no_toc }
@@ -336,7 +336,7 @@ flowchart TD
 | **Microsoft Foundry (Azure)** | Pro-code for Azure-centric solutions, custom models, full control | [Microsoft Foundry](https://learn.microsoft.com/en-us/azure/ai-foundry/what-is-foundry) |
 | **Microsoft Agent Framework** | **Microsoft's investment direction** - Microsoft describes it as the *"direct successor"* and *"next generation of both"* Semantic Kernel and AutoGen. Orchestration patterns: Sequential, Concurrent, Handoff, Group Chat, Magentic. Languages: Python, C#/.NET, and **Go (Public Preview)**. No sunset date has been announced for Semantic Kernel or AutoGen. | [Agent Framework](https://learn.microsoft.com/en-us/agent-framework/) |
 | **Agent Framework + AG-UI** (Preview) | Protocol layer for web/mobile clients, supports SSE streaming, backend tool rendering, human approvals, shared/predictive state, and CopilotKit components. | [AG-UI Integration](https://learn.microsoft.com/en-us/agent-framework/integrations/ag-ui/) |
-| **Copilot Studio + Custom Actions** | Mid-level developers, low-code with custom code extensibility | [Copilot Studio Extensibility](https://learn.microsoft.com/en-us/microsoft-copilot-studio/copilot-plugins-overview) |
+| **Copilot Studio + Custom Actions** | Mid-level developers, low-code with custom code extensibility | [Add tools to custom agents](https://learn.microsoft.com/en-us/microsoft-copilot-studio/advanced-plugin-actions) |
 | **Logic Apps agentic workflows** | Event-driven agent loop, 1,400+ connectors. **Consumption is explicitly in preview.** Standard shows no preview banner on the agent loop, but Microsoft never states Standard is GA and some Standard capabilities are marked preview. | [Logic Apps agentic workflows](https://learn.microsoft.com/en-us/azure/logic-apps/agent-workflows-concepts) |
 
 #### Developer: The Codebase Loop (Bucket 3)
@@ -1050,7 +1050,7 @@ flowchart TD
 
 | Mechanism | Status | Description | Documentation |
 |-----------|--------|-------------|---------------|
-| **BYO Model** | Preview | Swap the default Copilot Studio model for a specialized model from the Microsoft Foundry catalog, which lists **over 10,000 models** | [BYO Model](https://learn.microsoft.com/microsoft-copilot-studio/advanced-generative-actions) |
+| **BYO Model** | Preview | Swap the default Copilot Studio model for a specialized model from the Microsoft Foundry catalog, which lists **over 10,000 models** | [BYO Model](https://learn.microsoft.com/en-us/microsoft-copilot-studio/advanced-generative-actions) |
 | **Agent Handoff** | Preview | Copilot Studio delegates to a Foundry agent for complex tasks. Foundry agents are **not** documented as GA in Copilot Studio | [Connect to a Foundry agent](https://learn.microsoft.com/en-us/microsoft-copilot-studio/add-agent-foundry-agent) |
 | **Shared Knowledge** | GA | Both Copilot Studio and custom apps can consume the same Azure AI Search index. **Azure AI Search was not renamed** in the Foundry rebrand | [Azure AI Search](https://learn.microsoft.com/azure/search/) |
 

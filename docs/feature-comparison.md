@@ -353,7 +353,7 @@ Tooling snapshot for custom engine agents across Copilot Studio, Teams SDK, and 
 | **Tool** | **Copilot Studio** | **Teams SDK** | **M365 Agents SDK** |
 |----------|---------------------|----------------------|---------------------|
 | **Primary Use Case** | Low-code custom engine agents | Teams-first collaborative agents (channels/meetings), including Bot Framework migration | Multi-channel pro-code agents with bring-your-own orchestration |
-| **Orchestration Options** | Copilot Studio orchestration (classic topics or modern orchestrator), plus Agent Flows and connected agents for cross-agent patterns | Teams SDK (Action Planner) | Bring your own orchestration (Agent Framework recommended, LangChain (Third-party), custom planners) |
+| **Orchestration Options** | Copilot Studio orchestration (topics and generative orchestration on the standard harness, or the enhanced orchestration runtime on the GitHub Copilot harness), plus Agent Flows and connected agents for cross-agent patterns | Teams SDK (Action Planner) | Bring your own orchestration (Agent Framework recommended, LangChain (Third-party), custom planners) |
 | **Deployment Channels** | Microsoft 365 Copilot, Teams, SharePoint, custom websites, and mobile endpoints | Microsoft 365 Copilot + Teams, optimized for collaborative Teams surfaces | 10+ channels (Teams, Slack, web chat, etc.) |
 | **Developer Experience** | Visual designer + code | Code-first | Code-first with Toolkit in VS Code |
 | **Target Audience** | Makers and developers | Teams app/agent developers | Professional developers and ISVs |

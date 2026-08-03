@@ -66,7 +66,7 @@ Read the trade-off before the diagram. The architecture is the easy part.
 **Confidence Level:** High (official Microsoft guidance)
 
 {: .warning }
-> **Know which Copilot Studio features are actually GA.** Verified GA: **generative orchestration** (default for new agents), **computer use** (May 2026), **A2A** (April 2026), and **scheduled prompts** (2026-07-01). **Copilot Tuning is early access preview.** Microsoft does **not** publish GA status for autonomous/triggered agents, child agents, connected Copilot Studio agents, Foundry agents, Fabric data agents, or M365 Agents SDK agents inside Copilot Studio. The what's-new page still lists "Connect other agents (Preview)" and "Foundry IQ connect (Preview)". Check the specific feature, not the platform. ([What's new in Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/whats-new), verified 2026-07-29)
+> **Know which Copilot Studio features are actually GA.** Verified GA: the **GitHub Copilot harness** (GA 2026-08-03, default for new agents), **generative orchestration** (GA, default *within the standard harness*), **computer use** (May 2026), **A2A** (April 2026), and **scheduled prompts** (2026-07-01). **Copilot Tuning is early access preview.** Microsoft does **not** publish GA status for autonomous/triggered agents, child agents, connected Copilot Studio agents, Foundry agents, Fabric data agents, or M365 Agents SDK agents inside Copilot Studio. The what's-new page still lists "Connect other agents (Preview)" and "Foundry IQ connect (Preview)". Check the specific feature, not the platform. ([What's new in Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/whats-new), verified 2026-07-29)
 
 ---
 

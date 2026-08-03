@@ -192,15 +192,19 @@ Where can your agent appear? Match build platform to distribution surface.
 
 Teams SDK and M365 Agents SDK coexist with differentiated fit: Teams SDK for Teams-native collaborative experiences, M365 Agents SDK for broader multi-channel distribution and custom orchestration portability.
 
-| **Tool / Mode** | **Copilot Studio (Classic)** | **Copilot Studio (Modern Orchestrator)** | **Teams SDK** | **M365 Agents SDK** |
+| **Tool / Mode** | **Copilot Studio (standard harness)** | **Copilot Studio (GitHub Copilot harness)** | **Teams SDK** | **M365 Agents SDK** |
 | --- | --- | --- | --- | --- |
-| **Primary Use Case** | Structured conversational flows with deterministic branch control | Adaptive, component-based orchestration for custom engine scenarios | Collaborative agents inside Teams | Pro-code agents running across M365 and third-party channels |
-| **Orchestration** | Topic-driven orchestration in Studio | Component-model orchestration using instructions, skills, knowledge, tools, and memory | Built-in Teams AI action planner | Bring your own orchestration (Semantic Kernel, LangChain, custom) |
+| **Primary Use Case** | Structured conversational flows with deterministic branch control | Reasoning-heavy agents and workflows that complete multi-step business processes | Collaborative agents inside Teams | Pro-code agents running across M365 and third-party channels |
+| **Orchestration** | Topics plus generative orchestration | Enhanced orchestration runtime reasoning over instructions, knowledge, tools, memory, and skills | Built-in Teams AI action planner | Bring your own orchestration (Semantic Kernel, LangChain, custom) |
 | **Supported Channels** | Microsoft 365 Copilot, Teams, partner apps, mobile apps, custom websites | Microsoft 365 Copilot, Teams, partner apps, mobile apps, custom websites | Microsoft 365 Copilot, Teams | Microsoft 365 Copilot, Teams, web, email, SMS, Office add-ins, custom sites |
-| **Development Experience** | Low-code UI with Power Platform controls | Low-code UI with modern orchestration components and evaluation loops | Visual Studio/VS Code libraries for C#, TS/JS, Python | Agents Toolkit scaffolding for .NET/JS with multi-channel deployment |
-| **Ideal Team** | Makers or fusion dev teams preferring explicit flow control | Makers or fusion teams needing adaptive orchestration with managed platform controls | Teams-focused pro dev squads | Professional developers delivering enterprise-scale agents |
-| **Classic Topics Support** | Yes | No (use skills/instructions/tools pattern) | N/A | N/A |
-| **Status** | GA | Public Preview | GA | GA |
+| **Development Experience** | Low-code UI with Power Platform controls | Low-code UI with component authoring, native file creation, and evaluation loops | Visual Studio/VS Code libraries for C#, TS/JS, Python | Agents Toolkit scaffolding for .NET/JS with multi-channel deployment |
+| **Ideal Team** | Makers or fusion dev teams preferring explicit flow control | Makers or fusion teams needing adaptive reasoning with managed platform controls | Teams-focused pro dev squads | Professional developers delivering enterprise-scale agents |
+| **Classic Topics Support** | Yes | No (use skills, instructions, and tools instead) | N/A | N/A |
+| **Billing starts** | After publish | **When you start building** | Per your hosting | Per your hosting |
+| **Status** | GA | GA (2026-08-03) | GA | GA |
+
+{: .warning }
+> **The harness is chosen when you create the agent, and the choice does not reverse.** Microsoft states that agents created on the GitHub Copilot harness *"can't be transferred to the standard harness, and vice versa."* The two also bill differently, so this is a cost decision as well as an architectural one. A third option, the **Copilot chat harness**, covers extending Microsoft 365 Copilot. See [Technologies]({{ '/docs/technologies' | relative_url }}) for the full comparison.
 
 {: .note }
 > Feature maturity can change quickly for Studio orchestration components and channel capabilities. Reconfirm per-feature GA/Preview in current Microsoft Learn release notes before rollout.
@@ -346,7 +350,7 @@ Grounding is not one product. It is a shelf of stores with different shapes, dif
 | **Advanced (Multi-Agent)** | Agent-to-agent delegation, parallel execution | Copilot Studio multi-agent (per-feature status varies: the what's-new feed shows "Connect other agents" as **Preview**; Microsoft states no blanket GA); Foundry incoming A2A endpoint (**Preview**) for direct delegation; Agent Framework (**GA core**) for code-first orchestration |
 | **Expert (Custom Reasoning)** | Custom orchestration logic, model selection | Custom engine agents with Microsoft 365 Agents SDK, Teams SDK, or Microsoft Foundry Agent Service |
 
-**Component fit heuristic (Copilot Studio modern orchestrator):**
+**Component fit heuristic (Copilot Studio, GitHub Copilot harness):**
 
 - If behavior is always true, use **Instructions**.
 - If behavior is scenario-specific and repeatable, use a **Skill**.

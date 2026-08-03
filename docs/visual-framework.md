@@ -160,7 +160,7 @@ flowchart TD
 **Last Validated:** July 29, 2026
 
 {: .warning }
-> **Read the status column, not the product name.** Copilot Studio's *generative orchestration*, *computer use*, *A2A*, and *scheduled prompts* are GA. Its **autonomous/triggered agents, child agents, connected agents, Foundry agents, and M365 Agents SDK agents are not documented as GA**. Treat every trigger-driven design as Preview until you confirm the specific feature. ([Copilot Studio what's new](https://learn.microsoft.com/en-us/microsoft-copilot-studio/whats-new))
+> **Read the status column, not the product name.** Copilot Studio's **GitHub Copilot harness** is GA as of 2026-08-03, as are *generative orchestration* (within the standard harness), *computer use*, *A2A*, and *scheduled prompts*. Its **autonomous/triggered agents, child agents, connected agents, Foundry agents, and M365 Agents SDK agents are not documented as GA**, and **memory remains preview**. Treat every trigger-driven design as Preview until you confirm the specific feature. ([Copilot Studio what's new](https://learn.microsoft.com/en-us/microsoft-copilot-studio/whats-new))
 
 #### UI-Based Agents (GA unless noted)
 {: .no_toc }

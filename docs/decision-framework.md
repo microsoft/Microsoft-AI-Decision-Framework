@@ -568,6 +568,8 @@ So ask the question plainly. *Does this thing change state in a system of record
 
 Pair this with the risk tiers in Question 5. They are the same idea viewed from the governance side rather than the design side. And keep Microsoft's instruction in view: **"Sort every agent by what it does, not by how impressive it looks."**
 
+**One nuance worth knowing before you assume code execution equals danger.** Agents increasingly write and run code to do the things models do badly, such as exact arithmetic or assembling a file. That sounds like it should raise the risk tier, and often it does not, because the execution environment may have no way out. Copilot Studio's sandbox is the clearest current example: code running there cannot call an API, send mail, or write to a document library regardless of what it imports, and every external effect still has to travel through a configured tool. **The question is never "can it run code?" It is "what can the code reach?"** An agent that computes in an isolated sandbox and then calls one approved tool is easier to reason about than an agent that writes no code at all but holds a connector to your ERP.
+
 {: .tip }
 > Use the [Action Safety Guardrail Playbook]({{ '/docs/evaluation-criteria#the-action-safety-guardrail-playbook' | relative_url }}) for guardrail recipes and [Evaluation Criteria]({{ '/docs/evaluation-criteria#action-safety--content-safety' | relative_url }}) to score risk.
 

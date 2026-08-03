@@ -325,6 +325,8 @@ Two operational facts that decide whether this is a control or a report: policy 
 **Skills/Tools**
 Function tools, hosted services, or built-in capabilities that agents attach at construction or per run, enabling actions like web search, file retrieval, or code execution within Agent Framework ChatClientAgent and ChatAgent implementations ([Agent Tools](https://learn.microsoft.com/en-us/agent-framework/user-guide/agents/agent-tools), updated 2026-02-13).
 
+⚠️ **"Skill" now means three different things, and mixing them up will cost you a design review.** *(1)* In Copilot Studio's newer agent experience, a **skill** is a modular set of instructions loaded on demand for a specific situation. Learn documents the package as a ZIP containing *"A SKILL.md file containing YAML front matter (name, description) and Markdown instructions"* plus optional supporting files such as scripts ([Skills overview](https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-experience/skills-overview), updated 2026-06-30). Because it is Markdown and files rather than a proprietary artifact, a skill is far more portable between tools than most platform constructs. *(2)* In the older Bot Framework lineage, a **skill** was a callable service another bot could invoke. Same word, unrelated construct, still findable in older documentation. *(3)* In Agent Framework, "skills" is used loosely as a synonym for tools, as above. When someone says "put it in a skill," ask which of the three they mean.
+
 ## V
 
 **Vibe coding**

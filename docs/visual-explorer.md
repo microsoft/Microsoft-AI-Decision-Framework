@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Decision Explorer
-nav_order: 14
+nav_order: 16
 description: "Interactive decision tree explorer with pan, zoom, and branch isolation"
 ---
 
@@ -12,21 +12,21 @@ Interactive, zoomable decision trees for the AI Decision Framework.
 {: .fs-6 .fw-300 }
 
 {: .note }
-The Decision Explorer replaces the largest Mermaid diagrams from the [Visual Framework]({{ '/docs/visual-framework' | relative_url }}) with an interactive experience. Use it when you need to **navigate** a decision tree rather than just **read** one. The written docs remain the source of truth — the explorer is the map, not the territory.
+The Decision Explorer replaces the largest Mermaid diagrams from the [Visual Framework]({{ '/docs/visual-framework' | relative_url }}) with an interactive experience. Use it when you need to **navigate** a decision tree rather than just **read** one. The written docs remain the source of truth. The explorer is the map, not the territory.
 
 ---
 
 ## Why an Explorer?
 
-The static Mermaid diagrams in the Visual Framework are great for small, focused visuals. But the biggest decision trees — the Complete Decision Flow (42 nodes, 65 edges) and the Data Grounding Decision (33 nodes, 56 edges) — have outgrown what a static image can do well.
+The static Mermaid diagrams in the Visual Framework are great for small, focused visuals. But the biggest decision trees, the Complete Decision Flow (42 nodes, 65 edges) and the Data Grounding Decision (33 nodes, 56 edges), have outgrown what a static image can do well.
 
 **The explorer gives you:**
 
-- **Pan and zoom** — Navigate large trees without losing your place
-- **Branch isolation** — Focus on one decision path at a time (interaction pattern, build approach, data grounding, deployment)
-- **Click-through** — Click any technology node to jump to its documentation
-- **Minimap** — Always know where you are in the full tree
-- **Detail panel** — See status badges (GA / Preview), descriptions, and links without leaving the graph
+- **Pan and zoom**: Navigate large trees without losing your place
+- **Branch isolation**: Focus on one decision path at a time (interaction pattern, build approach, data grounding, deployment)
+- **Click-through**: Click any technology node to jump to its documentation
+- **Minimap**: Always know where you are in the full tree
+- **Detail panel**: See status badges (GA / Preview), descriptions, and links without leaving the graph
 
 ---
 
@@ -54,8 +54,8 @@ The explorer opens in a new tab. Use it alongside these docs for the best experi
 ## How to Use It
 
 1. **Select a flow** from the dropdown in the top bar
-2. **Browse the overview** — all branches are shown by default, auto-laid-out
-3. **Isolate a branch** — click a branch tag (e.g., "data grounding") to focus on just that path
+2. **Browse the overview**: all branches are shown by default, auto-laid-out
+3. **Isolate a branch**: click a branch tag (e.g., "data grounding") to focus on just that path
 4. **Click "All"** to return to the full view
 5. **Click any node** to see its details, status, and documentation link
 6. **Use the minimap** (bottom-right) to orient yourself in larger trees
@@ -78,13 +78,16 @@ The explorer opens in a new tab. Use it alongside these docs for the best experi
 
 The explorer is a **navigation layer**, not a replacement for the written framework. Every outcome node links back to the relevant docs page. The learning path remains:
 
-1. [Capability Model]({{ '/docs/capability-model' | relative_url }}) — Understand the "what"
-2. [Decision Framework]({{ '/docs/decision-framework' | relative_url }}) — Learn the "how"
-3. **Decision Explorer** (you are here) — Navigate the "which"
-4. [Technologies]({{ '/docs/technologies' | relative_url }}) — Read the "details"
+1. [Capability Model]({{ '/docs/capability-model' | relative_url }}): Understand the "what"
+2. [Microsoft AI Stack]({{ '/docs/ai-stack' | relative_url }}): See what Microsoft actually ships
+3. [Decision Framework]({{ '/docs/decision-framework' | relative_url }}): Learn the "how"
+4. **Decision Explorer** (you are here): Navigate the "which"
+5. [Technologies]({{ '/docs/technologies' | relative_url }}): Read the "details"
 
 ---
 
-**Next:** [Quick Reference]({{ '/docs/quick-reference' | relative_url }}) — Fast lookup tables for when you already know the path
+**You are at the end of the framework.** If you arrived here by walking the learning path, the next useful move is not another page. It's applying the framework to a real decision, then coming back when it pushes back.
+
+If you want fast lookup for a decision you have already reasoned through, use [Quick Reference]({{ '/docs/quick-reference' | relative_url }}). If you need current specifications, [Technologies]({{ '/docs/technologies' | relative_url }}) and [Resources]({{ '/docs/resources' | relative_url }}) carry the volatile detail.
 
 ---

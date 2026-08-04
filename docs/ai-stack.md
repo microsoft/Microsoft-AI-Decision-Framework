@@ -68,6 +68,8 @@ Two things this rung asks of you that the others don't. First, somebody has to a
 
 **Normal ceiling: rung 6.** But only a minority of use cases genuinely need it, and the ones that do can usually say exactly why.
 
+**A note on where this ships, because the rungs below lean toward Microsoft 365.** If your users are employees, the destination is usually Microsoft 365 Copilot or Teams, and borrowing an existing surface is the cheapest good decision available. **If you are building something customer-facing, that particular advice does not apply** and the rungs still do. Rung 4 becomes embedding into the product your customers already open rather than a Microsoft one. Rung 5 becomes a configured agent published to your own channel rather than to Teams. The principle is unchanged, which is to borrow a surface people already use rather than asking them to adopt a new one. What changes is whose surface that is.
+
 **Rungs 1 to 3 still apply.** Check whether Microsoft or a partner already ships this before you design anything. The fastest product decision is discovering somebody already solved it.
 
 **Rung 4: Extend the copilot your users already open.** Don't ship a new app; borrow one. You supply instructions, knowledge, and actions; Microsoft 365 Copilot supplies the model, the chat surface, the identity, and the security perimeter. If your users already live in Teams, this is the highest-leverage rung on the whole ladder, and it is the one teams skip most often on their way to something that sounds harder.
@@ -80,7 +82,7 @@ Two things this rung asks of you that the others don't. First, somebody has to a
 **The two names are not interchangeable, and the distinction is worth keeping:** *declarative agent* is Copilot Studio and Microsoft 365 Copilot; *prompt agent* is Foundry Agent Service. Same idea, two products, two vocabularies.
 
 {: .note }
-> **Choose the harness deliberately, but do not treat it as a trap.** An agent is created on one harness and Microsoft states it *"can't be transferred to the standard harness, and vice versa."* True, and less consequential than it sounds, because **the agent is rarely the thing worth moving.** The reusable value lives in **skills**: instructions and resources packaged as Markdown and files, which lift from one harness to another with real but modest effort. Design so the valuable part is a skill, and the harness decision stops being a one-way door and becomes what it should be, a fit question. The trade itself is the familiar one: the standard harness gives explicit rule-based control, the GitHub Copilot harness reasons across files, tools, and knowledge but decides more of its own path. Neither is deprecated. See [Technologies]({{ '/docs/technologies' | relative_url }}) for capability differences and the billing distinction.
+> **Choose the harness on fit, and know what reuse you get.** An agent is created on one harness and Microsoft states it *"can't be transferred to the standard harness, and vice versa."* Within the GitHub Copilot harness, **skills** are the reuse unit: instructions and resources packaged as Markdown and files, exportable from one agent and importable into another. That is real leverage, but it is leverage *inside* that harness, because skills are a GitHub Copilot harness capability rather than a Copilot Studio one. What carries across all three harnesses is more basic: instructions, knowledge sources, and connectors. The trade itself is the familiar one, with the standard harness giving explicit rule-based control and the GitHub Copilot harness reasoning across files, tools, and knowledge while deciding more of its own path. Neither is deprecated. See [Technologies]({{ '/docs/technologies' | relative_url }}) for capability differences and the billing distinction.
 
 **Here is the part that should change how you choose.** Both surfaces publish to the same places. Foundry describes it plainly. You *"version agents, create stable endpoints, and share through **Microsoft Teams, Microsoft 365 Copilot, and the Entra Agent Registry**."* Copilot Studio publishes to those channels too.
 
@@ -104,27 +106,11 @@ So the destination is not the decision. Your users end up in Microsoft 365 Copil
 
 **One honest note about this ladder.** GitHub does not publish a staged maturity model for adopting agents. The rungs here are our framing, not theirs. What GitHub does publish, consistently, is an argument about where human judgment belongs. That argument is what every rung below is really about.
 
-#### Before the rungs: vibe coding, vibe engineering, and agentic engineering
+#### The vocabulary your engineers already use
 
-The industry has spent two years arguing about this bucket, and the argument produced three terms you will hear in interviews, conference talks, and your own engineering channels. If you already know them, this is where they fit in the model. If you don't, learn them here. They are the fastest way to have a precise conversation about a subject that otherwise dissolves into opinion and anecdote.
+Three terms dominate this bucket: **vibe coding** (exploratory, disposable, and honest about it), **vibe engineering** (its deliberate antonym), and **agentic engineering** (where the industry settled). They matter because the first and the last are indistinguishable from the outside, and what separates them is not whether you read every line but whether **you can prove it works**. Microsoft and GitHub use their own dialect for the same argument: spec-driven development, agentic DevOps, context engineering.
 
-**Vibe coding** came first, and it was precise before it escaped. You give in to the vibes and forget the code exists; you stop reading the diffs; the code grows beyond your comprehension. It was explicitly scoped to throwaway weekend projects. It was never offered as a methodology. It became an accusation only after people started applying it to production systems, which is not what its author proposed. Used correctly, it names a legitimate mode: exploratory, disposable, and honest about being both.
-
-**Vibe engineering** was coined as its deliberate antonym, the same agents directed by experienced engineers applying *more* rigor rather than less. The term did real work by naming the opposite, and you will still hear it. When someone on your team says it, they mean the disciplined practice.
-
-**Agentic engineering** is where the industry has settled, and it's the term to standardize on. Even the engineer who coined *vibe engineering* has since conceded that this one won and moved to it. What it names is the goal itself: claim the leverage agents offer **without compromising the quality of the software**. That costs you more oversight and scrutiny, not less.
-
-The uncomfortable part is that vibe coding and agentic engineering are **indistinguishable from the outside**. Same tools, same editor, pull requests that look alike. What separates them is entirely the machinery built around the work.
-
-**And the discriminator is not the one you'd expect.** The obvious test (*do you read every line?*) is quietly failing, because serious engineers building serious software have already stopped reading every line, and their software is fine. The honest test is different: **can you prove it works?** Tests, conformance checks, preview environments, adversarial review, a definition of done enforced by something other than your own optimism. Reading was one way to earn confidence. It stopped being the only one, and it never scaled anyway.
-
-That reframes discipline as *infrastructure* rather than virtue. That is good news, because infrastructure can be funded and built, and virtue can only be hoped for.
-
-**The failure mode has a name worth carrying into a leadership conversation: the normalization of deviance.** Every time an agent gets it right without supervision, the case for supervising it next time gets a little weaker. Nothing announces the moment the trust became unearned. You discover it in an incident review, reconstructing a decision nobody consciously made.
-
-**The counterintuitive part, and the reason seniority matters more rather than less:** agents reward the practices that were already good engineering. Better specs produce better output. Comprehensive tests make delegation safe. Clean architecture leaves less room for invented abstractions. When these projects fail, it is rarely the AI that caused it. It is the design thinking that got skipped because generation felt fast enough to skip it.
-
-**A note on dialects.** Microsoft and GitHub largely don't use this vocabulary. They've built their own (spec-driven development, agentic DevOps, context engineering) and they treat vibe coding as a foil: fine for quick prototypes, less reliable for mission-critical applications. Learn both dialects. Your engineers will speak one, and your vendor documentation speaks the other, and they are describing the same argument.
+That argument, the failure mode it produces, and why seniority matters more rather than less are worked through in [Agentic Engineering]({{ '/docs/agentic-engineering' | relative_url }}).
 
 **Rung 1 (Use): assist where the work already happens.** The agent joins the editor and you stay in the loop for every change. The shift is smaller than it looks and more important than it sounds: you move from typing every line to expressing intent and reviewing output. Your day changes. Your accountability does not.
 
@@ -168,7 +154,9 @@ Three buckets, three different climbs. Put them side by side and three things fa
 
 **The three trade-offs are one trade-off.** Adoption vs. Ambition, Velocity vs. Control, Generation vs. Verification. Each bucket names it in its own dialect, but underneath they are the same exchange: **every rung buys capability and charges ownership.** Not money, though it costs that too. Ownership: of the failure, of the upgrade, of the on-call page, of the explanation you give when it does something surprising. The rung is where that transfer happens, and it is one-way.
 
-**The failure is always over-climbing, never under-climbing.** Look at where each journey warns you. The employee bucket says a build usually means the problem statement grew a second problem inside it. The product bucket says the mistake is picking high by default, because *custom* sounds more serious in a steering committee than *configured*. The developer bucket says climbing past your verification capacity just fills a queue that was already full. Nobody in this model gets into trouble by solving a problem at rung 2. They get into trouble by arriving at rung 6 without being able to say what rung 5 failed to do.
+**Over-climbing is the more common failure, and under-climbing is the more dangerous one.** Look at where each journey warns you. The employee bucket says a build usually means the problem statement grew a second problem inside it. The product bucket says the mistake is picking high by default, because *custom* sounds more serious in a steering committee than *configured*. The developer bucket says climbing past your verification capacity just fills a queue that was already full. Most teams get into trouble by arriving at rung 6 without being able to say what rung 5 failed to do.
+
+**But under-climbing is real, and it is not a rounding error.** Where the constraints are genuinely stringent, a low rung cannot meet them no matter how appealing its simplicity is. Regulated industries, financial services, and anything carrying auditable regulatory obligations frequently need control the configuration rungs do not offer, and stopping short there is not restraint, it is a gap you will discover during an audit. **Let the constraints predict the rung.** The discipline is to justify the climb, not to avoid it.
 
 **And every journey lands on the same two obligations, no matter where it stopped.** The data the agent stands on, and the identity and oversight it operates under. These are not advanced concerns you graduate into. A rung-2 agent has them just as surely as a rung-6 one. That's why the last section of this page adds them as **planes** rather than as further rungs: rungs are a choice, planes are a bill.
 
@@ -253,7 +241,7 @@ Think about how a seasoned leader navigates a complex decision. They draw on fou
 
 * **Memory** is what the organization has written down. Policies, contracts, specifications, reports, research. It's the accumulated knowledge base. You can search it, cite it, and trust it because it's governed. But memory alone is static. It tells you what the answer *was*, not what the situation *is*.
 
-* **Awareness** is the live pulse of work. Who said what in which meeting. What the team agreed to in a Teams thread. What's on the calendar for next week. What the ServiceNow ticket says about the outage, what the SAP system shows for the purchase order, what the JIRA board reveals about sprint velocity. Awareness isn't just M365 signals; it extends through 1,500+ connectors into ServiceNow, SAP, Salesforce, Azure DevOps, Dynamics 365, and any system with a REST API. This is the layer that turns fragments of data into the full context of work.
+* **Awareness** is the live pulse of work: who said what in which meeting, what the team agreed to in a thread, what is on the calendar next week. **Two distinct things supply it, and conflating them causes confusion.** Microsoft 365 signals come from the collaboration substrate itself, where Work IQ is the layer that reads that activity. Everything outside Microsoft 365 arrives through connectors instead, reaching ServiceNow, SAP, Salesforce, Azure DevOps, and anything with an API. Same idea, different plumbing and different governance conversation. This is the layer that turns fragments of data into the full context of work.
 
 * **Understanding** is the business logic that gives data meaning. "Customer" isn't just a row in a table. It has relationships (places Orders, belongs to a Segment, has a Lifetime Value), rules (if inventory drops below threshold, trigger replenishment), and a semantic structure that's consistent across every dashboard, agent, and report. Understanding lets agents reason about the business itself, not just the files or conversations about it.
 
@@ -316,29 +304,17 @@ See [The agent archetype framework](https://learn.microsoft.com/en-us/agents/age
 
 ## The New Full Stack
 
-The low-code vs. pro-code war is over. Here's what killed it.
+**The line between low-code and pro-code has blurred, and it blurred from both directions.**
 
-For years, the industry drew a bright line: "low-code is for citizen developers" on one side, "pro-code is for real engineers" on the other. The line made sense when code was expensive. Writing a state machine, wiring up auth flows, managing deployment pipelines: these tasks demanded specialized skills and weeks of calendar time. Low-code existed as a category because the alternative cost too much.
+The old split assumed the tools sorted people: citizen developers on one side, engineers on the other. That is no longer how either side works. Copilot Studio now offers code views, variable management, API integrations, and a component model that rewards an engineering mindset. Meanwhile agentic coding tools mean a developer can produce deterministic logic quickly enough that "we'll just build it" is a lighter decision than it was. Both camps moved toward the middle.
 
-That economics has collapsed. Agentic coding tools (GitHub Copilot, coding agents, AI-assisted development) have made writing deterministic logic fast and cheap. A coding agent can scaffold a validated state machine in minutes. The cost argument that justified the binary no longer holds. And on the other side, tools like Copilot Studio now offer code views, variable management, and API integrations that demand an engineering mindset to wield effectively. The "low-code" canvas has become an IDE for conversational AI.
+**The convergence goes deeper than tooling.** Choosing a platform used to mean accepting three things as a bundle: the **model** that reasons, the **harness** it runs in, and the **surface** where users meet it. Model choice is now an explicit setting in Copilot Studio. The harness is now an explicit choice too, with three named options and a documentation page devoted to picking one. Layers that used to be inseparable from the product are becoming things you select.
 
-**There is a second collapse underway, and it is the more consequential one.** For most of this field's short history, choosing a building tool meant accepting three things as a bundle: the **model** that reasons, the **harness** it runs in, and the **surface** where users meet it. Pick a low-code builder and you took its loop. Pick a coding SDK and you wrote your own. The bundle was the product.
+**Where the convergence stops is worth knowing.** Selection is not the same as portability. An agent is created on one harness and Microsoft states it *"can't be transferred to the standard harness, and vice versa."* Reuse within the GitHub Copilot harness is real: skills export as Markdown packages and import into other agents on that harness. But skills are a capability of that harness, not of Copilot Studio generally, so the reuse story is strongest inside a harness and thinner across them. Instructions, knowledge sources, and connectors are what travel more broadly.
 
-That bundle is loosening, and the clearest evidence arrived faster than expected. **Model choice became a setting**, then **the harness became one too.** Copilot Studio now ships a documentation page called *Choose a harness*, and an agent is created on one of three: the **GitHub Copilot harness** for reasoning-heavy work, the **standard harness** for rule-based agents, or the **Copilot chat harness** for extending Microsoft 365 Copilot. The choice is not cosmetic. It determines what the agent can do and how it is billed.
+**The New Rule:** choose the tool for the **problem**, not the job title. A principal architect should use Copilot Studio when it solves the problem faster. A business analyst working in Foundry is using the right tool for their use case. The tool does not define the role.
 
-**But read the constraint carefully, because the obvious reading is the wrong one.** This is a choice you make when you create the agent, and Microsoft states that agents created on the GitHub Copilot harness *"can't be transferred to the standard harness, and vice versa."* That sounds like lock-in. In practice it matters less than it reads, because **the agent is the wrong unit to worry about moving.**
-
-**What travels is the skill.** A skill is instructions and supporting files packaged as Markdown, which is why the same format shows up across Microsoft's agent surfaces rather than only inside one product. Skills are not perfectly portable between harnesses, but they are **light to lift**, and that changes the shape of the decision entirely.
-
-**The Skill Is the Unit.** Watch what this enables, because it is how adoption actually happens rather than how architecture diagrams say it should. One person solves their own problem, building a skill in a personal assistant to get through work they do every week. It proves itself by being used. When the team needs the same thing, that skill lifts into an enterprise agent where it gets governance, an owner, and a support model. **Personal productivity becomes team infrastructure by promotion rather than by rewrite.** That path crosses from *AI for You* into *AI as a Product or Feature*, and the skill is the vehicle that carries it. It is one of the few genuinely bottom-up routes in this whole landscape, and it only works if you build so the valuable part is portable.
-
-So the durable advice is not *choose carefully because you are stuck*. It is **put the reusable value in skills, and the harness becomes a fit decision rather than a commitment.**
-
-**This is directional rather than settled**, and the specifics will change, so treat it as a way to read announcements rather than a procurement checklist. But it explains why the low-code and pro-code camps keep converging: when the engine becomes portable, the authoring experience stops determining the ceiling.
-
-Note that this cuts the stack a different way than the Five Planes below. **The planes divide it by control**, showing what you tune versus what you own. **This divides it by what is becoming independently selectable**, which is a question about portability across vendors rather than about depth inside one. Both readings are useful and neither replaces the other.
-
-**The New Rule:** Choose the tool based on the **problem**, not your job title. A Principal Architect should use Copilot Studio if it solves the problem 10× faster. A Business Analyst working in Foundry isn't out of their depth; they're using the right tool for *their* use case. The tool does not define the role. The problem defines the tool.
+Note that this cuts the stack differently than the Five Planes below. The planes divide it by **control**, showing what you tune versus what you own. This divides it by **what has become selectable**. Both readings are useful.
 
 ### Five Planes, One Architecture
 
@@ -349,15 +325,15 @@ Do not think of this as "Copilot Studio vs. Microsoft Foundry." Think of it as a
 * **The Role:** This is your "Frontend." It provides the chat interface, the security perimeter, and the integration into Word, Teams, and Excel.
 * **The Build:** You don't build the engine; you tune it. You configure Graph Connectors to feed it data and manage plugins to give it skills.
 
-**2. The Orchestration Plane (Copilot Studio)**
+**2. The Orchestration Plane (Copilot Studio, Agent Framework, Foundry Agent Service, Logic Apps)**
 * **Focus:** Extension & Logic.
 * **The Role:** This is your "Middleware." Whether you are a developer or a maker, this is where you define **behavior**.
-* **The Build:** Developers use this to stitch together APIs, manage conversation state, and build complex agent workflows. It serves as the bridge, taking raw models and turning them into structured business processes that can be published to M365.
+* **The Build:** Stitch together APIs, manage conversation state, and turn raw models into structured business processes. **Copilot Studio is the configuration-first option here, not the only one.** Microsoft Agent Framework is the code-first path, Foundry Agent Service runs configured and hosted agents, and Logic Apps carries agentic workflows for event-driven automation. Choose on who will own the thing and how much of the runtime you want, not on a default.
 
 **3. The Foundation Plane (Microsoft Foundry)**
 * **Focus:** Deep Customization & Model Ops.
 * **The Role:** For when the out-of-the-box models aren't enough. Model choice, evaluation, and the hosting boundary become yours.
-* **The Build:** Here, you fine-tune models, manage vector stores, and evaluate prompt performance. It is deeply technical, but its output (a custom model or agent) is often consumed by the Orchestration Plane.
+* **The Build:** Model choice and evaluation come first: select and compare models, run evaluations, apply content safety and governance controls, and manage retrieval. Fine-tuning is available and occasionally right, but it is the rarest of these in practice, so reach for it last rather than first. The output is often consumed by the Orchestration Plane.
 
 **4. The Data Plane (grounding and memory)**
 * **Focus:** What the agent is allowed to know, and what it remembers.
@@ -373,7 +349,7 @@ Do not think of this as "Copilot Studio vs. Microsoft Foundry." Think of it as a
 **5. The Governance Plane (identity and oversight)**
 * **Focus:** Who is this agent, what may it touch, and who answers for it.
 * **The Analogy: The Badge Office.** The moment your organization had more than a handful of employees, "everyone knows Dave" stopped being an access-control strategy. Agents crossed that threshold faster than anyone planned for. An agent without an identity isn't lightweight. It's untraceable.
-* **The Role:** Agents are becoming principals in your directory, and the tooling has caught up. Three concepts carry this plane. **Identity** gives an agent something to *be*: its own directory principal, so its actions are attributable to it rather than to whichever human's token it borrowed. **Inventory** gives you a single place to see every agent in the estate, who owns it, and which ones nobody owns. **Oversight** adds the detection and data-protection layer that turns "we think that's all of them" into something you can actually assert.
+* **The Role:** Agents are becoming principals in your directory, and the tooling is catching up rapidly, though gaps remain and it is worth checking which of these your scenario actually has today. Three concepts carry this plane. **Identity** gives an agent something to *be*: its own directory principal, so its actions are attributable to it rather than to whichever human's token it borrowed. **Inventory** gives you a single place to see every agent in the estate, who owns it, and which ones nobody owns. **Oversight** adds the detection and data-protection layer that turns "we think that's all of them" into something you can actually assert.
 
     The order matters and it is the opposite of most rollouts. Identity first, then inventory, then controls. A control you cannot attribute to a named principal is a control you cannot enforce, and an agent nobody owns is not a governance gap you close later; it is the one that shows up in the incident.
 
@@ -382,27 +358,21 @@ Do not think of this as "Copilot Studio vs. Microsoft Foundry." Think of it as a
 ### The "Better Together" Architecture
 A production AI solution often spans all five:
 
-1. **Foundry** hosts a custom-tuned model for analyzing proprietary engineering specs.
-2. **Azure AI Search** grounds it in the actual spec library, with permissions intact.
+1. **Foundry** hosts and evaluates the model that analyzes proprietary engineering specs.
+2. **Foundry IQ** (built on Azure AI Search) provides the managed knowledge base, so retrieval is agentic and the same grounded knowledge can serve more than one agent. Connect Azure AI Search directly instead when you need private networking or a GA service level today.
 3. **Copilot Studio** consumes that model, adds a "Human Handoff" logic flow, and enforces access controls.
 4. **Microsoft 365 Copilot** acts as the user interface, allowing an engineer in Teams to query the specs without leaving their chat.
 5. **Entra Agent ID and Agent 365** make the resulting agent a first-class, owned, observable thing rather than an orphan.
 
 ### Why the Economics Now Match the Architecture
 
-**For years, the "AND" conversation died at procurement.** Architecture said "use Foundry *and* Copilot Studio." Budget said "pick one, they're different line items." Budget always won, and the resulting architecture was a financial artifact pretending to be a technical decision.
+Most enterprise AI solutions span several planes, and until recently the billing did not. Foundry usage, Copilot Studio usage, Fabric capacity, and developer tooling arrived as separate line items with separate owners, which made unified cost management harder than the architecture warranted.
 
-**The Analogy: The Coupons at the Till.** Hand a cashier several coupons and they don't apply in the order you produced them. The narrowest one goes first, then the next, and the general one covers whatever is left. Which means the broad coupon is worth *less* than its face value suggests if you assumed it would go first, and worth exactly what you hoped if you understood the order. Microsoft's commitment vehicles work the same way, and the order is the whole lesson.
+**What changed is that a single commitment vehicle can now span the stack.** One prepaid unit can pay down usage across the foundation, the orchestration layer, the analytical estate, and the developer loop. The practical benefit is simpler cost management rather than a new architectural freedom, but simpler cost management is what most organizations actually asked for.
 
-**Two ideas are worth carrying out of this section.**
+**One mechanic is worth knowing because it changes forecasts: narrow benefits burn before broad ones.** Where a specific commitment and a general one both cover the same usage, the specific is consumed first and the general plan mops up the remainder. A broad plan is therefore a backstop rather than a first line of defense, and modeling commitments in purchase order rather than consumption order produces a forecast that is wrong in a direction that flatters you.
 
-The first: **there is now a commitment vehicle that spans the whole stack.** A single prepaid unit can pay down usage across the foundation, the orchestration layer, the analytical estate, and the developer loop. Microsoft put one meter across planes that used to be four separate arguments with four separate owners. The "Foundry versus Copilot Studio" budget silo isn't resolved so much as retired. The finance structure now *assumes* you'll span several planes.
-
-The second, and the one that actually changes behavior: **narrow benefits burn before broad benefits.** Where a specific commitment and a general one both cover the same usage, the specific one is consumed first, and the general plan is the backstop that mops up whatever's left, wherever it happened. That ordering is why a broad plan is a safety net rather than a first line of defense. You buy it to catch the spill, not to cover the core.
-
-**Two habits this should form.** Model your commitments in the order they're consumed, not the order you bought them, or your forecast will be wrong in a direction that flatters you. And read the terms before you sign. Commitment vehicles in this space carry fixed terms and default renewals, which makes them a calendar obligation as much as a financial one.
-
-Where coverage is genuinely unstated, treat it as unstated and get the answer in writing rather than inferring it from the shape of the credit model. The current mechanics, units, and coverage boundaries live in [Technologies]({{ '/docs/technologies' | relative_url }}) and [Evaluation Criteria]({{ '/docs/evaluation-criteria' | relative_url }}), where they can be kept accurate.
+Read the terms as well as the rates. These vehicles carry fixed terms and default renewals, which makes them a calendar obligation as much as a financial one. Where coverage is unstated, treat it as unstated and get the answer in writing. Current mechanics, units, and coverage boundaries live in [Technologies]({{ '/docs/technologies' | relative_url }}) and [Evaluation Criteria]({{ '/docs/evaluation-criteria' | relative_url }}), where they can be kept accurate.
 
 ---
 

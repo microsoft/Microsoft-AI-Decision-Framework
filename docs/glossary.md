@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Glossary
-nav_order: 14
+nav_order: 15
 description: "Key terms and definitions for Microsoft AI technologies"
 ---
 
@@ -327,7 +327,7 @@ Function tools, hosted services, or built-in capabilities that agents attach at 
 
 ⚠️ **"Skill" now means three different things, and mixing them up will cost you a design review.** *(1)* In Copilot Studio's newer agent experience, a **skill** is a modular set of instructions loaded on demand for a specific situation. Learn documents the package as a ZIP containing *"A SKILL.md file containing YAML front matter (name, description) and Markdown instructions"* plus optional supporting files such as scripts ([Skills overview](https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-experience/skills-overview), updated 2026-06-30). *(2)* In the older Bot Framework lineage, a **skill** was a callable service another bot could invoke. Same word, unrelated construct, still findable in older documentation. *(3)* In Agent Framework, "skills" is used loosely as a synonym for tools, as above. When someone says "put it in a skill," ask which of the three they mean.
 
-**Why the first meaning matters more than it looks.** Because a skill is Markdown and files rather than a proprietary artifact, it is the most portable thing in an agent. Not perfectly interchangeable across harnesses and products, but **light enough to lift**, which makes it the natural unit for the path where someone builds a capability for their own productivity and it later gets promoted into a governed team agent. **Agents are containers. Skills are the asset.** Build accordingly.
+**Why the first meaning matters, and where it stops.** A skill is Markdown and files rather than a proprietary artifact, so it exports and imports cleanly between agents. But Learn scopes skills to the **GitHub Copilot harness** specifically, listing them as *"not a focus"* for the standard and Copilot chat harnesses. So skills are the reuse unit *within* that harness, not a universal portability layer across Copilot Studio. Reuse across harnesses relies on the more basic pieces: instructions, knowledge sources, and connectors.
 
 ## V
 

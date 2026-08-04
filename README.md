@@ -154,7 +154,7 @@ flowchart LR
 {: .note }
 > **On the times.** These are measured, not aspirational: prose at 250 words per minute, reference tables at half that because you scan them rather than read them. Steps 7 and 8 are reference material and behave like it. Nobody reads the Technologies page end to end, and it isn't built to be read that way. Look up what you need and leave.
 
-**Supplemental references (use as needed):** [Visual Framework]({{ site.baseurl }}/docs/visual-framework) | [Quick Reference]({{ site.baseurl }}/docs/quick-reference) | [Resources]({{ site.baseurl }}/docs/resources) | [Glossary]({{ site.baseurl }}/docs/glossary) | [AI Instinct]({{ site.baseurl }}/docs/ai-instinct)
+**Supplemental references (use as needed):** [Visual Framework]({{ site.baseurl }}/docs/visual-framework) | [Quick Reference]({{ site.baseurl }}/docs/quick-reference) | [Resources]({{ site.baseurl }}/docs/resources) | [Glossary]({{ site.baseurl }}/docs/glossary) | [AI Instinct]({{ site.baseurl }}/docs/ai-instinct) | [Agentic Engineering]({{ site.baseurl }}/docs/agentic-engineering)
 
 **You do not have to read it in order.** If you already know what you're building, jump to [Scenarios]({{ site.baseurl }}/docs/scenarios) and work backward. If you're facilitating a workshop, start with the [Visual Framework]({{ site.baseurl }}/docs/visual-framework) diagrams. If you just need an answer today, the shortcuts are below. The path exists so the framework compounds, not because the order is sacred.
 

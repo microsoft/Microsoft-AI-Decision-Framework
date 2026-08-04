@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Resources & Next Steps
-nav_order: 13
+nav_order: 14
 description: Key takeaways and resources by role
 ---
 

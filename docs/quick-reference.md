@@ -204,7 +204,7 @@ Teams SDK and M365 Agents SDK coexist with differentiated fit: Teams SDK for Tea
 | **Status** | GA | GA (2026-08-03) | GA | GA |
 
 {: .note }
-> **The harness is chosen at creation, and skills are what move between them.** Microsoft states that agents created on the GitHub Copilot harness *"can't be transferred to the standard harness, and vice versa."* The practical mitigation is not to agonize over the choice but to put reusable value into **skills**, which are Markdown and files and lift between harnesses with modest effort. This is also the path by which a personal productivity skill becomes a team-scale agent. A third option, the **Copilot chat harness**, covers extending Microsoft 365 Copilot. See [Technologies]({{ '/docs/technologies' | relative_url }}) for the full comparison.
+> **The harness is chosen at creation and an agent cannot move between harnesses.** Microsoft states that agents created on the GitHub Copilot harness *"can't be transferred to the standard harness, and vice versa."* Reuse works best *within* a harness: on the GitHub Copilot harness, **skills** export as Markdown packages and import into other agents there. Skills are specific to that harness, so what carries across all three is more basic, namely instructions, knowledge sources, and connectors. See [Technologies]({{ '/docs/technologies' | relative_url }}) for the full comparison.
 
 {: .note }
 > Feature maturity can change quickly for Studio orchestration components and channel capabilities. Reconfirm per-feature GA/Preview in current Microsoft Learn release notes before rollout.

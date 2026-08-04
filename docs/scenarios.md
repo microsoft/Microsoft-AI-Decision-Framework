@@ -697,7 +697,7 @@ That said, the framework's whole thesis lands here. Every other scenario in this
 - **Distinct identity per agent**, so actions are attributable to the agent rather than to the person who created it. Then, separately, **a documented answer to whose permissions it runs with**, because the identity does not decide that.
 - **Lifecycle, including the end of it.** Provisioning is easy and universally implemented. Decommissioning is neither, and orphaned agents are the actual risk.
 - **Data protection that applies to agents**, because an agent reading a sensitive document is a data flow your DLP policy was probably not written to consider.
-- **Cost attribution**, since consumption without an owner is how a platform bill becomes a governance crisis.
+- **Cost attribution, and increasingly cost *control*.** Consumption without an owner is how a platform bill becomes a governance crisis. On usage-billed platforms this arrives earlier than teams expect, because building and testing an agent can consume budget before anyone outside the maker has used it.
 
 ### Recommended Technologies
 {: #scenario10-recommended .no_toc }
@@ -734,6 +734,10 @@ Three patterns to look for, because they carry very different blast radii:
 **Ask this per tool, not per agent.** Copilot Studio configures authentication on each tool and connection, so a single agent can run on behalf of the user for a SharePoint source while carrying the maker's credentials on one connector in the same conversation. An audit that records one answer per agent will miss exactly the mixed case that matters.
 
 **The middle row is the one to hunt**, and the reason is fan-out rather than timing: one credential ends up serving every caller regardless of what that caller could reach on their own. Microsoft's warning on event triggers is blunt about the consequence, saying it *"might allow users of an agent without their own authorization the ability to access data and systems they shouldn't."* Nothing about that is a defect. It is a documented, sometimes necessary design. But it needs to be a decision somebody made on purpose and wrote down, rather than a default nobody examined.
+
+**A shift worth planning for: on some platforms, spend is becoming the control surface.** Governance has traditionally meant gatekeeping, controlling who may create and what may publish. That model assumes creation is free and only production costs money. Where a platform meters authoring and testing as well as runtime, and where no switch exists to keep makers off the metered path, **the lever moves from permission to allocation**: capacity assignment, environment strategy, spending limits, and the admin controls your platform team already owns.
+
+Two consequences follow, and neither is obvious until the first invoice. **Budget becomes a governance instrument rather than a finance report**, which means whoever allocates capacity is now making policy whether they think of it that way or not. And **an ungoverned maker population can generate cost without ever shipping anything**, which is a new failure mode: the old worst case was a sprawl of unused agents, and the new one is a sprawl of unused agents you paid to build. Set allocations and limits before you open the door, not after somebody asks why the bill moved.
 
 Do this early. Retrofitting identity onto a population of agents that already exists is the same project as retrofitting it onto a population of applications, and everyone who has done that remembers it.
 

@@ -136,15 +136,9 @@ There is a second reason to take this rung seriously, and it is about attention 
 
 GitHub's own advice follows from it: learn the harness before you decorate it. You reach rung 6 when you stop *using* that loop and start *embedding* it. That is the moment a developer tool becomes a component inside something you ship, and the developer bucket quietly rejoins the product bucket.
 
-**A note on vocabulary, and on how fast it moves.** Nobody agreed on this word for a long time. Researchers say *agent-computer interface*. Practitioners say *harness*. GitHub calls its SDK a *"production-tested agent runtime."* Microsoft Agent Framework publishes the clearest definition of the lot: *"An agent harness is the scaffolding that turns a language model into an agent that can actually do things... you need a runtime wrapped around the model, and that runtime is the harness."*
+**The vocabulary settled fast, and that is the lesson.** Researchers call this an *agent-computer interface*, practitioners call it a *harness*, and GitHub calls its SDK a *"production-tested agent runtime."* Microsoft Agent Framework publishes the clearest definition: *"An agent harness is the scaffolding that turns a language model into an agent that can actually do things."* Copilot Studio now ships a page titled **Choose a harness**, so the practitioners' word became the product word, and which harness you pick determines what an agent can do and how it is billed. **The harness stopped being plumbing the moment a vendor made you choose one.** Documentation on this shifted in weeks, which is the normal rate here and the reason to learn the concept rather than memorize the label.
 
-Microsoft has now settled the question in its own products, and quickly. Copilot Studio ships a documentation page titled **Choose a harness**, and the term is no longer informal: an agent runs on the **GitHub Copilot harness**, the **standard harness**, or the **Copilot chat harness**, and which one you pick determines what the agent can do and how it is billed. **The practitioners' word won.** If you learned this concept from engineering blogs rather than product documentation, your vocabulary is now the official one.
-
-Two things follow. First, **the harness is a first-class product decision now, not an implementation detail**: when a vendor names something and makes you choose it, it has stopped being plumbing. Second, watch how recently that was not true. Documentation for this shifted in weeks, which is the normal rate in this field and the reason to learn the concept rather than memorize the label.
-
-**A caution that applies to the top of this ladder in particular.** This field is roughly two years old and moving weekly. GitHub's own engineers put it more bluntly than we would dare: a lot of what is today's magical incantation will be tomorrow's anti-pattern. Prefer the simplest arrangement that produces a repeatable, high-quality result, and be suspicious of elaborate agent choreography that nobody can explain to a new hire.
-
-**A word on vocabulary, because this space markets faster than it documents.** Several terms you'll hear (*Agent HQ*, *mission control*, *agent-native*, *agent experience*) are narrative language describing where GitHub believes the platform is going. They are useful for understanding direction and useless for writing a procurement document, because they don't map to a thing you can switch on or govern. When you need to know what you actually have, look for the shipped surfaces and the administrative controls behind them, not the vision words.
+**Be equally skeptical of the words that are not shipping yet.** Terms like *Agent HQ*, *mission control*, and *agent-native* describe where GitHub believes the platform is going. They are useful for direction and useless in a procurement document, because they do not map to something you can switch on or govern. GitHub's own engineers are blunt about the pace: much of today's magical incantation is tomorrow's anti-pattern. Prefer the simplest arrangement that produces a repeatable result, and look for shipped surfaces and administrative controls rather than vision words.
 
 **You have left this bucket when** the agent you're building serves someone outside your engineering organization. The moment its output reaches a customer or a business process, the accountability model changes and you are in Journey 2, whatever it says on the repository.
 
@@ -235,9 +229,7 @@ That's the provenance half. The *response* half, what you actually do about unsa
 
 Microsoft IQ is the umbrella for four intelligence surfaces that give agents distinct kinds of awareness. You can adopt each layer independently, but agents that combine multiple layers answer questions no single layer can.
 
-**The Analogy: Memory, Awareness, Understanding, and Horizon.**
-
-Think about how a seasoned leader navigates a complex decision. They draw on four distinct kinds of intelligence:
+**Four kinds of intelligence, and you pick by the question you need answered.**
 
 * **Memory** is what the organization has written down. Policies, contracts, specifications, reports, research. It's the accumulated knowledge base. You can search it, cite it, and trust it because it's governed. But memory alone is static. It tells you what the answer *was*, not what the situation *is*.
 
@@ -306,11 +298,11 @@ See [The agent archetype framework](https://learn.microsoft.com/en-us/agents/age
 
 **The line between low-code and pro-code has blurred, and it blurred from both directions.**
 
-The old split assumed the tools sorted people: citizen developers on one side, engineers on the other. That is no longer how either side works. Copilot Studio now offers code views, variable management, API integrations, and a component model that rewards an engineering mindset. Meanwhile agentic coding tools mean a developer can produce deterministic logic quickly enough that "we'll just build it" is a lighter decision than it was. Both camps moved toward the middle.
+The old split assumed the tools sorted people: citizen developers on one side, engineers on the other. That is no longer how either side works. Copilot Studio now offers code views, variable management, API integrations, and a component model that rewards an engineering mindset. Meanwhile agentic coding tools mean a developer can produce deterministic logic quickly enough that "we'll just build it" is a lighter decision than it was. **The tools stopped sorting people, which quietly made "who is allowed to build this" the wrong question.**
 
 **The convergence goes deeper than tooling.** Choosing a platform used to mean accepting three things as a bundle: the **model** that reasons, the **harness** it runs in, and the **surface** where users meet it. Model choice is now an explicit setting in Copilot Studio. The harness is now an explicit choice too, with three named options and a documentation page devoted to picking one. Layers that used to be inseparable from the product are becoming things you select.
 
-**Where the convergence stops is worth knowing.** Selection is not the same as portability. An agent is created on one harness and Microsoft states it *"can't be transferred to the standard harness, and vice versa."* Reuse within the GitHub Copilot harness is real: skills export as Markdown packages and import into other agents on that harness. But skills are a capability of that harness, not of Copilot Studio generally, so the reuse story is strongest inside a harness and thinner across them. Instructions, knowledge sources, and connectors are what travel more broadly.
+**Where the convergence stops is worth knowing: selection is not portability.** An agent is created on one harness and cannot be moved to another, and the reuse story is strongest inside a harness rather than across them. The rung 5 note above has the detail.
 
 **The New Rule:** choose the tool for the **problem**, not the job title. A principal architect should use Copilot Studio when it solves the problem faster. A business analyst working in Foundry is using the right tool for their use case. The tool does not define the role.
 
@@ -359,7 +351,7 @@ Do not think of this as "Copilot Studio vs. Microsoft Foundry." Think of it as a
 A production AI solution often spans all five:
 
 1. **Foundry** hosts and evaluates the model that analyzes proprietary engineering specs.
-2. **Foundry IQ** (built on Azure AI Search) provides the managed knowledge base, so retrieval is agentic and the same grounded knowledge can serve more than one agent. Connect Azure AI Search directly instead when you need private networking or a GA service level today.
+2. **Foundry IQ** (built on Azure AI Search) provides the managed knowledge base, so retrieval is agentic and the same grounded knowledge can serve more than one agent. Connect Azure AI Search directly instead when you need private networking or direct control of the index and ranking.
 3. **Copilot Studio** consumes that model, adds a "Human Handoff" logic flow, and enforces access controls.
 4. **Microsoft 365 Copilot** acts as the user interface, allowing an engineer in Teams to query the specs without leaving their chat.
 5. **Entra Agent ID and Agent 365** make the resulting agent a first-class, owned, observable thing rather than an orphan.

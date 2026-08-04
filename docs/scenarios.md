@@ -109,7 +109,7 @@ Where it *does* start to earn the word: **agentic retrieval**, where the system 
 | M365 content plus a few external sources, employees asking | **Copilot Studio** knowledge, or **Copilot/Graph connectors** into Microsoft 365 Copilot | Extends the reasoning surface without moving the data |
 | Content spanning on-prem, third-party stores, or line-of-business systems | **Azure AI Search** with **agentic retrieval**, fronted by a **Microsoft Foundry** agent | You control the index, the ranking, and, necessarily, the ACLs |
 | Many sources that several agents will all need | A **Foundry IQ** knowledge base | Retrieval becomes a shared asset instead of per-agent plumbing |
-| Customer-facing | **Foundry**, with **Foundry IQ** when several agents share the same knowledge, or **Azure AI Search** directly when you need private networking or a GA service level | There is no inherited permission model outside your tenant, so retrieval and authorization are yours to design either way |
+| Customer-facing | **Foundry**, with **Foundry IQ** when several agents share the same knowledge, or **Azure AI Search** directly when you need private networking or a formal service-level guarantee | There is no inherited permission model outside your tenant, so retrieval and authorization are yours to design either way |
 
 Check current availability and licensing for any of these in [Technologies]({{ '/docs/technologies' | relative_url }}) before you commit to a date.
 

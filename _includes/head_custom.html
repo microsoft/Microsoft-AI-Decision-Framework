@@ -9,13 +9,18 @@
       {% include mermaid_config.js %}
     );
 
-    const codeBlocks = Array.from(document.querySelectorAll('pre > code.language-mermaid'));
+    const codeBlocks = Array.from(
+      document.querySelectorAll(
+        'pre > code.language-mermaid, .language-mermaid pre > code, pre > code[class*="language-mermaid"]'
+      )
+    );
     codeBlocks.forEach((codeBlock) => {
       const container = document.createElement('div');
       container.classList.add('mermaid');
       container.innerHTML = codeBlock.textContent;
+      const mermaidWrapper = codeBlock.closest('.language-mermaid');
       const pre = codeBlock.parentElement;
-      pre.replaceWith(container);
+      (mermaidWrapper || pre).replaceWith(container);
     });
 
     mermaid.initialize(mermaidConfig);

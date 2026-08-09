@@ -11,14 +11,14 @@
 
     const codeBlocks = Array.from(
       document.querySelectorAll(
-        'pre > code.language-mermaid, .language-mermaid pre > code'
+        'pre > code.language-mermaid, div.language-mermaid.highlighter-rouge pre > code'
       )
     );
     codeBlocks.forEach((codeBlock) => {
       const container = document.createElement('div');
       container.classList.add('mermaid');
       container.innerHTML = codeBlock.textContent;
-      const mermaidWrapper = codeBlock.closest('.language-mermaid');
+      const mermaidWrapper = codeBlock.closest('div.language-mermaid.highlighter-rouge');
       const pre = codeBlock.parentElement;
       (mermaidWrapper || pre).replaceWith(container);
     });

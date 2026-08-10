@@ -77,9 +77,9 @@ Treat it as a reading list with a shelf life. Microsoft Learn stamps every page 
 **Key Resources:**
 
 - [Microsoft Foundry quickstart](https://learn.microsoft.com/en-us/azure/foundry/quickstarts/get-started-code)
-- [Microsoft Agent Framework workflows](https://learn.microsoft.com/en-us/agent-framework/user-guide/workflows/overview)
+- [Microsoft Agent Framework workflows](https://learn.microsoft.com/en-us/agent-framework/workflows/)
 - [M365 Agents Toolkit (VS Code)](https://marketplace.visualstudio.com/items?itemName=TeamsDevApp.ms-teams-vscode-extension)
-- [Microsoft Agent Framework documentation](https://learn.microsoft.com/en-us/agent-framework/overview/agent-framework-overview)
+- [Microsoft Agent Framework documentation](https://learn.microsoft.com/en-us/agent-framework/overview/)
 - [Semantic Kernel documentation](https://learn.microsoft.com/en-us/semantic-kernel/overview/)
 - [Agentic retrieval quickstart for Azure AI Search](https://learn.microsoft.com/en-us/azure/search/search-get-started-agentic-retrieval)
 - [Microsoft 365 Copilot Search API overview (Preview)](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/api/ai-services/search/overview) (Updated: 2025-10-20)
@@ -224,13 +224,13 @@ Read these before you read any product page. They are the maps; everything below
   - [Sample Gallery](https://github.com/microsoft/Agents)
 
 - **Microsoft Agent Framework**
-  - [Overview](https://learn.microsoft.com/en-us/agent-framework/overview/agent-framework-overview)
-  - [Orchestration Patterns](https://learn.microsoft.com/en-us/agent-framework/user-guide/workflows/orchestrations/overview)
+  - [Overview](https://learn.microsoft.com/en-us/agent-framework/overview/)
+  - [Orchestration Patterns](https://learn.microsoft.com/en-us/agent-framework/workflows/orchestrations/)
 
 - **Semantic Kernel** ⚠️ *Maintenance Mode*
   - [Documentation](https://learn.microsoft.com/en-us/semantic-kernel/overview/)
   - [GitHub Repository](https://github.com/microsoft/semantic-kernel)
-  - [Migrate to Agent Framework](https://learn.microsoft.com/en-us/agent-framework/migration-guide/from-semantic-kernel/index)
+  - [Migrate to Agent Framework](https://learn.microsoft.com/en-us/agent-framework/migration-guide/from-semantic-kernel/)
 
   {: .note }
   > Semantic Kernel is in maintenance mode (security patches only). For new projects, use Microsoft Agent Framework which provides enhanced multi-agent orchestration, stateful workflows, and production-grade capabilities.
@@ -247,13 +247,13 @@ Read these before you read any product page. They are the maps; everything below
   - [Graph API Reference](https://learn.microsoft.com/en-us/graph/overview)
 
 - **Azure AI Search** (name unchanged; it is the retrieval engine underneath Foundry IQ)
-  - [Agentic retrieval](https://learn.microsoft.com/en-us/azure/search/search-agentic-retrieval-concept): **GA via the `2026-04-01` REST API; portal experiences remain preview-only**
+  - [Agentic retrieval](https://learn.microsoft.com/en-us/azure/search/agentic-retrieval-overview): **GA via the `2026-04-01` REST API; portal experiences remain preview-only**
   - [RAG patterns](https://learn.microsoft.com/en-us/azure/search/retrieval-augmented-generation-overview)
   - [Vector search](https://learn.microsoft.com/en-us/azure/search/vector-search-overview)
 
 - **AI-Capable Databases**
-  - [Cosmos DB Vector Search](https://learn.microsoft.com/en-us/azure/cosmos-db/nosql/vector-search): flat/kNN, quantized flat, and DiskANN index types; must be enabled as a feature. Microsoft does not state a GA date in the docs
-  - [Azure Database for PostgreSQL: pgvector (GA)](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-use-pgvector) plus the `azure_ai` extension for in-database embeddings and LLM calls
+  - [Cosmos DB Vector Search](https://learn.microsoft.com/en-us/azure/cosmos-db/vector-search): flat/kNN, quantized flat, and DiskANN index types; must be enabled as a feature. Microsoft does not state a GA date in the docs
+  - [Azure Database for PostgreSQL: pgvector (GA)](https://learn.microsoft.com/en-us/azure/postgresql/extensions/how-to-use-pgvector) plus the `azure_ai` extension for in-database embeddings and LLM calls
   - [`VECTOR_SEARCH` (T-SQL)](https://learn.microsoft.com/en-us/sql/t-sql/functions/vector-search-transact-sql): **Preview** on Azure SQL Database, SQL database in Fabric, and SQL Server 2025 (SQL Server 2025 also requires the `PREVIEW_FEATURES` database-scoped configuration)
   - [Azure Managed Redis](https://learn.microsoft.com/en-us/azure/redis/overview): GA, Entra-native
 
@@ -303,7 +303,7 @@ Read these before you read any product page. They are the maps; everything below
   - [Copilot cloud agent](https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent): renamed from "coding agent." **GA on paid plans including Student; not available on Copilot Free**
   - [Agents page](https://github.com/copilot/agents)
   - [Enterprise AI governance and AI Controls](https://docs.github.com/en/copilot/get-started/enterprise-ai-governance)
-  - [Custom agents](https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-custom-agents) and [`AGENTS.md` agent instructions](https://docs.github.com/en/copilot/concepts/response-customization)
+  - [Custom agents](https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-custom-agents) and [`AGENTS.md` agent instructions](https://docs.github.com/en/copilot/concepts/prompting/response-customization)
   - [Prepare an enterprise for custom agents](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/prepare-for-custom-agents)
 
 - **GitHub Copilot SDK (GA)**
@@ -357,7 +357,7 @@ Read these before you read any product page. They are the maps; everything below
 
 - **Observability**
   - [Monitor AI agents with Application Insights](https://learn.microsoft.com/en-us/azure/azure-monitor/app/agents-view)
-  - [Agent evaluation checklist](https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/evaluation-checklist)
+  - [Agent evaluation checklist](https://learn.microsoft.com/en-us/agents/agent-evaluation/evaluation-checklist)
 
 ---
 
@@ -375,7 +375,7 @@ Read these before you read any product page. They are the maps; everything below
 
 - [Microsoft 365 Copilot Extensibility Learning Path](https://learn.microsoft.com/training/paths/prepare-microsoft-365-copilot-extensibility/)
 - [Build Copilot Extensions](https://learn.microsoft.com/training/paths/build-foundation-extend-microsoft-365-copilot/)
-- [Azure AI Engineer Certification](https://learn.microsoft.com/en-us/certifications/azure-ai-engineer/)
+- [Azure AI Engineer Certification](https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/)
 - [Semantic Kernel Learning Path](https://learn.microsoft.com/training/paths/develop-ai-agents-azure-open-ai-semantic-kernel-sdk/)
 
 ### GitHub Repositories

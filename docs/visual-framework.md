@@ -180,7 +180,7 @@ flowchart TD
 |------------|---------------|-----------|-------------|
 | **Copilot Studio** (event triggers) | ⚠️ Actions can execute | ⚠️ Triggered execution, **not documented as GA** | Event triggers: SharePoint, OneDrive, Planner, Recurrence. Scheduled prompts reached **GA 2026-07-01**; triggered/autonomous agents carry no GA statement [(docs)](https://learn.microsoft.com/en-us/microsoft-copilot-studio/authoring-triggers-about) |
 | **Logic Apps agentic workflows** | ⚠️ Autonomous execution | ✅ Proactive (event-driven) | Official terms are **"agentic workflows"** and **"agent loop"**. **Consumption is explicitly in preview.** Standard carries no preview banner on the agent loop, but Microsoft never states Standard is GA and specific Standard capabilities are marked preview. Check the exact capability [(docs)](https://learn.microsoft.com/en-us/azure/logic-apps/agent-workflows-concepts) |
-| **Microsoft Foundry (Azure) Agent Service** | ⚠️ Autonomous planning loops | ✅ Proactive capable | Custom orchestration [(docs)](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/overview) |
+| **Microsoft Foundry (Azure) Agent Service** | ⚠️ Autonomous planning loops | ✅ Proactive capable | Custom orchestration [(docs)](https://learn.microsoft.com/en-us/azure/foundry/agents/overview) |
 
 #### API/Headless Services (GA)
 {: .no_toc }
@@ -195,8 +195,8 @@ flowchart TD
 
 | Technology | Status | Capabilities |
 |------------|--------|--------------|
-| **Cosmos DB** | GA date not stated in docs | Flat/kNN, quantized flat, DiskANN index types; must be enabled as a feature. Ultra-high-throughput vector search is **Private Preview** [(docs)](https://learn.microsoft.com/en-us/azure/cosmos-db/nosql/vector-search) |
-| **PostgreSQL pgvector** | GA | `azure_ai` extension also enables in-database embedding generation and LLM calls [(docs)](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-use-pgvector) |
+| **Cosmos DB** | GA date not stated in docs | Flat/kNN, quantized flat, DiskANN index types; must be enabled as a feature. Ultra-high-throughput vector search is **Private Preview** [(docs)](https://learn.microsoft.com/en-us/azure/cosmos-db/vector-search) |
+| **PostgreSQL pgvector** | GA | `azure_ai` extension also enables in-database embedding generation and LLM calls [(docs)](https://learn.microsoft.com/en-us/azure/postgresql/extensions/how-to-use-pgvector) |
 | **Azure SQL Database** | `VECTOR_SEARCH()` **Preview** | Native `vector` type and `VECTOR_DISTANCE()` ship alongside it. Their status is documented separately, so verify before you assume. `TOP_N` is deprecated [(docs)](https://learn.microsoft.com/en-us/sql/t-sql/functions/vector-search-transact-sql) |
 | **Azure SQL MI** | Not covered by the `VECTOR_SEARCH` preview note | Same SQL Database Engine; requires Always-up-to-date or SQL Server 2025 update policy. Verify vector feature availability for your update policy [(docs)](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/update-policy) |
 | **SQL Server 2025** | `VECTOR_SEARCH()` **Preview** | Additionally requires the `PREVIEW_FEATURES` database scoped configuration [(docs)](https://learn.microsoft.com/en-us/sql/t-sql/data-types/vector-data-type) |
@@ -333,7 +333,7 @@ flowchart TD
 | Technology | Description | Documentation |
 |------------|-------------|---------------|
 | **M365 Agents SDK** | Pro-code for M365-centric solutions, C#/JavaScript/Python, 10+ channels, BYO orchestrator | [M365 Agents SDK](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/overview-custom-engine-agent) |
-| **Microsoft Foundry (Azure)** | Pro-code for Azure-centric solutions, custom models, full control | [Microsoft Foundry](https://learn.microsoft.com/en-us/azure/ai-foundry/what-is-foundry) |
+| **Microsoft Foundry (Azure)** | Pro-code for Azure-centric solutions, custom models, full control | [Microsoft Foundry](https://learn.microsoft.com/en-us/azure/foundry/what-is-foundry) |
 | **Microsoft Agent Framework** | **Microsoft's investment direction** - Microsoft describes it as the *"direct successor"* and *"next generation of both"* Semantic Kernel and AutoGen. Orchestration patterns: Sequential, Concurrent, Handoff, Group Chat, Magentic. Languages: Python, C#/.NET, and **Go (Public Preview)**. No sunset date has been announced for Semantic Kernel or AutoGen. | [Agent Framework](https://learn.microsoft.com/en-us/agent-framework/) |
 | **Agent Framework + AG-UI** (Preview) | Protocol layer for web/mobile clients, supports SSE streaming, backend tool rendering, human approvals, shared/predictive state, and CopilotKit components. | [AG-UI Integration](https://learn.microsoft.com/en-us/agent-framework/integrations/ag-ui/) |
 | **Copilot Studio + Custom Actions** | Mid-level developers, low-code with custom code extensibility | [Add tools to custom agents](https://learn.microsoft.com/en-us/microsoft-copilot-studio/advanced-plugin-actions) |
@@ -346,7 +346,7 @@ flowchart TD
 
 | Rung | Technology | Status and limits | Documentation |
 |------|------------|-------------------|---------------|
-| **1. Assist in the editor** | GitHub Copilot agent mode | GA in VS Code and Visual Studio | [Copilot agents in VS Code](https://code.visualstudio.com/docs/copilot/agents/overview) |
+| **1. Assist in the editor** | GitHub Copilot agent mode | GA in VS Code and Visual Studio | [Copilot agents in VS Code](https://code.visualstudio.com/docs/agents/overview) |
 | **2. Delegate the issue** | **Copilot cloud agent** (renamed from "coding agent") | **GA on all paid plans including Student; NOT available on Copilot Free** | [About Copilot cloud agent](https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent) |
 | **3. Specialize the agent** | **Custom agents** (`.md` + YAML frontmatter) and **`AGENTS.md`**, which GitHub calls **"agent instructions"** | Custom agents are **GA** for the cloud agent, VS Code, and Visual Studio; **Public Preview** for JetBrains, Eclipse, and Xcode. GitHub's own caveat on agent instructions: *"currently not supported by all Copilot features."* | [Custom agents](https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-custom-agents) |
 | **4. Build on the harness** | **GitHub Copilot SDK** | **GA.** Python, TypeScript, Go, .NET, Java, Rust. Wraps the Copilot CLI engine over JSON-RPC. BYOK: OpenAI, Microsoft Foundry, Anthropic. | [Copilot SDK](https://github.com/github/copilot-sdk) |
@@ -360,7 +360,7 @@ flowchart TD
 | Technology | Description | Documentation |
 |------------|-------------|---------------|
 | **Fabric data agents** | **GA** (formerly "AI skill"). Analytics/BI focus, Python SDK, evaluation capabilities, Power BI/semantic models. **Requires F2+ or P1+ capacity.** | [Fabric data agent](https://learn.microsoft.com/en-us/fabric/data-science/concept-data-agent) \| [Python SDK](https://learn.microsoft.com/en-us/fabric/data-science/evaluate-data-agent) |
-| **Microsoft Foundry (Azure)** | ML/custom models, full AI/ML pipeline control | [Microsoft Foundry](https://learn.microsoft.com/en-us/azure/ai-foundry/what-is-foundry) |
+| **Microsoft Foundry (Azure)** | ML/custom models, full AI/ML pipeline control | [Microsoft Foundry](https://learn.microsoft.com/en-us/azure/foundry/what-is-foundry) |
 
 #### Integration Specialist
 {: .no_toc }
@@ -504,7 +504,7 @@ flowchart TD
 
 | Technology | Capabilities | Documentation |
 |------------|--------------|---------------|
-| **Foundry Agent Service File Search Tool** | Built-in file search with automatic parsing, chunking (800 tokens/400 overlap), embedding (text-embedding-3-large), keyword + semantic search, reranking. Supports up to 10,000 files per vector store (max 512 MB/file). Two modes: Basic (Microsoft-managed) vs Standard (BYO Azure AI Search + Blob Storage). Supported formats: .doc, .docx, .pdf, .pptx, .py, .md, .txt, .json, .html, .java, .cs, .cpp, and more. Service handles entire ingestion automatically. | [Agent Service File Search](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/how-to/tools/file-search) |
+| **Foundry Agent Service File Search Tool** | Built-in file search with automatic parsing, chunking (800 tokens/400 overlap), embedding (text-embedding-3-large), keyword + semantic search, reranking. Supports up to 10,000 files per vector store (max 512 MB/file). Two modes: Basic (Microsoft-managed) vs Standard (BYO Azure AI Search + Blob Storage). Supported formats: .doc, .docx, .pdf, .pptx, .py, .md, .txt, .json, .html, .java, .cs, .cpp, and more. Service handles entire ingestion automatically. | [Agent Service File Search](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/tools/file-search) |
 | **Copilot Studio Knowledge Base** | File upload from local/OneDrive/SharePoint. Supports .doc, .docx, .ppt, .pptx, .pdf, .xls, .xlsx, .txt, .md, .html, .csv, .xml. Max 512 MB per file. Direct uploads allow up to 500 files per agent, while SharePoint/OneDrive document sources now support up to 1,000 files (GA Oct 6, 2025). Automatic chunking and vectorization into Dataverse with semantic indexing. OneDrive/SharePoint: Auto-sync (updates reflected automatically) vs Upload: Static files. SharePoint: User-scoped permissions (only files user has access to). | [Copilot Studio Knowledge](https://learn.microsoft.com/en-us/microsoft-copilot-studio/knowledge-unstructured-data) \| [File Upload](https://learn.microsoft.com/en-us/microsoft-copilot-studio/knowledge-add-file-upload) \| [SharePoint Files](https://learn.microsoft.com/en-us/microsoft-copilot-studio/knowledge-add-unstructured-data) \| [Use up to 1000 files](https://learn.microsoft.com/en-us/power-platform/release-plan/2025wave1/microsoft-copilot-studio/use-up-1000-files-per-agent-sharepoint-onedrive-uploads) |
 
 #### Document Processing - Production Scale (GA)
@@ -527,7 +527,7 @@ flowchart TD
 | Technology | Status | Capabilities | Documentation |
 |------------|--------|--------------|---------------|
 | **Cosmos DB Vector Search** | GA date is **not stated** in the docs. Treat the silence as silence | Three index types: flat/kNN, quantized flat, **DiskANN**. Must be enabled as a feature. Ultra-high-throughput vector search is **Private Preview** | [Cosmos DB Vector Search](https://learn.microsoft.com/en-us/azure/cosmos-db/vector-database) |
-| **PostgreSQL pgvector** | **GA** | The `azure_ai` extension additionally enables in-database embedding generation and LLM calls. There is **no "PostgreSQL agent" product** | [PostgreSQL Vector Search](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-use-pgvector) |
+| **PostgreSQL pgvector** | **GA** | The `azure_ai` extension additionally enables in-database embedding generation and LLM calls. There is **no "PostgreSQL agent" product** | [PostgreSQL Vector Search](https://learn.microsoft.com/en-us/azure/postgresql/extensions/how-to-use-pgvector) |
 | **Azure SQL Database** | `VECTOR_SEARCH()` **Preview** | Native `vector` type and `VECTOR_DISTANCE()` are documented separately. Do not assume they inherit the same status. `TOP_N` is deprecated | [VECTOR_SEARCH](https://learn.microsoft.com/en-us/sql/t-sql/functions/vector-search-transact-sql) |
 | **Azure SQL Managed Instance** | Not named in the `VECTOR_SEARCH` preview note | Same SQL Database Engine; requires Always-up-to-date or SQL Server 2025 update policy. Verify feature availability for your policy | [SQL MI Update Policy](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/update-policy) |
 | **SQL Server 2025** | `VECTOR_SEARCH()` **Preview** | Additionally requires the `PREVIEW_FEATURES` database scoped configuration | [SQL Server Vector](https://learn.microsoft.com/en-us/sql/t-sql/data-types/vector-data-type) |
@@ -538,7 +538,7 @@ flowchart TD
 
 | Technology | Status | Capabilities | Documentation |
 |------------|--------|--------------|---------------|
-| **Microsoft Fabric Platform** | GA | Direct knowledge source access via Lakehouse (Delta tables, Spark), Warehouse (T-SQL), OneLake (ADLS Gen2 APIs), KQL databases. Microsoft Foundry (Azure) integration for RAG | [Fabric Overview](https://learn.microsoft.com/en-us/fabric/fundamentals/microsoft-fabric-overview) \| [Microsoft Foundry (Azure) FAQ](https://learn.microsoft.com/en-us/azure/ai-foundry/faq) |
+| **Microsoft Fabric Platform** | GA | Direct knowledge source access via Lakehouse (Delta tables, Spark), Warehouse (T-SQL), OneLake (ADLS Gen2 APIs), KQL databases. Microsoft Foundry (Azure) integration for RAG | [Fabric Overview](https://learn.microsoft.com/en-us/fabric/fundamentals/microsoft-fabric-overview) \| [Microsoft Foundry (Azure) FAQ](https://learn.microsoft.com/en-us/azure/foundry-classic/faq) |
 | **Fabric data agents** | **GA** | Formerly "AI skill". Analytics data grounding (warehouses, lakehouses, Power BI semantic models, KQL databases), consumable from Copilot Studio and Foundry Agent Service. **Requires F2+ or P1+ capacity** | [Fabric data agent](https://learn.microsoft.com/en-us/fabric/data-science/concept-data-agent) \| [Copilot Studio Integration](https://learn.microsoft.com/en-us/fabric/data-science/data-agent-microsoft-copilot-studio) |
 | **Fabric IQ** | **Preview** | Documented Fabric workload for ontologies, graph models, semantic models, and operations agents, a different job from the data agent | [Fabric IQ](https://learn.microsoft.com/en-us/fabric/iq/) |
 | **Foundry Tools in Fabric** | **Preview** | Billed to Fabric capacity units | [Fabric Overview](https://learn.microsoft.com/en-us/fabric/fundamentals/microsoft-fabric-overview) |
@@ -555,7 +555,7 @@ flowchart TD
 
 | Technology | Capabilities | Documentation |
 |------------|--------------|---------------|
-| **Logic Apps MCP Server** | Standard logic apps as remote MCP servers, 1,400+ connectors, OAuth 2.0 auth, Streamable HTTP/SSE transports | [Logic Apps MCP Server](https://learn.microsoft.com/en-us/azure/logic-apps/set-up-model-context-protocol-server-standard) \| [API Center Integration](https://learn.microsoft.com/en-us/azure/logic-apps/create-mcp-server-api-center) |
+| **Logic Apps MCP Server** | Standard logic apps as remote MCP servers, 1,400+ connectors, OAuth 2.0 auth, Streamable HTTP/SSE transports | [Logic Apps MCP Server](https://learn.microsoft.com/en-us/azure/logic-apps/create-model-context-protocol-server-standard) \| [API Center Integration](https://learn.microsoft.com/en-us/azure/logic-apps/create-mcp-server-api-center) |
 
 #### When to Use File Search vs Azure AI Search
 {: .no_toc }
@@ -724,7 +724,7 @@ M365T -->|1 Month or more| M365_Slow[Declarative Agents<br/>0 addl cost or PAYG<
 | Solution | Monthly Cost | Documentation |
 |----------|--------------|---------------|
 | **Foundry Serverless** | $5-15K/mo | PAYG tokens at scale + AI Search Standard S1 (~$250/mo) [(docs)](https://learn.microsoft.com/en-us/azure/search/search-sku-tier#tier-descriptions) |
-| **Foundry + Agent Service** | $10-30K/mo | Managed orchestration PaaS + AI Search S2 (~$1K/mo) [(docs)](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/overview) |
+| **Foundry + Agent Service** | $10-30K/mo | Managed orchestration PaaS + AI Search S2 (~$1K/mo) [(docs)](https://learn.microsoft.com/en-us/azure/foundry/agents/overview) |
 | **Foundry PTU + Premium** | $30K+/mo | PTU reservations (50+ PTUs minimum) + AI Search S2/S3 [(docs)](https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/provisioned-throughput-onboarding#hourly-usage) |
 
 #### Timeline Estimates
@@ -858,7 +858,7 @@ flowchart TD
 | Technology | Action Safety | Proactive | Data Grounding/Memory/Analytics | Key Governance Features | Documentation |
 |------------|---------------|-----------|----------------------------------|------------------------|---------------|
 | **Microsoft Foundry (Azure)** (GA) | ⚠️ Tool calling with autonomous planning | ✅ Proactive (Azure Functions, Logic Apps) | Grounding + BYO thread storage (Cosmos DB), Azure Monitor + OpenTelemetry | Azure RBAC (control + data plane), VNet + private endpoints, managed identity, CMK optional, ⚠️ API key OR Entra ID (Entra recommended) | [Microsoft Foundry security](https://learn.microsoft.com/en-us/azure/foundry/concepts/rbac-foundry) |
-| **AI Agent Service** | ⚠️ Autonomous with action tools (Logic Apps, Functions, MCP) | ✅ Proactive (event triggers) | BYO thread storage (Cosmos DB), Azure Monitor project-scoped | Full RBAC (project + resource), VNet + private endpoints, BYO storage, no public egress by default, container injection for VNet | [Agent Service Security](https://learn.microsoft.com/en-us/azure/ai-foundry/responsible-ai/agents/data-privacy-security) |
+| **AI Agent Service** | ⚠️ Autonomous with action tools (Logic Apps, Functions, MCP) | ✅ Proactive (event triggers) | BYO thread storage (Cosmos DB), Azure Monitor project-scoped | Full RBAC (project + resource), VNet + private endpoints, BYO storage, no public egress by default, container injection for VNet | [Agent Service Security](https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/agents/data-privacy-security) |
 | **AI Builder** (GA) | Varies by model type | ❌ Reactive | Dataverse storage | Power Platform DLP, Dataverse RBAC, environment location | [AI Builder Governance](https://learn.microsoft.com/en-us/ai-builder/administer) |
 
 #### Flexible Residency Technologies
@@ -867,7 +867,7 @@ flowchart TD
 | Technology | Action Safety | Proactive | Data Grounding/Memory/Analytics | Key Governance Features | Documentation |
 |------------|---------------|-----------|----------------------------------|------------------------|---------------|
 | **Logic Apps Standard** (workflow platform) | ⚠️ Autonomous execution (workflows) | ✅ Proactive (event-driven, 1,400+ connectors) | Workflow state + connector data | Granular Azure RBAC, VNet + private endpoints (Standard), managed identity, Customer Lockbox, FedRAMP/HIPAA/ISO 27001 | [Logic Apps Security](https://learn.microsoft.com/en-us/azure/logic-apps/security-controls-policy) |
-| **M365 Agents SDK** (GA) | ⚠️ Custom design (full developer responsibility) | ✅ Proactive (custom event handling) | Custom (developer implements) | Custom auth (MSAL, Entra ID), hosting platform RBAC, ⚠️ delegated OR application permissions, self-hosted = full network control | [M365 SDK Auth](https://learn.microsoft.com/en-us/microsoft-365/agents-sdk/microsoft-authentication-library-configuration-options) |
+| **M365 Agents SDK** (GA) | ⚠️ Custom design (full developer responsibility) | ✅ Proactive (custom event handling) | Custom (developer implements) | Custom auth (MSAL, Entra ID), hosting platform RBAC, ⚠️ delegated OR application permissions, self-hosted = full network control | [M365 SDK Auth](https://learn.microsoft.com/en-us/microsoft-365/agents-sdk/configure-authentication-msal) |
 | **Agent Framework** (GA) | Inherits from host app | Inherits from host app | Inherits from host app | No built-in governance (library only), inherits from hosting platform | [Agent Framework](https://learn.microsoft.com/en-us/agent-framework/) |
 
 **Key Decision Criteria:**
@@ -982,7 +982,7 @@ Exported YAML definitions **remain executable when deployed as Hosted Agents**. 
 | Technology | Status | Event Handling | Documentation |
 |------------|--------|----------------|---------------|
 | **Logic Apps agentic workflows** | **Consumption explicitly Preview**; Standard has no preview banner on the agent loop, but Microsoft never states Standard is GA | Event triggers + MCP Server (triggers a SINGLE agent, NOT multi-agent orchestration) | [Agentic workflows](https://learn.microsoft.com/en-us/azure/logic-apps/agent-workflows-concepts) |
-| **Azure Functions + Agent Service** | GA | Event-driven single agent invocation (event routing, NOT coordination) | [Agent Service](https://learn.microsoft.com/azure/ai-foundry/responsible-ai/agents/transparency-note) |
+| **Azure Functions + Agent Service** | GA | Event-driven single agent invocation (event routing, NOT coordination) | [Agent Service](https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/agents/transparency-note) |
 | **Event Grid + Foundry** | GA | Event routing to trigger agents independently (NOT orchestration) | [Azure Event Grid](https://learn.microsoft.com/azure/event-grid/) |
 
 #### Sources: Multi-Agent Orchestration

@@ -404,7 +404,7 @@ Read the terms as well as the rates. These vehicles carry fixed terms and defaul
 * [Logic Apps agentic workflows concepts](https://learn.microsoft.com/en-us/azure/logic-apps/agent-workflows-concepts) (Accessed: 2026-07-29)
 * [Word, Excel, and PowerPoint Agents (Frontier)](https://learn.microsoft.com/en-us/microsoft-365/copilot/wordexcelppt-agents) (Updated: 2026-03-30)
 * [Azure SRE Agent overview](https://learn.microsoft.com/en-us/azure/sre-agent/overview) (Updated: 2025-12-08)
-* [GitHub Copilot agents in VS Code](https://code.visualstudio.com/docs/copilot/agents/overview) (Updated: 2026-03-18)
+* [GitHub Copilot agents in VS Code](https://code.visualstudio.com/docs/agents/overview) (Updated: 2026-03-18)
 * [About GitHub Copilot cloud agent](https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent) (Accessed: 2026-07-28)
 * [Microsoft Agent Prepurchase Plan](https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/agent-pre-purchase) (Updated: 2026-07-17)
 * [Copilot Credit Pre-Purchase Plan](https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/copilot-credit-p3) (Updated: 2026-07-17)

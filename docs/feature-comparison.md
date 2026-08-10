@@ -55,11 +55,11 @@ Quick view of core platforms (M365 Copilot, Studio, Foundry, Agent Framework, Lo
 [^mobile-ext]: Microsoft 365 Copilot release notes (Nov 25, 2025): mobile support for custom engine agents and message-extension agents on iOS/Android. Source: [Microsoft 365 Copilot release notes - Nov 25, 2025](https://learn.microsoft.com/en-us/microsoft-365/copilot/release-notes#november-25,-2025) (Retrieved: 2025-01-27).
 [^agent-registry]: Agent Registry lifecycle actions (publish, activate, deploy, pin, block, remove, delete, reassign owner, export inventory). Source: [Agent Registry in the Microsoft 365 admin center](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/agent-registry?view=o365-worldwide#admin-actions-to-manage-agents) (Retrieved: 2026-01-23).
 [^search-api]: Overview of the Microsoft 365 Copilot Search API (Preview) for hybrid semantic + lexical search across OneDrive via Graph `/beta`. Source: [Microsoft 365 Copilot Search API overview](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/api/ai-services/search/overview) (Retrieved: 2025-10-20).
-[^when-not-agent]: Agent Framework guidance on when *not* to use an agent (prefer deterministic functions/workflows). Source: [Microsoft Agent Framework overview](https://learn.microsoft.com/en-us/agent-framework/overview/agent-framework-overview).
+[^when-not-agent]: Agent Framework guidance on when *not* to use an agent (prefer deterministic functions/workflows). Source: [Microsoft Agent Framework overview](https://learn.microsoft.com/en-us/agent-framework/overview/).
 [^aafs-triggers]: *What is Microsoft Foundry Agent Service?*, Microsoft Learn. GA update includes Azure Logic Apps triggers for agents. Source: [Foundry Agent Service overview](https://learn.microsoft.com/en-us/azure/foundry/agents/overview) (Retrieved: 2026-03-25).
 [^logicapps-agents]: Microsoft's official term is **"agentic workflows"**, built around an **"agent loop."** Status splits by hosting model: **Consumption agentic workflows are explicitly in preview**: verbatim, *"Consumption agentic workflows capability is in preview and is subject to the Supplemental Terms of Use for Microsoft Azure Previews."* **Standard** carries no preview banner on the agent loop itself, but **Microsoft never states that Standard is GA**, and specific Standard capabilities (for example, "with an LLM API") *are* marked preview. Check the exact capability you intend to ship. Source: [Logic Apps agentic workflow concepts](https://learn.microsoft.com/en-us/azure/logic-apps/agent-workflows-concepts) (Verified: 2026-07-29).
 [^aafs-mcp]: *What is Microsoft Foundry Agent Service?*, Microsoft Learn. MCP tool available as built-in agent tool. Source: [Foundry Agent Service overview](https://learn.microsoft.com/en-us/azure/foundry/agents/overview) (Retrieved: 2026-03-25).
-[^logicapps-mcp]: *Set up Standard logic apps as remote MCP servers (Preview)*, Microsoft Learn. Source: [Set up Standard logic apps as remote MCP servers](https://learn.microsoft.com/en-us/azure/logic-apps/set-up-model-context-protocol-server-standard) (Retrieved: 2025-11-18).
+[^logicapps-mcp]: *Set up Standard logic apps as remote MCP servers (Preview)*, Microsoft Learn. Source: [Set up Standard logic apps as remote MCP servers](https://learn.microsoft.com/en-us/azure/logic-apps/create-model-context-protocol-server-standard) (Retrieved: 2025-11-18).
 [^p3-licensing]: **Two prepurchase plans, not one.** Microsoft sells two distinct Azure reservation products, both 1-year term with auto-renew on by default and all purchases final. The **Copilot Credit Pre-Purchase Plan** buys **CCCUs** against eligible Copilot Credit usage. The **Microsoft Agent Prepurchase Plan** buys **ACUs** against *"select services across Microsoft Foundry, Microsoft Copilot Studio\*, Microsoft Fabric, and GitHub costs"* (\* = Copilot Studio, Dynamics 365 first-party agents, and Copilot). **1 ACU pays down US$1 of qualifying retail cost, purchased at a tiered discount.** Discount precedence is verbatim: *"Reservations always apply before prepurchase plans"* → Microsoft Foundry PTU Reservations → Microsoft Fabric Capacity Reservations → Copilot Credit Prepurchase Plan → Microsoft Agent Prepurchase Plan. Coverage of Copilot Cowork or Work IQ is **not stated by Microsoft**. Do not assume it. Sources: [Copilot Credit Pre-Purchase Plan](https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/copilot-credit-p3), [Microsoft Agent Prepurchase Plan](https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/agent-pre-purchase) (Verified: 2026-07-29).
 
 ---
@@ -114,7 +114,7 @@ Use this matrix to choose between Agent Framework Workflows, Logic Apps Agentic 
 | **Best For** | Multi-agent orchestration + checkpointing | Enterprise integration + AI agents | Fast automation within Studio agents |
 
 **Sources:**
-- [Agent Framework Workflows](https://learn.microsoft.com/en-us/agent-framework/overview/agent-framework-overview)
+- [Agent Framework Workflows](https://learn.microsoft.com/en-us/agent-framework/overview/)
 - [Logic Apps Agent Workflows](https://learn.microsoft.com/en-us/azure/logic-apps/agent-workflows-concepts)
 - [Copilot Studio Agent Flows](https://learn.microsoft.com/en-us/microsoft-copilot-studio/flows-overview)
 - [Agent Flows vs Cloud Flows FAQ](https://learn.microsoft.com/en-us/microsoft-copilot-studio/flows-faqs)
@@ -143,7 +143,7 @@ Use this matrix to choose between Agent Framework Workflows, Logic Apps Agentic 
 - No development team available
 
 **Sources:**
-- [Agent Framework Workflows Overview](https://learn.microsoft.com/en-us/agent-framework/overview/agent-framework-overview) (Updated: 2026-02-20)
+- [Agent Framework Workflows Overview](https://learn.microsoft.com/en-us/agent-framework/overview/) (Updated: 2026-02-20)
 
 ---
 
@@ -274,9 +274,9 @@ Side-by-side grounding options (Copilot connectors, AI Search, Fabric, Cosmos, P
 - [Optimize costs for Azure AI Search Serverless (Public Preview)](https://learn.microsoft.com/en-us/azure/search/serverless-cost-optimization) (Updated: 2026-06)
 - [Microsoft Fabric Platform](https://learn.microsoft.com/en-us/fabric/fundamentals/microsoft-fabric-overview) (Updated: 2026-03-18)
 - [Rayfin product page](https://www.microsoft.com/en-us/microsoft-fabric/features/rayfin) (Retrieved: 2026-06-08)
-- [Microsoft Foundry (Azure) FAQ](https://learn.microsoft.com/en-us/azure/ai-foundry/faq?view=foundry-classic) (Updated: 2026-01-23)
-- [Cosmos DB Vector Search](https://learn.microsoft.com/en-us/azure/cosmos-db/nosql/vector-search) (Updated: 2025-12-19)
-- [Use pgvector on Azure Database for PostgreSQL](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-use-pgvector)
+- [Microsoft Foundry (Azure) FAQ](https://learn.microsoft.com/en-us/azure/foundry-classic/faq?view=foundry-classic) (Updated: 2026-01-23)
+- [Cosmos DB Vector Search](https://learn.microsoft.com/en-us/azure/cosmos-db/vector-search) (Updated: 2025-12-19)
+- [Use pgvector on Azure Database for PostgreSQL](https://learn.microsoft.com/en-us/azure/postgresql/extensions/how-to-use-pgvector)
 - [`VECTOR_SEARCH` (Transact-SQL), Preview](https://learn.microsoft.com/en-us/sql/t-sql/functions/vector-search-transact-sql)
 - [Fabric data agent concept (GA)](https://learn.microsoft.com/en-us/fabric/data-science/concept-data-agent)
 - [Fabric IQ (Preview)](https://learn.microsoft.com/en-us/fabric/iq/)
@@ -294,7 +294,7 @@ Side-by-side grounding options (Copilot connectors, AI Search, Fabric, Cosmos, P
 
 | Feature | Status | Notes | API Version | Documentation |
 |---------|--------|-------|-------------|----------------|
-| Agentic retrieval (REST) | **GA** | Agentic retrieval is generally available through the `2026-04-01` REST API. **Portal experiences remain preview-only.** | 2026-04-01 | [Agentic retrieval concepts](https://learn.microsoft.com/en-us/azure/search/search-agentic-retrieval-concept) |
+| Agentic retrieval (REST) | **GA** | Agentic retrieval is generally available through the `2026-04-01` REST API. **Portal experiences remain preview-only.** | 2026-04-01 | [Agentic retrieval concepts](https://learn.microsoft.com/en-us/azure/search/agentic-retrieval-overview) |
 | Knowledge bases (renamed from knowledge agents) | Preview | Routes `/knowledgebases/*`, `outputMode` replaces `outputConfiguration`, `retrievalReasoningEffort` (minimal/low/medium) replaces fast path; partial responses supported. | 2025-11-01-preview | [Agentic retrieval migration](https://learn.microsoft.com/en-us/azure/search/agentic-retrieval-how-to-migrate) |
 | Knowledge sources | Preview | Indexed/remote SharePoint, indexed OneLake, web/Bing, search index, Azure Blob; `ingestionParameters` wrap embeddings/chat models, schedules, `contentExtractionMode` (Content Understanding). Portal uses 2025-08-01-preview objects. Migrate to 2025-11-01-preview. | 2025-11-01-preview | [Knowledge sources](https://learn.microsoft.com/en-us/azure/search/agentic-knowledge-source-overview) |
 | Content Understanding skill | Preview | Rich Markdown/table extraction and chunking without Text Split; billed to Foundry resource. | 2025-05-01-preview | [Content Understanding skill](https://learn.microsoft.com/en-us/azure/search/cognitive-search-skill-content-understanding) |

@@ -174,7 +174,7 @@ Read these before you read any product page. They are the maps; everything below
 
 - **Microsoft Foundry (Platform)**
   - [Portal (ai.azure.com)](https://ai.azure.com/?cid=learnDocs)
-  - [Azure OpenAI Service overview](https://learn.microsoft.com/en-us/azure/ai-services/openai/)
+  - [What is Microsoft Foundry?](https://learn.microsoft.com/en-us/azure/foundry/what-is-foundry): the platform overview, including where Azure OpenAI resources and the older Azure AI Studio/Azure AI Foundry brands land after the rebrand
   - [Azure AI Search service](https://learn.microsoft.com/en-us/azure/search/)
   - **Platform note:** Classic Foundry and the new Foundry portal use different APIs and do **not** have feature parity. Validate capability availability in the portal, SDK samples, and Microsoft Learn before committing to a design.
 

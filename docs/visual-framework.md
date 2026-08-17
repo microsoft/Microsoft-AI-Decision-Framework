@@ -171,7 +171,7 @@ flowchart TD
 | **Copilot Studio** | ⚠️ Actions can execute (add approval workflows) | 🔄 Reactive (conversational) or **✅ Autonomous (event triggers)** | Low-code, 13+ channels [(docs)](https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-what-is-copilot-studio) |
 | **M365 Agents SDK** | ⚠️ Custom action safety design | ✅ Proactive capable | Pro-code, 10+ channels, C#/JS/Python, BYO orchestrator [(docs)](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/create-deploy-agents-sdk) |
 | **Microsoft Foundry (Azure)** | ⚠️ Autonomous planning loops | ✅ Proactive capable | Custom UI deployment [(docs)](https://learn.microsoft.com/en-us/azure/foundry/what-is-foundry) |
-| **Agent Framework + AG-UI** (Preview) | ⚠️ Approvals via AG-UI middleware | ✅ Proactive capable (inherits host orchestration) | Protocol bridges agents to web/mobile UI with SSE streaming, backend tool rendering, shared state, and CopilotKit components [(docs)](https://learn.microsoft.com/en-us/agent-framework/integrations/ag-ui/) |
+| **Agent Framework + AG-UI** (Preview) | ⚠️ Approvals via AG-UI middleware | ✅ Proactive capable (inherits host orchestration) | Protocol bridges agents to web/mobile UI with SSE streaming, backend tool rendering, shared state, and CopilotKit components [(docs)](https://learn.microsoft.com/en-us/agent-framework/integrations/by-component/ui/ag-ui/) |
 
 #### Autonomous Agents
 {: .no_toc }
@@ -325,7 +325,7 @@ flowchart TD
 | Technology | Description | Documentation |
 |------------|-------------|---------------|
 | **Copilot Studio** | Low-code platform, no dev support needed | [Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-what-is-copilot-studio) |
-| **Copilot Studio + Custom Actions** | Low-code with occasional developer support for custom connectors/flows | [Add tools to custom agents](https://learn.microsoft.com/en-us/microsoft-copilot-studio/advanced-plugin-actions) |
+| **Copilot Studio + Custom Actions** | Low-code with occasional developer support for custom connectors/flows | [Add tools to custom agents](https://learn.microsoft.com/en-us/microsoft-copilot-studio/add-tools-custom-agent) |
 
 #### Developer (GA unless noted)
 {: .no_toc }
@@ -335,8 +335,8 @@ flowchart TD
 | **M365 Agents SDK** | Pro-code for M365-centric solutions, C#/JavaScript/Python, 10+ channels, BYO orchestrator | [M365 Agents SDK](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/overview-custom-engine-agent) |
 | **Microsoft Foundry (Azure)** | Pro-code for Azure-centric solutions, custom models, full control | [Microsoft Foundry](https://learn.microsoft.com/en-us/azure/foundry/what-is-foundry) |
 | **Microsoft Agent Framework** | **Microsoft's investment direction** - Microsoft describes it as the *"direct successor"* and *"next generation of both"* Semantic Kernel and AutoGen. Orchestration patterns: Sequential, Concurrent, Handoff, Group Chat, Magentic. Languages: Python, C#/.NET, and **Go (Public Preview)**. No sunset date has been announced for Semantic Kernel or AutoGen. | [Agent Framework](https://learn.microsoft.com/en-us/agent-framework/) |
-| **Agent Framework + AG-UI** (Preview) | Protocol layer for web/mobile clients, supports SSE streaming, backend tool rendering, human approvals, shared/predictive state, and CopilotKit components. | [AG-UI Integration](https://learn.microsoft.com/en-us/agent-framework/integrations/ag-ui/) |
-| **Copilot Studio + Custom Actions** | Mid-level developers, low-code with custom code extensibility | [Add tools to custom agents](https://learn.microsoft.com/en-us/microsoft-copilot-studio/advanced-plugin-actions) |
+| **Agent Framework + AG-UI** (Preview) | Protocol layer for web/mobile clients, supports SSE streaming, backend tool rendering, human approvals, shared/predictive state, and CopilotKit components. | [AG-UI Integration](https://learn.microsoft.com/en-us/agent-framework/integrations/by-component/ui/ag-ui/) |
+| **Copilot Studio + Custom Actions** | Mid-level developers, low-code with custom code extensibility | [Add tools to custom agents](https://learn.microsoft.com/en-us/microsoft-copilot-studio/add-tools-custom-agent) |
 | **Logic Apps agentic workflows** | Event-driven agent loop, 1,400+ connectors. **Consumption is explicitly in preview.** Standard shows no preview banner on the agent loop, but Microsoft never states Standard is GA and some Standard capabilities are marked preview. | [Logic Apps agentic workflows](https://learn.microsoft.com/en-us/azure/logic-apps/agent-workflows-concepts) |
 
 #### Developer: The Codebase Loop (Bucket 3)
@@ -497,7 +497,7 @@ flowchart TD
 
 | Technology | Capabilities | Documentation |
 |------------|--------------|---------------|
-| **Microsoft Graph Connectors** | M365 data sources (SharePoint, OneDrive, Teams) | [Graph Connectors Overview](https://learn.microsoft.com/en-us/microsoftsearch/connectors-overview) |
+| **Microsoft Graph Connectors** | M365 data sources (SharePoint, OneDrive, Teams) | [Graph Connectors Overview](https://learn.microsoft.com/en-us/microsoft-365/copilot/connectors/overview) |
 
 #### Document Processing - File Search (GA)
 {: .no_toc }
@@ -725,7 +725,7 @@ M365T -->|1 Month or more| M365_Slow[Declarative Agents<br/>0 addl cost or PAYG<
 |----------|--------------|---------------|
 | **Foundry Serverless** | $5-15K/mo | PAYG tokens at scale + AI Search Standard S1 (~$250/mo) [(docs)](https://learn.microsoft.com/en-us/azure/search/search-sku-tier#tier-descriptions) |
 | **Foundry + Agent Service** | $10-30K/mo | Managed orchestration PaaS + AI Search S2 (~$1K/mo) [(docs)](https://learn.microsoft.com/en-us/azure/foundry/agents/overview) |
-| **Foundry PTU + Premium** | $30K+/mo | PTU reservations (50+ PTUs minimum) + AI Search S2/S3 [(docs)](https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/provisioned-throughput-onboarding#hourly-usage) |
+| **Foundry PTU + Premium** | $30K+/mo | PTU reservations (50+ PTUs minimum) + AI Search S2/S3 [(docs)](https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/provisioned-throughput-billing#hourly-billing) |
 
 #### Timeline Estimates
 {: .no_toc }
@@ -951,7 +951,7 @@ flowchart TD
 | Technology | Status | Capabilities | Documentation |
 |------------|--------|--------------|---------------|
 | **Copilot Studio** | **A2A GA (April 2026)**; **"Connect other agents" is Preview** | Agent-to-agent mesh, connected agents, and what Microsoft's guidance calls *"inline agents, also known as child agents."* Do not read A2A's GA as a blanket GA for the multi-agent surface | [Connected Agents](https://learn.microsoft.com/en-us/microsoft-copilot-studio/authoring-add-other-agents) |
-| **Foundry Agent Service** | Preview (incoming A2A endpoint) | Lightweight direct delegation; direction and protocol support must be validated | [A2A integration](https://learn.microsoft.com/en-us/agent-framework/integrations/a2a) |
+| **Foundry Agent Service** | Preview (incoming A2A endpoint) | Lightweight direct delegation; direction and protocol support must be validated | [A2A integration](https://learn.microsoft.com/en-us/agent-framework/hosting/self-hosting/a2a/server) |
 | **Fabric data agents** | **GA** | Consumed by other agents for data grounding (NOT an orchestrator). Requires F2+ or P1+ capacity | [Fabric integration](https://learn.microsoft.com/en-us/fabric/data-science/data-agent-microsoft-copilot-studio) |
 
 #### Agent Workflow Orchestration

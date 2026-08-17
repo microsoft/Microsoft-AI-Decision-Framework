@@ -1,4 +1,19 @@
 {
-  "lastRun": "2026-08-10",
-  "urls": {}
+  "lastRun": "2026-08-17",
+  "urls": {
+    "https://marketplace.visualstudio.com/items?itemName=TeamsDevApp.ms-teams-vscode-extension": {
+      "firstFailed": "2026-08-17",
+      "failCount": 1,
+      "lastStatus": "000",
+      "state": "suspect",
+      "note": "connection timeout; Marketplace is bot-hostile. Teams Toolkit for VS Code citation in docs/technologies.md and docs/resources.md"
+    },
+    "https://aka.ms/agent/migrate/tool": {
+      "firstFailed": "2026-08-17",
+      "failCount": 1,
+      "lastStatus": "429",
+      "state": "suspect",
+      "note": "rate limited, but resolved to github.com/azure-ai-foundry/foundry-samples migration README. aka.ms indirection preserved. Agents SDK migration tool citation in docs/technologies.md"
+    }
+  }
 }

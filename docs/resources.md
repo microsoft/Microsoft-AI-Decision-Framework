@@ -123,7 +123,7 @@ Treat it as a reading list with a shelf life. Microsoft Learn stamps every page 
 - [Security for Microsoft 365 Copilot](https://learn.microsoft.com/en-us/microsoft-365/copilot/security-microsoft-365-copilot)
 - [M365 Copilot admin guide](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-setup)
 - [Integrated apps management](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/test-and-deploy-microsoft-365-apps)
-- [Graph connectors administration](https://learn.microsoft.com/en-us/microsoftsearch/configure-connector)
+- [Graph connectors administration](https://learn.microsoft.com/en-us/microsoft-365/copilot/connectors/deployment-overview)
 - [Agent Registry in the Microsoft 365 admin center](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/agent-registry?view=o365-worldwide#admin-actions-to-manage-agents) (Updated: 2026-01-23)
 - [Microsoft 365 Copilot release notes - November 25, 2025](https://learn.microsoft.com/en-us/microsoft-365/copilot/release-notes#november-25,-2025)
 
@@ -170,11 +170,11 @@ Read these before you read any product page. They are the maps; everything below
   - [Wave 3: Powering Frontier Transformation](https://www.microsoft.com/en-us/microsoft-365/blog/2026/03/09/powering-frontier-transformation-with-copilot-and-agents/)
   - [Copilot Cowork announcement (March 2026)](https://www.microsoft.com/en-us/microsoft-365/blog/2026/03/09/copilot-cowork-a-new-way-of-getting-work-done/): superseded by the GA announcement below
   - [Copilot Cowork is now generally available](https://www.microsoft.com/en-us/microsoft-365/blog/2026/06/16/copilot-cowork-is-now-generally-available/): **GA worldwide 2026-06-16**; requires a Microsoft 365 Copilot USL plus Copilot Credits. ("Cowork 1" is announced only; do not plan against it.)
-  - [Frontier Program enrollment](https://adoption.microsoft.com/en-us/copilot/frontier-program/)
+  - [Frontier Program enrollment](https://www.microsoft.com/en-us/microsoft-365-copilot/frontier-program)
 
 - **Microsoft Foundry (Platform)**
   - [Portal (ai.azure.com)](https://ai.azure.com/?cid=learnDocs)
-  - [Azure OpenAI Service overview](https://learn.microsoft.com/en-us/azure/ai-services/openai/)
+  - [Microsoft Foundry Models overview](https://learn.microsoft.com/en-us/azure/foundry/concepts/foundry-models-overview)
   - [Azure AI Search service](https://learn.microsoft.com/en-us/azure/search/)
   - **Platform note:** Classic Foundry and the new Foundry portal use different APIs and do **not** have feature parity. Validate capability availability in the portal, SDK samples, and Microsoft Learn before committing to a design.
 
@@ -197,7 +197,7 @@ Read these before you read any product page. They are the maps; everything below
   - [Copilot Studio documentation](https://learn.microsoft.com/en-us/microsoft-copilot-studio/)
   - [Computer Use (GA)](https://learn.microsoft.com/en-us/microsoft-copilot-studio/computer-use)
   - **Verified feature status:** **GitHub Copilot harness GA (2026-08-03)**, the default for new agents · generative orchestration **GA** (default *within the standard harness*) · computer use **GA (May 2026)** · agent-to-agent (A2A) **GA (April 2026)** · Copilot Tuning **early access preview** · scheduled prompts **GA (2026-07-01)**. Microsoft does **not** state a status for autonomous/triggered agents, child (inline) agents, connected Copilot Studio agents, Foundry agents, Fabric data agents, or M365 Agents SDK agents inside Copilot Studio. Treat those as *status not stated* and confirm in the what's-new feed.
-  - [Work IQ MCP in Copilot Studio (Preview)](https://learn.microsoft.com/en-us/microsoft-copilot-studio/use-work-iq)
+  - [Work IQ MCP in Copilot Studio (Preview)](https://learn.microsoft.com/en-us/microsoft-copilot-studio/add-work-iq)
   - [Custom MCP server creation](https://learn.microsoft.com/en-us/microsoft-copilot-studio/mcp-create-new-server)
   - [Connect to existing MCP server](https://learn.microsoft.com/en-us/microsoft-copilot-studio/mcp-add-existing-server-to-agent)
   - [Copilot Studio Kit](https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/kit-overview)
@@ -243,7 +243,7 @@ Read these before you read any product page. They are the maps; everything below
 {: .no_toc }
 
 - **Microsoft Graph**
-  - [Graph Connectors](https://learn.microsoft.com/en-us/graph/connecting-external-content-connectors-overview)
+  - [Graph Connectors](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/overview-copilot-connector)
   - [Graph API Reference](https://learn.microsoft.com/en-us/graph/overview)
 
 - **Azure AI Search** (name unchanged; it is the retrieval engine underneath Foundry IQ)
@@ -274,8 +274,8 @@ Read these before you read any product page. They are the maps; everything below
   - [Work IQ API overview](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/work-iq/api-overview): four API domains (Chat, Context, Tools, Workspaces), billed in Copilot Credits, **Entra delegated auth only (app-only is not supported)**
   - [Announcing the new Work IQ APIs](https://www.microsoft.com/en-us/microsoft-365/blog/2026/06/02/announcing-the-new-work-iq-apis/)
   - [Work IQ MCP overview (Preview)](https://learn.microsoft.com/en-us/microsoft-agent-365/tooling-servers-overview)
-  - [Work IQ in Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/use-work-iq)
-  - [Work IQ CLI](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/workiq-overview)
+  - [Work IQ in Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/add-work-iq)
+  - [Work IQ CLI](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/work-iq/cli)
 
 - **Web IQ (Limited Access)**
   - [Web IQ product page](https://www.microsoft.com/en-us/WebIQ)

@@ -192,7 +192,7 @@ Read the trade-off before the diagram. The architecture is the easy part.
 
 - [Create and deploy with Microsoft 365 Agents SDK](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/create-deploy-agents-sdk)[^agentsdk-overview]
 - [Custom engine agents for Microsoft 365 overview](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/overview-custom-engine-agent)[^agentsdk-build]
-- [Microsoft 365 Agents Toolkit](https://learn.microsoft.com/en-us/microsoft-365/developer/overview-m365-agents-toolkit)[^agents-toolkit]
+- [Microsoft 365 Agents Toolkit](https://learn.microsoft.com/en-us/microsoftteams/platform/toolkit/overview-agents-toolkit)[^agents-toolkit]
 - [Microsoft Agent Framework overview](https://learn.microsoft.com/en-us/agent-framework/overview/)[^agent-framework]
 - [Bring your agents into Microsoft 365 Copilot](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/bring-agents-to-copilot)[^bring-agents]
 
@@ -242,8 +242,8 @@ Read the trade-off before the diagram. The architecture is the easy part.
 - [Agent Framework orchestration patterns](https://learn.microsoft.com/en-us/agent-framework/workflows/orchestrations/)[^agent-orchestrations]
 - [Checkpointing and resuming workflows](https://learn.microsoft.com/en-us/agent-framework/workflows/checkpoints)[^agent-checkpoint]
 - [Agents in Workflows tutorial](https://learn.microsoft.com/en-us/agent-framework/workflows/agents-in-workflows)[^agent-azure-workflow]
-- [Microsoft Foundry Agents integration](https://learn.microsoft.com/en-us/agent-framework/agents/providers/microsoft-foundry)[^agent-azure-agent]
-- [Foundry Agent Service transparency note](https://learn.microsoft.com/en-us/azure/ai-foundry/responsible-ai/agents/transparency-note?view=foundry#capabilities)[^agent-transparency]
+- [Microsoft Foundry Agents integration](https://learn.microsoft.com/en-us/agent-framework/integrations/by-component/model-providers/microsoft-foundry)[^agent-azure-agent]
+- [Foundry Agent Service transparency note](https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/agents/transparency-note?view=foundry#capabilities)[^agent-transparency]
 
 **Status:** Microsoft Agent Framework GA for Python and C#/.NET, Go Public Preview; Microsoft Foundry Agent Service (GA). **Foundry Workflows retires 2026-12-01.**
 **Confidence Level:** High (GA framework + GA runtime)
@@ -677,15 +677,15 @@ Choose the path that matches your team's velocity and codebase complexity. All t
 [^feature-comparison]: See `docs/feature-comparison.md` for the detailed comparison matrices referenced in this pattern.
 [^evaluation-governance]: See Governance & Compliance in `docs/evaluation-criteria.md#governance--compliance` for scoring guidance.
 [^api-plugins]: Plugins for Microsoft 365 Copilot, Microsoft Learn. Retrieved: 2026-03-23. [https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/overview-plugins](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/overview-plugins)
-[^agents-toolkit]: Microsoft 365 Agents Toolkit overview, Microsoft Learn. Retrieved: 2026-01-29. [https://learn.microsoft.com/en-us/microsoft-365/developer/overview-m365-agents-toolkit](https://learn.microsoft.com/en-us/microsoft-365/developer/overview-m365-agents-toolkit)
+[^agents-toolkit]: Microsoft 365 Agents Toolkit overview, Microsoft Learn. Retrieved: 2026-01-29. [https://learn.microsoft.com/en-us/microsoftteams/platform/toolkit/overview-agents-toolkit](https://learn.microsoft.com/en-us/microsoftteams/platform/toolkit/overview-agents-toolkit)
 [^agentsdk-build]: Custom engine agents for Microsoft 365 overview, Microsoft Learn. Updated: 2026-07-02. [https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/overview-custom-engine-agent](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/overview-custom-engine-agent)
 [^agentframework-overview]: Microsoft Agent Framework overview, Microsoft Learn. Retrieved: 2026-02-20. [https://learn.microsoft.com/en-us/agent-framework/overview/](https://learn.microsoft.com/en-us/agent-framework/overview/)
 [^agent-orchestrations]: Agent Framework orchestration overview, Microsoft Learn. Retrieved: 2026-02-13. [https://learn.microsoft.com/en-us/agent-framework/workflows/orchestrations/](https://learn.microsoft.com/en-us/agent-framework/workflows/orchestrations/)
 [^agent-checkpoint]: Checkpointing and resuming workflows, Microsoft Learn. Retrieved: 2026-03-11. [https://learn.microsoft.com/en-us/agent-framework/workflows/checkpoints](https://learn.microsoft.com/en-us/agent-framework/workflows/checkpoints)
 [^agent-azure-workflow]: Agents in Workflows tutorial, Microsoft Learn. Retrieved: 2026-03-11. [https://learn.microsoft.com/en-us/agent-framework/workflows/agents-in-workflows](https://learn.microsoft.com/en-us/agent-framework/workflows/agents-in-workflows)
-[^agent-azure-agent]: Microsoft Foundry Agents integration, Microsoft Learn. Retrieved: 2026-03-20. [https://learn.microsoft.com/en-us/agent-framework/agents/providers/microsoft-foundry](https://learn.microsoft.com/en-us/agent-framework/agents/providers/microsoft-foundry)
-[^agent-transparency]: Foundry Agent Service transparency note, Microsoft Learn. Retrieved: 2026-02-27. [https://learn.microsoft.com/en-us/azure/ai-foundry/responsible-ai/agents/transparency-note?view=foundry#capabilities](https://learn.microsoft.com/en-us/azure/ai-foundry/responsible-ai/agents/transparency-note?view=foundry#capabilities)
-[^agui-integration]: AG-UI integration with Agent Framework, Microsoft Learn. Preview, Updated: 2025-11-07. [https://learn.microsoft.com/en-us/agent-framework/integrations/ag-ui/](https://learn.microsoft.com/en-us/agent-framework/integrations/ag-ui/)
+[^agent-azure-agent]: Microsoft Foundry Agents integration, Microsoft Learn. Retrieved: 2026-03-20. [https://learn.microsoft.com/en-us/agent-framework/integrations/by-component/model-providers/microsoft-foundry](https://learn.microsoft.com/en-us/agent-framework/integrations/by-component/model-providers/microsoft-foundry)
+[^agent-transparency]: Foundry Agent Service transparency note, Microsoft Learn. Retrieved: 2026-02-27. [https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/agents/transparency-note?view=foundry#capabilities](https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/agents/transparency-note?view=foundry#capabilities)
+[^agui-integration]: AG-UI integration with Agent Framework, Microsoft Learn. Preview, Updated: 2025-11-07. [https://learn.microsoft.com/en-us/agent-framework/integrations/by-component/ui/ag-ui/](https://learn.microsoft.com/en-us/agent-framework/integrations/by-component/ui/ag-ui/)
 [^graph-connectors]: Microsoft 365 Copilot connectors overview (external data indexing into Microsoft 365), Microsoft Learn. Retrieved: 2026-02-25. [https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/overview-copilot-connector](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/overview-copilot-connector)
 [^declarative-agents]: Declarative Agents for Microsoft 365 Copilot overview, Microsoft Learn. Retrieved: 2025-12-01. [https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/overview-declarative-agent](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/overview-declarative-agent)
 [^knowledge-sharepoint]: Add SharePoint as a knowledge source in Copilot Studio, Microsoft Learn. Retrieved: 2026-01-12. [https://learn.microsoft.com/en-us/microsoft-copilot-studio/knowledge-add-sharepoint](https://learn.microsoft.com/en-us/microsoft-copilot-studio/knowledge-add-sharepoint)

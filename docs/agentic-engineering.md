@@ -9,7 +9,7 @@ description: "Vibe coding, vibe engineering, and agentic engineering: the vocabu
 {: .no_toc }
 
 **The industry spent two years arguing about what to call this, and the argument produced three terms your engineers already use.**
-{: .fs-6 .fw-300 }
+{: .page-subtitle }
 
 ---
 

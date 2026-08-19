@@ -11,7 +11,7 @@ description: "Real-world scenarios with technology recommendations"
 {: .no_toc }
 
 **The fastest way to get an architecture wrong is to recognize the wrong problem.**
-{: .fs-6 .fw-300 }
+{: .page-subtitle }
 
 ## Table of contents
 {: .no_toc .text-delta }

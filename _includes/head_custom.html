@@ -36,12 +36,11 @@
     mermaid.run({ querySelector: '.mermaid' });
   });
 </script>
-<script>
-  // "On this page" rail — see _includes/page_toc.js
-  document.addEventListener('DOMContentLoaded', () => {
-    {% include page_toc.js %}
-  });
-</script>
+<!-- "On this page" rail.
+     Loaded as a static asset rather than inlined via {% raw %}{% include %}{% endraw %}: the built HTML is
+     served with newlines stripped, which would collapse the script onto one
+     line and let its first // comment swallow the rest of the file. -->
+<script src="{{ '/assets/js/page-toc.js' | relative_url }}" defer></script>
 <style>
   /* Hide the theme footer inside the sidebar */
   body > .side-bar > footer.site-footer {

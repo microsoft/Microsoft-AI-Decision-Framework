@@ -1,7 +1,12 @@
 // Builds the "On this page" rail from the headings the page already has.
 // Generated rather than authored so every page gets one, including those with
 // no kramdown {:toc} block, and so it stays correct when headings change.
+//
+// Loaded as a static asset with `defer`. It must not be inlined into the page:
+// the built HTML is served with newlines stripped, which would collapse this
+// file onto a single line and let the first // comment swallow all of it.
 (() => {
+  const build = () => {
   const content = document.querySelector('#main-content');
   if (!content) return;
 
@@ -92,4 +97,13 @@
   addEventListener('scroll', schedule, { passive: true });
   addEventListener('resize', schedule, { passive: true });
   update();
+  };
+
+  // `defer` means the DOM is normally ready by now; the guard keeps this
+  // correct if the tag is ever moved or the attribute dropped.
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', build, { once: true });
+  } else {
+    build();
+  }
 })();

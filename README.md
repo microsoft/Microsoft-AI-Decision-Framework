@@ -7,10 +7,9 @@ permalink: /
 ---
 
 # Microsoft AI Decision Framework
-{: .fs-9 }
 
 Master the art of selecting the right Microsoft AI technology for your business needs.
-{: .fs-6 .fw-300 }
+{: .page-subtitle }
 
 [Start Learning]({{ '/docs/capability-model' | relative_url }}){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
 [Explore Visual Framework Reference]({{ '/docs/visual-framework' | relative_url }}){: .btn .fs-5 .mb-4 .mb-md-0 }

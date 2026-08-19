@@ -376,7 +376,8 @@ Read these before you read any product page. They are the maps; everything below
 - [Microsoft 365 Copilot Extensibility Learning Path](https://learn.microsoft.com/training/paths/prepare-microsoft-365-copilot-extensibility/)
 - [Build Copilot Extensions](https://learn.microsoft.com/training/paths/build-foundation-extend-microsoft-365-copilot/)
 - [Azure AI Engineer Certification](https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/)
-- [Semantic Kernel Learning Path](https://learn.microsoft.com/training/paths/develop-ai-agents-azure-open-ai-semantic-kernel-sdk/)
+- [Develop AI Agents on Azure](https://learn.microsoft.com/en-us/training/paths/develop-ai-agents-azure/) - successor to the retired Semantic Kernel learning path, now taught with Agent Framework
+- [Introduction to Semantic Kernel](https://learn.microsoft.com/en-us/semantic-kernel/overview/) - reference documentation for teams still running on Semantic Kernel
 
 ### GitHub Repositories
 {: .no_toc }

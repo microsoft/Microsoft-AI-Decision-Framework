@@ -9,7 +9,7 @@ description: "Interactive decision tree explorer with pan, zoom, and branch isol
 {: .no_toc }
 
 Interactive, zoomable decision trees for the AI Decision Framework.
-{: .fs-6 .fw-300 }
+{: .page-subtitle }
 
 {: .note }
 The Decision Explorer replaces the largest Mermaid diagrams from the [Visual Framework]({{ '/docs/visual-framework' | relative_url }}) with an interactive experience. Use it when you need to **navigate** a decision tree rather than just **read** one. The written docs remain the source of truth. The explorer is the map, not the territory.

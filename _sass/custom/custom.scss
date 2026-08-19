@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Source+Sans+3:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+/* Webfonts are loaded from _includes/head_custom.html rather than an @import
+   here, so they are fetched in parallel with the theme stylesheet instead of
+   after it. */
 
 :root {
 	--bg: #0d1117;
@@ -28,6 +30,28 @@
 	--table-row-alt: #111b2d;
 	--gradient-hero: linear-gradient(135deg, #0f172a 0%, #111827 40%, #0b1224 100%);
 	--gradient-accent: linear-gradient(90deg, #3b82f6, #f59e0b);
+
+	/* Reading measure — the single knob for text density.
+	   Set to fill the available column and cap only on very wide displays, which
+	   lands at roughly 200 characters per line at 1920px and 240 at 2560px.
+
+	   That is a deliberate density choice over the typographic norm: WCAG 2.1
+	   SC 1.4.8 (AAA) asks for 80 characters, and Butterick puts the ceiling at
+	   90. For reference, 34rem ≈ 78 characters and 44rem ≈ 100 (GitHub Docs'
+	   720px article column). Lower this token to tighten it.
+
+	   `rem` rather than `ch` on purpose. `ch` resolves against each element's own
+	   font, so headings set in Sora would take a visibly wider measure than body
+	   text in Source Sans 3 and their edges would no longer line up. `rem` keeps
+	   one shared column edge while still scaling with the reader's own base font
+	   size, which is the property that matters for SC 1.4.4 (Resize Text). */
+	--measure: 102.5rem;
+	--measure-wide: 100%;
+	--rail: 12rem;
+	--container: 125rem;
+	/* Height of the sticky site header (measured 60px), used to offset the rail
+	   and anchor scroll targets so neither ends up underneath it. */
+	--header-h: 3.75rem;
 }
 
 /* Base layout */
@@ -36,7 +60,6 @@ body {
 	background: var(--bg);
 	color: var(--text);
 	line-height: 1.6;
-	letter-spacing: 0.01em;
 	display: flex;
 	flex-direction: row;
 	min-height: 100vh;
@@ -45,8 +68,10 @@ body {
 .side-bar {
 	background: var(--bg-panel);
 	border-right: 1px solid var(--border);
+	/* flex-shrink would otherwise collapse the rail to its min-width and wrap
+	   nav labels ("AI Instinct: The / Human Framework"). */
+	flex: 0 0 auto;
 	width: clamp(220px, 18vw, 260px);
-	min-width: clamp(210px, 16vw, 240px);
 	box-shadow: inset -1px 0 0 rgba(255, 255, 255, 0.02);
 	position: sticky;
 	top: 0;
@@ -85,6 +110,11 @@ body > header > div.d-md-block.d-none.site-footer {
 
 .main {
 	flex: 1 1 auto;
+	/* Without this, the flex item refuses to shrink below the intrinsic width of
+	   its widest child, so a wide comparison table drags the whole page into
+	   horizontal scroll instead of letting .table-wrapper scroll on its own
+	   (WCAG 2.1 SC 1.4.10 Reflow). */
+	min-width: 0;
 	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
@@ -108,12 +138,17 @@ body > header > div.d-md-block.d-none.site-footer {
 	justify-content: flex-start;
 }
 
+/* Left-aligned rather than centred: prose starts just after the nav and the
+   "On this page" rail is pinned to the far side, so the slack sits between
+   them — where wide tables and diagrams actually use it — instead of being
+   split into two dead margins at the page edges. */
 #main-content,
 .main-content {
-	margin: 0;
-	max-width: 100%;
+	margin-inline: 0;
+	max-width: var(--container);
 	width: 100%;
-	padding: 1.25rem 1.5rem 3rem;
+	min-width: 0;
+	padding: 1.25rem 1.25rem 4rem;
 }
 
 .main-header,
@@ -134,21 +169,264 @@ body > header > div.d-md-block.d-none.site-footer {
 	flex: 1 1 auto;
 }
 
-.main-content {
-	max-width: 100%;
+/* ── Reading measure ────────────────────────────────────────────────
+   Prose is held to a comfortable line length; anything the reader scans
+   rather than reads (tables, diagrams, code) breaks out to full width.
+
+   Both `.main-content > x` and `.main-content > main > x` are covered because
+   Just the Docs wraps page content in a <main> element, and has not always
+   done so. */
+.main-content,
+.main-content > main {
+	> p,
+	> ul,
+	> ol,
+	> dl,
+	> blockquote,
+	> h1,
+	> h2,
+	> h3,
+	> h4,
+	> h5,
+	> h6,
+	> hr {
+		max-width: var(--measure);
+	}
+
+	> .table-wrapper,
+	> table,
+	> pre,
+	> .mermaid,
+	> .highlight,
+	> div[class*='language-'] {
+		max-width: var(--measure-wide);
+	}
+
+	/* A paragraph that exists only to carry an image is a figure, not prose. */
+	> p:has(> img:only-child) {
+		max-width: var(--measure-wide);
+	}
 }
 
-/* Typography */
+.main-content img {
+	max-width: 100%;
+	height: auto;
+}
+
+/* ── "On this page" rail ────────────────────────────────────────────
+   Capping the measure leaves room to the right of the text. Rather than
+   leave it empty, it carries section navigation — the same arrangement
+   Microsoft Learn and GitHub Docs use. Built at runtime from the page's own
+   headings by _includes/page_toc.js, so every page gets one. */
+.page-toc {
+	display: none;
+}
+
+@media (min-width: 1200px) {
+	/* Everything here hangs off .has-page-toc, which page_toc.js adds only after
+	   it has actually built a rail. Keying off the class rather than :has() means
+	   a browser without :has(), a page with too little structure, or a failed
+	   script all fall back to one column with the author's own in-page contents
+	   still visible — rather than hiding the contents and stranding an
+	   unpositioned nav at the foot of the page. */
+	.has-page-toc {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) var(--rail);
+		column-gap: 2rem;
+		align-items: start;
+	}
+
+	/* .main-content also holds the theme's trailing <hr> and <footer>; without
+	   this they auto-place into the rail column. Class rather than id selectors
+	   throughout, so the rail's own rule below can still outrank this one. */
+	.has-page-toc > * {
+		grid-column: 1;
+		min-width: 0;
+	}
+
+	.has-page-toc > .page-toc {
+		display: block;
+		grid-column: 2;
+		grid-row: 1;
+		position: sticky;
+		/* Clears the sticky site header, which would otherwise cover the top of
+		   the rail once the page is scrolled. */
+		top: calc(var(--header-h) + 1rem);
+		max-height: calc(100vh - var(--header-h) - 2.5rem);
+		overflow-y: auto;
+		overscroll-behavior: contain;
+		padding-left: 1rem;
+		border-left: 1px solid var(--border);
+		font-size: 0.875rem;
+		line-height: 1.45;
+	}
+
+	/* The in-page kramdown TOC would duplicate the rail at this width. Pages
+	   fence the TOC between two `---` rules, so the leading one is dropped too
+	   rather than leaving a doubled divider behind. Descendant selectors because
+	   the essay layout nests its content one level deeper. */
+	.has-page-toc h2#table-of-contents,
+	.has-page-toc #markdown-toc {
+		display: none;
+	}
+
+	.has-page-toc hr:has(+ h2#table-of-contents) {
+		display: none;
+	}
+}
+
+/* Jumping to an anchor must not park the heading under the sticky header. */
+.main-content :is(h1, h2, h3, h4, h5, h6)[id] {
+	scroll-margin-top: calc(var(--header-h) + 1rem);
+}
+
+@media print {
+	.page-toc {
+		display: none !important;
+	}
+}
+
+.page-toc-title {
+	font-size: 0.75rem !important;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	color: var(--muted);
+	margin: 0 0 0.6rem;
+}
+
+.main-content .page-toc ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.main-content .page-toc li {
+	margin: 0;
+
+	&:before {
+		content: none;
+	}
+}
+
+.page-toc a {
+	display: block;
+	padding: 0.25rem 0;
+	color: var(--muted);
+	text-decoration: none;
+	border-left: 2px solid transparent;
+	margin-left: -1rem;
+	padding-left: 1rem;
+	transition: color 120ms ease, border-color 120ms ease;
+}
+
+.page-toc a:hover {
+	color: var(--link-hover);
+}
+
+.page-toc a[aria-current] {
+	color: var(--link);
+	border-left-color: var(--primary);
+}
+
+.page-toc-h3 a {
+	padding-left: 2rem;
+	font-size: 0.8125rem;
+	color: var(--muted);
+}
+
+/* ── Typography ─────────────────────────────────────────────────────
+   Just the Docs emits `font-size: … !important` from its fs-* mixins
+   (_sass/support/mixins/_typography.scss), so plain declarations here are
+   silently discarded. `!important` is therefore required — but only ever on
+   font-size. Never on line-height, letter-spacing, word-spacing or paragraph
+   margins, so a reader overriding those (WCAG 2.1 SC 1.4.12) still wins.
+
+   The theme's own scale runs 36 / 24 / 18 / 12px, which puts h4 *below* body
+   text and in uppercase. This restores a monotonic 32 / 24 / 20 / 17 / 16. */
 h1, h2, h3, h4, h5, h6 {
 	font-family: 'Sora', 'Source Sans 3', sans-serif;
 	color: var(--text-strong);
 	letter-spacing: -0.01em;
+	text-wrap: balance;
 }
 
-h1 { font-size: 2.2rem; }
-h2 { font-size: 1.7rem; }
-h3 { font-size: 1.35rem; }
-h4 { font-size: 1.1rem; }
+h1 {
+	font-size: 2rem !important;
+	font-weight: 600;
+	line-height: 1.2;
+}
+
+h2 {
+	font-size: 1.5rem !important;
+	font-weight: 600;
+	line-height: 1.25;
+}
+
+h3 {
+	font-size: 1.25rem !important;
+	font-weight: 600;
+	line-height: 1.3;
+}
+
+/* The theme styles h4 as a 12px uppercase eyebrow label. This repo uses h4 as a
+   real fourth-level heading in 80 places, so the label treatment is undone. */
+h4 {
+	font-size: 1.0625rem !important;
+	font-weight: 600;
+	line-height: 1.35;
+	text-transform: none;
+	letter-spacing: -0.005em;
+}
+
+h5 {
+	font-size: 1rem !important;
+	font-weight: 600;
+	line-height: 1.4;
+}
+
+h6 {
+	font-size: 0.9375rem !important;
+	font-weight: 600;
+	line-height: 1.4;
+	text-transform: none;
+	letter-spacing: normal;
+}
+
+/* Page subtitle — replaces the theme's .fs-6 utility, which was being used to
+   carry document hierarchy and outranks a bare h1 on specificity. Qualified
+   with `p` so it beats the `.main-content p` rhythm rule below. */
+.main-content p.page-subtitle {
+	font-size: 1.25rem;
+	font-weight: 400;
+	line-height: 1.5;
+	color: var(--muted);
+	max-width: var(--measure);
+	margin-top: 0.25rem;
+	margin-bottom: 1.5rem;
+}
+
+/* ── Vertical rhythm ────────────────────────────────────────────────
+   Paragraphs previously sat 16px apart while their own line spacing was
+   25.6px — packed tighter than their leading, which reads as a wall of text.
+   WCAG 2.1 SC 1.4.8 asks for paragraph spacing at least 1.5x line spacing. */
+.main-content {
+	line-height: 1.65;
+}
+
+.main-content p {
+	color: var(--text);
+	margin-top: 0;
+	margin-bottom: 1.5em;
+}
+
+/* That spacing is for the gap *between* paragraphs; inside a callout or a
+   quotation a trailing margin just pads the bottom of the box. */
+.main-content blockquote > p:last-child,
+.main-content li > p:last-child,
+.main-content td > p:last-child {
+	margin-bottom: 0;
+}
 
 p { color: var(--text); }
 
@@ -255,35 +533,52 @@ a:focus { outline: 2px solid var(--secondary); outline-offset: 2px; }
 	pointer-events: none;
 }
 
-.main-content h2,
-.main-content h3 {
-	background: var(--bg-panel);
-	border: 1px solid var(--border);
-	border-radius: 10px;
-	padding: 0.9rem 1rem;
-	box-shadow: var(--shadow-soft);
-	margin-top: 2rem;
-	position: relative;
-	overflow: hidden;
+/* ── Section headings ───────────────────────────────────────────────
+   Every h2 and h3 used to be a full-width card: panel background, border,
+   radius, drop shadow, a 3px gradient bar and an entrance animation.
+   scenarios.md alone rendered 78 of them. At a wide column that chrome, not
+   the type size, is what made the page feel like it was shouting.
+
+   Hierarchy is now carried by size, weight and space — the way a document
+   does it — with a single hairline rule to open each major section.
+
+   `.text-delta` and `.page-toc-title` are excluded throughout: the theme uses
+   `.text-delta` for the small "Table of contents" eyebrow label, which is
+   deliberately not a section heading. The exclusions sit in `:where()` so they
+   add no specificity and the scoped essay overrides further down still win. */
+.main-content h2:where(:not(.text-delta):not(.page-toc-title)) {
+	margin-top: 3rem;
+	margin-bottom: 1rem;
+	padding-bottom: 0.4rem;
+	border-bottom: 1px solid var(--border);
 }
 
-.main-content h2:after,
-.main-content h3:after {
-	content: '';
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	height: 3px;
-	width: 100%;
-	background: var(--gradient-accent);
+.main-content h3:where(:not(.text-delta)) {
+	margin-top: 2.25rem;
+	margin-bottom: 0.6rem;
+	color: var(--text-strong);
 }
 
-.main-content h4 {
-	background: rgba(59, 130, 246, 0.08);
-	border-left: 4px solid var(--primary);
-	padding: 0.65rem 0.9rem;
-	border-radius: 8px;
-	margin-top: 1.25rem;
+.main-content h4:where(:not(.text-delta)) {
+	margin-top: 1.75rem;
+	margin-bottom: 0.4rem;
+	color: var(--muted);
+}
+
+.main-content h5,
+.main-content h6 {
+	margin-top: 1.5rem;
+	margin-bottom: 0.35rem;
+	color: var(--muted);
+}
+
+/* First heading on a page shouldn't push itself off the top. */
+.main-content,
+.main-content > main {
+	> h2:first-child,
+	> h3:first-child {
+		margin-top: 0;
+	}
 }
 
 /* Cards & panels */
@@ -467,13 +762,25 @@ pre code {
 
 .ai-instinct-page {
 
-	/* Wider, more readable prose measure */
-	max-width: 52rem;
+	/* Essay layout: wide container, narrow prose. Same discipline as the docs
+	   pages, so a long read never runs past a comfortable line length. */
+	max-width: var(--container);
 	margin: 0 auto;
+
+	> p,
+	> ul,
+	> ol,
+	> blockquote,
+	> h1,
+	> h2,
+	> h3,
+	> h4 {
+		max-width: var(--measure);
+	}
 
 	/* Page title — hero treatment */
 	h1 {
-		font-size: 2.6rem;
+		font-size: 2.25rem !important;
 		line-height: 1.15;
 		margin-bottom: 0.25rem;
 		background: linear-gradient(135deg, var(--text-strong) 0%, var(--link) 100%);
@@ -484,7 +791,7 @@ pre code {
 
 	/* Subtitle styling */
 	.ai-instinct-subtitle {
-		font-size: 1.35rem;
+		font-size: 1.25rem;
 		color: var(--muted);
 		font-style: italic;
 		margin-bottom: 1.25rem;
@@ -585,8 +892,10 @@ pre code {
 		color: var(--text);
 	}
 
-	/* Section headings — cleaner, less "card-like" */
-	h2 {
+	/* Section headings — cleaner, less "card-like".
+	   `.text-delta` is excluded so the theme's compact "Table of contents"
+	   label keeps its eyebrow treatment. */
+	h2:not(.text-delta) {
 		background: transparent;
 		border: none;
 		border-radius: 0;
@@ -594,7 +903,7 @@ pre code {
 		padding: 0;
 		margin-top: 3rem;
 		margin-bottom: 1rem;
-		font-size: 1.85rem;
+		font-size: 1.75rem !important;
 		position: relative;
 
 		&:after {
@@ -609,14 +918,14 @@ pre code {
 		}
 	}
 
-	h3 {
+	h3:not(.text-delta) {
 		background: transparent;
 		border: none;
 		border-radius: 0;
 		box-shadow: none;
 		padding: 0;
 		margin-top: 2rem;
-		font-size: 1.4rem;
+		font-size: 1.25rem !important;
 		color: var(--link);
 
 		&:after {
@@ -624,31 +933,33 @@ pre code {
 		}
 	}
 
-	/* Instinct section headers — distinctive accent */
+	/* Instinct section headers — the essay's four structural anchors.
+	   Marked by weight, size and space rather than a card, consistent with the
+	   rest of the site. */
 	h3[id*="ai-spine"],
 	h3[id*="ai-voice"],
 	h3[id*="ai-gravity"],
 	h3[id*="ai-rhythm"] {
-		font-size: 1.5rem;
-		padding: 1rem 1.25rem;
-		border-radius: 10px;
-		margin-top: 2.5rem;
+		font-size: 1.375rem !important;
+		padding: 0;
+		margin-top: 3rem;
 		color: var(--text-strong);
-		background: linear-gradient(135deg, rgba(59, 130, 246, 0.10), rgba(245, 158, 11, 0.08));
-		border-left: 4px solid var(--primary);
+		background: none;
 	}
 
-	/* Pull quotes / trigger questions — standout treatment */
+	/* Pull quotes / trigger questions.
+	   A rule down the left of a quotation is the long-standing convention for
+	   quoted matter — kept, but without the card chrome it used to carry. */
 	blockquote.highlight {
-		background: linear-gradient(135deg, rgba(59, 130, 246, 0.08), rgba(245, 158, 11, 0.06));
-		border-left: 4px solid var(--secondary);
-		border-radius: 10px;
-		padding: 1.25rem 1.5rem;
+		background: rgba(245, 158, 11, 0.05);
+		border-left: 3px solid var(--secondary);
+		border-radius: 0 8px 8px 0;
+		padding: 1rem 1.25rem;
 		font-size: 1.1rem;
 		font-style: italic;
 		color: var(--text-strong);
-		margin: 1.5rem 0;
-		box-shadow: var(--shadow-soft);
+		margin: 1.75rem 0;
+		box-shadow: none;
 
 		strong {
 			color: var(--secondary);
@@ -688,7 +999,7 @@ pre code {
 		padding-left: 0;
 		border-left: none;
 		color: var(--text-strong);
-		font-size: 1.25rem;
+		font-size: 1.25rem !important;
 		position: relative;
 		padding-left: 2rem;
 		background: transparent;
@@ -770,18 +1081,19 @@ pre code {
 	fill: #e5ecf5 !important;
 }
 
-/* Animations */
+/* Animations.
+   Headings no longer animate — a page of 78 individually fading headings is
+   noise, not polish. What remains is gated behind a motion preference. */
 @keyframes fade-up {
 	from { opacity: 0; transform: translateY(6px); }
 	to { opacity: 1; transform: translateY(0); }
 }
 
-.main-content h2,
-.main-content h3,
-.main-content h4,
-.content-panel,
-.page-header {
-	animation: fade-up 240ms ease;
+@media (prefers-reduced-motion: no-preference) {
+	.content-panel,
+	.page-header {
+		animation: fade-up 240ms ease;
+	}
 }
 
 @media (max-width: 900px) {
@@ -807,5 +1119,10 @@ pre code {
 		margin-left: 0;
 		max-width: 100%;
 		width: 100%;
+	}
+
+	#main-content,
+	.main-content {
+		padding: 1rem 1.25rem 3rem;
 	}
 }

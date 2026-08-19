@@ -1,3 +1,12 @@
+<!-- Webfonts.
+     Loaded here rather than via an @import inside custom.scss: a CSS @import
+     can only be discovered after the theme stylesheet has been fetched and
+     parsed, which serialises two round trips before any text can paint.
+     A <link> in <head> is fetched in parallel with the theme CSS instead. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Source+Sans+3:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+
 <script src="https://cdn.jsdelivr.net/npm/mermaid@{{ site.mermaid.version | default: '11.12.1' }}/dist/mermaid.min.js"></script>
 <script>
   // Initialize Mermaid and convert fenced mermaid code blocks to renderable diagrams.
@@ -25,6 +34,12 @@
 
     mermaid.initialize(mermaidConfig);
     mermaid.run({ querySelector: '.mermaid' });
+  });
+</script>
+<script>
+  // "On this page" rail — see _includes/page_toc.js
+  document.addEventListener('DOMContentLoaded', () => {
+    {% include page_toc.js %}
   });
 </script>
 <style>

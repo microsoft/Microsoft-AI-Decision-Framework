@@ -367,7 +367,7 @@ Read these before you read any product page. They are the maps; everything below
 {: .no_toc }
 
 - [Microsoft 365 Copilot Community](https://techcommunity.microsoft.com/category/Microsoft365Copilot)
-- [Azure AI Services Community](https://techcommunity.microsoft.com/category/AzureAIServices)
+- [Azure AI Foundry Community](https://techcommunity.microsoft.com/category/azure-ai-foundry)
 - [Power Platform Community](https://community.powerplatform.com/)
 
 ### Learning Paths

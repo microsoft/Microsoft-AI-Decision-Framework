@@ -130,7 +130,7 @@ Smaller organizations have their own rungs, which this reference previously omit
 ## Microsoft Scout (Frontier / Private Preview) {: .tech-heading }
 
 **Description:** An always-on personal agent that works in the background to coordinate work across Teams, Outlook, OneDrive, and SharePoint, holding your priorities and acting on your behalf without a fresh prompt each time. Microsoft Learn defines Scout as *"a desktop AI application for Windows and macOS"* (Windows 11 / macOS 12+, explicitly not mobile).
-**Official Docs:** [Microsoft Scout setup instructions](https://learn.microsoft.com/microsoft-scout)
+**Official Docs:** [Microsoft Scout setup instructions](https://learn.microsoft.com/en-us/microsoft-scout/)
 **Status:** **Frontier / private preview, not GA.** Announced 2026-06-02. Two-gate access: a Frontier tenant toggle, then Intune policy plus an attestation/opt-in form. Requires a **GitHub Copilot Business or Enterprise** license **and** an active **Microsoft 365 Copilot** license.
 
 **Key Features:**
@@ -163,7 +163,7 @@ Scout's local skill paths (`~/.copilot/skills/`, `~/.copilot/bundled-skills/`, `
 **Sources:**
 
 - [Introducing Microsoft Scout: your always-on personal agent](https://www.microsoft.com/en-us/microsoft-365/blog/2026/06/02/introducing-microsoft-scout-your-always-on-personal-agent/) (Published: 2026-06-02)
-- [Microsoft Scout setup instructions](https://learn.microsoft.com/microsoft-scout) (Retrieved: 2026-07-29)
+- [Microsoft Scout setup instructions](https://learn.microsoft.com/en-us/microsoft-scout/) (Retrieved: 2026-07-29)
 - Microsoft Learn, *Microsoft Scout FAQ* (`/microsoft-scout/faq`) (Retrieved: 2026-07-29)
 - Microsoft Learn, Microsoft 365 admin center *Shadow AI* (Frontier / public preview), Intune *Local AI Agent Baseline*, and Defender for Endpoint local AI agent discovery (Preview) (Retrieved: 2026-07-29)
 

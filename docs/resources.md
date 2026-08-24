@@ -192,7 +192,7 @@ Read these before you read any product page. They are the maps; everything below
 
 - **Copilot Studio**
   - [What's new in Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/whats-new#notable-changes)
-  - [Declarative agents](https://learn.microsoft.com/microsoft-365/copilot/extensibility/overview-declarative-agent)
+  - [Declarative agents](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/overview-declarative-agent)
   - [Custom engine agents overview](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/overview-custom-engine-agent)
   - [Copilot Studio documentation](https://learn.microsoft.com/en-us/microsoft-copilot-studio/)
   - [Computer Use (GA)](https://learn.microsoft.com/en-us/microsoft-copilot-studio/computer-use)
@@ -219,7 +219,7 @@ Read these before you read any product page. They are the maps; everything below
 {: .no_toc }
 
 - **Microsoft Agent 365 SDK**
-  - [Microsoft Agent 365 SDK Overview](https://learn.microsoft.com/microsoft-agent-365/developer/agent-365-sdk)
+  - [Microsoft Agent 365 SDK Overview](https://learn.microsoft.com/en-us/microsoft-agent-365/developer/agent-365-sdk)
   - [VS Code Toolkit](https://marketplace.visualstudio.com/items?itemName=TeamsDevApp.ms-teams-vscode-extension)
   - [Sample Gallery](https://github.com/microsoft/Agents)
 
@@ -373,8 +373,8 @@ Read these before you read any product page. They are the maps; everything below
 ### Learning Paths
 {: .no_toc }
 
-- [Microsoft 365 Copilot Extensibility Learning Path](https://learn.microsoft.com/training/paths/prepare-microsoft-365-copilot-extensibility/)
-- [Build Copilot Extensions](https://learn.microsoft.com/training/paths/build-foundation-extend-microsoft-365-copilot/)
+- [Microsoft 365 Copilot Extensibility Learning Path](https://learn.microsoft.com/en-us/training/paths/prepare-microsoft-365-copilot-extensibility/)
+- [Build Copilot Extensions](https://learn.microsoft.com/en-us/training/paths/build-foundation-extend-microsoft-365-copilot/)
 - [Azure AI Engineer Certification](https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/)
 - [Develop AI Agents on Azure](https://learn.microsoft.com/en-us/training/paths/develop-ai-agents-azure/) - successor to the retired Semantic Kernel learning path, now taught with Agent Framework
 - [Introduction to Semantic Kernel](https://learn.microsoft.com/en-us/semantic-kernel/overview/) - reference documentation for teams still running on Semantic Kernel

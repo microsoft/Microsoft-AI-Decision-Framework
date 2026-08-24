@@ -972,7 +972,7 @@ Exported YAML definitions **remain executable when deployed as Hosted Agents**. 
 | Technology | Status | Orchestration Patterns | Documentation |
 |------------|--------|------------------------|---------------|
 | **Microsoft Agent Framework** | GA (Python, C#/.NET); **Go is Public Preview** | Microsoft's stated *"direct successor"* to Semantic Kernel and AutoGen: Sequential, Concurrent, Handoff, Group Chat, Magentic | [Agent Framework](https://learn.microsoft.com/en-us/agent-framework/) |
-| **Semantic Kernel** | Superseded by Agent Framework; **no sunset date announced** | Sequential, Concurrent, Group Chat, Handoff, Magentic. Migration guides exist for both SK and AutoGen | [Semantic Kernel Agents](https://learn.microsoft.com/semantic-kernel/frameworks/agent/) |
+| **Semantic Kernel** | Superseded by Agent Framework; **no sunset date announced** | Sequential, Concurrent, Group Chat, Handoff, Magentic. Migration guides exist for both SK and AutoGen | [Semantic Kernel Agents](https://learn.microsoft.com/en-us/semantic-kernel/frameworks/agent/) |
 | **M365 Agents SDK** | GA | BYO orchestrator (integrate Agent Framework or third-party) | [M365 SDK](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/create-deploy-agents-sdk) |
 | **LangGraph** | Third-party | State graph management for complex workflows | Third-party framework |
 
@@ -983,7 +983,7 @@ Exported YAML definitions **remain executable when deployed as Hosted Agents**. 
 |------------|--------|----------------|---------------|
 | **Logic Apps agentic workflows** | **Consumption explicitly Preview**; Standard has no preview banner on the agent loop, but Microsoft never states Standard is GA | Event triggers + MCP Server (triggers a SINGLE agent, NOT multi-agent orchestration) | [Agentic workflows](https://learn.microsoft.com/en-us/azure/logic-apps/agent-workflows-concepts) |
 | **Azure Functions + Agent Service** | GA | Event-driven single agent invocation (event routing, NOT coordination) | [Agent Service](https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/agents/transparency-note) |
-| **Event Grid + Foundry** | GA | Event routing to trigger agents independently (NOT orchestration) | [Azure Event Grid](https://learn.microsoft.com/azure/event-grid/) |
+| **Event Grid + Foundry** | GA | Event routing to trigger agents independently (NOT orchestration) | [Azure Event Grid](https://learn.microsoft.com/en-us/azure/event-grid/) |
 
 #### Sources: Multi-Agent Orchestration
 {: .no_toc }
@@ -1052,7 +1052,7 @@ flowchart TD
 |-----------|--------|-------------|---------------|
 | **BYO Model** | Preview | Swap the default Copilot Studio model for a specialized model from the Microsoft Foundry catalog, which lists **over 10,000 models** | [BYO Model](https://learn.microsoft.com/en-us/microsoft-copilot-studio/advanced-generative-actions) |
 | **Agent Handoff** | Preview | Copilot Studio delegates to a Foundry agent for complex tasks. Foundry agents are **not** documented as GA in Copilot Studio | [Connect to a Foundry agent](https://learn.microsoft.com/en-us/microsoft-copilot-studio/add-agent-foundry-agent) |
-| **Shared Knowledge** | GA | Both Copilot Studio and custom apps can consume the same Azure AI Search index. **Azure AI Search was not renamed** in the Foundry rebrand | [Azure AI Search](https://learn.microsoft.com/azure/search/) |
+| **Shared Knowledge** | GA | Both Copilot Studio and custom apps can consume the same Azure AI Search index. **Azure AI Search was not renamed** in the Foundry rebrand | [Azure AI Search](https://learn.microsoft.com/en-us/azure/search/) |
 
 ---
 

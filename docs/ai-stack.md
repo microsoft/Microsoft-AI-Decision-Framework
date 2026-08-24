@@ -410,4 +410,4 @@ Read the terms as well as the rates. These vehicles carry fixed terms and defaul
 * [Copilot Credit Pre-Purchase Plan](https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/copilot-credit-p3) (Updated: 2026-07-17)
 * [Introducing Microsoft Agent Factory](https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/introducing-microsoft-agent-factory/4470732) (Published: 2025-11-18)
 * [Introducing Microsoft Scout](https://www.microsoft.com/en-us/microsoft-365/blog/2026/06/02/introducing-microsoft-scout-your-always-on-personal-agent/) (Published: 2026-06-02)
-* [Microsoft Scout setup and FAQ](https://learn.microsoft.com/microsoft-scout) (Accessed: 2026-07-28)
+* [Microsoft Scout setup and FAQ](https://learn.microsoft.com/en-us/microsoft-scout/) (Accessed: 2026-07-28)

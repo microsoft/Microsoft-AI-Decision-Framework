@@ -52,8 +52,8 @@ Treat it as a reading list with a shelf life. Microsoft Learn stamps every page 
 
 - [What's new in Microsoft Foundry](https://learn.microsoft.com/en-us/azure/foundry/whats-new-foundry)
 - [M365 Copilot Extensibility Overview](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/)
-- [Microsoft 365 Copilot release notes - November 25, 2025](https://learn.microsoft.com/en-us/microsoft-365/copilot/release-notes#november-25,-2025)
-- [Agent Registry in the Microsoft 365 admin center](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/agent-registry?view=o365-worldwide#admin-actions-to-manage-agents) (Updated: 2026-01-23)
+- [Microsoft 365 Copilot release notes - November 25, 2025](https://learn.microsoft.com/en-us/microsoft-365/copilot/previous-year-release-notes#november-25-2025)
+- [Agent Registry in the Microsoft 365 admin center](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/agent-registry?view=o365-worldwide) (Updated: 2026-01-23)
 - [Secure and govern Microsoft 365 Copilot agents (Purview blueprint)](https://learn.microsoft.com/en-us/purview/deploymentmodels/depmod-sc-agents-deployment)
 - [Microsoft Agents hub (Plan → Design → Adopt → Improve)](https://learn.microsoft.com/en-us/agents/). Microsoft's own agent docset: archetype framework, maturity model, transformation patterns, Center of Excellence, evaluation
 - [Cloud Adoption Framework for AI](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai/)
@@ -124,8 +124,8 @@ Treat it as a reading list with a shelf life. Microsoft Learn stamps every page 
 - [M365 Copilot admin guide](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-setup)
 - [Integrated apps management](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/test-and-deploy-microsoft-365-apps)
 - [Graph connectors administration](https://learn.microsoft.com/en-us/microsoft-365/copilot/connectors/deployment-overview)
-- [Agent Registry in the Microsoft 365 admin center](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/agent-registry?view=o365-worldwide#admin-actions-to-manage-agents) (Updated: 2026-01-23)
-- [Microsoft 365 Copilot release notes - November 25, 2025](https://learn.microsoft.com/en-us/microsoft-365/copilot/release-notes#november-25,-2025)
+- [Agent Registry in the Microsoft 365 admin center](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/agent-registry?view=o365-worldwide) (Updated: 2026-01-23)
+- [Microsoft 365 Copilot release notes - November 25, 2025](https://learn.microsoft.com/en-us/microsoft-365/copilot/previous-year-release-notes#november-25-2025)
 
 ---
 

@@ -54,9 +54,9 @@ Use this page as a reference after you’ve narrowed the decision: it’s optimi
 - **Wave 3 multi-model intelligence:** Automatic model routing across OpenAI (GPT-5.2) and Anthropic (Claude) providers. Copilot selects the right model for each task - users choose Quick Response or Think Deeper modes without managing model selection. Claude available in mainline Copilot Chat via Frontier. ([Wave 3 announcement](https://www.microsoft.com/en-us/microsoft-365/blog/2026/03/09/powering-frontier-transformation-with-copilot-and-agents/) - Published: 2026-03-09)
 - **Agentic Copilot in apps (GA):** Edit with Copilot in Excel and Word (formerly "Agent Mode") creates, edits, and refines content using app-native tools - formulas, PivotTables, charts, tables. No longer a separate mode; this is core Copilot. PowerPoint and Outlook rolling out through spring 2026. ([Wave 3 announcement](https://www.microsoft.com/en-us/microsoft-365/blog/2026/03/09/powering-frontier-transformation-with-copilot-and-agents/) - Published: 2026-03-09)
 - **Researcher agent (GA):** Pre-installed multi-step research agent with connected agent delegation. Admins connect specialized Declarative Agents to Researcher for domain-specific task handoff. ([Microsoft 365 Copilot release notes](https://learn.microsoft.com/en-us/microsoft-365/copilot/release-notes) - Retrieved: 2026-03-25)
-- **Multi-agent workflows:** Declarative Agents can connect to other agents for coordinated task completion. Researcher delegates to connected agents; users see inter-agent interaction. ([Microsoft 365 Copilot release notes - Jan 27, 2026](https://learn.microsoft.com/en-us/microsoft-365/copilot/release-notes#january-27,-2026) - Retrieved: 2026-03-25)
-- **Copilot Memory (Preview):** Persistent personalization across sessions using Graph signals and conversation history. Users control, view, manage, disable, or clear memory at any time. ([Microsoft 365 Copilot release notes - Sep 3, 2025](https://learn.microsoft.com/en-us/microsoft-365/copilot/release-notes#september-3,-2025) - Retrieved: 2026-03-25)
-- **Voice input (GA):** Speak to Copilot across mobile, desktop, and web in M365 apps including Outlook, Word, and PowerPoint. ([Microsoft 365 Copilot release notes - Nov 25, 2025](https://learn.microsoft.com/en-us/microsoft-365/copilot/release-notes#november-25,-2025) - Retrieved: 2026-03-25)
+- **Multi-agent workflows:** Declarative Agents can connect to other agents for coordinated task completion. Researcher delegates to connected agents; users see inter-agent interaction. ([Microsoft 365 Copilot release notes - Jan 27, 2026](https://learn.microsoft.com/en-us/microsoft-365/copilot/release-notes#january-27-2026) - Retrieved: 2026-03-25)
+- **Copilot Memory (Preview):** Persistent personalization across sessions using Graph signals and conversation history. Users control, view, manage, disable, or clear memory at any time. ([Microsoft 365 Copilot release notes - Sep 3, 2025](https://learn.microsoft.com/en-us/microsoft-365/copilot/previous-year-release-notes#september-3-2025) - Retrieved: 2026-03-25)
+- **Voice input (GA):** Speak to Copilot across mobile, desktop, and web in M365 apps including Outlook, Word, and PowerPoint. ([Microsoft 365 Copilot release notes - Nov 25, 2025](https://learn.microsoft.com/en-us/microsoft-365/copilot/previous-year-release-notes#november-25-2025) - Retrieved: 2026-03-25)
 - **Connector ecosystem expansion:** 20+ new Copilot connectors since Oct 2025 including Coda, GitLab, Bitbucket, Asana, Smartsheet, Monday.com, Jira Data Center, Zendesk, Miro, Dropbox, Google Drive, Amazon S3, Veeva, and more. Explainable AI with inline citations for connector results. ([Microsoft 365 Copilot release notes](https://learn.microsoft.com/en-us/microsoft-365/copilot/release-notes) - Retrieved: 2026-03-25)
 
 **Recent Updates (2025 to 2026):**
@@ -89,16 +89,16 @@ Smaller organizations have their own rungs, which this reference previously omit
 
 **Sources:**
 
-- [Microsoft 365 Copilot release notes - Oct 28, 2025](https://learn.microsoft.com/en-us/microsoft-365/copilot/release-notes#october-28,-2025) (Retrieved: 2026-03-25)
-- [Microsoft 365 Copilot release notes - Aug 19, 2025](https://learn.microsoft.com/en-us/microsoft-365/copilot/release-notes#august-19,-2025) (Retrieved: 2026-03-25)
-- [Microsoft 365 Copilot release notes - Aug 5, 2025](https://learn.microsoft.com/en-us/microsoft-365/copilot/release-notes#august-5,-2025) (Retrieved: 2026-03-25)
-- [Microsoft 365 Copilot release notes - Jul 8, 2025](https://learn.microsoft.com/en-us/microsoft-365/copilot/release-notes#july-8,-2025) (Retrieved: 2026-03-25)
+- [Microsoft 365 Copilot release notes - Oct 28, 2025](https://learn.microsoft.com/en-us/microsoft-365/copilot/previous-year-release-notes#october-28-2025) (Retrieved: 2026-03-25)
+- [Microsoft 365 Copilot release notes - Aug 19, 2025](https://learn.microsoft.com/en-us/microsoft-365/copilot/previous-year-release-notes#august-19-2025) (Retrieved: 2026-03-25)
+- [Microsoft 365 Copilot release notes - Aug 5, 2025](https://learn.microsoft.com/en-us/microsoft-365/copilot/previous-year-release-notes#august-5-2025) (Retrieved: 2026-03-25)
+- [Microsoft 365 Copilot release notes - Jul 8, 2025](https://learn.microsoft.com/en-us/microsoft-365/copilot/previous-year-release-notes#july-8-2025) (Retrieved: 2026-03-25)
 - [Agents for Microsoft 365 Copilot](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/agents-overview) (Retrieved: 2026-01-07)
 - [Extend Microsoft 365 Copilot with agents](https://learn.microsoft.com/en-us/microsoft-copilot-studio/microsoft-365-copilot-extend-with-agents) (Retrieved: 2025-12-15)
 - [Data, privacy, and security considerations for extending Microsoft 365 Copilot](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/data-privacy-security) (Retrieved: 2025-09-05)
 - [Wave 3: Powering Frontier Transformation](https://www.microsoft.com/en-us/microsoft-365/blog/2026/03/09/powering-frontier-transformation-with-copilot-and-agents/) (Published: 2026-03-09)
 - [Copilot Cowork announcement](https://www.microsoft.com/en-us/microsoft-365/blog/2026/03/09/copilot-cowork-a-new-way-of-getting-work-done/) (Published: 2026-03-09)
-- [Microsoft 365 Copilot release notes - Mar 24, 2026](https://learn.microsoft.com/en-us/microsoft-365/copilot/release-notes#march-24,-2026) (Retrieved: 2026-03-25)
+- [Microsoft 365 Copilot release notes - Mar 24, 2026](https://learn.microsoft.com/en-us/microsoft-365/copilot/release-notes#march-24-2026) (Retrieved: 2026-03-25)
 
 ---
 
@@ -123,7 +123,7 @@ Smaller organizations have their own rungs, which this reference previously omit
 - [Get started with Word, Excel, and PowerPoint Agents (Frontier)](https://learn.microsoft.com/en-us/microsoft-365/copilot/wordexcelppt-agents) (Retrieved: 2026-03-30)
 - [Frequently asked questions about Word, Excel, and PowerPoint Agents: Responsible AI FAQ](https://learn.microsoft.com/en-us/microsoft-365/copilot/faq-wordexcelppt-agents) (Retrieved: 2026-03-30)
 - [Manage Microsoft 365 Copilot scenarios in the Microsoft 365 admin center](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-page#user-access) (Retrieved: 2026-03-16)
-- [Overview of Microsoft Agent 365](https://learn.microsoft.com/en-us/microsoft-agent-365/overview#enable-agent-365) (Retrieved: 2025-12-15)
+- [Overview of Microsoft Agent 365](https://learn.microsoft.com/en-us/microsoft-agent-365/overview) (Retrieved: 2025-12-15)
 
 ---
 
@@ -492,7 +492,7 @@ Use Hosted Agents when that per-session isolation is worth the constraints. Othe
 
 - [What's new in Microsoft Foundry](https://learn.microsoft.com/en-us/azure/foundry/whats-new-foundry) (Updated: 2026-03-23)
 - [Foundry Agent Service overview](https://learn.microsoft.com/en-us/azure/foundry/agents/overview)
-- [Agent Tool Catalog](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/tool-catalog)
+- [What is Toolbox in Foundry?](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/toolbox-overview)
 - [Transparency Note for Azure Agent Service](https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/agents/transparency-note)
 - [Virtual Networks for Foundry](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/virtual-networks)
 - [Azure Cosmos DB integration with Azure AI Agents Service](https://learn.microsoft.com/en-us/azure/cosmos-db/gen-ai/azure-agent-service#overview)
@@ -903,7 +903,7 @@ Use "Agent HQ" in a keynote recap. Use "Agents page" and "AI Controls" in a desi
 
 **Recent Updates (2025):**
 
-- **May 19, 2025:** Agents Toolkit added Kiota-powered API plugin generation, enabling visual endpoint selection and easier maintenance. ([Microsoft 365 Copilot release notes - June 24, 2025](https://learn.microsoft.com/en-us/microsoft-365/copilot/release-notes#june-24,-2025) - Retrieved: 2026-03-25)
+- **May 19, 2025:** Agents Toolkit added Kiota-powered API plugin generation, enabling visual endpoint selection and easier maintenance. ([Microsoft 365 Copilot release notes - June 24, 2025](https://learn.microsoft.com/en-us/microsoft-365/copilot/previous-year-release-notes#june-24-2025) - Retrieved: 2026-03-25)
 - **May 2025:** GitHub Copilot extension option introduced for chat-driven scaffolding of Agents Toolkit projects. ([Microsoft 365 Agents Toolkit](https://learn.microsoft.com/en-us/microsoftteams/platform/toolkit/overview-agents-toolkit#formats) - Updated: 2026-01-29)
 
 **Deployment & Hosting:**
@@ -917,7 +917,7 @@ Use "Agent HQ" in a keynote recap. Use "Agents page" and "AI Controls" in a desi
 
 - [Microsoft 365 Agents Toolkit](https://learn.microsoft.com/en-us/microsoftteams/platform/toolkit/overview-agents-toolkit) (Updated: 2026-01-29)
 - [Create and deploy with Microsoft 365 Agents SDK](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/create-deploy-agents-sdk) (Updated: 2025-12-02)
-- [Microsoft 365 Copilot release notes - June 24, 2025](https://learn.microsoft.com/en-us/microsoft-365/copilot/release-notes#june-24,-2025) (Retrieved: 2026-03-25)
+- [Microsoft 365 Copilot release notes - June 24, 2025](https://learn.microsoft.com/en-us/microsoft-365/copilot/previous-year-release-notes#june-24-2025) (Retrieved: 2026-03-25)
 - [Microsoft 365 Agents Toolkit command line interface](https://learn.microsoft.com/en-us/microsoftteams/platform/toolkit/microsoft-365-agents-toolkit-cli) (Retrieved: 2025-05-19)
 - [Bot Framework Migration Guide](https://aka.ms/bfmigrationguidance)
 

@@ -103,7 +103,7 @@ Read the trade-off before the diagram. The architecture is the easy part.
 
 - [Foundry Agent Service overview](https://learn.microsoft.com/en-us/azure/foundry/agents/overview?view=foundry)[^agentservice-overview]
 - [Microsoft AI Feature Comparison]({{ '/docs/feature-comparison' | relative_url }})[^feature-comparison]
-- [Evaluation Criteria: Governance & Compliance]({{ '/docs/evaluation-criteria#governance--compliance-the-security-perimeter' | relative_url }})[^evaluation-governance]
+- [Evaluation Criteria: Governance & Compliance]({{ '/docs/evaluation-criteria#5-governance--compliance-the-security-perimeter' | relative_url }})[^evaluation-governance]
 - [Plugins for Microsoft 365 Copilot](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/overview-plugins)[^api-plugins]
 - [Create and deploy with Microsoft 365 Agents SDK](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/create-deploy-agents-sdk)[^agentsdk-overview]
 
@@ -630,12 +630,12 @@ Choose the path that matches your team's velocity and codebase complexity. All t
    - **M365-first surface** (Teams, Outlook, Word) → stay inside the Microsoft 365 trust boundary with **Pattern 3** for knowledge-only needs[^pattern3-knowledge] or **Pattern 1** when you need orchestrated actions and governance controls inside Copilot Studio[^pattern1-actions].
    - **Multi-channel or custom apps** (web, mobile, SMS, API) → continue to step 3 with **Patterns 2 or 4** in play.
 
-3. **Clarify delivery ownership (avoid the low-code vs pro-code trap).** Use the skills, time, and funding matrices in [Evaluation Criteria]({{ '/docs/evaluation-criteria#skills--resources-delivery-team' | relative_url }}). Decide who will build and run the backlog, not which UI they click.
+3. **Clarify delivery ownership (avoid the low-code vs pro-code trap).** Use the skills, time, and funding matrices in [Evaluation Criteria]({{ '/docs/evaluation-criteria#2-skills--resources-delivery-team' | relative_url }}). Decide who will build and run the backlog, not which UI they click.
    - **Maker-led or mixed squads** who will operate inside Copilot Studio, yet can still call custom APIs or child agents, start with **Pattern 1** and expand to Azure as needed.
    - **Engineer-led product teams** with CI/CD, observability, and landing-zone governance treat **Pattern 2** (Azure-first) or **Pattern 4** (Agents SDK distribution) as the default.
    - **Hybrid hand-offs** (makers capturing intent, engineers owning orchestration) combine **Pattern 1** for the front door with **Pattern 2**/**Pattern 4** services behind it.[^skills-matrix]
 
-4. **Decide the governance boundary.** Align with the governance table in [Evaluation Criteria]({{ '/docs/evaluation-criteria#governance--compliance-the-security-perimeter' | relative_url }}).
+4. **Decide the governance boundary.** Align with the governance table in [Evaluation Criteria]({{ '/docs/evaluation-criteria#5-governance--compliance-the-security-perimeter' | relative_url }}).
    - **Stay inside Microsoft 365 tenant controls** → **Pattern 1** or **Pattern 3**.
    - **Require VNet isolation, private endpoints, or custom compliance** → **Pattern 2** or **Pattern 4**.
    - **Hybrid front door** (Copilot Studio + Azure runtime) → combine **Pattern 1** and **Pattern 2** as described in Pattern 1’s “Scale with Azure” step.

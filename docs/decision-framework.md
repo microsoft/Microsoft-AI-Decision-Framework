@@ -10,7 +10,7 @@ description: "Three-phase decision methodology for selecting Microsoft AI techno
 
 {: .no_toc }
 
-Use this document as your intake playbook. It keeps the decision anchored in business outcomes and user experience before you select technologies. It builds primarily on Microsoft's actively maintained [CAF AI adoption](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai/) and [AI agent adoption](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/) guidance, plus [AI architecture design](https://learn.microsoft.com/en-us/azure/architecture/ai-ml/) and Microsoft's [Responsible AI principles and approach](https://www.microsoft.com/en-us/ai/principles-and-approach). It also draws the intake scorecard from earlier [Business Envisioning](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/business-envisioning) and [Capability Envisioning](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/capability-envisioning) guidance (see the currency note in Phase 1) and references the [Copilot Extensibility Planning Guide](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/planning-guide) and [Microsoft 365 Copilot adoption guidance](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-enablement-resources) for organizational readiness.
+Use this document as your intake playbook. It keeps the decision anchored in business outcomes and user experience before you select technologies. It builds primarily on Microsoft's actively maintained [CAF AI adoption](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai/strategy) and [AI agent adoption](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/) guidance, plus [AI architecture design](https://learn.microsoft.com/en-us/azure/architecture/ai-ml/ai-get-started) and Microsoft's [Responsible AI principles and approach](https://www.microsoft.com/en-us/ai/principles-and-approach). It also draws the intake scorecard from earlier [Business Envisioning](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/business-envisioning) and [Capability Envisioning](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/capability-envisioning) guidance (see the currency note in Phase 1) and references the [Copilot Extensibility Planning Guide](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/planning-guide) and [Microsoft 365 Copilot adoption guidance](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-enablement-resources) for organizational readiness.
 
 **One rule governs every page that follows: never lead with a product.** Outcome first, then the use case, then the concept, then the analogy. And only then the name of a thing you can buy. Every question below is sequenced to make that discipline hard to skip.
 
@@ -64,8 +64,8 @@ This framework tells a **story**: how a technical leader moves from a good idea 
 
 1. **Envision:** Validate viability, desirability, and feasibility before you build, using the scorecard in Phase 1. [Business Envisioning](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/business-envisioning)
 2. **Choose the approach:** Apply **Capability Envisioning** to select *adopt/extend a Copilot*, *build a custom copilot*, or *build on Fabric*. [Capability Envisioning](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/capability-envisioning)
-3. **Adopt and govern:** Use the CAF AI adoption stages to sequence Strategy → Plan → Ready → Govern → Secure → Manage. [AI adoption](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai/)
-4. **Architect for production:** Start with CAF AI PaaS baselines and Azure Architecture Center AI guidance. [CAF AI architectures](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai/platform/architectures), [AI architecture design](https://learn.microsoft.com/en-us/azure/architecture/ai-ml/)
+3. **Adopt and govern:** Use the CAF AI adoption stages to sequence Strategy → Plan → Ready → Govern → Secure → Manage. [AI adoption](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai/strategy)
+4. **Architect for production:** Start with CAF AI PaaS baselines and Azure Architecture Center AI guidance. [CAF AI architectures](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai/platform/architectures), [AI architecture design](https://learn.microsoft.com/en-us/azure/architecture/ai-ml/ai-get-started)
 5. **Build & run agents responsibly:** Align to AI agent adoption guidance, **Plan for agents → Govern & secure agents → Build agents → Manage agents**, and to Microsoft's six Responsible AI principles: Fairness, Reliability & Safety, Privacy & Security, Inclusiveness, Transparency, and Accountability. [AI agent adoption](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/), [Responsible AI](https://aka.ms/RAI), [Responsible AI policies (CAF)](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai/responsible-ai-policies)
 
 This storybook view complements the three phases below without replacing them.
@@ -384,7 +384,7 @@ Before selecting the platform, write these five answers down. If you cannot, you
 - **Audit trail:** Can you explain which source informed a given answer or action?
 
 {: .tip }
-> See [Implementation Patterns]({{ '/docs/implementation-patterns#pattern-3-microsoft-365-knowledge-grounding' | relative_url }}) for ingestion blueprints and [Evaluation Criteria]({{ '/docs/evaluation-criteria#complexity-assessment-architectural-load' | relative_url }}) for scoring considerations.
+> See [Implementation Patterns]({{ '/docs/implementation-patterns#pattern-3-microsoft-365-knowledge-grounding' | relative_url }}) for ingestion blueprints and [Evaluation Criteria]({{ '/docs/evaluation-criteria#1-complexity-assessment-architectural-load' | relative_url }}) for scoring considerations.
 
 ---
 
@@ -498,7 +498,7 @@ Two operational facts to design around: Intune policy propagation takes **15 min
 **Treat this as a decision input, not an afterthought.** If your people can install an autonomous local agent on a device that touches corporate data, that is a trust-boundary question, and you must answer it *before* you architect anything, because it changes what "inside the boundary" means. The uncomfortable version of the question: *would I know?*
 
 {: .note }
-> Detailed matrices for network isolation, identity, and governance live in [Technologies]({{ '/docs/technologies#network-isolation-decision-matrix' | relative_url }}) and [Evaluation Criteria]({{ '/docs/evaluation-criteria#governance--compliance-the-security-perimeter' | relative_url }}).
+> Detailed matrices for network isolation, identity, and governance live in [Technologies]({{ '/docs/technologies#network-isolation-decision-matrix' | relative_url }}) and [Evaluation Criteria]({{ '/docs/evaluation-criteria#5-governance--compliance-the-security-perimeter' | relative_url }}).
 
 ---
 
@@ -546,7 +546,7 @@ Microsoft offers **two distinct prepurchase plans**, and people routinely mistak
 > **Read the terms before you commit.** Both plans are Azure Reservations with a **1-year term**, **auto-renew is ON by default**, and **all purchases are final**: no cancellation, exchange, split, or merge. This is one of the few genuinely irreversible decisions in this entire framework. Treat it accordingly.
 
 {: .note }
-> See [Evaluation Criteria]({{ '/docs/evaluation-criteria#scale--performance-the-envelope' | relative_url }}) for capacity planning guidance and [Technologies]({{ '/docs/technologies' | relative_url }}) for service-specific quota references.
+> See [Evaluation Criteria]({{ '/docs/evaluation-criteria#6-scale--performance-the-envelope' | relative_url }}) for capacity planning guidance and [Technologies]({{ '/docs/technologies' | relative_url }}) for service-specific quota references.
 
 ---
 
@@ -597,7 +597,7 @@ Also name the operating model:
 If nobody owns the agent after launch, you did not build a product. You created a liability with a chat interface.
 
 {: .tip }
-> The skills matrix in [Evaluation Criteria]({{ '/docs/evaluation-criteria#skills--resources-delivery-team' | relative_url }}) keeps the decision evidence-based.
+> The skills matrix in [Evaluation Criteria]({{ '/docs/evaluation-criteria#2-skills--resources-delivery-team' | relative_url }}) keeps the decision evidence-based.
 
 ---
 
@@ -644,7 +644,7 @@ These principles keep the framework durable as products rename or shift capabili
 [^declarativecomparison]: *Choose the right tool to build your Declarative Agent*, Microsoft Learn. Updated 2026-02-04. [https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/declarative-agent-tool-comparison](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/declarative-agent-tool-comparison)
 [^agentstoolkitoverview]: *Microsoft 365 Agents Toolkit Overview*, Microsoft Learn. Updated 2025-09-03. [https://learn.microsoft.com/en-us/microsoftteams/platform/toolkit/agents-toolkit-fundamentals](https://learn.microsoft.com/en-us/microsoftteams/platform/toolkit/agents-toolkit-fundamentals)
 [^foundryoverview]: *What is Microsoft Foundry?*, Microsoft Learn. Updated 2026-03-13. [https://learn.microsoft.com/en-us/azure/foundry/what-is-foundry](https://learn.microsoft.com/en-us/azure/foundry/what-is-foundry)
-[^aiarchitecture]: *AI architecture design*, Microsoft Learn. Updated 2026-01-13. [https://learn.microsoft.com/en-us/azure/architecture/ai-ml/](https://learn.microsoft.com/en-us/azure/architecture/ai-ml/)
+[^aiarchitecture]: *AI architecture design*, Microsoft Learn. Updated 2026-01-13. [https://learn.microsoft.com/en-us/azure/architecture/ai-ml/ai-get-started](https://learn.microsoft.com/en-us/azure/architecture/ai-ml/ai-get-started)
 [^logicappsoverview]: *What is Azure Logic Apps?*, Microsoft Learn. Updated 2025-09-11. [https://learn.microsoft.com/en-us/azure/logic-apps/logic-apps-overview](https://learn.microsoft.com/en-us/azure/logic-apps/logic-apps-overview)
 [^m365reactive]: *Privacy and protections*, Microsoft Learn. Updated 2026-03-03. [https://learn.microsoft.com/en-us/copilot/privacy-and-protections](https://learn.microsoft.com/en-us/copilot/privacy-and-protections)
 [^logicappstrigger]: *Agentic workflows and the agent loop in Azure Logic Apps*, Microsoft Learn. Updated 2026-02-19. Consumption is explicitly in preview; Standard carries no preview banner on the agent loop, though some Standard capabilities (e.g. using an LLM API) are marked preview. [https://learn.microsoft.com/en-us/azure/logic-apps/agent-workflows-concepts](https://learn.microsoft.com/en-us/azure/logic-apps/agent-workflows-concepts)
@@ -655,7 +655,7 @@ These principles keep the framework durable as products rename or shift capabili
 [^copilotforall]: *Overview of Microsoft 365 Copilot Chat*, Microsoft Learn. Updated 2026-01-20. [https://learn.microsoft.com/en-us/copilot/overview](https://learn.microsoft.com/en-us/copilot/overview)
 [^copilot-licensing]: *License options for Microsoft 365 Copilot*, Microsoft Learn. Updated 2026-01-20. [https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-licensing#microsoft-copilot-chat](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-licensing#microsoft-copilot-chat)
 [^capabilityenvisioning]: *Choosing an approach with Capability Envisioning*, Microsoft Learn. Updated 2025-01-16 (~18 months old, currency-flagged); ISV-scoped. [https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/capability-envisioning](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/capability-envisioning)
-[^cafaiadoption]: *AI adoption (CAF)*, Microsoft Learn. Updated 2026-01-07. [https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai/](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai/)
+[^cafaiadoption]: *AI adoption (CAF)*, Microsoft Learn. Updated 2026-01-07. [https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai/strategy](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai/strategy)
 [^cafaiarch]: *CAF AI PaaS architectures*, Microsoft Learn. Updated 2025-12-03. [https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai/platform/architectures](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai/platform/architectures)
 [^raistandard]: *Microsoft Responsible AI*: principles and approach. [https://aka.ms/RAI](https://aka.ms/RAI) · *Responsible AI policies (CAF)*: [https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai/responsible-ai-policies](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai/responsible-ai-policies) · *Microsoft AI principles and approach*: [https://www.microsoft.com/en-us/ai/principles-and-approach](https://www.microsoft.com/en-us/ai/principles-and-approach)
 [^m365adoption]: *Microsoft 365 Copilot adoption guide*, Microsoft Learn. Updated 2026-03-24. [https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-enablement-resources](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-enablement-resources)

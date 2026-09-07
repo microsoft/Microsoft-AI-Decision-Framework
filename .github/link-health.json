@@ -1,19 +1,4 @@
 {
-  "lastRun": "2026-08-31",
-  "urls": {
-    "https://fonts.googleapis.com": {
-      "firstFailed": "2026-08-31",
-      "failCount": 1,
-      "lastStatus": "404",
-      "state": "ignored",
-      "note": "preconnect origin in _includes/head_custom.html, not a navigable page; the css2 stylesheet URL alongside it returns 200. Do not 'fix'."
-    },
-    "https://fonts.gstatic.com": {
-      "firstFailed": "2026-08-31",
-      "failCount": 1,
-      "lastStatus": "404",
-      "state": "ignored",
-      "note": "preconnect origin in _includes/head_custom.html, not a navigable page. Do not 'fix'."
-    }
-  }
+  "lastRun": "2026-09-07",
+  "urls": {}
 }

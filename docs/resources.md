@@ -56,7 +56,7 @@ Treat it as a reading list with a shelf life. Microsoft Learn stamps every page 
 - [Agent Registry in the Microsoft 365 admin center](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/agent-registry?view=o365-worldwide) (Updated: 2026-01-23)
 - [Secure and govern Microsoft 365 Copilot agents (Purview blueprint)](https://learn.microsoft.com/en-us/purview/deploymentmodels/depmod-sc-agents-deployment)
 - [Microsoft Agents hub (Plan → Design → Adopt → Improve)](https://learn.microsoft.com/en-us/agents/). Microsoft's own agent docset: archetype framework, maturity model, transformation patterns, Center of Excellence, evaluation
-- [Cloud Adoption Framework for AI](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai/)
+- [Cloud Adoption Framework for AI](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai/strategy)
 - [CAF for AI agents](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/): Plan for agents → Govern & secure agents → Build agents → **Manage agents**
 - [Well-Architected Framework: AI workloads](https://learn.microsoft.com/en-us/azure/well-architected/ai/). There is **no separate WAF service guide for agents**; CAF routes agent teams here
 - [Baseline Microsoft Foundry Chat Reference Architecture](https://learn.microsoft.com/en-us/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-chat)
@@ -144,7 +144,7 @@ Read these before you read any product page. They are the maps; everything below
   - [Agentic Center of Excellence](https://learn.microsoft.com/en-us/agents/center-of-excellence/) includes agent risk tiering and evaluation guidance
 
 - **Cloud Adoption Framework**
-  - [CAF for AI](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai/): Strategy → Plan → Ready → Govern → Secure → Manage
+  - [CAF for AI](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai/strategy): Strategy → Plan → Ready → Govern → Secure → Manage
   - [CAF for AI agents](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/): Plan for agents → Govern & secure agents → Build agents → **Manage agents**
 
 - **Well-Architected Framework**

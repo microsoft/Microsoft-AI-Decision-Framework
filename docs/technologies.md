@@ -435,7 +435,7 @@ Read the scope before you panic. This applies to **makers on a Teams plan**, who
 - **Responses API (GA):** Modern API primitive replacing the Assistants API. Uses Conversations (not Threads) and Response Items (not Runs) with stateful context, background mode, and durable streams.
 - **Current endpoints and identity:** Current agents receive an endpoint and agent identity through the current model; the legacy Agent Applications publishing model is deprecated. Distribution to Microsoft 365 Copilot and Teams is **Early Access Preview** and must be validated per tool and identity path.
 - **Voice Live (Preview):** Real-time voice agents powered by Azure Speech. Connect Foundry agents to telephony, automotive, accessibility, and contact center scenarios via agent ID. Integrates natively with Foundry agents. SDKs for Python, C#, JavaScript, Java. Requires public endpoints (no VNet support yet).
-- **Foundry IQ (mixed GA/Preview):** Managed knowledge bases connecting agents to permission-aware enterprise data via MCP. See [Foundry IQ](#foundry-iq).
+- **Foundry IQ (mixed GA/Preview):** Managed knowledge bases connecting agents to permission-aware enterprise data via MCP. See [Foundry IQ](#foundry-iq--tech-heading-).
 - **Foundry Workflows:** **Retiring from Preview without a GA path on December 1, 2026.** No new-solution recommendation.
 - **Agent Memory (Preview):** Persistent context across sessions for agents.
 
@@ -518,7 +518,7 @@ Use Hosted Agents when that per-session isolation is worth the constraints. Othe
 
 **Licensing and rollout:** Agent 365 is GA with per-user licensing. Agents acting on behalf of a licensed user are covered. Microsoft describes Microsoft 365 E5 as working best as a prerequisite, and Agent 365 is included in the **Microsoft 365 E7** bundle. Microsoft's verbatim description: *"Microsoft 365 (E7) includes Microsoft 365 E5, Microsoft 365 Copilot, Microsoft Agent 365, and Microsoft Entra Suite."* The Agent 365 SDK and CLI remain in Preview; plan for API surface changes in tooling workflows. (Overview of Microsoft Agent 365 - Retrieved: 2026-07-29)
 
-**When to use:** Establish identity, registry, and governance for cross-platform agents; pair with Copilot Studio or Microsoft Foundry runtimes for execution. Fleet governance and in-process runtime policy are different layers. See the [Agent Governance Toolkit](#agent-governance-toolkit-public-preview) for the middleware layer that sits inside the execution path.
+**When to use:** Establish identity, registry, and governance for cross-platform agents; pair with Copilot Studio or Microsoft Foundry runtimes for execution. Fleet governance and in-process runtime policy are different layers. See the [Agent Governance Toolkit](#agent-governance-toolkit-public-preview--tech-heading-) for the middleware layer that sits inside the execution path.
 
 **Sources:**
 
@@ -597,9 +597,9 @@ Use Hosted Agents when that per-session isolation is worth the constraints. Othe
 
 Microsoft provides four IQ capabilities for agent-native systems:
 - **Foundry IQ:** Enterprise knowledge (files, blobs, indexes, web). You are here.
-- **Work IQ:** Microsoft 365 collaboration context (emails, meetings, chats, documents). **APIs GA 2026-06-16; Work IQ MCP is Preview.** See [Work IQ](#work-iq).
+- **Work IQ:** Microsoft 365 collaboration context (emails, meetings, chats, documents). **APIs GA 2026-06-16; Work IQ MCP is Preview.** See [Work IQ](#work-iq--tech-heading-).
 - **Fabric IQ (Preview):** Business analytics: ontologies, graph models, semantic models, and operations agents. Documented as a **Preview Fabric workload** at [`/fabric/iq/`](https://learn.microsoft.com/en-us/fabric/iq/).
-- **Web IQ:** Public web context and fresh external information. See [Web IQ](#web-iq-limited-access).
+- **Web IQ:** Public web context and fresh external information. See [Web IQ](#web-iq-limited-access--tech-heading-).
 
 Each IQ capability is standalone, but they can work together to provide comprehensive organizational and external context for agents. **Underneath Foundry IQ sits Azure AI Search.** It is the retrieval engine, still named Azure AI Search, not rebranded.
 
@@ -971,7 +971,7 @@ Runtime policy and fleet governance are complementary layers. A fleet control pl
 - **Foundry Hosted Agent Integration (Preview):** Run Agent Framework agents as managed services on Foundry or Azure Durable Functions.
 - **AG-UI / CopilotKit / ChatKit (Preview):** Stream agent output to frontend surfaces.
 - **Skills (Preview):** Reusable domain capability packages.
-- **GitHub Copilot SDK + Claude Code SDK (Preview):** Use as agent harnesses in orchestrations. **The Preview label belongs to the Agent Framework *integration*, not to the GitHub Copilot SDK itself. That SDK is GA.** See [GitHub Copilot SDK](#github-copilot-sdk).
+- **GitHub Copilot SDK + Claude Code SDK (Preview):** Use as agent harnesses in orchestrations. **The Preview label belongs to the Agent Framework *integration*, not to the GitHub Copilot SDK itself. That SDK is GA.** See [GitHub Copilot SDK](#github-copilot-sdk--tech-heading-).
 - **Agent Harness (Preview):** Shell, filesystem, and messaging loop access for coding agents.
 
 **When to use:** Full code-first control over multi-agent orchestration with multi-provider model support, custom middleware, and workflow persistence. Use when Copilot Studio's low-code approach or Foundry Agent Service's managed runtime don't provide enough flexibility.

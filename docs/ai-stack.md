@@ -380,7 +380,7 @@ Read the terms as well as the rates. These vehicles carry fixed terms and defaul
 ## Sources
 
 * [Copilot Chat overview](https://learn.microsoft.com/en-us/copilot/overview) (Updated: 2026-01-13)
-* [Which Copilot is right for your organization](https://learn.microsoft.com/en-us/microsoft-365/copilot/which-copilot-for-your-organization) (Updated: 2026-03-24)
+* [Microsoft Copilot overview](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-overview) (Updated: 2026-08-27)
 * [Copilot Studio overview](https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-what-is-copilot-studio) (Updated: 2026-02-09)
 * [Microsoft Foundry overview](https://learn.microsoft.com/en-us/azure/foundry/what-is-foundry?view=foundry&preserve-view=true) (Updated: 2026-03-13)
 * [When not to use AI agents](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/business-strategy-plan#when-not-to-use-ai-agents) (Updated: 2025-12-05)

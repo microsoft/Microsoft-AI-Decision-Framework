@@ -1,4 +1,12 @@
 {
-  "lastRun": "2026-08-24",
-  "urls": {}
+  "lastRun": "2026-09-14",
+  "urls": {
+    "https://techcommunity.microsoft.com/category/AzureAIServices": {
+      "firstFailed": "2026-09-14",
+      "failCount": 1,
+      "lastStatus": "200 (302 to sign-in)",
+      "state": "suspect",
+      "note": "Community navigation in docs/resources.md:370. Browser-UA curl follows a 302 to Microsoft sign-in; web_fetch confirms the sign-in page, and Firefox-UA curl without redirects also returns 302 to SSO. Access uncertainty, not confirmed deletion; preserve the URL pending another run."
+    }
+  }
 }

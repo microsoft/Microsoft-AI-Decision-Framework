@@ -44,7 +44,7 @@ description: "Fast lookup table for Microsoft AI technologies"
 ![How to prioritize agent use cases](../images/prioritize-agent-use-cases.png)
 *Use impact × feasibility × desirability to rank pilots.*
 
-**Ground agents in governed data.** Anchor retrieval in OneLake, Fabric, and Foundry rather than in copies, and give each workload a clear landing zone. See [Grounded Q&A over enterprise content]({{ '/docs/scenarios#scenario-1-grounded-qa-over-enterprise-content' | relative_url }}) for the retrieval decision, and [CAF: AI strategy](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai/) for the data-strategy stage.
+**Ground agents in governed data.** Anchor retrieval in OneLake, Fabric, and Foundry rather than in copies, and give each workload a clear landing zone. See [Grounded Q&A over enterprise content]({{ '/docs/scenarios#scenario-1-grounded-qa-over-enterprise-content' | relative_url }}) for the retrieval decision, and [CAF: AI strategy](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai/strategy) for the data-strategy stage.
 
 **Sources (CAF):**
 
@@ -119,7 +119,7 @@ Where can your agent appear? Match build platform to distribution surface.
 **Sources:**
 
 - [Copilot for all: Introducing Microsoft 365 Copilot Chat](https://www.microsoft.com/en-us/microsoft-365/blog/2025/01/15/copilot-for-all-introducing-microsoft-365-copilot-chat/) (Updated: 2025-01-15)
-- [Microsoft 365 Copilot release notes - November 25, 2025](https://learn.microsoft.com/en-us/microsoft-365/copilot/release-notes#november-25,-2025)
+- [Microsoft 365 Copilot release notes - November 25, 2025](https://learn.microsoft.com/en-us/microsoft-365/copilot/previous-year-release-notes#november-25-2025)
 - [Built-in enterprise readiness with standard agent setup](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/standard-agent-setup) (Updated: 2026-02-27)
 - [Overview of Microsoft Agent 365](https://learn.microsoft.com/en-us/microsoft-agent-365/overview) (Retrieved: 2026-06-08)
 - [Microsoft IQ overview](https://learn.microsoft.com/en-us/microsoft-iq/) (Retrieved: 2026-06-08)
@@ -127,7 +127,7 @@ Where can your agent appear? Match build platform to distribution surface.
 - [Microsoft Agent 365 SDK](https://learn.microsoft.com/en-us/microsoft-agent-365/developer/agent-365-sdk) (Retrieved: 2026-01-09)
 - [Agent 365 CLI](https://learn.microsoft.com/en-us/microsoft-agent-365/developer/agent-365-cli) (Retrieved: 2026-01-13)
 - [What is Microsoft Entra Agent ID?](https://learn.microsoft.com/en-us/entra/agent-id/what-is-microsoft-entra-agent-id): generally available; *"available for all Microsoft Entra customers"*
-- [Agent Registry in the Microsoft 365 admin center](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/agent-registry?view=o365-worldwide#admin-actions-to-manage-agents) (Updated: 2026-01-23)
+- [Agent Registry in the Microsoft 365 admin center](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/agent-registry?view=o365-worldwide) (Updated: 2026-01-23)
 - [Foundry Control Plane overview](https://learn.microsoft.com/en-us/azure/foundry/control-plane/overview) (Updated: 2026-02-27)
 - [Azure AI Search what's new](https://learn.microsoft.com/en-us/azure/search/whats-new#2025-announcements) (Updated: 2026-03-13)
 - [Microsoft 365 Copilot Search API overview](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/api/ai-services/search/overview) (Updated: 2025-10-20)
@@ -274,7 +274,7 @@ One agent, four handoffs. This is the relay race a developer's work actually run
 - [About the Copilot cloud agent](https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent)
 - [About custom agents](https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-custom-agents)
 - [Copilot response customization (agent instructions / `AGENTS.md`)](https://docs.github.com/en/copilot/concepts/prompting/response-customization)
-- [GitHub Copilot SDK: getting started](https://docs.github.com/en/copilot/how-tos/copilot-sdk/getting-started)
+- GitHub Copilot SDK: [quickstart](https://docs.github.com/en/copilot/get-started/sdk-quickstart); [GA announcement and six languages](https://github.blog/changelog/2026-06-02-copilot-sdk-is-now-generally-available/); [BYOK providers and token callbacks](https://docs.github.com/en/copilot/how-tos/copilot-sdk/auth/byok); [Azure managed identity with BYOK](https://docs.github.com/en/copilot/how-tos/copilot-sdk/setup/azure-managed-identity)
 - [Microsoft Foundry Agent Service overview](https://learn.microsoft.com/en-us/azure/foundry/agents/overview): lists the GitHub Copilot SDK as a hosted-agent framework
 - [Hosted agents concepts](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/hosted-agents): language support statement
 
@@ -384,7 +384,7 @@ Grounding is not one product. It is a shelf of stores with different shapes, dif
 - **M365-Centric:** Per-user licensing (Copilot Studio, M365 Copilot add-on)
 - **Azure-Native:** Consumption-based (Azure OpenAI tokens, AI Search queries, compute)
 - **Hybrid:** Mix of per-user and consumption models
-- **Two prepurchase plans, not one:** Microsoft sells **two distinct Azure reservation products**. The **Copilot Credit Pre-Purchase Plan** buys **CCCUs** against eligible Copilot Credit usage. The **Microsoft Agent Prepurchase Plan** buys **ACUs** against *"select services across Microsoft Foundry, Microsoft Copilot Studio\*, Microsoft Fabric, and GitHub costs"* (\* = Copilot Studio, Dynamics 365 first-party agents, and Copilot). **1 ACU pays down US$1 of qualifying retail cost, purchased at a tiered discount.** Coverage of Copilot Cowork and Work IQ is **not stated by Microsoft**. Do not assume it. See [Evaluation Criteria: Budget]({{ '/docs/evaluation-criteria#budget-assessment' | relative_url }})
+- **Two prepurchase plans, not one:** Microsoft sells **two distinct Azure reservation products**. The **Copilot Credit Pre-Purchase Plan** buys **CCCUs** against eligible Copilot Credit usage. The **Microsoft Agent Prepurchase Plan** buys **ACUs** against *"select services across Microsoft Foundry, Microsoft Copilot Studio\*, Microsoft Fabric, and GitHub costs"* (\* = Copilot Studio, Dynamics 365 first-party agents, and Copilot). **1 ACU pays down US$1 of qualifying retail cost, purchased at a tiered discount.** Coverage of Copilot Cowork and Work IQ is **not stated by Microsoft**. Do not assume it. See [Evaluation Criteria: Budget]({{ '/docs/evaluation-criteria#3-budget-assessment' | relative_url }})
 - **Discount precedence (verbatim):** *"Reservations always apply before prepurchase plans."* The order is **Microsoft Foundry PTU Reservations → Microsoft Fabric Capacity Reservations → Copilot Credit Prepurchase Plan → Microsoft Agent Prepurchase Plan** (applied last, to remaining AI usage across all platforms). The governing principle is simple: **narrow benefits burn before broad benefits.**
 - **Hidden Costs:** Team training, governance setup, responsible AI evaluation, ongoing maintenance
 
@@ -396,7 +396,7 @@ Microsoft does not have one AI meter. It has five, and they do not convert into 
 | Wallet | Unit | What it meters | Notes |
 | --- | --- | --- | --- |
 | **Copilot Credits** | Credit | Microsoft 365 side: agent usage, Copilot Cowork task tiers, Work IQ APIs | Pay-as-you-go at **US$0.01 per credit** |
-| **GitHub AI credits** | Credit | GitHub Copilot premium usage | **1 credit = US$0.01.** Copilot Business **1,900**/user/month; Enterprise **3,900**/user/month. A promotional **3,000 / 7,000** allowance runs from 2026-06-01 and **ends 2026-09-01** |
+| **GitHub AI credits** | Credit | GitHub Copilot premium usage | **1 credit = US$0.01.** Each assigned Copilot Business license adds **1,900** credits per month; Enterprise adds **3,900**. Credits form a shared monthly pool at the billing entity; unused credits do not carry over |
 | **Azure consumption** | Tokens, PTU, batch | Microsoft Foundry models and platform services | Pay-per-token, Provisioned Throughput Units, batch, and priority processing |
 | **Fabric Capacity Units** | CU | Fabric workloads, including Fabric data agents and Foundry Tools in Fabric | F2 to F8192; Fabric data agents require F2+ or P1+ |
 | **Azure SRE Agent AAU** | **AAU** | Azure SRE Agent runtime | **4 AAU per agent-hour** always-on, plus variable usage. (The term is *AAU*; "Azure Agent Units" is not a Microsoft term) |
@@ -405,7 +405,7 @@ Microsoft does not have one AI meter. It has five, and they do not convert into 
 
 - [Copilot Credit Pre-Purchase Plan](https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/copilot-credit-p3)
 - [Microsoft Agent Prepurchase Plan](https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/agent-pre-purchase)
-- [GitHub Copilot billing and AI credits](https://docs.github.com/en/copilot/concepts/billing)
+- [Usage-based billing for organizations and enterprises](https://docs.github.com/en/copilot/concepts/billing-and-usage/organizations-and-enterprises/billing)
 - [Azure SRE Agent pricing and billing](https://learn.microsoft.com/en-us/azure/sre-agent/pricing-billing)
 
 **Sources:**

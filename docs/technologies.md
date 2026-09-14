@@ -54,9 +54,9 @@ Use this page as a reference after you’ve narrowed the decision: it’s optimi
 - **Wave 3 multi-model intelligence:** Automatic model routing across OpenAI (GPT-5.2) and Anthropic (Claude) providers. Copilot selects the right model for each task - users choose Quick Response or Think Deeper modes without managing model selection. Claude available in mainline Copilot Chat via Frontier. ([Wave 3 announcement](https://www.microsoft.com/en-us/microsoft-365/blog/2026/03/09/powering-frontier-transformation-with-copilot-and-agents/) - Published: 2026-03-09)
 - **Agentic Copilot in apps (GA):** Edit with Copilot in Excel and Word (formerly "Agent Mode") creates, edits, and refines content using app-native tools - formulas, PivotTables, charts, tables. No longer a separate mode; this is core Copilot. PowerPoint and Outlook rolling out through spring 2026. ([Wave 3 announcement](https://www.microsoft.com/en-us/microsoft-365/blog/2026/03/09/powering-frontier-transformation-with-copilot-and-agents/) - Published: 2026-03-09)
 - **Researcher agent (GA):** Pre-installed multi-step research agent with connected agent delegation. Admins connect specialized Declarative Agents to Researcher for domain-specific task handoff. ([Microsoft 365 Copilot release notes](https://learn.microsoft.com/en-us/microsoft-365/copilot/release-notes) - Retrieved: 2026-03-25)
-- **Multi-agent workflows:** Declarative Agents can connect to other agents for coordinated task completion. Researcher delegates to connected agents; users see inter-agent interaction. ([Microsoft 365 Copilot release notes - Jan 27, 2026](https://learn.microsoft.com/en-us/microsoft-365/copilot/release-notes#january-27,-2026) - Retrieved: 2026-03-25)
-- **Copilot Memory (Preview):** Persistent personalization across sessions using Graph signals and conversation history. Users control, view, manage, disable, or clear memory at any time. ([Microsoft 365 Copilot release notes - Sep 3, 2025](https://learn.microsoft.com/en-us/microsoft-365/copilot/release-notes#september-3,-2025) - Retrieved: 2026-03-25)
-- **Voice input (GA):** Speak to Copilot across mobile, desktop, and web in M365 apps including Outlook, Word, and PowerPoint. ([Microsoft 365 Copilot release notes - Nov 25, 2025](https://learn.microsoft.com/en-us/microsoft-365/copilot/release-notes#november-25,-2025) - Retrieved: 2026-03-25)
+- **Multi-agent workflows:** Declarative Agents can connect to other agents for coordinated task completion. Researcher delegates to connected agents; users see inter-agent interaction. ([Microsoft 365 Copilot release notes - Jan 27, 2026](https://learn.microsoft.com/en-us/microsoft-365/copilot/release-notes#january-27-2026) - Retrieved: 2026-03-25)
+- **Copilot Memory (Preview):** Persistent personalization across sessions using Graph signals and conversation history. Users control, view, manage, disable, or clear memory at any time. ([Microsoft 365 Copilot release notes - Sep 3, 2025](https://learn.microsoft.com/en-us/microsoft-365/copilot/previous-year-release-notes#september-3-2025) - Retrieved: 2026-03-25)
+- **Voice input (GA):** Speak to Copilot across mobile, desktop, and web in M365 apps including Outlook, Word, and PowerPoint. ([Microsoft 365 Copilot release notes - Nov 25, 2025](https://learn.microsoft.com/en-us/microsoft-365/copilot/previous-year-release-notes#november-25-2025) - Retrieved: 2026-03-25)
 - **Connector ecosystem expansion:** 20+ new Copilot connectors since Oct 2025 including Coda, GitLab, Bitbucket, Asana, Smartsheet, Monday.com, Jira Data Center, Zendesk, Miro, Dropbox, Google Drive, Amazon S3, Veeva, and more. Explainable AI with inline citations for connector results. ([Microsoft 365 Copilot release notes](https://learn.microsoft.com/en-us/microsoft-365/copilot/release-notes) - Retrieved: 2026-03-25)
 
 **Recent Updates (2025 to 2026):**
@@ -89,16 +89,16 @@ Smaller organizations have their own rungs, which this reference previously omit
 
 **Sources:**
 
-- [Microsoft 365 Copilot release notes - Oct 28, 2025](https://learn.microsoft.com/en-us/microsoft-365/copilot/release-notes#october-28,-2025) (Retrieved: 2026-03-25)
-- [Microsoft 365 Copilot release notes - Aug 19, 2025](https://learn.microsoft.com/en-us/microsoft-365/copilot/release-notes#august-19,-2025) (Retrieved: 2026-03-25)
-- [Microsoft 365 Copilot release notes - Aug 5, 2025](https://learn.microsoft.com/en-us/microsoft-365/copilot/release-notes#august-5,-2025) (Retrieved: 2026-03-25)
-- [Microsoft 365 Copilot release notes - Jul 8, 2025](https://learn.microsoft.com/en-us/microsoft-365/copilot/release-notes#july-8,-2025) (Retrieved: 2026-03-25)
+- [Microsoft 365 Copilot release notes - Oct 28, 2025](https://learn.microsoft.com/en-us/microsoft-365/copilot/previous-year-release-notes#october-28-2025) (Retrieved: 2026-03-25)
+- [Microsoft 365 Copilot release notes - Aug 19, 2025](https://learn.microsoft.com/en-us/microsoft-365/copilot/previous-year-release-notes#august-19-2025) (Retrieved: 2026-03-25)
+- [Microsoft 365 Copilot release notes - Aug 5, 2025](https://learn.microsoft.com/en-us/microsoft-365/copilot/previous-year-release-notes#august-5-2025) (Retrieved: 2026-03-25)
+- [Microsoft 365 Copilot release notes - Jul 8, 2025](https://learn.microsoft.com/en-us/microsoft-365/copilot/previous-year-release-notes#july-8-2025) (Retrieved: 2026-03-25)
 - [Agents for Microsoft 365 Copilot](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/agents-overview) (Retrieved: 2026-01-07)
 - [Extend Microsoft 365 Copilot with agents](https://learn.microsoft.com/en-us/microsoft-copilot-studio/microsoft-365-copilot-extend-with-agents) (Retrieved: 2025-12-15)
 - [Data, privacy, and security considerations for extending Microsoft 365 Copilot](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/data-privacy-security) (Retrieved: 2025-09-05)
 - [Wave 3: Powering Frontier Transformation](https://www.microsoft.com/en-us/microsoft-365/blog/2026/03/09/powering-frontier-transformation-with-copilot-and-agents/) (Published: 2026-03-09)
 - [Copilot Cowork announcement](https://www.microsoft.com/en-us/microsoft-365/blog/2026/03/09/copilot-cowork-a-new-way-of-getting-work-done/) (Published: 2026-03-09)
-- [Microsoft 365 Copilot release notes - Mar 24, 2026](https://learn.microsoft.com/en-us/microsoft-365/copilot/release-notes#march-24,-2026) (Retrieved: 2026-03-25)
+- [Microsoft 365 Copilot release notes - Mar 24, 2026](https://learn.microsoft.com/en-us/microsoft-365/copilot/release-notes#march-24-2026) (Retrieved: 2026-03-25)
 
 ---
 
@@ -123,7 +123,7 @@ Smaller organizations have their own rungs, which this reference previously omit
 - [Get started with Word, Excel, and PowerPoint Agents (Frontier)](https://learn.microsoft.com/en-us/microsoft-365/copilot/wordexcelppt-agents) (Retrieved: 2026-03-30)
 - [Frequently asked questions about Word, Excel, and PowerPoint Agents: Responsible AI FAQ](https://learn.microsoft.com/en-us/microsoft-365/copilot/faq-wordexcelppt-agents) (Retrieved: 2026-03-30)
 - [Manage Microsoft 365 Copilot scenarios in the Microsoft 365 admin center](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-page#user-access) (Retrieved: 2026-03-16)
-- [Overview of Microsoft Agent 365](https://learn.microsoft.com/en-us/microsoft-agent-365/overview#enable-agent-365) (Retrieved: 2025-12-15)
+- [Overview of Microsoft Agent 365](https://learn.microsoft.com/en-us/microsoft-agent-365/overview) (Retrieved: 2025-12-15)
 
 ---
 
@@ -435,7 +435,7 @@ Read the scope before you panic. This applies to **makers on a Teams plan**, who
 - **Responses API (GA):** Modern API primitive replacing the Assistants API. Uses Conversations (not Threads) and Response Items (not Runs) with stateful context, background mode, and durable streams.
 - **Current endpoints and identity:** Current agents receive an endpoint and agent identity through the current model; the legacy Agent Applications publishing model is deprecated. Distribution to Microsoft 365 Copilot and Teams is **Early Access Preview** and must be validated per tool and identity path.
 - **Voice Live (Preview):** Real-time voice agents powered by Azure Speech. Connect Foundry agents to telephony, automotive, accessibility, and contact center scenarios via agent ID. Integrates natively with Foundry agents. SDKs for Python, C#, JavaScript, Java. Requires public endpoints (no VNet support yet).
-- **Foundry IQ (mixed GA/Preview):** Managed knowledge bases connecting agents to permission-aware enterprise data via MCP. See [Foundry IQ](#foundry-iq).
+- **Foundry IQ (mixed GA/Preview):** Managed knowledge bases connecting agents to permission-aware enterprise data via MCP. See [Foundry IQ](#foundry-iq--tech-heading-).
 - **Foundry Workflows:** **Retiring from Preview without a GA path on December 1, 2026.** No new-solution recommendation.
 - **Agent Memory (Preview):** Persistent context across sessions for agents.
 
@@ -492,7 +492,7 @@ Use Hosted Agents when that per-session isolation is worth the constraints. Othe
 
 - [What's new in Microsoft Foundry](https://learn.microsoft.com/en-us/azure/foundry/whats-new-foundry) (Updated: 2026-03-23)
 - [Foundry Agent Service overview](https://learn.microsoft.com/en-us/azure/foundry/agents/overview)
-- [Agent Tool Catalog](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/tool-catalog)
+- [What is Toolbox in Foundry?](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/toolbox-overview)
 - [Transparency Note for Azure Agent Service](https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/agents/transparency-note)
 - [Virtual Networks for Foundry](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/virtual-networks)
 - [Azure Cosmos DB integration with Azure AI Agents Service](https://learn.microsoft.com/en-us/azure/cosmos-db/gen-ai/azure-agent-service#overview)
@@ -518,7 +518,7 @@ Use Hosted Agents when that per-session isolation is worth the constraints. Othe
 
 **Licensing and rollout:** Agent 365 is GA with per-user licensing. Agents acting on behalf of a licensed user are covered. Microsoft describes Microsoft 365 E5 as working best as a prerequisite, and Agent 365 is included in the **Microsoft 365 E7** bundle. Microsoft's verbatim description: *"Microsoft 365 (E7) includes Microsoft 365 E5, Microsoft 365 Copilot, Microsoft Agent 365, and Microsoft Entra Suite."* The Agent 365 SDK and CLI remain in Preview; plan for API surface changes in tooling workflows. (Overview of Microsoft Agent 365 - Retrieved: 2026-07-29)
 
-**When to use:** Establish identity, registry, and governance for cross-platform agents; pair with Copilot Studio or Microsoft Foundry runtimes for execution. Fleet governance and in-process runtime policy are different layers. See the [Agent Governance Toolkit](#agent-governance-toolkit-public-preview) for the middleware layer that sits inside the execution path.
+**When to use:** Establish identity, registry, and governance for cross-platform agents; pair with Copilot Studio or Microsoft Foundry runtimes for execution. Fleet governance and in-process runtime policy are different layers. See the [Agent Governance Toolkit](#agent-governance-toolkit-public-preview--tech-heading-) for the middleware layer that sits inside the execution path.
 
 **Sources:**
 
@@ -573,7 +573,6 @@ Use Hosted Agents when that per-session isolation is worth the constraints. Othe
 **Sources:**
 
 - [What's new in Azure AI Search](https://learn.microsoft.com/en-us/azure/search/whats-new#2025-announcements) (Updated: 2026-03-13)
-- [What's new in Azure AI Search (Sep 2025)](https://learn.microsoft.com/en-us/azure/search/whats-new#september-2025) (Updated: 2026-03-13)
 - [Optimize costs for Azure AI Search Serverless (Public Preview)](https://learn.microsoft.com/en-us/azure/search/serverless-cost-optimization) (Updated: 2026-06)
 
 ---
@@ -597,9 +596,9 @@ Use Hosted Agents when that per-session isolation is worth the constraints. Othe
 
 Microsoft provides four IQ capabilities for agent-native systems:
 - **Foundry IQ:** Enterprise knowledge (files, blobs, indexes, web). You are here.
-- **Work IQ:** Microsoft 365 collaboration context (emails, meetings, chats, documents). **APIs GA 2026-06-16; Work IQ MCP is Preview.** See [Work IQ](#work-iq).
+- **Work IQ:** Microsoft 365 collaboration context (emails, meetings, chats, documents). **APIs GA 2026-06-16; Work IQ MCP is Preview.** See [Work IQ](#work-iq--tech-heading-).
 - **Fabric IQ (Preview):** Business analytics: ontologies, graph models, semantic models, and operations agents. Documented as a **Preview Fabric workload** at [`/fabric/iq/`](https://learn.microsoft.com/en-us/fabric/iq/).
-- **Web IQ:** Public web context and fresh external information. See [Web IQ](#web-iq-limited-access).
+- **Web IQ:** Public web context and fresh external information. See [Web IQ](#web-iq-limited-access--tech-heading-).
 
 Each IQ capability is standalone, but they can work together to provide comprehensive organizational and external context for agents. **Underneath Foundry IQ sits Azure AI Search.** It is the retrieval engine, still named Azure AI Search, not rebranded.
 
@@ -835,7 +834,7 @@ Use "Agent HQ" in a keynote recap. Use "Agents page" and "AI Controls" in a desi
 
 **Read the scope before you rip anything out:** only *GitHub App-based* Extensions were deprecated. **Client-side VS Code Copilot Extensions remain fully supported.** The docs URL 301-redirects rather than 404s, which is exactly the kind of soft signal that lets a stale design survive a review.
 
-**Budget note, GitHub AI credits:** 1 credit = **$0.01**. Copilot **Business** includes **1,900 credits per user per month**; **Enterprise** includes **3,900**. A promotional uplift to **3,000 / 7,000** runs until **2026-09-01**. **Code completions and next-edit suggestions are not billed against credits.** The thing developers use all day is not what moves the invoice; agent runs are.
+**Budget note, GitHub AI credits:** 1 credit = $0.01. Each assigned Copilot Business license adds 1,900 credits per month; Enterprise adds 3,900. Included credits are pooled at the billing entity and do not carry over. **Code completions and next-edit suggestions are not billed against credits.** See [Usage-based billing for organizations and enterprises](https://docs.github.com/en/copilot/concepts/billing-and-usage/organizations-and-enterprises/billing). The thing developers use all day is not what moves the invoice; agent runs are.
 
 ## GitHub Copilot SDK {: .tech-heading }
 
@@ -903,7 +902,7 @@ Use "Agent HQ" in a keynote recap. Use "Agents page" and "AI Controls" in a desi
 
 **Recent Updates (2025):**
 
-- **May 19, 2025:** Agents Toolkit added Kiota-powered API plugin generation, enabling visual endpoint selection and easier maintenance. ([Microsoft 365 Copilot release notes - June 24, 2025](https://learn.microsoft.com/en-us/microsoft-365/copilot/release-notes#june-24,-2025) - Retrieved: 2026-03-25)
+- **May 19, 2025:** Agents Toolkit added Kiota-powered API plugin generation, enabling visual endpoint selection and easier maintenance. ([Microsoft 365 Copilot release notes - June 24, 2025](https://learn.microsoft.com/en-us/microsoft-365/copilot/previous-year-release-notes#june-24-2025) - Retrieved: 2026-03-25)
 - **May 2025:** GitHub Copilot extension option introduced for chat-driven scaffolding of Agents Toolkit projects. ([Microsoft 365 Agents Toolkit](https://learn.microsoft.com/en-us/microsoftteams/platform/toolkit/overview-agents-toolkit#formats) - Updated: 2026-01-29)
 
 **Deployment & Hosting:**
@@ -917,7 +916,7 @@ Use "Agent HQ" in a keynote recap. Use "Agents page" and "AI Controls" in a desi
 
 - [Microsoft 365 Agents Toolkit](https://learn.microsoft.com/en-us/microsoftteams/platform/toolkit/overview-agents-toolkit) (Updated: 2026-01-29)
 - [Create and deploy with Microsoft 365 Agents SDK](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/create-deploy-agents-sdk) (Updated: 2025-12-02)
-- [Microsoft 365 Copilot release notes - June 24, 2025](https://learn.microsoft.com/en-us/microsoft-365/copilot/release-notes#june-24,-2025) (Retrieved: 2026-03-25)
+- [Microsoft 365 Copilot release notes - June 24, 2025](https://learn.microsoft.com/en-us/microsoft-365/copilot/previous-year-release-notes#june-24-2025) (Retrieved: 2026-03-25)
 - [Microsoft 365 Agents Toolkit command line interface](https://learn.microsoft.com/en-us/microsoftteams/platform/toolkit/microsoft-365-agents-toolkit-cli) (Retrieved: 2025-05-19)
 - [Bot Framework Migration Guide](https://aka.ms/bfmigrationguidance)
 
@@ -971,7 +970,7 @@ Runtime policy and fleet governance are complementary layers. A fleet control pl
 - **Foundry Hosted Agent Integration (Preview):** Run Agent Framework agents as managed services on Foundry or Azure Durable Functions.
 - **AG-UI / CopilotKit / ChatKit (Preview):** Stream agent output to frontend surfaces.
 - **Skills (Preview):** Reusable domain capability packages.
-- **GitHub Copilot SDK + Claude Code SDK (Preview):** Use as agent harnesses in orchestrations. **The Preview label belongs to the Agent Framework *integration*, not to the GitHub Copilot SDK itself. That SDK is GA.** See [GitHub Copilot SDK](#github-copilot-sdk).
+- **GitHub Copilot SDK + Claude Code SDK (Preview):** Use as agent harnesses in orchestrations. **The Preview label belongs to the Agent Framework *integration*, not to the GitHub Copilot SDK itself. That SDK is GA.** See [GitHub Copilot SDK](#github-copilot-sdk--tech-heading-).
 - **Agent Harness (Preview):** Shell, filesystem, and messaging loop access for coding agents.
 
 **When to use:** Full code-first control over multi-agent orchestration with multi-provider model support, custom middleware, and workflow persistence. Use when Copilot Studio's low-code approach or Foundry Agent Service's managed runtime don't provide enough flexibility.

@@ -103,7 +103,7 @@ Read the trade-off before the diagram. The architecture is the easy part.
 
 - [Foundry Agent Service overview](https://learn.microsoft.com/en-us/azure/foundry/agents/overview?view=foundry)[^agentservice-overview]
 - [Microsoft AI Feature Comparison]({{ '/docs/feature-comparison' | relative_url }})[^feature-comparison]
-- [Evaluation Criteria: Governance & Compliance]({{ '/docs/evaluation-criteria#governance--compliance-the-security-perimeter' | relative_url }})[^evaluation-governance]
+- [Evaluation Criteria: Governance & Compliance]({{ '/docs/evaluation-criteria#5-governance--compliance-the-security-perimeter' | relative_url }})[^evaluation-governance]
 - [Plugins for Microsoft 365 Copilot](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/overview-plugins)[^api-plugins]
 - [Create and deploy with Microsoft 365 Agents SDK](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/create-deploy-agents-sdk)[^agentsdk-overview]
 
@@ -630,12 +630,12 @@ Choose the path that matches your team's velocity and codebase complexity. All t
    - **M365-first surface** (Teams, Outlook, Word) → stay inside the Microsoft 365 trust boundary with **Pattern 3** for knowledge-only needs[^pattern3-knowledge] or **Pattern 1** when you need orchestrated actions and governance controls inside Copilot Studio[^pattern1-actions].
    - **Multi-channel or custom apps** (web, mobile, SMS, API) → continue to step 3 with **Patterns 2 or 4** in play.
 
-3. **Clarify delivery ownership (avoid the low-code vs pro-code trap).** Use the skills, time, and funding matrices in [Evaluation Criteria]({{ '/docs/evaluation-criteria#skills--resources-delivery-team' | relative_url }}). Decide who will build and run the backlog, not which UI they click.
+3. **Clarify delivery ownership (avoid the low-code vs pro-code trap).** Use the skills, time, and funding matrices in [Evaluation Criteria]({{ '/docs/evaluation-criteria#2-skills--resources-delivery-team' | relative_url }}). Decide who will build and run the backlog, not which UI they click.
    - **Maker-led or mixed squads** who will operate inside Copilot Studio, yet can still call custom APIs or child agents, start with **Pattern 1** and expand to Azure as needed.
    - **Engineer-led product teams** with CI/CD, observability, and landing-zone governance treat **Pattern 2** (Azure-first) or **Pattern 4** (Agents SDK distribution) as the default.
    - **Hybrid hand-offs** (makers capturing intent, engineers owning orchestration) combine **Pattern 1** for the front door with **Pattern 2**/**Pattern 4** services behind it.[^skills-matrix]
 
-4. **Decide the governance boundary.** Align with the governance table in [Evaluation Criteria]({{ '/docs/evaluation-criteria#governance--compliance-the-security-perimeter' | relative_url }}).
+4. **Decide the governance boundary.** Align with the governance table in [Evaluation Criteria]({{ '/docs/evaluation-criteria#5-governance--compliance-the-security-perimeter' | relative_url }}).
    - **Stay inside Microsoft 365 tenant controls** → **Pattern 1** or **Pattern 3**.
    - **Require VNet isolation, private endpoints, or custom compliance** → **Pattern 2** or **Pattern 4**.
    - **Hybrid front door** (Copilot Studio + Azure runtime) → combine **Pattern 1** and **Pattern 2** as described in Pattern 1’s “Scale with Azure” step.
@@ -647,7 +647,7 @@ Choose the path that matches your team's velocity and codebase complexity. All t
 **Before you decide:** Validate your choice against the scenario playbooks in [Scenarios]({{ '/docs/scenarios' | relative_url }}) and the capability groupings in [Capability Model]({{ '/docs/capability-model' | relative_url }}) to ensure the pattern supports the right part of Microsoft’s AI portfolio. Use the comparison matrices in [Quick Reference]({{ '/docs/quick-reference' | relative_url }}) to double-check complexity, skills, budget, and governance trade-offs.
 
 [^pattern3-knowledge]: Add SharePoint as a knowledge source in Copilot Studio, Microsoft Learn. Updated: 2026-01-12. [https://learn.microsoft.com/en-us/microsoft-copilot-studio/knowledge-add-sharepoint](https://learn.microsoft.com/en-us/microsoft-copilot-studio/knowledge-add-sharepoint)
-[^pattern1-actions]: Microsoft 365 Copilot release notes, August 19, 2025, Microsoft Learn. [https://learn.microsoft.com/en-us/microsoft-365/copilot/release-notes#august-19,-2025](https://learn.microsoft.com/en-us/microsoft-365/copilot/release-notes#august-19,-2025)
+[^pattern1-actions]: Microsoft 365 Copilot release notes, August 19, 2025, Microsoft Learn. [https://learn.microsoft.com/en-us/microsoft-365/copilot/previous-year-release-notes#august-19-2025](https://learn.microsoft.com/en-us/microsoft-365/copilot/previous-year-release-notes#august-19-2025)
 [^skills-matrix]: Evaluation Criteria: Skills & Resources, Microsoft AI Decision Framework. See `docs/evaluation-criteria.md`.
 [^agent-workflows]: Microsoft Agent Framework Workflows overview, Microsoft Learn. [https://learn.microsoft.com/en-us/agent-framework/workflows/](https://learn.microsoft.com/en-us/agent-framework/workflows/)
 [^agentsdk-overview]: Create and deploy a custom engine agent with Microsoft 365 Agents SDK, Microsoft Learn. Updated: 2025-12-02. [https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/create-deploy-agents-sdk](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/create-deploy-agents-sdk)

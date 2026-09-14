@@ -52,11 +52,11 @@ Treat it as a reading list with a shelf life. Microsoft Learn stamps every page 
 
 - [What's new in Microsoft Foundry](https://learn.microsoft.com/en-us/azure/foundry/whats-new-foundry)
 - [M365 Copilot Extensibility Overview](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/)
-- [Microsoft 365 Copilot release notes - November 25, 2025](https://learn.microsoft.com/en-us/microsoft-365/copilot/release-notes#november-25,-2025)
-- [Agent Registry in the Microsoft 365 admin center](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/agent-registry?view=o365-worldwide#admin-actions-to-manage-agents) (Updated: 2026-01-23)
+- [Microsoft 365 Copilot release notes - November 25, 2025](https://learn.microsoft.com/en-us/microsoft-365/copilot/previous-year-release-notes#november-25-2025)
+- [Agent Registry in the Microsoft 365 admin center](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/agent-registry?view=o365-worldwide) (Updated: 2026-01-23)
 - [Secure and govern Microsoft 365 Copilot agents (Purview blueprint)](https://learn.microsoft.com/en-us/purview/deploymentmodels/depmod-sc-agents-deployment)
 - [Microsoft Agents hub (Plan → Design → Adopt → Improve)](https://learn.microsoft.com/en-us/agents/). Microsoft's own agent docset: archetype framework, maturity model, transformation patterns, Center of Excellence, evaluation
-- [Cloud Adoption Framework for AI](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai/)
+- [Cloud Adoption Framework for AI](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai/strategy)
 - [CAF for AI agents](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/): Plan for agents → Govern & secure agents → Build agents → **Manage agents**
 - [Well-Architected Framework: AI workloads](https://learn.microsoft.com/en-us/azure/well-architected/ai/). There is **no separate WAF service guide for agents**; CAF routes agent teams here
 - [Baseline Microsoft Foundry Chat Reference Architecture](https://learn.microsoft.com/en-us/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-chat)
@@ -84,7 +84,7 @@ Treat it as a reading list with a shelf life. Microsoft Learn stamps every page 
 - [Agentic retrieval quickstart for Azure AI Search](https://learn.microsoft.com/en-us/azure/search/search-get-started-agentic-retrieval)
 - [Microsoft 365 Copilot Search API overview (Preview)](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/api/ai-services/search/overview) (Updated: 2025-10-20)
 - [Copy an agent to Copilot Studio](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/copy-agent-to-copilot-studio) (Updated: 2026-01-26)
-- [GitHub Copilot SDK: getting started](https://docs.github.com/en/copilot/how-tos/copilot-sdk/getting-started) (GA; Python, TypeScript, Go, .NET, Java, Rust)
+- [GitHub Copilot SDK: getting started](https://docs.github.com/en/copilot/get-started/sdk-quickstart) ([GA](https://github.blog/changelog/2026-06-02-copilot-sdk-is-now-generally-available/); Python, TypeScript, Go, .NET, Java, Rust)
 - [GitHub Copilot SDK + Microsoft Agent Framework integration](https://docs.github.com/en/copilot/how-tos/copilot-sdk/integrations/microsoft-agent-framework)
 - [Foundry hosted agents: language support](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/hosted-agents): *"Hosted agents support Python and C#."* A Go, Rust, or Java Copilot SDK agent is **not** directly hostable there
 
@@ -124,8 +124,8 @@ Treat it as a reading list with a shelf life. Microsoft Learn stamps every page 
 - [M365 Copilot admin guide](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-setup)
 - [Integrated apps management](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/test-and-deploy-microsoft-365-apps)
 - [Graph connectors administration](https://learn.microsoft.com/en-us/microsoft-365/copilot/connectors/deployment-overview)
-- [Agent Registry in the Microsoft 365 admin center](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/agent-registry?view=o365-worldwide#admin-actions-to-manage-agents) (Updated: 2026-01-23)
-- [Microsoft 365 Copilot release notes - November 25, 2025](https://learn.microsoft.com/en-us/microsoft-365/copilot/release-notes#november-25,-2025)
+- [Agent Registry in the Microsoft 365 admin center](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/agent-registry?view=o365-worldwide) (Updated: 2026-01-23)
+- [Microsoft 365 Copilot release notes - November 25, 2025](https://learn.microsoft.com/en-us/microsoft-365/copilot/previous-year-release-notes#november-25-2025)
 
 ---
 
@@ -144,7 +144,7 @@ Read these before you read any product page. They are the maps; everything below
   - [Agentic Center of Excellence](https://learn.microsoft.com/en-us/agents/center-of-excellence/) includes agent risk tiering and evaluation guidance
 
 - **Cloud Adoption Framework**
-  - [CAF for AI](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai/): Strategy → Plan → Ready → Govern → Secure → Manage
+  - [CAF for AI](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai/strategy): Strategy → Plan → Ready → Govern → Secure → Manage
   - [CAF for AI agents](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/): Plan for agents → Govern & secure agents → Build agents → **Manage agents**
 
 - **Well-Architected Framework**
@@ -306,14 +306,14 @@ Read these before you read any product page. They are the maps; everything below
   - [Custom agents](https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-custom-agents) and [`AGENTS.md` agent instructions](https://docs.github.com/en/copilot/concepts/prompting/response-customization)
   - [Prepare an enterprise for custom agents](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/prepare-for-custom-agents)
 
-- **GitHub Copilot SDK (GA)**
-  - [Getting started](https://docs.github.com/en/copilot/how-tos/copilot-sdk/getting-started): Python, TypeScript, Go, .NET, Java, Rust
+- **GitHub Copilot SDK ([GA](https://github.blog/changelog/2026-06-02-copilot-sdk-is-now-generally-available/))**
+  - [Getting started](https://docs.github.com/en/copilot/get-started/sdk-quickstart): Python, TypeScript, Go, .NET, Java, Rust
   - [Microsoft Agent Framework integration](https://docs.github.com/en/copilot/how-tos/copilot-sdk/integrations/microsoft-agent-framework)
   - [Azure managed identity setup](https://docs.github.com/en/copilot/how-tos/copilot-sdk/setup/azure-managed-identity)
   - **Hand-off limit:** Microsoft Foundry lists the Copilot SDK as a hosted-agent framework, but [Foundry hosted agents support **Python and C# only**](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/hosted-agents). Go, Rust, and Java SDK agents need their own hosting.
 
 - **Billing**
-  - [GitHub Copilot billing and AI credits](https://docs.github.com/en/copilot/concepts/billing)
+  - [GitHub Copilot billing and AI credits](https://docs.github.com/en/copilot/concepts/billing-and-usage/organizations-and-enterprises/billing)
   - [Azure SRE Agent pricing and billing](https://learn.microsoft.com/en-us/azure/sre-agent/pricing-billing): billed in **AAU** (4 AAU per agent-hour, plus variable). The docs carry no preview banner and document production billing; Microsoft does not publish an explicit GA statement.
 
 ### Trust and Safety
@@ -366,8 +366,8 @@ Read these before you read any product page. They are the maps; everything below
 ### Microsoft Tech Community
 {: .no_toc }
 
-- [Microsoft 365 Copilot Community](https://techcommunity.microsoft.com/category/Microsoft365Copilot)
-- [Azure AI Foundry Community](https://techcommunity.microsoft.com/category/azure-ai-foundry)
+- [Microsoft Copilot Community](https://techcommunity.microsoft.com/category/microsoft-copilot)
+- [Microsoft Foundry Community](https://techcommunity.microsoft.com/category/azure-ai-foundry)
 - [Power Platform Community](https://community.powerplatform.com/)
 
 ### Learning Paths

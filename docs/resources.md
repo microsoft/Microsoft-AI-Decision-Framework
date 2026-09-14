@@ -313,7 +313,7 @@ Read these before you read any product page. They are the maps; everything below
   - **Hand-off limit:** Microsoft Foundry lists the Copilot SDK as a hosted-agent framework, but [Foundry hosted agents support **Python and C# only**](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/hosted-agents). Go, Rust, and Java SDK agents need their own hosting.
 
 - **Billing**
-  - [GitHub Copilot billing and AI credits](https://docs.github.com/en/copilot/concepts/billing)
+  - [GitHub Copilot billing and AI credits](https://docs.github.com/en/copilot/concepts/billing-and-usage/organizations-and-enterprises/billing)
   - [Azure SRE Agent pricing and billing](https://learn.microsoft.com/en-us/azure/sre-agent/pricing-billing): billed in **AAU** (4 AAU per agent-hour, plus variable). The docs carry no preview banner and document production billing; Microsoft does not publish an explicit GA statement.
 
 ### Trust and Safety
@@ -366,7 +366,7 @@ Read these before you read any product page. They are the maps; everything below
 ### Microsoft Tech Community
 {: .no_toc }
 
-- [Microsoft 365 Copilot Community](https://techcommunity.microsoft.com/category/Microsoft365Copilot)
+- [Microsoft Copilot Community](https://techcommunity.microsoft.com/category/microsoft-copilot)
 - [Azure AI Services Community](https://techcommunity.microsoft.com/category/AzureAIServices)
 - [Power Platform Community](https://community.powerplatform.com/)
 

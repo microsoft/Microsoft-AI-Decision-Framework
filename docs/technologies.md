@@ -835,7 +835,7 @@ Use "Agent HQ" in a keynote recap. Use "Agents page" and "AI Controls" in a desi
 
 **Read the scope before you rip anything out:** only *GitHub App-based* Extensions were deprecated. **Client-side VS Code Copilot Extensions remain fully supported.** The docs URL 301-redirects rather than 404s, which is exactly the kind of soft signal that lets a stale design survive a review.
 
-**Budget note, GitHub AI credits:** 1 credit = **$0.01**. Copilot **Business** includes **1,900 credits per user per month**; **Enterprise** includes **3,900**. A promotional uplift to **3,000 / 7,000** runs until **2026-09-01**. **Code completions and next-edit suggestions are not billed against credits.** The thing developers use all day is not what moves the invoice; agent runs are.
+**Budget note, GitHub AI credits:** 1 credit = $0.01. Each assigned Copilot Business license adds 1,900 credits per month; Enterprise adds 3,900. Included credits are pooled at the billing entity and do not carry over. **Code completions and next-edit suggestions are not billed against credits.** See [Usage-based billing for organizations and enterprises](https://docs.github.com/en/copilot/concepts/billing-and-usage/organizations-and-enterprises/billing). The thing developers use all day is not what moves the invoice; agent runs are.
 
 ## GitHub Copilot SDK {: .tech-heading }
 

@@ -84,7 +84,7 @@ Treat it as a reading list with a shelf life. Microsoft Learn stamps every page 
 - [Agentic retrieval quickstart for Azure AI Search](https://learn.microsoft.com/en-us/azure/search/search-get-started-agentic-retrieval)
 - [Microsoft 365 Copilot Search API overview (Preview)](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/api/ai-services/search/overview) (Updated: 2025-10-20)
 - [Copy an agent to Copilot Studio](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/copy-agent-to-copilot-studio) (Updated: 2026-01-26)
-- [GitHub Copilot SDK: getting started](https://docs.github.com/en/copilot/how-tos/copilot-sdk/getting-started) (GA; Python, TypeScript, Go, .NET, Java, Rust)
+- [GitHub Copilot SDK: getting started](https://docs.github.com/en/copilot/get-started/sdk-quickstart) ([GA](https://github.blog/changelog/2026-06-02-copilot-sdk-is-now-generally-available/); Python, TypeScript, Go, .NET, Java, Rust)
 - [GitHub Copilot SDK + Microsoft Agent Framework integration](https://docs.github.com/en/copilot/how-tos/copilot-sdk/integrations/microsoft-agent-framework)
 - [Foundry hosted agents: language support](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/hosted-agents): *"Hosted agents support Python and C#."* A Go, Rust, or Java Copilot SDK agent is **not** directly hostable there
 
@@ -306,8 +306,8 @@ Read these before you read any product page. They are the maps; everything below
   - [Custom agents](https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-custom-agents) and [`AGENTS.md` agent instructions](https://docs.github.com/en/copilot/concepts/prompting/response-customization)
   - [Prepare an enterprise for custom agents](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/prepare-for-custom-agents)
 
-- **GitHub Copilot SDK (GA)**
-  - [Getting started](https://docs.github.com/en/copilot/how-tos/copilot-sdk/getting-started): Python, TypeScript, Go, .NET, Java, Rust
+- **GitHub Copilot SDK ([GA](https://github.blog/changelog/2026-06-02-copilot-sdk-is-now-generally-available/))**
+  - [Getting started](https://docs.github.com/en/copilot/get-started/sdk-quickstart): Python, TypeScript, Go, .NET, Java, Rust
   - [Microsoft Agent Framework integration](https://docs.github.com/en/copilot/how-tos/copilot-sdk/integrations/microsoft-agent-framework)
   - [Azure managed identity setup](https://docs.github.com/en/copilot/how-tos/copilot-sdk/setup/azure-managed-identity)
   - **Hand-off limit:** Microsoft Foundry lists the Copilot SDK as a hosted-agent framework, but [Foundry hosted agents support **Python and C# only**](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/hosted-agents). Go, Rust, and Java SDK agents need their own hosting.

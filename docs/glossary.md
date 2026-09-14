@@ -68,7 +68,7 @@ Microsoft's official term for AI-driven workflows in **Azure Logic Apps**, built
 A protocol enabling secure, peer-to-peer communication between AI agents, allowing them to discover peers, negotiate tasks, and collaborate without centralized intermediaries. A2A is an industry standard rather than a Microsoft one: it originated at Google and is now stewarded by the Linux Foundation ([A2A Protocol](https://a2a-protocol.org/latest/), retrieved 2026-08-17).
 
 **Agent Registry (Preview)**
-Central inventory in the M365 admin center to publish, activate, deploy, pin, block, remove, delete, transfer ownership, or export agents; enforces governance and visibility across Copilot and custom agents ([Agent Registry](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/agent-registry?view=o365-worldwide#admin-actions-to-manage-agents), retrieved 2026-01-23).
+Central inventory in the M365 admin center to publish, deploy, pin, block, delete, or export agents; enforces governance and visibility across Copilot and custom agents. Current documentation doesn't cover activating an agent or transferring its ownership ([Agent Registry](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/agent-registry?view=o365-worldwide), retrieved 2026-08-31).
 
 **Agent Settings templates (Preview)**
 Reusable configuration templates in the M365 admin center that let admins apply consistent policies to multiple agents (e.g., enabled channels, publishing scope, owners), managed alongside Agent Registry entries ([Microsoft 365 Copilot release notes, November 25, 2025](https://learn.microsoft.com/en-us/microsoft-365/copilot/previous-year-release-notes#november-25-2025)).

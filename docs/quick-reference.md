@@ -274,7 +274,7 @@ One agent, four handoffs. This is the relay race a developer's work actually run
 - [About the Copilot cloud agent](https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent)
 - [About custom agents](https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-custom-agents)
 - [Copilot response customization (agent instructions / `AGENTS.md`)](https://docs.github.com/en/copilot/concepts/prompting/response-customization)
-- [GitHub Copilot SDK: getting started](https://docs.github.com/en/copilot/how-tos/copilot-sdk/getting-started)
+- GitHub Copilot SDK: [quickstart](https://docs.github.com/en/copilot/get-started/sdk-quickstart); [GA announcement and six languages](https://github.blog/changelog/2026-06-02-copilot-sdk-is-now-generally-available/); [BYOK providers and token callbacks](https://docs.github.com/en/copilot/how-tos/copilot-sdk/auth/byok); [Azure managed identity with BYOK](https://docs.github.com/en/copilot/how-tos/copilot-sdk/setup/azure-managed-identity)
 - [Microsoft Foundry Agent Service overview](https://learn.microsoft.com/en-us/azure/foundry/agents/overview): lists the GitHub Copilot SDK as a hosted-agent framework
 - [Hosted agents concepts](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/hosted-agents): language support statement
 
@@ -396,7 +396,7 @@ Microsoft does not have one AI meter. It has five, and they do not convert into 
 | Wallet | Unit | What it meters | Notes |
 | --- | --- | --- | --- |
 | **Copilot Credits** | Credit | Microsoft 365 side: agent usage, Copilot Cowork task tiers, Work IQ APIs | Pay-as-you-go at **US$0.01 per credit** |
-| **GitHub AI credits** | Credit | GitHub Copilot premium usage | **1 credit = US$0.01.** Copilot Business **1,900**/user/month; Enterprise **3,900**/user/month. A promotional **3,000 / 7,000** allowance runs from 2026-06-01 and **ends 2026-09-01** |
+| **GitHub AI credits** | Credit | GitHub Copilot premium usage | **1 credit = US$0.01.** Each assigned Copilot Business license adds **1,900** credits per month; Enterprise adds **3,900**. Credits form a shared monthly pool at the billing entity; unused credits do not carry over |
 | **Azure consumption** | Tokens, PTU, batch | Microsoft Foundry models and platform services | Pay-per-token, Provisioned Throughput Units, batch, and priority processing |
 | **Fabric Capacity Units** | CU | Fabric workloads, including Fabric data agents and Foundry Tools in Fabric | F2 to F8192; Fabric data agents require F2+ or P1+ |
 | **Azure SRE Agent AAU** | **AAU** | Azure SRE Agent runtime | **4 AAU per agent-hour** always-on, plus variable usage. (The term is *AAU*; "Azure Agent Units" is not a Microsoft term) |
@@ -405,7 +405,7 @@ Microsoft does not have one AI meter. It has five, and they do not convert into 
 
 - [Copilot Credit Pre-Purchase Plan](https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/copilot-credit-p3)
 - [Microsoft Agent Prepurchase Plan](https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/agent-pre-purchase)
-- [GitHub Copilot billing and AI credits](https://docs.github.com/en/copilot/concepts/billing)
+- [Usage-based billing for organizations and enterprises](https://docs.github.com/en/copilot/concepts/billing-and-usage/organizations-and-enterprises/billing)
 - [Azure SRE Agent pricing and billing](https://learn.microsoft.com/en-us/azure/sre-agent/pricing-billing)
 
 **Sources:**

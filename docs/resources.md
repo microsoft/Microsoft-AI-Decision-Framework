@@ -167,9 +167,9 @@ Read these before you read any product page. They are the maps; everything below
   - [Adoption resources](https://adoption.microsoft.com/en-us/copilot/)
   - [Security posture](https://learn.microsoft.com/en-us/microsoft-365/copilot/security-microsoft-365-copilot)
   - [Privacy and data safeguards](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-privacy)
-  - [Wave 3: Powering Frontier Transformation](https://www.microsoft.com/en-us/microsoft-365/blog/2026/03/09/powering-frontier-transformation-with-copilot-and-agents/)
-  - [Copilot Cowork announcement (March 2026)](https://www.microsoft.com/en-us/microsoft-365/blog/2026/03/09/copilot-cowork-a-new-way-of-getting-work-done/): superseded by the GA announcement below
-  - [Copilot Cowork is now generally available](https://www.microsoft.com/en-us/microsoft-365/blog/2026/06/16/copilot-cowork-is-now-generally-available/): **GA worldwide 2026-06-16**; requires a Microsoft 365 Copilot USL plus Copilot Credits. ("Cowork 1" is announced only; do not plan against it.)
+  - [Wave 3: Powering Frontier Transformation](https://www.microsoft.com/en-us/copilot/blog/2026/03/09/powering-frontier-transformation-with-copilot-and-agents/)
+  - [Copilot Cowork announcement (March 2026)](https://www.microsoft.com/en-us/copilot/blog/2026/03/09/copilot-cowork-a-new-way-of-getting-work-done/): superseded by the GA announcement below
+  - [Copilot Cowork is now generally available](https://www.microsoft.com/en-us/copilot/blog/2026/06/16/copilot-cowork-is-now-generally-available/): **GA worldwide 2026-06-16**; requires a Microsoft 365 Copilot USL plus Copilot Credits. ("Cowork 1" is announced only; do not plan against it.)
   - [Frontier Program enrollment](https://www.microsoft.com/en-us/microsoft-365-copilot/frontier-program)
 
 - **Microsoft Foundry (Platform)**
@@ -272,7 +272,7 @@ Read these before you read any product page. They are the maps; everything below
 
 - **Work IQ** (APIs **GA 2026-06-16**; **Work IQ MCP is Preview**; don't conflate the two)
   - [Work IQ API overview](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/work-iq/api-overview): four API domains (Chat, Context, Tools, Workspaces), billed in Copilot Credits, **Entra delegated auth only (app-only is not supported)**
-  - [Announcing the new Work IQ APIs](https://www.microsoft.com/en-us/microsoft-365/blog/2026/06/02/announcing-the-new-work-iq-apis/)
+  - [Announcing the new Work IQ APIs](https://www.microsoft.com/en-us/copilot/blog/2026/06/02/announcing-the-new-work-iq-apis/)
   - [Work IQ MCP overview (Preview)](https://learn.microsoft.com/en-us/microsoft-agent-365/tooling-servers-overview)
   - [Work IQ in Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/add-work-iq)
   - [Work IQ CLI](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/work-iq/cli)
@@ -394,7 +394,7 @@ Read these before you read any product page. They are the maps; everything below
 Microsoft's AI landscape evolves rapidly. To stay informed:
 
 1. **Follow Official Blogs:**
-   - [Microsoft 365 Blog](https://www.microsoft.com/en-us/microsoft-365/blog/)
+   - [Microsoft 365 Blog](https://www.microsoft.com/en-us/copilot/blog/)
    - [Azure AI Blog](https://azure.microsoft.com/en-us/blog/tag/ai/)
    - [Copilot Studio Blog](https://www.microsoft.com/en-us/power-platform/blog/)
 

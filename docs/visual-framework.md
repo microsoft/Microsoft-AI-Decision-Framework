@@ -1199,7 +1199,7 @@ flowchart TD
 {: .no_toc }
 
 - [Azure AI Search agentic retrieval](https://learn.microsoft.com/en-us/azure/search/agentic-retrieval-overview) (GA via 2026-04-01 REST API; portal preview-only)
-- [Work IQ APIs announcement](https://www.microsoft.com/en-us/microsoft-365/blog/2026/06/02/announcing-the-new-work-iq-apis/) (APIs GA 2026-06-16) and [Work IQ MCP overview (preview)](https://learn.microsoft.com/en-us/microsoft-agent-365/tooling-servers-overview)
+- [Work IQ APIs announcement](https://www.microsoft.com/en-us/copilot/blog/2026/06/02/announcing-the-new-work-iq-apis/) (APIs GA 2026-06-16) and [Work IQ MCP overview (preview)](https://learn.microsoft.com/en-us/microsoft-agent-365/tooling-servers-overview)
 - [Fabric IQ](https://learn.microsoft.com/en-us/fabric/iq/) (Preview) and [Fabric data agent](https://learn.microsoft.com/en-us/fabric/data-science/concept-data-agent) (GA)
 
 ---

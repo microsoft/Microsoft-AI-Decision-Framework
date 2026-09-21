@@ -118,12 +118,12 @@ Where can your agent appear? Match build platform to distribution surface.
 
 **Sources:**
 
-- [Copilot for all: Introducing Microsoft 365 Copilot Chat](https://www.microsoft.com/en-us/microsoft-365/blog/2025/01/15/copilot-for-all-introducing-microsoft-365-copilot-chat/) (Updated: 2025-01-15)
+- [Copilot for all: Introducing Microsoft 365 Copilot Chat](https://www.microsoft.com/en-us/copilot/blog/2025/01/15/copilot-for-all-introducing-microsoft-365-copilot-chat/) (Updated: 2025-01-15)
 - [Microsoft 365 Copilot release notes - November 25, 2025](https://learn.microsoft.com/en-us/microsoft-365/copilot/previous-year-release-notes#november-25-2025)
 - [Built-in enterprise readiness with standard agent setup](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/standard-agent-setup) (Updated: 2026-02-27)
 - [Overview of Microsoft Agent 365](https://learn.microsoft.com/en-us/microsoft-agent-365/overview) (Retrieved: 2026-06-08)
 - [Microsoft IQ overview](https://learn.microsoft.com/en-us/microsoft-iq/) (Retrieved: 2026-06-08)
-- [Introducing Microsoft Scout](https://www.microsoft.com/en-us/microsoft-365/blog/2026/06/02/introducing-microsoft-scout-your-always-on-personal-agent/) (Published: 2026-06-02)
+- [Introducing Microsoft Scout](https://www.microsoft.com/en-us/copilot/blog/2026/06/02/introducing-microsoft-scout-your-always-on-personal-agent/) (Published: 2026-06-02)
 - [Microsoft Agent 365 SDK](https://learn.microsoft.com/en-us/microsoft-agent-365/developer/agent-365-sdk) (Retrieved: 2026-01-09)
 - [Agent 365 CLI](https://learn.microsoft.com/en-us/microsoft-agent-365/developer/agent-365-cli) (Retrieved: 2026-01-13)
 - [What is Microsoft Entra Agent ID?](https://learn.microsoft.com/en-us/entra/agent-id/what-is-microsoft-entra-agent-id): generally available; *"available for all Microsoft Entra customers"*

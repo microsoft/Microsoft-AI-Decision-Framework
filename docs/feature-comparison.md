@@ -223,7 +223,7 @@ Four intelligence layers -- collectively branded **Microsoft IQ** -- give agents
 **Sources:**
 - [Foundry IQ overview](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/what-is-foundry-iq)
 - [Work IQ API overview (APIs GA)](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/work-iq/api-overview)
-- [Announcing the new Work IQ APIs](https://www.microsoft.com/en-us/microsoft-365/blog/2026/06/02/announcing-the-new-work-iq-apis/)
+- [Announcing the new Work IQ APIs](https://www.microsoft.com/en-us/copilot/blog/2026/06/02/announcing-the-new-work-iq-apis/)
 - [Work IQ MCP overview (Preview)](https://learn.microsoft.com/en-us/microsoft-agent-365/tooling-servers-overview)
 - [Fabric IQ overview (Preview)](https://learn.microsoft.com/en-us/fabric/iq/)
 - [Microsoft IQ overview](https://learn.microsoft.com/en-us/microsoft-iq/)

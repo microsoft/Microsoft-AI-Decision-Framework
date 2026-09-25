@@ -34,21 +34,24 @@ Your personal account must have an active Copilot subscription. AI usage is bill
 
 Only needed for *additional* GitHub auth (cross-repo reads, project updates, triggering CI on agent-created PRs). For those, use a **GitHub App** scoped to the repos you need (`tools.github.github-app:` / `safe-outputs.github-app:`). It avoids the SSO dance entirely and mints short-lived tokens per run. See [Authentication](https://github.github.com/gh-aw/reference/auth/#using-a-github-app-for-authentication).
 
-## 2. Keep the runtime current
+## 2. Keep the runtime current, and never let Dependabot bump it alone
 
-`actions-lock.json` currently pins `github/gh-aw/actions/setup@v0.50.7`. Latest is `v0.71.5`.
+The compiler and the runtime are one unit. Every `*.lock.yml` records the compiler that produced it (`compiler_version` in its `gh-aw-metadata` header) and pins `github/gh-aw-actions/setup` to that same release. At activation, the setup action recomputes the workflow's frontmatter hash and refuses to start if it disagrees with the hash stored in the lock file. **Bumping the setup action without recompiling breaks the workflow** with `E009 CONFIG_HASH_MISMATCH`, which gh-aw reports as a "stale lock file" issue.
 
-> Avoid versions `0.68.4` through `0.71.3`; upstream flagged a billing-impact bug in that range.
+That is exactly what broke the link checker from August to September 2026: the lock was compiled with v0.71.5, Dependabot bumped the setup action to v0.86.2 on August 18 (#64) and then to v0.88.0 (#77) and v0.89.0 (#82), and every weekly run from August 24 on failed at activation (#67, #71, #74, #78, #83).
 
-Update locally (requires a token with public-repo read; your personal `COPILOT_GITHUB_TOKEN` is fine):
+`.github/dependabot.yml` now ignores `github/gh-aw-actions/*`, the same compiler-managed rule gh-aw writes itself. Upgrade the compiler and runtime together instead:
 
 ```powershell
 gh extension install github/gh-aw   # one-time
-gh aw update-actions                # refreshes actions-lock.json
-gh aw compile                       # regenerates *.lock.yml files
+gh extension upgrade gh-aw          # move the local compiler to the latest release
+gh aw compile --dependabot          # regenerate *.lock.yml and actions-lock.json; keep the Dependabot ignore rule
+gh aw validate                      # confirm every workflow compiles cleanly
 ```
 
-Commit both `actions-lock.json` and any updated `*.lock.yml`.
+Commit `actions-lock.json`, `.gitattributes`, and any updated `*.lock.yml` (plus `.github/dependabot.yml` if the compiler touched it) in one change. If a Dependabot PR ever proposes a `github/gh-aw-actions/setup` bump again, close it and recompile instead.
+
+> Avoid versions `0.68.4` through `0.71.3`; upstream flagged a billing-impact bug in that range.
 
 ## 3. After editing a workflow
 

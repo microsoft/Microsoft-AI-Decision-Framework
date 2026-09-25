@@ -170,7 +170,7 @@ Read these before you read any product page. They are the maps; everything below
   - [Wave 3: Powering Frontier Transformation](https://www.microsoft.com/en-us/copilot/blog/2026/03/09/powering-frontier-transformation-with-copilot-and-agents/)
   - [Copilot Cowork announcement (March 2026)](https://www.microsoft.com/en-us/copilot/blog/2026/03/09/copilot-cowork-a-new-way-of-getting-work-done/): superseded by the GA announcement below
   - [Copilot Cowork is now generally available](https://www.microsoft.com/en-us/copilot/blog/2026/06/16/copilot-cowork-is-now-generally-available/): **GA worldwide 2026-06-16**; requires a Microsoft 365 Copilot USL plus Copilot Credits. ("Cowork 1" is announced only; do not plan against it.)
-  - [Frontier Program enrollment](https://www.microsoft.com/en-us/microsoft-365-copilot/frontier-program)
+  - [Frontier Program enrollment](https://www.microsoft.com/en-us/copilot/resources/frontier-program)
 
 - **Microsoft Foundry (Platform)**
   - [Portal (ai.azure.com)](https://ai.azure.com/?cid=learnDocs)
@@ -197,7 +197,7 @@ Read these before you read any product page. They are the maps; everything below
   - [Copilot Studio documentation](https://learn.microsoft.com/en-us/microsoft-copilot-studio/)
   - [Computer Use (GA)](https://learn.microsoft.com/en-us/microsoft-copilot-studio/computer-use)
   - **Verified feature status:** **GitHub Copilot harness GA (2026-08-03)**, the default for new agents · generative orchestration **GA** (default *within the standard harness*) · computer use **GA (May 2026)** · agent-to-agent (A2A) **GA (April 2026)** · Copilot Tuning **early access preview** · scheduled prompts **GA (2026-07-01)**. Microsoft does **not** state a status for autonomous/triggered agents, child (inline) agents, connected Copilot Studio agents, Foundry agents, Fabric data agents, or M365 Agents SDK agents inside Copilot Studio. Treat those as *status not stated* and confirm in the what's-new feed.
-  - [Work IQ MCP in Copilot Studio (Preview)](https://learn.microsoft.com/en-us/microsoft-copilot-studio/add-work-iq)
+  - [Work IQ MCP in Copilot Studio (Preview)](https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-experience/add-work-iq)
   - [Custom MCP server creation](https://learn.microsoft.com/en-us/microsoft-copilot-studio/mcp-create-new-server)
   - [Connect to existing MCP server](https://learn.microsoft.com/en-us/microsoft-copilot-studio/mcp-add-existing-server-to-agent)
   - [Copilot Studio Kit](https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/kit-overview)
@@ -274,12 +274,12 @@ Read these before you read any product page. They are the maps; everything below
   - [Work IQ API overview](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/work-iq/api-overview): four API domains (Chat, Context, Tools, Workspaces), billed in Copilot Credits, **Entra delegated auth only (app-only is not supported)**
   - [Announcing the new Work IQ APIs](https://www.microsoft.com/en-us/copilot/blog/2026/06/02/announcing-the-new-work-iq-apis/)
   - [Work IQ MCP overview (Preview)](https://learn.microsoft.com/en-us/microsoft-agent-365/tooling-servers-overview)
-  - [Work IQ in Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/add-work-iq)
+  - [Work IQ in Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-experience/add-work-iq)
   - [Work IQ CLI](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/work-iq/cli)
 
 - **Web IQ (Limited Access)**
   - [Web IQ product page](https://www.microsoft.com/en-us/WebIQ)
-  - [Announcing Microsoft Web IQ](https://blogs.bing.com/search/June-2026/Announcing-Microsoft-Web-IQ)
+  - [Announcing Microsoft Web IQ](https://blogs.bing.com/search/2026/6/Announcing-Microsoft-Web-IQ/)
 
 - **Microsoft IQ**
   - [Microsoft IQ overview](https://learn.microsoft.com/en-us/microsoft-iq/)

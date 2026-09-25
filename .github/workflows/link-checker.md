@@ -8,7 +8,7 @@ on:
 
 engine:
   id: copilot
-  model: claude-sonnet-4.6
+  model: sonnet   # gh-aw alias: resolves to the newest available Sonnet, so a retired model can't break the run
 
 timeout-minutes: 25
 
@@ -24,7 +24,7 @@ permissions:
 steps:
   - name: Run lychee link check
     id: lychee
-    uses: lycheeverse/lychee-action@82202e5e9c2f4ef1a55a3d02563e1cb6041e5332 # v2.4.1
+    uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8 # v2.9.0
     with:
       args: >-
         --no-progress
@@ -32,7 +32,6 @@ steps:
         --timeout 20
         --max-retries 1
         --accept 200..=299,403,429
-        --exclude-mail
         --exclude-loopback
         --exclude '^(mailto|tel|file):'
         './**/*.md'

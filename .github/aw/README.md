@@ -57,6 +57,8 @@ Commit `actions-lock.json`, `.gitattributes`, and any updated `*.lock.yml` (plus
 
 - **Markdown body only changed** → no recompile needed; takes effect on next run.
 - **Frontmatter changed** (permissions, tools, network, safe-outputs, engine, schedule) → run `gh aw compile <workflow-name>` and commit the `.lock.yml`.
+- **Pin models by alias, not by dated name.** `engine.model: sonnet` resolves at run time to the newest Sonnet the account can use. A dated name such as `claude-sonnet-4.6` fails the agent job the day it retires (`400 The requested model is not available for integrator "agentic-workflows"`). Run `gh aw models` to see the aliases.
+- **Dependabot bumps to `steps:` actions (for example `lycheeverse/lychee-action`) land in the lock file only.** Don't merge them as-is: the next compile silently reverts them, and a new version can reject old arguments. Update the pin in the workflow `.md`, check the tool's flags still exist, then recompile.
 
 ## 4. PR creation in Microsoft-managed repos
 

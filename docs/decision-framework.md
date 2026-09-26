@@ -294,11 +294,13 @@ The beneficiary is outside your org chart, or is another system entirely. Now th
 - **Custom or multi-channel** (web, mobile, SMS, email) → **M365 Agents SDK**, **Microsoft Foundry**, or **Azure Logic Apps** to reach every endpoint consistently. Pair Agent Framework with the AG-UI protocol when you need streaming UI, shared state, or human-in-the-loop approvals in bespoke web or mobile experiences.[^agui-overview]
 - **API/headless** workloads → design for services that call the agent as a capability rather than a UI. There is no UX question here; there is a contract question. Skip to Question 4 and Question 7.
 
-#### Bucket 3: AI for Your Codebase (the developer loop)
+#### Bucket 3: AI for Your Codebase (software, whoever asks for it)
 
 {: .no_toc }
 
-The beneficiary is the team that builds everything else. This bucket has its own ladder, and it climbs from "helps me type" all the way to "is a production agent in my Azure subscription."
+**Pick the path its next owner can support.** AI can help build or maintain software whether you write code or describe the app, and the result may contain no AI at all. The two build paths below are alternatives, and neither is the junior version of the other.
+
+**The developer's build path** has its own ladder, and it climbs from "helps me type" all the way to "is a production agent in my Azure subscription."
 
 1. **Assist in the editor.** GitHub Copilot in the IDE. Synchronous, human-driven, zero governance surface beyond your existing policies. Code completions and next-edit suggestions are not billed against AI credits.
 2. **Delegate asynchronously.** The **Copilot cloud agent** (renamed from "coding agent") takes an issue and returns a pull request while you do something else. GA on all paid Copilot plans, including Student; **not** available on Copilot Free. This is the moment the developer loop becomes an *agent* story rather than an *autocomplete* story: work happens when you are not looking, and review becomes the control point.
@@ -308,6 +310,25 @@ The beneficiary is the team that builds everything else. This bucket has its own
 
 {: .warning }
 > ⚠️ **Know this before you pick a language.** Microsoft Foundry **Hosted agents support Python and C# only.** If you build your Copilot SDK agent in Go, Rust, Java, or TypeScript, it is **not directly hostable** as a Foundry Hosted agent. You will be self-hosting it, or rewriting it. Choose the language at step 4 with step 5 already in mind. This is the single most expensive detail in the developer-loop journey.
+
+**The natural-language build path** is for the operations lead or the HR team that needs a small piece of software nobody is going to build for them. [Scenario 11]({{ '/docs/scenarios#scenario-11-business-teams-building-their-own-apps' | relative_url }}) works through the choice. Treat all of it as early. These experiences are preview or Frontier, and the Copilot Studio and Power Apps vibe pages spell out what preview means: *"Preview features aren't meant for production use and might have restricted functionality."*[^mcsapps][^pavibe] Confirm what your tenant actually has, and check [Technologies]({{ '/docs/technologies#copilot-managed-runtime' | relative_url }}) before you promise anyone a date.
+
+Pick one path. They are alternatives, not steps:
+
+- **Copilot Code** or the **App skill in Copilot Cowork** for personal and team tools: a tracker, a dashboard, a stand-up board built from the team's own documents and spreadsheets.[^copilotcode][^coworkapp]
+- **Copilot Studio** when the app is one piece of a business process and belongs beside the agents and workflows that handle the rest of it.[^mcsapps]
+- **Power Apps vibe** covers similar ground on the Power Platform side, though its own page now recommends Cowork and Copilot Studio for app building going forward.[^pavibe]
+
+Whichever you pick, clear three gates before the first share link:
+
+1. **Know which rules actually bind it.** Apps from Cowork, Copilot Studio, and the runtime's SDK run on **Copilot Managed Runtime**, with Microsoft Entra sign-in and one app inventory in the Microsoft 365 admin center, and Microsoft says Code's shared apps use the same foundation.[^cmroverview] That is a governed host, not a completed governance review. Whether your classic data policies still apply depends on how the environment group's connector policies are set, so have IT confirm the effective policy.[^cmrgovernance]
+2. **Plan the handoff before anyone depends on the app.** Every app on the runtime has a Git repository behind it, and a developer can keep going in it with **GitHub Copilot** and the Managed Runtime CLI or plugin, without a rewrite.[^cmrdeveloper] Power Apps vibe hands over by fork instead: conversion creates a separate code app, disconnected from the original.[^pavibeconvert] Either way, hand over the repository with the requirements and tests.
+3. **Divide the review.** The business owner validates the rules and the results; a developer or platform reviewer covers the risks the owner can't assess.
+
+**A customer audience doesn't move the app to Bucket 2.** It changes where the app should run and how people sign in, so review hosting, identity, and access before anyone outside the organization opens it. If the app calls a model while it runs, open Bucket 2's conversation alongside this one.
+
+{: .warning }
+> ⚠️ **Test sharing before you trust it.** Microsoft's own pages disagree about what a share link carries, so don't settle it by reading. Before real data goes in, open the app with an account that has no access to the source, and check the app's data and the connected data separately. Keep your own code-review record too, because Purview lists a Git push or code change as *"Not audited"*.[^cmrsecurity] [Technologies]({{ '/docs/technologies#copilot-managed-runtime' | relative_url }}) quotes the conflicting pages.
 
 {: .tip }
 > Use the groupings from this question with the capability grouping mappings in [Microsoft AI Stack]({{ '/docs/ai-stack' | relative_url }}) and the examples in [Scenarios]({{ '/docs/scenarios' | relative_url }}).
@@ -510,7 +531,7 @@ Two operational facts to design around: Intune policy propagation takes **15 min
 
 **Meter 1: Copilot Credits (the Microsoft 365 side).** Pay-as-you-go at **$0.01 per credit**. This is what metered agent usage draws down for Copilot Chat and agent scenarios in Microsoft 365. **One detail that catches pilots:** on Copilot Studio's GitHub Copilot harness, Microsoft states that billing covers *"using, building, testing, and evaluating agents"*, so authoring and evaluation consume credits rather than only production traffic. Budget the experiment, not just the deployment.
 
-**Meter 2: GitHub AI credits (the developer side).** Also **1 credit = $0.01**. Copilot **Business** includes **1,900 credits per user per month**; **Enterprise** includes **3,900**. Two things every architect should internalize: **code completions and next edit suggestions are not billed**, so the everyday flow is free at the margin. And a promotional allowance of **3,000 / 7,000** is running that **ends 2026-09-01**. Budget against the 1,900/3,900 baseline, not the promo. See The Migration Calendar at the end of this page.
+**Meter 2: GitHub AI credits (the developer side).** Also 1 credit = $0.01. Copilot Business includes 1,900 credits per user per month; Enterprise includes 3,900. Two things every architect should internalize: **code completions and next edit suggestions are not billed**, so the everyday flow is free at the margin. And the promotional 3,000 / 7,000 allowances applied only in June, July, and August 2026. They have ended, so budget against the standing 1,900/3,900. See The Migration Calendar at the end of this page.
 
 **Meter 3: Azure (the platform side).** Pay-per-token by default, **Provisioned Throughput Units (PTU)** when you need predictable capacity and latency, **batch** when latency does not matter, and **priority processing** when it does. Sitting beside it: **Fabric Capacity Units (CUs)**, which is what your analytics-grounded agent quietly consumes.
 
@@ -581,6 +602,7 @@ Pair this with the risk tiers in Question 5. They are the same idea viewed from 
 
 Select a platform your organization can build and sustain.
 
+- **Information workers and business teams** - the App skill in Copilot Cowork, Copilot Code, and Copilot Studio apps, plus Power Apps vibe on the Power Platform side. What they need to bring is a clear description of the problem and a few answers they already know are right. The ownership they need has not changed: every app gets a named owner before its first share link, because builders move on and apps keep running.[^coworkapp][^cmroverview][^pavibe]
 - **Makers / fusion teams** - Copilot Studio, AI Builder, Power Apps Plan Designer (AI-assisted architecture).[^copilotstudio][^aibuilderoverview]
 - **Professional developers** - M365 Agents SDK, Microsoft Foundry, Agent Framework, Teams SDK, with full CI/CD ownership.[^declarativecomparison][^agentstoolkitoverview][^foundryoverview]
 - **AI/ML engineers** - Microsoft Foundry and Azure Machine Learning for custom models and evaluations.[^aiarchitecture]
@@ -669,6 +691,15 @@ These principles keep the framework durable as products rename or shift capabili
 [^agent365]: *Microsoft Agent 365 overview*, Microsoft Learn. GA 2026-05-01. [https://learn.microsoft.com/en-us/microsoft-agent-365/overview](https://learn.microsoft.com/en-us/microsoft-agent-365/overview)
 [^governrisk]: *Govern agents by risk*, Microsoft Learn (Agentic Center of Excellence). [https://learn.microsoft.com/en-us/agents/center-of-excellence/govern-agents-risk](https://learn.microsoft.com/en-us/agents/center-of-excellence/govern-agents-risk)
 [^foundryworkflowsretire]: *Microsoft Foundry workflows*, Microsoft Learn. Retirement notice and migration guide. [https://learn.microsoft.com/en-us/azure/foundry/](https://learn.microsoft.com/en-us/azure/foundry/)
+[^copilotcode]: *Introducing the new Copilot with Home, Code and Autopilot*, Official Microsoft Blog (Jared Spataro), 2026-09-25. The post says *"Code is rolling out to Frontier at the end of the month, with broad availability in the coming weeks"* and, earlier in the same post, *"Home and Code will start rolling out in our Frontier program in the coming weeks"*. The same day's [Copilot Managed Runtime announcement](https://www.microsoft.com/en-us/copilot/blog/copilot-studio/build-where-you-want-run-with-confidence-now-microsoft-hosts-and-manages-the-code-created-by-copilot/) says *"Microsoft entry points are already live with Copilot Cowork, Copilot Code, and Copilot Studio"*. Learn documents Code's [usage-based billing](https://learn.microsoft.com/en-us/microsoft-365/copilot/user-subscription-license-usage-based-billing); no Learn feature overview for Code was found as of 2026-09-25. [https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/](https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/)
+[^coworkapp]: *Use Copilot Cowork*, section "Build apps with the App skill (Frontier)", Microsoft Learn. Updated 2026-09-14. [https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/use-cowork](https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/use-cowork)
+[^mcsapps]: *Apps overview (preview)*, Microsoft Copilot Studio, Microsoft Learn. Accessed 2026-09-25. [https://learn.microsoft.com/en-us/microsoft-copilot-studio/apps-experience/apps-overview](https://learn.microsoft.com/en-us/microsoft-copilot-studio/apps-experience/apps-overview)
+[^cmroverview]: *What is Copilot Managed Runtime (preview)*, Microsoft Learn. Prerelease documentation, accessed 2026-09-25. [https://learn.microsoft.com/en-us/microsoft-365/managed-apps/](https://learn.microsoft.com/en-us/microsoft-365/managed-apps/)
+[^cmrgovernance]: *Copilot Managed Runtime default governance settings (preview)*, Microsoft Learn. Accessed 2026-09-25. For an existing environment group with no advanced connector policy and *Advanced connector policies only* turned on, the page says: "Data policies are ignored. Without an ACP, connectors aren't restricted." [https://learn.microsoft.com/en-us/microsoft-365/admin/manage/apps/governance](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/apps/governance)
+[^cmrdeveloper]: *Microsoft Copilot Managed Runtime SDK overview (preview)*, Microsoft Learn. Updated 2026-09-25. [https://learn.microsoft.com/en-us/microsoft-365/managed-apps/developer/](https://learn.microsoft.com/en-us/microsoft-365/managed-apps/developer/)
+[^cmrsecurity]: *Manage security and compliance for Copilot Managed Runtime (preview)*, Microsoft Learn. Updated 2026-09-25. The auditing table lists "Git push / code change" as "Not audited". [https://learn.microsoft.com/en-us/microsoft-365/admin/manage/apps/security-compliance](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/apps/security-compliance)
+[^pavibe]: *Overview of the new Power Apps vibe experience (preview)*, Microsoft Learn. Prerelease documentation, updated 2026-09-08. Its banner reads: "App building is now available in Copilot Cowork and will soon roll out to Microsoft Copilot Studio. We recommend using these experiences moving forward." [https://learn.microsoft.com/en-us/power-apps/vibe/overview](https://learn.microsoft.com/en-us/power-apps/vibe/overview)
+[^pavibeconvert]: *Convert a vibe app to a code app*, Microsoft Learn. Updated 2026-09-04. "Converting a vibe app creates a new code app. The code app is disconnected from the original plan." [https://learn.microsoft.com/en-us/power-apps/vibe/convert-vibe-to-code](https://learn.microsoft.com/en-us/power-apps/vibe/convert-vibe-to-code)
 
 ## Phase 3: Scenario-Specific Selection
 
@@ -925,7 +956,7 @@ You can argue about the elegant option for two quarters. You cannot argue with a
 | :--- | :--- | :--- |
 | ~~2025-11-10~~ *(passed)* | **GitHub App-based Copilot Extensions deprecated.** Note the scope: only GitHub App-based Extensions. Client-side VS Code Copilot Extensions remain fully supported. | Migrate to **MCP servers** |
 | ~~June 2026~~ *(passed)* | **Copilot Studio for Teams: classic chatbot creation retired.** Verbatim: *"After the end of June 2026, it will no longer be possible to use the Copilot Studio for Teams app to create classic chatbots. The app will redirect you to the Copilot Studio web app instead."* **Scope:** this hits **makers on a Teams plan**, who *"are limited to creating agents that use classic orchestration… and they can only publish these agents to Microsoft Teams."* Standalone Copilot Studio subscriptions are unaffected. | Rebuild in the Copilot Studio web app[^cpsteams] |
-| **2026-09-01** | **GitHub AI-credit promotion ends.** Business drops 3,000 → **1,900** credits/user/month; Enterprise 7,000 → **3,900**. | Re-baseline the developer budget against the standing allowance, not the promo |
+| ~~2026-09-01~~ *(passed)* | **GitHub AI-credit promotion ended.** Business dropped 3,000 → **1,900** credits/user/month; Enterprise 7,000 → **3,900**. | Re-baseline the developer budget against the standing allowance, not the promo |
 | **2026-12-01** | **Microsoft Foundry retires workflows.** | Pick a migration path (see below) |
 | **2027-03-31** | **Azure Cache for Redis Enterprise and Enterprise Flash retire** (disabled 2027-04-01), the nearest infrastructure deadline in the stack | Move to **Azure Managed Redis** (GA) |
 | **2028-09-30** | **Azure Cache for Redis Basic, Standard, and Premium retire** (disabled 2028-10-01) | Move to **Azure Managed Redis** (GA) |

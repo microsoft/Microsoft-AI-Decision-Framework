@@ -25,7 +25,7 @@ Treat it as a reading list with a shelf life. Microsoft Learn stamps every page 
 ## Key Takeaways
 
 1. **Start with user experience**: Where users interact drives technology choice
-2. **Choose simplest tool that meets requirements**: Developers can use low-code or pro-code; makers limited to low-code; let complexity and time-to-market decide
+2. **Choose the simplest tool that meets requirements**: Match the build path to the people who will test and support the result, not just the person who can create it fastest
 3. **Match governance approach to your needs**: M365 tenant-integrated (ready to use, fast) vs Azure workload-tailored (precise control for specific requirements)
 4. **Plan for scale**: Start simple, architect for growth
 5. **Integration matters**: Technologies work together, not in isolation
@@ -214,6 +214,39 @@ Read these before you read any product page. They are the maps; everything below
   - [What is Microsoft Entra Agent ID?](https://learn.microsoft.com/en-us/entra/agent-id/what-is-microsoft-entra-agent-id): *"a product within Microsoft Entra…available for all Microsoft Entra customers"*
   - [What's new in Microsoft Entra Agent ID](https://learn.microsoft.com/en-us/entra/agent-id/whats-new-agent-id): *"Microsoft Entra Agent ID is now generally available."*
   - [Agent identities](https://learn.microsoft.com/en-us/entra/agent-id/agent-identities)
+
+### September 2026: App Building and the New Copilot
+{: .no_toc }
+
+**Check the build path and the running bill.** Start with Learn for behavior, controls, and limits. Use the attributed announcements for rollout timing, and keep each feature's availability label attached to it.
+
+- **Copilot Managed Runtime (Preview)**
+  - [What is Copilot Managed Runtime (preview)](https://learn.microsoft.com/en-us/microsoft-365/managed-apps/): the three ways to build and the one portal
+  - [SDK overview (preview)](https://learn.microsoft.com/en-us/microsoft-365/managed-apps/developer/): the SDK, the `ms` CLI, the GitHub Copilot plugin, and runtime licensing
+  - [Admin overview (preview)](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/apps/): creation-path defaults and separate build/run billing
+  - [Default governance settings (preview)](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/apps/governance): environment groups, connectors, sharing, and content security policy
+  - [Security and compliance (preview)](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/apps/security-compliance): what Purview audits, and what it doesn't
+  - [Runtime FAQ (preview)](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/apps/faq-about-apps): runtime eligibility, sharing, and the limits of the Data & tools inventory
+  - [Environment routing for Copilot Managed Runtime](https://learn.microsoft.com/en-us/power-platform/admin/default-environment-routing-copilot-managed-runtime): the Power Platform setting you can't turn off
+  - [Build where you want, run with confidence](https://www.microsoft.com/en-us/copilot/blog/copilot-studio/build-where-you-want-run-with-confidence-now-microsoft-hosts-and-manages-the-code-created-by-copilot/): the announcement (2026-09-25)
+
+- **The build paths**
+  - [Use Copilot Cowork](https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/use-cowork): the App skill (Frontier, preview) and its sharing warning
+  - [Apps overview (preview)](https://learn.microsoft.com/en-us/microsoft-copilot-studio/apps-experience/apps-overview): building apps in Copilot Studio
+  - [Copilot Studio apps FAQ](https://learn.microsoft.com/en-us/microsoft-copilot-studio/faq-apps): read-only code view, testing expectations, and sharing limits
+  - [Power Apps code apps overview](https://learn.microsoft.com/en-us/power-apps/developer/code-apps/overview): the code-first sibling on Power Platform; status not stated on the page as of 2026-09-25
+  - [Overview of the Power Apps vibe experience (preview)](https://learn.microsoft.com/en-us/power-apps/vibe/overview): Power Platform's natural-language builder, whose page now recommends Cowork and Copilot Studio for app building; [converting a vibe app](https://learn.microsoft.com/en-us/power-apps/vibe/convert-vibe-to-code) to a code app creates a fork
+
+- **The new Copilot, and how it is billed**
+  - [Introducing the new Copilot with Home, Code and Autopilot](https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/): Jared Spataro's Official Microsoft Blog post (2026-09-25), with feature-by-feature rollout statements
+  - [Copilot requirements](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-requirements): the Microsoft 365 Copilot and Copilot Chat naming update
+  - [Understanding the USL and UBB](https://learn.microsoft.com/en-us/microsoft-365/copilot/user-subscription-license-usage-based-billing): metered usage builds on the required subscription
+  - [UBB overview](https://learn.microsoft.com/en-us/microsoft-365/copilot/usage-based-billing-overview-copilot-credits) and [spending policies](https://learn.microsoft.com/en-us/microsoft-365/copilot/usage-based-billing-manage-copilot-credits): documented services, P3 billing, limits, and prepaid-credit precedence
+  - [What is an autopilot in Microsoft Foundry?](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/autopilot-overview) and [Build your first autopilot](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/agent-365): the identity-based definition and the Frontier preview build path, not proof of the Copilot product's architecture
+  - [Microsoft IQ](https://learn.microsoft.com/en-us/microsoft-iq/): the hub lists four capabilities; [What is Foundry IQ?](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/what-is-foundry-iq) lists three workloads
+
+- **One engine underneath**
+  - [Migrating the GitHub Copilot runtime to Rust, using Copilot](https://github.blog/ai-and-ml/generative-ai/migrating-the-github-copilot-runtime-to-rust-using-copilot/): GitHub on the Copilot agent runtime and the products it backs
 
 ### SDKs & Frameworks
 {: .no_toc }

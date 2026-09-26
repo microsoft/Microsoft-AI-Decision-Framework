@@ -1062,6 +1062,20 @@ pre code {
 .mermaid {
 	background: transparent !important;
 	color: var(--text-strong);
+	/* Diagrams render at natural size (flowchart.useMaxWidth: false) so their
+	   labels stay legible; a wide one scrolls inside its own frame instead of
+	   pushing the page into horizontal scroll (WCAG 2.1 SC 1.4.10 Reflow). */
+	max-width: 100%;
+	overflow-x: auto;
+}
+
+/* Until Mermaid replaces the source (or if rendering fails), keep it
+   readable as code rather than one run-on paragraph. */
+.mermaid:not([data-processed]),
+.mermaid.mermaid-failed {
+	white-space: pre;
+	font-family: 'JetBrains Mono', 'Source Code Pro', monospace;
+	font-size: 0.8125rem;
 }
 
 .mermaid svg .node rect,

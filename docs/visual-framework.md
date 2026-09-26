@@ -53,7 +53,7 @@ Use these diagrams after working through the [Decision Framework]({{ '/docs/deci
   ></iframe>
 </div>
 
-<details>
+<details markdown="1">
 <summary>View as static Mermaid diagram</summary>
 
 ```mermaid
@@ -226,7 +226,7 @@ flowchart TD
   ></iframe>
 </div>
 
-<details>
+<details markdown="1">
 <summary>View as static Mermaid diagram</summary>
 
 ```mermaid
@@ -393,7 +393,7 @@ flowchart TD
   ></iframe>
 </div>
 
-<details>
+<details markdown="1">
 <summary>View as static Mermaid diagram</summary>
 
 ```mermaid
@@ -581,7 +581,7 @@ flowchart TD
   ></iframe>
 </div>
 
-<details>
+<details markdown="1">
 <summary>View as static Mermaid diagram</summary>
 
 ```mermaid
@@ -638,7 +638,7 @@ flowchart TD
   ></iframe>
 </div>
 
-<details>
+<details markdown="1">
 <summary>View as static Mermaid diagram</summary>
 
 ```mermaid
@@ -801,7 +801,7 @@ See [Evaluation Criteria: Budget]({{ '/docs/evaluation-criteria#3-budget-assessm
   ></iframe>
 </div>
 
-<details>
+<details markdown="1">
 <summary>View as static Mermaid diagram</summary>
 
 ```mermaid
@@ -899,7 +899,7 @@ flowchart TD
   ></iframe>
 </div>
 
-<details>
+<details markdown="1">
 <summary>View as static Mermaid diagram</summary>
 
 ```mermaid
@@ -1013,7 +1013,7 @@ Exported YAML definitions **remain executable when deployed as Hosted Agents**. 
   ></iframe>
 </div>
 
-<details>
+<details markdown="1">
 <summary>View as static Mermaid diagram</summary>
 
 ```mermaid
@@ -1079,7 +1079,7 @@ flowchart TD
   ></iframe>
 </div>
 
-<details>
+<details markdown="1">
 <summary>View as static Mermaid diagram</summary>
 
 ```mermaid
@@ -1140,7 +1140,7 @@ flowchart TD
   ></iframe>
 </div>
 
-<details>
+<details markdown="1">
 <summary>View as static Mermaid diagram</summary>
 
 ```mermaid

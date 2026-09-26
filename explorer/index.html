@@ -3,7 +3,32 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light dark" />
     <title>AIDF Decision Explorer</title>
+    <script>
+      // Same theme contract as the docs site (_includes/head_custom.html):
+      // localStorage "aidf-theme" = "light" | "dark" | "system" (absent = system).
+      // The explorer is same-origin with the docs, so a choice made there applies
+      // here, and the storage event keeps an open explorer, including one
+      // embedded in a docs page, in step with it.
+      (function () {
+        var KEY = 'aidf-theme';
+        var root = document.documentElement;
+        var media = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
+        function apply() {
+          var pref = 'system';
+          try { pref = localStorage.getItem(KEY) || 'system'; } catch (e) {}
+          if (pref !== 'light' && pref !== 'dark') pref = 'system';
+          var dark = pref === 'dark' || (pref === 'system' && !!media && media.matches);
+          root.setAttribute('data-theme', dark ? 'dark' : 'light');
+        }
+        apply();
+        window.addEventListener('storage', function (event) {
+          if (event.key === KEY || event.key === null) apply();
+        });
+        if (media && media.addEventListener) media.addEventListener('change', apply);
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

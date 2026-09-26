@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState, type KeyboardEvent } from 'react';
 import {
   ReactFlow,
   Background,
@@ -22,11 +22,14 @@ const nodeTypes = { decision: DecisionNode };
 
 const DOCS_BASE = '/Microsoft-AI-Decision-Framework';
 
+// Status badge fills: the site's inline diagram palette (AGENTS.md), each
+// carrying a white label at 5.6:1 or better (Constitution Article III flags
+// must be readable).
 const STATUS_COLORS: Record<string, string> = {
-  ga: '#10b981',
-  preview: '#f59e0b',
-  experimental: '#ef4444',
-  deprecated: '#ef4444',
+  ga: '#0b6a0b',
+  preview: '#8c5e00',
+  experimental: '#a52617',
+  deprecated: '#a52617',
 };
 
 /** Read URL search params once on mount. */
@@ -85,13 +88,28 @@ export default function Explorer() {
     setEdges(layoutEdges);
   }, [layoutNodes, layoutEdges, setNodes, setEdges]);
 
-  const onNodeClick: NodeMouseHandler<Node<NodeData>> = useCallback((_event, node) => {
-    const data = node.data as NodeData;
+  const openNode = useCallback((data: NodeData) => {
     if (data.docsUrl) {
       window.open(data.docsUrl, isEmbed ? '_parent' : '_blank', 'noopener');
     }
     setSelectedNode(data);
   }, [isEmbed]);
+
+  const onNodeClick: NodeMouseHandler<Node<NodeData>> = useCallback((_event, node) => {
+    openNode(node.data as NodeData);
+  }, [openNode]);
+
+  // React Flow makes each node a focusable wrapper but gives it no action, so
+  // Enter or Space on a focused node does what a click does.
+  const onCanvasKeyDown = useCallback((event: KeyboardEvent<HTMLDivElement>) => {
+    if (event.key !== 'Enter' && event.key !== ' ') return;
+    const wrapper = (event.target as HTMLElement).closest('.react-flow__node');
+    const id = wrapper?.getAttribute('data-id');
+    const node = id ? nodes.find((n) => n.id === id) : undefined;
+    if (!node) return;
+    event.preventDefault();
+    openNode(node.data as NodeData);
+  }, [nodes, openNode]);
 
   const handleFlowChange = useCallback(
     (key: string) => {
@@ -134,6 +152,7 @@ export default function Explorer() {
                   <button
                     key={key}
                     className={`flow-tab ${activeFlowKey === key ? 'active' : ''}`}
+                    aria-pressed={activeFlowKey === key}
                     onClick={() => handleFlowChange(key)}
                     title={f?.description}
                   >
@@ -147,6 +166,7 @@ export default function Explorer() {
             <div className="branch-legend">
               <button
                 className={`branch-tag ${activeBranch === 'all' ? 'active' : ''}`}
+                aria-pressed={activeBranch === 'all'}
                 onClick={() => handleBranchClick('all')}
               >
                 All
@@ -155,6 +175,7 @@ export default function Explorer() {
                 <button
                   key={b}
                   className={`branch-tag ${activeBranch === b ? 'active' : ''}`}
+                  aria-pressed={activeBranch === b}
                   onClick={() => handleBranchClick(b)}
                 >
                   {b.replace(/-/g, ' ')}
@@ -189,6 +210,7 @@ export default function Explorer() {
           <div className="branch-legend">
             <button
               className={`branch-tag ${activeBranch === 'all' ? 'active' : ''}`}
+              aria-pressed={activeBranch === 'all'}
               onClick={() => handleBranchClick('all')}
             >
               All
@@ -197,6 +219,7 @@ export default function Explorer() {
               <button
                 key={b}
                 className={`branch-tag ${activeBranch === b ? 'active' : ''}`}
+                aria-pressed={activeBranch === b}
                 onClick={() => handleBranchClick(b)}
               >
                 {b.replace(/-/g, ' ')}
@@ -215,7 +238,7 @@ export default function Explorer() {
       )}
 
       {/* Graph */}
-      <div className={`flow-container ${isEmbed ? 'flow-container--embed' : ''}`}>
+      <div className={`flow-container ${isEmbed ? 'flow-container--embed' : ''}`} onKeyDown={onCanvasKeyDown}>
         <ReactFlow
           nodes={nodes}
           edges={edges}
@@ -245,19 +268,21 @@ export default function Explorer() {
         {selectedNode && (
           <div className="detail-panel">
             <button className="close-btn" onClick={() => setSelectedNode(null)} aria-label="Close panel">
-              ✕
+              <svg viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+                <path d="M4 4l8 8M12 4l-8 8" />
+              </svg>
             </button>
             <h3>{selectedNode.label}</h3>
             {selectedNode.status && (
               <span
                 className="status-badge"
-                style={{ background: STATUS_COLORS[selectedNode.status] ?? '#555' }}
+                style={{ background: STATUS_COLORS[selectedNode.status] ?? '#535c66' }}
               >
                 {selectedNode.status.toUpperCase()}
               </span>
             )}
             {selectedNode.description && <p>{selectedNode.description}</p>}
-            <p style={{ fontSize: 12, color: '#64748b' }}>
+            <p className="detail-meta">
               Category: {selectedNode.category} · Branch: {selectedNode.branch}
             </p>
             {selectedNode.docsUrl && (

@@ -3,9 +3,8 @@ import { Handle, Position, type NodeProps, type Node } from '@xyflow/react';
 import type { NodeData } from '../types';
 
 /*
- * Palette aligned to the site's custom.scss variables.
- * --primary:  #3b82f6   --success:  #10b981   --warning:  #fbbf24
- * --danger:   #ef4444   --secondary:#f59e0b   --bg-panel: #111827
+ * Node fills are authored for the dark canvas (the "figure"), which stays dark
+ * in both site themes; see explorer.css.
  */
 const CATEGORY_COLORS: Record<string, { bg: string; border: string }> = {
   start:          { bg: '#111827', border: '#3b82f6' },
@@ -18,11 +17,13 @@ const CATEGORY_COLORS: Record<string, { bg: string; border: string }> = {
   linkout:        { bg: '#7f1d1d', border: '#ef4444' },
 };
 
+// The site's inline diagram palette (AGENTS.md): white labels at 5.6:1 or
+// better. The old green, amber and red fills put 10px labels at 2.5 to 3.8:1.
 const STATUS_BADGE: Record<string, { label: string; color: string }> = {
-  ga:           { label: 'GA',           color: '#10b981' },
-  preview:      { label: 'Preview',      color: '#f59e0b' },
-  experimental: { label: 'Experimental', color: '#ef4444' },
-  deprecated:   { label: 'Deprecated',   color: '#ef4444' },
+  ga:           { label: 'GA',           color: '#0b6a0b' },
+  preview:      { label: 'Preview',      color: '#8c5e00' },
+  experimental: { label: 'Experimental', color: '#a52617' },
+  deprecated:   { label: 'Deprecated',   color: '#a52617' },
 };
 
 type DecisionNodeType = Node<NodeData>;
@@ -77,7 +78,7 @@ function DecisionNode({ data }: NodeProps<DecisionNodeType>) {
             fontSize: 10,
             fontWeight: 700,
             background: badge.color,
-            color: badge.color === '#f59e0b' ? '#1a1a2e' : '#fff',
+            color: '#fff',
             letterSpacing: '0.03em',
           }}
         >

@@ -1,29 +1,87 @@
 /* ========================================================
    AIDF Decision Explorer
-   Colors sourced from _sass/custom/custom.scss
+   Tokens mirror the docs theme ("Ink & Signal", _sass/custom/custom.scss).
+   Chrome (header, tabs, detail panel) follows the reader's theme; the graph
+   canvas is a dark "figure" in both themes, like the docs' code blocks and
+   Mermaid diagrams, because the node palette is authored for a dark ground.
+   index.html sets <html data-theme> before first paint.
    ======================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap');
 
 :root {
-  --bg: #0d1117;
-  --bg-panel: #111827;
-  --bg-panel-strong: #0f172a;
-  --bg-glass: rgba(255, 255, 255, 0.04);
-  --text: #d6deec;
-  --text-strong: #eef3fb;
-  --muted: #9cacc2;
-  --border: #1f2937;
-  --shadow: 0 16px 48px rgba(0, 0, 0, 0.35);
-  --shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.25);
-  --primary: #3b82f6;
-  --primary-strong: #2563eb;
-  --secondary: #f59e0b;
-  --success: #10b981;
-  --warning: #fbbf24;
-  --danger: #ef4444;
-  --link: #60a5fa;
-  --link-hover: #93c5fd;
+  color-scheme: light;
+  --bg: #ffffff;
+  --chrome: #f4f7fa;
+  --raised: #eff3f7;
+  --nav-hover: #ebeff4;
+  --border: #d5dae0;
+  --border-strong: #78818c;
+  --text: #272e38;
+  --text-strong: #10171f;
+  --muted: #535c66;
+  --link: #115ea3;
+  --link-hover: #0f548c;
+  --accent: #0f6cbd;
+  --accent-hover: #115ea3;
+  --on-accent: #ffffff;
+  --focus: #0f548c;
+  --chrome-focus: #0f548c;
+  --shadow-overlay: 0 12px 32px -12px rgb(16 23 31 / 0.22), 0 2px 6px -2px rgb(16 23 31 / 0.12);
+
+  /* The figure: identical in both themes apart from depth. */
+  --figure: #161a1f;
+  --figure-raised: #1f242b;
+  --figure-border: #292e35;
+  --figure-text: #e6e8eb;
+  --figure-muted: #a0a5ac;
+  --figure-edge: #7d8796;
+  --figure-focus: #77b7f7;
+
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --dur-fast: 120ms;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+    --bg: #14161a;
+    --chrome: #0e1114;
+    --raised: #1d2125;
+    --nav-hover: #161a1e;
+    --border: #31363d;
+    --border-strong: #6e757f;
+    --text: #d1d6dc;
+    --text-strong: #edf0f4;
+    --muted: #adb3bc;
+    --link: #96c6fa;
+    --link-hover: #cfe4fa;
+    --accent-hover: #2975c2;
+    --focus: #77b7f7;
+    --chrome-focus: #77b7f7;
+    --shadow-overlay: 0 16px 40px -12px rgb(0 0 0 / 0.6), 0 2px 6px -2px rgb(0 0 0 / 0.4);
+    --figure: #0c0f12;
+  }
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #14161a;
+  --chrome: #0e1114;
+  --raised: #1d2125;
+  --nav-hover: #161a1e;
+  --border: #31363d;
+  --border-strong: #6e757f;
+  --text: #d1d6dc;
+  --text-strong: #edf0f4;
+  --muted: #adb3bc;
+  --link: #96c6fa;
+  --link-hover: #cfe4fa;
+  --accent-hover: #2975c2;
+  --focus: #77b7f7;
+  --chrome-focus: #77b7f7;
+  --shadow-overlay: 0 16px 40px -12px rgb(0 0 0 / 0.6), 0 2px 6px -2px rgb(0 0 0 / 0.4);
+  --figure: #0c0f12;
 }
 
 * {
@@ -41,17 +99,27 @@ html, body, #root {
   color: var(--text);
 }
 
+/* One keyboard focus ring, never on mouse click. */
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
 /* ── Header ── */
 .explorer-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 10px 20px;
-  background: var(--bg-panel-strong);
+  background: var(--bg);
   border-bottom: 1px solid var(--border);
-  box-shadow: var(--shadow-soft);
   gap: 16px;
   flex-wrap: wrap;
+  flex-shrink: 0;
   min-height: 52px;
   z-index: 20;
 }
@@ -70,6 +138,8 @@ html, body, #root {
   align-items: center;
   gap: 10px;
   flex-wrap: wrap;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .explorer-header select,
@@ -78,34 +148,32 @@ html, body, #root {
   font-size: 13px;
   padding: 5px 12px;
   border-radius: 6px;
-  border: 1px solid var(--border);
+  border: 1px solid var(--border-strong);
   background: var(--bg);
   color: var(--text);
   cursor: pointer;
-  transition: border-color 0.15s, background 0.15s;
+  transition: border-color var(--dur-fast) var(--ease-out), background-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
 }
 
 .explorer-header select:hover,
 .explorer-header button:hover {
-  border-color: var(--primary);
-  background: var(--bg-panel);
+  background: var(--nav-hover);
+  color: var(--text-strong);
 }
 
-.explorer-header select:focus,
-.explorer-header button:focus {
-  outline: 2px solid var(--secondary);
-  outline-offset: 2px;
-}
-
-.explorer-header button.active {
-  background: var(--primary);
-  border-color: var(--primary);
-  color: #fff;
+/* Selected state is fill plus weight, not fill alone (also exposed as aria-pressed). */
+.explorer-header button.active,
+.explorer-header button.active:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--on-accent);
+  font-weight: 600;
 }
 
 /* ── Flow tabs (replaces select dropdown) ── */
 .flow-tabs {
   display: flex;
+  flex-wrap: wrap;
   gap: 4px;
 }
 
@@ -115,33 +183,36 @@ html, body, #root {
   font-weight: 500;
   padding: 5px 14px;
   border-radius: 6px;
-  border: 1px solid var(--border);
+  border: 1px solid var(--border-strong);
   background: var(--bg);
-  color: var(--muted);
+  color: var(--text);
   cursor: pointer;
-  transition: all 0.15s;
+  transition: border-color var(--dur-fast) var(--ease-out), background-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
   white-space: nowrap;
 }
 
 .flow-tab:hover {
-  border-color: var(--primary);
-  color: var(--text);
-  background: var(--bg-panel);
+  background: var(--nav-hover);
+  color: var(--text-strong);
 }
 
-.flow-tab.active {
-  background: var(--primary);
-  border-color: var(--primary);
-  color: #fff;
+.flow-tab.active,
+.flow-tab.active:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--on-accent);
+  font-weight: 600;
 }
 
 /* ── Flow context bar ── */
 .flow-context-bar {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
+  flex-shrink: 0;
   gap: 10px;
   padding: 6px 20px;
-  background: var(--bg-panel);
+  background: var(--chrome);
   border-bottom: 1px solid var(--border);
   font-size: 13px;
   min-height: 32px;
@@ -153,7 +224,7 @@ html, body, #root {
 }
 
 .flow-context-sep {
-  color: var(--border);
+  color: var(--muted);
 }
 
 .flow-context-ref {
@@ -164,91 +235,109 @@ html, body, #root {
 .flow-context-link {
   margin-left: auto;
   color: var(--link);
-  text-decoration: none;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
   font-weight: 500;
   font-size: 12px;
 }
 
 .flow-context-link:hover {
   color: var(--link-hover);
-  text-decoration: underline;
 }
 
-/* ── Embed toolbar (minimal chrome for iframes) ── */
+/* ── Embed toolbar (minimal chrome for iframes) ──
+   Embedded in a docs page, the whole iframe is one figure: toolbar and
+   canvas share the dark surface in both themes, framed by the page. */
 .embed-toolbar {
   display: flex;
   align-items: center;
   gap: 10px;
   padding: 6px 12px;
-  background: var(--bg-panel-strong);
-  border-bottom: 1px solid var(--border);
+  background: var(--figure-raised);
+  border-bottom: 1px solid var(--figure-border);
+  color: var(--figure-text);
   min-height: 36px;
   flex-wrap: wrap;
+  flex-shrink: 0;
+  --focus: var(--figure-focus);
 }
 
 .embed-title {
   font-family: 'Sora', 'Source Sans 3', sans-serif;
   font-size: 13px;
   font-weight: 600;
-  color: var(--text-strong);
+  color: var(--figure-text);
   white-space: nowrap;
 }
 
 .embed-open {
   margin-left: auto;
-  color: var(--link);
-  text-decoration: none;
+  color: #96c6fa;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
   font-size: 12px;
   font-weight: 500;
   white-space: nowrap;
 }
 
 .embed-open:hover {
-  color: var(--link-hover);
-  text-decoration: underline;
+  color: #cfe4fa;
 }
 
-/* ── Flow container ── */
+/* ── Flow container ──
+   Fills whatever the header leaves, so a header that wraps on a narrow
+   screen pushes the canvas down instead of clipping it. */
 .flow-container {
-  height: calc(100% - 84px);
+  flex: 1 1 auto;
+  min-height: 0;
   width: 100%;
   position: relative;
-}
-
-.flow-container--embed {
-  height: calc(100% - 36px);
+  background: var(--figure);
+  --focus: var(--figure-focus);
 }
 
 /* ── React Flow overrides ── */
 .react-flow__minimap {
-  background: var(--bg-panel) !important;
-  border: 1px solid var(--border) !important;
+  background: var(--figure-raised) !important;
+  border: 1px solid var(--figure-border) !important;
   border-radius: 6px !important;
-  box-shadow: var(--shadow-soft) !important;
 }
 
 .react-flow__controls {
-  border: 1px solid var(--border) !important;
+  border: 1px solid var(--figure-border) !important;
   border-radius: 6px !important;
   overflow: hidden;
-  box-shadow: var(--shadow-soft) !important;
+  box-shadow: none !important;
 }
 
 .react-flow__controls button {
-  background: var(--bg-panel) !important;
-  border-bottom: 1px solid var(--border) !important;
-  fill: var(--text) !important;
-  color: var(--text) !important;
+  background: var(--figure-raised) !important;
+  border-bottom: 1px solid var(--figure-border) !important;
+  fill: var(--figure-text) !important;
+  color: var(--figure-text) !important;
   width: 28px !important;
   height: 28px !important;
 }
 
 .react-flow__controls button:hover {
-  background: var(--bg-panel-strong) !important;
+  background: var(--figure-border) !important;
 }
 
 .react-flow__background {
-  background: var(--bg) !important;
+  background: var(--figure) !important;
+}
+
+.react-flow__attribution {
+  background: var(--figure-raised) !important;
+}
+
+.react-flow__attribution a {
+  color: var(--figure-muted) !important;
+}
+
+.react-flow__node:focus-visible {
+  outline: 2px solid var(--figure-focus);
+  outline-offset: 3px;
 }
 
 /* Edge labels */
@@ -256,25 +345,25 @@ html, body, #root {
   font-family: 'Source Sans 3', sans-serif !important;
   font-size: 11px !important;
   font-weight: 500 !important;
-  fill: var(--muted) !important;
+  fill: var(--figure-muted) !important;
 }
 
 .react-flow__edge-textbg {
-  fill: var(--bg) !important;
-  fill-opacity: 0.85 !important;
+  fill: var(--figure) !important;
+  fill-opacity: 0.9 !important;
   rx: 3 !important;
   ry: 3 !important;
 }
 
-/* Edges */
+/* Edges carry the flow, so they clear the 3:1 non-text contrast floor. */
 .react-flow__edge path {
-  stroke: #334155 !important;
+  stroke: var(--figure-edge) !important;
   stroke-width: 1.5 !important;
 }
 
 .react-flow__edge.selected path,
 .react-flow__edge:hover path {
-  stroke: var(--primary) !important;
+  stroke: var(--figure-focus) !important;
   stroke-width: 2 !important;
 }
 
@@ -284,14 +373,18 @@ html, body, #root {
   top: 12px;
   right: 12px;
   width: 340px;
+  max-width: calc(100% - 24px);
   max-height: calc(100% - 24px);
   overflow-y: auto;
-  background: var(--bg-panel);
+  background: var(--bg);
   border: 1px solid var(--border);
   border-radius: 10px;
   padding: 20px;
   z-index: 10;
-  box-shadow: var(--shadow);
+  box-shadow: var(--shadow-overlay);
+  color: var(--text);
+  /* Chrome inside the figure: restore the theme's focus color. */
+  --focus: var(--chrome-focus);
 }
 
 .detail-panel h3 {
@@ -301,45 +394,57 @@ html, body, #root {
   color: var(--text-strong);
   margin-bottom: 10px;
   line-height: 1.35;
+  padding-right: 24px;
 }
 
 .detail-panel p {
   font-size: 13.5px;
-  color: var(--muted);
+  color: var(--text);
   line-height: 1.55;
   margin-bottom: 10px;
 }
 
+.detail-panel .detail-meta {
+  font-size: 12px;
+  color: var(--muted);
+}
+
 .detail-panel a {
   color: var(--link);
-  text-decoration: none;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
   font-size: 13.5px;
   font-weight: 500;
 }
 
 .detail-panel a:hover {
   color: var(--link-hover);
-  text-decoration: underline;
 }
 
 .detail-panel .close-btn {
   position: absolute;
   top: 10px;
   right: 10px;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
   background: none;
   border: none;
   color: var(--muted);
   cursor: pointer;
-  font-size: 18px;
-  line-height: 1;
-  padding: 4px;
-  border-radius: 4px;
-  transition: color 0.15s, background 0.15s;
+  border-radius: 6px;
+  transition: color var(--dur-fast) var(--ease-out), background-color var(--dur-fast) var(--ease-out);
+}
+
+.detail-panel .close-btn svg {
+  width: 16px;
+  height: 16px;
 }
 
 .detail-panel .close-btn:hover {
   color: var(--text-strong);
-  background: var(--bg-glass);
+  background: var(--nav-hover);
 }
 
 .detail-panel .status-badge {
@@ -365,37 +470,68 @@ html, body, #root {
   font-size: 12px;
   padding: 4px 10px;
   border-radius: 6px;
-  border: 1px solid var(--border);
+  border: 1px solid var(--border-strong);
   background: var(--bg);
-  color: var(--muted);
+  color: var(--text);
   cursor: pointer;
-  transition: all 0.15s;
+  transition: border-color var(--dur-fast) var(--ease-out), background-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
   text-transform: capitalize;
   font-weight: 500;
 }
 
 .branch-tag:hover {
-  border-color: var(--primary);
-  color: var(--text);
-  background: var(--bg-panel);
+  background: var(--nav-hover);
+  color: var(--text-strong);
 }
 
-.branch-tag.active {
-  background: var(--primary);
-  border-color: var(--primary);
-  color: #fff;
+.branch-tag.active,
+.branch-tag.active:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--on-accent);
+  font-weight: 600;
+}
+
+/* In the embed toolbar the tags sit on the figure. */
+.embed-toolbar .branch-tag {
+  background: transparent;
+  border-color: #6e757f;
+  color: var(--figure-text);
+}
+
+.embed-toolbar .branch-tag:hover {
+  background: var(--figure-border);
+  color: #ffffff;
+}
+
+.embed-toolbar .branch-tag.active,
+.embed-toolbar .branch-tag.active:hover {
+  background: #0f6cbd;
+  border-color: #0f6cbd;
+  color: #ffffff;
 }
 
 /* ── Back to docs link ── */
 .docs-link {
   font-size: 13px;
   color: var(--link);
-  text-decoration: none;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
   white-space: nowrap;
   font-weight: 500;
 }
 
 .docs-link:hover {
   color: var(--link-hover);
-  text-decoration: underline;
+}
+
+/* ── Motion: honor the reader's setting ── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
 }

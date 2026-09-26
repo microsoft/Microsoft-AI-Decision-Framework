@@ -111,6 +111,8 @@ Every diagram in `docs/visual-framework.md` must have:
 3. Status annotations: `<i>Preview</i>` for preview features
 4. Validation summary with sources
 
+The site has light and dark themes, but diagrams render on the same dark "figure" surface in both, so keep them dark-themed with white text; don't restyle them for light mode. A static diagram inside `<details>` needs `<details markdown="1">`, or kramdown prints the raw source.
+
 ### 7. Analogies Are Optional, and Must Earn Their Place (Constitution Article X)
 
 **Analogies are a tool, not a quota.** Reach for one when a reader would otherwise have nothing familiar to attach a new idea to. Skip it when the concept is already concrete, when a sharp reframe does the work better, or when the section's job is precision rather than vividness. **No analogy is better than a weak one.**

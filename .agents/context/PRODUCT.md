@@ -8,7 +8,7 @@ web
 
 ## Register
 
-brand
+product
 
 ## Users
 

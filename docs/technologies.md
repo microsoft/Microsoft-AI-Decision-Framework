@@ -64,6 +64,8 @@ Use this page as a reference after you’ve narrowed the decision: it’s optimi
 
 #### The new Copilot app (September 2026): read the status column first
 
+Each kind of AI help used to live in its own tool, so anyone who wanted more than a chat answer had to know the product catalog first, and most people stopped at the chat window. The app is built for them. It starts from the task instead (ask, hand off, or describe an app), and Microsoft says apps shared from Code use the same IT-governed foundation as apps built in Cowork and Copilot Studio.
+
 **Read rollout promises as promises.** Jared Spataro's 2026-09-25 Official Microsoft Blog post describes a Copilot app organized around Home, Code, and Autopilot. Several entries below still rest on announcements; Learn also confirms GA for federated Copilot connectors and Fabric IQ in Chat and Cowork.
 
 | Capability | What Microsoft says it is | Status, verbatim | Evidence |

@@ -18,7 +18,7 @@ The flow is always the same: **Outcomes → Behaviors → Platforms.** Who benef
 
 **How to use this page:**
 
-1. Start with **outcomes** - name which AI conversation you are in (The 3 AI Buckets).
+1. Start with **outcomes** - name which AI conversation you are in (The 3 AI Buckets), even if all three start in the same app.
 2. Pass the **checkpoint** - verify AI is even the right tool.
 3. Define **behavior** - describe what the agent does before you name a product (The Coin & the Five Design Axes).
 4. Climb the **Ladder** - stay inside the one bucket you named in step 1, and stop on the lowest rung that solves the problem.
@@ -67,9 +67,23 @@ Now move it to work. A bucket error doesn't announce itself at kickoff either. I
 
 The bucket is the filter you set before you hit play. Set it wrong and you inherit the wrong assumptions, the wrong governance model, and the wrong advice. You'll believe all three, because every one of them is correct for somebody else.
 
+### Where the Buckets Meet
+
+**The buckets separate decisions. They were never meant to separate people.** Nobody walks up to AI holding a bucket. They bring an ask: *answer this*, *handle this for me*, *keep an eye on this*, *build us something*. The framework sorts those asks into three conversations because each lands on a different budget, under different governance, with a different person answering for it. That sorting helps whoever approves the work, at the expense of whoever has the question.
+
+Each ask used to live in its own tool, with its own learning curve. Getting past the chat window meant knowing the product catalog, so most people stopped there and the bigger value stayed unopened. Designers call that a discoverability problem, and more capability doesn't fix it.
+
+[Microsoft's Copilot app]({{ '/docs/technologies#the-new-copilot-app-september-2026-read-the-status-column-first' | relative_url }}) starts from the ask instead of the catalog. Home takes *answer this* and *handle this for me*, even a whole RFP response, handed back finished. *Build us something* goes to Code, which turns a team's good idea into an app they can share, one that can live inside the tenant under IT's governance. Whoever had the idea never has to read a line of code. *Keep an eye on this* belongs to Autopilot, which *"keeps working even when you're not."* Microsoft's stated direction goes further: *"you won't need to choose a mode"*.
+
+Behind the screen, the platform converges too. Copilot Studio builds apps beside agents and workflows, so *AI as a Product or Feature* and *AI for Your Codebase* can start in one studio. IT sees the apps where it already sees its agents: *"Every app appears in the Microsoft 365 admin center, so admins know what exists and who owns it"*.
+
+Going between asking, handing off, and building used to mean changing tools and learning each one. Putting them in one app takes away the hunt for the right tool, which is exactly where people used to stop.
+
+The buckets don't disappear. They move behind the screen. When *answer this* becomes *build us something*, the app can look the same while everything the buckets sort changes: the cost, the controls, and who answers for the result. The asker no longer needs to know which tool to open, but the organization still has to know what it signed for. **Even when the app picks the episode, it can't pick your governance model.**
+
 ### Everyone Has a Codebase Now
 
-**Who counts as a developer once anyone can describe an app?** An operations lead needs a tracker that IT can't get to this year, so she describes it to an AI assistant and has a working version by the afternoon. She hasn't become a developer. She has become the owner of software her colleagues will depend on.
+**Who counts as a developer once anyone can describe an app?** Follow *build us something* past the demo. An operations lead needs a tracker that IT can't get to this year, so she describes it to an AI assistant and has a working version by the afternoon. She hasn't become a developer. She has become the owner of software her colleagues will depend on.
 
 That makes it an *AI for Your Codebase* conversation: the AI is helping make software, and the tracker may contain no AI at all. If it also calls a model while it runs, open *AI as a Product or Feature* alongside it. One app, two conversations. Nobody graduates between them.
 
@@ -128,7 +142,19 @@ The best architectures mix and match. Let agents handle the *thinking*: intent r
 If you have determined you need an agent, use this framework to describe *what kind* of AI capability you're building, before you name a product.
 
 ### What is an agent?
-In Microsoft guidance, agents can handle tasks, take actions, and operate in conversation or via triggers. They can be assistive or autonomous depending on how you design them. See [Copilot Studio overview](https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-what-is-copilot-studio).
+
+**The ask tells you the shape of the work. It doesn't tell you how much authority to hand over.** [Microsoft's Copilot Studio overview](https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-what-is-copilot-studio) describes an agent as an AI assistant that holds a conversation and completes tasks. It works from your instructions, the knowledge you connect, and the tools you allow, and some get their own account so they can work proactively.
+
+Run the four asks from earlier through the lenses below and notice what each one settles and what it leaves open. *Answer this* stays at **Recommend**: a person reads the answer and decides. So can *handle this for me*, as long as what comes back is a draft someone reviews. A finished RFP response from Cowork is exactly that: delegated work with checkpoints, the middle ground between Copilot and Captain. The moment the agent may update a record or file a ticket, you've crossed into **Act within bounds**. *Keep an eye on this* puts it on Side B of the coin, and whether it may act on what it sees is a separate choice; letting it decide when to act is *Own the outcome*. *Build us something* changes the subject. The output is software, which puts you in the codebase conversation.
+
+Four lenses follow, each asking one question of the same agent:
+
+* **[The five parts](#the-anatomy-of-an-agent-five-parts):** what is it made of?
+* **[The three levels of delegation](#three-levels-of-delegation):** what may it do without asking?
+* **[The coin](#two-sides-of-the-spectrum-the-coin):** will anyone see it work?
+* **[The five design axes](#how-to-choose-your-agent-the-five-design-axes):** how should it behave?
+
+Skip one and its question finds you later, usually in production.
 
 ### The Anatomy of an Agent: Five Parts
 
@@ -262,7 +288,10 @@ Now, and only now, do products get to enter the room.
 * [Cloud Adoption Framework: AI agents](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/) (Accessed: 2026-07-29)
 * [When not to use AI agents](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/business-strategy-plan#when-not-to-use-ai-agents) (Accessed: 2026-07-29)
 * [Govern agents by risk (assist-to-execute, three risk tiers)](https://learn.microsoft.com/en-us/agents/center-of-excellence/govern-agents-risk) (Accessed: 2026-07-29)
-* [Copilot Studio overview](https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-what-is-copilot-studio) (Accessed: 2026-07-29)
+* [Copilot Studio overview](https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-what-is-copilot-studio) (Accessed: 2026-09-26)
 * [What is an autopilot in Microsoft Foundry?](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/autopilot-overview) (Accessed: 2026-09-25)
+* [Introducing the new Copilot with Home, Code and Autopilot](https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/) (Published: 2026-09-25)
+* [Copilot Managed Runtime overview for admins (app inventory)](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/apps/) (Accessed: 2026-09-26)
+* [Agent Registry in the Microsoft 365 admin center](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/agent-registry) (Accessed: 2026-09-26)
 * [Report of JPMorgan Chase & Co. Management Task Force Regarding 2012 CIO Losses](https://ypfsresourcelibrary.blob.core.windows.net/fcic/YPFS/JPMorgan%20Management%20Task%20Force%20Regarding%202012%20CIO%20Losses%201-16-13.pdf) (Published: 2013-01-16)
 * [Gartner press release defining the citizen developer (archived)](https://web.archive.org/web/20130128074257/http://www.gartner.com/it/page.jsp?id=1212813) (Published: 2009-10-22)

@@ -141,8 +141,8 @@ flowchart LR
 
 | Step | Module | What You'll Learn | Time Investment |
 |------|--------|-------------------|-----------------|
-| 1) | [Capability Model]({{ site.baseurl }}/docs/capability-model) | **Foundation** - Name the conversation you're in, verify you need an agent at all, and learn to describe behavior before naming a product | 15 min |
-| 2) | [Microsoft AI Stack]({{ site.baseurl }}/docs/ai-stack) | **Landscape** - Climb the buy-before-build ladder, find your capability grouping, and see the five planes every solution stands on | 35 min |
+| 1) | [Capability Model]({{ site.baseurl }}/docs/capability-model) | **Foundation** - Name the conversation you're in, see where the three meet, verify you need an agent at all, and learn to describe behavior before naming a product | 20 min |
+| 2) | [Microsoft AI Stack]({{ site.baseurl }}/docs/ai-stack) | **Landscape** - Climb the buy-before-build ladder, find your capability grouping, and see the five planes every solution stands on | 40 min |
 | 3) | [Decision Framework]({{ site.baseurl }}/docs/decision-framework) | **Methodology** - Intake gates and nine critical questions to stay simple before scaling | 40 min |
 | 4) | [Scenarios]({{ site.baseurl }}/docs/scenarios) | **Context** - Eleven patterns of demand with recommended stacks, honest alternatives, and the failure mode for each | 50 min |
 | 5) | [Evaluation Criteria]({{ site.baseurl }}/docs/evaluation-criteria) | **Assessment** - Score complexity, skills, budget, governance, and action safety/time-to-production | 15 min |

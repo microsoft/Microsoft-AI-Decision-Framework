@@ -58,7 +58,7 @@ Two things this rung asks of you that the others don't. First, somebody has to a
 
 **Rungs 5 and 6: a warning sign, not a milestone.** If an employee-productivity problem is driving you toward a declarative build or a custom engine, the usual cause is a problem statement that quietly grew a second problem inside it. Split it before you build it.
 
-**You have left this bucket when** the thing you are building serves customers, or serves a system rather than a person. That is Journey 2.
+**Open a parallel conversation when** AI becomes part of an app or process you deliver (Journey 2), or starts helping you build or maintain software ([Journey 3](#journey-3-ai-for-your-codebase)). The easy one to miss is the day Copilot hands back an app instead of an answer: that opens Journey 3 without closing this one.
 
 ### Journey 2: AI as a Product or Feature
 
@@ -94,11 +94,11 @@ So the destination is not the decision. Your users end up in Microsoft 365 Copil
 
 **And underneath all six rungs sits the foundation.** The thing that finally decides whether any of this is good isn't the rung you stopped on; it's the data the agent stands on. Hold that thought. It returns at the end of this page, because it is true for all three buckets.
 
-**You have left this bucket when** the thing you're building is aimed at your own delivery pipeline rather than at a user or a customer. That is Journey 3.
+**Open a parallel conversation when** AI also helps build or maintain the software. That is Journey 3, whether the software serves employees or customers. Shipping AI and using AI to ship are different decisions.
 
 ### Journey 3: AI for Your Codebase
 
-**Who's climbing:** an engineering leader whose delivery pipeline, not their product, is the bottleneck.
+**Who's climbing:** two people. An engineering leader whose delivery pipeline, not their product, is the bottleneck. And a business team that needs a small piece of software nobody will ever prioritize, and gets it by describing it. The rungs below are the engineer's climb; the business team's build paths [come after them](#building-apps-without-writing-code).
 
 **The trade-off: Generation vs. Verification.** This is the bucket where the constraint moves. Writing code stopped being the expensive part; deciding whether code is *correct* did not get cheaper at the same rate. GitHub says this out loud: as agents produce more pull requests, the pressure on code review compounds. So every rung above the second is a bet that your organization can verify more than it verifies today. And if that bet is wrong, the extra output arrives anyway and lands in a queue that was already full.
 
@@ -140,7 +140,28 @@ GitHub's own advice follows from it: learn the harness before you decorate it. Y
 
 **Be equally skeptical of the words that are not shipping yet.** Terms like *Agent HQ*, *mission control*, and *agent-native* describe where GitHub believes the platform is going. They are useful for direction and useless in a procurement document, because they do not map to something you can switch on or govern. GitHub's own engineers are blunt about the pace: much of today's magical incantation is tomorrow's anti-pattern. Prefer the simplest arrangement that produces a repeatable result, and look for shipped surfaces and administrative controls rather than vision words.
 
-**You have left this bucket when** the agent you're building serves someone outside your engineering organization. The moment its output reaches a customer or a business process, the accountability model changes and you are in Journey 2, whatever it says on the repository.
+**The harness has left the IDE.** GitHub says the Copilot agent runtime behind its CLI, app, and SDK also backs Copilot Cowork, Copilot Studio, and the Office apps, and Copilot Studio's documentation says its app creation *"is powered by the GitHub Copilot harness"*. The loop that shaped the developer's day now runs for people who never needed a terminal.
+
+#### Building apps without writing code
+
+**The trade-off: Building vs. Owning.** Business teams have built their own software for decades, in spreadsheets, desktop databases, and low-code platforms. Natural-language builders cut the effort again: describe the app, get the app. Building got cheap. Owning didn't. The Ladder's first lesson still holds, too: if a shared workbook, a list, or an app somebody already built solves the problem, use it.
+
+When a new app is justified, pick the build path its eventual owner can support:
+
+* **Copilot Cowork**, whose App skill turns a delegated task into a working app.
+* **Copilot Code**, where Copilot picks the approach, anywhere from a desktop widget to an internal app the team shares.
+* **Copilot Studio**, which builds apps beside the agents and workflows of a business process.
+* **A developer's own tools**: the runtime's SDK and command line, or its plugin for GitHub Copilot, Claude Code, and other coding agents.
+
+Microsoft's name for the arrangement is *"open build and managed run"*: build wherever the builder works, run somewhere IT governs. Platform engineers will hear the *paved road* in that; the comparison is ours, not Microsoft's. Apps from Cowork, Copilot Studio, and the SDK run on **Copilot Managed Runtime**, which gives each one Microsoft Entra sign-in, the tenant's default governance policy, and a line in one admin inventory. Microsoft says Code's shared apps stand on the same foundation. It's a governed host, not a completed governance review: which connector rules bind an app depends on settings IT controls, so check them.
+
+Don't read the rung off the effort. Describing an app takes a paragraph; owning it is middle-rung work, because the rungs measure responsibility: the platform runs the app, and your team owns its logic, its data, and everyone who depends on it.
+
+**Promotion without the rewrite.** Every app on the runtime is backed by a Git repository, so when an app outgrows its builder, a developer can pick it up instead of starting over. Microsoft's announcement describes exactly that, a developer continuing a Cowork app *"without forking"*. Power Platform's own natural-language builder, **Power Apps vibe**, goes the other way: converting its app to code creates a new code app, disconnected from the original. Pick the shape before the first app exists, and hand over the repository with the requirements and tests. The code is a head start, not a promise that nothing needs rework.
+
+**Where this does not land.** A managed runtime bounds who can open an app and what it can reach. It can't tell you whether the app computes the right number, and nobody's runtime can. The business owner checks the rules and the results; a developer or platform reviewer covers the risks the owner can't assess. Keeping an owner attached when the builder changes jobs is operating model, not product. Microsoft also lists code changes as not audited, so an app's change history lives in its repository. [Scenario 11]({{ '/docs/scenarios#scenario-11-business-teams-building-their-own-apps' | relative_url }}) walks the choice end to end, and [Technologies]({{ '/docs/technologies#copilot-managed-runtime' | relative_url }}) carries current status and limits.
+
+**Open a parallel conversation when** AI is part of the app's runtime behavior, including an agent your developers embed in something you ship. That is Journey 2, alongside this one. A customer audience changes the hosting, identity, and access review, not the bucket.
 
 ### What all three journeys have in common
 
@@ -168,9 +189,11 @@ This grouping now spans a wider range of behavior than "chat with a document," a
 
 * **Chat, grounded two ways.** The same conversational surface answers very differently depending on what it can see: the open web, or your organization's actual work. That distinction, web-grounded versus work-grounded, is the single biggest determinant of whether users find it useful, and it is a licensing and configuration decision rather than a technical one.
 * **In-app assistance.** AI inside the application where the work already happens, rather than in a separate destination the user has to remember to visit. The value here is proximity: the assistance arrives without a context switch.
-* **Delegated work.** The newer and more interesting end of this grouping. Rather than turning around a prompt in seconds, the surface accepts an outcome, works for an extended period, and comes back with something finished. **Copilot Cowork** is the anchor. The shift is not incremental. It changes the unit of delegation from a question to a task, which changes what a person does while they wait.
-* **Always-on assistance.** The furthest edge: an agent that is running before you ask, watching for the moment you'd want it. **Microsoft Scout** is Microsoft's illustration. This is where the ready-made surface stops being something you open and becomes something that comes to you.
+* **Delegated work.** The newer and more interesting end of this grouping. Rather than turning around a prompt in seconds, the surface accepts an outcome, works for an extended period, and comes back with something finished. **Copilot Cowork** is the anchor. The shift is not incremental. It changes the unit of delegation from a question to a task, which changes what a person does while they wait. The finished thing can be an app rather than a document, and that quietly opens [a second conversation](#building-apps-without-writing-code).
+* **Always-on assistance.** The furthest edge: an agent that is running before you ask, watching for the moment you'd want it. [**Autopilot**]({{ '/docs/technologies#autopilot' | relative_url }}) is Microsoft's illustration. This is where the ready-made surface stops being something you open and becomes something that comes to you.
 * **Built-in agents.** Microsoft ships agents directly into these surfaces: deep research, data analysis, document creation. They arrive as part of the experience rather than as something you install, which is precisely why teams so often rebuild capability they already own.
+
+**The range of behaviors used to mean a range of tools.** Each kind of help had its own surface, and people who didn't know the catalog stopped at the chat window. Microsoft's Copilot app puts asking, handing off, always-on assistance, and even app building behind one starting point, which goes straight at this grouping's real constraint: people not finding what already exists. It doesn't merge the decisions behind those modes. Cost, governance, and ownership still differ from one to the next. The Capability Model shows [where the buckets meet]({{ '/docs/capability-model#where-the-buckets-meet' | relative_url }}), and where they don't.
 
 **The concept that matters most here: you are consuming, not constructing.** Everything in this grouping is turned on, scoped, and adopted. That makes the constraint organizational rather than technical. The limiting factor is rarely capability, and almost always whether anyone told people it exists and trained them to use it well.
 
@@ -193,7 +216,7 @@ Two distinct moves live here, and teams routinely conflate them:
 
 The important idea here is one most teams get backwards. **A useful AI application is mostly not AI.** It is ordinary software (validation, routing, state, retries, permissions) with reasoning applied at the few points where judgment is genuinely required. Treat the workflow as the railroad and the agent as the rover: fixed track for known routes, reasoning only where the terrain is actually uncertain. Every step you hand to a model instead of to code buys you flexibility and costs you predictability, latency, and a debugging story.
 
-This is also where you choose how much of the runtime you want to own, a decision the Ladder already walked you through. The building blocks range from visual flows that mix deterministic steps with reasoning, through configuration-defined agents, to code-first orchestration you host yourself.
+This is also where you choose how much of the runtime you want to own, a decision the Ladder already walked you through. The building blocks range from visual flows that mix deterministic steps with reasoning, through configuration-defined agents, to code-first orchestration you host yourself. Copilot Studio also builds apps alongside agents and workflows, so the screens a business process needs and the reasoning behind them can be built in one place.
 
 ### 4. AI services and building blocks
 
@@ -286,7 +309,7 @@ Underneath the first C sit **seven categories of agent behavior**. Microsoft's d
 **Two honest caveats before you adopt it wholesale.**
 
 1. **Scope.** The stated intent is product-neutral, and Categories and Capabilities genuinely travel. But every worked example in the docs is Copilot Studio plus Power Platform, which means the **Components** layer reads Copilot-Studio-flavored. Port the first two Cs freely; translate the third.
-2. **It's one of seven.** Six concurrent agent taxonomies are documented on Microsoft Learn: this archetype framework, CAF's agent types, declarative-vs-custom-engine, the Agent Registry publisher types, the Integrated Apps grouping, and Agent 365's "types of agents." A seventh circulates in Microsoft 365 marketing language with no Learn definition behind it, which is its own warning (see [*"Autopilot"*]({{ '/docs/glossary#a' | relative_url }}) in the Glossary). **None supersedes another and none cross-references the others.** Pick the one that fits the conversation you're in, and say which one you picked.
+2. **It's one of several.** Microsoft Learn classifies agents in other ways too: CAF's agent types, declarative-vs-custom-engine, the Agent Registry publisher types, the Integrated Apps grouping, and Foundry's line between an agent and an *autopilot*, which turns on whether it has its own agent user account (see [*"Autopilot"*]({{ '/docs/glossary#a' | relative_url }}) in the Glossary). **Microsoft's pages sometimes link to one another, but none reconciles these into one scheme.** Pick the one that fits the conversation you're in, and say which one you picked.
 
 **The idea worth stealing.** Look at that table again: **Govern and Monitor are listed as agent *behaviors*, not as operational afterthoughts.** That's a genuinely better instinct than the one most teams bring, and our delegation model doesn't carry it. An agent that can't be observed isn't a finished agent with a monitoring gap. It's an unfinished agent. Build the telemetry and the policy conformance into the thing, not around it.
 
@@ -300,9 +323,13 @@ See [The agent archetype framework](https://learn.microsoft.com/en-us/agents/age
 
 The old split assumed the tools sorted people: citizen developers on one side, engineers on the other. That is no longer how either side works. Copilot Studio now offers code views, variable management, API integrations, and a component model that rewards an engineering mindset. Meanwhile agentic coding tools mean a developer can produce deterministic logic quickly enough that "we'll just build it" is a lighter decision than it was. **The tools stopped sorting people, which quietly made "who is allowed to build this" the wrong question.**
 
+**Then the runtime stopped sorting them too.** An app a business team describes in Copilot and one a developer pushes from a terminal can land on the same governed host. With creation open and operation managed, the question left over is the one that was always hardest: who owns it once it runs?
+
 **The convergence goes deeper than tooling.** Choosing a platform used to mean accepting three things as a bundle: the **model** that reasons, the **harness** it runs in, and the **surface** where users meet it. Model choice is now an explicit setting in Copilot Studio. The harness is now an explicit choice too, with three named options and a documentation page devoted to picking one. Layers that used to be inseparable from the product are becoming things you select.
 
-**Where the convergence stops is worth knowing: selection is not portability.** An agent is created on one harness and cannot be moved to another, and the reuse story is strongest inside a harness rather than across them. The rung 5 note above has the detail.
+The software an AI builds adds a fourth layer, the **runtime** where it keeps running, and that layer has come unbundled too: one host now takes apps from several builders, Microsoft's and other vendors' alike.
+
+**Where the convergence stops is worth knowing: selection is not portability.** Copilot Studio says an agent built on its GitHub Copilot harness can't be transferred to the standard harness, or the other way around, and the reuse story is strongest inside a harness rather than across them. The rung 5 note above has the detail. The runtime has the same edge. An app's code lives in Git where a developer can take it, but the sign-in, connectors, and policy it calls belong to the platform, so choosing where to build is not the same as being able to leave.
 
 **The New Rule:** choose the tool for the **problem**, not the job title. A principal architect should use Copilot Studio when it solves the problem faster. A business analyst working in Foundry is using the right tool for their use case. The tool does not define the role.
 
@@ -340,7 +367,7 @@ Do not think of this as "Copilot Studio vs. Microsoft Foundry." Think of it as a
 
 **5. The Governance Plane (identity and oversight)**
 * **Focus:** Who is this agent, what may it touch, and who answers for it.
-* **The Analogy: The Badge Office.** The moment your organization had more than a handful of employees, "everyone knows Dave" stopped being an access-control strategy. Agents crossed that threshold faster than anyone planned for. An agent without an identity isn't lightweight. It's untraceable.
+* **The Analogy: The Badge Office.** The moment your organization had more than a handful of employees, "everyone knows Dave" stopped being an access-control strategy. Agents crossed that threshold faster than anyone planned for. An agent without an identity isn't lightweight. It's untraceable. Apps built by describing them are crossing that threshold now, and a managed runtime badges them with a sign-in, the policies IT has set, and a line in one inventory. Whose name goes next to that line is still your call.
 * **The Role:** Agents are becoming principals in your directory, and the tooling is catching up rapidly, though gaps remain and it is worth checking which of these your scenario actually has today. Three concepts carry this plane. **Identity** gives an agent something to *be*: its own directory principal, so its actions are attributable to it rather than to whichever human's token it borrowed. **Inventory** gives you a single place to see every agent in the estate, who owns it, and which ones nobody owns. **Oversight** adds the detection and data-protection layer that turns "we think that's all of them" into something you can actually assert.
 
     The order matters and it is the opposite of most rollouts. Identity first, then inventory, then controls. A control you cannot attribute to a named principal is a control you cannot enforce, and an agent nobody owns is not a governance gap you close later; it is the one that shows up in the incident.
@@ -411,3 +438,15 @@ Read the terms as well as the rates. These vehicles carry fixed terms and defaul
 * [Introducing Microsoft Agent Factory](https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/introducing-microsoft-agent-factory/4470732) (Published: 2025-11-18)
 * [Introducing Microsoft Scout](https://www.microsoft.com/en-us/copilot/blog/2026/06/02/introducing-microsoft-scout-your-always-on-personal-agent/) (Published: 2026-06-02)
 * [Microsoft Scout setup and FAQ](https://learn.microsoft.com/en-us/microsoft-scout/) (Accessed: 2026-07-28)
+* [Introducing the new Copilot with Home, Code and Autopilot](https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/) (Published: 2026-09-25)
+* [What is Microsoft Copilot Managed Runtime](https://learn.microsoft.com/en-us/microsoft-365/managed-apps/) (Accessed: 2026-09-25)
+* [Build apps with the Microsoft Copilot Managed Runtime SDK](https://learn.microsoft.com/en-us/microsoft-365/managed-apps/developer/) (Accessed: 2026-09-25)
+* [Review default governance settings for apps](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/apps/governance) (Accessed: 2026-09-25)
+* [Manage security and compliance for Microsoft Copilot Managed Runtime](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/apps/security-compliance) (Accessed: 2026-09-25)
+* [Microsoft Copilot Managed Runtime: Enterprise code execution for Microsoft 365](https://www.microsoft.com/en-us/copilot/blog/copilot-studio/build-where-you-want-run-with-confidence-now-microsoft-hosts-and-manages-the-code-created-by-copilot/) (Published: 2026-09-25)
+* [Copilot Studio apps overview](https://learn.microsoft.com/en-us/microsoft-copilot-studio/apps-experience/apps-overview) (Accessed: 2026-09-25)
+* [Use Copilot Cowork (Build apps with the App skill)](https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/use-cowork) (Accessed: 2026-09-25)
+* [Overview of the new Power Apps vibe experience](https://learn.microsoft.com/en-us/power-apps/vibe/overview) (Accessed: 2026-09-25)
+* [Convert a vibe app to a code app](https://learn.microsoft.com/en-us/power-apps/vibe/convert-vibe-to-code) (Accessed: 2026-09-25)
+* [Migrating the GitHub Copilot runtime to Rust, using Copilot](https://github.blog/ai-and-ml/generative-ai/migrating-the-github-copilot-runtime-to-rust-using-copilot/) (Published: 2026-09-16; Updated: 2026-09-23)
+* [What is an autopilot in Microsoft Foundry?](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/autopilot-overview) (Accessed: 2026-09-25)

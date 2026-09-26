@@ -98,6 +98,10 @@ Architects must speak the language of finance. You need to capture Total Cost of
 
 **The Analogy:** it is the same as running a business with a corporate card, a departmental purchasing account, and a prepaid transit pass. Every one of them buys real things. None of them tops up the others. If your TCO model has one line item, you have modeled one third of the estate.
 
+**A seat and a meter can fund the same work.** A subscription funds access; metered usage follows the work people actually do. They are not necessarily alternatives. Budget headcount and consumption separately, with an owner for each. See the current [USL and UBB rules]({{ '/docs/technologies#the-new-copilot-app-september-2026-read-the-status-column-first' | relative_url }}) before pricing the Copilot path.
+
+**App building sends two bills.** Budget creation and operation separately. Include build and test iterations before launch, then forecast usage after sharing. Use the current [Copilot Managed Runtime entitlement rules]({{ '/docs/technologies#copilot-managed-runtime' | relative_url }}) to price the runtime. A cheap build tells you nothing about what a popular app costs to run.
+
 ### The Order of the Burn
 
 **Two prepurchase products exist, and they are not the same product.** The **Copilot Credit Prepurchase Plan** buys **CCCUs** and covers eligible Copilot Credit usage. The **Microsoft Agent Prepurchase Plan** buys **ACUs** and covers select services across Microsoft Foundry, Microsoft Copilot Studio, Microsoft Fabric, and GitHub. Both are Azure Reservations, one-year term, auto-renew on by default, all purchases final.
@@ -112,7 +116,7 @@ Microsoft states the precedence verbatim: *"Reservations always apply before pre
 **The principle worth memorizing: narrow benefits burn before broad benefits.** It is the gift-card rule. You spend the store card before the credit card, because the store card is worthless anywhere else. Model your commitments in that order or you will strand the narrow ones and over-buy the broad one.[^budget-prepurchase-order]
 
 {: .warning }
-> Coverage of Copilot Cowork and Work IQ usage by either prepurchase plan is **not stated in Microsoft's documentation**. Treat it as unknown and confirm with your account team before you assume it in a forecast.
+> **Confirm coverage before you count the discount.** [Learn's spending-policy page](https://learn.microsoft.com/en-us/microsoft-365/copilot/usage-based-billing-manage-copilot-credits) lists Copilot Credit prepurchase plans (P3) as a billing method for Cowork and Work IQ API, and spends prepaid credits before pay-as-you-go. Neither that page nor the [Microsoft Agent Prepurchase Plan](https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/agent-pre-purchase) names Code or Copilot Managed Runtime as of 2026-09-25, so confirm those with your account team before a forecast assumes them.
 
 {: .warning }
 > Consumption models require **Quota Management**. An ungoverned autonomous agent can burn through a monthly token budget in hours if it enters a loop. Require spending caps, alerts, and an owner in the selected cost-management layer.

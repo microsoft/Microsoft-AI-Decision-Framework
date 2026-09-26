@@ -37,6 +37,8 @@ Use this page as a reference after you’ve narrowed the decision: it’s optimi
 **Official Docs:** [Microsoft 365 Copilot Overview](https://learn.microsoft.com/en-us/microsoft-365/copilot/)
 **Status:** GA
 
+**Naming update:** Learn states: *"Microsoft 365 Copilot is now named Microsoft Copilot, and Microsoft 365 Copilot Chat is now named Microsoft Copilot Chat."* The work product now shares its name with the consumer Microsoft Copilot app; confirm which experience a source means. ([Requirements](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-requirements) - Updated: 2026-09-24)
+
 **Key Features:**
 
 - **Tenant-aware AI:** Works across Word, Excel, Teams, Outlook, PowerPoint, and OneNote while inheriting Microsoft Graph security and compliance controls. (Updated Declarative Agents guidance - Retrieved: 2025-12-01)
@@ -45,8 +47,9 @@ Use this page as a reference after you’ve narrowed the decision: it’s optimi
 - **Admin governance:** Admins can pre-approve trusted agents and audit usage to streamline tenant-wide deployments. (Microsoft 365 Copilot release notes - Retrieved: 2026-03-25)
 - **Grounded knowledge:** Agents can draw from Teams meetings, SharePoint, OneDrive, email, Dataverse, and approved connectors with tenant-scoped security. (Extend Microsoft 365 Copilot with agents - Retrieved: 2025-12-15)
 - **Fine-tuning (Copilot Tuning, early access preview):** Lets makers tune agent models on tenant data under admin control. Microsoft documents this as **early access preview**. Treat it as an evaluation capability, not a production dependency. (Microsoft 365 Copilot release notes - Retrieved: 2026-03-25)
-- **Copilot Cowork (GA worldwide, 2026-06-16):** The answer to work measured in hours rather than keystrokes. You delegate a multi-step job (rebuild the deck, reconcile the workbook, assemble the report pack) and Cowork decomposes it into a visible plan with checkpoints you can steer, producing coordinated output across Word, Excel, PowerPoint, and Outlook inside a sandboxed, permission-scoped, auditable cloud environment. **The fine print is the architecture:** it requires a Microsoft 365 Copilot user subscription license **plus Copilot Credits**; work is metered in **Light / Medium / Heavy** task tiers; **Anthropic models must be enabled**, which limits Cowork to Anthropic-supported regions; and **DLP support is documented as "coming soon."** Admins manage it at **Agents > All Agents > Cowork**. Data Lifecycle Management for Cowork reached GA on 2026-06-22. ([Copilot Cowork is now generally available](https://www.microsoft.com/en-us/copilot/blog/2026/06/16/copilot-cowork-is-now-generally-available/) - Published: 2026-06-16)
-- **Cowork model line-up:** Current Learn documentation lists **Claude Sonnet 5**, **Claude Opus 4.8**, **GPT 5.5 (Frontier)**, **Claude Fable 5 (Preview, off by default)**, and a paired **Sonnet + Opus Advisor** mode. Model availability follows the Anthropic-region constraint above. (Microsoft Learn, *Models in Copilot Cowork* (`cowork-models`) - Retrieved: 2026-07-29)
+- **Copilot Cowork (GA worldwide, 2026-06-16):** Work measured in hours rather than keystrokes. Delegate a multi-step job and steer its plan at checkpoints. A Microsoft 365 Copilot user subscription license provides access; Copilot Credits pay for usage. The [FAQ](https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/cowork-faq) meters model responses, tool and skill calls, image generation, and browser tasks. It limits use and access to Anthropic-supported regions, although turning off the Anthropic model family *"doesn't change whether the user can use Cowork"* ([access guidance](https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/cowork-access)). [Purview's Cowork page](https://learn.microsoft.com/en-us/purview/ai-copilot-cowork) marks data loss prevention as not supported (✕) for Cowork AI interactions. ([GA announcement](https://www.microsoft.com/en-us/copilot/blog/2026/06/16/copilot-cowork-is-now-generally-available/) - Published: 2026-06-16; Learn checked: 2026-09-25)
+- **Cowork model line-up:** Learn lists Auto (default), GPT 5.5 (Frontier), GPT 5.6 Sol, GPT 5.6 Terra, GPT 6 Astra, Opus 5, Claude Sonnet 5, and Claude Fable 5.1. Higher reasoning effort uses more credits. ([Choose a model for Copilot Cowork](https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/cowork-models) - Updated: 2026-09-14)
+- **Cowork App skill (Frontier, preview):** Describe an app in a Cowork session, optionally with connected data sources. It runs on [Copilot Managed Runtime](#copilot-managed-runtime), as documented in the [runtime overview](https://learn.microsoft.com/en-us/microsoft-365/managed-apps/). Learn labels the skill *"a preview feature"* requiring Frontier. Its sharing guidance says *"Anyone with the link can open and use the app, including all its data"*. That conflicts with the runtime FAQ's source-permission rule; review the [sharing limits below](#copilot-managed-runtime) before sharing real data. ([Use Copilot Cowork](https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/use-cowork) - Updated: 2026-09-14)
 
 {: .warning }
 > **"Cowork 1" is an announcement, not a shipping capability.** It has been named publicly but is not documented as available. Do not put it on a delivery plan.
@@ -58,6 +61,30 @@ Use this page as a reference after you’ve narrowed the decision: it’s optimi
 - **Copilot Memory (Preview):** Persistent personalization across sessions using Graph signals and conversation history. Users control, view, manage, disable, or clear memory at any time. ([Microsoft 365 Copilot release notes - Sep 3, 2025](https://learn.microsoft.com/en-us/microsoft-365/copilot/previous-year-release-notes#september-3-2025) - Retrieved: 2026-03-25)
 - **Voice input (GA):** Speak to Copilot across mobile, desktop, and web in M365 apps including Outlook, Word, and PowerPoint. ([Microsoft 365 Copilot release notes - Nov 25, 2025](https://learn.microsoft.com/en-us/microsoft-365/copilot/previous-year-release-notes#november-25-2025) - Retrieved: 2026-03-25)
 - **Connector ecosystem expansion:** 20+ new Copilot connectors since Oct 2025 including Coda, GitLab, Bitbucket, Asana, Smartsheet, Monday.com, Jira Data Center, Zendesk, Miro, Dropbox, Google Drive, Amazon S3, Veeva, and more. Explainable AI with inline citations for connector results. ([Microsoft 365 Copilot release notes](https://learn.microsoft.com/en-us/microsoft-365/copilot/release-notes) - Retrieved: 2026-03-25)
+
+#### The new Copilot app (September 2026): read the status column first
+
+Each kind of AI help used to live in its own tool, so anyone who wanted more than a chat answer had to know the product catalog first, and most people stopped at the chat window. The app is built for them. It starts from the task instead (ask, hand off, or describe an app), and Microsoft says apps shared from Code use the same IT-governed foundation as apps built in Cowork and Copilot Studio.
+
+**Read rollout promises as promises.** Jared Spataro's 2026-09-25 Official Microsoft Blog post describes a Copilot app organized around Home, Code, and Autopilot. Several entries below still rest on announcements; Learn also confirms GA for federated Copilot connectors and Fabric IQ in Chat and Cowork.
+
+| Capability | What Microsoft says it is | Status, verbatim | Evidence |
+| :--- | :--- | :--- | :--- |
+| **Home** | Where *"Chat and Cowork come together in one place"*, with Office in Copilot bringing Word, Excel, and PowerPoint into the same experience | *"will start rolling out in our Frontier program in the coming weeks"* | Official Microsoft Blog post (Spataro) |
+| **Code** | Describe an app, tracker, dashboard, automation, or workflow. Copilot builds desktop widgets through cloud-hosted internal apps. It *"runs in a sandboxed environment"* on *"the same underlying technology as GitHub Copilot"* | *"rolling out to Frontier at the end of the month, with broad availability in the coming weeks"*; the same post also says Home and Code *"will start rolling out in our Frontier program in the coming weeks"*. For Microsoft 365 Premium and Pro: *"in preview"* later this year | Official Microsoft Blog post (Spataro). Learn documents Code's UBB, but no Learn feature overview was found as of 2026-09-25. The runtime announcement calls the entry points *"already live"* |
+| **Autopilot** | Scout, renamed and described as cloud-hosted. See [Autopilot](#autopilot) for the separate Scout and Foundry documentation | *"expanding to private preview at the end of the month"* | Official Microsoft Blog post (Spataro) |
+| **Today** | *"a proactive, personalized command center across mail, calendar, Teams threads, meetings and tasks"* | *"enters private preview in October"* | Official Microsoft Blog post (Spataro) |
+| **@Copilot in Teams** | The team gets *"the shared context and permissions of the channel, group chat or meeting"* | *"private preview in Teams by the end of the month"* | Official Microsoft Blog post (Spataro) |
+| **Automatic routing** | Copilot sends work to Chat, Cowork, or Code without a manual mode choice | *"coming soon"* | Official Microsoft Blog post (Spataro) |
+| **Plugin registry** | *"one unified catalog"* of Microsoft, partner, and custom plugins combining *"skills, connectors and other capabilities"* | *"Rolling out now and generally available across surfaces in the coming weeks"* (Spataro); *"generally available by the end of the month"* ([partner blog](https://partner.microsoft.com/en-us/blog/article/ai-at-work-marketing-moment-sept-2026)) | Blog announcements. Its relationship to the Agent Store and MCP connectors is not stated in the announcement or Learn pages checked as of 2026-09-25. Learn separately documents Cowork plugins from the Microsoft 365 App Store |
+| **Skills** | *"Skills help bring specialized expertise directly into the apps, like financial skills in Excel and legal skills in Word"* | Status not stated in the post as of 2026-09-25 | Official Microsoft Blog post (Spataro) |
+| **Fabric IQ in Chat and Cowork** | Power BI data answering in Copilot Chat; the Fabric IQ plugin in Cowork | Each is *"a generally available (GA) feature of Microsoft Fabric"* on Learn; the Official Microsoft Blog post adds Code integration *"coming through the Frontier program soon"* | [Chat](https://learn.microsoft.com/en-us/fabric/iq/connectors/microsoft-365-copilot-overview) and [Cowork](https://learn.microsoft.com/en-us/fabric/iq/connectors/cowork-overview), both updated 2026-09-23. The workload and ontology remain preview; see [Microsoft Fabric](#microsoft-fabric--tech-heading-) |
+| **Dynamics 365 and Power Platform data in Work IQ** | Copilot grounded in business-application data and workflows | *"available in preview starting September 30, 2026, with rollout continuing throughout October 2026"* | [Dynamics 365 blog](https://www.microsoft.com/en-us/dynamics-365/blog/it-professional/2026/09/25/work-iq-business-and-workplace-intelligence-in-the-flow-of-work/) |
+| **Federated Copilot connectors** | Copilot connectors built on the Model Context Protocol | *"General Availability (GA)"* | [Learn release notes](https://learn.microsoft.com/en-us/microsoft-365/copilot/release-notes), batch dated 2026-09-23 |
+
+The **user subscription license (USL)** covers everyday AI work at a fixed price. **Usage-based billing (UBB)** adds metered advanced AI and frontier models; it does not replace the seat. Learn says UBB experiences *"consume Copilot Credits and require a USL for access"*. Its examples include Cowork, Code, Autopilot, *"new agentic experiences in SharePoint"*, and Astra and Fable, identified on the Cowork model page as OpenAI's GPT 6 Astra and Anthropic's Claude Fable 5.1. The USL usage-limit path is marked *"coming soon"*. ([USL and UBB](https://learn.microsoft.com/en-us/microsoft-365/copilot/user-subscription-license-usage-based-billing) - Updated: 2026-09-25; [pricing announcement](https://techcommunity.microsoft.com/blog/microsoft-copilot-blog/evolution-of-the-copilot-pricing-model/4559416) - Published: 2026-09-25)
+
+For rollout planning, [MC1479277](https://m365admin.handsontek.net/microsoft-copilot-new-ways-work-across-microsoft-copilot-microsoft-365/) says Home will *"roll out to Frontier in October"* and Code is *"rolling out to Frontier later this month"*. [MC1479276](https://m365admin.handsontek.net/microsoft-copilot-evolving-copilot-pricing-model-new-finops-capabilities-ai/) says *"UBB will begin to roll out in Copilot in Q4 CY2026."* These are **Message Center notices via a third-party republisher**, dated 2026-09-25, not tenant-verified notices. Separately, Nicole Dezen's [partner blog](https://partner.microsoft.com/en-us/blog/article/ai-at-work-marketing-moment-sept-2026) says UBB will be enabled by default starting November 2, 2026, for new Microsoft 365 Copilot Business licenses, including bundles, purchased through CSP.
 
 **Recent Updates (2025 to 2026):**
 
@@ -83,7 +110,9 @@ Use this page as a reference after you’ve narrowed the decision: it’s optimi
 
 Three rungs, not one SKU. **Microsoft 365 Copilot Chat** needs no add-on and meters agent usage pay-as-you-go. **Microsoft 365 Copilot** is the add-on license. **Microsoft 365 E7** is the top rung, and Microsoft describes it verbatim as: *"Microsoft 365 (E7) includes Microsoft 365 E5, Microsoft 365 Copilot, Microsoft Agent 365, and Microsoft Entra Suite."*
 
-Smaller organizations have their own rungs, which this reference previously omitted: **Microsoft 365 Copilot Business** (an SMB add-on), and **Microsoft 365 Business Standard with Copilot** and **Business Premium with Copilot**, announced 2026-05-28 and **GA 2026-07-01**.
+Smaller organizations have their own rungs: **Microsoft 365 Copilot Business** (an SMB add-on), and **Microsoft 365 Business Standard with Copilot** and **Business Premium with Copilot**, announced 2026-05-28 and **GA 2026-07-01**.
+
+Government gets its own top rung. **Microsoft 365 G7** is the government counterpart to E7. The announcement says *"Both Microsoft 365 G7 and Agent 365 will be available for GCC customers to purchase on October 1, with capabilities expanding in phases."* No price is stated in the post as of 2026-09-25. ([Introducing Microsoft 365 G7](https://www.microsoft.com/en-us/microsoft-cloud/blog/industry-government/government-operations-and-infrastructure/2026/09/15/introducing-microsoft-365-g7-intelligence-trust-for-the-mission-ahead/) - Published: 2026-09-15)
 
 **When to use:** Broad productivity gains, existing M365 licenses, tenant-aware context, no deep AI expertise required, extend via low-code (Copilot Studio) or pro-code (M365 Agents SDK)
 
@@ -99,6 +128,9 @@ Smaller organizations have their own rungs, which this reference previously omit
 - [Wave 3: Powering Frontier Transformation](https://www.microsoft.com/en-us/copilot/blog/2026/03/09/powering-frontier-transformation-with-copilot-and-agents/) (Published: 2026-03-09)
 - [Copilot Cowork announcement](https://www.microsoft.com/en-us/copilot/blog/2026/03/09/copilot-cowork-a-new-way-of-getting-work-done/) (Published: 2026-03-09)
 - [Microsoft 365 Copilot release notes - Mar 24, 2026](https://learn.microsoft.com/en-us/microsoft-365/copilot/release-notes#march-24-2026) (Retrieved: 2026-03-25)
+- [Introducing the new Copilot with Home, Code and Autopilot](https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/) (Published: 2026-09-25)
+- [Understanding the user subscription license (USL) and usage-based billing (UBB)](https://learn.microsoft.com/en-us/microsoft-365/copilot/user-subscription-license-usage-based-billing) (Updated: 2026-09-25)
+- [Use Copilot Cowork](https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/use-cowork) (Updated: 2026-09-14)
 
 ---
 
@@ -127,45 +159,39 @@ Smaller organizations have their own rungs, which this reference previously omit
 
 ---
 
-## Microsoft Scout (Frontier / Private Preview) {: .tech-heading }
+## Autopilot, formerly Microsoft Scout (Private Preview)
+{: .tech-heading #autopilot }
 
-**Description:** An always-on personal agent that works in the background to coordinate work across Teams, Outlook, OneDrive, and SharePoint, holding your priorities and acting on your behalf without a fresh prompt each time. Microsoft Learn defines Scout as *"a desktop AI application for Windows and macOS"* (Windows 11 / macOS 12+, explicitly not mobile).
-**Official Docs:** [Microsoft Scout setup instructions](https://learn.microsoft.com/en-us/microsoft-scout/)
-**Status:** **Frontier / private preview, not GA.** Announced 2026-06-02. Two-gate access: a Frontier tenant toggle, then Intune policy plus an attestation/opt-in form. Requires a **GitHub Copilot Business or Enterprise** license **and** an active **Microsoft 365 Copilot** license.
+**Description:** A personal agent for work that continues between prompts. Jared Spataro's 2026-09-25 Official Microsoft Blog post calls it *"Autopilot, previously called Scout"* and describes a cloud-hosted agent that *"lives in your tenant with its own identity, memory, computer and workspace"*, reachable by @mention in Teams and Outlook.
+**Official Docs:** [Microsoft Scout (Frontier)](https://learn.microsoft.com/en-us/microsoft-scout/) documents the desktop app. [What is an autopilot in Microsoft Foundry?](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/autopilot-overview) defines a separate use of the term, below.
+**Status:** The Official Microsoft Blog post says Autopilot is *"expanding to private preview at the end of the month"* (September 2026). This is not a GA announcement.
 
-**Key Features:**
+#### Scout's prerequisites belong to Scout
 
-- **Proactive work coordination:** Schedules and coordinates meetings across time zones, flags important meetings, generates prep materials, blocks calendar time for upcoming deliverables, and identifies risks such as stalled decisions before they become blockers.
-- **Work IQ grounding:** Work IQ connectivity is documented on Learn and is **on by default**. Scout draws on the same contextual intelligence layer that underlies Microsoft 365 Copilot: Teams, Outlook, OneDrive, SharePoint, chats, email, calendar, and contacts.
-- **Surface conflict, documented not resolved:** Learn describes a **desktop application** and documents **no Teams UI**. The June 2026 announcement blog says *"You interact with it in Teams."* Design against the Learn-documented desktop surface; treat the Teams experience as blog-only until Learn says otherwise.
-- **Purview integration:** Microsoft Purview sensitivity labels and data loss prevention policies are enforced in the moment, before data is sent or written. Scout does not bypass existing data protection controls.
-- **Identity:** *"Each Scout instance has its own Entra identity"* is **blog-sourced only**. It is not corroborated on Microsoft Learn. Do not build an identity-governance design on it yet.
-- **Install behavior worth knowing:** Installation always succeeds; sign-in is where access is actually enforced, and it fails without a clear reason. Expect help-desk tickets that look like bugs and are really entitlement gaps.
+**A rename does not transfer deployment requirements.** Learn documents Scout as a desktop AI application for Windows and macOS. Its setup requires Frontier enrollment, Intune configuration and opt-in, a GitHub Copilot Business or Enterprise license, and an active Microsoft 365 Copilot license. These requirements apply to Scout's desktop app. Their applicability to cloud-hosted Autopilot is not established as of 2026-09-25. Confirm Autopilot's deployment requirements before planning a rollout.
 
-#### The Scout Paradox: two Microsoft statements, one unreconciled seam
+**Identity evidence for the product:** The June Scout announcement says *"Every agent operates under its own governed Entra identity, not a shared, anonymous service account"*. That is blog-sourced, as is the September post's *"its own identity"* description of Autopilot. These product-specific claims are not corroborated on the Learn pages checked as of 2026-09-25.
 
-**Two official Microsoft sources describe Scout's engine differently, and Microsoft has not reconciled them.** We report both rather than picking a winner.
+#### Foundry defines an autopilot by identity
 
-| Statement | Source | What it is |
-| :--- | :--- | :--- |
-| *"It is powered by OpenClaw open-source technology"* and *"We are contributing policy conformance directly upstream to OpenClaw"* | Microsoft 365 blog, 2026-06-02 | **Blog-only.** Zero Microsoft Learn corroboration. |
-| *"Microsoft Scout uses the **GitHub Copilot SDK**, which might connect to external AI models as a subprocessor"* | Microsoft Learn, Scout FAQ | **Learn-sourced.** |
+Learn defines an autopilot as *"a type of agent that works under its own identity as a persistent, named member of your organization"*. The test is binary: *"An agent either has its own agent user account or it doesn't"*. An Entra agent identity alone is not that account, and autonomy does not define the category. The [Foundry overview](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/autopilot-overview), updated 2026-08-26, carries no status banner as of 2026-09-25; the [quickstart](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/agent-365) requires Frontier preview enrollment and a Microsoft Agent 365 Frontier license for each instance.
 
-Scout's local skill paths (`~/.copilot/skills/`, `~/.copilot/bundled-skills/`, `~/.copilot/m-skills/`) corroborate the GitHub Copilot lineage. A "harness versus upstream contribution" explanation is plausible, and **unverified**. No Microsoft source states the relationship, so we do not publish one.
+The Copilot product description and Foundry definition align on having an identity. Microsoft has not stated whether the Copilot app's Autopilot is an instance of the Foundry definition as of 2026-09-25. Do not infer that relationship from the shared name.
 
-{: .warning }
-> **The governance fact that must travel with this story.** On Microsoft Learn, **OpenClaw appears across roughly sixteen pages, and every governance page treats it as unsanctioned Shadow AI to be detected and blocked.** The Microsoft 365 admin center Shadow AI experience (Frontier/public preview; **E5 required**, Intune enrollment, Frontier opt-in, Global Secure Access for traffic metadata) lists OpenClaw as the **only** agent with **both detection and blocking** available, and blocking creates an Intune policy literally named **`A365 - Block OpenClaw`**. Intune ships a *"Local AI Agent Baseline - OpenClaw security baseline"*; Defender for Endpoint's local AI agent discovery **(Preview)** lists the category *"Claw-based agents: OpenClaw, Clawpilot, QClaw, Claw/Nanobot."* Policy propagation runs **15 minutes to 8 hours**, and blocking applies only to managed Windows devices enrolled in Intune. A reader who takes the blog at face value could conclude Microsoft endorses OpenClaw. Microsoft ships a baseline named after blocking it.
+**Do not confuse with Windows Autopilot**, the device-provisioning service, or the Autopilot session mode in the GitHub Copilot app.
 
-**A note on the word "Autopilot."** Microsoft's June 2026 blog calls Scout an *"Autopilot,"* and that word appears **only in that blog**. There is **no Microsoft Learn page defining "Autopilots" as an agent category**. Treat it as marketing language describing emerging behavior, not as a taxonomy you can architect against.
+GeekWire reports that Autopilot *"grew out of Microsoft's experiments with OpenClaw"* and quotes Microsoft Copilot EVP Jacob Andreou: *"The hallmark of an amazing, long-running agent is autonomy and flexibility. That is the same thing that makes them absolutely terrifying to an IT admin."* (press: GeekWire, 2026-09-25).
 
-**When to use:** Frontier-program organizations exploring always-on personal agents for proactive coordination, calendar management, and risk identification. Not suitable for production workloads until Microsoft publishes broader availability. Use Microsoft 365 Copilot (prompt-driven) or **Copilot Cowork (GA)** for delegated task work that does not need continuous background activity.
+**When to use:** Controlled exploration of persistent personal agents, with deployment and identity requirements confirmed for the actual product. For delegated tasks that do not need continuous background activity, evaluate Copilot Cowork (GA).
 
 **Sources:**
 
 - [Introducing Microsoft Scout: your always-on personal agent](https://www.microsoft.com/en-us/copilot/blog/2026/06/02/introducing-microsoft-scout-your-always-on-personal-agent/) (Published: 2026-06-02)
-- [Microsoft Scout setup instructions](https://learn.microsoft.com/en-us/microsoft-scout/) (Retrieved: 2026-07-29)
-- Microsoft Learn, *Microsoft Scout FAQ* (`/microsoft-scout/faq`) (Retrieved: 2026-07-29)
-- Microsoft Learn, Microsoft 365 admin center *Shadow AI* (Frontier / public preview), Intune *Local AI Agent Baseline*, and Defender for Endpoint local AI agent discovery (Preview) (Retrieved: 2026-07-29)
+- [Introducing the new Copilot with Home, Code and Autopilot](https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/) (Published: 2026-09-25)
+- [Microsoft Scout (Frontier) documentation](https://learn.microsoft.com/en-us/microsoft-scout/) (Retrieved: 2026-09-25)
+- [Get started with Microsoft Scout](https://learn.microsoft.com/en-us/microsoft-scout/get-started) and [admin access overview](https://learn.microsoft.com/en-us/microsoft-scout/admin-access-overview) (Retrieved: 2026-09-25)
+- [Understanding the user subscription license (USL) and usage-based billing (UBB)](https://learn.microsoft.com/en-us/microsoft-365/copilot/user-subscription-license-usage-based-billing) (Updated: 2026-09-25)
+- [GeekWire coverage of the new Copilot app](https://www.geekwire.com/2026/microsoft-unveils-all-in-one-copilot-app-taking-on-anthropic-and-openai-in-new-push-to-boost-adoption/) (Published: 2026-09-25; press)
 
 ---
 
@@ -185,6 +211,7 @@ Scout's local skill paths (`~/.copilot/skills/`, `~/.copilot/bundled-skills/`, `
 - **Agents do not move between harnesses, and reuse works best inside one.** Verbatim: *"Agents created with the GitHub Copilot harness can't be transferred to the standard harness, and vice versa."* You choose at creation, and neither path is deprecated. **Skills are the reuse unit within the GitHub Copilot harness**, exportable and importable between agents on that harness, but the harnesses-overview comparison lists skills and memory as a GitHub Copilot harness capability and *"not a focus"* for the standard and Copilot chat harnesses. What carries across all three is more basic: instructions, knowledge sources, and connectors. ([Agents overview](https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-experience/overview) and [Choose a harness](https://learn.microsoft.com/en-us/microsoft-copilot-studio/harnesses-overview) - Updated: 2026-08-03)
 - **Billing differs by harness, and covers more stages than you expect.** Verbatim: *"Usage-based billing applies to using, building, testing, and evaluating agents,"* and *"Unlike the standard harness, which starts billing after publish, the GitHub Copilot harness charges credits from the moment you start building."* Microsoft names the specific experiences that consume credits, including *"previewing and testing the agent, and generating and creating agent evaluations."* Agents on the GitHub Copilot harness use **Copilot Credits** for usage-based billing; standard and Copilot chat harness agents use license-based billing. **Two planning consequences:** budget the build phase rather than only production, and treat evaluation as a funded activity, since the work this framework most encourages is also metered. Because consumption starts at authoring, cost control leans on capacity allocation, spending limits, and environment strategy rather than on approval gates at publish. ([Billing overview](https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-experience/billing-credit-overview) - Updated: 2026-08-03)
 - **Native file production.** The GitHub Copilot harness *"natively creates and edits Word, Excel, PowerPoint, and PDF files,"* and *"runs each task in a secure sandbox governed by Copilot Studio."* This is the capability that turns an agent from something that answers into something that delivers an artifact. ([Choose a harness](https://learn.microsoft.com/en-us/microsoft-copilot-studio/harnesses-overview) - Updated: 2026-08-03)
+- **Apps (preview): the harness that writes files now writes software.** Describe the need, refine an interactive preview, then publish and share. Learn says: *"Microsoft is gradually rolling out apps in Copilot Studio (Preview). This feature might not be available in your environment yet."* Apps run on [Copilot Managed Runtime](#copilot-managed-runtime), and data access uses the signed-in user's permissions. App creation is on by default; admins can turn it off. The [FAQ](https://learn.microsoft.com/en-us/microsoft-copilot-studio/faq-apps) makes the editing boundary explicit: *"The code view is read-only. Makers make changes by describing what they want Copilot to update."* The GitHub Copilot harness bills *"from the moment you start building"*, including testing, rather than only after publication. How an app calls an agent or agent flow is not described on these pages as of 2026-09-25. ([Apps overview (preview)](https://learn.microsoft.com/en-us/microsoft-copilot-studio/apps-experience/apps-overview) - Updated: 2026-09-26; [billing overview](https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-experience/billing-credit-overview))
 - **Model selection, including one harness-exclusive model.** GA models include **GPT-5.5 Chat** and **Claude Opus 4.7**. **Claude Sonnet 5** is GA but *"available only in agents powered by the GitHub Copilot harness"*, so model availability is now a reason the harness choice matters. ([Select a model](https://learn.microsoft.com/en-us/microsoft-copilot-studio/authoring-select-agent-model) - Updated: 2026-05-28)
 - **Skills (GitHub Copilot harness):** Modular, on-demand instruction sets. Learn documents a skill package as a ZIP containing *"A SKILL.md file containing YAML front matter (name, description) and Markdown instructions"* plus optional supporting files such as scripts. Because it is Markdown and files rather than a proprietary artifact, a skill exports and imports cleanly **between agents on this harness**. Learn scopes the whole skills section to the GitHub Copilot harness, and the harness comparison lists skills as *"not a focus"* for the standard and Copilot chat harnesses, so treat skills as intra-harness reuse rather than a universal portability story. **Disambiguation:** these are not the older Bot Framework "skills," which were callable services. Same word, unrelated construct. ([Skills overview](https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-experience/skills-overview) - Updated: 2026-06-30)
 - **Microsoft IQ and Foundry IQ connectivity:** Ground agents with Microsoft 365 organizational context (emails, calendar, files, chats, people) and optionally connect to a Microsoft Foundry knowledge base. Microsoft has since renamed this surface **Work IQ**, and its governance default is the part worth designing around: Learn states that Work IQ is *"read only unless an administrator explicitly turns on write operations in the Microsoft 365 admin center."* Assume reads, and treat any write path as something an admin has to switch on deliberately. ([Work IQ in Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-experience/add-work-iq) - Retrieved: 2026-08-17, labeled a preview feature). The what's-new page separately labels **"Foundry IQ connect (Preview)"**. Do not inherit Copilot Studio's GA surfaces for this connection. (What's new in Copilot Studio - Updated: 2026-07-15)
@@ -209,6 +236,7 @@ Scout's local skill paths (`~/.copilot/skills/`, `~/.copilot/bundled-skills/`, `
 
 **Recent Updates (2025 to 2026):**
 
+- **Sep 2026:** Apps (preview) began rolling out on the GitHub Copilot harness, hosted by [Copilot Managed Runtime](#copilot-managed-runtime) (preview). As of 2026-09-25, Learn's *What's new* page still has July 2026 as its newest section.
 - **Aug 2026:** The **GitHub Copilot harness** was announced generally available in Copilot Studio by Ryan Cunningham, Corporate Vice President for Copilot Studio and Power Platform (2026-08-03), alongside the *Choose a harness* documentation naming three harnesses. Learn's harness, billing, and overview pages were redeployed the same day without preview labels.
 - **Jun 2026:** The rebuilt agent experience, Microsoft IQ integration, reusable skills, and memory capabilities were introduced; Windows 365 for Agents MCP server reached GA; Foundry IQ and specialist-agent connections entered preview. (What's new in Copilot Studio - Updated: 2026-07-15)
 - **May 2026:** Computer use reached GA; asynchronous responses for long-running flows, M365 Copilot workflow nodes, and consent-based recording expanded enterprise automation and voice patterns. (What's new in Copilot Studio - Updated: 2026-07-15)
@@ -218,9 +246,7 @@ Scout's local skill paths (`~/.copilot/skills/`, `~/.copilot/bundled-skills/`, `
 - **Roadmap signal:** Planned features continue through the Power Platform Release Planner, with delivery timing subject to Microsoft release-plan policy. (Power Platform release plan overview - Updated: 2026-07-02)
 
 {: .warning }
-> **Do not read "Copilot Studio is GA" as "everything in Copilot Studio is GA."** The status that matters is always per feature. The **GitHub Copilot harness is generally available** as of 2026-08-03, announced by the Corporate Vice President who owns the product, and several capabilities inside it remain at preview, which is normal rather than contradictory. **Verified GA:** the GitHub Copilot harness, generative orchestration (default on the standard harness), computer use (May 2026), A2A (April 2026), agent evaluations, scheduled prompts (2026-07-01). **Still preview:** memory (explicitly labeled preview on its own page), Copilot Tuning (early access preview), plus **"Connect other agents (Preview)"** and **"Foundry IQ connect (Preview)"**. For **autonomous/triggered agents, child (inline) agents, connected Copilot Studio agents, Foundry agents, Fabric data agents, and M365 Agents SDK agents inside Copilot Studio, Microsoft does not state a status**, and where Microsoft is silent, so are we.
->
-> **On where status actually lives.** Documentation lags launches, sometimes by days. When the executive who owns a product announces GA and the changelog has not caught up, the announcement is the fact and the changelog is the backlog. Reserve skepticism for **inference** (never read GA into the absence of a preview banner) rather than for **attribution** (a named product owner stating something publicly is a primary source). Check the current page before you commit a status to a document someone will hold you to.
+> **A GA harness is not a blanket GA label.** App creation remains preview and is rolling out gradually. Check the feature's own documentation before making it a production dependency.
 
 #### Copilot Studio for Teams: a dated door that is closing
 
@@ -253,6 +279,55 @@ Read the scope before you panic. This applies to **makers on a Teams plan**, who
 - [VS Code extension for Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/visual-studio-code-extension-overview) (GA: 2026-01-01)
 - [Copilot Studio Kit](https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/kit-overview) (Retrieved: 2026-03-25)
 - [Get started with Copilot Studio for Teams](https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-get-started-teams) (Retrieved: 2026-07-29)
+- [Apps overview (preview)](https://learn.microsoft.com/en-us/microsoft-copilot-studio/apps-experience/apps-overview) (Updated: 2026-09-26)
+
+---
+
+## Copilot Managed Runtime (Preview)
+{: .tech-heading #copilot-managed-runtime }
+
+**Description:** A shared, Microsoft-operated host for internal apps. Business users can describe an app in Copilot Cowork (Frontier) or Copilot Studio (rolling out); developers can build one with the SDK and CLI. Copilot Code is another announced build path, with differing rollout statements in the [new Copilot app table](#the-new-copilot-app-september-2026-read-the-status-column-first). These apps run inside the Microsoft 365 tenant under IT governance.
+**Official Docs:** [What is Copilot Managed Runtime (preview)](https://learn.microsoft.com/en-us/microsoft-365/managed-apps/) | [SDK overview (preview)](https://learn.microsoft.com/en-us/microsoft-365/managed-apps/developer/)
+**Status:** Learn says *"This is a preview feature"*; the announcement says *"public preview"*. The September 2026 [Copilot Credits Guide](https://go.microsoft.com/fwlink/?linkid=2368800) labels it *"Microsoft Copilot Managed Runtime (Paid Public Preview)"* and Studio apps *"Apps in Microsoft Copilot Studio (Paid Public Preview)"*. Cowork apps are labeled *"Apps in Copilot Cowork (Microsoft Frontier Program)"*.
+
+**Key Features:**
+
+- **Build paths and defaults.** Learn names Cowork for business users who want to describe an app in a chat and keep working, Copilot Studio for makers who want more control over the build, preview, and publish steps, and the SDK and CLI for professional developers who want a code-first workflow. Cowork app creation is on through Frontier onboarding, not the tenant switch; Copilot Studio app creation is on by default; the CLI path is off by default. All three *"produce the same kind of artifact"*. Users find their apps at `managedapps.cloud.microsoft`.
+- **Developer tooling.** The SDK is `@microsoft/managed-apps`; the CLI is `@microsoft/managed-apps-cli`, invoked as `ms`. A GitHub Copilot plugin (`/plugin marketplace add microsoft/Managed-Apps`, then `/plugin install microsoft-managed-apps@Managed-Apps`) *"also works with Claude Code and other coding agents through Open Plugins."* Third-party builders can target the host as well, with Lovable as the named example. The shape is fixed: *"A TypeScript or JavaScript single-page application (SPA) is a prerequisite for using apps."*
+- **Git is the source of truth.** The SDK overview says *"The CLI doesn't replace Git."* Each app gets a platform-managed repository by default, or you bind a GitHub.com or GitHub Enterprise Cloud repository at creation. That choice cannot be changed later; public repositories are disallowed by default. The announcement's Cowork example shows a developer continuing *"without forking or standing up a separate runtime, platform resources, and governance stack"*. That is a blog example, not a documented handoff for every builder. Power Apps vibe conversion creates a fork instead (see [Power Apps Plan Designer](#power-apps-plan-designer)).
+- **Power Platform underneath.** Environment routing is automatically enabled and cannot be turned off. Makers land in personal developer environments, which are managed environments. Learn says *"Environments created for Copilot Managed Runtime don't have Dataverse"*. The SDK overview specifies availability for all eligible tenants in commercial cloud.
+- **Governance is conditional.** Entra sign-in, per-app Content Security Policy, and environment-group sharing limits are built in. In an existing environment group, an Advanced Connector Policy (ACP) and applicable data policies are both enforced when *Advanced connector policies only* is off; the most restrictive result applies. When that setting is on, data policies are ignored. Without an ACP, that leaves connectors unrestricted by either policy type. Check the effective policies in the Power Platform admin center.
+- **The connector catalog is not the default allow list.** The default environment group includes 18 Microsoft first-party connectors using Entra ID and 12 Microsoft MCP servers, including Work IQ MCP servers (Preview). Admins can widen access toward the 1,500+ connectors the SDK can call. Third-party and custom connectors are excluded by default.
+- **Build billing.** Cowork requires a Microsoft Copilot license, but the subscription does not include Cowork usage; creation consumes Copilot Credits through the creator's spending policy. Studio app creation is billed per environment in the Power Platform admin center. Its GitHub Copilot harness bills *"from the moment you start building"*, including testing, not only after publication.
+- **Runtime entitlement.** Users need Copilot Credits or Power Apps Premium, not a Microsoft 365 Copilot license. Runtime credit policies are per user in the Microsoft 365 admin center, including for Studio-built apps. Credits are charged per launch and per API call; each API call consumes 0.1 credits. Power Apps Premium avoids those runtime credits except for separately billed services such as Work IQ APIs or usage beyond its API request limits. Runtime licensing also applies to developers running locally. During preview, unmet credit requirements lead to a warning, then blocking after 20 app operations or five minutes, whichever comes first.
+- **Cost management has two names in the sources.** Learn's runtime FAQ sends admins to Microsoft 365 admin center > Copilot > Cost management to *"configure spending policies for managed applications"*. The FinOps blog calls it *"cost management in Agent 365"* and says it *"now supports Code and Copilot Managed Runtime"*. Use the Learn location; the blog's naming is not the documented navigation.
+- **Billing coverage is documented unevenly.** The [spending-policy page](https://learn.microsoft.com/en-us/microsoft-365/copilot/usage-based-billing-manage-copilot-credits) still says *"currently available for Cowork and Work IQ API"*. The [UBB overview](https://learn.microsoft.com/en-us/microsoft-365/copilot/usage-based-billing-overview-copilot-credits) lists Cowork, Apps built with Copilot Cowork, and Work IQ API (for third-party agents), but does not name Code or Copilot Managed Runtime as of 2026-09-25. [MC1479276](https://m365admin.handsontek.net/microsoft-copilot-evolving-copilot-pricing-model-new-finops-capabilities-ai/), a Message Center notice via a third-party republisher, describes the broader coverage and labels the listed FinOps capabilities *"available in preview in September 2026"*.
+
+**Limits to check before sharing:**
+
+- **Code changes are not audited.** Purview audits lifecycle events such as launch, creation, build, deploy, and deletion, but the security page lists *"Git push / code change"* as *"Not audited"*.
+- **An inventory is not an access audit.** Apps > All apps provides a centralized, real-time inventory with usage, health, and compliance state. Its Data & tools view *"doesn't provide a complete view of exact destinations, dynamically resolved endpoints, actions that the app executed, or each user's permissions to the underlying data"*. Revoking app access does not remove all underlying data permissions in one operation.
+- **Sharing has three descriptions on Learn.** Cowork says *"Anyone with the link can open and use the app, including all its data"*. The runtime FAQ says sharing *"doesn't grant access to the app's underlying data"*. The Studio FAQ says *"Sharing an app might not automatically share its underlying data."* Cowork also describes recipients as people *"who can use Microsoft 365 Copilot"*, unlike the runtime FAQ's license rule above. These pages do not explain the differences as of 2026-09-25. Before sharing real data, test app data and connected data separately with an account that lacks source access.
+- **Not stated as of 2026-09-25:** specific regions, sovereign-cloud or GCC availability beyond the SDK's commercial-cloud statement; the underlying Azure service; a chooser between this host and Power Apps code apps; what becomes of the Microsoft 365 Copilot App Builder agent. Learn does provide persona guidance among Cowork, Studio, and the SDK. Power Apps vibe's overview separately recommends Cowork and Studio app building *"moving forward"*.
+
+**When to use:** Controlled pilots for internal line-of-business apps. This is a governed host, not a completed governance review. Copilot Studio's apps overview warns: *"Preview features aren't meant for production use and might have restricted functionality."*
+
+Name an owner before sharing. The business owner validates rules and results; a developer or platform reviewer covers risks the owner cannot assess. The Studio FAQ calls for testing calculations, sample data, links, permissions, connections, accessibility, and error handling. For business-critical scenarios, retain normal *"design, security, accessibility, compliance, testing, and release processes"*. A few known-answer tests do not replace that review.
+
+**Sources:**
+
+- [What is Copilot Managed Runtime (preview)](https://learn.microsoft.com/en-us/microsoft-365/managed-apps/) (Updated: 2026-09-25)
+- [Copilot Managed Runtime SDK overview (preview)](https://learn.microsoft.com/en-us/microsoft-365/managed-apps/developer/) (Updated: 2026-09-25)
+- [Copilot Managed Runtime admin overview (preview)](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/apps/) (Updated: 2026-09-25)
+- [Copilot Managed Runtime architecture (preview)](https://learn.microsoft.com/en-us/microsoft-365/managed-apps/developer/architecture) (Updated: 2026-09-25)
+- [Quickstart: Build a Microsoft Copilot Managed Runtime app with GitHub Copilot (preview)](https://learn.microsoft.com/en-us/microsoft-365/managed-apps/developer/quickstart-github-copilot) (Updated: 2026-09-25)
+- [Copilot Managed Runtime default governance settings (preview)](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/apps/governance) (Updated: 2026-09-25)
+- [Manage security and compliance for Copilot Managed Runtime (preview)](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/apps/security-compliance) (Updated: 2026-09-25)
+- [FAQ about Copilot Managed Runtime (preview)](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/apps/faq-about-apps) (Updated: 2026-09-25)
+- [Copilot Studio apps FAQ](https://learn.microsoft.com/en-us/microsoft-copilot-studio/faq-apps) (Checked: 2026-09-25)
+- [Environment routing for Copilot Managed Runtime](https://learn.microsoft.com/en-us/power-platform/admin/default-environment-routing-copilot-managed-runtime) (Updated: 2026-09-25)
+- [Build where you want, run with confidence](https://www.microsoft.com/en-us/copilot/blog/copilot-studio/build-where-you-want-run-with-confidence-now-microsoft-hosts-and-manages-the-code-created-by-copilot/) (Published: 2026-09-25)
+- [New FinOps for AI capabilities](https://techcommunity.microsoft.com/blog/ai-finops-blog/new-finops-for-ai-capabilities-control-spend-measure-value-and-optimize-for-impa/4559660) (Published: 2026-09-25)
 
 ---
 
@@ -271,6 +346,12 @@ Read the scope before you panic. This applies to **makers on a Teams plan**, who
 - **Agent Feed:** Integrated feed for monitoring agent activities and human-in-the-loop requests (Early Access).
 
 **When to use:** Rapid prototyping, overcoming "blank canvas" paralysis, or enabling makers to build complex data models without deep architectural skills.
+
+**Neighbors on the Power Platform (September 2026):**
+
+- **Power Apps vibe (preview):** Power Platform's natural-language app builder is limited to non-default environments in the US, Australia, Asia, and India, and to English. Its overview recommends app building in Cowork and Copilot Studio: *"We recommend using these experiences moving forward."* Conversion has a separate ownership consequence: *"Converting a vibe app creates a new code app. The code app is disconnected from the original plan."* Compare that fork with the blog's same-repository Cowork example on [Copilot Managed Runtime](#copilot-managed-runtime) before planning a handoff. ([Overview (preview)](https://learn.microsoft.com/en-us/power-apps/vibe/overview) - Updated: 2026-09-08; [conversion](https://learn.microsoft.com/en-us/power-apps/vibe/convert-vibe-to-code) - Updated: 2026-09-04)
+- **Power Apps code apps:** Code-first business web apps using React, Vue, or other frameworks, with Entra sign-in, 1,500+ connectors callable from JavaScript, Power Platform hosting, and managed platform policies. End users need Power Apps Premium or another listed option: pay-as-you-go, an App Pass, or auto-claim. The overview states no release status as of 2026-09-25; no preview banner is not a GA label. The checked pages do not provide a chooser between this host and Copilot Managed Runtime as of 2026-09-25. Evaluate the data model, effective controls, and support owner for your app. ([Overview](https://learn.microsoft.com/en-us/power-apps/developer/code-apps/overview) - Updated: 2026-09-24)
+- **AI-assisted canvas and model-driven building:** The September 2026 Power Platform update lists as GA a *"canvas authoring agent plugin for AI-assisted app building"* and the ability to *"vibe code entire model-driven apps with the app-builder skill"* (Microsoft's own phrase), a skill used with a coding tool such as GitHub Copilot CLI or Claude Code, plus a public preview in which generative pages can use Power Platform connector data. Blog-sourced. ([What's new in Power Platform: September 2026](https://www.microsoft.com/en-us/power-platform/blog/power-apps/whats-new-in-power-platform-september-2026-feature-update/) - Published: 2026-09-17)
 
 ---
 
@@ -401,6 +482,8 @@ Read the scope before you panic. This applies to **makers on a Teams plan**, who
 - **MCP authentication expansion:** Key-based, Entra Agent Identity, Managed Identity, and OAuth Identity Passthrough for user-delegated access patterns. ([Foundry Agent Service GA blog](https://devblogs.microsoft.com/foundry/foundry-agent-service-ga/) - Published: 2026-03-16)
 - **Evaluations (GA):** Out-of-the-box evaluators (coherence, relevance, groundedness, safety), custom evaluators, and continuous production monitoring via Azure Monitor. ([Foundry Agent Service GA blog](https://devblogs.microsoft.com/foundry/foundry-agent-service-ga/) - Published: 2026-03-16)
 - **SDK consolidation:** `azure-ai-agents` package deprecated; agents are now first-class operations on `AIProjectClient` in `azure-ai-projects` (Python 2.0.1 GA, Java 2.0.0 GA, .NET 2.0.0-beta.1). Use `get_openai_client()` to drive responses. ([Foundry Agent Service GA blog](https://devblogs.microsoft.com/foundry/foundry-agent-service-ga/) - Published: 2026-03-16)
+- **Routines (GA per the Foundry blog, 2026-09-24):** Timer, recurring, and event-based triggers, initially for GitHub issues and Teams channel messages, with creator or agent identity. The reminder tool remains preview. [Learn's routines page](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/use-routines) states no release status as of 2026-09-25 and directs .NET users to preview packages. ([GA announcement](https://devblogs.microsoft.com/foundry/from-chatbots-to-automated-assistants-routines-in-microsoft-foundry-are-now-generally-available/) - Published: 2026-09-24)
+- **Network egress controls (preview):** A hosted agent's RAI policy contains an `egressPolicy` with Audit or Enforce mode (API value `Enforced`; `Blocking` is the separate content-safety setting). It evaluates ordered FQDN rules and falls back to a default action you set; Learn recommends `Deny` for an allow list. The announcement warns: *"Network egress controls are not GA, have no preview SLA, and are not intended for production use."* ([Learn: Network egress controls (preview)](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/add-hosted-agent-guardrails#network-egress-controls-preview); [announcement](https://devblogs.microsoft.com/foundry/egress-controls-hosted-agent/) - Published: 2026-09-24)
 
 **Built-in Tools (Knowledge):**
 
@@ -597,10 +680,12 @@ Use Hosted Agents when that per-session isolation is worth the constraints. Othe
 Microsoft provides four IQ capabilities for agent-native systems:
 - **Foundry IQ:** Enterprise knowledge (files, blobs, indexes, web). You are here.
 - **Work IQ:** Microsoft 365 collaboration context (emails, meetings, chats, documents). **APIs GA 2026-06-16; Work IQ MCP is Preview.** See [Work IQ](#work-iq--tech-heading-).
-- **Fabric IQ (Preview):** Business analytics: ontologies, graph models, semantic models, and operations agents. Documented as a **Preview Fabric workload** at [`/fabric/iq/`](https://learn.microsoft.com/en-us/fabric/iq/).
+- **Fabric IQ:** Business semantics and analytics. The workload and ontology are Preview; the Chat, Cowork, and MCP integrations are GA on Learn. See [Microsoft Fabric](#microsoft-fabric--tech-heading-).
 - **Web IQ:** Public web context and fresh external information. See [Web IQ](#web-iq-limited-access--tech-heading-).
 
 Each IQ capability is standalone, but they can work together to provide comprehensive organizational and external context for agents. **Underneath Foundry IQ sits Azure AI Search.** It is the retrieval engine, still named Azure AI Search, not rebranded.
+
+The [Microsoft IQ hub](https://learn.microsoft.com/en-us/microsoft-iq/) lists *"four interconnected capabilities"*, including Web IQ. [What is Foundry IQ?](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/what-is-foundry-iq), updated 2026-08-01, lists *"three IQ workloads"*, omitting Web IQ. The four-part list above follows the hub.
 
 **When to use:** Custom agents needing governed, permission-aware access to enterprise documents, web content, or SharePoint, with citation-backed responses and ACL enforcement. Pair with Foundry Agent Service for managed agent orchestration.
 
@@ -641,7 +726,7 @@ Each IQ capability is standalone, but they can work together to provide comprehe
 
 **When to use:** Any agent that needs organizational context, not just document retrieval. Work IQ closes the gap between "what the content says" and "how work actually happened" across people, meetings, files, chats, and business systems. Use REST for app integration, A2A for agent collaboration, and the Preview MCP surface for tool-based agent integration, with the preview status priced into the plan.
 
-**When NOT to use:** Unattended, app-only automation with no signed-in user (delegated auth only); enterprise document knowledge outside Microsoft 365 (use Foundry IQ); analytics and semantic-model questions (use Fabric IQ, Preview).
+**When NOT to use:** Unattended, app-only automation with no signed-in user (delegated auth only); enterprise document knowledge outside Microsoft 365 (use Foundry IQ); analytics and semantic-model questions (use Fabric IQ: workload Preview; Chat, Cowork, and MCP integrations GA).
 
 **Sources:**
 
@@ -664,7 +749,7 @@ Each IQ capability is standalone, but they can work together to provide comprehe
 **Key Features:**
 
 - **Web-scale grounding:** Agents use an agent-native web grounding surface for real-time public information.
-- **Part of Microsoft IQ:** Web IQ complements Work IQ (organizational context; **APIs GA**, MCP **Preview**), Foundry IQ (enterprise knowledge; mixed GA/Preview), and Fabric IQ (analytics; **Preview**). Together they form the four IQ capabilities under the Microsoft IQ umbrella.
+- **Part of Microsoft IQ:** Web IQ complements Work IQ (organizational context; **APIs GA**, MCP **Preview**), Foundry IQ (enterprise knowledge; mixed GA/Preview), and Fabric IQ (analytics; workload Preview; Chat, Cowork, and MCP integrations GA). Together they form the four IQ capabilities under the Microsoft IQ umbrella.
 
 **When to use:** Agents that need current public information -- news, regulations, product specs, research papers -- alongside enterprise data. Pair with Foundry IQ or Work IQ so the agent can cross-reference public facts against internal context.
 
@@ -734,7 +819,7 @@ Each IQ capability is standalone, but they can work together to provide comprehe
 **Key Features:**
 
 - **Fabric data agent (GA):** Q&A-style conversational agents that retrieve insights from OneLake sources while respecting data access permissions; consumable by Copilot Studio and M365 Copilot. **Generally available.** Note the rename: this capability was previously shipped as the **"AI skill."** Requires **F2+ or P1+ capacity**. It is not an orchestrator. Use Foundry Agent Service or Agent Framework for multi-step coordination.
-- **Fabric IQ (Preview):** The semantics layer for the data estate. Fabric IQ is a documented **Preview Fabric workload** that carries **ontologies**, **graph models**, **semantic models**, and **operations agents**: the vocabulary that turns "a table called `CUST_MSTR`" into "a customer." Documented at [`/fabric/iq/`](https://learn.microsoft.com/en-us/fabric/iq/), with its own training path and terminology entry under the parent **Microsoft IQ** docs. (Retrieved: 2026-07-29)
+- **Fabric IQ (Preview workload; GA integrations):** The semantics layer that turns a table called `CUST_MSTR` into "a customer." Learn labels it *"the IQ (preview) workload"* and its ontology item preview in the [overview](https://learn.microsoft.com/en-us/fabric/iq/overview). It separately documents [Power BI data answering in Copilot Chat](https://learn.microsoft.com/en-us/fabric/iq/connectors/microsoft-365-copilot-overview), the [Fabric IQ plugin in Cowork](https://learn.microsoft.com/en-us/fabric/iq/connectors/cowork-overview), and [Fabric IQ MCP](https://learn.microsoft.com/en-us/fabric/iq/connectors/fabric-iq-mcp) as generally available. The Chat and Cowork pages were updated 2026-09-23. Jared Spataro's 2026-09-25 Official Microsoft Blog post agrees on Chat and Cowork and adds Code integration *"coming through the Frontier program soon"*.
 - **Rayfin (Preview):** Open-source SDK and CLI for defining and deploying a managed application backend on Microsoft Fabric. Developers or coding agents can describe databases, business logic, APIs, identity, and access policies in code while app data lands in OneLake under Fabric governance.
 - **Cosmos DB in Fabric (Preview):** Deploy Cosmos DB (NoSQL) directly within Fabric for unified operational and analytical data without ETL.
 - **OneLake Shortcut Transformations (Preview):** Apply AI transformations (summarize, translate, classify) via Microsoft Foundry (Azure) during data ingestion.
@@ -747,7 +832,7 @@ Each IQ capability is standalone, but they can work together to provide comprehe
 
 - [Rayfin product page](https://www.microsoft.com/en-us/microsoft-fabric/features/rayfin) (Retrieved: 2026-06-08)
 - [Microsoft Build 2026: Building agentic apps with Microsoft Fabric and Microsoft Databases](https://azure.microsoft.com/en-us/blog/microsoft-build-2026-building-agentic-apps-with-microsoft-fabric-and-microsoft-databases) (Published: 2026-06-02)
-- [Fabric IQ documentation (Preview)](https://learn.microsoft.com/en-us/fabric/iq/) (Retrieved: 2026-07-29)
+- [Fabric IQ workload overview (Preview)](https://learn.microsoft.com/en-us/fabric/iq/overview) (Checked: 2026-09-25)
 - [Fabric data science documentation (Fabric data agent, GA)](https://learn.microsoft.com/en-us/fabric/data-science/) (Retrieved: 2026-07-29)
 
 ---
@@ -798,6 +883,8 @@ Not every inference call should travel to the cloud. Latency-sensitive, offline-
 
 **When to use:** Emerging local-agent scenarios where tool execution must be contained on the user's machine. Treat it as a design signal, not a production security boundary, until Microsoft Learn publishes stable guidance.
 
+**Direction, not current availability:** The Windows 365 announcement describes *"Windows 365 support for Microsoft Execution Containers (MXC) becoming generally available in the coming months"*. That dates Windows 365 support, not MXC as a whole; it is not a present GA label. ([Windows 365 developer announcement](https://blogs.windows.com/windowsdeveloper/2026/09/14/build-anywhere-stay-in-flow-with-windows-365/) - Published: 2026-09-14)
+
 ---
 
 ### Developer Tools {: .no_toc }
@@ -811,7 +898,10 @@ Not every inference call should travel to the cloud. Latency-sensitive, offline-
 **Key Features:**
 
 - **GitHub Copilot cloud agent (GA):** **Note the name: this was documented as the "coding agent" and has been renamed the "Copilot cloud agent."** It works asynchronously in a GitHub Actions-powered environment to research a repository, create a plan, change one branch, and optionally open one pull request per task. **GA on all paid Copilot plans, including Copilot for Students. It is not available on Copilot Free.** Related capabilities retain their own feature-level statuses. [About GitHub Copilot cloud agent](https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent)
-- **GitHub Copilot app (GA):** Desktop application available for all Copilot plans (macOS, Linux, Windows). Manages parallel isolated sessions in local repositories, worktrees, or cloud sandboxes (**Public Preview**), with Interactive/Plan/Autopilot session modes, model and reasoning selection, issue/PR workflows, diff review, Agent Merge, steering, archiving, and canvases. Governed under **AI Controls → Copilot Clients**. [GitHub Copilot app](https://docs.github.com/en/copilot/concepts/agents/github-copilot-app)
+- **GitHub Copilot app (GA):** A desktop application for agent-driven development, parallel workstreams, and GitHub pull-request management. Available for all Copilot plans on macOS, Linux, and Windows. Sessions use local repositories, worktrees, or cloud sandboxes (Public Preview), with Interactive, Plan, and Autopilot modes. Developers can select models, review diffs and CI, steer work, and use Agent Merge when repository rules allow. Local sandboxing entered **public preview on 2026-09-23** ([changelog](https://github.blog/changelog/2026-09-23-local-sandboxing-in-the-github-copilot-app/)). Governed under AI Controls > Copilot Clients. [GitHub Copilot app](https://docs.github.com/en/copilot/concepts/agents/github-copilot-app)
+- **One agent runtime under many products:** GitHub names the Copilot CLI, app, SDK, VS Code, Visual Studio, Copilot Cowork, Copilot Studio, and Office apps among the products backed by its agent runtime. It says most listed products replaced an earlier agent loop with the GitHub Copilot SDK, but does not identify which ones as of 2026-09-25. Studio's apps page also says *"App creation is powered by the GitHub Copilot harness."* ([Migrating the GitHub Copilot runtime to Rust, using Copilot](https://github.blog/ai-and-ml/generative-ai/migrating-the-github-copilot-runtime-to-rust-using-copilot/) - Published: 2026-09-16; Updated: 2026-09-23)
+- **Business-app plugin (Preview):** The [Copilot Managed Runtime](#copilot-managed-runtime) plugin drives the `ms` CLI, Git, preview, and deployment from GitHub Copilot CLI. It gives developers a code-first workflow on that host; the Cowork handoff example comes from the runtime announcement. ([Quickstart](https://learn.microsoft.com/en-us/microsoft-365/managed-apps/developer/quickstart-github-copilot) - Updated: 2026-09-25)
+- **Default policy for new features (takes effect October 22, 2026):** AI Controls > Copilot > Default policy for new features offers Enabled, Disabled, or Let organizations decide. The policy governs current and future eligible generally available features left Unconfigured, not every new feature. Explicit choices are preserved; preview features remain opt-in. ([Changelog](https://github.blog/changelog/2026-09-24-default-enablement-of-copilot-features-for-copilot-business-and-enterprise/) - Published: 2026-09-24)
 - **GitHub Copilot Modernization:** Solution collection delivered through IDE extensions and the Modernize CLI. IDE language/framework/tool upgrades are **GA** for .NET, Java, and C++; IDE Azure migration is **GA** for .NET and Java; the Modernization agent CLI is **Public Preview**. [Modernization overview](https://learn.microsoft.com/en-us/azure/developer/github-copilot-app-modernization/overview)
 - **Copilot Agent Mode (Preview):** "Peer programmer" mode in VS Code that can edit multiple files, run terminal commands, and self-heal errors during development.
 - **Custom agents:** Markdown files with YAML frontmatter. Repo-scoped at `.github/agents/NAME.md`; org-scoped at `/agents/NAME.md` in `.github` or `.github-private`; enterprise-scoped in `.github-private`. **GA** for the cloud agent, VS Code, and Visual Studio; **Public Preview** for JetBrains, Eclipse, and Xcode.
@@ -826,7 +916,7 @@ Not every inference call should travel to the cloud. Latency-sensitive, offline-
 - The **Agents page** at `github.com/copilot/agents`, plus the agents tab/panel in the product. **GA.**
 - Enterprise **AI Controls**, with sub-pages for **Agents, Copilot, MCP, and Copilot Clients**. **GA.** This is where policy lives.
 
-Use "Agent HQ" in a keynote recap. Use "Agents page" and "AI Controls" in a design.
+Use "Agent HQ" in an announcement recap. Use "Agents page" and "AI Controls" in a design.
 
 #### Copilot Extensions: an explicit sunset with a scope limit
 
@@ -964,11 +1054,13 @@ Runtime policy and fleet governance are complementary layers. A fleet control pl
 - **MCP support (GA):** Dynamic discovery and invocation of tools via MCP-compliant servers; A2A protocol support coming soon. ([Agent Framework v1.0 blog](https://devblogs.microsoft.com/agent-framework/microsoft-agent-framework-version-1-0/) - Published: 2026-04-03)
 - **Migration Assistants:** Automated migration from Semantic Kernel and AutoGen with step-by-step guides. ([Agent Framework v1.0 blog](https://devblogs.microsoft.com/agent-framework/microsoft-agent-framework-version-1-0/) - Published: 2026-04-03)
 
-**Preview Features:**
+- **AG-UI hosting:** Python is a *"stable release"*; .NET is *"public preview"* (`Microsoft.Agents.AI.Hosting.AGUI.AspNetCore`), per the [2026-09-24 update](https://devblogs.microsoft.com/agent-framework/interactive-experiences-memory-and-resilient-execution/). [CopilotKit](https://learn.microsoft.com/en-us/agent-framework/integrations/ag-ui/) is a compatible third-party frontend, not the hosting adapter.
+
+**Preview and Pre-release Features:**
 
 - **DevUI (Preview):** Browser-based local debugger for agent execution visualization.
-- **Foundry Hosted Agent Integration (Preview):** Run Agent Framework agents as managed services on Foundry or Azure Durable Functions.
-- **AG-UI / CopilotKit / ChatKit (Preview):** Stream agent output to frontend surfaces.
+- **Foundry Hosted Agent Integration (pre-release packages):** The hosted-agent service is GA, but the AgentServer SDKs and Agent Framework Foundry hosting packages for .NET and Python *"are still in pre-release versions"* ([Foundry hosted agent isolation](https://devblogs.microsoft.com/agent-framework/foundry-hosted-agent-isolation-with-microsoft-agent-framework/) - Published: 2026-09-22).
+- **ChatKit integration (Beta):** The Python adapter converts Agent Framework output into OpenAI ChatKit events. The published [`agent-framework-chatkit`](https://pypi.org/project/agent-framework-chatkit/) package is `1.0.0b260910`, labeled Beta (checked 2026-09-25).
 - **Skills (Preview):** Reusable domain capability packages.
 - **GitHub Copilot SDK + Claude Code SDK (Preview):** Use as agent harnesses in orchestrations. **The Preview label belongs to the Agent Framework *integration*, not to the GitHub Copilot SDK itself. That SDK is GA.** See [GitHub Copilot SDK](#github-copilot-sdk--tech-heading-).
 - **Agent Harness (Preview):** Shell, filesystem, and messaging loop access for coding agents.
@@ -977,7 +1069,7 @@ Runtime policy and fleet governance are complementary layers. A fleet control pl
 
 **Recent Updates (2026):**
 
-- **Apr 2, 2026:** Framework core reached GA for .NET and Python. Treat the framework as a house with rooms: the core can be GA while integrations such as Hosted Agent adapters, AG-UI, Skills, and harnesses remain Preview.
+- **Apr 2, 2026:** Framework core reached GA for .NET and Python. Core status does not determine integration maturity; use the component-specific labels above.
 
 **Sources:**
 

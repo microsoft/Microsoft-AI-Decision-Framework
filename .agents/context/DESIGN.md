@@ -32,14 +32,19 @@ colors:
   dark-selection: "#0e4775"
   accent: "#0f6cbd"
   on-accent: "#ffffff"
-  figure: "#161a1f"
-  figure-deep: "#0c0f12"
-  figure-text: "#e6e8eb"
-  figure-muted: "#a0a5ac"
+  figure: "#f6f8fa"
+  figure-border: "#d5dae0"
+  figure-dark: "#0c0f12"
+  figure-text: "#272e38"
+  figure-text-dark: "#e6e8eb"
+  figure-muted: "#535c66"
+  figure-muted-dark: "#a0a5ac"
   essay-accent: "#8f520d"
   essay-accent-dark: "#f6c16b"
   overlay-dim: "rgb(0 0 0 / 0.3)"
-  # Author-owned palettes that live on the figure surface; CSS never recolors them.
+  # Author-owned palettes. Inline Mermaid colors are kept in both themes; the
+  # explorer's authored dark fills (node-fill-*) are what dark mode shows, and
+  # light mode re-tints each one (node-tint-* fill, node-edge-* border, ink text).
   diagram-blue: "#004578"
   diagram-purple: "#4b2070"
   diagram-green: "#0b6a0b"
@@ -56,6 +61,24 @@ colors:
   node-fill-green: "#064e3b"
   node-fill-violet: "#4c1d95"
   node-fill-red: "#7f1d1d"
+  node-fill-teal: "#0e5a6f"
+  node-fill-steel: "#1e4d6e"
+  node-tint-navy: "#e7f0fa"
+  node-tint-violet: "#f1ebfc"
+  node-tint-amber: "#fdf1dc"
+  node-tint-maroon: "#fdeceb"
+  node-tint-green: "#e5f5ec"
+  node-tint-teal: "#e2f3f7"
+  node-tint-steel: "#e6eff6"
+  node-edge-navy: "#0f6cbd"
+  node-edge-violet: "#6d28d9"
+  node-edge-amber: "#b45309"
+  node-edge-maroon: "#b91c1c"
+  node-edge-green: "#15803d"
+  node-edge-teal: "#0e7490"
+  node-edge-steel: "#2b6a99"
+  canvas: "#f8fafc"
+  canvas-dark: "#0c0f12"
 typography:
   heading:
     fontFamily: "Sora, Source Sans 3, sans-serif"
@@ -95,6 +118,10 @@ typography:
     fontFamily: "Source Sans 3, sans-serif"
     fontSize: "11px"
     fontWeight: 600
+  explorer-badge:
+    fontFamily: "Source Sans 3, sans-serif"
+    fontSize: "10px"
+    fontWeight: 700
 rounded:
   sm: "4px"
   nav: "6px"
@@ -161,7 +188,7 @@ Tip green, Warning amber and Important red appear only with a text label and an 
 ### Named Rules
 
 - **One hue, one meaning.** Blue means "you can go here." Nav, inline code and subheads are ink, never blue.
-- **The figure rule.** Code blocks, Mermaid diagrams and the explorer canvas sit on one dark figure surface in both themes. Their colors belong to their authors (inline Mermaid palettes, GitHub-dark syntax, the explorer node palette) and CSS never recolors them.
+- **Everything follows the theme; authored colors survive it.** Code blocks, Mermaid diagrams and the explorer switch with the reader's theme, but no author's color is recolored by CSS. Mermaid diagrams are re-rendered with a light or dark base theme (background, default nodes, lines, labels) while inline node colors stay as written. Explorer nodes map their authored dark fills to tones: dark mode shows the authored fill, light mode a tint of the same hue with a saturated border. Code uses github-light or github-dark syntax colors.
 - **Essay voice.** AI Instinct alone gets a warm amber (`#8f520d` / `#f6c16b`), spent only on its banner label, pull-quote marks and phase numbers.
 
 ## Typography
@@ -214,18 +241,18 @@ The frame lives on `.table-wrapper` (the element that scrolls). Header on `--rai
 
 ### Figures
 
-Code blocks and diagrams use the figure surface. Mermaid renders at natural size (`flowchart.useMaxWidth: false`) and scrolls inside its frame; diagrams in closed `<details>` render on first open. Prose rules are reset inside diagram labels so page ink never repaints them.
+Code blocks and diagrams sit on the figure surface, light (`#f6f8fa`) or dark (`#0c0f12`) with the theme. Mermaid renders at natural size (`flowchart.useMaxWidth: false`) and scrolls inside its frame; diagrams in closed `<details>` render on first open. `assets/js/mermaid-init.js` re-renders every drawn diagram when `data-theme` changes, using `mermaid.render()` so the new SVG swaps in without a flash of source. The light settings live in the `light` block of `_includes/mermaid_config.js`; the `dark` block reproduces the authored dark theme. Prose rules are reset inside diagram labels so page ink never repaints them. In print, a figure keeps the surface its diagram was rendered for. Inline code is 0.875em (the theme's 0.75em sat below the body x-height).
 
 ### Decision Explorer
 
-Chrome (header, tabs, detail panel) follows the theme through the same `aidf-theme` key and updates live via the `storage` event, including when embedded. The canvas stays on the figure. Status badges use the inline diagram palette (GA `#0b6a0b`, Preview `#8c5e00`, Experimental `#a52617`) with white labels.
+Chrome (header, tabs, detail panel), canvas and nodes all follow the theme through the same `aidf-theme` key, and update live via the `storage` event, including when embedded. `src/nodes/tone.ts` maps each authored fill to a tone; `explorer.css` defines every tone for both themes, so a switch restyles the graph with no re-render. React Flow's own colors (dots, minimap, mask) come from its `--xy-*` variables. Status badges use the inline diagram palette (GA `#0b6a0b`, Preview `#8c5e00`, Experimental `#a52617`) with white labels. A new authored fill needs a tone in both files, or that node keeps its literal color in both themes.
 
 ## Do's and Don'ts
 
 - **Do** add a color as a token in both `aidf-light` and `aidf-dark`, and check it with tastemaker's `check_contrast.py --matrix` before use.
 - **Do** keep `remote_theme` pinned. On an upgrade, grep the new theme's `_sass` for `$link-color`, `$border-color`, `$feedback-color`, `$base-button-color` and `$btn-primary-color` usage, rebuild, and compare both themes.
 - **Do** keep Mermaid palettes inline in the diagrams, dark theme and white labels.
-- **Don't** recolor anything inside `.mermaid`, code figures or the explorer canvas.
+- **Don't** recolor inline Mermaid node colors or the explorer's authored fills with CSS; switch themes by re-rendering (Mermaid) or through tones (explorer).
 - **Don't** reintroduce side-stripe borders, gradient text, glass, or entrance animations.
 - **Don't** change the layout tokens or type scale without the maintainer's sign-off.
 - **Don't** put `// comments` in inline scripts in `_includes`; the built HTML is newline-stripped.

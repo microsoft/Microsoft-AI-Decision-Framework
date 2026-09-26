@@ -111,7 +111,7 @@ Every diagram in `docs/visual-framework.md` must have:
 3. Status annotations: `<i>Preview</i>` for preview features
 4. Validation summary with sources
 
-The site has light and dark themes, but diagrams render on the same dark "figure" surface in both, so keep them dark-themed with white text; don't restyle them for light mode. A static diagram inside `<details>` needs `<details markdown="1">`, or kramdown prints the raw source.
+The site has light and dark themes, and diagrams follow them: the site re-renders each diagram for the reader's theme, swapping only Mermaid's base theme (background, default nodes, lines, edge labels). Inline node colors are kept exactly as written in both themes, so keep authoring against the dark theme with white text; don't add CSS or `linkStyle` colors that assume a dark background. A static diagram inside `<details>` needs `<details markdown="1">`, or kramdown prints the raw source.
 
 ### 7. Analogies Are Optional, and Must Earn Their Place (Constitution Article X)
 

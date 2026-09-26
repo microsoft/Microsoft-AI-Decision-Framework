@@ -18,7 +18,7 @@ This is a **comprehensive decision framework and reference guide** for navigatin
 
 - **Static Site Generator:** Jekyll 4.4+ (GitHub Pages)
 - **Documentation Format:** Markdown (.md files)
-- **Diagrams:** Mermaid 11.12.1 flowcharts (embedded in Markdown, dark theme configured; rendered on a dark "figure" surface in both site themes)
+- **Diagrams:** Mermaid 11.12.1 flowcharts (embedded in Markdown, authored with the dark theme and inline node colors; the site re-renders them to match the reader's light or dark theme and keeps the inline colors)
 - **Navigation:** Jekyll front matter with `nav_order` property (1-15)
 - **Theme:** Just the Docs (`remote_theme` pinned to a release in `_config.yml`), color scheme `aidf`: light and dark themes via CSS custom properties, with a Light / Dark / System switch in the header (default: follow the OS)
 - **Custom Styling:** SCSS in `_sass/custom/custom.scss` (tokens and components; no Mermaid overrides; palette is owned inline in diagrams). The visual system is documented in `.agents/context/DESIGN.md`

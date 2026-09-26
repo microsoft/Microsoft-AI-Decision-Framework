@@ -1,49 +1,49 @@
+{%- comment -%}
+  Theme bootstrap. Runs before first paint, so the page never flashes the
+  wrong theme. The reader's choice lives in localStorage under "aidf-theme"
+  ("light", "dark" or "system"); with no choice, the OS preference wins.
+  assets/js/theme.js owns the toggle and keeps these attributes current.
+  No // comments inside inline scripts: the built HTML has its newlines
+  stripped, which would turn the rest of the script into a comment.
+{%- endcomment -%}
+<meta name="color-scheme" content="light dark">
+<script>
+  (function () {
+    var pref = 'system';
+    try { pref = localStorage.getItem('aidf-theme') || 'system'; } catch (e) {}
+    if (pref !== 'light' && pref !== 'dark') { pref = 'system'; }
+    var dark = pref === 'dark' || (pref === 'system' && !!window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    var root = document.documentElement;
+    root.setAttribute('data-theme', dark ? 'dark' : 'light');
+    root.setAttribute('data-theme-pref', pref);
+  })();
+</script>
+<meta name="theme-color" content="#f4f7fa" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0e1114" media="(prefers-color-scheme: dark)">
+
 <!-- Webfonts.
      Loaded here rather than via an @import inside custom.scss: a CSS @import
      can only be discovered after the theme stylesheet has been fetched and
      parsed, which serialises two round trips before any text can paint.
-     A <link> in <head> is fetched in parallel with the theme CSS instead. -->
+     A <link> in <head> is fetched in parallel with the theme CSS instead.
+     Source Sans 3 includes its true italics: the prose leans on <em>, and
+     without them the browser synthesises a slanted roman. -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Source+Sans+3:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400..700;1,400..700&family=Sora:wght@600;700&family=JetBrains+Mono:wght@400;600&display=swap">
 
-<script src="https://cdn.jsdelivr.net/npm/mermaid@{{ site.mermaid.version | default: '11.12.1' }}/dist/mermaid.min.js"></script>
-<script>
-  // Initialize Mermaid and convert fenced mermaid code blocks to renderable diagrams.
-  document.addEventListener('DOMContentLoaded', () => {
-    if (!window.mermaid) return;
+{%- comment -%}
+  Mermaid loads only on pages that contain a diagram, deferred, from one
+  loader. The theme's own loader is disabled by _includes/components/mermaid.html.
+{%- endcomment -%}
+{%- if content contains 'language-mermaid' %}
+<script type="application/json" id="mermaid-config">{% include mermaid_config.js %}</script>
+<script src="{{ '/assets/js/mermaid-init.js' | relative_url }}" data-mermaid-version="{{ site.mermaid.version | default: '11.12.1' }}" defer></script>
+{%- endif %}
 
-    const mermaidConfig = Object.assign(
-      { startOnLoad: false, securityLevel: 'loose' },
-      {% include mermaid_config.js %}
-    );
-
-    const codeBlocks = Array.from(
-      document.querySelectorAll(
-        'pre > code.language-mermaid, div.language-mermaid.highlighter-rouge pre > code'
-      )
-    );
-    codeBlocks.forEach((codeBlock) => {
-      const container = document.createElement('div');
-      container.classList.add('mermaid');
-      container.innerHTML = codeBlock.textContent;
-      const mermaidWrapper = codeBlock.closest('div.language-mermaid.highlighter-rouge');
-      const pre = codeBlock.parentElement;
-      (mermaidWrapper || pre).replaceWith(container);
-    });
-
-    mermaid.initialize(mermaidConfig);
-    mermaid.run({ querySelector: '.mermaid' });
-  });
-</script>
 <!-- "On this page" rail.
      Loaded as a static asset rather than inlined via {% raw %}{% include %}{% endraw %}: the built HTML is
      served with newlines stripped, which would collapse the script onto one
      line and let its first // comment swallow the rest of the file. -->
 <script src="{{ '/assets/js/page-toc.js' | relative_url }}" defer></script>
-<style>
-  /* Hide the theme footer inside the sidebar */
-  body > .side-bar > footer.site-footer {
-    display: none !important;
-  }
-</style>
+<script src="{{ '/assets/js/theme.js' | relative_url }}" defer></script>

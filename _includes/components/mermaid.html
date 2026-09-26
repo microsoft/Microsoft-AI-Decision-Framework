@@ -1,0 +1,7 @@
+{%- comment -%}
+  Intentionally empty. This overrides the theme's components/mermaid.html,
+  which loads a second copy of Mermaid (ESM) on every page whenever
+  site.mermaid is set, and races our own loader for the same code blocks.
+  Diagrams are rendered by assets/js/mermaid-init.js, which head_custom.html
+  loads only on pages that actually contain a ```mermaid block.
+{%- endcomment -%}

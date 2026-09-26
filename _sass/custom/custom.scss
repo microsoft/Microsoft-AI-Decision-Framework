@@ -1,44 +1,161 @@
-/* Webfonts are loaded from _includes/head_custom.html rather than an @import
-   here, so they are fetched in parallel with the theme stylesheet instead of
-   after it. */
+/* ════════════════════════════════════════════════════════════════
+   Ink & Signal: Microsoft AI Decision Framework theme layer.
+
+   Neutrals carry all of the structure. Color is rationed to what a
+   reader must never miss: where they can go (links, one blue), where
+   they are (current page and section), what is not GA yet (status),
+   and what can hurt them (warnings).
+
+   Theming: tokens are custom properties. Light is the default;
+   `prefers-color-scheme: dark` switches automatically; an explicit
+   choice sets <html data-theme="light|dark"> (see _includes/
+   head_custom.html and assets/js/theme.js). The theme's own compiled
+   selectors read the same tokens through _sass/color_schemes/aidf.scss.
+
+   Sizing is deliberately untouched: --measure, --measure-wide, --rail,
+   --container, --header-h, the sidebar clamp, the 900/1200px
+   breakpoints, paddings and the heading scale are carried over as-is.
+
+   Webfonts load from _includes/head_custom.html rather than an @import
+   here, so they are fetched in parallel with this stylesheet.
+   ════════════════════════════════════════════════════════════════ */
+
+/* ── Color tokens ──────────────────────────────────────────────────
+   Source of truth is OKLCH (noted per token); hex is emitted because it
+   is this codebase's notation and every value sits inside sRGB. The
+   neutral ramp is tinted 0.005–0.02 chroma toward hue 255, the brand
+   blue's own family. Link/accent steps are the Fluent 2 web brand ramp
+   (brand 60/70/80/120/130/150). Every text pairing is verified at
+   WCAG 2 AA with tastemaker's check_contrast.py; see the review. */
+@mixin aidf-light {
+	color-scheme: light;
+
+	--bg: #ffffff;              /* oklch(1 0 0)            page, the reading surface */
+	--chrome: #f4f7fa;          /* oklch(.975 .005 255)    sidebar */
+	--raised: #eff3f7;          /* oklch(.962 .007 255)    table head, inline panels */
+	--zebra: #f8fafc;           /* oklch(.984 .003 255) */
+	--row-hover: #edf0f6;       /* oklch(.955 .008 255) */
+	--nav-hover: #ebeff4;       /* oklch(.950 .008 255) */
+	--bg-selected: #e1e7ee;     /* oklch(.925 .012 255)    current page in nav */
+	--overlay: #ffffff;         /*                         search results */
+	--border-subtle: #e3e7ec;   /* oklch(.925 .008 255)    row rules */
+	--border: #d5dae0;          /* oklch(.885 .010 255)    frames, hr */
+	--border-strong: #78818c;   /* oklch(.600 .020 255)    inputs, buttons: 3.95:1 */
+
+	--text-strong: #10171f;     /* oklch(.200 .020 255)    18.0:1 */
+	--text: #272e38;            /* oklch(.300 .020 255)    13.7:1 */
+	--muted: #535c66;           /* oklch(.470 .020 255)     6.8:1 */
+
+	--link: #115ea3;            /* Fluent brand 70          6.7:1 */
+	--link-hover: #0f548c;      /* Fluent brand 60          7.9:1 */
+	--accent: #0f6cbd;          /* Fluent brand 80          white label 5.4:1 */
+	--accent-hover: #115ea3;    /* Fluent brand 70          white label 6.7:1 */
+	--on-accent: #ffffff;
+	--focus: #0f548c;           /* 7.9:1 on page, 7.3:1 on chrome */
+	--selection: #cfe4fa;       /* Fluent brand 150; body text 10.5:1 on it */
+
+	--code-bg: #edf0f6;         /* inline code */
+	--code-text: #242f3d;       /* 11.9:1 */
+
+	--note-bg: #f2f5f8;  --note-border: #ccd1d9;  --note-label: #2e3947;
+	--tip-bg: #e9f8ed;   --tip-border: #acd7ba;   --tip-label: #136239;
+	--warn-bg: #fdf2dd;  --warn-border: #e6c183;  --warn-label: #804d0c;
+	--imp-bg: #ffefee;   --imp-border: #efbcb7;   --imp-label: #a52a26;
+
+	--ga-bg: #dff8e6;       --ga-text: #095c34;       --ga-border: #8ec7a1;
+	--preview-bg: #feefcf;  --preview-text: #7a4702;  --preview-border: #ddae6c;
+	--exp-bg: #ffebe9;      --exp-text: #a12623;      --exp-border: #edaaa4;
+
+	--essay-accent: #8f520d;    /* oklch(.50 .11 62)  AI Instinct only, 6.2:1 */
+	--essay-accent-bg: #fdefd2;
+
+	--scrollbar-thumb: #b2b8bf;
+	--shadow-overlay: 0 12px 32px -12px rgb(16 23 31 / 0.22), 0 2px 6px -2px rgb(16 23 31 / 0.12);
+	--image-outline: rgb(0 0 0 / 0.1);
+}
+
+@mixin aidf-dark {
+	color-scheme: dark;
+
+	--bg: #14161a;              /* oklch(.200 .008 255) */
+	--chrome: #0e1114;          /* oklch(.175 .008 255)    recedes behind the page */
+	--raised: #1d2125;          /* oklch(.245 .010 255) */
+	--zebra: #171a1d;
+	--row-hover: #20242a;
+	--nav-hover: #161a1e;
+	--bg-selected: #23282f;
+	--overlay: #1b1e23;
+	--border-subtle: #262a30;
+	--border: #31363d;
+	--border-strong: #6e757f;   /* 3.9:1 */
+
+	--text-strong: #edf0f4;     /* 15.9:1, not pure white: less halation */
+	--text: #d1d6dc;            /* 12.4:1 */
+	--muted: #adb3bc;           /*  8.6:1 */
+
+	--link: #96c6fa;            /* Fluent brand 130        10.1:1 */
+	--link-hover: #cfe4fa;      /* Fluent brand 150 */
+	--accent: #0f6cbd;          /* 3.4:1 against the page, white label 5.4:1 */
+	--accent-hover: #2975c2;    /* white label 4.75:1 */
+	--on-accent: #ffffff;
+	--focus: #77b7f7;           /* Fluent brand 120         8.5:1 */
+	--selection: #0e4775;       /* Fluent brand 50; body text 6.6:1 on it */
+
+	--code-bg: #20242a;
+	--code-text: #d9dfe6;
+
+	--note-bg: #1b1e23;  --note-border: #383e46;  --note-label: #c8d2de;
+	--tip-bg: #13221a;   --tip-border: #29523b;   --tip-label: #83daa9;
+	--warn-bg: #281d0e;  --warn-border: #63471c;  --warn-label: #f7c56d;
+	--imp-bg: #2b1817;   --imp-border: #733a36;   --imp-label: #f8a49d;
+
+	--ga-bg: #142c1f;       --ga-text: #82e2ad;       --ga-border: #306146;
+	--preview-bg: #36250d;  --preview-text: #fac871;  --preview-border: #755421;
+	--exp-bg: #3a1d1b;      --exp-text: #ffaba3;      --exp-border: #8a423d;
+
+	--essay-accent: #f6c16b;
+	--essay-accent-bg: #36250d;
+
+	--scrollbar-thumb: #494d54;
+	--shadow-overlay: 0 16px 40px -12px rgb(0 0 0 / 0.6), 0 2px 6px -2px rgb(0 0 0 / 0.4);
+	--image-outline: rgb(255 255 255 / 0.1);
+}
 
 :root {
-	--bg: #0d1117;
-	--bg-panel: #111827;
-	--bg-panel-strong: #0f172a;
-	--bg-glass: rgba(255, 255, 255, 0.04);
-	--text: #d6deec;
-	--text-strong: #eef3fb;
-	--muted: #9cacc2;
-	--border: #1f2937;
-	--shadow: 0 16px 48px rgba(0, 0, 0, 0.35);
-	--shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.25);
-	--primary: #3b82f6;
-	--primary-strong: #2563eb;
-	--secondary: #f59e0b;
-	--success: #10b981;
-	--warning: #fbbf24;
-	--danger: #ef4444;
-	--link: #60a5fa;
-	--link-hover: #93c5fd;
-	--pill-ga: rgba(16, 185, 129, 0.18);
-	--pill-preview: rgba(245, 158, 11, 0.18);
-	--pill-exp: rgba(239, 68, 68, 0.18);
-	--code-bg: #0f172a;
-	--code-border: #1e293b;
-	--table-row: #0f1724;
-	--table-row-alt: #111b2d;
-	--gradient-hero: linear-gradient(135deg, #0f172a 0%, #111827 40%, #0b1224 100%);
-	--gradient-accent: linear-gradient(90deg, #3b82f6, #f59e0b);
+	@include aidf-light;
 
-	/* Reading measure — the single knob for text density.
+	/* Figures: code blocks and Mermaid diagrams. They follow the theme like
+	   everything else, but a diagram's node colors are its author's, set
+	   inline, and are never recolored here: assets/js/mermaid-init.js
+	   re-renders each diagram with light or dark base settings (background,
+	   default nodes, lines, labels) and leaves the inline palette alone.
+	   These tokens sit outside the page mixins on purpose, so print keeps the
+	   surface each diagram was rendered for. */
+	--figure: #f6f8fa;          /* oklch(.978 .003 248) */
+	--figure-border: #d5dae0;
+	--figure-text: #272e38;     /* 12.9:1 */
+	--figure-muted: #535c66;    /*  6.4:1 */
+	--figure-focus: #0f548c;    /*  7.4:1 */
+
+	/* Type. Families unchanged; Source Sans 3 now loads its real italics. */
+	--font-body: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+	--font-heading: 'Sora', 'Source Sans 3', sans-serif;
+	--font-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Code', Consolas, monospace;
+
+	/* Motion: one curve, two durations. See "Motion" below. */
+	--ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+	--dur-fast: 120ms;
+	--dur-base: 160ms;
+
+	/* Reading measure: the single knob for text density.
 	   Set to fill the available column and cap only on very wide displays, which
 	   lands at roughly 200 characters per line at 1920px and 240 at 2560px.
 
 	   That is a deliberate density choice over the typographic norm: WCAG 2.1
 	   SC 1.4.8 (AAA) asks for 80 characters, and Butterick puts the ceiling at
 	   90. For reference, 34rem ≈ 78 characters and 44rem ≈ 100 (GitHub Docs'
-	   720px article column). Lower this token to tighten it.
+	   720px article column). Lower this token to tighten it. Leading, below,
+	   rises with the measure to keep the return sweep reliable.
 
 	   `rem` rather than `ch` on purpose. `ch` resolves against each element's own
 	   font, so headings set in Sora would take a visibly wider measure than body
@@ -54,33 +171,82 @@
 	--header-h: 3.75rem;
 }
 
+@mixin aidf-figure-dark {
+	--figure: #0c0f12;
+	--figure-border: #292e35;
+	--figure-text: #e6e8eb;     /* 15.7:1 */
+	--figure-muted: #a0a5ac;    /*  7.8:1 */
+	--figure-focus: #77b7f7;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root:not([data-theme='light']) {
+		@include aidf-dark;
+		@include aidf-figure-dark;
+	}
+}
+
+:root[data-theme='dark'] {
+	@include aidf-dark;
+	@include aidf-figure-dark;
+}
+
+/* Syntax colors follow the figure. The theme always compiles
+   accessible-pygments' github-light; its github-dark twin is scoped to the
+   dark theme here (and to an OS dark preference when JavaScript is off). */
+@media (prefers-color-scheme: dark) {
+	:root:not([data-theme='light']) {
+		@import "./vendor/accessible-pygments/github-dark";
+	}
+}
+
+:root[data-theme='dark'] {
+	@import "./vendor/accessible-pygments/github-dark";
+}
+
+/* github-light is tuned for a white ground; on the light figure its comment
+   gray (#6E7781) falls to 4.27:1, so comments take the figure's muted ink
+   (6.4:1). The scoped github-dark rules above outrank this in dark. */
+.highlight :is(.c, .ch, .cm, .cp, .cpf, .c1, .cs) {
+	color: var(--figure-muted);
+}
+
 /* Base layout */
+html {
+	scrollbar-color: var(--scrollbar-thumb) transparent;
+}
+
 body {
-	font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+	font-family: var(--font-body);
 	background: var(--bg);
 	color: var(--text);
 	line-height: 1.6;
+	font-kerning: normal;
 	display: flex;
 	flex-direction: row;
 	min-height: 100vh;
 }
 
+::selection {
+	background: var(--selection);
+	color: var(--text-strong);
+}
+
 .side-bar {
-	background: var(--bg-panel);
+	background: var(--chrome);
 	border-right: 1px solid var(--border);
 	/* flex-shrink would otherwise collapse the rail to its min-width and wrap
 	   nav labels ("AI Instinct: The / Human Framework"). */
 	flex: 0 0 auto;
 	width: clamp(220px, 18vw, 260px);
-	box-shadow: inset -1px 0 0 rgba(255, 255, 255, 0.02);
 	position: sticky;
 	top: 0;
 	height: 100vh;
-	backdrop-filter: blur(6px);
 	padding: 0.75rem 0.75rem 1rem;
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
+	scrollbar-width: thin;
 }
 
 /* Hide unused sidebar footer */
@@ -140,7 +306,7 @@ body > header > div.d-md-block.d-none.site-footer {
 
 /* Left-aligned rather than centred: prose starts just after the nav and the
    "On this page" rail is pinned to the far side, so the slack sits between
-   them — where wide tables and diagrams actually use it — instead of being
+   them, where wide tables and diagrams actually use it, instead of being
    split into two dead margins at the page edges. */
 #main-content,
 .main-content {
@@ -153,9 +319,8 @@ body > header > div.d-md-block.d-none.site-footer {
 
 .main-header,
 #main-header {
-	background: var(--bg-panel-strong);
+	background: var(--bg);
 	border-bottom: 1px solid var(--border);
-	box-shadow: var(--shadow-soft);
 	position: sticky;
 	top: 0;
 	z-index: 5;
@@ -213,21 +378,40 @@ body > header > div.d-md-block.d-none.site-footer {
 	height: auto;
 }
 
+/* Embedded explorers. An inline iframe sits on the text baseline and leaves a
+   descender gap beneath it, which reads as a light strip inside its frame. */
+.main-content iframe {
+	display: block;
+	max-width: 100%;
+}
+
+/* The explorer embeds in docs/visual-framework.md carry inline dark styles
+   (a #1f2937 frame, a #0d1117 loading fill) from the dark-only era. The
+   explorer now follows the theme, so its frame does too; `!important` is the
+   only way past an inline style without editing the content. */
+.main-content div:has(> iframe[src*='/explorer/']) {
+	border-color: var(--border) !important;
+}
+
+.main-content iframe[src*='/explorer/'] {
+	background: var(--bg) !important;
+}
+
 /* ── "On this page" rail ────────────────────────────────────────────
    Capping the measure leaves room to the right of the text. Rather than
-   leave it empty, it carries section navigation — the same arrangement
+   leave it empty, it carries section navigation, the same arrangement
    Microsoft Learn and GitHub Docs use. Built at runtime from the page's own
-   headings by _includes/page_toc.js, so every page gets one. */
+   headings by assets/js/page-toc.js, so every page gets one. */
 .page-toc {
 	display: none;
 }
 
 @media (min-width: 1200px) {
-	/* Everything here hangs off .has-page-toc, which page_toc.js adds only after
+	/* Everything here hangs off .has-page-toc, which page-toc.js adds only after
 	   it has actually built a rail. Keying off the class rather than :has() means
 	   a browser without :has(), a page with too little structure, or a failed
 	   script all fall back to one column with the author's own in-page contents
-	   still visible — rather than hiding the contents and stranding an
+	   still visible, rather than hiding the contents and stranding an
 	   unpositioned nav at the foot of the page. */
 	.has-page-toc {
 		display: grid;
@@ -255,6 +439,7 @@ body > header > div.d-md-block.d-none.site-footer {
 		max-height: calc(100vh - var(--header-h) - 2.5rem);
 		overflow-y: auto;
 		overscroll-behavior: contain;
+		scrollbar-width: thin;
 		padding-left: 1rem;
 		border-left: 1px solid var(--border);
 		font-size: 0.875rem;
@@ -280,12 +465,6 @@ body > header > div.d-md-block.d-none.site-footer {
 	scroll-margin-top: calc(var(--header-h) + 1rem);
 }
 
-@media print {
-	.page-toc {
-		display: none !important;
-	}
-}
-
 .page-toc-title {
 	font-size: 0.75rem !important;
 	font-weight: 700;
@@ -304,48 +483,53 @@ body > header > div.d-md-block.d-none.site-footer {
 .main-content .page-toc li {
 	margin: 0;
 
-	&:before {
+	&::before {
 		content: none;
 	}
 }
 
-.page-toc a {
+/* The active marker is a position indicator drawn *on* the rail's own 1px
+   track, like a scrollbar thumb: the link is pulled left by the track width so
+   its 1px border replaces the track segment. 1px keeps it inside the
+   side-stripe floor; weight and ink carry the primary signal.
+   `:not([class])` matches the prose-link rule's specificity so the rail's
+   links stay un-underlined. */
+.page-toc a:not([class]) {
 	display: block;
-	padding: 0.25rem 0;
+	padding: 0.25rem 0 0.25rem 1rem;
+	margin-left: calc(-1rem - 1px);
 	color: var(--muted);
 	text-decoration: none;
-	border-left: 2px solid transparent;
-	margin-left: -1rem;
-	padding-left: 1rem;
-	transition: color 120ms ease, border-color 120ms ease;
+	border-left: 1px solid transparent;
+	transition: color var(--dur-fast) var(--ease-out);
 }
 
-.page-toc a:hover {
-	color: var(--link-hover);
+.page-toc a:not([class]):hover {
+	color: var(--text-strong);
 }
 
 .page-toc a[aria-current] {
-	color: var(--link);
-	border-left-color: var(--primary);
+	color: var(--text-strong);
+	font-weight: 600;
+	border-left-color: var(--accent);
 }
 
-.page-toc-h3 a {
+.page-toc-h3 a:not([class]) {
 	padding-left: 2rem;
 	font-size: 0.8125rem;
-	color: var(--muted);
 }
 
 /* ── Typography ─────────────────────────────────────────────────────
    Just the Docs emits `font-size: … !important` from its fs-* mixins
    (_sass/support/mixins/_typography.scss), so plain declarations here are
-   silently discarded. `!important` is therefore required — but only ever on
+   silently discarded. `!important` is therefore required, but only ever on
    font-size. Never on line-height, letter-spacing, word-spacing or paragraph
    margins, so a reader overriding those (WCAG 2.1 SC 1.4.12) still wins.
 
    The theme's own scale runs 36 / 24 / 18 / 12px, which puts h4 *below* body
    text and in uppercase. This restores a monotonic 32 / 24 / 20 / 17 / 16. */
 h1, h2, h3, h4, h5, h6 {
-	font-family: 'Sora', 'Source Sans 3', sans-serif;
+	font-family: var(--font-heading);
 	color: var(--text-strong);
 	letter-spacing: -0.01em;
 	text-wrap: balance;
@@ -355,6 +539,7 @@ h1 {
 	font-size: 2rem !important;
 	font-weight: 600;
 	line-height: 1.2;
+	letter-spacing: -0.015em;
 }
 
 h2 {
@@ -393,7 +578,7 @@ h6 {
 	letter-spacing: normal;
 }
 
-/* Page subtitle — replaces the theme's .fs-6 utility, which was being used to
+/* Page subtitle: replaces the theme's .fs-6 utility, which was being used to
    carry document hierarchy and outranks a bare h1 on specificity. Qualified
    with `p` so it beats the `.main-content p` rhythm rule below. */
 .main-content p.page-subtitle {
@@ -408,16 +593,32 @@ h6 {
 
 /* ── Vertical rhythm ────────────────────────────────────────────────
    Paragraphs previously sat 16px apart while their own line spacing was
-   25.6px — packed tighter than their leading, which reads as a wall of text.
-   WCAG 2.1 SC 1.4.8 asks for paragraph spacing at least 1.5x line spacing. */
+   25.6px, packed tighter than their leading, which reads as a wall of text. */
 .main-content {
 	line-height: 1.65;
+}
+
+/* Leading rises with the measure. At ≥1200px the prose column runs 130 to 240
+   characters, and the eye's return sweep needs more vertical separation to
+   land on the right line. Line-height only, never font-size, so the locked
+   type scale is untouched. */
+@media (min-width: 1200px) {
+	.main-content {
+		line-height: 1.75;
+	}
 }
 
 .main-content p {
 	color: var(--text);
 	margin-top: 0;
 	margin-bottom: 1.5em;
+}
+
+/* Stops a lone word from ending a paragraph, which at this measure happens on
+   most long paragraphs. Chromium only rebalances the last few lines, so it is
+   cheap even on the longest pages. */
+.main-content :is(p, li) {
+	text-wrap: pretty;
 }
 
 /* That spacing is for the gap *between* paragraphs; inside a callout or a
@@ -430,12 +631,85 @@ h6 {
 
 p { color: var(--text); }
 
-/* Links */
-a { color: var(--link); }
-a:hover { color: var(--link-hover); }
-a:focus { outline: 2px solid var(--secondary); outline-offset: 2px; }
+.main-content strong {
+	color: var(--text-strong);
+	font-weight: 600;
+}
 
-/* Navigation */
+/* ── Links ──────────────────────────────────────────────────────────
+   Always underlined: link blue sits only ~2:1 from body ink, so color alone
+   cannot mark a link (WCAG 2.1 SC 1.4.1). The underline is quiet at rest and
+   solid on hover, so dense reference pages don't turn into a lattice of lines.
+   No separate visited color: one hue, one meaning. */
+a {
+	color: var(--link);
+}
+
+a:hover {
+	color: var(--link-hover);
+}
+
+a:not([class]) {
+	text-decoration-line: underline;
+	text-decoration-thickness: 1px;
+	text-decoration-color: color-mix(in oklab, currentColor 40%, transparent);
+	text-underline-offset: 0.2em;
+	text-decoration-skip-ink: auto;
+	transition: text-decoration-color var(--dur-fast) var(--ease-out);
+
+	&:hover {
+		text-decoration-color: currentColor;
+	}
+}
+
+.main-content a code {
+	color: inherit;
+}
+
+/* ── Focus ──────────────────────────────────────────────────────────
+   One ring everywhere, keyboard only. It replaces the theme's `.btn:focus`
+   glow (a 25% blue box-shadow, invisible on dark) and the old amber
+   `a:focus` outline that also fired on every mouse click. No
+   border-radius here: outlines already follow the element's own corners,
+   and forcing one reshaped whatever took focus. */
+:focus-visible {
+	outline: 2px solid var(--focus);
+	outline-offset: 2px;
+}
+
+:focus:not(:focus-visible) {
+	outline: none;
+}
+
+.btn:focus,
+.btn-outline:focus,
+.btn:focus:hover,
+.btn-outline:focus:hover {
+	box-shadow: inset 0 0 0 1px var(--border-strong);
+}
+
+.btn-primary:focus,
+.btn-primary:focus:hover {
+	box-shadow: none;
+}
+
+.btn:focus-visible {
+	outline: 2px solid var(--focus);
+	outline-offset: 2px;
+}
+
+a.skip-to-main:focus,
+a.skip-to-main:active {
+	color: var(--link);
+	background: var(--bg);
+	border: 2px solid var(--focus);
+	border-radius: 8px;
+}
+
+/* ── Navigation ─────────────────────────────────────────────────────
+   Nav items are ink, not link-blue: a column of fifteen blue labels is
+   decoration, and it spent the one color that means "you can go here".
+   The current page is carried by weight plus a neutral fill, not hue. */
 .site-title { color: var(--text-strong); }
 .site-header {
 	display: flex;
@@ -446,6 +720,12 @@ a:focus { outline: 2px solid var(--secondary); outline-offset: 2px; }
 	width: 100%;
 	height: 3.75rem;
 	box-sizing: border-box;
+	border-bottom-color: var(--border);
+}
+
+.site-title:hover,
+.site-button:hover {
+	background-image: none;
 }
 
 .site-logo img,
@@ -486,61 +766,195 @@ a:focus { outline: 2px solid var(--secondary); outline-offset: 2px; }
 	padding-left: 0.1rem;
 }
 
+.icon {
+	color: var(--text);
+}
+
 .site-nav .nav-list .nav-list-item > a,
 .site-nav .nav-list .nav-list-item > .nav-list-link {
 	padding: 0.35rem 0.75rem;
 	border-radius: 6px;
-	transition: background 140ms ease, color 140ms ease;
+	color: var(--text);
+	text-wrap: balance;
+	transition: background-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
 }
 
 .site-nav .nav-list .nav-list-item > a:hover,
 .site-nav .nav-list .nav-list-item > .nav-list-link:hover {
-	background: var(--bg-glass);
+	background: var(--nav-hover);
 	color: var(--text-strong);
 }
 
 .site-nav .nav-list .nav-list-item .nav-list-link.active {
-	background: rgba(59, 130, 246, 0.12);
+	background: var(--bg-selected);
 	color: var(--text-strong);
-	border: 1px solid rgba(59, 130, 246, 0.2);
+	font-weight: 600;
 }
 
+.nav-list .nav-list-item .nav-list-expander {
+	color: var(--muted);
+}
+
+/* ── Header: search and theme switch ────────────────────────────────── */
 .search-input {
-	background: var(--bg-panel);
-	border: 1px solid var(--border);
+	background: var(--bg);
+	border: 1px solid var(--border-strong);
 	color: var(--text);
 	border-radius: 8px;
 	height: 2.5rem;
 }
 
-/* Hero and section framing */
-.page-header {
-	background: var(--gradient-hero);
-	padding: 1.25rem 1.5rem;
-	border-radius: 12px;
-	border: 1px solid var(--border);
-	box-shadow: var(--shadow);
-	position: relative;
-	overflow: hidden;
+.search-input::placeholder {
+	color: var(--muted);
+	opacity: 1;
 }
 
-.page-header:after {
-	content: '';
-	position: absolute;
-	inset: 0;
-	background: radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.15), transparent 35%),
-									radial-gradient(circle at 80% 20%, rgba(245, 158, 11, 0.16), transparent 30%);
-	pointer-events: none;
+.search-input-wrap {
+	box-shadow: none;
+}
+
+.search-label .search-icon {
+	color: var(--muted);
+}
+
+.search-input:focus + .search-label .search-icon {
+	color: var(--text-strong);
+}
+
+.search-results {
+	background: var(--overlay);
+	border: 1px solid var(--border);
+	border-radius: 10px;
+	box-shadow: var(--shadow-overlay);
+}
+
+.search-result {
+	color: var(--text);
+}
+
+.search-result:hover,
+.search-result.active {
+	background: var(--row-hover);
+}
+
+.search-result-title,
+.search-result-doc {
+	color: var(--text-strong);
+}
+
+.search-result-doc .search-result-icon {
+	color: var(--muted);
+}
+
+.search-result-previews {
+	color: var(--muted);
+	border-left-color: var(--border);
+}
+
+.search-result-highlight {
+	color: var(--text-strong);
+	font-weight: 600;
+}
+
+.search-overlay {
+	background: rgb(0 0 0 / 0.3);
+}
+
+.aux-nav .site-button {
+	color: var(--text);
+}
+
+.aux-nav .site-button:hover {
+	color: var(--link-hover);
+}
+
+/* Segmented Light / Dark / System control from _includes/header_custom.html.
+   Native radios: arrow keys move the choice, and screen readers announce
+   "Color theme, radio group, Light, 1 of 3". Without JavaScript the head
+   bootstrap never sets data-theme, the switch could not do anything, and the
+   OS preference already applies through CSS, so the control is hidden. */
+html:not([data-theme]) .theme-switch {
+	display: none;
+}
+
+.theme-switch {
+	display: inline-flex;
+	align-items: center;
+	align-self: center;
+	flex: 0 0 auto;
+	gap: 2px;
+	margin: 0 0 0 auto;
+	padding: 2px;
+	border: 1px solid var(--border);
+	border-radius: 8px;
+	background: var(--chrome);
+	min-inline-size: 0;
+}
+
+.theme-switch__option {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	gap: 0.375rem;
+	height: 1.875rem;
+	padding: 0 0.625rem;
+	border-radius: 6px;
+	color: var(--muted);
+	font-size: 0.875rem;
+	line-height: 1;
+	cursor: pointer;
+	user-select: none;
+	transition: background-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+
+	svg {
+		width: 1rem;
+		height: 1rem;
+		flex: 0 0 auto;
+	}
+
+	input {
+		position: absolute;
+		inset: 0;
+		margin: 0;
+		opacity: 0;
+		cursor: pointer;
+	}
+
+	&:hover {
+		color: var(--text-strong);
+	}
+
+	&:has(input:checked) {
+		background: var(--bg);
+		color: var(--text-strong);
+		box-shadow: 0 0 0 1px var(--border);
+	}
+
+	&:has(input:focus-visible) {
+		outline: 2px solid var(--focus);
+		outline-offset: 1px;
+	}
+}
+
+@media (max-width: 1199px) {
+	/* Icons only; the label text stays in the accessible name. */
+	.theme-switch__label {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		overflow: hidden;
+		clip-path: inset(50%);
+		white-space: nowrap;
+	}
+
+	.theme-switch__option {
+		padding: 0 0.5rem;
+	}
 }
 
 /* ── Section headings ───────────────────────────────────────────────
-   Every h2 and h3 used to be a full-width card: panel background, border,
-   radius, drop shadow, a 3px gradient bar and an entrance animation.
-   scenarios.md alone rendered 78 of them. At a wide column that chrome, not
-   the type size, is what made the page feel like it was shouting.
-
-   Hierarchy is now carried by size, weight and space — the way a document
-   does it — with a single hairline rule to open each major section.
+   Hierarchy is carried by size, weight and space, the way a document
+   does it, with a single hairline rule to open each major section.
 
    `.text-delta` and `.page-toc-title` are excluded throughout: the theme uses
    `.text-delta` for the small "Table of contents" eyebrow label, which is
@@ -550,7 +964,7 @@ a:focus { outline: 2px solid var(--secondary); outline-offset: 2px; }
 	margin-top: 3rem;
 	margin-bottom: 1rem;
 	padding-bottom: 0.4rem;
-	border-bottom: 1px solid var(--border);
+	border-bottom: 1px solid var(--border-subtle);
 }
 
 .main-content h3:where(:not(.text-delta)) {
@@ -562,13 +976,17 @@ a:focus { outline: 2px solid var(--secondary); outline-offset: 2px; }
 .main-content h4:where(:not(.text-delta)) {
 	margin-top: 1.75rem;
 	margin-bottom: 0.4rem;
-	color: var(--muted);
+	color: var(--text);
 }
 
 .main-content h5,
 .main-content h6 {
 	margin-top: 1.5rem;
 	margin-bottom: 0.35rem;
+	color: var(--muted);
+}
+
+.main-content .anchor-heading svg {
 	color: var(--muted);
 }
 
@@ -581,123 +999,9 @@ a:focus { outline: 2px solid var(--secondary); outline-offset: 2px; }
 	}
 }
 
-/* Cards & panels */
-.content-panel {
-	background: var(--bg-panel);
-	border: 1px solid var(--border);
-	border-radius: 12px;
-	padding: 1rem 1.25rem;
-	box-shadow: var(--shadow-soft);
-	backdrop-filter: blur(4px);
-}
-
-/* Callouts */
-blockquote {
-	background: rgba(15, 23, 42, 0.6);
-	border-left: 4px solid var(--border);
-	border-radius: 10px;
-	padding: 0.9rem 1rem;
-	color: var(--text);
-	box-shadow: var(--shadow-soft);
-	margin: 1.5rem 0;
-}
-
-/* Admonition Styles (Note, Tip, Warning, Important) */
-blockquote.note,
-blockquote.tip,
-blockquote.warning,
-blockquote.important {
-	position: relative;
-	margin-top: 1.5rem;
-	margin-bottom: 1.5rem;
-	padding: 1rem 1.25rem;
-	border-radius: 8px;
-	background: var(--bg-panel);
-	color: var(--text);
-	box-shadow: var(--shadow-soft);
-}
-
-blockquote.note {
-	border-left: 4px solid var(--primary);
-	background: rgba(59, 130, 246, 0.08); /* Blue tint */
-}
-blockquote.note > p:first-child:before {
-	content: "NOTE";
-	display: block;
-	font-weight: 700;
-	color: var(--primary);
-	font-size: 0.75rem;
-	margin-bottom: 0.25rem;
-	letter-spacing: 0.05em;
-}
-
-blockquote.tip {
-	border-left: 4px solid var(--success);
-	background: rgba(16, 185, 129, 0.08); /* Green tint */
-}
-blockquote.tip > p:first-child:before {
-	content: "TIP";
-	display: block;
-	font-weight: 700;
-	color: var(--success);
-	font-size: 0.75rem;
-	margin-bottom: 0.25rem;
-	letter-spacing: 0.05em;
-}
-
-blockquote.warning {
-	border-left: 4px solid var(--secondary);
-	background: rgba(245, 158, 11, 0.08); /* Amber tint */
-}
-blockquote.warning > p:first-child:before {
-	content: "WARNING";
-	display: block;
-	font-weight: 700;
-	color: var(--secondary);
-	font-size: 0.75rem;
-	margin-bottom: 0.25rem;
-	letter-spacing: 0.05em;
-}
-
-blockquote.important {
-	border-left: 4px solid var(--danger);
-	background: rgba(239, 68, 68, 0.08); /* Red tint */
-}
-blockquote.important > p:first-child:before {
-	content: "IMPORTANT";
-	display: block;
-	font-weight: 700;
-	color: var(--danger);
-	font-size: 0.75rem;
-	margin-bottom: 0.25rem;
-	letter-spacing: 0.05em;
-}
-
-/* Tables */
-.main-content table {
-	background: var(--bg-panel);
-	border: 1px solid var(--border);
-	border-radius: 12px;
-	overflow: hidden;
-	box-shadow: var(--shadow-soft);
-}
-
-.main-content table th {
-	background: var(--bg-panel-strong);
-	color: var(--text-strong);
-	border-bottom: 1px solid var(--border);
-	padding: 0.75rem;
-}
-
-.main-content table td {
-	border-top: 1px solid var(--border);
-	padding: 0.7rem;
-}
-
-.main-content table tr:nth-child(even) { background: var(--table-row); }
-.main-content table tr:nth-child(odd) { background: var(--table-row-alt); }
-
-/* Lists */
+/* ── Lists ──────────────────────────────────────────────────────────
+   The theme paints list markers #959396, which is 3.0:1 on white: fine
+   for a bullet, a failure for an ordered-list number, which is text. */
 .main-content ul,
 .main-content ol {
 	padding-left: 1.25rem;
@@ -705,65 +1009,394 @@ blockquote.important > p:first-child:before {
 
 .main-content li { margin-bottom: 0.4rem; }
 
-/* Code & pre */
-code {
-	background: var(--code-bg);
-	border: 1px solid var(--code-border);
-	border-radius: 6px;
-	padding: 0.1rem 0.35rem;
-	font-family: 'JetBrains Mono', 'Source Code Pro', monospace;
-	color: var(--link-hover);
+.main-content ol > li::before {
+	color: var(--muted);
+	font-variant-numeric: tabular-nums;
 }
 
-pre {
-	background: var(--code-bg);
-	border: 1px solid var(--code-border);
+.main-content ul > li::before {
+	color: var(--border-strong);
+}
+
+/* ── Callouts and quotations ────────────────────────────────────────
+   No side stripes. A callout is a quiet box: a 1px frame and a faint tint
+   in its family, a leading icon and a text label, so the meaning never
+   rests on hue. Note is deliberately neutral: most asides are not alarms,
+   and a page with 34 blue boxes spends the blue that means "link". */
+.main-content blockquote {
+	margin: 1.5rem 0;
+	padding: 0.875rem 1.125rem;
+	border: 1px solid var(--border-subtle);
+	border-radius: 8px;
+	background: var(--raised);
+	color: var(--text);
+	box-shadow: none;
+}
+
+blockquote:is(.note, .tip, .warning, .important, .note-title, .tip-title, .warning-title, .important-title) {
+	--callout-bg: var(--note-bg);
+	--callout-border: var(--note-border);
+	--callout-label: var(--note-label);
+	--callout-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='6.75' fill='none' stroke='black' stroke-width='1.5'/%3E%3Ccircle cx='8' cy='4.9' r='1'/%3E%3Crect x='7.25' y='6.9' width='1.5' height='4.6' rx='.75'/%3E%3C/svg%3E");
+
+	position: relative;
+	margin: 1.5rem 0;
+	padding: 0.875rem 1.125rem 0.875rem 2.75rem;
+	border: 1px solid var(--callout-border);
+	border-radius: 8px;
+	background: var(--callout-bg);
+	color: var(--text);
+	box-shadow: none;
+
+	&::before {
+		content: '';
+		position: absolute;
+		top: 0.95rem;
+		left: 1rem;
+		width: 1.125rem;
+		height: 1.125rem;
+		background-color: var(--callout-label);
+		mask: var(--callout-icon) center / contain no-repeat;
+	}
+}
+
+blockquote:is(.tip, .tip-title) {
+	--callout-bg: var(--tip-bg);
+	--callout-border: var(--tip-border);
+	--callout-label: var(--tip-label);
+	--callout-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='6.75' fill='none' stroke='black' stroke-width='1.5'/%3E%3Cpath d='M5 8.25l2 2 4-4.5' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+
+blockquote:is(.warning, .warning-title) {
+	--callout-bg: var(--warn-bg);
+	--callout-border: var(--warn-border);
+	--callout-label: var(--warn-label);
+	--callout-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M8 1.9 15 14.1H1Z' fill='none' stroke='black' stroke-width='1.5' stroke-linejoin='round'/%3E%3Crect x='7.25' y='6' width='1.5' height='4.3' rx='.75'/%3E%3Ccircle cx='8' cy='12.1' r='.9'/%3E%3C/svg%3E");
+}
+
+blockquote:is(.important, .important-title) {
+	--callout-bg: var(--imp-bg);
+	--callout-border: var(--imp-border);
+	--callout-label: var(--imp-label);
+	--callout-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M5.1 1.5h5.8l3.6 3.6v5.8l-3.6 3.6H5.1l-3.6-3.6V5.1Z' fill='none' stroke='black' stroke-width='1.5' stroke-linejoin='round'/%3E%3Crect x='7.25' y='4.4' width='1.5' height='4.6' rx='.75'/%3E%3Ccircle cx='8' cy='11.3' r='.9'/%3E%3C/svg%3E");
+}
+
+/* The label rides on the first paragraph, as before, so screen readers still
+   hear "Note" first. `-title` variants use their own first paragraph instead. */
+blockquote:is(.note, .tip, .warning, .important) > p:first-child::before {
+	display: block;
+	margin-bottom: 0.25rem;
+	color: var(--callout-label);
+	font-size: 0.75rem;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	line-height: 1.35;
+	text-transform: uppercase;
+}
+
+blockquote.note > p:first-child::before { content: 'Note'; }
+blockquote.tip > p:first-child::before { content: 'Tip'; }
+blockquote.warning > p:first-child::before { content: 'Warning'; }
+blockquote.important > p:first-child::before { content: 'Important'; }
+
+blockquote:is(.note-title, .tip-title, .warning-title, .important-title) > p:first-child {
+	margin: 0 0 0.25rem;
+	color: var(--callout-label);
+	font-weight: 700;
+}
+
+/* ── Tables ─────────────────────────────────────────────────────────
+   The frame moves to .table-wrapper, the element that actually scrolls, so
+   rounded corners clip correctly and the theme's own wrapper shadow no longer
+   doubles the border. Cells top-align so multi-line rows scan across. The
+   first column sticks while a wide comparison scrolls sideways: it names the
+   row, and losing it is how readers lose their place. */
+.main-content .table-wrapper {
+	border: 1px solid var(--border);
 	border-radius: 10px;
+	box-shadow: none;
+	background: var(--bg);
+	scrollbar-width: thin;
+}
+
+.main-content table {
+	background: transparent;
+	border: 0;
+	border-radius: 0;
+	box-shadow: none;
+	font-variant-numeric: tabular-nums;
+}
+
+.main-content :is(th, td) {
+	background: var(--bg);
+	border-bottom: 1px solid var(--border-subtle);
+	border-left: 1px solid var(--border-subtle);
+	vertical-align: top;
+	line-height: 1.5;
+}
+
+.main-content th {
+	background: var(--raised);
+	color: var(--text-strong);
+	font-weight: 600;
+	/* Browsers center <th> by default; headers align with their column's
+	   content instead. Kramdown's explicit :---: alignment is an inline style
+	   and still wins. */
+	text-align: start;
+	border-bottom: 1px solid var(--border);
+	vertical-align: bottom;
+	padding: 0.75rem;
+}
+
+.main-content td {
+	padding: 0.7rem;
+}
+
+.main-content tbody tr:nth-child(even) > td {
+	background: var(--zebra);
+}
+
+.main-content tbody tr:last-child > td {
+	border-bottom: 0;
+}
+
+@media (hover: hover) {
+	.main-content tbody tr:hover > td {
+		background: var(--row-hover);
+	}
+}
+
+.main-content .table-wrapper :is(th, td):first-child {
+	position: sticky;
+	inset-inline-start: 0;
+	z-index: 1;
+	border-left: 0;
+	box-shadow: inset -1px 0 0 var(--border-subtle);
+}
+
+/* ── Code ───────────────────────────────────────────────────────────
+   Inline code is ink on a faint panel. It used to be light blue, which
+   made every identifier look like a link. The theme sets code at 0.75em
+   (12px in prose, 10.5px in table cells), visibly below Source Sans 3's
+   x-height; 0.875em lines JetBrains Mono up with the surrounding text. */
+:not(pre) > code {
+	background: var(--code-bg);
+	border: 1px solid var(--border-subtle);
+	border-radius: 4px;
+	padding: 0.1em 0.35em;
+	font-family: var(--font-mono);
+	font-size: 0.875em;
+	color: var(--code-text);
+}
+
+pre,
+code {
+	font-family: var(--font-mono);
+}
+
+/* Figures: fenced code blocks and Mermaid diagrams, on a surface that follows
+   the theme (see --figure above). `.mermaid` is the container
+   assets/js/mermaid-init.js renders into; `pre:has(> code.language-mermaid)`
+   covers the theme's own in-place renderer, should it ever be re-enabled. */
+.main-content :is(div.highlighter-rouge, figure.highlight, .mermaid, pre:has(> code.language-mermaid)) {
+	--focus: var(--figure-focus);
+
+	background: var(--figure);
+	border: 1px solid var(--figure-border);
+	border-radius: 10px;
+	color: var(--figure-text);
+	-webkit-print-color-adjust: exact;
+	print-color-adjust: exact;
+}
+
+.main-content :is(div.highlighter-rouge, figure.highlight) :is(div.highlight, pre.highlight) {
+	background: transparent;
+	border: 0;
+	margin: 0;
+}
+
+.main-content pre.highlight,
+.main-content .highlight pre {
 	padding: 0.9rem 1rem;
 	overflow-x: auto;
-	box-shadow: var(--shadow-soft);
+	color: var(--figure-text);
 }
 
-pre code {
-	border: none;
+.main-content pre code {
+	background: transparent;
+	border: 0;
 	padding: 0;
-	color: var(--text-strong);
+	color: inherit;
 }
 
-/* Pills for statuses */
+.main-content div.highlighter-rouge > button {
+	color: var(--figure-muted);
+
+	&:hover {
+		color: var(--figure-text);
+	}
+}
+
+/* Mermaid. The figure frames the diagram; colors inside the SVG are the
+   diagram author's and are never overridden here (no `.mermaid svg …`
+   rules: the palette is owned inline). The light/dark switch is done by
+   re-rendering with a different base theme (assets/js/mermaid-init.js), not
+   by CSS. Diagrams render at natural size (mermaid_config.js sets
+   flowchart.useMaxWidth: false), so a wide one scrolls inside its own frame
+   rather than pushing the page sideways. */
+.main-content :is(.mermaid, pre:has(> code.language-mermaid)) {
+	max-width: 100%;
+	margin: 1.5rem 0;
+	padding: 1.25rem;
+	overflow-x: auto;
+	text-align: center;
+}
+
+.main-content code.language-mermaid {
+	display: block;
+	background: transparent;
+	border: 0;
+	padding: 0;
+	font-family: var(--font-body);
+	line-height: 1.5;
+	white-space: normal;
+	color: var(--figure-text);
+}
+
+/* Until Mermaid replaces the source (or if rendering fails), keep it
+   readable as code rather than one run-on paragraph. */
+.main-content .mermaid:not([data-processed]),
+.main-content .mermaid.mermaid-failed {
+	white-space: pre;
+	text-align: start;
+	font-family: var(--font-mono);
+	font-size: 0.8125rem;
+}
+
+/* Mermaid v11 wraps HTML labels in <p>/<span> inside <foreignObject>, so the
+   prose rules above (paragraph color, strong color, rhythm margins, pretty
+   wrapping) would repaint the author's inline `color:#fff` labels in page
+   ink, which is dark-on-dark in light mode. Labels inherit from the diagram. */
+.main-content :is(.mermaid, code.language-mermaid) :is(p, span, div, strong, em) {
+	color: inherit;
+	margin: 0;
+	text-wrap: wrap;
+}
+
+/* ── Status pills ───────────────────────────────────────────────────
+   Constitution Article III: non-GA must be flagged visibly. Each pill
+   carries its text label and a shape (filled, half, hollow), so the
+   status survives grayscale, color blindness and forced colors. */
 .pill {
 	display: inline-flex;
 	align-items: center;
-	gap: 0.25rem;
-	padding: 0.2rem 0.55rem;
+	gap: 0.35em;
+	padding: 0.15rem 0.55rem;
 	border-radius: 999px;
 	font-size: 0.75rem;
 	font-weight: 600;
-	text-transform: uppercase;
-	letter-spacing: 0.04em;
+	letter-spacing: 0.02em;
+	line-height: 1.4;
+	white-space: nowrap;
+	vertical-align: 0.1em;
 	border: 1px solid transparent;
+
+	&::before {
+		content: '';
+		width: 0.5em;
+		height: 0.5em;
+		border-radius: 50%;
+		border: 1.5px solid currentColor;
+		box-sizing: border-box;
+	}
 }
 
-.pill.ga { background: var(--pill-ga); color: var(--success); border-color: rgba(16, 185, 129, 0.35); }
-.pill.preview { background: var(--pill-preview); color: var(--secondary); border-color: rgba(245, 158, 11, 0.35); }
-.pill.experimental { background: var(--pill-exp); color: var(--danger); border-color: rgba(239, 68, 68, 0.35); }
+.pill.ga { background: var(--ga-bg); color: var(--ga-text); border-color: var(--ga-border); }
+.pill.ga::before { background: currentColor; }
+.pill.preview { background: var(--preview-bg); color: var(--preview-text); border-color: var(--preview-border); }
+.pill.preview::before { background: linear-gradient(90deg, currentColor 50%, transparent 50%); }
+.pill.experimental { background: var(--exp-bg); color: var(--exp-text); border-color: var(--exp-border); }
 
-/* Focus ring */
-:focus-visible {
-	outline: 2px solid var(--secondary);
-	outline-offset: 2px;
-	border-radius: 6px;
+/* ── Buttons ────────────────────────────────────────────────────────
+   One filled action per view. The primary is Fluent brand blue, flat: the
+   theme's glossy gradient and drop shadow are removed. Secondary and outline
+   are the same neutral button; the theme drew the outline as a 2px near-white
+   inset ring, which is why "Walk the full model..." rendered as a white box. */
+.btn,
+.btn-outline {
+	color: var(--text-strong);
+	background: transparent;
+	background-image: none;
+	border-radius: 8px;
+	font-weight: 600;
+	box-shadow: inset 0 0 0 1px var(--border-strong);
+	transition: background-color var(--dur-fast) var(--ease-out);
+
+	&:hover,
+	&:active {
+		color: var(--text-strong);
+		background: var(--nav-hover);
+		box-shadow: inset 0 0 0 1px var(--border-strong);
+	}
+
+	&:active {
+		background: var(--bg-selected);
+	}
+}
+
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:active {
+	color: var(--on-accent);
+	background: var(--accent);
+	background-image: none;
+	box-shadow: none;
+}
+
+.btn-primary:hover,
+.btn-primary:active {
+	background: var(--accent-hover);
+}
+
+@media (hover: hover) and (pointer: fine) {
+	.btn:active {
+		transform: scale(0.96);
+		transition: transform var(--dur-fast) var(--ease-out), background-color var(--dur-fast) var(--ease-out);
+	}
+}
+
+/* ── Rules, images, footer ──────────────────────────────────────────── */
+hr {
+	background-color: var(--border);
+}
+
+/* Screenshots and diagrams-as-images get a neutral hairline so a white image
+   edge never dissolves into a white page. Pure black/white at 10%, never a
+   tinted palette color, which reads as dirt on the edge. */
+.main-content img {
+	outline: 1px solid var(--image-outline);
+	outline-offset: -1px;
+	border-radius: 8px;
+}
+
+.main-content footer,
+.main-content footer p {
+	color: var(--muted);
+}
+
+#back-to-top {
+	color: var(--link);
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   AI Instinct Page — Storytelling-first styling
+   AI Instinct Page: storytelling-first styling
+   Still a Read surface (impeccable v4 modes are per surface), but the one
+   page given its own voice: it is written for everyone, not architects, so it gets a warm voice color (amber, the warm
+   half of the old gradient) used only for its own devices: the banner
+   label, pull-quote marks and the five phase numbers. Links stay blue.
    Scoped to .ai-instinct-page so nothing leaks to other pages.
    ═══════════════════════════════════════════════════════════════ */
-
 .ai-instinct-page {
-
-	/* Essay layout: wide container, narrow prose. Same discipline as the docs
-	   pages, so a long read never runs past a comfortable line length. */
 	max-width: var(--container);
 	margin: 0 auto;
 
@@ -778,18 +1411,15 @@ pre code {
 		max-width: var(--measure);
 	}
 
-	/* Page title — hero treatment */
+	/* Page title: solid ink. Gradient text is decoration, and it dimmed the
+	   second half of the title below the first. */
 	h1 {
 		font-size: 2.25rem !important;
 		line-height: 1.15;
 		margin-bottom: 0.25rem;
-		background: linear-gradient(135deg, var(--text-strong) 0%, var(--link) 100%);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-clip: text;
+		color: var(--text-strong);
 	}
 
-	/* Subtitle styling */
 	.ai-instinct-subtitle {
 		font-size: 1.25rem;
 		color: var(--muted);
@@ -797,7 +1427,6 @@ pre code {
 		margin-bottom: 1.25rem;
 	}
 
-	/* Author block */
 	.ai-instinct-author {
 		display: flex;
 		flex-direction: column;
@@ -808,7 +1437,7 @@ pre code {
 		border-bottom: 1px solid var(--border);
 
 		.author-name {
-			font-family: 'Sora', sans-serif;
+			font-family: var(--font-heading);
 			font-size: 1rem;
 			font-weight: 600;
 			color: var(--text-strong);
@@ -821,11 +1450,10 @@ pre code {
 		}
 	}
 
-	/* Banner */
 	.ai-instinct-banner {
 		position: relative;
-		background: linear-gradient(135deg, rgba(59, 130, 246, 0.08) 0%, rgba(245, 158, 11, 0.06) 100%);
-		border: 1px solid rgba(59, 130, 246, 0.20);
+		background: var(--raised);
+		border: 1px solid var(--border);
 		border-radius: 12px;
 		padding: 1.25rem 1.5rem;
 		margin-bottom: 2rem;
@@ -842,9 +1470,9 @@ pre code {
 			font-weight: 700;
 			text-transform: uppercase;
 			letter-spacing: 0.08em;
-			background: rgba(245, 158, 11, 0.18);
-			color: var(--secondary);
-			border: 1px solid rgba(245, 158, 11, 0.35);
+			background: var(--essay-accent-bg);
+			color: var(--essay-accent);
+			border: 1px solid color-mix(in oklab, var(--essay-accent) 35%, transparent);
 		}
 
 		.banner-text {
@@ -857,7 +1485,7 @@ pre code {
 			}
 
 			em {
-				color: var(--link);
+				color: var(--text-strong);
 				font-style: italic;
 			}
 		}
@@ -870,31 +1498,27 @@ pre code {
 			font-size: 0.85rem;
 			font-weight: 600;
 			color: var(--text-strong);
-			background: rgba(59, 130, 246, 0.15);
-			border: 1px solid rgba(59, 130, 246, 0.30);
+			background: var(--bg);
+			box-shadow: inset 0 0 0 1px var(--border-strong);
 			text-decoration: none;
-			transition: background 140ms ease, border-color 140ms ease;
+			transition: background-color var(--dur-fast) var(--ease-out);
 
 			&:hover {
-				background: rgba(59, 130, 246, 0.25);
-				border-color: rgba(59, 130, 246, 0.50);
+				background: var(--nav-hover);
 				color: var(--text-strong);
 			}
 		}
 	}
 
-	/* Larger, more immersive body text */
+	/* Larger, more immersive body text (existing sizes), with essay leading. */
 	> p,
 	> ul > li,
 	> ol > li {
 		font-size: 1.05rem;
-		line-height: 1.75;
+		line-height: 1.8;
 		color: var(--text);
 	}
 
-	/* Section headings — cleaner, less "card-like".
-	   `.text-delta` is excluded so the theme's compact "Table of contents"
-	   label keeps its eyebrow treatment. */
 	h2:not(.text-delta) {
 		background: transparent;
 		border: none;
@@ -904,20 +1528,9 @@ pre code {
 		margin-top: 3rem;
 		margin-bottom: 1rem;
 		font-size: 1.75rem !important;
-		position: relative;
-
-		&:after {
-			content: '';
-			position: absolute;
-			bottom: -0.5rem;
-			left: 0;
-			height: 3px;
-			width: 4rem;
-			background: var(--gradient-accent);
-			border-radius: 2px;
-		}
 	}
 
+	/* Sub-headings were link-blue; blue text that isn't a link is a lie. */
 	h3:not(.text-delta) {
 		background: transparent;
 		border: none;
@@ -926,48 +1539,50 @@ pre code {
 		padding: 0;
 		margin-top: 2rem;
 		font-size: 1.25rem !important;
-		color: var(--link);
-
-		&:after {
-			display: none;
-		}
-	}
-
-	/* Instinct section headers — the essay's four structural anchors.
-	   Marked by weight, size and space rather than a card, consistent with the
-	   rest of the site. */
-	h3[id*="ai-spine"],
-	h3[id*="ai-voice"],
-	h3[id*="ai-gravity"],
-	h3[id*="ai-rhythm"] {
-		font-size: 1.375rem !important;
-		padding: 0;
-		margin-top: 3rem;
 		color: var(--text-strong);
-		background: none;
 	}
 
-	/* Pull quotes / trigger questions.
-	   A rule down the left of a quotation is the long-standing convention for
-	   quoted matter — kept, but without the card chrome it used to carry. */
+	h3[id*='ai-spine'],
+	h3[id*='ai-voice'],
+	h3[id*='ai-gravity'],
+	h3[id*='ai-rhythm'] {
+		font-size: 1.375rem !important;
+		margin-top: 3rem;
+	}
+
+	/* Pull quotes: a hanging mark in the essay's voice color, no stripe. */
 	blockquote.highlight {
-		background: rgba(245, 158, 11, 0.05);
-		border-left: 3px solid var(--secondary);
-		border-radius: 0 8px 8px 0;
-		padding: 1rem 1.25rem;
+		position: relative;
+		background: none;
+		border: 0;
+		border-radius: 0;
+		padding: 0.25rem 0 0.25rem 2.25rem;
+		margin: 2rem 0;
 		font-size: 1.1rem;
 		font-style: italic;
+		line-height: 1.6;
 		color: var(--text-strong);
-		margin: 1.75rem 0;
 		box-shadow: none;
 
+		&::before {
+			content: '\201C' / '';
+			position: absolute;
+			left: 0;
+			top: -0.2rem;
+			font-family: var(--font-heading);
+			font-size: 2.75rem;
+			font-style: normal;
+			font-weight: 700;
+			line-height: 1;
+			color: var(--essay-accent);
+		}
+
 		strong {
-			color: var(--secondary);
+			color: var(--text-strong);
 			font-style: normal;
 		}
 	}
 
-	/* Real-life examples — subtle visual distinction */
 	ul {
 		padding-left: 1.5rem;
 	}
@@ -977,7 +1592,6 @@ pre code {
 		padding-left: 0.25rem;
 	}
 
-	/* The four instincts summary table — polished */
 	table {
 		margin: 2rem 0;
 
@@ -989,22 +1603,20 @@ pre code {
 
 		td:first-child {
 			font-weight: 600;
-			color: var(--primary);
+			color: var(--text-strong);
 			white-space: nowrap;
 		}
 	}
 
-	/* Phase sections — journey progression feel */
-	h3[id*="phase"] {
-		padding-left: 0;
-		border-left: none;
-		color: var(--text-strong);
-		font-size: 1.25rem !important;
+	/* Phase sections: a real five-step sequence, so the numbers earn their place. */
+	h3[id*='phase'] {
 		position: relative;
 		padding-left: 2rem;
+		color: var(--text-strong);
+		font-size: 1.25rem !important;
 		background: transparent;
 
-		&:before {
+		&::before {
 			position: absolute;
 			left: 0;
 			top: 50%;
@@ -1012,87 +1624,103 @@ pre code {
 			width: 1.4rem;
 			height: 1.4rem;
 			border-radius: 50%;
-			background: var(--gradient-accent);
-			display: flex;
-			align-items: center;
-			justify-content: center;
+			display: grid;
+			place-items: center;
+			font-family: var(--font-body);
 			font-size: 0.7rem;
 			font-weight: 700;
-			color: var(--bg);
+			background: var(--essay-accent-bg);
+			color: var(--essay-accent);
+			box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--essay-accent) 40%, transparent);
 		}
 	}
 
-	h3[id*="phase-1"]:before { content: '1'; }
-	h3[id*="phase-2"]:before { content: '2'; }
-	h3[id*="phase-3"]:before { content: '3'; }
-	h3[id*="phase-4"]:before { content: '4'; }
-	h3[id*="phase-5"]:before { content: '5'; }
+	h3[id*='phase-1']::before { content: '1'; }
+	h3[id*='phase-2']::before { content: '2'; }
+	h3[id*='phase-3']::before { content: '3'; }
+	h3[id*='phase-4']::before { content: '4'; }
+	h3[id*='phase-5']::before { content: '5'; }
 
-	/* Image — full-width, rounded */
 	img {
 		border-radius: 12px;
-		box-shadow: var(--shadow);
 		margin: 2rem 0;
 		max-width: 100%;
 		height: auto;
 	}
 
-	/* Bold closer — signature line */
 	> p:last-of-type {
 		font-size: 0.95rem;
 		color: var(--muted);
 		font-style: italic;
 	}
 
-	/* Horizontal rules — subtle breath between sections */
 	hr {
 		border: none;
 		height: 1px;
-		background: linear-gradient(90deg, transparent, var(--border), transparent);
+		background: var(--border);
 		margin: 3rem 0;
 	}
 
-	/* "What AI Instinct Is Not" — bold items stand out */
 	> p > strong:first-child {
 		color: var(--text-strong);
 	}
 }
 
-/* Mermaid alignment */
-.mermaid {
-	background: transparent !important;
-	color: var(--text-strong);
+/* ── Motion ─────────────────────────────────────────────────────────
+   A reading site: color and background fades of 120–160ms on things a hand
+   touches, a 0.96 press on buttons (better-ui), and nothing that moves on its own. No
+   entrance animations; theme switches are instant (assets/js/theme.js
+   suppresses transitions for that frame). The theme's smooth scrolling is
+   kept for anchor jumps but honors the reader's motion setting. */
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+
+	*,
+	*::before,
+	*::after {
+		transition-duration: 0.01ms !important;
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+	}
 }
 
-.mermaid svg .node rect,
-.mermaid svg .node polygon,
-.mermaid svg .node circle {
-	fill: rgba(59, 130, 246, 0.15) !important;
-	stroke: var(--primary-strong) !important;
-	color: #ffffff !important;
+/* ── Forced colors (Windows High Contrast) ──────────────────────────── */
+@media (forced-colors: active) {
+	blockquote:is(.note, .tip, .warning, .important, .note-title, .tip-title, .warning-title, .important-title)::before {
+		background-color: CanvasText;
+	}
+
+	.pill {
+		border-color: CanvasText;
+	}
+
+	.site-nav .nav-list .nav-list-item .nav-list-link.active {
+		outline: 2px solid Highlight;
+		outline-offset: -2px;
+	}
 }
 
-.mermaid svg .edgePath path {
-	stroke: #cbd5e1 !important;
-}
+/* ── Print ──────────────────────────────────────────────────────────
+   Paper is light whatever the screen was. Figures keep the surface their
+   diagrams were rendered for (the figure tokens sit outside the page
+   mixins, and print-color-adjust above), so a diagram drawn for the dark
+   theme prints on its dark frame instead of losing its white lines. */
+@media print {
+	/* (0,2,0), so it outranks both runtime dark selectors. */
+	:root:not(.aidf-print),
+	:root[data-theme] {
+		@include aidf-light;
+	}
 
-.mermaid svg .label {
-	color: #e5ecf5 !important;
-	fill: #e5ecf5 !important;
-}
+	.page-toc,
+	.theme-switch {
+		display: none !important;
+	}
 
-/* Animations.
-   Headings no longer animate — a page of 78 individually fading headings is
-   noise, not polish. What remains is gated behind a motion preference. */
-@keyframes fade-up {
-	from { opacity: 0; transform: translateY(6px); }
-	to { opacity: 1; transform: translateY(0); }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-	.content-panel,
-	.page-header {
-		animation: fade-up 240ms ease;
+	a:not([class]) {
+		text-decoration-color: currentColor;
 	}
 }
 
@@ -1124,5 +1752,9 @@ pre code {
 	#main-content,
 	.main-content {
 		padding: 1rem 1.25rem 3rem;
+	}
+
+	.main-header.nav-open .theme-switch {
+		margin: 0.5rem 0 0;
 	}
 }

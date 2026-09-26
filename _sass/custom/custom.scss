@@ -124,16 +124,18 @@
 :root {
 	@include aidf-light;
 
-	/* Figures (code blocks, Mermaid diagrams, embedded explorer) are dark in
-	   BOTH themes. The diagrams own their palette inline (dark theme, white
-	   labels) and must never be recolored by CSS, so the page gives them a
-	   deliberate dark surface instead: a projected slide inside a printed
-	   document. It also means one syntax palette serves both themes. */
-	--figure: #161a1f;          /* oklch(.215 .012 255) */
-	--figure-border: #292e35;
-	--figure-text: #e6e8eb;     /* 14.2:1 */
-	--figure-muted: #a0a5ac;    /*  7.1:1 */
-	--figure-focus: #77b7f7;    /*  8.2:1 */
+	/* Figures: code blocks and Mermaid diagrams. They follow the theme like
+	   everything else, but a diagram's node colors are its author's, set
+	   inline, and are never recolored here: assets/js/mermaid-init.js
+	   re-renders each diagram with light or dark base settings (background,
+	   default nodes, lines, labels) and leaves the inline palette alone.
+	   These tokens sit outside the page mixins on purpose, so print keeps the
+	   surface each diagram was rendered for. */
+	--figure: #f6f8fa;          /* oklch(.978 .003 248) */
+	--figure-border: #d5dae0;
+	--figure-text: #272e38;     /* 12.9:1 */
+	--figure-muted: #535c66;    /*  6.4:1 */
+	--figure-focus: #0f548c;    /*  7.4:1 */
 
 	/* Type. Families unchanged; Source Sans 3 now loads its real italics. */
 	--font-body: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -169,16 +171,44 @@
 	--header-h: 3.75rem;
 }
 
+@mixin aidf-figure-dark {
+	--figure: #0c0f12;
+	--figure-border: #292e35;
+	--figure-text: #e6e8eb;     /* 15.7:1 */
+	--figure-muted: #a0a5ac;    /*  7.8:1 */
+	--figure-focus: #77b7f7;
+}
+
 @media (prefers-color-scheme: dark) {
 	:root:not([data-theme='light']) {
 		@include aidf-dark;
-		--figure: #0c0f12;
+		@include aidf-figure-dark;
 	}
 }
 
 :root[data-theme='dark'] {
 	@include aidf-dark;
-	--figure: #0c0f12;
+	@include aidf-figure-dark;
+}
+
+/* Syntax colors follow the figure. The theme always compiles
+   accessible-pygments' github-light; its github-dark twin is scoped to the
+   dark theme here (and to an OS dark preference when JavaScript is off). */
+@media (prefers-color-scheme: dark) {
+	:root:not([data-theme='light']) {
+		@import "./vendor/accessible-pygments/github-dark";
+	}
+}
+
+:root[data-theme='dark'] {
+	@import "./vendor/accessible-pygments/github-dark";
+}
+
+/* github-light is tuned for a white ground; on the light figure its comment
+   gray (#6E7781) falls to 4.27:1, so comments take the figure's muted ink
+   (6.4:1). The scoped github-dark rules above outrank this in dark. */
+.highlight :is(.c, .ch, .cm, .cp, .cpf, .c1, .cs) {
+	color: var(--figure-muted);
 }
 
 /* Base layout */
@@ -349,11 +379,22 @@ body > header > div.d-md-block.d-none.site-footer {
 }
 
 /* Embedded explorers. An inline iframe sits on the text baseline and leaves a
-   descender gap beneath it, which reads as a light strip inside the dark
-   figure frame in light mode. */
+   descender gap beneath it, which reads as a light strip inside its frame. */
 .main-content iframe {
 	display: block;
 	max-width: 100%;
+}
+
+/* The explorer embeds in docs/visual-framework.md carry inline dark styles
+   (a #1f2937 frame, a #0d1117 loading fill) from the dark-only era. The
+   explorer now follows the theme, so its frame does too; `!important` is the
+   only way past an inline style without editing the content. */
+.main-content div:has(> iframe[src*='/explorer/']) {
+	border-color: var(--border) !important;
+}
+
+.main-content iframe[src*='/explorer/'] {
+	background: var(--bg) !important;
 }
 
 /* ── "On this page" rail ────────────────────────────────────────────
@@ -1135,13 +1176,16 @@ blockquote:is(.note-title, .tip-title, .warning-title, .important-title) > p:fir
 
 /* ── Code ───────────────────────────────────────────────────────────
    Inline code is ink on a faint panel. It used to be light blue, which
-   made every identifier look like a link. */
+   made every identifier look like a link. The theme sets code at 0.75em
+   (12px in prose, 10.5px in table cells), visibly below Source Sans 3's
+   x-height; 0.875em lines JetBrains Mono up with the surrounding text. */
 :not(pre) > code {
 	background: var(--code-bg);
 	border: 1px solid var(--border-subtle);
 	border-radius: 4px;
 	padding: 0.1em 0.35em;
 	font-family: var(--font-mono);
+	font-size: 0.875em;
 	color: var(--code-text);
 }
 
@@ -1150,8 +1194,8 @@ code {
 	font-family: var(--font-mono);
 }
 
-/* Figures: fenced code blocks and Mermaid diagrams share one dark surface in
-   both themes (see --figure above). `.mermaid` is the container
+/* Figures: fenced code blocks and Mermaid diagrams, on a surface that follows
+   the theme (see --figure above). `.mermaid` is the container
    assets/js/mermaid-init.js renders into; `pre:has(> code.language-mermaid)`
    covers the theme's own in-place renderer, should it ever be re-enabled. */
 .main-content :is(div.highlighter-rouge, figure.highlight, .mermaid, pre:has(> code.language-mermaid)) {
@@ -1195,9 +1239,11 @@ code {
 
 /* Mermaid. The figure frames the diagram; colors inside the SVG are the
    diagram author's and are never overridden here (no `.mermaid svg …`
-   rules: the palette is owned inline). Diagrams render at natural size
-   (mermaid_config.js sets flowchart.useMaxWidth: false), so a wide one
-   scrolls inside its own frame rather than pushing the page sideways. */
+   rules: the palette is owned inline). The light/dark switch is done by
+   re-rendering with a different base theme (assets/js/mermaid-init.js), not
+   by CSS. Diagrams render at natural size (mermaid_config.js sets
+   flowchart.useMaxWidth: false), so a wide one scrolls inside its own frame
+   rather than pushing the page sideways. */
 .main-content :is(.mermaid, pre:has(> code.language-mermaid)) {
 	max-width: 100%;
 	margin: 1.5rem 0;
@@ -1657,8 +1703,10 @@ hr {
 }
 
 /* ── Print ──────────────────────────────────────────────────────────
-   Paper is light whatever the screen was. Figures keep their dark surface
-   (print-color-adjust above) because the diagrams' white lines need it. */
+   Paper is light whatever the screen was. Figures keep the surface their
+   diagrams were rendered for (the figure tokens sit outside the page
+   mixins, and print-color-adjust above), so a diagram drawn for the dark
+   theme prints on its dark frame instead of losing its white lines. */
 @media print {
 	/* (0,2,0), so it outranks both runtime dark selectors. */
 	:root:not(.aidf-print),

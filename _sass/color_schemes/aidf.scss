@@ -42,7 +42,6 @@ $link-color: #115ea3;
 $base-button-color: #f4f7fa;
 $btn-primary-color: #0f6cbd;
 
-// Code blocks and diagrams sit on the same dark "figure" surface in both
-// themes, so one syntax palette is correct for both: accessible-pygments'
-// github-dark, which ships with the theme.
-@import "./vendor/accessible-pygments/github-dark";
+// Syntax highlighting: light.scss (always imported first) supplies
+// accessible-pygments' github-light; custom.scss scopes github-dark to the
+// dark theme, so code blocks follow the reader's choice like everything else.

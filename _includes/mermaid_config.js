@@ -7,5 +7,8 @@
     "lineColor": "#fff",
     "secondaryColor": "#5C2D91",
     "tertiaryColor": "#107C10"
+  },
+  "flowchart": {
+    "useMaxWidth": false
   }
 }

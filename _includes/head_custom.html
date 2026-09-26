@@ -18,6 +18,8 @@
     root.setAttribute('data-theme-pref', pref);
   })();
 </script>
+<meta name="theme-color" content="#f4f7fa" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0e1114" media="(prefers-color-scheme: dark)">
 
 <!-- Webfonts.
      Loaded here rather than via an @import inside custom.scss: a CSS @import
@@ -28,7 +30,7 @@
      without them the browser synthesises a slanted roman. -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400..700;1,400..700&family=Sora:wght@600;700&family=JetBrains+Mono:wght@400;600&display=swap">
 
 {%- comment -%}
   Mermaid loads only on pages that contain a diagram, deferred, from one
@@ -44,3 +46,4 @@
      served with newlines stripped, which would collapse the script onto one
      line and let its first // comment swallow the rest of the file. -->
 <script src="{{ '/assets/js/page-toc.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/js/theme.js' | relative_url }}" defer></script>

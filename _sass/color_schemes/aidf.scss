@@ -1,0 +1,48 @@
+// "Ink & Signal" color scheme for Just the Docs.
+//
+// Selected with `color_scheme: aidf` in _config.yml. Instead of baking one
+// palette into the theme at build time, every theme variable that reaches CSS
+// unmodified points at a custom property defined in _sass/custom/custom.scss.
+// The theme's own compiled selectors (body, sidebar, header, hr, tables,
+// search, code) therefore follow the reader's light/dark choice at runtime,
+// with no override needed and nothing left to leak.
+//
+// Three variables stay literal colors because Just the Docs passes them through
+// Sass color functions (darken(), lighten()), which cannot operate on var().
+// custom.scss re-points the handful of selectors that consume them: links
+// (base.scss), buttons (buttons.scss, mixins/_buttons.scss) and the nav hover
+// color (navigation.scss).
+//
+// Verified against just-the-docs v0.12.0. Keep remote_theme pinned; a theme
+// upgrade must re-run this check (grep the theme's _sass for these names).
+
+$color-scheme: light; // runtime value is set per theme by custom.scss
+
+$body-background-color: var(--bg);
+$body-heading-color: var(--text-strong);
+$body-text-color: var(--text);
+$sidebar-color: var(--chrome);
+$nav-child-link-color: var(--text);
+$code-background-color: var(--figure);
+$code-linenumber-color: var(--figure-muted);
+$table-background-color: transparent;
+$search-background-color: var(--overlay);
+$search-result-preview-color: var(--muted);
+$border-color: var(--border);
+
+// JTD builds its nav/search hover gradients with rgba($feedback-color, n).
+// Given a var() that output is invalid CSS, so the browser drops those
+// background-image declarations entirely, which is the intent: hover states
+// are drawn by custom.scss, not by a baked-in gradient.
+$feedback-color: var(--nav-hover);
+
+// Literal: consumed by Sass color functions. Light-mode values; custom.scss
+// supplies the runtime colors for both themes.
+$link-color: #115ea3;
+$base-button-color: #f4f7fa;
+$btn-primary-color: #0f6cbd;
+
+// Code blocks and diagrams sit on the same dark "figure" surface in both
+// themes, so one syntax palette is correct for both: accessible-pygments'
+// github-dark, which ships with the theme.
+@import "./vendor/accessible-pygments/github-dark";

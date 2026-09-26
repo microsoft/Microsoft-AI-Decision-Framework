@@ -1,0 +1,28 @@
+{%- comment -%}
+  Theme switch. Just the Docs includes this file inside #main-header, between
+  the search box and the auxiliary links (components/header.html).
+  Native radios in a fieldset: Tab reaches the group once, arrow keys change
+  the choice, and screen readers announce "Color theme, radio group".
+  assets/js/theme.js checks the saved choice and applies changes. The inline
+  script below only marks the saved choice before first paint; no // comments
+  in it, because the built HTML is newline-stripped.
+{%- endcomment -%}
+<fieldset class="theme-switch">
+  <legend class="sr-only">Color theme</legend>
+  <label class="theme-switch__option">
+    <input type="radio" name="aidf-theme" value="light">
+    <svg viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="8" cy="8" r="3"/><path d="M8 1.25v1.5M8 13.25v1.5M1.25 8h1.5M13.25 8h1.5M3.2 3.2l1.06 1.06M11.74 11.74l1.06 1.06M3.2 12.8l1.06-1.06M11.74 4.26l1.06-1.06"/></svg>
+    <span class="theme-switch__label">Light</span>
+  </label>
+  <label class="theme-switch__option">
+    <input type="radio" name="aidf-theme" value="dark">
+    <svg viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M13.5 9.6A5.75 5.75 0 0 1 6.4 2.5a5.75 5.75 0 1 0 7.1 7.1Z"/></svg>
+    <span class="theme-switch__label">Dark</span>
+  </label>
+  <label class="theme-switch__option">
+    <input type="radio" name="aidf-theme" value="system" checked>
+    <svg viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1.75" y="2.5" width="12.5" height="8.5" rx="1.25"/><path d="M5.5 14h5M8 11v3"/></svg>
+    <span class="theme-switch__label">System</span>
+  </label>
+</fieldset>
+<script>(function () { var pref = document.documentElement.getAttribute('data-theme-pref') || 'system'; var input = document.querySelector('.theme-switch input[value="' + pref + '"]'); if (input) { input.checked = true; } })();</script>

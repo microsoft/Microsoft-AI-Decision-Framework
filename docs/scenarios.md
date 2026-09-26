@@ -764,6 +764,75 @@ Availability, licensing, and prerequisites across these controls vary considerab
 
 ---
 
+## Scenario 11: Business Teams Building Their Own Apps
+{: #scenario-11-business-teams-building-their-own-apps }
+
+**Bucket:** *AI for Your Codebase*
+
+### Business Context
+{: #scenario11-business-context .no_toc }
+
+**The request IT was never going to prioritize just became an afternoon's work. Nobody has decided who owns the result.**
+
+An operations lead runs a twelve-person team on a spreadsheet. It goes out by email every Monday, and by Wednesday she is reconciling four versions of the truth by hand. Her request for a proper tracking app has sat in IT's queue for eighteen months, and it will stay there, because a team tracker never beats a platform migration in a prioritization meeting. IT is not wrong about that.
+
+Now she can describe the app in a paragraph and use a working version before lunch. The tool has stopped being the constraint. The constraint is everything after lunch: who else opens it, what data it reaches, whose name is on it when the Monday numbers are wrong, and what becomes of it when she changes jobs. Building got cheap. Owning didn't.
+
+### Is This Actually Agentic?
+{: #scenario11-agentic .no_toc }
+
+**Usually no. The agent is the builder, not the product.**
+
+An agent does the building: it asks questions, proposes a plan, writes the code, and revises it in conversation. Then it leaves, and what remains is a tracker that behaves the same way every time someone opens it. AI built it, which is what puts this scenario in the codebase bucket, and what it built is ordinary software you can test.
+
+The exception is an app that calls a model while it runs, say to draft replies. Evaluate that step, and open the *AI as a Product or Feature* conversation alongside this one. It still isn't an agent. Microsoft's own guidance draws that line: *"If the task doesn't need tools or multistep reasoning, an agent is unnecessary."*
+
+### Key Requirements
+{: #scenario11-key-requirements .no_toc }
+
+- **A named owner before the first share link.** Not necessarily the builder: the person who will answer for the app in a year, often the builder's manager.
+- **A sharing scope chosen on purpose, and tested** before anyone else can open the app.
+- **Connector policy you have checked, not assumed.** Microsoft documents a combination of environment-group settings under which classic data policies are ignored and connectors go unrestricted.
+- **Testing in layers.** Known-good cases the owner can judge, rerun after every change, then the checks [Microsoft's guidance for Copilot Studio apps](https://learn.microsoft.com/en-us/microsoft-copilot-studio/faq-apps) lists: *"calculations, sample data, links, permissions, connections, accessibility, and error handling"*. A developer or platform reviewer covers what the owner can't assess.
+- **A budget for the iterations.** In Copilot Studio, each build and test can consume Copilot Credits.
+- **A retirement rule** for an app nobody has opened in a quarter.
+
+### Recommended Technologies
+{: #scenario11-recommended .no_toc }
+
+**The decision point: who else will use it, and who owns it when it breaks?** Microsoft's runtime overview says who each creation path is for, and its Power Apps vibe page recommends Cowork and Copilot Studio *"moving forward"*; the split below is ours. All of it is early, and the Copilot Studio and Power Apps vibe pages say what that means: *"Preview features aren't meant for production use and might have restricted functionality."* Pilot on a tracker the team could lose for a week, not on payroll, and check [Technologies]({{ '/docs/technologies#copilot-managed-runtime' | relative_url }}) for current status.
+
+| If the app and its audience look like this | Reach for | Because |
+| :--- | :--- | :--- |
+| Just you: a widget, a personal dashboard, a one-off tracker | **Copilot Code** *(Frontier, rolling out)* | Copilot picks the approach, from desktop widget to shareable app. For a one-time question, skip the app and ask Copilot in Excel |
+| Your team, over its own Microsoft 365 content: a stand-up board, a request tracker | The **App skill** in Copilot Cowork *(Frontier)* | Built where your people delegate work, and shared by link, which is why the owner comes first |
+| One step in a business process | **Copilot Studio** apps *(Preview)* | Built beside the agents and flows around it, with more control over build and publish. Data is reached as the signed-in user |
+| An app the department now depends on | A developer on the **same repository**, with GitHub Copilot and the Managed Runtime CLI or plugin *(Preview)* | Promotion without the rewrite (below) |
+| Customers will use it | Settle hosting and sign-in first | Copilot Managed Runtime hosts Microsoft 365 line-of-business apps. A customer audience changes where the app runs, not its bucket |
+
+**Promotion without the rewrite.** Every app on Copilot Managed Runtime has a Git repository, and Microsoft's launch post describes a developer continuing a Cowork-built app *"without forking"*. Power Apps vibe forks on purpose: *"Converting a vibe app creates a new code app"*. Choose the handoff before the app becomes a dependency, and hand over the repository with the requirements and tests. Either path still needs a review.
+
+### Alternative Approaches
+{: #scenario11-alternatives .no_toc }
+
+- **A list, not an app.** A Microsoft List or SharePoint list with two good views is a tracker that inherits its site's permissions. It still needs an owner, and it is often the whole answer.
+- **Keep the spreadsheet, fix the Monday.** One shared workbook, co-authored instead of emailed, cures the four-versions problem without adding software to anyone's estate.
+- **Check whether someone already built it.** The admin center's app inventory shows every app built on the runtime, and another department may have made the same tracker last month.
+- **Buy it.** If the "tracker" is really a software category, such as applicant tracking, a SaaS product with a vendor on call beats an app whose owner has a day job.
+
+### What Usually Goes Wrong
+{: #scenario11-failure .no_toc }
+
+**The orphaned app.** The builder leaves; the app stays. Name the next owner, and review app access and source permissions separately, because Microsoft's FAQ says no single operation removes both. An inventory is not an offboarding plan.
+
+**The share link that shared the data.** Cowork's documentation says anyone with an app's link can use it *"including all its data"*; the runtime FAQ says sharing *"doesn't grant access to the app's underlying data"*; Copilot Studio's FAQ says it *"might not automatically share its underlying data"*. Test with an account that can't see the source before real data goes in, or a tracker built over the team's HR spreadsheet may become an HR disclosure with a friendly interface.
+
+**The wrong number nobody checked.** The app totals the Monday figures, everyone trusts it because it is software now, and the logic has been wrong since week two. That is [the Spreadsheet Precedent]({{ '/docs/capability-model#everyone-has-a-codebase-now' | relative_url }}) in app form. No runtime can tell you whether the number is right. The known-good cases are your first defense, not your only one.
+
+**Code changes outside the audit trail.** Purview lists a Git push or code change on the runtime as *"Not audited"*, and that gap opens just as a developer picks up the repository. Bind the app to your own GitHub repository at creation and your *"existing branch policies and pull request reviews continue to apply"*. On the platform-managed default, define a review gate yourself.
+
+---
+
 ## A Warning About Multi-Agent Orchestration
 {: #multi-agent-orchestration-warning }
 
@@ -803,7 +872,7 @@ Look at what the work actually is. Demand forecasting is a time-series problem w
 ## A Niche Entry: Offline and On-Device Work
 {: #niche-offline-and-on-device-work }
 
-**Explicitly not one of the ten.** The demand signal for this is narrow and constraint-driven rather than broad. It is here because when it applies, it applies absolutely, and because the test it teaches is useful well beyond it.
+**Explicitly not one of the eleven.** The demand signal for this is narrow and constraint-driven rather than broad. It is here because when it applies, it applies absolutely, and because the test it teaches is useful well beyond it.
 
 **Bucket:** *AI as a Product or Feature*
 
@@ -841,6 +910,7 @@ Look at what the work actually is. Demand forecasting is a time-series problem w
 | 8 | [Document-in, system-out back office](#scenario-8-document-in-system-out-back-office) | Product or Feature | **No**, extraction plus workflow | How variable are the documents? | AI Builder / Document Intelligence / Content Understanding + Power Automate + Dataverse |
 | 9 | [UI automation where no API exists](#scenario-9-ui-automation-where-no-api-exists) | Product or Feature | **Yes**, perception-action loop | Stable interface → deterministic RPA; drifting → computer use | Power Automate desktop flows, Copilot Studio computer use, Foundry computer use, Entra Agent ID |
 | 10 | [Agent governance and agent sprawl](#scenario-10-agent-governance-and-agent-sprawl) | Cross-cutting | **Wrong question**, this is a don't-build | Treat agents as principals, not features | Entra Agent ID, Agent 365, Power Platform admin center, Purview |
+| 11 | [Business teams building their own apps](#scenario-11-business-teams-building-their-own-apps) | Your Codebase | **Usually no**, the agent is the builder, not the product | Who else uses it, and who owns it when it breaks? | Copilot Code (Frontier rollout); Cowork App skill (Frontier); Copilot Studio apps and Copilot Managed Runtime (Preview); GitHub Copilot for the handoff; Power Apps vibe (Preview, hands over by fork) |
 | - | [Offline and on-device work](#niche-offline-and-on-device-work) *(niche)* | Product or Feature | **Rarely** | Pin the device profile before choosing a model | Foundry Local, Windows on-device text recognition |
 
 Two sections above are not scenarios and belong in this table only as warnings: [multi-agent orchestration](#multi-agent-orchestration-warning) is what people build instead of the right answer, and [the forecasting problem wearing an agent hat](#anti-pattern-forecasting-problem-agent-hat) is what vendors sell instead of it.

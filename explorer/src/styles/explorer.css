@@ -1,10 +1,12 @@
 /* ========================================================
    AIDF Decision Explorer
    Tokens mirror the docs theme ("Ink & Signal", _sass/custom/custom.scss).
-   Chrome (header, tabs, detail panel) follows the reader's theme; the graph
-   canvas is a dark "figure" in both themes, like the docs' code blocks and
-   Mermaid diagrams, because the node palette is authored for a dark ground.
-   index.html sets <html data-theme> before first paint.
+   Everything follows the reader's theme: chrome, canvas and nodes. Node
+   fills are authored as dark colors in src/data; src/nodes/tone.ts maps each
+   to a tone whose light and dark values live below, so dark reproduces the
+   authored graph exactly and light re-tints it (tint fill, saturated border,
+   ink text). index.html sets <html data-theme> before first paint and keeps
+   it in step with the docs, so a switch restyles the graph with no re-render.
    ======================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap');
@@ -26,22 +28,43 @@
   --accent-hover: #115ea3;
   --on-accent: #ffffff;
   --focus: #0f548c;
-  --chrome-focus: #0f548c;
   --shadow-overlay: 0 12px 32px -12px rgb(16 23 31 / 0.22), 0 2px 6px -2px rgb(16 23 31 / 0.12);
 
-  /* The figure: identical in both themes apart from depth. */
-  --figure: #161a1f;
-  --figure-raised: #1f242b;
-  --figure-border: #292e35;
-  --figure-text: #e6e8eb;
-  --figure-muted: #a0a5ac;
-  --figure-edge: #7d8796;
-  --figure-focus: #77b7f7;
+  /* Canvas */
+  --canvas: #f8fafc;
+  --canvas-dots: #cfd6de;
+  --canvas-raised: #ffffff;
+  --canvas-border: #d5dae0;
+  --canvas-text: #272e38;
+  --canvas-muted: #535c66;
+  --canvas-edge: #78818c;          /* 3.8:1 on the canvas */
+  --canvas-edge-active: #0f6cbd;
+  --canvas-mask: rgb(214 221 229 / 0.55);
+
+  /* Nodes: tint fill, saturated border (3:1 or better on the canvas), ink text. */
+  --node-text: #10171f;
+  --node-shadow: 0 1px 2px rgb(16 23 31 / 0.08), 0 2px 6px rgb(16 23 31 / 0.06);
+  --tone-navy-bg: #e7f0fa;      --tone-navy-border: #0f6cbd;      --tone-navy-mini: #0f6cbd;
+  --tone-violet-bg: #f1ebfc;    --tone-violet-border: #6d28d9;    --tone-violet-mini: #6d28d9;
+  --tone-amber-bg: #fdf1dc;     --tone-amber-border: #b45309;     --tone-amber-mini: #b45309;
+  --tone-maroon-bg: #fdeceb;    --tone-maroon-border: #b91c1c;    --tone-maroon-mini: #b91c1c;
+  --tone-green-bg: #e5f5ec;     --tone-green-border: #15803d;     --tone-green-mini: #15803d;
+  --tone-teal-bg: #e2f3f7;      --tone-teal-border: #0e7490;      --tone-teal-mini: #0e7490;
+  --tone-steel-bg: #e6eff6;     --tone-steel-border: #2b6a99;     --tone-steel-mini: #2b6a99;
+  --tone-start-bg: #ffffff;     --tone-start-border: #0f6cbd;     --tone-start-mini: #0f6cbd;
+  --tone-question-bg: #ffffff;  --tone-question-border: #6d28d9;  --tone-question-mini: #6d28d9;
+  --tone-decision-bg: #e7f0fa;  --tone-decision-border: #0f6cbd;  --tone-decision-mini: #0f6cbd;
+  --tone-warning-bg: #fdf1dc;   --tone-warning-border: #b45309;   --tone-warning-mini: #b45309;
+  --tone-outcome-bg: #e5f5ec;   --tone-outcome-border: #15803d;   --tone-outcome-mini: #15803d;
+  --tone-reference-bg: #f1ebfc; --tone-reference-border: #6d28d9; --tone-reference-mini: #6d28d9;
+  --tone-linkout-bg: #fdeceb;   --tone-linkout-border: #b91c1c;   --tone-linkout-mini: #b91c1c;
 
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
   --dur-fast: 120ms;
 }
 
+/* Dark: chrome tokens, the canvas, and nodes exactly as authored (authored
+   fills keep a same-color border; category defaults keep their bright one). */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) {
     color-scheme: dark;
@@ -58,9 +81,32 @@
     --link-hover: #cfe4fa;
     --accent-hover: #2975c2;
     --focus: #77b7f7;
-    --chrome-focus: #77b7f7;
     --shadow-overlay: 0 16px 40px -12px rgb(0 0 0 / 0.6), 0 2px 6px -2px rgb(0 0 0 / 0.4);
-    --figure: #0c0f12;
+    --canvas: #0c0f12;
+    --canvas-dots: #1f2937;
+    --canvas-raised: #1f242b;
+    --canvas-border: #292e35;
+    --canvas-text: #e6e8eb;
+    --canvas-muted: #a0a5ac;
+    --canvas-edge: #7d8796;
+    --canvas-edge-active: #77b7f7;
+    --canvas-mask: rgb(0 0 0 / 0.65);
+    --node-text: #eef3fb;
+    --node-shadow: 0 2px 8px rgb(0 0 0 / 0.3);
+    --tone-navy-bg: #1e3a5f;      --tone-navy-border: #1e3a5f;      --tone-navy-mini: #3b82f6;
+    --tone-violet-bg: #4c1d95;    --tone-violet-border: #4c1d95;    --tone-violet-mini: #8b5cf6;
+    --tone-amber-bg: #78350f;     --tone-amber-border: #78350f;     --tone-amber-mini: #f59e0b;
+    --tone-maroon-bg: #7f1d1d;    --tone-maroon-border: #7f1d1d;    --tone-maroon-mini: #ef4444;
+    --tone-green-bg: #064e3b;     --tone-green-border: #064e3b;     --tone-green-mini: #10b981;
+    --tone-teal-bg: #0e5a6f;      --tone-teal-border: #0e5a6f;      --tone-teal-mini: #06b6d4;
+    --tone-steel-bg: #1e4d6e;     --tone-steel-border: #1e4d6e;     --tone-steel-mini: #60a5fa;
+    --tone-start-bg: #111827;     --tone-start-border: #3b82f6;     --tone-start-mini: #3b82f6;
+    --tone-question-bg: #111827;  --tone-question-border: #7c3aed;  --tone-question-mini: #7c3aed;
+    --tone-decision-bg: #1e3a5f;  --tone-decision-border: #3b82f6;  --tone-decision-mini: #3b82f6;
+    --tone-warning-bg: #78350f;   --tone-warning-border: #f59e0b;   --tone-warning-mini: #f59e0b;
+    --tone-outcome-bg: #064e3b;   --tone-outcome-border: #10b981;   --tone-outcome-mini: #10b981;
+    --tone-reference-bg: #4c1d95; --tone-reference-border: #7c3aed; --tone-reference-mini: #7c3aed;
+    --tone-linkout-bg: #7f1d1d;   --tone-linkout-border: #ef4444;   --tone-linkout-mini: #ef4444;
   }
 }
 
@@ -79,9 +125,41 @@
   --link-hover: #cfe4fa;
   --accent-hover: #2975c2;
   --focus: #77b7f7;
-  --chrome-focus: #77b7f7;
   --shadow-overlay: 0 16px 40px -12px rgb(0 0 0 / 0.6), 0 2px 6px -2px rgb(0 0 0 / 0.4);
-  --figure: #0c0f12;
+  --canvas: #0c0f12;
+  --canvas-dots: #1f2937;
+  --canvas-raised: #1f242b;
+  --canvas-border: #292e35;
+  --canvas-text: #e6e8eb;
+  --canvas-muted: #a0a5ac;
+  --canvas-edge: #7d8796;
+  --canvas-edge-active: #77b7f7;
+  --canvas-mask: rgb(0 0 0 / 0.65);
+  --node-text: #eef3fb;
+  --node-shadow: 0 2px 8px rgb(0 0 0 / 0.3);
+  --tone-navy-bg: #1e3a5f;      --tone-navy-border: #1e3a5f;      --tone-navy-mini: #3b82f6;
+  --tone-violet-bg: #4c1d95;    --tone-violet-border: #4c1d95;    --tone-violet-mini: #8b5cf6;
+  --tone-amber-bg: #78350f;     --tone-amber-border: #78350f;     --tone-amber-mini: #f59e0b;
+  --tone-maroon-bg: #7f1d1d;    --tone-maroon-border: #7f1d1d;    --tone-maroon-mini: #ef4444;
+  --tone-green-bg: #064e3b;     --tone-green-border: #064e3b;     --tone-green-mini: #10b981;
+  --tone-teal-bg: #0e5a6f;      --tone-teal-border: #0e5a6f;      --tone-teal-mini: #06b6d4;
+  --tone-steel-bg: #1e4d6e;     --tone-steel-border: #1e4d6e;     --tone-steel-mini: #60a5fa;
+  --tone-start-bg: #111827;     --tone-start-border: #3b82f6;     --tone-start-mini: #3b82f6;
+  --tone-question-bg: #111827;  --tone-question-border: #7c3aed;  --tone-question-mini: #7c3aed;
+  --tone-decision-bg: #1e3a5f;  --tone-decision-border: #3b82f6;  --tone-decision-mini: #3b82f6;
+  --tone-warning-bg: #78350f;   --tone-warning-border: #f59e0b;   --tone-warning-mini: #f59e0b;
+  --tone-outcome-bg: #064e3b;   --tone-outcome-border: #10b981;   --tone-outcome-mini: #10b981;
+  --tone-reference-bg: #4c1d95; --tone-reference-border: #7c3aed; --tone-reference-mini: #7c3aed;
+  --tone-linkout-bg: #7f1d1d;   --tone-linkout-border: #ef4444;   --tone-linkout-mini: #ef4444;
+}
+
+/* React Flow reads these variables for the parts it paints itself. */
+:root {
+  --xy-background-color: var(--canvas);
+  --xy-background-pattern-color: var(--canvas-dots);
+  --xy-minimap-background-color: var(--canvas-raised);
+  --xy-minimap-mask-background-color: var(--canvas-mask);
+  --xy-minimap-mask-stroke-color: var(--canvas-border);
 }
 
 * {
@@ -245,34 +323,31 @@ html, body, #root {
   color: var(--link-hover);
 }
 
-/* ── Embed toolbar (minimal chrome for iframes) ──
-   Embedded in a docs page, the whole iframe is one figure: toolbar and
-   canvas share the dark surface in both themes, framed by the page. */
+/* ── Embed toolbar (minimal chrome for iframes) ── */
 .embed-toolbar {
   display: flex;
   align-items: center;
   gap: 10px;
   padding: 6px 12px;
-  background: var(--figure-raised);
-  border-bottom: 1px solid var(--figure-border);
-  color: var(--figure-text);
+  background: var(--chrome);
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
   min-height: 36px;
   flex-wrap: wrap;
   flex-shrink: 0;
-  --focus: var(--figure-focus);
 }
 
 .embed-title {
   font-family: 'Sora', 'Source Sans 3', sans-serif;
   font-size: 13px;
   font-weight: 600;
-  color: var(--figure-text);
+  color: var(--text-strong);
   white-space: nowrap;
 }
 
 .embed-open {
   margin-left: auto;
-  color: #96c6fa;
+  color: var(--link);
   text-decoration: underline;
   text-underline-offset: 0.2em;
   font-size: 12px;
@@ -281,7 +356,7 @@ html, body, #root {
 }
 
 .embed-open:hover {
-  color: #cfe4fa;
+  color: var(--link-hover);
 }
 
 /* ── Flow container ──
@@ -292,51 +367,107 @@ html, body, #root {
   min-height: 0;
   width: 100%;
   position: relative;
-  background: var(--figure);
-  --focus: var(--figure-focus);
+  background: var(--canvas);
+}
+
+/* ── Nodes (src/nodes/DecisionNode.tsx) ── */
+.decision-node {
+  background: var(--node-bg, var(--tone-decision-bg));
+  border: 2px solid var(--node-border, var(--tone-decision-border));
+  color: var(--node-text);
+  padding: 10px 14px;
+  font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 13px;
+  min-width: 140px;
+  max-width: 220px;
+  text-align: center;
+  position: relative;
+  box-shadow: var(--node-shadow);
+}
+
+.decision-node__label {
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.decision-node__badge {
+  display: inline-block;
+  margin-top: 5px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.03em;
+}
+
+.decision-node .decision-node__handle {
+  width: 8px;
+  height: 8px;
+  background: var(--node-border, var(--tone-decision-border));
+}
+
+.tone-navy      { --node-bg: var(--tone-navy-bg);      --node-border: var(--tone-navy-border);      --node-mini: var(--tone-navy-mini); }
+.tone-violet    { --node-bg: var(--tone-violet-bg);    --node-border: var(--tone-violet-border);    --node-mini: var(--tone-violet-mini); }
+.tone-amber     { --node-bg: var(--tone-amber-bg);     --node-border: var(--tone-amber-border);     --node-mini: var(--tone-amber-mini); }
+.tone-maroon    { --node-bg: var(--tone-maroon-bg);    --node-border: var(--tone-maroon-border);    --node-mini: var(--tone-maroon-mini); }
+.tone-green     { --node-bg: var(--tone-green-bg);     --node-border: var(--tone-green-border);     --node-mini: var(--tone-green-mini); }
+.tone-teal      { --node-bg: var(--tone-teal-bg);      --node-border: var(--tone-teal-border);      --node-mini: var(--tone-teal-mini); }
+.tone-steel     { --node-bg: var(--tone-steel-bg);     --node-border: var(--tone-steel-border);     --node-mini: var(--tone-steel-mini); }
+.tone-start     { --node-bg: var(--tone-start-bg);     --node-border: var(--tone-start-border);     --node-mini: var(--tone-start-mini); }
+.tone-question  { --node-bg: var(--tone-question-bg);  --node-border: var(--tone-question-border);  --node-mini: var(--tone-question-mini); }
+.tone-decision  { --node-bg: var(--tone-decision-bg);  --node-border: var(--tone-decision-border);  --node-mini: var(--tone-decision-mini); }
+.tone-warning   { --node-bg: var(--tone-warning-bg);   --node-border: var(--tone-warning-border);   --node-mini: var(--tone-warning-mini); }
+.tone-outcome   { --node-bg: var(--tone-outcome-bg);   --node-border: var(--tone-outcome-border);   --node-mini: var(--tone-outcome-mini); }
+.tone-reference { --node-bg: var(--tone-reference-bg); --node-border: var(--tone-reference-border); --node-mini: var(--tone-reference-mini); }
+.tone-linkout   { --node-bg: var(--tone-linkout-bg);   --node-border: var(--tone-linkout-border);   --node-mini: var(--tone-linkout-mini); }
+
+/* Minimap nodes carry the same tone class (MiniMap nodeClassName). */
+.react-flow__minimap-node[class*='tone-'] {
+  fill: var(--node-mini);
+  stroke: none;
 }
 
 /* ── React Flow overrides ── */
 .react-flow__minimap {
-  background: var(--figure-raised) !important;
-  border: 1px solid var(--figure-border) !important;
+  border: 1px solid var(--canvas-border) !important;
   border-radius: 6px !important;
 }
 
 .react-flow__controls {
-  border: 1px solid var(--figure-border) !important;
+  border: 1px solid var(--canvas-border) !important;
   border-radius: 6px !important;
   overflow: hidden;
   box-shadow: none !important;
 }
 
 .react-flow__controls button {
-  background: var(--figure-raised) !important;
-  border-bottom: 1px solid var(--figure-border) !important;
-  fill: var(--figure-text) !important;
-  color: var(--figure-text) !important;
+  background: var(--canvas-raised) !important;
+  border-bottom: 1px solid var(--canvas-border) !important;
+  fill: var(--canvas-text) !important;
+  color: var(--canvas-text) !important;
   width: 28px !important;
   height: 28px !important;
 }
 
 .react-flow__controls button:hover {
-  background: var(--figure-border) !important;
+  background: var(--canvas-border) !important;
 }
 
 .react-flow__background {
-  background: var(--figure) !important;
+  background: var(--canvas) !important;
 }
 
 .react-flow__attribution {
-  background: var(--figure-raised) !important;
+  background: var(--canvas-raised) !important;
 }
 
 .react-flow__attribution a {
-  color: var(--figure-muted) !important;
+  color: var(--canvas-muted) !important;
 }
 
 .react-flow__node:focus-visible {
-  outline: 2px solid var(--figure-focus);
+  outline: 2px solid var(--focus);
   outline-offset: 3px;
 }
 
@@ -345,11 +476,11 @@ html, body, #root {
   font-family: 'Source Sans 3', sans-serif !important;
   font-size: 11px !important;
   font-weight: 500 !important;
-  fill: var(--figure-muted) !important;
+  fill: var(--canvas-muted) !important;
 }
 
 .react-flow__edge-textbg {
-  fill: var(--figure) !important;
+  fill: var(--canvas) !important;
   fill-opacity: 0.9 !important;
   rx: 3 !important;
   ry: 3 !important;
@@ -357,13 +488,13 @@ html, body, #root {
 
 /* Edges carry the flow, so they clear the 3:1 non-text contrast floor. */
 .react-flow__edge path {
-  stroke: var(--figure-edge) !important;
+  stroke: var(--canvas-edge) !important;
   stroke-width: 1.5 !important;
 }
 
 .react-flow__edge.selected path,
 .react-flow__edge:hover path {
-  stroke: var(--figure-focus) !important;
+  stroke: var(--canvas-edge-active) !important;
   stroke-width: 2 !important;
 }
 
@@ -383,8 +514,6 @@ html, body, #root {
   z-index: 10;
   box-shadow: var(--shadow-overlay);
   color: var(--text);
-  /* Chrome inside the figure: restore the theme's focus color. */
-  --focus: var(--chrome-focus);
 }
 
 .detail-panel h3 {
@@ -490,25 +619,6 @@ html, body, #root {
   border-color: var(--accent);
   color: var(--on-accent);
   font-weight: 600;
-}
-
-/* In the embed toolbar the tags sit on the figure. */
-.embed-toolbar .branch-tag {
-  background: transparent;
-  border-color: #6e757f;
-  color: var(--figure-text);
-}
-
-.embed-toolbar .branch-tag:hover {
-  background: var(--figure-border);
-  color: #ffffff;
-}
-
-.embed-toolbar .branch-tag.active,
-.embed-toolbar .branch-tag.active:hover {
-  background: #0f6cbd;
-  border-color: #0f6cbd;
-  color: #ffffff;
 }
 
 /* ── Back to docs link ── */

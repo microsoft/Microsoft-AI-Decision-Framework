@@ -13,6 +13,7 @@ import {
 import '@xyflow/react/dist/style.css';
 
 import DecisionNode from '../nodes/DecisionNode';
+import { nodeTone } from '../nodes/tone';
 import { applyDagreLayout } from '../layout';
 import { flows } from '../data';
 import type { NodeData, BranchId } from '../types';
@@ -253,15 +254,10 @@ export default function Explorer() {
           attributionPosition="bottom-left"
           proOptions={{ hideAttribution: false }}
         >
-          <Background variant={BackgroundVariant.Dots} gap={24} size={1} color="#1f2937" />
+          {/* Dot, mask and minimap colors come from explorer.css per theme. */}
+          <Background variant={BackgroundVariant.Dots} gap={24} size={1} />
           <Controls showInteractive={false} />
-          <MiniMap
-            nodeColor={(node: Node) => {
-              const data = node.data as NodeData;
-              return data.color ?? '#3b82f6';
-            }}
-            maskColor="rgba(0, 0, 0, 0.65)"
-          />
+          <MiniMap nodeClassName={(node: Node) => nodeTone(node.data as NodeData) ?? ''} />
         </ReactFlow>
 
         {/* Detail panel */}

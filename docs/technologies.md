@@ -1054,7 +1054,7 @@ Runtime policy and fleet governance are complementary layers. A fleet control pl
 - **MCP support (GA):** Dynamic discovery and invocation of tools via MCP-compliant servers; A2A protocol support coming soon. ([Agent Framework v1.0 blog](https://devblogs.microsoft.com/agent-framework/microsoft-agent-framework-version-1-0/) - Published: 2026-04-03)
 - **Migration Assistants:** Automated migration from Semantic Kernel and AutoGen with step-by-step guides. ([Agent Framework v1.0 blog](https://devblogs.microsoft.com/agent-framework/microsoft-agent-framework-version-1-0/) - Published: 2026-04-03)
 
-- **AG-UI hosting:** Python is a *"stable release"*; .NET is *"public preview"* (`Microsoft.Agents.AI.Hosting.AGUI.AspNetCore`), per the [2026-09-24 update](https://devblogs.microsoft.com/agent-framework/interactive-experiences-memory-and-resilient-execution/). [CopilotKit](https://learn.microsoft.com/en-us/agent-framework/integrations/ag-ui/) is a compatible third-party frontend, not the hosting adapter.
+- **AG-UI hosting:** Python is a *"stable release"*; .NET is *"public preview"* (`Microsoft.Agents.AI.Hosting.AGUI.AspNetCore`), per the [2026-09-24 update](https://devblogs.microsoft.com/agent-framework/interactive-experiences-memory-and-resilient-execution/). [CopilotKit](https://learn.microsoft.com/en-us/agent-framework/integrations/by-component/ui/ag-ui/) is a compatible third-party frontend, not the hosting adapter.
 
 **Preview and Pre-release Features:**
 

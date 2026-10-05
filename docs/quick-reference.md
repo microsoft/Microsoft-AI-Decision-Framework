@@ -84,7 +84,7 @@ Active migration deadlines and forced transitions. If your project timeline cros
 Rollout timing is not a migration deadline. Use these labels to decide what you can evaluate and what you can put on a production plan.
 
 {: .note }
-> Learn records the rename: *"Microsoft 365 Copilot is now named Microsoft Copilot, and Microsoft 365 Copilot Chat is now named Microsoft Copilot Chat."* The work product now shares its name with the consumer Microsoft Copilot app. Confirm which experience you mean ([requirements](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-requirements), updated 2026-09-24).
+> Learn records the rename: *"Microsoft 365 Copilot is now named Microsoft Copilot, and Microsoft 365 Copilot Chat is now named Microsoft Copilot Chat."* The work product now shares its name with the consumer Microsoft Copilot app. Confirm which experience you mean ([requirements](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-copilot-requirements), updated 2026-09-24).
 
 | Technology | Status | Rollout timing | Related path | Action |
 | --- | --- | --- | --- | --- |

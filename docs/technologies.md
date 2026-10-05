@@ -37,7 +37,7 @@ Use this page as a reference after you’ve narrowed the decision: it’s optimi
 **Official Docs:** [Microsoft 365 Copilot Overview](https://learn.microsoft.com/en-us/microsoft-365/copilot/)
 **Status:** GA
 
-**Naming update:** Learn states: *"Microsoft 365 Copilot is now named Microsoft Copilot, and Microsoft 365 Copilot Chat is now named Microsoft Copilot Chat."* The work product now shares its name with the consumer Microsoft Copilot app; confirm which experience a source means. ([Requirements](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-requirements) - Updated: 2026-09-24)
+**Naming update:** Learn states: *"Microsoft 365 Copilot is now named Microsoft Copilot, and Microsoft 365 Copilot Chat is now named Microsoft Copilot Chat."* The work product now shares its name with the consumer Microsoft Copilot app; confirm which experience a source means. ([Requirements](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-copilot-requirements) - Updated: 2026-09-24)
 
 **Key Features:**
 

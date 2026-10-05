@@ -239,7 +239,7 @@ Read these before you read any product page. They are the maps; everything below
 
 - **The new Copilot, and how it is billed**
   - [Introducing the new Copilot with Home, Code and Autopilot](https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/): Jared Spataro's Official Microsoft Blog post (2026-09-25), with feature-by-feature rollout statements
-  - [Copilot requirements](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-requirements): the Microsoft 365 Copilot and Copilot Chat naming update
+  - [Copilot requirements](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-copilot-requirements): the Microsoft 365 Copilot and Copilot Chat naming update
   - [Understanding the USL and UBB](https://learn.microsoft.com/en-us/microsoft-365/copilot/user-subscription-license-usage-based-billing): metered usage builds on the required subscription
   - [UBB overview](https://learn.microsoft.com/en-us/microsoft-365/copilot/usage-based-billing-overview-copilot-credits) and [spending policies](https://learn.microsoft.com/en-us/microsoft-365/copilot/usage-based-billing-manage-copilot-credits): documented services, P3 billing, limits, and prepaid-credit precedence
   - [What is an autopilot in Microsoft Foundry?](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/autopilot-overview) and [Build your first autopilot](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/agent-365): the identity-based definition and the Frontier preview build path, not proof of the Copilot product's architecture

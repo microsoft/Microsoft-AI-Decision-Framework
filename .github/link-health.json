@@ -1,35 +1,40 @@
 {
-  "lastRun": "2026-09-28",
+  "lastRun": "2026-10-05",
   "urls": {},
   "botProtected": {
-    "_note": "Hosts that block curl (Cloudflare interstitial, CDN throttling) but serve the cited page to a real browser. Verified alive on the date shown. Do not treat a 403/503 from these as rot without a browser-level second opinion.",
+    "_note": "Hosts that block curl (Cloudflare interstitial, CDN throttling) but serve the cited page to a real browser. Verified alive on the date shown. Do not treat a 403/429/503 from these as rot without a browser-level second opinion.",
     "https://doi.org/10.7551/mitpress/1020.001.0001": {
-      "lastVerified": "2026-09-28",
+      "lastVerified": "2026-10-05",
       "curlStatus": "403",
       "note": "DOI resolves; direct.mit.edu blocks curl. Cited for end-user programming in glossary.md"
     },
     "https://m365admin.handsontek.net/microsoft-copilot-evolving-copilot-pricing-model-new-finops-capabilities-ai/": {
-      "lastVerified": "2026-09-28",
+      "lastVerified": "2026-10-05",
       "curlStatus": "403",
-      "note": "Cloudflare challenge; page loads in a browser"
+      "note": "Cloudflare JS challenge; page loads in a browser"
     },
     "https://m365admin.handsontek.net/microsoft-copilot-new-ways-work-across-microsoft-copilot-microsoft-365/": {
-      "lastVerified": "2026-09-28",
+      "lastVerified": "2026-10-05",
       "curlStatus": "403",
-      "note": "Cloudflare challenge; page loads in a browser"
+      "note": "Cloudflare JS challenge; page loads in a browser"
     },
-    "https://pypi.org/project/agent-framework-chatkit/": {
-      "lastVerified": "2026-09-28",
-      "curlStatus": "503",
-      "note": "PyPI throttles curl; project page is live"
+    "https://aka.ms/agent/migrate/tool": {
+      "lastVerified": "2026-10-05",
+      "curlStatus": "429",
+      "note": "aka.ms resolves to a GitHub blob URL; the 429 is GitHub rate-limiting the prober, not rot. Target confirmed present via the GitHub API."
+    },
+    "https://web.archive.org/": {
+      "lastVerified": "2026-10-05",
+      "curlStatus": "429",
+      "note": "Wayback throttles repeat callers. Snapshots cited in agentic-engineering.md and glossary.md returned 200 on a spaced retry. Re-probe before treating as rot."
     },
     "https://fonts.googleapis.com": {
-      "lastVerified": "2026-09-28",
+      "lastVerified": "2026-10-05",
       "curlStatus": "404",
       "note": "preconnect origin in _includes/head_custom.html, not a document URL"
     },
     "https://fonts.gstatic.com": {
-      "lastVerified": "2026-09-28",
+      "lastVerified": "2026-10-05",
       "curlStatus": "404",
       "note": "preconnect origin in _includes/head_custom.html, not a document URL"
     }

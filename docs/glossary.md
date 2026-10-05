@@ -135,7 +135,7 @@ The label remains contested. Matt Healy argues for retiring it in [The New Stack
 **Copilot (Microsoft 365)**
 Tenant-aware AI experience embedded across Microsoft 365 apps, inheriting Graph security and compliance while allowing extensions via Declarative Agents or custom engine agents ([Microsoft 365 Copilot overview](https://learn.microsoft.com/en-us/microsoft-365/copilot/), retrieved 2026-03-25).
 
-Learn records a naming change: *"Microsoft 365 Copilot is now named Microsoft Copilot, and Microsoft 365 Copilot Chat is now named Microsoft Copilot Chat."* This work product now shares its name with the consumer Microsoft Copilot app. Check the context before treating the names as interchangeable ([requirements](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-requirements), updated 2026-09-24).
+Learn records a naming change: *"Microsoft 365 Copilot is now named Microsoft Copilot, and Microsoft 365 Copilot Chat is now named Microsoft Copilot Chat."* This work product now shares its name with the consumer Microsoft Copilot app. Check the context before treating the names as interchangeable ([requirements](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-copilot-requirements), updated 2026-09-24).
 
 **Copilot vs. Agent**
 "Copilot" describes the user-facing experience; "agent" describes the implementation pattern (planning, tools, memory). Many copilots are backed by agents, but a copilot can remain a simple assistant if no tools or state are attached.

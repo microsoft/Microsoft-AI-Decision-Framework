@@ -293,5 +293,5 @@ Now, and only now, do products get to enter the room.
 * [Introducing the new Copilot with Home, Code and Autopilot](https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/) (Published: 2026-09-25)
 * [Copilot Managed Runtime overview for admins (app inventory)](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/apps/) (Accessed: 2026-09-26)
 * [Agent Registry in the Microsoft 365 admin center](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/agent-registry) (Accessed: 2026-09-26)
-* [Report of JPMorgan Chase & Co. Management Task Force Regarding 2012 CIO Losses](https://ypfsresourcelibrary.blob.core.windows.net/fcic/YPFS/JPMorgan%20Management%20Task%20Force%20Regarding%202012%20CIO%20Losses%201-16-13.pdf) (Published: 2013-01-16)
+* [Report of JPMorgan Chase & Co. Management Task Force Regarding 2012 CIO Losses](https://business.cch.com/srd/JPMorgan-Task-Force-Report.pdf) (Published: 2013-01-16)
 * [Gartner press release defining the citizen developer (archived)](https://web.archive.org/web/20130128074257/http://www.gartner.com/it/page.jsp?id=1212813) (Published: 2009-10-22)

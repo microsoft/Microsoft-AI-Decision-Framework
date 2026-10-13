@@ -333,7 +333,7 @@ Read these before you read any product page. They are the maps; everything below
 {: .no_toc }
 
 - **Agents on GitHub**: "Agent HQ" is the GitHub Universe 2025 *vision brand*; the shipped surfaces are the Agents page and enterprise AI Controls.
-  - [Copilot cloud agent](https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent): renamed from "coding agent." **GA on paid plans including Student; not available on Copilot Free**
+  - [Copilot cloud agent](https://docs.github.com/en/copilot/concepts/copilot-surfaces/copilot-on-github): renamed from "coding agent." **GA on paid plans including Student; not available on Copilot Free**
   - [Agents page](https://github.com/copilot/agents)
   - [Enterprise AI governance and AI Controls](https://docs.github.com/en/copilot/get-started/enterprise-ai-governance)
   - [Custom agents](https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-custom-agents) and [`AGENTS.md` agent instructions](https://docs.github.com/en/copilot/concepts/prompting/response-customization)

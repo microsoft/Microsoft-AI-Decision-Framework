@@ -153,7 +153,7 @@ Where can your agent appear? Match build platform to distribution surface.
 - [Azure AI Search what's new](https://learn.microsoft.com/en-us/azure/search/whats-new#2025-announcements) (Updated: 2026-03-13)
 - [Microsoft 365 Copilot Search API overview](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/api/ai-services/search/overview) (Updated: 2025-10-20)
 - [Workflows with AI agents and models in Azure Logic Apps](https://learn.microsoft.com/en-us/azure/logic-apps/agent-workflows-concepts): official term "agentic workflows"; Consumption explicitly in preview (Updated: 2026-02-19)
-- [Copilot cloud agent](https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent): GA on paid plans including Student; not on Copilot Free
+- [Copilot cloud agent](https://docs.github.com/en/copilot/concepts/copilot-surfaces/copilot-on-github): GA on paid plans including Student; not on Copilot Free
 - [Microsoft 365 Agents Toolkit](https://learn.microsoft.com/en-us/microsoftteams/platform/toolkit/overview-agents-toolkit) (Updated: 2026-01-29)
 - [AG-UI integration with Agent Framework](https://learn.microsoft.com/en-us/agent-framework/integrations/by-component/ui/ag-ui/) (Preview, Updated: 2025-11-07)
 - [Declarative Agents for Microsoft 365 Copilot overview](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/overview-declarative-agent) (Updated: 2025-12-01)
@@ -292,7 +292,7 @@ One agent, four handoffs. This is the relay race a developer's work actually run
 
 **Sources:**
 
-- [About the Copilot cloud agent](https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent)
+- [About the Copilot cloud agent](https://docs.github.com/en/copilot/concepts/copilot-surfaces/copilot-on-github)
 - [About custom agents](https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-custom-agents)
 - [Copilot response customization (agent instructions / `AGENTS.md`)](https://docs.github.com/en/copilot/concepts/prompting/response-customization)
 - GitHub Copilot SDK: [quickstart](https://docs.github.com/en/copilot/get-started/sdk-quickstart); [GA announcement and six languages](https://github.blog/changelog/2026-06-02-copilot-sdk-is-now-generally-available/); [BYOK providers and token callbacks](https://docs.github.com/en/copilot/how-tos/copilot-sdk/auth/byok); [Azure managed identity with BYOK](https://docs.github.com/en/copilot/how-tos/copilot-sdk/setup/azure-managed-identity)

@@ -347,7 +347,7 @@ flowchart TD
 | Rung | Technology | Status and limits | Documentation |
 |------|------------|-------------------|---------------|
 | **1. Assist in the editor** | GitHub Copilot agent mode | GA in VS Code and Visual Studio | [Copilot agents in VS Code](https://code.visualstudio.com/docs/agents/overview) |
-| **2. Delegate the issue** | **Copilot cloud agent** (renamed from "coding agent") | **GA on all paid plans including Student; NOT available on Copilot Free** | [About Copilot cloud agent](https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent) |
+| **2. Delegate the issue** | **Copilot cloud agent** (renamed from "coding agent") | **GA on all paid plans including Student; NOT available on Copilot Free** | [About Copilot cloud agent](https://docs.github.com/en/copilot/concepts/copilot-surfaces/copilot-on-github) |
 | **3. Specialize the agent** | **Custom agents** (`.md` + YAML frontmatter) and **`AGENTS.md`**, which GitHub calls **"agent instructions"** | Custom agents are **GA** for the cloud agent, VS Code, and Visual Studio; **Public Preview** for JetBrains, Eclipse, and Xcode. GitHub's own caveat on agent instructions: *"currently not supported by all Copilot features."* | [Custom agents](https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-custom-agents) |
 | **4. Build on the harness** | **GitHub Copilot SDK** | **GA.** Python, TypeScript, Go, .NET, Java, Rust. Wraps the Copilot CLI engine over JSON-RPC. BYOK: OpenAI, Microsoft Foundry, Anthropic. | [Copilot SDK](https://github.com/github/copilot-sdk) |
 
@@ -389,7 +389,7 @@ flowchart TD
 #### Sources: Persona-Based Flow
 {: .no_toc }
 
-- [About Copilot cloud agent](https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent) (rename verified 2026-07-29)
+- [About Copilot cloud agent](https://docs.github.com/en/copilot/concepts/copilot-surfaces/copilot-on-github) (rename verified 2026-07-29)
 - [Microsoft Foundry Agent Service: Hosted agents](https://learn.microsoft.com/en-us/azure/foundry/agents/overview) (Python and C# only)
 - [Fabric data agent](https://learn.microsoft.com/en-us/fabric/data-science/concept-data-agent) (GA; F2+ or P1+)
 - [Logic Apps agentic workflows concepts](https://learn.microsoft.com/en-us/azure/logic-apps/agent-workflows-concepts) (verified 2026-07-29)
@@ -1249,4 +1249,3 @@ flowchart TD
 → [Evaluation Criteria]({{ '/docs/evaluation-criteria' | relative_url }})
 
 ---
-

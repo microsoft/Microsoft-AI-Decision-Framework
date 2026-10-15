@@ -108,7 +108,7 @@ Frame technologies as **roles in a cast**: teammates, not rivals. "Copilot Studi
 Every diagram in `docs/visual-framework.md` must have:
 1. Dark theme (default Mermaid config)
 2. Color-coded nodes set **inline** per diagram (keep white text): Blue #004578, Purple #4b2070, Green #0b6a0b, Orange #8c5e00, Red #a52617
-3. Status annotations: `<i>Preview</i>` for preview features
+3. Status annotations: `<i>Preview</i>`, `<i>Limited Access</i>`, `<i>Experimental</i>`, or `<i>GA not stated</i>` for non-GA features
 4. Validation summary with sources
 
 The site has light and dark themes, and diagrams follow them: the site re-renders each diagram for the reader's theme, swapping only Mermaid's base theme (background, default nodes, lines, edge labels). Inline node colors are kept exactly as written in both themes, so keep authoring against the dark theme with white text; don't add CSS or `linkStyle` colors that assume a dark background. A static diagram inside `<details>` needs `<details markdown="1">`, or kramdown prints the raw source.
@@ -184,13 +184,13 @@ Readers arrive holding the industry's vocabulary, not Microsoft's. Establish a c
 ---
 layout: default
 title: [Title]
-nav_order: [1-15]
+nav_order: [1-16]
 description: "[SEO description]"
 ---
 ```
 
 ### Learning Flow (nav_order)
-The 12-document progression is intentional. Don't rearrange it. See `copilot-instructions.md` for the rationale.
+The 16-document progression is intentional. Don't rearrange it. See `copilot-instructions.md` for the rationale.
 
 ### Governance Files
 * **`CONSTITUTION.md`**: the supreme law. Read it before making structural decisions.

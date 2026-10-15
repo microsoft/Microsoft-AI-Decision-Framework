@@ -12,11 +12,15 @@ export type NodeCategory =
   | 'linkout';
 
 /** Technology status per Constitution Article III. */
-export type TechStatus = 'ga' | 'preview' | 'experimental' | 'deprecated';
+export type TechStatus = 'ga' | 'preview' | 'limited' | 'experimental' | 'deprecated' | 'unstated';
 
 /** Branches group nodes into isolatable sub-trees. */
 export type BranchId =
   | 'overview'
+  | 'intake'
+  | 'ai-for-you'
+  | 'product-or-feature'
+  | 'your-codebase'
   | 'interaction-pattern'
   | 'build-approach'
   | 'data-grounding'
@@ -24,6 +28,11 @@ export type BranchId =
   | 'deployment'
   | 'persona'
   | 'governance'
+  | 'governance-risk'
+  | 'governance-boundary'
+  | 'governance-identity'
+  | 'governance-control'
+  | 'governance-network'
   | 'complexity'
   | 'budget'
   | 'multi-agent'
@@ -34,7 +43,7 @@ export type BranchId =
 /** Metadata attached to every graph node. */
 export interface NodeData {
   [key: string]: unknown;
-  /** Display label (keep short — details belong in the panel). */
+  /** Display label (keep short; details belong in the panel). */
   label: string;
   /** Optional secondary description shown in tooltip / panel. */
   description?: string;
@@ -42,11 +51,11 @@ export interface NodeData {
   category: NodeCategory;
   /** Which branch this node belongs to (for isolation filtering). */
   branch: BranchId;
-  /** GA / Preview / Experimental — shown as a badge. */
+  /** GA / Preview / Experimental / Unstated / Limited Access badge. */
   status?: TechStatus;
   /** URL to the docs page this node links to. */
   docsUrl?: string;
-  /** Color override — maps to the existing Mermaid palette. */
+  /** Color override that maps to the existing Mermaid palette. */
   color?: string;
 }
 
@@ -82,3 +91,4 @@ export interface FlowDefinition {
   /** The raw edge list. */
   edges: import('@xyflow/react').Edge<EdgeData>[];
 }
+

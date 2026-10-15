@@ -6,10 +6,12 @@ import { nodeTone } from './tone';
 // The site's inline diagram palette (AGENTS.md): white labels at 5.6:1 or
 // better. The old green, amber and red fills put 10px labels at 2.5 to 3.8:1.
 const STATUS_BADGE: Record<string, { label: string; color: string }> = {
-  ga:           { label: 'GA',           color: '#0b6a0b' },
-  preview:      { label: 'Preview',      color: '#8c5e00' },
-  experimental: { label: 'Experimental', color: '#a52617' },
-  deprecated:   { label: 'Deprecated',   color: '#a52617' },
+  ga:           { label: 'GA',             color: '#0b6a0b' },
+  preview:      { label: 'Preview',        color: '#8c5e00' },
+  limited:      { label: 'Limited Access', color: '#4b2070' },
+  experimental: { label: 'Experimental',   color: '#a52617' },
+  deprecated:   { label: 'Deprecated',     color: '#a52617' },
+  unstated:     { label: 'GA not stated',  color: '#535c66' },
 };
 
 type DecisionNodeType = Node<NodeData>;

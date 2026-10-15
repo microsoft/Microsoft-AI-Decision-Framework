@@ -19,11 +19,11 @@ This is a **comprehensive decision framework and reference guide** for navigatin
 - **Static Site Generator:** Jekyll 4.4+ (GitHub Pages)
 - **Documentation Format:** Markdown (.md files)
 - **Diagrams:** Mermaid 11.12.1 flowcharts (embedded in Markdown, authored with the dark theme and inline node colors; the site re-renders them to match the reader's light or dark theme and keeps the inline colors)
-- **Navigation:** Jekyll front matter with `nav_order` property (1-15)
+- **Navigation:** Jekyll front matter with `nav_order` property (1-16)
 - **Theme:** Just the Docs (`remote_theme` pinned to a release in `_config.yml`), color scheme `aidf`: light and dark themes via CSS custom properties, with a Light / Dark / System switch in the header (default: follow the OS)
 - **Custom Styling:** SCSS in `_sass/custom/custom.scss` (tokens and components; no Mermaid overrides; palette is owned inline in diagrams). The visual system is documented in `.agents/context/DESIGN.md`
-- **Ruby Gems:** jekyll-seo-tag, jekyll-github-metadata, jekyll-include-cache, webrick
-- **Deployment:** GitHub Pages at https://chrismckee1.github.io/microsoft-ai-decision-tree/
+- **Ruby Gems:** jekyll-remote-theme, jekyll-seo-tag, jekyll-github-metadata, jekyll-include-cache, webrick
+- **Deployment:** GitHub Pages at https://microsoft.github.io/Microsoft-AI-Decision-Framework/
 
 ---
 
@@ -45,9 +45,10 @@ The documentation follows a **progressive learning flow** designed to build know
 10. **docs/visual-framework.md** (nav_order: 10) - **Application** - Mermaid decision tree diagrams
 11. **docs/quick-reference.md** (nav_order: 11) - **Reference** - Fast lookup tables
 12. **docs/ai-instinct.md** (nav_order: 12) - **Companion** - The human framework
-13. **docs/resources.md** (nav_order: 13) - **Reference** - External links
-14. **docs/glossary.md** (nav_order: 14) - **Reference** - Terminology
-15. **docs/visual-explorer.md** (nav_order: 15) - **Reference** - Interactive decision explorer
+13. **docs/agentic-engineering.md** (nav_order: 13) - **Companion** - Vibe coding, vibe engineering, and agentic engineering
+14. **docs/resources.md** (nav_order: 14) - **Reference** - External links
+15. **docs/glossary.md** (nav_order: 15) - **Reference** - Terminology
+16. **docs/visual-explorer.md** (nav_order: 16) - **Reference** - Interactive decision explorer
 
 **The capability-model / ai-stack split is deliberate.** The Capability Model teaches you to describe a problem without naming a technology; the AI Stack maps that description onto what Microsoft ships. Keeping them separate is what stops the Foundation page from degrading into a product catalog, the exact failure Article VI exists to prevent. Status details (versions, GA/Preview, licensing, capacity) belong in Technologies and Feature Comparison, never in either of those two pages.
 
@@ -69,7 +70,7 @@ The documentation follows a **progressive learning flow** designed to build know
 - Custom styles: `_sass/custom/custom.scss`
 - Images: `images/*.png`, `images/*.svg`
 - GitHub metadata: `.github/copilot-instructions.md` (this file)
-- Codex guidance: `AGENTS.md` (root level)
+- Codex guidance: `.github/AGENTS.md`
 
 ---
 
@@ -293,11 +294,11 @@ Before committing changes, verify:
 - [ ] Mermaid syntax valid (test with local Jekyll)
 - [ ] Dark theme applied: `%%{init: {'theme':'dark'}}`
 - [ ] Color coding follows conventions
-- [ ] Status annotations included: `<i>Preview</i>`
+- [ ] Status annotations included: `<i>Preview</i>`, `<i>Limited Access</i>`, `<i>Experimental</i>`, or `<i>GA not stated</i>`
 - [ ] Validation summary present with sources
 
 **Navigation & Structure:**
-- [ ] Front matter includes nav_order (1-15)
+- [ ] Front matter includes nav_order (1-16)
 - [ ] "Next:" link points to correct document in learning flow
 - [ ] Cross-references use descriptive link text
 - [ ] Document sits in the right place in the narrative arc (Why → What → What exists → How to choose → How to measure → How to build → Details)

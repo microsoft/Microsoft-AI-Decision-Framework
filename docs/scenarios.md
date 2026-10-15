@@ -287,7 +287,7 @@ This is why the honest sequence is: define the semantics, *then* point an agent 
 
 **The decision point: do you have a semantic layer, or do you have tables?** Everything downstream follows from that answer.
 
-If your data estate is on **Microsoft Fabric**, the direct path is a **Fabric data agent**: conversational question-answering over OneLake sources that respects the underlying data permissions, and that can be consumed from Copilot Studio and Microsoft 365 Copilot so the answer appears where people already work. The agent is a thin layer over a governed estate, which is exactly the right proportion.
+If your data estate is on **Microsoft Fabric**, the direct path is a **Fabric data agent**: conversational question-answering over OneLake sources that respects the underlying data permissions, and that can be consumed from Copilot Studio, Microsoft 365 Copilot, and Microsoft Foundry (via the Fabric IQ OneLake Catalog tool) so the answer appears where people already work. Note that while the core Fabric data agent is GA, those cross-platform consumption routes are in preview, and the older Foundry "Microsoft Fabric" tool stops being supported on November 6, 2026. The agent is a thin layer over a governed estate, which is exactly the right proportion.
 
 The semantics live one layer down. **Fabric IQ** is where the business is defined rather than merely stored: ontologies that state what a *customer* or an *order* actually is, semantic models, and graph relationships an agent can reason across. If you are serious about this scenario, that layer is the project. The agent is the last two weeks of it.
 
@@ -804,7 +804,7 @@ The exception is an app that calls a model while it runs, say to draft replies. 
 
 | If the app and its audience look like this | Reach for | Because |
 | :--- | :--- | :--- |
-| Just you: a widget, a personal dashboard, a one-off tracker | **Copilot Code** *(Frontier, rolling out)* | Copilot picks the approach, from desktop widget to shareable app. For a one-time question, skip the app and ask Copilot in Excel |
+| Just you: a widget, a personal dashboard, a one-off tracker | **Copilot Code** *(Frontier preview)* | Copilot picks the approach, from desktop widget to shareable app. For a one-time question, skip the app and ask Copilot in Excel |
 | Your team, over its own Microsoft 365 content: a stand-up board, a request tracker | The **App skill** in Copilot Cowork *(Frontier)* | Built where your people delegate work, and shared by link, which is why the owner comes first |
 | One step in a business process | **Copilot Studio** apps *(Preview)* | Built beside the agents and flows around it, with more control over build and publish. Data is reached as the signed-in user |
 | An app the department now depends on | A developer on the **same repository**, with GitHub Copilot and the Managed Runtime CLI or plugin *(Preview)* | Promotion without the rewrite (below) |

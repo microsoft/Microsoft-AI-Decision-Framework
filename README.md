@@ -153,7 +153,7 @@ flowchart LR
 {: .note }
 > **On the times.** These are measured, not aspirational: prose at 250 words per minute, reference tables at half that because you scan them rather than read them. Steps 7 and 8 are reference material and behave like it. Nobody reads the Technologies page end to end, and it isn't built to be read that way. Look up what you need and leave.
 
-**Supplemental references (use as needed):** [Visual Framework]({{ site.baseurl }}/docs/visual-framework) | [Quick Reference]({{ site.baseurl }}/docs/quick-reference) | [Resources]({{ site.baseurl }}/docs/resources) | [Glossary]({{ site.baseurl }}/docs/glossary) | [AI Instinct]({{ site.baseurl }}/docs/ai-instinct) | [Agentic Engineering]({{ site.baseurl }}/docs/agentic-engineering)
+**Supplemental references (use as needed):** [Visual Framework]({{ site.baseurl }}/docs/visual-framework) | [Quick Reference]({{ site.baseurl }}/docs/quick-reference) | [Resources]({{ site.baseurl }}/docs/resources) | [Glossary]({{ site.baseurl }}/docs/glossary) | [Decision Explorer]({{ site.baseurl }}/docs/visual-explorer) | [AI Instinct]({{ site.baseurl }}/docs/ai-instinct) | [Agentic Engineering]({{ site.baseurl }}/docs/agentic-engineering)
 
 **You do not have to read it in order.** If you already know what you're building, jump to [Scenarios]({{ site.baseurl }}/docs/scenarios) and work backward. If you're facilitating a workshop, start with the [Visual Framework]({{ site.baseurl }}/docs/visual-framework) diagrams. If you just need an answer today, the shortcuts are below. The path exists so the framework compounds, not because the order is sacred.
 
@@ -200,10 +200,16 @@ Check it before you commit to a surface, and again before you renew a budget.
 | :--- | :--- | :--- |
 | **2025-11-10** *(passed)* | GitHub **App-based Copilot Extensions** deprecated. Client-side VS Code Copilot Extensions remain fully supported. | Migrate App-based extensions to **MCP servers** |
 | **June 2026** *(passed)* | **[Copilot Studio for Teams](https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-get-started-teams)** can no longer create classic chatbots; the app redirects to the Copilot Studio web app. Scope: **makers on a Teams plan**, who are limited to classic orchestration and can only publish to Microsoft Teams. A standalone Copilot Studio subscription is unaffected. | Build in the **Copilot Studio web app** |
+| **2026-07-30** *(passed)* | **GitHub Models** fully retired (playground, model catalog, inference API, and BYOK). | **Microsoft Foundry** |
+| **2026-08-26** *(passed)* | **Assistants API** and **`azure-ai-inference` SDK** sunset/retired on Microsoft Learn. | **Foundry Agent Service (Responses API)** and the standard **`openai` SDK** |
 | **2026-09-01** *(passed)* | **GitHub AI-credit promotional allowances end.** Business 3,000 → 1,900/user/month; Enterprise 7,000 → 3,900/user/month. | Budget against the standing 1,900/3,900 allowances |
-| **2026-12-01** | **Microsoft Foundry Workflows retires.** Visual designer and in-portal execution unsupported after this date. | **Microsoft Agent Framework** (recommended) · **Azure Logic Apps** (visual designer) · **A2A** (lightweight handoffs) |
+| **2026-11-06** | **Foundry "Microsoft Fabric" tool for data agents** stops being supported. | Migrate Foundry agents to the **Fabric IQ (OneLake Catalog) tool** (*Preview*) |
+| **2026-12-01** | **Microsoft Foundry Workflows retires.** Visual designer and in-portal execution unsupported after this date (exported YAML remains executable on Hosted Agents). | **Microsoft Agent Framework** (recommended) · **Azure Logic Apps** (visual designer) · **A2A** (lightweight handoffs) |
 | **2027-03-31** | **Azure Cache for Redis Enterprise and Enterprise Flash** retire (instances disabled 2027-04-01). The nearest infrastructure deadline under most agent memory and semantic-cache designs. | **Azure Managed Redis** (GA, Entra-native) |
 | **2028-09-30** | **Azure Cache for Redis Basic, Standard, and Premium** retire (instances disabled 2028-10-01). | **Azure Managed Redis** |
+| **Rolling** | **Foundry model versions** retire 18 months after GA (12 months for Anthropic, DeepSeek, Fireworks, and Mistral). Provisioned deployments do **not** auto-upgrade; inference returns `410 Gone` after retirement. | Read retirement dates from the Foundry Models API and budget the PTU swap |
+
+See the complete, maintained table in **[Quick Reference: Lifecycle Status]({{ '/docs/quick-reference#lifecycle-status-quick-reference' | relative_url }})**.
 
 {: .warning }
 > **Read this as a trigger list, not a to-do list.** A date only matters if you're standing on the thing that expires. Two of these, the Redis retirements, will quietly reach into agent memory, session state, and semantic caching in architectures that never mention Redis in the design doc. Go look.
@@ -226,7 +232,7 @@ That gap is our job. Microsoft's docs answer *"what does this product do?"* extr
 | [CAF: AI adoption](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai/strategy) | The six-stage organizational loop: Strategy → Plan → Ready → Govern → Secure → Manage | "Where This Sits," above |
 | [CAF: AI agents](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/) | Plan → Govern & secure → Build → Manage, plus use-case scoring and business-value quadrants | "The Four Doors," above; the scoring gates in the Decision Framework |
 | [Well-Architected Framework: AI workloads](https://learn.microsoft.com/en-us/azure/well-architected/ai/) | Design areas for AI workloads once you've chosen. Note there is **no separate WAF service guide for agents**; CAF routes agent teams here | Evaluation Criteria and Implementation Patterns |
-| [BXT / Business Envisioning](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/business-envisioning) and [Capability Envisioning](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/capability-envisioning) | Deciding whether an idea deserves to exist at all: Shelve, Research, Incubate, Accelerate to MVP | Phase 1 gate in the Decision Framework. *(Both pages are ISV-scoped and 18 to 22 months old; the methodology holds, the product references don't.)* |
+| [BXT / Business Envisioning](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/business-envisioning) and [Capability Envisioning](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/capability-envisioning) | Deciding whether an idea deserves to exist at all: Shelve, Research, Incubate, Accelerate to MVP | Phase 1 gate in the Decision Framework. *(Both pages are ISV-scoped and last updated in September 2024 and January 2025; the methodology holds, the product references don't.)* |
 | [Azure Architecture Center](https://learn.microsoft.com/en-us/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-chat) | Reference architectures and the complexity spectrum: direct model call → single agent with tools → multi-agent orchestration | Implementation Patterns |
 
 ---
@@ -252,7 +258,7 @@ This isn't a technical guide. It's the human foundation that makes every technic
 5. **Start simple, scale smart.** Choose the least powerful thing that meets the requirement. Most regret in this field comes from over-reach, not under-reach.
 6. **Honest about the frontier.** Where something is contested or still moving, we say so rather than manufacture a verdict.
 
-**Currency:** this reflects the state as of **July 2026**. Microsoft's AI portfolio moves weekly, so verify against official sources before a production decision. Where a claim is likely to age badly, we have tried to write the durable version of it.
+**Currency:** this reflects the state as of **October 2026**. Microsoft's AI portfolio moves weekly, so verify against official sources before a production decision. Where a claim is likely to age badly, we have tried to write the durable version of it.
 
 ---
 

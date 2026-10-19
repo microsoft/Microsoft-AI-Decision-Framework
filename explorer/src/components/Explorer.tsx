@@ -29,8 +29,19 @@ const DOCS_BASE = '/Microsoft-AI-Decision-Framework';
 const STATUS_COLORS: Record<string, string> = {
   ga: '#0b6a0b',
   preview: '#8c5e00',
+  limited: '#4b2070',
   experimental: '#a52617',
   deprecated: '#a52617',
+  unstated: '#535c66',
+};
+
+const STATUS_LABELS: Record<string, string> = {
+  ga: 'GA',
+  preview: 'PREVIEW',
+  limited: 'LIMITED ACCESS',
+  experimental: 'EXPERIMENTAL',
+  deprecated: 'DEPRECATED',
+  unstated: 'GA NOT STATED',
 };
 
 /** Read URL search params once on mount. */
@@ -60,7 +71,7 @@ export default function Explorer() {
   const { layoutNodes, layoutEdges, branches } = useMemo(() => {
     if (!flow) return { layoutNodes: [], layoutEdges: [], branches: [] as BranchId[] };
 
-    // Collect unique branches (exclude 'overview' — it only has the start node)
+    // Collect unique branches (exclude 'overview'; it only has the start node)
     const branchSet = new Set<BranchId>();
     flow.nodes.forEach((n) => { if (n.data.branch !== 'overview') branchSet.add(n.data.branch); });
     const branches = Array.from(branchSet);
@@ -134,7 +145,7 @@ export default function Explorer() {
 
   return (
     <div style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
-      {/* Header — hidden in embed mode */}
+      {/* Header: hidden in embed mode */}
       {!isEmbed && (
         <header className="explorer-header">
           <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
@@ -274,7 +285,7 @@ export default function Explorer() {
                 className="status-badge"
                 style={{ background: STATUS_COLORS[selectedNode.status] ?? '#535c66' }}
               >
-                {selectedNode.status.toUpperCase()}
+                {STATUS_LABELS[selectedNode.status] ?? selectedNode.status.toUpperCase()}
               </span>
             )}
             {selectedNode.description && <p>{selectedNode.description}</p>}

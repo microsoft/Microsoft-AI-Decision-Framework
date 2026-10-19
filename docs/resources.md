@@ -155,9 +155,9 @@ Read these before you read any product page. They are the maps; everything below
   - [Baseline Microsoft Foundry Chat Reference Architecture](https://learn.microsoft.com/en-us/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-chat) (formerly published as `baseline-microsoft-foundry-chat`)
 
 - **Envisioning methodologies** ⚠️ *Currency flag: the methodologies hold; the product references inside them do not.*
-  - [Business Envisioning / BXT](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/business-envisioning): ISV-scoped, last updated **2024-09-26 (~22 months old)**
-  - [Capability Envisioning](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/capability-envisioning): last updated **2025-01-16 (~18 months old)**
-  - [Copilot UX guidance](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/ux-guidance): last updated **2024-09-26 (~22 months old)**; Microsoft's own labels are Immersive · Assistive · Embedded
+  - [Business Envisioning / BXT](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/business-envisioning): ISV-scoped, last updated **2024-09-26**
+  - [Capability Envisioning](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/capability-envisioning): last updated **2025-01-16**
+  - [Copilot UX guidance](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/ux-guidance): last updated **2024-09-26**; Microsoft's own labels are Immersive · Assistive · Embedded
 
 ### Core Platforms
 {: .no_toc }
@@ -196,8 +196,8 @@ Read these before you read any product page. They are the maps; everything below
   - [Custom engine agents overview](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/overview-custom-engine-agent)
   - [Copilot Studio documentation](https://learn.microsoft.com/en-us/microsoft-copilot-studio/)
   - [Computer Use (GA)](https://learn.microsoft.com/en-us/microsoft-copilot-studio/computer-use)
-  - **Verified feature status:** **GitHub Copilot harness GA (2026-08-03)**, the default for new agents · generative orchestration **GA** (default *within the standard harness*) · computer use **GA (May 2026)** · agent-to-agent (A2A) **GA (April 2026)** · Copilot Tuning **early access preview** · scheduled prompts **GA (2026-07-01)**. Microsoft does **not** state a status for autonomous/triggered agents, child (inline) agents, connected Copilot Studio agents, Foundry agents, Fabric data agents, or M365 Agents SDK agents inside Copilot Studio. Treat those as *status not stated* and confirm in the what's-new feed.
-  - [Work IQ MCP in Copilot Studio (Preview)](https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-experience/add-work-iq)
+  - **Verified feature status:** **GitHub Copilot harness GA (2026-08-03)**, the default for new agents · generative orchestration **GA** (default *within the standard harness*) · computer use **GA (May 2026)** · agent-to-agent (A2A) **GA (April 2026)** on the standard harness · Foundry IQ integration **GA per Oct 7 blog** · harness upgrade tool **Preview (2026-10-05)**. Connected agents on the GitHub Copilot harness (Studio, Foundry, A2A, M365 Agents SDK, updated 2026-10-14) carry **Preview** in the What's New feed and no banner on the how-to pages.
+  - [Work IQ in Copilot Studio (Preview)](https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-experience/add-work-iq)
   - [Custom MCP server creation](https://learn.microsoft.com/en-us/microsoft-copilot-studio/mcp-create-new-server)
   - [Connect to existing MCP server](https://learn.microsoft.com/en-us/microsoft-copilot-studio/mcp-add-existing-server-to-agent)
   - [Copilot Studio Kit](https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/kit-overview)
@@ -205,9 +205,10 @@ Read these before you read any product page. They are the maps; everything below
 
 - **Microsoft Agent 365 (GA, 2026-05-01)**
   - [Overview](https://learn.microsoft.com/en-us/microsoft-agent-365/overview)
-  - [Agent 365 SDK (Preview)](https://learn.microsoft.com/en-us/microsoft-agent-365/developer/agent-365-sdk)
-  - [Agent 365 CLI (Preview)](https://learn.microsoft.com/en-us/microsoft-agent-365/developer/agent-365-cli)
-  - **Licensing note:** per-user; Microsoft 365 E5 is the recommended prerequisite; included in **Microsoft 365 E7**. Components include Agent Registry, Agent Map, Registry Sync, and Shadow AI (Preview).
+  - [Agent 365 SDK (`v1.0.0`)](https://learn.microsoft.com/en-us/microsoft-agent-365/developer/agent-365-sdk)
+  - [Agent 365 CLI](https://learn.microsoft.com/en-us/microsoft-agent-365/developer/agent-365-cli)
+  - [Connected platforms (Registry Sync)](https://learn.microsoft.com/en-us/microsoft-agent-365/admin/connected-platforms): Bedrock, Vertex AI, Agentforce, Genie, Claude, Oracle, Snowflake
+  - **Licensing note:** per-user; Microsoft 365 E5 is the recommended prerequisite; included in **Microsoft 365 E7**. Components include Agent Registry, Agent Map, Registry Sync, Shadow AI (Preview), and Local Agents (Preview).
 
 - **Microsoft Entra Agent ID (generally available)**
   - [Microsoft Entra Agent ID docset](https://learn.microsoft.com/en-us/entra/agent-id/)
@@ -231,10 +232,11 @@ Read these before you read any product page. They are the maps; everything below
   - [Build where you want, run with confidence](https://www.microsoft.com/en-us/copilot/blog/copilot-studio/build-where-you-want-run-with-confidence-now-microsoft-hosts-and-manages-the-code-created-by-copilot/): the announcement (2026-09-25)
 
 - **The build paths**
+  - [Copilot Code (Frontier preview)](https://learn.microsoft.com/en-us/copilot/code/overview): the 10-page Learn docset covering requirements, admin controls, GitHub connection, and local vs. cloud execution
   - [Use Copilot Cowork](https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/use-cowork): the App skill (Frontier, preview) and its sharing warning
   - [Apps overview (preview)](https://learn.microsoft.com/en-us/microsoft-copilot-studio/apps-experience/apps-overview): building apps in Copilot Studio
   - [Copilot Studio apps FAQ](https://learn.microsoft.com/en-us/microsoft-copilot-studio/faq-apps): read-only code view, testing expectations, and sharing limits
-  - [Power Apps code apps overview](https://learn.microsoft.com/en-us/power-apps/developer/code-apps/overview): the code-first sibling on Power Platform; status not stated on the page as of 2026-09-25
+  - [Power Apps code apps overview](https://learn.microsoft.com/en-us/power-apps/developer/code-apps/overview): the code-first sibling on Power Platform (GA per the [official GitHub README](https://github.com/microsoft/PowerAppsCodeApps); status not stated on the Learn overview)
   - [Overview of the Power Apps vibe experience (preview)](https://learn.microsoft.com/en-us/power-apps/vibe/overview): Power Platform's natural-language builder, whose page now recommends Cowork and Copilot Studio for app building; [converting a vibe app](https://learn.microsoft.com/en-us/power-apps/vibe/convert-vibe-to-code) to a code app creates a fork
 
 - **The new Copilot, and how it is billed**
@@ -260,13 +262,13 @@ Read these before you read any product page. They are the maps; everything below
   - [Overview](https://learn.microsoft.com/en-us/agent-framework/overview/)
   - [Orchestration Patterns](https://learn.microsoft.com/en-us/agent-framework/workflows/orchestrations/)
 
-- **Semantic Kernel** ⚠️ *Maintenance Mode*
+- **Semantic Kernel** ⚠️ *Superseded by Agent Framework (no sunset date announced)*
   - [Documentation](https://learn.microsoft.com/en-us/semantic-kernel/overview/)
   - [GitHub Repository](https://github.com/microsoft/semantic-kernel)
   - [Migrate to Agent Framework](https://learn.microsoft.com/en-us/agent-framework/migration-guide/from-semantic-kernel/)
 
   {: .note }
-  > Semantic Kernel is in maintenance mode (security patches only). For new projects, use Microsoft Agent Framework which provides enhanced multi-agent orchestration, stateful workflows, and production-grade capabilities.
+  > Microsoft describes Agent Framework as the *"direct successor… next generation of both"* Semantic Kernel and AutoGen. Semantic Kernel v1.x remains supported with critical and security fixes and no sunset date has been announced; for new projects, start on Microsoft Agent Framework.
 
 - **LangChain Integration**
   - [Azure Integration Guide](https://learn.microsoft.com/en-us/azure/developer/python/get-started-app-chat-template)
@@ -285,17 +287,17 @@ Read these before you read any product page. They are the maps; everything below
   - [Vector search](https://learn.microsoft.com/en-us/azure/search/vector-search-overview)
 
 - **AI-Capable Databases**
-  - [Cosmos DB Vector Search](https://learn.microsoft.com/en-us/azure/cosmos-db/vector-search): flat/kNN, quantized flat, and DiskANN index types; must be enabled as a feature. Microsoft does not state a GA date in the docs
+  - [Cosmos DB Vector Search](https://learn.microsoft.com/en-us/azure/cosmos-db/vector-search): `flat`, `quantizedFlat`, and `diskANN` index types; must be enabled as a feature. Microsoft does not state a GA date on Learn
   - [Azure Database for PostgreSQL: pgvector (GA)](https://learn.microsoft.com/en-us/azure/postgresql/extensions/how-to-use-pgvector) plus the `azure_ai` extension for in-database embeddings and LLM calls
-  - [`VECTOR_SEARCH` (T-SQL)](https://learn.microsoft.com/en-us/sql/t-sql/functions/vector-search-transact-sql): **Preview** on Azure SQL Database, SQL database in Fabric, and SQL Server 2025 (SQL Server 2025 also requires the `PREVIEW_FEATURES` database-scoped configuration)
+  - [`VECTOR_SEARCH` (T-SQL)](https://learn.microsoft.com/en-us/sql/t-sql/functions/vector-search-transact-sql): **GA** on Azure SQL Database, SQL database in Fabric, and SQL Managed Instance (Always-up-to-date policy); **Preview** on SQL Server 2025 and SQL MI (SQL Server 2025 policy, requires `PREVIEW_FEATURES`)
   - [Azure Managed Redis](https://learn.microsoft.com/en-us/azure/redis/overview): GA, Entra-native
 
 - **Microsoft Fabric**
-  - [Fabric data agent](https://learn.microsoft.com/en-us/fabric/data-science/concept-data-agent): **GA** (formerly "AI skill"); requires F2+ or P1+ capacity
-  - [Fabric IQ](https://learn.microsoft.com/en-us/fabric/iq/): **Preview** workload: ontologies, graph models, semantic models, and operations agents
+  - [Fabric data agent](https://learn.microsoft.com/en-us/fabric/data-science/concept-data-agent): **GA core** (formerly "AI skill", requires F2+ or P1+ capacity; cross-platform consumption routes are Preview, and the Foundry "Microsoft Fabric" tool retires **2026-11-06**)
+  - [Fabric IQ](https://learn.microsoft.com/en-us/fabric/iq/): **Preview** workload (ontologies, graph models, Ontology MCP); Chat, Cowork, and Fabric IQ MCP integrations are **GA**
 
 - **Microsoft Fabric App Backends**
-  - [Rayfin product page](https://www.microsoft.com/en-us/microsoft-fabric/features/rayfin)
+  - [Fabric Apps with Rayfin SDK (Preview)](https://learn.microsoft.com/en-us/fabric/apps/overview)
   - [Microsoft Build 2026: Building agentic apps with Microsoft Fabric and Microsoft Databases](https://azure.microsoft.com/en-us/blog/microsoft-build-2026-building-agentic-apps-with-microsoft-fabric-and-microsoft-databases)
 
 - **Foundry IQ**
@@ -303,12 +305,13 @@ Read these before you read any product page. They are the maps; everything below
   - [Connect Foundry IQ to Foundry Agent Service](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/foundry-iq-connect)
   - [Foundry IQ FAQ](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/foundry-iq-faq)
 
-- **Work IQ** (APIs **GA 2026-06-16**; **Work IQ MCP is Preview**; don't conflate the two)
+- **Work IQ** (APIs **GA 2026-06-16** and **Work IQ MCP GA**; MCP `retrieve` tool, Studio/Foundry integrations, and Business Applications in Work IQ are **Preview**)
   - [Work IQ API overview](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/work-iq/api-overview): four API domains (Chat, Context, Tools, Workspaces), billed in Copilot Credits, **Entra delegated auth only (app-only is not supported)**
   - [Announcing the new Work IQ APIs](https://www.microsoft.com/en-us/copilot/blog/2026/06/02/announcing-the-new-work-iq-apis/)
-  - [Work IQ MCP overview (Preview)](https://learn.microsoft.com/en-us/microsoft-agent-365/tooling-servers-overview)
-  - [Work IQ in Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-experience/add-work-iq)
-  - [Work IQ CLI](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/work-iq/cli)
+  - [Agent 365 tooling servers overview (Work IQ MCP GA)](https://learn.microsoft.com/en-us/microsoft-agent-365/tooling-servers-overview)
+  - [Work IQ in Copilot Studio (Preview)](https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-experience/add-work-iq)
+  - [Business Applications in Work IQ (Preview)](https://learn.microsoft.com/en-us/power-apps/maker/data-platform/business-applications-work-iq)
+  - [Work IQ CLI (GA)](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/work-iq/cli)
 
 - **Web IQ (Limited Access)**
   - [Web IQ product page](https://www.microsoft.com/en-us/WebIQ)
@@ -488,7 +491,7 @@ If you find conflicting information:
 5. Test in a non-production environment
 
 {: .important }
-> **This framework was last validated: February 5, 2026.** Technology selections should always be verified against current Microsoft Learn documentation, portal capabilities, and your organization's specific requirements before implementation.
+> **This framework was last validated: October 14, 2026.** Technology selections should always be verified against current Microsoft Learn documentation, portal capabilities, and your organization's specific requirements before implementation.
 
 ---
 

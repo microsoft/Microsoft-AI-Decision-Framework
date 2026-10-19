@@ -336,7 +336,7 @@ Read these before you read any product page. They are the maps; everything below
   - [Copilot cloud agent](https://docs.github.com/en/copilot/concepts/copilot-surfaces/copilot-on-github): renamed from "coding agent." **GA on paid plans including Student; not available on Copilot Free**
   - [Agents page](https://github.com/copilot/agents)
   - [Enterprise AI governance and AI Controls](https://docs.github.com/en/copilot/get-started/enterprise-ai-governance)
-  - [Custom agents](https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-custom-agents) and [`AGENTS.md` agent instructions](https://docs.github.com/en/copilot/concepts/prompting/response-customization)
+  - [Custom agents](https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-custom-agents) and [`AGENTS.md` agent instructions](https://docs.github.com/en/copilot/concepts/prompting-and-context/custom-instructions)
   - [Prepare an enterprise for custom agents](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/prepare-for-custom-agents)
 
 - **GitHub Copilot SDK ([GA](https://github.blog/changelog/2026-06-02-copilot-sdk-is-now-generally-available/))**

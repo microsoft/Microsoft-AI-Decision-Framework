@@ -390,8 +390,8 @@ The promise is seductive: detect an incident, generate a fix, and ship it before
 - [About GitHub Copilot cloud agent](https://docs.github.com/en/copilot/concepts/copilot-surfaces/copilot-on-github)
 - [About the GitHub Copilot app](https://docs.github.com/en/copilot/concepts/copilot-surfaces/github-copilot-app)
 - [Managing issues and pull requests with the GitHub Copilot app](https://docs.github.com/en/copilot/how-tos/github-copilot-app/managing-issues-and-pull-requests)
-- [About GitHub Copilot code review](https://docs.github.com/en/copilot/concepts/agents/code-review)
-- [About Copilot automations](https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-automations)
+- [About GitHub Copilot code review](https://docs.github.com/en/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/code-review)
+- [About Copilot automations](https://docs.github.com/en/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/about-automations)
 - [Azure SRE Agent overview](https://learn.microsoft.com/en-us/azure/sre-agent/overview)
 - [Azure SRE Agent GitHub connector](https://learn.microsoft.com/en-us/azure/sre-agent/github-connector)
 

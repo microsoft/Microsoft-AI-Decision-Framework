@@ -334,7 +334,7 @@ flowchart TD
 |------|------------|-------------------|---------------|
 | **1. Assist in the editor** | GitHub Copilot agent mode | GA in VS Code and Visual Studio | [Copilot agents in VS Code](https://code.visualstudio.com/docs/agents/overview) |
 | **2. Delegate the issue** | **Copilot cloud agent** (renamed from "coding agent") | **GA on all paid plans including Student; NOT available on Copilot Free** | [About Copilot cloud agent](https://docs.github.com/en/copilot/concepts/copilot-surfaces/copilot-on-github) |
-| **3. Specialize the agent** | **Custom agents** (`.md` + YAML frontmatter) and **`AGENTS.md`**, which GitHub calls **"agent instructions"** | Custom agents are **GA** for the cloud agent, VS Code, and Visual Studio; **Public Preview** for JetBrains, Eclipse, and Xcode. GitHub's own caveat on agent instructions: *"currently not supported by all Copilot features."* | [Custom agents](https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-custom-agents) |
+| **3. Specialize the agent** | **Custom agents** (`.md` + YAML frontmatter) and **`AGENTS.md`**, which GitHub calls **"agent instructions"** | Custom agents are **GA** for the cloud agent, VS Code, and Visual Studio; **Public Preview** for JetBrains, Eclipse, and Xcode. GitHub's own caveat on agent instructions: *"currently not supported by all Copilot features."* | [Custom agents](https://docs.github.com/en/copilot/concepts/customizations/custom-agents) |
 | **4. Build on the harness** | **GitHub Copilot SDK** | **GA.** Python, TypeScript, Go, .NET, Java, Rust. Wraps the Copilot CLI engine over JSON-RPC. BYOK: OpenAI, Microsoft Foundry, Anthropic. | [Copilot SDK](https://github.com/github/copilot-sdk) |
 
 {: .warning }
@@ -929,7 +929,7 @@ Tool support behind a VNet applies to Responses API agents, not classic-portal a
 #### Sources: Governance & Compliance Path
 {: .no_toc }
 
-- [Govern agents by risk](https://learn.microsoft.com/en-us/agents/center-of-excellence/govern-agents-risk) (updated 2026-07-14)
+- [Govern agents by risk](https://learn.microsoft.com/en-us/agents/center-of-excellence/govern-agents-risk) (updated 2026-07-14) and [Security for Microsoft Copilot](https://learn.microsoft.com/en-us/microsoft-365/copilot/security-microsoft-copilot)
 - [Anthropic as a subprocessor](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-Masking-and-Subprocessors) (updated 2026-09-18) and [Cowork models](https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/cowork-models) (updated 2026-09-14)
 - [What is Microsoft Entra Agent ID](https://learn.microsoft.com/en-us/entra/agent-id/what-is-microsoft-entra-agent-id), [Agent 365 overview](https://learn.microsoft.com/en-us/microsoft-agent-365/overview) (updated 2026-08-20), [Agent 365 service description](https://learn.microsoft.com/en-us/office365/servicedescriptions/microsoft-agent-365/microsoft-agent-365) (updated 2026-10-01), and [Connected platforms](https://learn.microsoft.com/en-us/microsoft-agent-365/admin/connected-platforms) (updated 2026-10-14)
 - [Shadow AI](https://learn.microsoft.com/en-us/microsoft-agent-365/admin/agent-shadow-ai) (updated 2026-08-27), [Local agents](https://learn.microsoft.com/en-us/microsoft-agent-365/admin/agent-local) (updated 2026-09-08), and [Purview DLP for Copilot and Cowork](https://learn.microsoft.com/en-us/purview/dlp-microsoft365-copilot-location-learn-about) (updated 2026-10-05)

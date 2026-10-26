@@ -165,7 +165,7 @@ flowchart LR
 
 | What you said | Where to start |
 | :--- | :--- |
-| *"I need something in production next week"* | **[M365 Copilot]({{ '/docs/technologies#microsoft-365-copilot' | relative_url }})** once IT completes [tenant readiness](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-setup), or **[Copilot Studio]({{ '/docs/technologies#copilot-studio' | relative_url }})** from a template |
+| *"I need something in production next week"* | **[M365 Copilot]({{ '/docs/technologies#microsoft-365-copilot' | relative_url }})** once IT completes [tenant readiness](https://learn.microsoft.com/en-us/microsoft-365/copilot/enablement-resources), or **[Copilot Studio]({{ '/docs/technologies#copilot-studio' | relative_url }})** from a template |
 | *"I have makers but no developers"* | **[Copilot Studio]({{ '/docs/technologies#copilot-studio' | relative_url }})** plus **[AI Builder]({{ '/docs/ai-stack#4-ai-services-and-building-blocks' | relative_url }})** |
 | *"I have a dev team and complex requirements"* | **[Microsoft Foundry]({{ '/docs/technologies#microsoft-foundry-azure' | relative_url }})** or the **[M365 Agents SDK]({{ '/docs/technologies#microsoft-365-agents-sdk--toolkit--tech-heading-' | relative_url }})** |
 | *"I need enterprise integration plus AI"* | **[Azure Logic Apps](https://learn.microsoft.com/en-us/azure/logic-apps/agent-workflows-concepts)**, 1,400+ connectors plus agentic workflows. Status varies by hosting model; check before you commit |

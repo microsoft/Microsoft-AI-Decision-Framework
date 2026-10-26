@@ -120,8 +120,8 @@ Treat it as a reading list with a shelf life. Microsoft Learn stamps every page 
 
 **Key Resources:**
 
-- [Security for Microsoft 365 Copilot](https://learn.microsoft.com/en-us/microsoft-365/copilot/security-microsoft-365-copilot)
-- [M365 Copilot admin guide](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-setup)
+- [Security for Microsoft Copilot](https://learn.microsoft.com/en-us/microsoft-365/copilot/security-microsoft-copilot)
+- [M365 Copilot admin guide](https://learn.microsoft.com/en-us/microsoft-365/copilot/enablement-resources)
 - [Integrated apps management](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/test-and-deploy-microsoft-365-apps)
 - [Graph connectors administration](https://learn.microsoft.com/en-us/microsoft-365/copilot/connectors/deployment-overview)
 - [Agent Registry in the Microsoft 365 admin center](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/agent-registry?view=o365-worldwide) (Updated: 2026-01-23)
@@ -165,7 +165,7 @@ Read these before you read any product page. They are the maps; everything below
 - **Microsoft 365 Copilot**
   - [Extensibility overview](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/)
   - [Adoption resources](https://adoption.microsoft.com/en-us/copilot/)
-  - [Security posture](https://learn.microsoft.com/en-us/microsoft-365/copilot/security-microsoft-365-copilot)
+  - [Security posture](https://learn.microsoft.com/en-us/microsoft-365/copilot/security-microsoft-copilot)
   - [Privacy and data safeguards](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-privacy)
   - [Wave 3: Powering Frontier Transformation](https://www.microsoft.com/en-us/copilot/blog/2026/03/09/powering-frontier-transformation-with-copilot-and-agents/)
   - [Copilot Cowork announcement (March 2026)](https://www.microsoft.com/en-us/copilot/blog/2026/03/09/copilot-cowork-a-new-way-of-getting-work-done/): superseded by the GA announcement below
@@ -339,7 +339,7 @@ Read these before you read any product page. They are the maps; everything below
   - [Copilot cloud agent](https://docs.github.com/en/copilot/concepts/copilot-surfaces/copilot-on-github): renamed from "coding agent." **GA on paid plans including Student; not available on Copilot Free**
   - [Agents page](https://github.com/copilot/agents)
   - [Enterprise AI governance and AI Controls](https://docs.github.com/en/copilot/get-started/enterprise-ai-governance)
-  - [Custom agents](https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-custom-agents) and [`AGENTS.md` agent instructions](https://docs.github.com/en/copilot/concepts/prompting/response-customization)
+  - [Custom agents](https://docs.github.com/en/copilot/concepts/customizations/custom-agents) and [`AGENTS.md` agent instructions](https://docs.github.com/en/copilot/concepts/prompting-and-context/custom-instructions)
   - [Prepare an enterprise for custom agents](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/prepare-for-custom-agents)
 
 - **GitHub Copilot SDK ([GA](https://github.blog/changelog/2026-06-02-copilot-sdk-is-now-generally-available/))**

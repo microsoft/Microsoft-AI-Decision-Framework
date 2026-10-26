@@ -1,6 +1,14 @@
 {
-  "lastRun": "2026-10-19",
-  "urls": {},
+  "lastRun": "2026-10-26",
+  "urls": {
+    "https://github.com/microsoft/agent-governance-toolkit/blob/main/CHANGELOG.md": {
+      "firstFailed": "2026-10-26",
+      "failCount": 1,
+      "lastStatus": "429",
+      "state": "suspect",
+      "note": "Was: AGT changelog citations in feature-comparison.md, resources.md, and technologies.md. First strike; GitHub rate limiting is not confirmed rot."
+    }
+  },
   "botProtected": {
     "_note": "Hosts that block curl (Cloudflare interstitial, CDN throttling) but serve the cited page to a real browser. Verified alive on the date shown. Do not treat a 403/429/503 from these as rot without a browser-level second opinion.",
     "https://doi.org/10.7551/mitpress/1020.001.0001": {

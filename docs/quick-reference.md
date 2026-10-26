@@ -293,7 +293,7 @@ One agent, four handoffs. This is the relay race a developer's work actually run
 **Sources:**
 
 - [About the Copilot cloud agent](https://docs.github.com/en/copilot/concepts/copilot-surfaces/copilot-on-github)
-- [About custom agents](https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-custom-agents)
+- [Custom agents](https://docs.github.com/en/copilot/concepts/customizations/custom-agents)
 - [Copilot response customization (agent instructions / `AGENTS.md`)](https://docs.github.com/en/copilot/concepts/prompting-and-context/custom-instructions)
 - GitHub Copilot SDK: [quickstart](https://docs.github.com/en/copilot/get-started/sdk-quickstart); [GA announcement and six languages](https://github.blog/changelog/2026-06-02-copilot-sdk-is-now-generally-available/); [BYOK providers and token callbacks](https://docs.github.com/en/copilot/how-tos/copilot-sdk/auth/byok); [Azure managed identity with BYOK](https://docs.github.com/en/copilot/how-tos/copilot-sdk/setup/azure-managed-identity)
 - [Microsoft Foundry Agent Service overview](https://learn.microsoft.com/en-us/azure/foundry/agents/overview): lists the GitHub Copilot SDK as a hosted-agent framework

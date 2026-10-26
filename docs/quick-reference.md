@@ -60,41 +60,53 @@ description: "Fast lookup table for Microsoft AI technologies"
 
 ## Lifecycle Status Quick Reference
 
-Active migration deadlines and forced transitions. If your project timeline crosses a deadline below, migration planning is mandatory.
+Canonical migration calendar and active transitions (verified October 14, 2026). If your project's operating life crosses an upcoming deadline below, budget the migration now or start on the successor.
 
-| Technology / API | Current Status | Deadline | Successor | Action |
+| Technology / API | Current Status | Date & State | Successor | Action |
 | --- | --- | --- | --- | --- |
-| `azure-ai-inference` SDK | **Deprecated** | May 30, 2026 | `openai` SDK (standard `OpenAI()` client) | **Migrate now** |
-| Assistants API | **Deprecated** | Aug 26, 2026 (date **unconfirmed** against current Microsoft Learn, verify before planning) | Foundry Agents Service (Responses API) | **Plan migration.** [migration tool](https://aka.ms/agent/migrate/tool) available |
-| Classic agents (v1) | **Deprecated** | Mar 31, 2027 (date **unconfirmed** against current Microsoft Learn, verify before planning) | Foundry Agents v2 (`create_version()`) | **Plan migration.** [migration guide](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/migrate#migrate-classic-agents-to-new-agents) |
-| Foundry Workflows | **Retiring from Preview without a GA path on December 1, 2026** | Dec 1, 2026 | Role-dependent: Agent Framework, Logic Apps, A2A, or exported YAML on [Hosted Agents (mixed maturity)]({{ '/docs/technologies#the-hosted-agent-constraint-card' | relative_url }}) | **Do not start new solutions.** Map code-first orchestration, visual process, direct delegation, and hosted YAML separately |
-| Classic Foundry portal | **Legacy** | Ongoing | Foundry (new) portal | **Transition.** Classic and new lack feature parity |
-| Bot Framework | **Retired** | Dec 31, 2025 (passed) | M365 Agents SDK + Toolkit | **Complete** |
-| `azure-ai-agents` SDK | **Deprecated** | March 2026 | `AIProjectClient` in `azure-ai-projects` 2.x | **Remove** standalone `azure-ai-agents` pin; use `project_client.get_openai_client()` for agent responses |
-| `azure-ai-projects` 1.x | **Legacy** | Aligns with classic portal | `azure-ai-projects` 2.x (GA: Python 2.0.1, Java 2.0.0; Beta: .NET 2.0.0-beta.1) | **Upgrade.** 2.x targets the new Foundry portal and is the investment direction |
-| Semantic Kernel (standalone) | **Maintenance** | Security patches only | Microsoft Agent Framework | **Migrate for new projects** |
+| GitHub App-based Copilot Extensions | **Deprecated** | 2025-11-10 *(passed)* | Remote **MCP servers** (client-side VS Code extensions remain supported) | **Complete migration** to MCP servers |
+| Bot Framework | **Retired** | 2025-12-31 *(passed)* | **M365 Agents SDK + Toolkit** | **Complete** |
+| Standalone `azure-ai-agents` (Python/.NET) | **Deprecated** | March 2026 *(passed)* | `AIProjectClient` in `azure-ai-projects` 2.x (Java `com.azure:azure-ai-agents` 2.3.0 remains current) | **Remove** standalone Python/.NET pin; use `project_client.get_openai_client()` |
+| Copilot Studio for Teams (classic chatbot creation) | **Retired** | June 2026 *(passed)* | **Copilot Studio web app** (scope: makers on a Teams plan; standalone subscriptions unaffected) | **Build in the web app** |
+| GitHub Models | **Retired** | July 30, 2026 *(passed)* | **Microsoft Foundry** | **Remove dependencies.** Playground, catalog, inference API, and BYOK are retired |
+| `azure-ai-inference` SDK | **Retired** | August 26, 2026 *(passed; moved from May 30)* | `openai` SDK (standard `OpenAI()` client) | **Migrate now** ([migration guide](https://learn.microsoft.com/en-us/azure/foundry/how-to/model-inference-to-openai-migration)) |
+| Assistants API | **Retired / Sunset** | August 26, 2026 *(passed, confirmed on Learn)* | **Foundry Agent Service (Responses API)** | **Migrate now.** [Migration tool](https://aka.ms/agent/migrate/tool) available |
+| GitHub AI-credit promotional allowances | **Ended** | September 1, 2026 *(passed)* | Standing allowances: **1,900** (Business) and **3,900** (Enterprise) credits/user/month | **Re-baseline developer budget** |
+| Foundry "Microsoft Fabric" tool for data agents | **Retiring** | **November 6, 2026** *(upcoming)* | **Fabric IQ (OneLake Catalog) tool** in Foundry (**Preview**) | **Migrate Foundry agents** before 2026-11-06 ([notice](https://learn.microsoft.com/en-us/fabric/data-science/data-agent-foundry)) |
+| Foundry Workflows | **Retiring from Preview without a GA path** | **December 1, 2026** *(upcoming)* | Role-dependent: **Agent Framework** (recommended), **Logic Apps**, **A2A**, or exported YAML on [Hosted Agents]({{ '/docs/technologies#the-hosted-agent-constraint-card' | relative_url }}) | **Do not start new solutions.** Visual designer and in-portal execution stop after 2026-12-01 |
+| Azure Cache for Redis Enterprise & Enterprise Flash | **Retiring** | **March 31, 2027** *(disabled 2027-04-01)* | **Azure Managed Redis (GA)** | **Plan migration.** Exchange or cancel reservations before expiry |
+| Classic agents (v1) | **Deprecated** | March 31, 2027 *(date unconfirmed on Learn)* | **Foundry Agents v2** (`create_version()`) | **Plan migration** ([migration guide](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/migrate#migrate-classic-agents-to-new-agents)) |
+| Azure Cache for Redis Basic, Standard, & Premium | **Retiring** | **September 30, 2028** *(disabled 2028-10-01)* | **Azure Managed Redis (GA)** | **Plan migration** |
+| Dataverse intelligence (standalone) | **Folding / Retiring** | *"Soon"* *(undated)* | **Business Applications in Work IQ (Public Preview)** | **Transition** to Business Applications in Work IQ |
+| Foundry model versions | **Rolling lifecycle** | **18 months** after GA (OpenAI); **12 months** (Anthropic, DeepSeek, Fireworks, Mistral) | Newer model version in Foundry Models API | **Read retirement dates from the Models API.** PTU deployments do **not** auto-upgrade; inference returns `410 Gone` after retirement |
+| `azure-ai-projects` 1.x & Classic Foundry portal | **Legacy** | Ongoing | `azure-ai-projects` 2.x (**GA**: Python `2.8.0`, Java `2.3.0`, JS `2.8.0`, .NET `2.0.1`) & Foundry (new) portal | **Upgrade.** 2.x targets the new Foundry portal |
+| Semantic Kernel & AutoGen (standalone) | **Superseded** | No sunset date announced | **Microsoft Agent Framework (GA)** | **Use Agent Framework for new projects.** SK v1.x remains supported with critical and security fixes |
 
 **Sources:**
 
-- [Migrate from the Foundry (classic) portal](https://learn.microsoft.com/en-us/azure/foundry/how-to/navigate-from-classic) (Retrieved: 2026-03-19)
-- [Migrate to the new agents developer experience](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/migrate) (Retrieved: 2026-03-19)
+- [Migrate from the Foundry (classic) portal](https://learn.microsoft.com/en-us/azure/foundry/how-to/navigate-from-classic) (Updated: 2026-09-14)
+- [Migrate to the new agents developer experience](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/migrate) (Updated: 2026-10-06)
+- [Foundry data agent retirement notice (Nov 6, 2026)](https://learn.microsoft.com/en-us/fabric/data-science/data-agent-foundry) (Updated: 2026-10-14)
+- [GitHub Models retirement](https://docs.github.com/en/github-models) (Updated: 2026-07-30)
 
 ## Availability updates
 
 Rollout timing is not a migration deadline. Use these labels to decide what you can evaluate and what you can put on a production plan.
 
 {: .note }
-> Learn records the rename: *"Microsoft 365 Copilot is now named Microsoft Copilot, and Microsoft 365 Copilot Chat is now named Microsoft Copilot Chat."* The work product now shares its name with the consumer Microsoft Copilot app. Confirm which experience you mean ([requirements](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-copilot-requirements), updated 2026-09-24).
+> Learn records the rename: *"Microsoft 365 Copilot is now named Microsoft Copilot, and Microsoft 365 Copilot Chat is now named Microsoft Copilot Chat."* The work product now shares its name with the consumer Microsoft Copilot app. Confirm which experience you mean ([requirements](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-copilot-requirements), updated 2026-10-05).
 
 | Technology | Status | Rollout timing | Related path | Action |
 | --- | --- | --- | --- | --- |
-| Autopilot, formerly Microsoft Scout | **Private preview**, per Jared Spataro's Official Microsoft Blog post | *"expanding to private preview at the end of the month"* (September 2026) | [Autopilot]({{ '/docs/technologies#autopilot' | relative_url }}) | Confirm Autopilot's deployment requirements. Scout's documented desktop prerequisites do not establish them |
-| Copilot Managed Runtime | **Preview** on Learn; *"public preview"* in the announcement; *"Paid Public Preview"* in the Credits Guide | Announced 2026-09-25 | [Runtime reference]({{ '/docs/technologies#copilot-managed-runtime' | relative_url }}) | Pilot only. Confirm effective policies and keep code-review evidence; Git pushes are not audited |
-| Cowork App skill | **Preview**, Frontier only | No rollout completion date stated as of 2026-09-25 | [Builder Loop](#builder-loop-quick-reference) | Pilot with eligible Frontier users; test sharing and source access separately |
+| Autopilot, formerly Microsoft Scout | **Private preview**, per Jared Spataro's Sept 25 post and the Oct 8 Microsoft Copilot blog | Private preview active as of October 2026 | [Autopilot]({{ '/docs/technologies#autopilot' | relative_url }}) | Confirm Autopilot's deployment requirements. Scout's documented desktop prerequisites do not establish them |
+| Copilot Managed Runtime | **Preview** on Learn; *"public preview"* in the announcement; *"Paid Public Preview"* in the Credits Guide | Announced 2026-09-25; UBB overview updated 2026-10-14 | [Runtime reference]({{ '/docs/technologies#copilot-managed-runtime' | relative_url }}) | Pilot only. Confirm effective policies and keep code-review evidence; Git pushes are not audited |
+| Cowork App skill | **Preview**, Frontier only | No rollout completion date stated as of 2026-10-14 | [Builder Loop](#builder-loop-quick-reference) | Pilot with eligible Frontier users; test sharing and source access separately |
 | Copilot Studio apps | **Preview**, rolling out gradually | Learn says the feature might not be available in your environment yet | [Builder Loop](#builder-loop-quick-reference) | Check your environment and admin settings; code view is read-only |
-| Copilot Code | **Frontier rollout announced**; Learn documents UBB, but no Learn feature overview was found as of 2026-09-25 | The same Official Microsoft Blog post gives *"at the end of the month"* and *"in the coming weeks"*; the runtime post calls entry points *"already live"* | [Full rollout statements]({{ '/docs/technologies#the-new-copilot-app-september-2026-read-the-status-column-first' | relative_url }}) | Confirm access and spending policy for your cohort; do not assume broad availability |
-| Power Apps vibe | **Preview**; its overview recommends Cowork and Studio app building *"moving forward"* | No retirement date stated in the overview as of 2026-09-25 | Copilot Cowork or Copilot Studio app building | Weigh the recommendation before new work. Conversion creates a separate code app |
-| Foundry routines | **GA per the Foundry blog**. Learn states no status as of 2026-09-25 and points .NET users to preview packages | GA announcement: 2026-09-24 | Foundry Agent Service | Use for timer, recurring, and event triggers; the reminder tool remains preview |
+| Copilot Code | **Frontier preview** on Learn ([10-page docset](https://learn.microsoft.com/en-us/copilot/code/overview), updated 2026-10-14) | Live in Frontier preview; UBB overview lists `Code (Copilot license required)` | [Full rollout statements]({{ '/docs/technologies#the-new-copilot-app-september-2026-read-the-status-column-first' | relative_url }}) | Confirm unified app opt-in, Windows Beta channel, and spending policy for your cohort |
+| Copilot Studio harness upgrade tool | **Preview** ([Learn](https://learn.microsoft.com/en-us/microsoft-copilot-studio/upgrade-to-github-copilot-from-standard-harness)) | Published 2026-10-05 | Copilot Studio | Creates a copy on the GitHub Copilot harness, consumes Copilot Credits, and skips knowledge sources, Power Fx, and child agents |
+| Business Applications in Work IQ | **Public preview** ([Learn](https://learn.microsoft.com/en-us/power-apps/maker/data-platform/business-applications-work-iq)) | Default-on Sept 30, 2026 (new environments) and **November 2026** (existing environments) | Work IQ | Supersedes standalone Dataverse intelligence |
+| Power Apps vibe | **Preview**; its overview recommends Cowork and Studio app building *"moving forward"* | No retirement date stated in the overview as of 2026-10-14 | Copilot Cowork or Copilot Studio app building | Weigh the recommendation before new work. Conversion creates a separate code app |
+| Foundry routines | **GA on Learn** ([GA readiness table](https://learn.microsoft.com/en-us/azure/foundry/concepts/general-availability) and [how-to](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/use-routines)) | GA on Learn 2026-09-09; blog announcement 2026-09-24 | Foundry Agent Service | Use for timer, recurring, and event triggers; the reminder tool and .NET SDK packages remain preview |
 | Foundry hosted-agent network egress controls | **Preview on Learn**. The blog says *"not GA, have no preview SLA, and are not intended for production use"* | Announced 2026-09-24 | Hosted-agent guardrails | Test only; network modes are Audit and Enforce (API value `Enforced`), not Blocking |
 
 **Sources:** [New Copilot announcement](https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/); [runtime details and sources]({{ '/docs/technologies#copilot-managed-runtime' | relative_url }}); [Foundry routines announcement](https://devblogs.microsoft.com/foundry/from-chatbots-to-automated-assistants-routines-in-microsoft-foundry-are-now-generally-available/) and [Learn guidance](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/use-routines); [Network egress controls (preview)](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/add-hosted-agent-guardrails#network-egress-controls-preview) and [announcement](https://devblogs.microsoft.com/foundry/egress-controls-hosted-agent/). App-building sources are below.
@@ -128,12 +140,12 @@ Where can your agent appear? Match build platform to distribution surface.
 | **Always-On Personal Agent (private preview)** | **Autopilot, formerly Microsoft Scout**: a cloud-hosted personal agent in Jared Spataro's 2026-09-25 Official Microsoft Blog post. Scout's desktop setup requirements apply to Scout; their applicability to Autopilot is not established as of 2026-09-25[^autopilots-qr] | Controlled exploration of persistent coordination across work surfaces, after confirming deployment and identity requirements |
 | **Microsoft Teams Only** | Teams SDK, Copilot Studio, M365 Agents SDK | Teams-centric chat, channels, meetings, or calling scenarios where admins may enforce "only during the call" retention |
 | **Custom Web/Mobile App** | Microsoft Foundry, Microsoft Foundry Agent Service (Standard setup) | Building standalone applications while keeping files, search, and thread storage in customer-owned Azure resources |
-| **Governance / Registry** | Microsoft Agent 365 (**GA 2026-05-01**; per-user, E5 recommended prerequisite, included in M365 E7; Agent 365 SDK and CLI remain Preview)[^agent365-sdk-qr][^agent365-cli-qr]; Foundry Control Plane; M365 Agent Registry[^agent-registry-qr]; Agent Governance Toolkit v4.1.0 (**Public Preview OSS middleware; zero GA features**) | Compose fleet governance with application-layer enforcement; AGT is not a managed registry or service |
-| **Custom Web/Mobile UI with streaming** | Microsoft Agent Framework + AG-UI protocol (Preview) | Need Server-Sent Events streaming, backend tool rendering, shared state, and human approvals in bespoke front-ends |
+| **Governance / Registry** | Microsoft Agent 365 (**GA 2026-05-01**; per-user, E5 recommended prerequisite, included in M365 E7; Agent 365 SDK `v1.0.0` and CLI carry no preview banner on Learn; Registry Sync covers 7 external platforms)[^agent365-sdk-qr][^agent365-cli-qr]; Foundry Control Plane; M365 Agent Registry[^agent-registry-qr]; Agent Governance Toolkit v4.1.0 (**Public Preview OSS middleware; zero GA features**) | Compose fleet governance with application-layer enforcement; AGT is not a managed registry or service |
+| **Custom Web/Mobile UI with streaming** | Microsoft Agent Framework + AG-UI protocol (Python stable, .NET Preview) | Need Server-Sent Events streaming, backend tool rendering, shared state, and human approvals in bespoke front-ends |
 | **Multiple Channels** | M365 Agents SDK | Deliver one agent across Microsoft 365 Copilot, Teams, web, email, SMS, and other channels |
 | **Power Platform** | Copilot Studio, AI Builder | Integrated with low-code Power Apps/Power Automate workloads |
 | **Enterprise Workflows** | Azure Logic Apps **agentic workflows** with an **agent loop** (Consumption **explicitly in preview**; Standard carries no preview banner on the agent loop, but Microsoft never states Standard is GA and some Standard capabilities are marked preview; check the exact capability), MCP Server | Workflow automation that needs autonomous/conversational agent patterns with Easy Auth guardrails |
-| **Data Grounding / RAG** | Microsoft IQ: Foundry IQ (mixed GA/Preview), Work IQ (**APIs GA**; **Work IQ MCP is Preview**), Fabric IQ (**Preview** workload), Web IQ (Limited Access); Copilot connectors (M365); Microsoft 365 Copilot Search API (Preview) for OneDrive hybrid semantic+lexical search[^search-api-qr] | Match the grounding layer to the data domain: enterprise documents (Foundry IQ), work context (Work IQ), business semantics (Fabric IQ), public web (Web IQ), tenant-scoped content (Connectors), or hybrid OneDrive search (Search API) |
+| **Data Grounding / RAG** | Microsoft IQ: Foundry IQ (mixed GA/Preview), Work IQ (**APIs and Work IQ MCP GA**; MCP `retrieve` tool and Studio/Foundry integrations **Preview**), Fabric IQ (**Preview** workload; Chat, Cowork, and Fabric IQ MCP **GA**), Web IQ (Limited Access); Copilot connectors (external data into M365); Microsoft 365 Copilot Search API (Preview) for OneDrive hybrid semantic+lexical search[^search-api-qr] | Match the grounding layer to the data domain: enterprise documents (Foundry IQ), work context (Work IQ), business semantics (Fabric IQ), public web (Web IQ), external content (Connectors), or hybrid OneDrive search (Search API) |
 | **Developer Tools** | GitHub Copilot in the IDE; **Copilot cloud agent** (async, renamed from "coding agent"); MCP servers | IDE and development workflow integration. Note: GitHub App-based Copilot Extensions were deprecated **2025-11-10** with **MCP servers** as the migration target; client-side VS Code Copilot Extensions remain supported |
 
 **Sources:**
@@ -174,11 +186,11 @@ Where can your agent appear? Match build platform to distribution surface.
 
 ## Agentic Retrieval Quick Facts
 
-- Knowledge agents are now **knowledge bases**. Agentic retrieval is **GA via the `2026-04-01` REST API**; **portal experiences remain preview-only**, as do answer synthesis, multi-turn retrieval, and newer source types.
-- Knowledge sources (Preview): indexed SharePoint, remote SharePoint (Copilot Retrieval API, ACL-trimmed), indexed OneLake, web/Bing, search index, Azure Blob; `ingestionParameters` wraps embeddings/chat models/Content Understanding; portal creates `2025-08-01-preview` objects. Migrate to `2025-11-01-preview`.
+- Knowledge agents are now **knowledge bases**. Agentic retrieval is **GA via the `2026-04-01` REST API** for minimal extractive retrieval over GA knowledge sources (`searchIndex`, `azureBlob`, `indexedOneLake`, `web`); **portal experiences remain preview-only**, as do LLM query planning, answer synthesis, non-minimal reasoning effort, multi-turn retrieval, and remote knowledge sources (`2026-08-01-preview`).
+- Knowledge sources: `searchIndex`, `azureBlob`, `indexedOneLake`, and `web` are GA on `2026-04-01`; indexed SharePoint, remote SharePoint (Copilot Retrieval API, ACL-trimmed), Azure SQL, File, MCP Server, Work IQ, Fabric data agent, and Fabric ontology are Preview (`2026-08-01-preview`). Migrate earlier preview objects (`2025-08-01-preview`, `2025-11-01-preview`, `2026-05-01-preview`) to `2026-08-01-preview`.
 - Semantic ranker is available on **free tier** (quota limits); enable on the service before using KBs.
 - Hybrid/vector preview (`2024-09-01-preview`): MRL `truncationDimension`, `filterOverride` for vector-only filters, `debug` subscores for RRF, token-based Text Split parameters.
-- Content Understanding skill (Preview) replaces Text Split for richer chunking; billed to Foundry resource when used via `contentExtractionMode`.
+- Content Understanding service (`2025-11-01`) and the AI Search Content Understanding skill (`2026-04-01`) are **GA**; newer skill parameters (`modelName`, `modelDeployment`, semantic chunking) require `2026-05-01-preview`.
 
 **Sources:**
 
@@ -246,14 +258,14 @@ Teams SDK and M365 Agents SDK coexist with differentiated fit: Teams SDK for Tea
 
 | **Data Source Type** | **Recommended Approach** | **Technologies** |
 | --- | --- | --- |
-| **SharePoint/OneDrive** | Copilot connectors (Graph connectors) | Microsoft Graph Connectors SDK, Copilot Studio connectors |
-| **External Structured Data** | Copilot connectors (inside M365) or Azure AI Search (Microsoft Foundry Agent Service standard setup) | Copilot connectors, Azure AI Search |
+| **SharePoint/OneDrive** | Built-in Microsoft 365 grounding (no connector needed) | SharePoint agents, Copilot Studio knowledge sources, M365 Copilot |
+| **External Content (beyond M365)** | Copilot connectors (synced or federated MCP) or Azure AI Search (Foundry Agent Service standard setup) | Copilot connectors, Azure AI Search |
 | **Unstructured Documents** | Vector search with chunking | Azure AI Search, Azure OpenAI Embeddings |
 | **Real-Time Transactional Data** | API-based grounding | API plugins, Functions, Logic Apps agent workflows |
-| **Multimodal Content** | Azure AI Content Understanding (Preview) | Process documents, images, audio, video with reasoning |
-| **Database Vectors** | AI-capable databases with managed embeddings | Azure Cosmos DB for NoSQL (flat, quantized flat, DiskANN; standard setup: 3 × 1000 RU containers; **no GA date stated in docs**), Azure Database for PostgreSQL (**pgvector GA**, plus `azure_ai` for in-database embeddings), Azure SQL Database / SQL MI / SQL Server 2025 / SQL database in Fabric (**`VECTOR_SEARCH` is Preview on all three platforms**) |
+| **Multimodal Content** | Azure AI Content Understanding (**GA** service `2025-11-01` and AI Search skill `2026-04-01`; semantic chunking and agentic mode **Preview**) | Process documents, images, audio, video with reasoning |
+| **Database Vectors** | AI-capable databases with managed embeddings | Azure Cosmos DB for NoSQL (`flat`, `quantizedFlat`, `diskANN`; standard setup: 3 × 1000 RU containers; **no GA date stated on Learn**), Azure Database for PostgreSQL (**pgvector GA**, plus `azure_ai` for in-database embeddings), Azure SQL Database / SQL database in Fabric / SQL MI Always-up-to-date (**`VECTOR_SEARCH()` and vector index GA**), SQL Server 2025 / SQL MI 2025 policy (**`VECTOR_SEARCH()` Preview**, requires `PREVIEW_FEATURES`) |
 | **Microsoft Fabric Platform** | Direct data access | Lakehouse (Delta tables), Warehouse (T-SQL), OneLake (ADLS Gen2 APIs), SQL analytics endpoint |
-| **Microsoft Fabric via Agent** | Conversational data layer | **Fabric data agent (GA**, formerly "AI skill"; requires F2+ or P1+ capacity) with Copilot Studio or Microsoft Foundry Agent Service |
+| **Microsoft Fabric via Agent** | Conversational data layer | **Fabric data agent (GA core**, formerly "AI skill"; requires F2+ or P1+ capacity; cross-platform consumption routes in Copilot Studio, M365 Copilot, and Foundry are **Preview**; Foundry "Microsoft Fabric" tool retires **2026-11-06**) |
 
 **Sources:**
 
@@ -308,8 +320,8 @@ One agent, four handoffs. This is the relay race a developer's work actually run
 | Leg | Surface | Status | What it is for |
 | --- | --- | --- | --- |
 | **1. Set ownership and governance** | **Apps** in the Microsoft 365 admin center; environment groups and connector policies | **Preview** | Name the business owner and technical reviewer. Confirm effective access, sharing, and spending policies. The *Advanced connector policies only* setting can bypass classic data policies; inspect it before connecting data |
-| **2. Describe** | Copilot Code; Cowork App skill; Copilot Studio apps; Power Apps vibe | Code: announced Frontier rollout with differing timing statements; see [Availability updates](#availability-updates). App skill: **Preview**, Frontier only. Studio apps: **Preview**, rolling out gradually. Power Apps vibe: **Preview**, restricted regions and English only | Turn the requirement into a draft, then test it. Studio's code view is read-only. Power Apps vibe's overview recommends Cowork and Studio app building moving forward |
-| **3. Connect** | Approved connectors and MCP servers | **Preview** runtime. By default, 18 Microsoft first-party connectors and 12 Microsoft MCP servers are available, including Work IQ MCP servers. Admins can widen access toward the 1,500+ connectors the SDK can call. Work IQ MCP is **Preview** | Put approved data behind the app. Check each recipient's source permissions and connections; catalog size does not tell you what the tenant allows |
+| **2. Describe** | Copilot Code; Cowork App skill; Copilot Studio apps; Power Apps vibe | Code: **Frontier preview** on Learn ([10-page docset](https://learn.microsoft.com/en-us/copilot/code/overview), updated 2026-10-14). App skill: **Preview**, Frontier only. Studio apps: **Preview**, rolling out gradually. Power Apps vibe: **Preview**, restricted regions and English only | Turn the requirement into a draft, then test it. Studio's code view is read-only. Power Apps vibe's overview recommends Cowork and Studio app building moving forward |
+| **3. Connect** | Approved connectors and MCP servers | **Preview** runtime. By default, 18 Microsoft first-party connectors and 12 Microsoft MCP servers are available, including Work IQ MCP. Admins can widen access toward the 1,500+ connectors the SDK can call. Work IQ MCP is **GA** (`retrieve` tool is Preview) | Put approved data behind the app. Check each recipient's source permissions and connections; catalog size does not tell you what the tenant allows |
 | **4. Share** | `managedapps.cloud.microsoft`; share links or direct sharing with people and groups | **Preview** | Publish only after validating results, permissions, failure handling, and support ownership. Users find the apps they can access in one portal |
 | **5. Hand over** | A developer using the repository, coding-agent plugin, or `ms` CLI; Power Apps vibe conversion creates a new code app | Managed Runtime **Preview**; Power Apps vibe **Preview** | Hand over the repository with the requirements and tests. The blog's Cowork example continues *"without forking or standing up a separate runtime, platform resources, and governance stack"*. Power Apps vibe forks instead. Neither path removes the need for review |
 
@@ -343,8 +355,8 @@ Grounding is not one product. It is a shelf of stores with different shapes, dif
 | **Azure AI Search** (name unchanged) | Agentic retrieval, hybrid, vector, semantic ranking | Agentic retrieval **GA via the `2026-04-01` REST API**; **portal experiences remain preview-only** | You need governed enterprise retrieval with ACL/label enforcement; it is the engine underneath Foundry IQ |
 | **Azure Database for PostgreSQL** | `pgvector` similarity search; `azure_ai` extension for in-database embeddings and LLM calls | **pgvector GA** | Your operational data already lives in Postgres and you want retrieval next to it. Note: there is **no "PostgreSQL agent" product** |
 | **Azure Cosmos DB** | Vector search: flat/kNN, quantized flat, **DiskANN**; must be enabled as a feature | **No GA date stated in the docs**; ultra-high-throughput vector search is Private Preview | Globally distributed transactional data that also needs vector lookup |
-| **Azure SQL / SQL MI / SQL Server 2025 / SQL database in Fabric** | `VECTOR_SEARCH()` over the native `vector` type | **`VECTOR_SEARCH` is Preview on all three platforms** (SQL Server 2025 also needs the `PREVIEW_FEATURES` database-scoped configuration; `TOP_N` is deprecated) | Your system of record is SQL and you want retrieval without a second datastore, with eyes open about preview status |
-| **Microsoft Fabric / OneLake** | Fabric data agent over lakehouse, warehouse, KQL, semantic models | **Fabric data agent GA** (formerly "AI skill"), F2+/P1+ capacity; **Fabric IQ is a Preview workload** | The question is analytical ("what happened, and why") rather than document lookup |
+| **Azure SQL / SQL MI / SQL Server 2025 / SQL database in Fabric** | `VECTOR_SEARCH()` over the native `vector` type | **`VECTOR_SEARCH()` and vector indexes are GA on Azure SQL Database, SQL database in Fabric, and SQL MI (Always-up-to-date policy)**; **Preview on SQL Server 2025 and SQL MI (2025 policy)** (requires `PREVIEW_FEATURES`; `TOP_N` is deprecated) | Your system of record is SQL and you want retrieval without a second datastore |
+| **Microsoft Fabric / OneLake** | Fabric data agent over lakehouse, warehouse, KQL, semantic models | **Fabric data agent core GA** (formerly "AI skill", F2+/P1+ capacity; cross-platform consumption routes Preview; Foundry Fabric tool retires 2026-11-06); **Fabric IQ workload is Preview** (Chat, Cowork, and Fabric IQ MCP integrations are GA) | The question is analytical ("what happened, and why") rather than document lookup |
 | **Azure Managed Redis** | Vector and cache-side retrieval | **GA**, Entra-native, built on Redis Enterprise | You need low-latency semantic caching or session state beside the agent |
 
 {: .note }
@@ -401,7 +413,7 @@ Grounding is not one product. It is a shelf of stores with different shapes, dif
 | **Simple (Q&A)** | Static lookup, single-turn answers, basic RAG | Search or classic RAG first; add an agent only for action, adaptation, or open-ended reasoning |
 | **Moderate (Task Execution)** | Multi-turn, 1-5 actions, simple branching | Declarative Agents with API plugins; Foundry Prompt Agents when Foundry-managed configuration fits |
 | **Complex (Workflows)** | Sequential workflows, conditional logic | Declarative Agents + Power Automate, Agent Framework workflows |
-| **Advanced (Multi-Agent)** | Agent-to-agent delegation, parallel execution | Copilot Studio multi-agent (per-feature status varies: the what's-new feed shows "Connect other agents" as **Preview**; Microsoft states no blanket GA); Foundry incoming A2A endpoint (**Preview**) for direct delegation; Agent Framework (**GA core**) for code-first orchestration |
+| **Advanced (Multi-Agent)** | Agent-to-agent delegation, parallel execution | Copilot Studio multi-agent (outbound A2A on standard harness is **GA**; GitHub Copilot harness connected agents span Studio, Foundry, A2A, and M365 SDK; What's New still lists "Connect other agents" as **Preview**); Foundry A2A (**v1.0 GA; v0.3 Preview** and served by default when no version header is sent) for direct delegation; Agent Framework (**GA core**) for code-first orchestration |
 | **Expert (Custom Reasoning)** | Custom orchestration logic, model selection | Custom engine agents with Microsoft 365 Agents SDK, Teams SDK, or Microsoft Foundry Agent Service |
 
 **Component fit heuristic (Copilot Studio, GitHub Copilot harness):**
@@ -430,7 +442,7 @@ Grounding is not one product. It is a shelf of stores with different shapes, dif
 | **Extend M365 Copilot (Knowledge Only)** | Graph Connectors (days) | Graph Connectors (included with Microsoft 365) |
 | **Extend M365 Copilot (Knowledge + Actions)** | Declarative Agent (Copilot Studio, 1-2 weeks) | Declarative Agent (M365 Agents Toolkit, 2-4 weeks) |
 | **Custom Multi-Channel Agent** | M365 Agents SDK with templates (2-4 weeks) | Microsoft Foundry (consumption-based, 4-8 weeks) |
-| **Multi-Agent Orchestration** | Copilot Studio connected agents (**Preview**) for low-code delegation | Agent Framework (**GA core**) for code-first orchestration; Foundry A2A (**Preview**) only for direct delegation |
+| **Multi-Agent Orchestration** | Copilot Studio connected agents (**Preview**) for low-code delegation | Agent Framework (**GA core**) for code-first orchestration; Foundry A2A (**v1.0 GA; v0.3 Preview**) only for direct delegation |
 | **Enterprise Workflow Automation** | Azure Logic Apps agentic workflows (1-2 weeks; Consumption **explicitly in preview**, Standard status not stated by Microsoft) | Microsoft Foundry + Agent Framework (4-8 weeks) |
 
 **Key Budget Considerations:**
@@ -517,6 +529,6 @@ The **USL** funds everyday AI at a fixed price. **UBB** adds metered advanced AI
 
 ---
 
-**Next:** [Resources]({{ '/docs/resources' | relative_url }}) - Official Microsoft references to keep research evidence-backed
+**Next:** [AI Instinct]({{ '/docs/ai-instinct' | relative_url }}) - The human framework for partnering with AI
 
 ---

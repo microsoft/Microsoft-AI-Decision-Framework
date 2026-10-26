@@ -80,4 +80,4 @@ Here is how those land in the words your organization already uses:
 
 ---
 
-**Next:** [Microsoft AI Stack]({{ '/docs/ai-stack' | relative_url }}) for the developer-loop ladder, the business builder's paths, and what Microsoft ships for both, or [AI Instinct]({{ '/docs/ai-instinct' | relative_url }}) for the human side of adoption.
+**Next:** [Resources]({{ '/docs/resources' | relative_url }}) - Official Microsoft references and role-based next steps, or revisit [Microsoft AI Stack]({{ '/docs/ai-stack' | relative_url }}) and [AI Instinct]({{ '/docs/ai-instinct' | relative_url }}).

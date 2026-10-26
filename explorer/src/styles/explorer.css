@@ -388,6 +388,7 @@ html, body, #root {
 .decision-node__label {
   font-weight: 600;
   line-height: 1.35;
+  white-space: pre-line;
 }
 
 .decision-node__badge {

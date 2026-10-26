@@ -46,7 +46,7 @@ Before you select platforms, frame the **experience**. Microsoft's UX guidance f
 | **Embedded** | The Feature | Lightweight, single‑entity interactions | Favor targeted UI entry points and narrow scope |
 
 {: .warning }
-> **Currency note:** the ISV UX guidance page carrying these labels was last updated 2024-09-26 (roughly 22 months old at the time of writing). The vocabulary is still the clearest Microsoft has published, but check for newer articulation before you quote it in a design doc.
+> **Currency note:** the ISV UX guidance page carrying these labels was last updated 2024-09-26. The vocabulary is still the clearest Microsoft has published, but check for newer articulation before you quote it in a design doc.
 
 Start by deciding **UI vs no‑UI**. If the experience is UI‑based, choose **chat‑first** vs **embedded-in-app**. If the experience is headless, define the **trigger model** (event, schedule, or system alert) and the **human‑approval points** up front.
 
@@ -212,7 +212,7 @@ Before you work the questions below, select the **approach** that best fits the 
 These approaches are **not mutually exclusive**; many solutions blend them. Use the Capability Envisioning considerations (data, customization, development complexity, end-user, business value, risk/compliance) to pick the lead approach.[^capabilityenvisioning]
 
 {: .warning }
-> **Currency note.** Capability Envisioning was last updated **2025-01-16** (roughly 18 months old at the time of writing) and, like Business Envisioning, is written for **ISVs**. Both pages are load-bearing gates in this framework, so the honesty is worth the clause: the *three approaches* remain a sound way to frame the choice, but check for newer articulation before you quote the page in a design review.
+> **Currency note.** Capability Envisioning was last updated **2025-01-16** and, like Business Envisioning, is written for **ISVs**. Both pages are load-bearing gates in this framework, so the honesty is worth the clause: the *three approaches* remain a sound way to frame the choice, but check for newer articulation before you quote the page in a design review.
 
 ---
 
@@ -303,15 +303,15 @@ The beneficiary is outside your org chart, or is another system entirely. Now th
 **The developer's build path** has its own ladder, and it climbs from "helps me type" all the way to "is a production agent in my Azure subscription."
 
 1. **Assist in the editor.** GitHub Copilot in the IDE. Synchronous, human-driven, zero governance surface beyond your existing policies. Code completions and next-edit suggestions are not billed against AI credits.
-2. **Delegate asynchronously.** The **Copilot cloud agent** (renamed from "coding agent") takes an issue and returns a pull request while you do something else. GA on all paid Copilot plans, including Student; **not** available on Copilot Free. This is the moment the developer loop becomes an *agent* story rather than an *autocomplete* story: work happens when you are not looking, and review becomes the control point.
-3. **Codify the team's practice.** Custom agents are Markdown files with YAML frontmatter (`.github/agents/NAME.md` for a repo; org- and enterprise-level equivalents in `.github`/`.github-private`), and **`AGENTS.md`** is GitHub's official "agent instructions" mechanism with a documented precedence order. GitHub's own caveat is worth quoting to your team before you standardize on it: agent instructions are *"currently not supported by all Copilot features."* Custom agents are GA for the cloud agent, VS Code, and Visual Studio; **Public Preview** for JetBrains, Eclipse, and Xcode.
-4. **Build on the harness.** The **GitHub Copilot SDK** is GA and wraps the Copilot CLI engine over JSON-RPC, with bindings for Python, TypeScript, Go, .NET, Java, and Rust. This is where a developer-loop experiment turns into a product.
+2. **Delegate asynchronously.** The **Copilot cloud agent** (renamed from "coding agent") takes an issue and returns a pull request while you do something else. This is the moment the developer loop becomes an *agent* story rather than an *autocomplete* story: work happens when you are not looking, and review becomes the control point.
+3. **Codify the team's practice.** Custom agents are Markdown files with YAML frontmatter (`.github/agents/NAME.md` for a repo; org- and enterprise-level equivalents in `.github`/`.github-private`), and **`AGENTS.md`** is GitHub's official "agent instructions" mechanism with a documented precedence order. GitHub's own caveat is worth quoting to your team before you standardize on it: agent instructions are *"currently not supported by all Copilot features."*
+4. **Build on the harness.** The **GitHub Copilot SDK** wraps the Copilot CLI engine over JSON-RPC across six language bindings. This is where a developer-loop experiment turns into a product.
 5. **Host it as an enterprise agent.** **Microsoft Foundry Agent Service** explicitly lists the GitHub Copilot SDK as a supported framework for **Hosted agents**. That is the seam where the developer plane hands off to the enterprise plane.
 
 {: .warning }
-> ⚠️ **Know this before you pick a language.** Microsoft Foundry **Hosted agents support Python and C# only.** If you build your Copilot SDK agent in Go, Rust, Java, or TypeScript, it is **not directly hostable** as a Foundry Hosted agent. You will be self-hosting it, or rewriting it. Choose the language at step 4 with step 5 already in mind. This is the single most expensive detail in the developer-loop journey.
+> ⚠️ **Know this before you pick a language.** Microsoft Foundry **Hosted agents support Python and C# only.** If you build your Copilot SDK agent in Go, Rust, Java, or TypeScript, it is **not directly hostable** as a Foundry Hosted agent. You will be self-hosting it, or rewriting it. Choose the language at step 4 with step 5 already in mind. See [Technologies]({{ '/docs/technologies#github-copilot-sdk--tech-heading-' | relative_url }}) for plan and IDE availability.
 
-**The natural-language build path** is for the operations lead or the HR team that needs a small piece of software nobody is going to build for them. [Scenario 11]({{ '/docs/scenarios#scenario-11-business-teams-building-their-own-apps' | relative_url }}) works through the choice. Treat all of it as early. These experiences are preview or Frontier, and the Copilot Studio and Power Apps vibe pages spell out what preview means: *"Preview features aren't meant for production use and might have restricted functionality."*[^mcsapps][^pavibe] Confirm what your tenant actually has, and check [Technologies]({{ '/docs/technologies#copilot-managed-runtime' | relative_url }}) before you promise anyone a date.
+**The natural-language build path** is for the operations lead or the HR team that needs a small piece of software nobody is going to build for them. [Scenario 11]({{ '/docs/scenarios#scenario-11-business-teams-building-their-own-apps' | relative_url }}) works through the choice. Confirm what your tenant has enabled and check [Technologies]({{ '/docs/technologies#copilot-managed-runtime' | relative_url }}) for current preview/Frontier boundaries before you promise anyone a date.
 
 Pick one path. They are alternatives, not steps:
 
@@ -321,14 +321,14 @@ Pick one path. They are alternatives, not steps:
 
 Whichever you pick, clear three gates before the first share link:
 
-1. **Know which rules actually bind it.** Apps from Cowork, Copilot Studio, and the runtime's SDK run on **Copilot Managed Runtime**, with Microsoft Entra sign-in and one app inventory in the Microsoft 365 admin center, and Microsoft says Code's shared apps use the same foundation.[^cmroverview] That is a governed host, not a completed governance review. Whether your classic data policies still apply depends on how the environment group's connector policies are set, so have IT confirm the effective policy.[^cmrgovernance]
+1. **Know which rules actually bind it.** Apps from Cowork, Copilot Studio, and the runtime's SDK run on **Copilot Managed Runtime**, with Microsoft Entra sign-in and one app inventory in the Microsoft 365 admin center, and Microsoft says Code's shared apps use the same foundation.[^cmroverview] That is a governed host, not a completed governance review. Have IT confirm the effective connector policy for the environment group before connecting real data.[^cmrgovernance]
 2. **Plan the handoff before anyone depends on the app.** Every app on the runtime has a Git repository behind it, and a developer can keep going in it with **GitHub Copilot** and the Managed Runtime CLI or plugin, without a rewrite.[^cmrdeveloper] Power Apps vibe hands over by fork instead: conversion creates a separate code app, disconnected from the original.[^pavibeconvert] Either way, hand over the repository with the requirements and tests.
 3. **Divide the review.** The business owner validates the rules and the results; a developer or platform reviewer covers the risks the owner can't assess.
 
 **A customer audience doesn't move the app to Bucket 2.** It changes where the app should run and how people sign in, so review hosting, identity, and access before anyone outside the organization opens it. If the app calls a model while it runs, open Bucket 2's conversation alongside this one.
 
 {: .warning }
-> ⚠️ **Test sharing before you trust it.** Microsoft's own pages disagree about what a share link carries, so don't settle it by reading. Before real data goes in, open the app with an account that has no access to the source, and check the app's data and the connected data separately. Keep your own code-review record too, because Purview lists a Git push or code change as *"Not audited"*.[^cmrsecurity] [Technologies]({{ '/docs/technologies#copilot-managed-runtime' | relative_url }}) quotes the conflicting pages.
+> ⚠️ **Test sharing before you trust it.** Microsoft's own pages disagree about what a share link carries, so don't settle it by reading. Before real data goes in, open the app with an account that has no access to the source, and check the app's data and the connected data separately. Keep your own code-review record in Git too; see [Technologies]({{ '/docs/technologies#copilot-managed-runtime' | relative_url }}) for the Purview audit and sharing details.[^cmrsecurity]
 
 {: .tip }
 > Use the groupings from this question with the capability grouping mappings in [Microsoft AI Stack]({{ '/docs/ai-stack' | relative_url }}) and the examples in [Scenarios]({{ '/docs/scenarios' | relative_url }}).
@@ -346,7 +346,7 @@ Instead of a binary choice (Low-Code vs. Pro-Code), map your need to the **Spect
 3.  **Scratch Cooking (Foundation/Pro-Code):** You buy raw ingredients and own the kitchen. Infinite possibility, but you do the dishes. (Example: **Microsoft Foundry / Agent SDK**).
 
 *   **SaaS Layer:** Default here. Use Declarative Agents or built-in Copilot extensibility.
-*   **Orchestration Layer:** Use Copilot Studio when you need custom logic but want managed infrastructure.
+*   **Orchestration Layer:** Use Copilot Studio when you need custom logic but want managed infrastructure. Note that choosing a Copilot Studio harness at creation is a one-way door, and a more capable harness raises the credit meter on a simple problem.
 *   **Foundation Layer:** Use Foundry or Agent Framework only when you need custom model tuning, private networking, or complex non-standard behaviors.
 
 {: .tip }
@@ -376,21 +376,20 @@ Start by separating three jobs people routinely conflate:
 
 {: .no_toc }
 
-Choose by the shape of the question you need answered, not by the logo on the service. Statuses matter here more than anywhere else on this page. Several of these are Preview, and a Preview grounding store is a Preview production system.
+Choose by the shape of the question you need answered, not by the logo on the service. A preview grounding store or a preview cross-platform connector is a preview production dependency, so check the per-feature availability in [Feature Comparison]({{ '/docs/feature-comparison#data-grounding-technology-comparison' | relative_url }}) and [Quick Reference]({{ '/docs/quick-reference#data-plane-quick-reference' | relative_url }}) before you commit.
 
-| The job | Microsoft anchor | Status |
+| The job | Microsoft anchor | Architectural note |
 | :--- | :--- | :--- |
-| Search across documents and mixed content, with query planning handled for you | **Azure AI Search agentic retrieval** | **GA via the 2026-04-01 REST API**; portal experiences remain **preview-only** |
-| Keep vectors beside your operational relational data | **Azure Database for PostgreSQL** with **pgvector** | **GA** |
-| Generate embeddings and call models *from inside the database* | PostgreSQL **`azure_ai` extension** | Available in the Azure AI docset for PostgreSQL |
-| Vector search beside JSON operational data at scale | **Azure Cosmos DB** vector search: flat/kNN, quantized flat, and DiskANN index types (must be enabled as a feature) | Docs do not state a GA date; confirm status before you commit |
-| Vector search inside the system of record you already run | **`VECTOR_SEARCH()`** on Azure SQL Database, SQL database in Fabric, and SQL Server 2025 (SQL Server 2025 additionally requires the `PREVIEW_FEATURES` database-scoped configuration) | **Preview** on all three |
-| Conversational analytics over the analytics estate | **Fabric data agents** (formerly "AI skills"; requires F2+ or P1+ capacity) | **GA** |
-| Ontologies, graph models, and semantic models over that estate | **Fabric IQ** | **Preview** |
-| One copy of the data underneath all of the above | **OneLake** | **GA** |
-| Low-latency cache, session state, and vectors | **Azure Managed Redis** | **GA** |
+| Search across documents and mixed content through a shared knowledge base | **Azure AI Search agentic retrieval** and **Foundry IQ** | Minimal extractive retrieval and LLM-based query planning sit on different API tracks; verify which track your workload needs |
+| Keep vectors beside your operational relational data | **Azure Database for PostgreSQL** with **pgvector** | Pair with the `azure_ai` extension when you want embeddings generated inside the database |
+| Vector search beside JSON operational data at scale | **Azure Cosmos DB** vector search | `flat`, `quantizedFlat`, and `diskANN` index types (must be enabled as a feature) |
+| Vector search inside the SQL system of record you already run | **`VECTOR_SEARCH()`** on Azure SQL Database, SQL database in Fabric, Azure SQL MI, and SQL Server 2025 | Availability splits between cloud Always-up-to-date engines and the SQL Server 2025 engine policy |
+| Conversational analytics over the analytics estate | **Fabric data agents** | Answers questions over lakehouse, warehouse, KQL, and semantic models; cross-platform consumption routes carry separate maturity |
+| Ontologies, graph models, and semantic models over that estate | **Fabric IQ** | Defines business entities once so agents and reports share one vocabulary |
+| One copy of the data underneath all of the above | **OneLake** | Shared analytical storage foundation |
+| Low-latency cache, session state, and vectors | **Azure Managed Redis** | Entra-native successor to retiring Azure Cache for Redis tiers |
 
-Grounding also stays inside the Microsoft 365 trust boundary when the answer lives in work content: **Microsoft Graph** and Graph connectors remain the shortest path for Bucket 1 scenarios.
+Grounding stays inside the Microsoft 365 trust boundary when the answer lives in work content: SharePoint agents and Copilot Studio knowledge handle content already inside Microsoft 365, while **Copilot connectors** (Graph connectors) bring external content in.
 
 #### Document the data contract
 
@@ -436,12 +435,12 @@ Before you reach for agents at all, note that Azure Architecture Center frames t
 **Orchestration Levels:**
 *   **Single Agent (The Soloist):** One agent using tools. Good for simple Q&A. (Declarative Agents).
 *   **Multi-Agent (The Orchestra):** A central "brain" directs specific workers. Good for complex tasks within one boundary. (Hub-and-Spoke).
-*   **Connected Agents (The Mesh):** Independent agents across different organizations or tools discover and message each other. Good for enterprise-wide collaboration without a central bottleneck. (Agent-to-agent: **A2A is GA in Copilot Studio as of April 2026**; Foundry Agent Service exposes an incoming A2A endpoint in **Preview**.)
+*   **Connected Agents (The Mesh):** Independent agents across different organizations or tools discover and message each other. Good for enterprise-wide collaboration without a central bottleneck. (Agent-to-agent / A2A and connected agents).
 
-**The default is a Soloist. And Microsoft says so too.** Do not start with an orchestra because the problem *sounds* complex. CAF's rule is blunt: begin with a single agent and test it. Reach for multiple agents only when one of three things is true: you cross a security or compliance boundary, separate teams own separate domains, or you already know the system will keep growing. Everything else starts single, because every handoff you add buys latency, cost, and a new way to fail. **Audition the soloist before you hire the orchestra.** Earn the second agent with evidence, not with a hunch.
+**The default is a Soloist. And Microsoft says so too.** Do not start with an orchestra because the problem *sounds* complex. CAF's rule is blunt: begin with a single agent and test it. Reach for multiple agents only when one of three things is true: you cross a security or compliance boundary, separate teams own separate domains, or you already know the system will keep growing (and treat a growth forecast with healthy skepticism until a boundary or a measured tool-selection failure forces your hand). Everything else starts single, because every handoff you add buys latency, cost, and a new way to fail. **Audition the soloist before you hire the orchestra.** Earn the second agent with evidence, not with a hunch.
 
 {: .warning }
-> **Status caution on multi-agent features.** Copilot Studio's multi-agent surface is moving fast and is *not* uniformly GA. **Confirmed GA:** the **GitHub Copilot harness** (announced GA 2026-08-03 and the default for new agents), generative orchestration (GA, and the default *within the standard harness*), **computer use (May 2026)**, and **A2A (April 2026)**. **Status not stated by Microsoft** for child agents (which Microsoft calls *"inline agents, also known as child agents"*), connected Copilot Studio agents, Foundry agents, Fabric data agent connections, and M365 Agents SDK agent connections. And the what's-new feed still carries **"Connect other agents (Preview)"** and **"Foundry IQ connect (Preview)"** entries, which rules out a blanket GA reading. **The ambiguity here is Microsoft's, not ours.** Verify the exact capability you need on the day you architect, and treat unstated as unproven.
+> **Status caution on multi-agent features.** Multi-agent capabilities across Copilot Studio, Foundry Agent Service, and Agent Framework do not share a single lifecycle label. Treat unstated status as unproven, and check the exact connection type and protocol version in [Technologies]({{ '/docs/technologies' | relative_url }}) and [Feature Comparison]({{ '/docs/feature-comparison#workflow-orchestration-platform-comparison' | relative_url }}) on the day you architect.
 
 {: .note }
 > The orchestration comparison tables in [Feature Comparison]({{ '/docs/feature-comparison' | relative_url }}) highlight the trade-offs.
@@ -465,7 +464,7 @@ Answer "Where does my data go, and who can act on it?" before choosing a platfor
 
 **If you cannot attribute an action, you cannot govern it.** For twenty years we solved this for humans and then quietly gave service accounts a pass. Agents make that shortcut untenable. An agent acts on its own initiative, at machine speed, across systems a service account was never meant to touch. The shared credential left in a drawer was always a bad idea; it is now a bad idea that runs by itself, at three in the morning, faster than anyone reviews.
 
-**Microsoft Entra Agent ID** is the product that supplies it. Note the word *product*, which is Microsoft's own: *"Microsoft Entra Agent ID is a product within Microsoft Entra that provides the platform for creating and managing agent identities and agent identity blueprints."* It is **generally available**, and Microsoft states plainly that *"Agent ID is available for all Microsoft Entra customers."*[^entraagentid] Design your agents assuming each one carries a distinct identity, because the platform now assumes it too.
+**Microsoft Entra Agent ID** is the product that supplies it. Note the word *product*, which is Microsoft's own: *"Microsoft Entra Agent ID is a product within Microsoft Entra that provides the platform for creating and managing agent identities and agent identity blueprints."*[^entraagentid] Design your agents assuming each one carries a distinct identity, because the platform now assumes it too.
 
 **Then ask the second question, because the identity does not answer it.** Attribution and authorization are separate: the identity decides whose name appears in the log, and the authentication flow decides whose permissions fetch the data. Microsoft's own logging documentation observes that an agent *"can sign in with either user-delegated or app-only permissions"*, which is the seam worth naming, because an agent with its own identity may still be reaching your systems on a human's behalf. For interactive agents that is usually correct, since the agent cannot exceed the person using it. The pattern that deserves scrutiny is the one where **a single human's credentials end up serving every caller**, which is how a convenience becomes a privilege-escalation path nobody documented. Ask of every agent, and of every tool inside it, since these are configured separately: *whose permissions does this carry, and does one person's access serve everybody?*
 
@@ -473,7 +472,7 @@ Answer "Where does my data go, and who can act on it?" before choosing a platfor
 
 {: .no_toc }
 
-An identity per agent is only useful if something is counting the agents. **Agent 365** (**GA 2026-05-01**, per-user licensing, included in Microsoft 365 E7) supplies that layer, with the **Agent Registry** as the roll call. It is the same registry whose four publisher types you met in Question 0.[^agent365] Microsoft's guidance is that E5 *"works best… as a pre-requisite."*
+An identity per agent is only useful if something is counting the agents. **Agent 365** supplies that fleet layer, with the **Agent Registry** as the roll call. It is the same registry whose four publisher types you met in Question 0.[^agent365]
 
 #### Govern by risk, not by checklist
 
@@ -495,7 +494,7 @@ Sort your estate into tiers on that basis:
 | :--- | :--- | :--- |
 | **Tier 1: Low risk**<br>Individual productivity agents | "assist one person or a small team with everyday work, such as summarizing, drafting, and searching" | Named owner; basic monitoring of usage and errors; standard release checklist; self-service deployment within published guardrails |
 | **Tier 2: Medium risk**<br>Expert-knowledge and internal service agents | "answer domain questions or run internal services where a wrong answer can mislead people or disrupt operations" | Named owner **plus** a domain-expert validator; knowledge-quality monitoring; formal release gate; accuracy tracking and feedback loops |
-| **Tier 3: High risk**<br>Business-critical agents | Agents whose failure damages the business directly | The heaviest controls in your organization; treat as you would a change to a system of record |
+| **Tier 3: High risk**<br>Business-critical and external-facing agents | "Tier 3 covers agents embedded in core processes or facing customers, where a failure hits revenue, compliance, or trust. These agents execute consequential actions and often act with autonomy." | Named owner **plus** a formal process owner; production-grade SLA monitoring; security review and responsible AI assessment before release; decision-rights framework; incident-response plan; quarterly maturity review |
 
 Microsoft's closing instruction is the one to put on the wall: **"Sort every agent by what it does, not by how impressive it looks."**
 
@@ -507,14 +506,7 @@ Microsoft's closing instruction is the one to put on the wall: **"Sort every age
 
 **The Analogy: The Unlocked Side Door.** You can spend a fortune on the lobby turnstiles, the badge readers, and the visitor log. None of it matters if someone props open the loading-bay door because it's a shorter walk to the car park. Autonomous AI agents that an employee installs on a laptop are that door: capable, unbadged, unlogged, and inside.
 
-This is no longer hypothetical, and Microsoft is no longer treating it as such. It now ships **detection and blocking** for unsanctioned local AI agents:
-
-- **Microsoft 365 admin center, Shadow AI** (**Frontier / public preview**). Requires **E5**, Intune enrollment, Frontier opt-in, and Global Secure Access for traffic metadata. **OpenClaw** is currently the only agent with **both detection *and* blocking** available; blocking creates an Intune policy named **`A365 - Block OpenClaw`**.
-- **Microsoft Intune** ships a **"Local AI Agent Baseline - OpenClaw"** security baseline, collects device properties that discover *"local AI agents, like OpenClaw,"* and has in-development work to mark devices noncompliant when prohibited AI agents are found.
-- **Microsoft Defender for Endpoint** local AI agent discovery (**Preview**) enumerates a category it calls *"Claw-based agents: OpenClaw, Clawpilot, QClaw, Claw/Nanobot,"* alongside **AI agent runtime protection**.
-- **Detection only, no blocking today:** ChatGPT Desktop, Ollama Desktop, Poe Desktop, Claw/ZeroClaw, OpenCode, Claude Desktop.
-
-Two operational facts to design around: Intune policy propagation takes **15 minutes to 8 hours**, and **blocking applies only to managed Windows devices enrolled in Intune**. An unmanaged laptop is outside every control on this list.
+This is no longer hypothetical, and Microsoft now ships **detection and blocking** for unsanctioned local AI agents and coding extensions across **Agent 365** (Shadow AI and Local Agents), **Microsoft Intune**, and **Microsoft Defender for Endpoint**. Blocking is much narrower than detection and applies only to managed Windows devices enrolled in Intune; see [Technologies]({{ '/docs/technologies#agent-365--tech-heading-' | relative_url }}) for the current list of blocked versus detected tools and prerequisites.
 
 **Treat this as a decision input, not an afterthought.** If your people can install an autonomous local agent on a device that touches corporate data, that is a trust-boundary question, and you must answer it *before* you architect anything, because it changes what "inside the boundary" means. The uncomfortable version of the question: *would I know?*
 
@@ -527,44 +519,28 @@ Two operational facts to design around: Intune policy propagation takes **15 min
 
 {: .no_toc }
 
-**The Analogy: The Three Meters.** An old house has one electricity bill. A converted house has three: gas, electric, and water, each with its own meter, its own supplier, and its own way of surprising you. An AI estate is a converted house. The architect who tracks only Azure tokens will be genuinely astonished by the invoice.
+**The Analogy: The Three Meters (and Five Wallets).** An old house has one electricity bill. A converted house has three: gas, electric, and water, each with its own meter, its own supplier, and its own way of surprising you. An AI estate is a converted house. The architect who tracks only Azure tokens will be genuinely astonished by the invoice.
 
-**Meter 1: Copilot Credits (the Microsoft 365 side).** Pay-as-you-go at **$0.01 per credit**. This is what metered agent usage draws down for Copilot Chat and agent scenarios in Microsoft 365. **One detail that catches pilots:** on Copilot Studio's GitHub Copilot harness, Microsoft states that billing covers *"using, building, testing, and evaluating agents"*, so authoring and evaluation consume credits rather than only production traffic. Budget the experiment, not just the deployment.
+**Meter 1: Copilot Credits (the Microsoft 365 side).** This is what metered agent and app usage draws down for Copilot Chat, Copilot Studio, Cowork, Code, Autopilot, Work IQ API, and Copilot Managed Runtime. **One detail that catches pilots:** on Copilot Studio's GitHub Copilot harness, Microsoft states that billing covers *"using, building, testing, and evaluating agents"*, so authoring and evaluation consume credits rather than only production traffic. Budget the experiment, not just the deployment.
 
-**Meter 2: GitHub AI credits (the developer side).** Also 1 credit = $0.01. Copilot Business includes 1,900 credits per user per month; Enterprise includes 3,900. Two things every architect should internalize: **code completions and next edit suggestions are not billed**, so the everyday flow is free at the margin. And the promotional 3,000 / 7,000 allowances applied only in June, July, and August 2026. They have ended, so budget against the standing 1,900/3,900. See The Migration Calendar at the end of this page.
+**Meter 2: GitHub AI credits (the developer side).** Included monthly credit allowances pool at the billing entity across Copilot Business and Enterprise seats. **Code completions and next edit suggestions are not billed**, so the everyday inner loop is free at the margin; agent runs and premium requests are what draw down the pool.
 
-**Meter 3: Azure (the platform side).** Pay-per-token by default, **Provisioned Throughput Units (PTU)** when you need predictable capacity and latency, **batch** when latency does not matter, and **priority processing** when it does. Sitting beside it: **Fabric Capacity Units (CUs)**, which is what your analytics-grounded agent quietly consumes.
+**Meter 3: Azure and Fabric (the platform side).** Pay-per-token by default, **Provisioned Throughput Units (PTU)** when you need predictable capacity and latency, **batch** when latency does not matter, and **priority processing** when it does. Sitting beside it: **Fabric Capacity Units (CUs)** for analytics-grounded workloads and **AAUs** for Azure SRE Agent. See [Quick Reference: The Five Wallets]({{ '/docs/quick-reference#billing-currencies-the-five-wallets' | relative_url }}) for the current rates and units.
 
 Then model the shape of the demand:
 
-- **Predictable spend** - Free (included) Copilot Chat for baseline pilots, Microsoft 365 Copilot per-user licensing when you need Graph grounding and in-app copilots, or Copilot Studio prepaid capacity packs for governed makers.
+- **Predictable spend** - Included Copilot Chat for baseline pilots, Microsoft 365 Copilot per-user licensing when you need Graph grounding and in-app copilots, or Copilot Studio prepaid capacity packs for governed makers.
 - **Variable spend with guardrails** - Microsoft Foundry/Foundry Agent Service pay-per-token, Copilot Studio PAYG metering, with rate limits and budget alerts to control spikes.
 - **Custom throttling** - M365 Agents SDK or Agent Framework solutions where you own auto-scaling and rate limiting.
-- **Zero marginal cost (Local)** - Windows AI Foundry / Edge AI (Phi-4-mini) for high-frequency, privacy-sensitive tasks where you trade cloud reasoning power for zero inference cost.
+- **Zero marginal cost (Local)** - Foundry Local / Windows AI APIs for high-frequency, privacy-sensitive tasks where you trade cloud reasoning power for zero inference cost.
 
 #### Prepurchase: two vehicles, one queue
 
 {: .no_toc }
 
-Microsoft offers **two distinct prepurchase plans**, and people routinely mistake them for one:[^p3plan][^copilotcreditp3]
+Microsoft offers **two distinct prepurchase plans**, and people routinely mistake them for one: the **Copilot Credit Pre-Purchase Plan (CCCUs)** covers eligible Copilot Credit usage, while the **Microsoft Agent Prepurchase Plan (ACUs)** spans select services across Microsoft Foundry, Copilot Studio, Microsoft Fabric, and GitHub.[^p3plan][^copilotcreditp3]
 
-| | **Copilot Credit Pre-Purchase Plan** | **Microsoft Agent Prepurchase Plan** |
-| :--- | :--- | :--- |
-| Unit | **CCCU** (Copilot Credit CUs) | **ACU** (Agent CUs) |
-| Covers | Eligible Copilot Credit usage | Select services across **Microsoft Foundry, Microsoft Copilot Studio, Microsoft Fabric, and GitHub** |
-| Value | 1 CCCU pays down US$1 of qualifying retail cost | 1 ACU pays down US$1 of qualifying retail cost, purchased at a tiered discount |
-
-**The precedence chain: this is the part that changes your forecast.** Microsoft states the rule verbatim: *"Reservations always apply before prepurchase plans."* The full order:
-
-1. Microsoft Foundry **PTU Reservations**
-2. Microsoft **Fabric Capacity Reservations**
-3. **Copilot Credit Prepurchase Plan**
-4. **Microsoft Agent Prepurchase Plan:** *"Applied last to remaining AI usage across all platforms."*
-
-**The principle to remember: narrow benefits burn before broad benefits.** Which means the broad plan is your safety net, not your first line of defense. Buy it to catch the spill, not to cover the core.
-
-{: .warning }
-> **Read the terms before you commit.** Both plans are Azure Reservations with a **1-year term**, **auto-renew is ON by default**, and **all purchases are final**: no cancellation, exchange, split, or merge. This is one of the few genuinely irreversible decisions in this entire framework. Treat it accordingly.
+**The principle to remember: narrow benefits burn before broad benefits.** Microsoft's precedence rule is verbatim: *"Reservations always apply before prepurchase plans."* Foundry PTU Reservations and Fabric Capacity Reservations apply first, then the narrower Copilot Credit Prepurchase Plan, and finally the Microsoft Agent Prepurchase Plan (*"applied last to remaining AI usage across all platforms"*). Buy the broad plan to catch the spill, not to cover the core. Both carry fixed terms and non-refundable purchase rules; check the current terms in [Evaluation Criteria: Budget]({{ '/docs/evaluation-criteria#3-budget-assessment' | relative_url }}) before you commit.
 
 {: .note }
 > See [Evaluation Criteria]({{ '/docs/evaluation-criteria#6-scale--performance-the-envelope' | relative_url }}) for capacity planning guidance and [Technologies]({{ '/docs/technologies' | relative_url }}) for service-specific quota references.
@@ -629,9 +605,9 @@ If nobody owns the agent after launch, you did not build a product. You created 
 
 Determine whether the agent is purely reactive or must trigger events on its own.
 
-- **Reactive with delegated execution** - M365 Copilot waits for a user prompt but can sustain background execution via **Copilot Cowork** (**GA worldwide 2026-06-16**), breaking complex tasks into plans that run with human checkpoints. Copilot Studio Declarative Agents remain prompt-initiated.[^m365reactive][^copilotstudioevent]
-- **Proactive capable** - Copilot Studio custom engine agents (Power Automate triggers), Azure Logic Apps, Microsoft Foundry/Foundry Agent Service integrations, and M365 Agents SDK listeners can respond to schedules, webhooks, or system alerts.[^logicappstrigger][^agentservicega]
-Declarative Agents are reactive by design; proactive workflows require custom engine orchestration or event-driven services.
+- **Reactive with delegated execution** - M365 Copilot waits for a user prompt but can sustain background execution via **Copilot Cowork**, breaking complex tasks into plans that run with human checkpoints, or run user-defined **scheduled prompts**. Copilot Studio Declarative Agents remain prompt-initiated.[^m365reactive][^copilotstudioevent]
+- **Proactive capable** - Copilot Studio event triggers and workflows, **Foundry routines**, Azure Logic Apps agentic workflows, Microsoft Foundry/Foundry Agent Service integrations, and M365 Agents SDK listeners can respond to schedules, webhooks, or system alerts.[^logicappstrigger][^agentservicega]
+Declarative Agents are reactive by design; proactive workflows require routines, event triggers, or event-driven services.
 
 {: .tip }
 > Use the automation sections in [Implementation Patterns]({{ '/docs/implementation-patterns#pattern-4-multi-channel-custom-engine-agent-with-m365-agents-sdk' | relative_url }}) to blueprint event-driven designs.
@@ -650,7 +626,7 @@ These principles keep the framework durable as products rename or shift capabili
 
 ---
 
-[^uxguidance]: *Creating a dynamic UX: guidance for generative AI applications*, Microsoft Learn. Updated 2024-09-26 (~22 months old, currency-flagged). [https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/ux-guidance](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/ux-guidance)
+[^uxguidance]: *Creating a dynamic UX: guidance for generative AI applications*, Microsoft Learn. Updated 2024-09-26 (ISV-scoped, currency-flagged). [https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/ux-guidance](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/ux-guidance)
 [^standardsetup]: *Built-in enterprise readiness with standard agent setup*, Microsoft Learn. Updated 2026-02-27. [https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/standard-agent-setup](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/standard-agent-setup)
 [^aiagentadoption]: *AI agent adoption*, Microsoft Learn. Updated 2025-12-03. [https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/)
 [^whennotagents]: *Business strategy plan: When not to use AI agents*, Microsoft Learn. Updated 2025-12-05. [https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/business-strategy-plan#when-not-to-use-ai-agents](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/business-strategy-plan#when-not-to-use-ai-agents)
@@ -672,11 +648,11 @@ These principles keep the framework durable as products rename or shift capabili
 [^logicappstrigger]: *Agentic workflows and the agent loop in Azure Logic Apps*, Microsoft Learn. Updated 2026-02-19. Consumption is explicitly in preview; Standard carries no preview banner on the agent loop, though some Standard capabilities (e.g. using an LLM API) are marked preview. [https://learn.microsoft.com/en-us/azure/logic-apps/agent-workflows-concepts](https://learn.microsoft.com/en-us/azure/logic-apps/agent-workflows-concepts)
 [^cpsteams]: *Get started with Copilot Studio for Teams*, Microsoft Learn. Classic chatbot creation retirement and Teams-plan maker scope. [https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-get-started-teams](https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-get-started-teams)
 [^agentservicega]: *What is Microsoft Foundry Agent Service?*, Microsoft Learn. Updated 2026-03-25. [https://learn.microsoft.com/en-us/azure/foundry/agents/overview](https://learn.microsoft.com/en-us/azure/foundry/agents/overview)
-[^copilotstudioevent]: *Create automated copilots triggered by events*, Microsoft Learn. GA 2025-03-24. [https://learn.microsoft.com/en-us/power-platform/release-plan/2024wave2/microsoft-copilot-studio/create-automated-copilots-triggered-events](https://learn.microsoft.com/en-us/power-platform/release-plan/2024wave2/microsoft-copilot-studio/create-automated-copilots-triggered-events)
-[^agui-overview]: *AG-UI integration with Agent Framework*, Microsoft Learn. Preview, Updated 2025-11-11. [https://learn.microsoft.com/en-us/agent-framework/integrations/by-component/ui/ag-ui/](https://learn.microsoft.com/en-us/agent-framework/integrations/by-component/ui/ag-ui/)
-[^copilotforall]: *Overview of Microsoft 365 Copilot Chat*, Microsoft Learn. Updated 2026-01-20. [https://learn.microsoft.com/en-us/copilot/overview](https://learn.microsoft.com/en-us/copilot/overview)
-[^copilot-licensing]: *License options for Microsoft 365 Copilot*, Microsoft Learn. Updated 2026-01-20. [https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-licensing#microsoft-copilot-chat](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-licensing#microsoft-copilot-chat)
-[^capabilityenvisioning]: *Choosing an approach with Capability Envisioning*, Microsoft Learn. Updated 2025-01-16 (~18 months old, currency-flagged); ISV-scoped. [https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/capability-envisioning](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/capability-envisioning)
+[^copilotstudioevent]: *Event triggers in Copilot Studio*, Microsoft Learn. [https://learn.microsoft.com/en-us/microsoft-copilot-studio/authoring-triggers-about](https://learn.microsoft.com/en-us/microsoft-copilot-studio/authoring-triggers-about)
+[^agui-overview]: *AG-UI integration with Agent Framework*, Microsoft Learn. [https://learn.microsoft.com/en-us/agent-framework/integrations/by-component/ui/ag-ui/](https://learn.microsoft.com/en-us/agent-framework/integrations/by-component/ui/ag-ui/)
+[^copilotforall]: *Overview of Microsoft 365 Copilot Chat*, Microsoft Learn. [https://learn.microsoft.com/en-us/copilot/overview](https://learn.microsoft.com/en-us/copilot/overview)
+[^copilot-licensing]: *License options for Microsoft 365 Copilot*, Microsoft Learn. [https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-licensing#microsoft-copilot-chat](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-licensing#microsoft-copilot-chat)
+[^capabilityenvisioning]: *Choosing an approach with Capability Envisioning*, Microsoft Learn. Updated 2025-01-16 (ISV-scoped, currency-flagged). [https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/capability-envisioning](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/capability-envisioning)
 [^cafaiadoption]: *AI adoption (CAF)*, Microsoft Learn. Updated 2026-01-07. [https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai/strategy](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai/strategy)
 [^cafaiarch]: *CAF AI PaaS architectures*, Microsoft Learn. Updated 2025-12-03. [https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai/platform/architectures](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai/platform/architectures)
 [^raistandard]: *Microsoft Responsible AI*: principles and approach. [https://aka.ms/RAI](https://aka.ms/RAI) · *Responsible AI policies (CAF)*: [https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai/responsible-ai-policies](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai/responsible-ai-policies) · *Microsoft AI principles and approach*: [https://www.microsoft.com/en-us/ai/principles-and-approach](https://www.microsoft.com/en-us/ai/principles-and-approach)
@@ -691,7 +667,7 @@ These principles keep the framework durable as products rename or shift capabili
 [^agent365]: *Microsoft Agent 365 overview*, Microsoft Learn. GA 2026-05-01. [https://learn.microsoft.com/en-us/microsoft-agent-365/overview](https://learn.microsoft.com/en-us/microsoft-agent-365/overview)
 [^governrisk]: *Govern agents by risk*, Microsoft Learn (Agentic Center of Excellence). [https://learn.microsoft.com/en-us/agents/center-of-excellence/govern-agents-risk](https://learn.microsoft.com/en-us/agents/center-of-excellence/govern-agents-risk)
 [^foundryworkflowsretire]: *Microsoft Foundry workflows*, Microsoft Learn. Retirement notice and migration guide. [https://learn.microsoft.com/en-us/azure/foundry/](https://learn.microsoft.com/en-us/azure/foundry/)
-[^copilotcode]: *Introducing the new Copilot with Home, Code and Autopilot*, Official Microsoft Blog (Jared Spataro), 2026-09-25. The post says *"Code is rolling out to Frontier at the end of the month, with broad availability in the coming weeks"* and, earlier in the same post, *"Home and Code will start rolling out in our Frontier program in the coming weeks"*. The same day's [Copilot Managed Runtime announcement](https://www.microsoft.com/en-us/copilot/blog/copilot-studio/build-where-you-want-run-with-confidence-now-microsoft-hosts-and-manages-the-code-created-by-copilot/) says *"Microsoft entry points are already live with Copilot Cowork, Copilot Code, and Copilot Studio"*. Learn documents Code's [usage-based billing](https://learn.microsoft.com/en-us/microsoft-365/copilot/user-subscription-license-usage-based-billing); no Learn feature overview for Code was found as of 2026-09-25. [https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/](https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/)
+[^copilotcode]: *Copilot Code overview (Frontier)*, Microsoft Learn. [https://learn.microsoft.com/en-us/copilot/code/overview](https://learn.microsoft.com/en-us/copilot/code/overview) · *Introducing the new Copilot with Home, Code and Autopilot*, Official Microsoft Blog, 2026-09-25. [https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/](https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/)
 [^coworkapp]: *Use Copilot Cowork*, section "Build apps with the App skill (Frontier)", Microsoft Learn. Updated 2026-09-14. [https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/use-cowork](https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/use-cowork)
 [^mcsapps]: *Apps overview (preview)*, Microsoft Copilot Studio, Microsoft Learn. Accessed 2026-09-25. [https://learn.microsoft.com/en-us/microsoft-copilot-studio/apps-experience/apps-overview](https://learn.microsoft.com/en-us/microsoft-copilot-studio/apps-experience/apps-overview)
 [^cmroverview]: *What is Copilot Managed Runtime (preview)*, Microsoft Learn. Prerelease documentation, accessed 2026-09-25. [https://learn.microsoft.com/en-us/microsoft-365/managed-apps/](https://learn.microsoft.com/en-us/microsoft-365/managed-apps/)
@@ -803,12 +779,12 @@ Prefer platforms and connectors that support open/interoperable patterns (e.g., 
 
 **Predictable Per-User:**
 
-- M365 Copilot add-on ($30/user/month, requires eligible base license; web-based Copilot Chat is included)[^copilot-licensing]
+- M365 Copilot add-on (requires eligible base license; web-based Copilot Chat is included)[^copilot-licensing]
 
 **Usage-Based (No upfront commitment):**
 
-- Copilot Studio Pay-As-You-Go ($0.01/Copilot Credit)
-- Microsoft Foundry (serverless, pay-per-token)
+- Copilot Studio Pay-As-You-Go (Copilot Credits)
+- Microsoft Foundry (pay-per-token)
 
 **Prepaid Capacity:**
 
@@ -819,7 +795,6 @@ Prefer platforms and connectors that support open/interoperable patterns (e.g., 
 
 - **Copilot Credit Pre-Purchase Plan:** CCCUs against eligible Copilot Credit usage[^copilotcreditp3]
 - **Microsoft Agent Prepurchase Plan:** ACUs against select services across Microsoft Foundry, Copilot Studio, Microsoft Fabric, and GitHub[^p3plan]
-- Tiered pricing with volume discounts; 1-year term; auto-renew ON by default; **all purchases final**
 - Remember the precedence: *"Reservations always apply before prepurchase plans"* (see Question 6)
 
 **Azure Consumption:**
@@ -837,22 +812,22 @@ Prefer platforms and connectors that support open/interoperable patterns (e.g., 
 
 {: .no_toc }
 
-**Need Enterprise Connectors (1,400+)?**
+**Need Enterprise Connectors?**
 
 - **Azure Logic Apps** (cloud + on-premises, MCP server, agentic workflows)
 
-**Need Power Platform Connectors (1,000+)?**
+**Need Power Platform Connectors?**
 
 - **Copilot Studio** + **Power Automate** (Cloud Flows or Agent Flows)
 
 **Need Document Processing?**
 
 - **AI Builder** (Power Platform scenarios)
-- **Azure Document Intelligence** (custom/advanced scenarios)
+- **Azure Document Intelligence** or **Azure AI Content Understanding** (custom/multimodal scenarios)
 
 **Need Multi-Channel Deployment?**
 
-- **M365 Agents SDK** (10+ channels: Web, Mobile, SMS, WhatsApp, Teams, M365 Copilot)
+- **M365 Agents SDK** (Web, Mobile, SMS, WhatsApp, Teams, M365 Copilot)
 - **Copilot Studio** (M365 + custom channels)
 
 {: .note }
@@ -871,18 +846,15 @@ Prefer platforms and connectors that support open/interoperable patterns (e.g., 
 
 **Need Multi-Agent Collaboration?**
 
-- **Foundry Agent Service** (incoming A2A endpoint **Preview** for lightweight direct delegation; not deterministic workflow orchestration)
-- **Copilot Studio.** **Confirmed GA:** the GitHub Copilot harness (GA 2026-08-03, the default for new agents), generative orchestration (GA, default *within the standard harness*), computer use (May 2026), and A2A (April 2026). **Status not stated by Microsoft** for the rest of the multi-agent surface: child/inline agents, connected Copilot Studio agents, Foundry agents, Fabric data agent connections, and M365 Agents SDK agent connections. The what's-new feed currently shows **"Connect other agents (Preview)"**, which contradicts any blanket GA reading.
-- **Agent Framework** (Handoff/Magentic patterns)
+- **Foundry Agent Service** (A2A endpoint and tool for lightweight direct delegation; not deterministic workflow orchestration)
+- **Copilot Studio** (A2A and connected agents across Studio, Foundry, A2A, and M365 Agents SDK; check per-feature status in the reference layer)
+- **Agent Framework** (Sequential, Concurrent, Handoff, Group Chat, and Magentic patterns)
 
 **Need Workflow Automation + AI?**
 
-- **Azure Logic Apps agentic workflows** (the **agent loop**; autonomous/conversational, MCP server)
-- **Copilot Studio Agent Flows** (native flows in Studio)
-- **Power Automate Cloud Flows** (1,000+ connectors, long-running)
-
-{: .warning }
-> **Status, stated precisely.** **Consumption** agentic workflows are **explicitly in preview**. Microsoft's banner reads *"Consumption agentic workflows capability is in preview and is subject to the Supplemental Terms of Use for Microsoft Azure Previews."* **Standard** carries **no preview banner on the agent loop itself**, though specific Standard capabilities (such as using an LLM API) *are* marked preview. Note the careful wording: no preview banner is not the same as a GA statement, and Microsoft has not made one here. Check the current status for the exact capability you need.[^logicappstrigger]
+- **Azure Logic Apps agentic workflows** (the **agent loop**; autonomous/conversational, MCP server)[^logicappstrigger]
+- **Copilot Studio Agent Flows and Workflows** (native flows and workflows in Studio)
+- **Power Automate Cloud Flows** (long-running connector automation)
 
 {: .note }
 > **Cross-reference:** [Feature Comparison]({{ '/docs/feature-comparison' | relative_url }}) - Workflow Orchestration Platform Comparison
@@ -920,6 +892,8 @@ After applying all criteria, document your selection:
 - **Budget Model:** [Per-user/Usage/Consumption + constraints]
 - **Integration Needs:** [Key connectors/systems required]
 - **Orchestration Requirements:** [Checkpointing/Multi-agent/Workflows]
+- **Harness Chosen (if Copilot Studio):** [Standard, GitHub Copilot, or Copilot chat, and why the simpler one failed]
+- **Lifecycle Checked:** [Verified status and retirement horizon in [Quick Reference]({{ '/docs/quick-reference#lifecycle-status-quick-reference' | relative_url }})]
 
 
 **Architecture Pattern:** [Reference [Implementation Patterns]({{ '/docs/implementation-patterns' | relative_url }}) Pattern 1-5]
@@ -948,32 +922,14 @@ An agent you cannot see, attribute, or switch off is not in production. It is ju
 
 **Nothing forces an architecture decision like a date.**
 
-You can argue about the elegant option for two quarters. You cannot argue with a retirement notice. Every framework on this page helps you choose well, but the calendar is what makes you choose *at all*, and it is the most reliably ignored artifact in enterprise AI planning. Print it. Put the dates in the same place you keep certificate expiries, because that is exactly what they are.
+You can argue about the elegant option for two quarters. You cannot argue with a retirement notice. Every framework on this page helps you choose well, but the calendar is what makes you choose *at all*, and it is the most reliably ignored artifact in enterprise AI planning. Put the dates in the same place you keep certificate expiries, because that is exactly what they are.
 
 **The Analogy: The Tide Table.** The tide is not negotiating with you. It is published, it is precise, and the only question is whether your boat is where it needs to be when the water moves.
 
-| Date | What happens | Your move |
-| :--- | :--- | :--- |
-| ~~2025-11-10~~ *(passed)* | **GitHub App-based Copilot Extensions deprecated.** Note the scope: only GitHub App-based Extensions. Client-side VS Code Copilot Extensions remain fully supported. | Migrate to **MCP servers** |
-| ~~June 2026~~ *(passed)* | **Copilot Studio for Teams: classic chatbot creation retired.** Verbatim: *"After the end of June 2026, it will no longer be possible to use the Copilot Studio for Teams app to create classic chatbots. The app will redirect you to the Copilot Studio web app instead."* **Scope:** this hits **makers on a Teams plan**, who *"are limited to creating agents that use classic orchestration… and they can only publish these agents to Microsoft Teams."* Standalone Copilot Studio subscriptions are unaffected. | Rebuild in the Copilot Studio web app[^cpsteams] |
-| ~~2026-09-01~~ *(passed)* | **GitHub AI-credit promotion ended.** Business dropped 3,000 → **1,900** credits/user/month; Enterprise 7,000 → **3,900**. | Re-baseline the developer budget against the standing allowance, not the promo |
-| **2026-12-01** | **Microsoft Foundry retires workflows.** | Pick a migration path (see below) |
-| **2027-03-31** | **Azure Cache for Redis Enterprise and Enterprise Flash retire** (disabled 2027-04-01), the nearest infrastructure deadline in the stack | Move to **Azure Managed Redis** (GA) |
-| **2028-09-30** | **Azure Cache for Redis Basic, Standard, and Premium retire** (disabled 2028-10-01) | Move to **Azure Managed Redis** (GA) |
+The canonical, maintained schedule of passed and upcoming retirements lives in **[Quick Reference: Lifecycle Status]({{ '/docs/quick-reference#lifecycle-status-quick-reference' | relative_url }})**. Check it before you commit to a surface and before you renew a budget, including rolling model-version retirements and the two nearest architectural cutoffs:
 
-### The Foundry Workflows retirement, in Microsoft's words
-
-{: .no_toc }
-
-> *"Microsoft Foundry is retiring workflows on December 1, 2026. If you're looking to build new workflows, use Microsoft Agent Framework. To migrate existing workflows, see the Migration guide section of this article for all supported paths."*[^foundryworkflowsretire]
-
-Three supported paths, and the right one depends on what you were actually using the visual designer *for*. That is a Question 4 answer, not a migration answer:
-
-- **Microsoft Agent Framework:** the recommended path. Exported YAML is reusable with minimal changes.
-- **Azure Logic Apps:** the path that keeps a visual designer, aimed at business-process automation. Microsoft's term for the capability is **agentic workflows**, built around an **agent loop**. Mind the status before you commit a migration to it: Consumption agentic workflows are explicitly in preview, and Standard carries no preview banner on the agent loop itself while some Standard capabilities are still marked preview.[^logicappstrigger]
-- **Agent-to-agent (A2A):** the lightweight path when all you needed was a handoff between agents.
-
-One detail worth knowing before you panic: **your YAML definitions remain executable when deployed as Hosted Agents.** What goes away after the date is the visual designer and in-portal execution. The logic survives; the canvas does not.
+- **Foundry "Microsoft Fabric" tool for data agents:** stops being supported **November 6, 2026**; migrate Foundry agents to the **Fabric IQ (OneLake Catalog) tool**.
+- **Microsoft Foundry Workflows:** retires **December 1, 2026**; visual designer and in-portal execution stop, while exported YAML remains executable on Hosted Agents.[^foundryworkflowsretire] Move new work by role: **Microsoft Agent Framework** for code-first graphs, **Azure Logic Apps** when you want to keep a visual designer for business processes, and **agent-to-agent (A2A)** for lightweight handoffs.
 
 ---
 

@@ -41,7 +41,7 @@ Use this page to turn abstract requirements into defensible engineering decision
 | **Tier 1: Informational**<br>*(Read-Only)* | Single knowledge domain. Little or no durable state. | **Grounded retrieval** (RAG where generation is used) | M365 Copilot or a Microsoft 365/Copilot Studio **Declarative Agent**; Azure AI Search with Microsoft Foundry for custom retrieval | Citation quality, access trimming, freshness, data boundary, and failure behavior |
 | **Tier 2: Transactional**<br>*(Deterministic)* | Linear steps, defined API calls, and explicit approvals | **Orchestrated workflow** | Azure Logic Apps, Power Automate, or Copilot Studio agent flows | Idempotency, connector identity, rollback, approval ownership, and audit trail |
 | **Tier 3: Reasoning**<br>*(Probabilistic)* | Multi-step planning, tool choice, custom state, or strict latency targets | **Plan-and-execute** | Copilot Studio; Foundry **Prompt Agent (GA)** for managed orchestration; Agent Framework or M365 Agents SDK for code-owned orchestration | Tool accuracy, state recovery, latency budget, evaluation thresholds, and runtime ownership |
-| **Tier 4: Autonomous**<br>*(Nondeterministic)* | Long-running work, multi-agent delegation, or recursive correction | **Bounded autonomous or multi-agent orchestration** | Agent Framework (**GA core**); Copilot Studio connected agents (**Preview**); Foundry A2A endpoint (**Preview**). Use Hosted Agents only when the [constraint card]({{ '/docs/technologies#the-hosted-agent-constraint-card' | relative_url }}) fits | Bounded autonomy, isolation, stop conditions, escalation, protocol direction, and end-to-end observability |
+| **Tier 4: Autonomous**<br>*(Nondeterministic)* | Long-running work, multi-agent delegation, or recursive correction | **Bounded autonomous or multi-agent orchestration** | Agent Framework (**GA core**); Copilot Studio connected agents (**Preview**); Foundry A2A (**v1.0 GA; v0.3 Preview**). Use Hosted Agents only when the [constraint card]({{ '/docs/technologies#the-hosted-agent-constraint-card' | relative_url }}) fits | Bounded autonomy, isolation, stop conditions, escalation, protocol direction, and end-to-end observability |
 
 Microsoft path sources: [^complexity-paths]
 
@@ -90,11 +90,11 @@ Architects must speak the language of finance. You need to capture Total Cost of
 | Wallet | Unit and rate | Where it drains | What catches teams out |
 | :--- | :--- | :--- | :--- |
 | **Copilot Credits** | Pay-as-you-go at **US$0.01 per credit**; also sold in capacity packs | The Microsoft 365 plane: Copilot Studio, agent actions, and metered Copilot experiences | Credit rates vary by feature, so "cost per conversation" is not a number Microsoft publishes. On Copilot Studio's GitHub Copilot harness, billing covers *"using, building, testing, and evaluating agents"*, so a pilot has a cost before it has a user |
+| **GitHub AI credits** | **1 credit = US$0.01.** Each Copilot Business license adds **1,900 per month**; Enterprise **3,900** | The developer plane: agents, model requests, and agentic workflows | Included credits are pooled at the billing entity, not reserved per user. Unused credits do not carry over |
+| **Azure meters (and Fabric CUs)** | Per-token, **PTU** per hour, batch, priority processing; **Fabric Capacity Units (F2 to F8192)** | The platform plane: models, tools, hosting, and any grounding that lives in Fabric | Idle provisioned capacity and retries are invisible in a demo and very visible in month three |
 
 {: .warning }
 > **Evaluation now has a price tag, and that is a tension worth naming.** This framework tells you repeatedly to evaluate: score the scenario, test the core journeys, sample what the agent closed unattended. On usage-billed platforms that work is metered like any other, which creates a quiet incentive to evaluate less precisely when you should be evaluating more. **Budget evaluation as a line item rather than as an afterthought.** If the only way to make a pilot look cheap is to stop measuring it, the pilot is not cheap, it is unmeasured.
-| **GitHub AI credits** | **1 credit = US$0.01.** Each Copilot Business license adds **1,900 per month**; Enterprise **3,900** | The developer plane: agents, model requests, and agentic workflows | Included credits are pooled at the billing entity, not reserved per user. Unused credits do not carry over |
-| **Azure meters (and Fabric CUs)** | Per-token, **PTU** per hour, batch, priority processing; **Fabric Capacity Units (F2 to F8192)** | The platform plane: models, tools, hosting, and any grounding that lives in Fabric | Idle provisioned capacity and retries are invisible in a demo and very visible in month three |
 
 **The Analogy:** it is the same as running a business with a corporate card, a departmental purchasing account, and a prepaid transit pass. Every one of them buys real things. None of them tops up the others. If your TCO model has one line item, you have modeled one third of the estate.
 
@@ -116,7 +116,7 @@ Microsoft states the precedence verbatim: *"Reservations always apply before pre
 **The principle worth memorizing: narrow benefits burn before broad benefits.** It is the gift-card rule. You spend the store card before the credit card, because the store card is worthless anywhere else. Model your commitments in that order or you will strand the narrow ones and over-buy the broad one.[^budget-prepurchase-order]
 
 {: .warning }
-> **Confirm coverage before you count the discount.** [Learn's spending-policy page](https://learn.microsoft.com/en-us/microsoft-365/copilot/usage-based-billing-manage-copilot-credits) lists Copilot Credit prepurchase plans (P3) as a billing method for Cowork and Work IQ API, and spends prepaid credits before pay-as-you-go. Neither that page nor the [Microsoft Agent Prepurchase Plan](https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/agent-pre-purchase) names Code or Copilot Managed Runtime as of 2026-09-25, so confirm those with your account team before a forecast assumes them.
+> **Confirm coverage before you count the discount.** Learn's [UBB overview](https://learn.microsoft.com/en-us/microsoft-365/copilot/usage-based-billing-overview-copilot-credits) (updated 2026-10-14) lists Cowork, Advanced work in SharePoint/OneDrive, Work IQ API, Copilot Managed Runtime, Teams Phone Agent, and Code under usage-based billing, and the [UBB setup page](https://learn.microsoft.com/en-us/microsoft-365/copilot/usage-based-billing-copilot-credits-setup) (updated 2026-10-13) confirms that P3 is layered on top of pay-as-you-go and that Agent P3 credits are used before overage (though the admin center currently displays only the Copilot Credit P3 balance). Neither the [Copilot Credit P3](https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/copilot-credit-p3) nor the [Microsoft Agent Prepurchase Plan](https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/agent-pre-purchase) reservation page explicitly names Code or Copilot Managed Runtime as of 2026-10-14, so confirm those with your account team before a forecast assumes them.
 
 {: .warning }
 > Consumption models require **Quota Management**. An ungoverned autonomous agent can burn through a monthly token budget in hours if it enters a loop. Require spending caps, alerts, and an owner in the selected cost-management layer.
@@ -182,7 +182,7 @@ Microsoft's Center of Excellence guidance then sorts agents into three risk tier
 | :--- | :--- | :--- |
 | **Tier 1: Low risk**<br>*Individual productivity* | Agents that *"assist one person or a small team with everyday work, such as summarizing, drafting, and searching"* | Named owner; basic monitoring of usage and errors; standard release checklist; self-service deployment within published guardrails |
 | **Tier 2: Medium risk**<br>*Expert-knowledge and internal service* | Agents that *"answer domain questions or run internal services where a wrong answer can mislead people or disrupt operations"* | Named owner **plus** a domain-expert validator; knowledge-quality monitoring; formal release gate; accuracy tracking and feedback loops |
-| **Tier 3: High risk**<br>*Business-critical* | Microsoft documents a third, business-critical tier. **We have not verified its exact scope and control wording.** Read the source before you quote it in a governance policy | *(verify at source)* |
+| **Tier 3: High risk**<br>*Business-critical and external-facing* | *"Tier 3 covers agents embedded in core processes or facing customers, where a failure hits revenue, compliance, or trust. These agents execute consequential actions and often act with autonomy."* | Named owner **plus** a formal process owner accountable for the business process; production-grade SLA monitoring; security review and responsible AI assessment before release; decision-rights framework; incident-response plan; quarterly maturity review |
 
 Source: [Govern agents by risk](https://learn.microsoft.com/en-us/agents/center-of-excellence/govern-agents-risk), Microsoft Learn.
 
@@ -289,7 +289,7 @@ Before moving to the [Implementation Patterns]({{ '/docs/implementation-patterns
 
 ---
 
-**Last Updated:** July 13, 2026
+**Last Updated:** October 14, 2026
 
 [^time-saas]: [Microsoft 365 Copilot overview](https://learn.microsoft.com/en-us/microsoft-365/copilot/) and [Declarative Agents for Microsoft 365 Copilot](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/overview-declarative-agent), Microsoft Learn.
 [^time-managed]: [Copilot Studio overview](https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-what-is-copilot-studio) and [Azure Logic Apps overview](https://learn.microsoft.com/en-us/azure/logic-apps/logic-apps-overview), Microsoft Learn.

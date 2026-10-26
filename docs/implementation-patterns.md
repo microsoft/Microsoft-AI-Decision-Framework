@@ -46,7 +46,7 @@ Read the trade-off before the diagram. The architecture is the easy part.
 - Advanced orchestration, custom routing, or strict VNet isolation still require an Azure landing zone.[^agentservice-overview]
 - Connected agents are Preview and require agents to live in the same environment; plan ALM accordingly.[^connected-agents]
 - Service-account execution must be reviewed to avoid over-privileged actions (align with the [Action Safety Guardrail Playbook]({{ '/docs/evaluation-criteria#the-action-safety-guardrail-playbook' | relative_url }})).
-- Consumption is metered per message, so sustained high-volume scenarios should model capacity vs. Azure consumption costs before scaling.
+- Consumption is metered in Copilot Credits, so sustained high-volume scenarios should model capacity vs. Azure consumption costs before scaling.
 
 **Signals this fits (Evaluation Criteria crosswalk):**
 
@@ -66,7 +66,7 @@ Read the trade-off before the diagram. The architecture is the easy part.
 **Confidence Level:** High (official Microsoft guidance)
 
 {: .warning }
-> **Know which Copilot Studio features are actually GA.** Verified GA: the **GitHub Copilot harness** (GA 2026-08-03, default for new agents), **generative orchestration** (GA, default *within the standard harness*), **computer use** (May 2026), **A2A** (April 2026), and **scheduled prompts** (2026-07-01). **Copilot Tuning is early access preview.** Microsoft does **not** publish GA status for autonomous/triggered agents, child agents, connected Copilot Studio agents, Foundry agents, Fabric data agents, or M365 Agents SDK agents inside Copilot Studio. The what's-new page still lists "Connect other agents (Preview)" and "Foundry IQ connect (Preview)". Check the specific feature, not the platform. ([What's new in Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/whats-new), verified 2026-07-29)
+> **Know which Copilot Studio features are actually GA.** Verified GA: the **GitHub Copilot harness** (GA 2026-08-03, default for new agents), **generative orchestration** (GA, default *within the standard harness*), **computer use** (May 2026), **A2A** (April 2026 on the standard harness), and the **Foundry IQ integration** (GA per the 2026-10-07 Studio blog). Connected agents on the GitHub Copilot harness (Studio, Foundry, A2A, and M365 Agents SDK, updated 2026-10-14) carry **Preview** in the What's New feed and no banner on the how-to pages, while child/inline agents and autonomous/triggered agents state no explicit GA label. (**Scheduled prompts** and **Copilot Tuning** are Microsoft Copilot features, not Copilot Studio features.) Check the specific feature, not the platform. ([What's new in Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/whats-new), updated 2026-10-06)
 
 ---
 
@@ -255,10 +255,10 @@ Read the trade-off before the diagram. The architecture is the easy part.
 **Approach:**
 
 1.  **Start:** Build the core agent in **Copilot Studio** to handle standard intents, FAQs, and simple flows.
-2.  **Enhance (Reasoning):** Swap the default model for a **BYO Model** from Microsoft Foundry (Azure) (e.g., a fine-tuned GPT-4o or specialized SLM) to improve domain-specific reasoning without changing the UI.[^byo-model]
-3.  **Extend (Orchestration):** Identify complex, multi-step tasks that require advanced planning. Build these as **Microsoft Foundry Agent Service** agents.
-4.  **Connect:** Use the Copilot Studio external agent connection (Preview) to let the Copilot Studio agent delegate these specific tasks to a Microsoft Foundry agent, then receive the result back to present to the user.[^agent-handoff]
-5.  **Share:** Point both the Copilot Studio agent and the Microsoft Foundry agent to the same **Azure AI Search** index so they share a "brain" (knowledge base).[^shared-knowledge]
+2.  **Enhance (Harness & Reasoning):** When the agent outgrows rule-based flows, either start on or upgrade a copy to the **GitHub Copilot harness** (GA; the [upgrade tool](https://learn.microsoft.com/en-us/microsoft-copilot-studio/upgrade-to-github-copilot-from-standard-harness) is Preview, consumes Copilot Credits, and skips knowledge sources, Power Fx, and child agents) to gain enhanced reasoning, skills, memory (Preview), and native model selection.[^byo-model]
+3.  **Extend (Orchestration):** Identify complex, multi-step tasks that require advanced planning or custom code. Build these as **Microsoft Foundry Agent Service**, **A2A**, or **M365 Agents SDK** agents.
+4.  **Connect:** Use Copilot Studio's **connected agents** (Preview) to delegate specific tasks to a Microsoft Foundry, A2A, M365 Agents SDK, or specialist Copilot Studio agent, then return the result to the user.[^agent-handoff]
+5.  **Share:** Point both the Copilot Studio agent and the Microsoft Foundry agent to the same **Foundry IQ** knowledge base (Studio integration GA per the 2026-10-07 blog) or **Azure AI Search** index so they share a governed knowledge layer.[^shared-knowledge]
 
 **Strengths:**
 
@@ -268,23 +268,23 @@ Read the trade-off before the diagram. The architecture is the easy part.
 
 **Trade-offs:**
 
-*   **Latency:** Handoffs introduce a network hop between Copilot Studio and Azure.
+*   **Latency and Meter:** Handoffs introduce a network hop between Copilot Studio and Azure and draw from two wallets (Copilot Credits plus Azure consumption).
 *   **Complexity:** Requires managing two environments (Power Platform + Azure).
-*   **Preview Features:** BYO Model and Agent Handoff are currently in Preview.
+*   **Preview Features:** The harness upgrade tool and connected-agent handoffs are in Preview (Foundry connections require the Activity protocol enabled with `Foundry-Features: AgentEndpoints=V1Preview`).
 
 **Signals this fits:**
 
 *   You have a working Copilot Studio agent but it struggles with *one specific complex task*.
-*   You need a specialized model (e.g., medical/legal fine-tune) but want to keep the easy Teams integration of Copilot Studio.
+*   You need a reasoning-heavy model or pro-code specialist agent while keeping the easy Teams integration of Copilot Studio.
 *   You have a mixed team (Makers + Pro Devs) collaborating on the same bot.
 
 **When to pivot:** If *most* of the agent's logic is moving to Azure, switch to **Pattern 2** (Pro-Code First) to reduce the overhead of the dual-stack approach.
 
 **Sources:**
 
-*   [Bring Your Own Model to Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/advanced-generative-actions)[^byo-model]
-*   [Connect to a Microsoft Foundry agent (Preview)](https://learn.microsoft.com/en-us/microsoft-copilot-studio/add-agent-foundry-agent)[^agent-handoff]
-*   [Azure AI Search Overview](https://learn.microsoft.com/en-us/azure/search/)[^shared-knowledge]
+*   [Upgrade agents to the GitHub Copilot harness (Preview)](https://learn.microsoft.com/en-us/microsoft-copilot-studio/upgrade-to-github-copilot-from-standard-harness) and [Model availability](https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-experience/authoring-agent-model-availability)[^byo-model]
+*   [Connected agents overview (GitHub Copilot harness)](https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-experience/authoring-add-other-agents) and [Connect to a Microsoft Foundry agent](https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-experience/add-agent-foundry)[^agent-handoff]
+*   [Connect to Foundry IQ](https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-experience/foundry-iq-connect) and [Azure AI Search Overview](https://learn.microsoft.com/en-us/azure/search/)[^shared-knowledge]
 
 **Status:** Recommended for hybrid teams and scaling existing low-code agents
 **Confidence Level:** Medium (Relies on Preview features)
@@ -296,9 +296,9 @@ Read the trade-off before the diagram. The architecture is the easy part.
 **Approach:**
 
 1. Ingest data into **OneLake** via Fabric shortcuts or pipelines to create a unified data estate.[^fabric-onelake]
-2. Enable **Fabric data agents** (**GA**, formerly "AI skill") on your semantic models to allow conversational Q&A over structured data. Requires **F2+ or P1+ capacity**.[^fabric-copilot]
-3. Use **Translytical Task Flows** (Preview) to embed "Action" buttons directly in Power BI reports, allowing users to trigger business processes (via Power Automate or Logic Apps) based on insights.[^translytical]
-4. For custom scenarios, mirror **Azure Cosmos DB for NoSQL** into OneLake using Fabric mirroring (continuous backup required; analytics copy is read-only) to enable near real-time analytics without ETL.[^cosmos-mirroring]
+2. Enable **Fabric data agents** (**GA core**, formerly "AI skill") on your semantic models to allow conversational Q&A over structured data. Requires **F2+ or P1+ capacity**.[^fabric-copilot]
+3. Use **Translytical Task Flows** to embed "Action" buttons directly in Power BI reports, allowing users to trigger business processes (via Power Automate or Logic Apps) based on insights.[^translytical]
+4. For custom scenarios, mirror **Azure Cosmos DB for NoSQL** into OneLake using Fabric mirroring (GA; continuous backup required; analytics copy is read-only) to enable near real-time analytics without ETL.[^cosmos-mirroring]
 
 **Strengths:**
 
@@ -308,9 +308,9 @@ Read the trade-off before the diagram. The architecture is the easy part.
 
 **Trade-offs:**
 
-- **Fabric data agents** are for *analytics retrieval*, not general-purpose orchestration. They don't "do" things outside of data analysis unless paired with Task Flows.
-- **Fabric IQ** (the documented **Preview** Fabric workload for ontologies, graph models, semantic models, and operations agents) is a *different* capability from the GA data agent. Don't let the shared "Fabric" prefix flatten two maturity levels into one plan.[^fabric-iq]
-- **Translytical task flows** are Preview and require preview features; PBIR/PBIP formats and Power BI Embedded are not supported.[^translytical]
+- **Fabric data agents** are for *analytics retrieval*, not general-purpose orchestration. While the core data agent is GA, cross-platform consumption routes (Copilot Studio, Microsoft Copilot, and Foundry via Fabric IQ) are in **Preview**, and the older Foundry "Microsoft Fabric" tool stops being supported on **November 6, 2026**.
+- **Fabric IQ** (the documented **Preview** Fabric workload for ontologies and graph models, with GA integrations for Chat, Cowork, and Fabric IQ MCP) is a *different* capability from the data agent. Don't let the shared "Fabric" prefix flatten two maturity levels into one plan.[^fabric-iq]
+- **Translytical task flows** removed their preview banner on Learn in March 2026, though PBIR/PBIP formats and Power BI Embedded remain unsupported.[^translytical]
 - Requires Fabric capacity and appropriate licensing.
 
 **Signals this fits:**
@@ -457,21 +457,20 @@ Publishing is a border crossing where the agent's identity, tools, and channel b
 2. Use the current agent endpoint and agent identity. Do not build a new path around legacy **Agent Applications**, which are deprecated.[^foundry-publish-share]
 3. Assign least-privilege RBAC to the current agent identity for every downstream resource and test both user-delegated and background execution paths where applicable.
 4. Translate the business requirements and acceptance criteria into a representative evaluation dataset, evaluators, thresholds, and failure-handling rules. Run the evaluation against the Foundry endpoint to establish a release baseline for task completion, answer quality, groundedness, tool use, safety, latency, and any scenario-specific outcomes.[^foundry-agent-evaluation]
-5. Distribute to Microsoft 365 Copilot or Teams only through the documented **Early Access Preview** path.[^foundry-to-copilot]
+5. Distribute to Microsoft 365 Copilot or Teams through the documented **GA** publish path.[^foundry-to-copilot]
 6. Test every tool, identity, and channel combination independently, then rerun the same business-requirement evaluations through each target surface. A successful Responses API call does not prove equivalent behavior in Teams, Word, Outlook, or mobile.
 
 **Strengths:**
 
 - Reuses a current Foundry agent endpoint while validating Microsoft 365 as an additional distribution surface.
-- Keeps distribution optional: the custom endpoint remains the controlled baseline while the Preview channel is evaluated.
+- Keeps distribution optional: the custom endpoint remains the controlled baseline while the Microsoft 365 channel is validated.
 
 **What you gain by surfacing inside M365 Copilot:**
 
-Microsoft 365 can become the front door, but Preview distribution does not erase channel differences. Treat each documented surface as a separate acceptance test. The useful mental model is **one brain, inspected doors**: shared agent logic behind channels that each need identity, tool, rendering, audit, and lifecycle validation.
+Microsoft 365 can become the front door, but channel distribution does not erase surface differences. Treat each documented surface as a separate acceptance test. The useful mental model is **one brain, inspected doors**: shared agent logic behind channels that each need identity, tool, rendering, audit, and lifecycle validation.
 
 **Trade-offs:**
 
-- Microsoft 365 distribution is **Early Access Preview**, not GA.
 - Legacy and current agent models differ in endpoint, identity, tool, and RBAC behavior; migration requires explicit retesting.[^foundry-publish-share]
 - Tool availability and authentication can differ by channel. Do not promise universal Microsoft 365, custom-app, or mobile parity.
 - If the agent requires a fully custom visual experience (e.g., generative UI, streaming canvas, or drag-and-drop interactions), consider the AG-UI protocol (Pattern 5) alongside or instead of the M365 Copilot channel. Not every experience fits a conversational surface, and that's fine.[^foundry-to-copilot]
@@ -490,7 +489,7 @@ Microsoft 365 can become the front door, but Preview distribution does not erase
 - [Publish agents to Microsoft 365 Copilot and Teams](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/publish-copilot)[^foundry-to-copilot]
 - [Foundry Agent Service overview](https://learn.microsoft.com/en-us/azure/foundry/agents/overview)[^foundry-publish]
 
-**Status:** GA parent Agent Service + **Early Access Preview** Microsoft 365 distribution; Hosted Agent tooling has mixed maturity
+**Status:** GA parent Agent Service and **GA** Microsoft 365 / Teams publish path (Learn GA readiness table, updated 2026-09-23); Hosted Agent SDK packages have mixed maturity
 **Confidence Level:** High for lifecycle posture; channel fit requires workload-specific validation
 
 ---
@@ -541,7 +540,7 @@ Microsoft 365 can become the front door, but Preview distribution does not erase
 The Assistants API is on a documented sunset path toward the Foundry Agents Service and the Responses API. This is not a deprecation warning buried in release notes. It is a cutoff, and if you have production workloads on the Assistants API, migration is not a backlog item. It is the work.
 
 {: .warning }
-> **Verify the date before you build a program plan on it.** Circulating retirement dates for the Assistants API (including the "August 26, 2026" figure this page previously stated as fact) **could not be confirmed against current Microsoft Foundry documentation** in the 2026-07-29 review. Treat the *direction* as settled and the *date* as unconfirmed: check the official migration guide yourself, then set your milestones.
+> **The sunset date has passed.** Learn's [classic navigation guide](https://learn.microsoft.com/en-us/azure/foundry/how-to/navigate-from-classic) (updated 2026-09-14) confirms **August 26, 2026** as the Assistants API sunset date (alongside the `azure-ai-inference` SDK retirement). If you still have workloads on the Assistants API, treat migration to the Foundry Agent Service and Responses API as an immediate cutover.
 
 The good news: you don't have to do this alone, and you don't have to do it by hand.
 
@@ -569,7 +568,7 @@ Choose the path that matches your team's velocity and codebase complexity. All t
 
 - **Future-proof.** New features and model support are only added to the new agents. The Assistants API is a frozen feature set counting down to removal.[^agents-migrate]
 - **Single-tenant storage.** Bring your own Cosmos DB for conversation state, keeping data in your security boundary instead of Microsoft-managed storage.[^agents-migrate]
-- **Current endpoints and identity.** Current agents expose endpoint and identity through the current model. Microsoft 365 distribution remains Early Access Preview and requires the Pattern 9 channel-by-channel checks.[^foundry-publish-share]
+- **Current endpoints and identity.** Current agents expose endpoint and identity through the current model. Microsoft 365 distribution is GA and requires the Pattern 9 channel-by-channel checks.[^foundry-publish-share]
 - **Background responses.** Long-running tools return continuation tokens for polling or stream resumption, eliminating the timeout cliff that plagued complex Assistants API runs.[^responses-api]
 
 **Trade-offs:**
@@ -593,8 +592,8 @@ Choose the path that matches your team's velocity and codebase complexity. All t
 - [Use the Azure OpenAI Responses API](https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/responses)[^responses-api]
 - [Migrate legacy Agent Applications](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/migrate-agent-applications)[^foundry-publish-share]
 
-**Status:** GA (Foundry Agents Service and Responses API). Migration deadline: documented but ⚠️ **date unconfirmed**. Verify against the official migration guide
-**Confidence Level:** High for the migration path; **Low for any specific retirement date**
+**Status:** GA (Foundry Agents Service and Responses API). Assistants API sunset date (**August 26, 2026**) is confirmed on Learn and has passed; classic agents (v1) retirement date remains unconfirmed
+**Confidence Level:** High for the migration path and Assistants API sunset; **Low for any specific classic agents (v1) retirement date**
 
 ---
 
@@ -691,17 +690,17 @@ Choose the path that matches your team's velocity and codebase complexity. All t
 [^knowledge-sharepoint]: Add SharePoint as a knowledge source in Copilot Studio, Microsoft Learn. Retrieved: 2026-01-12. [https://learn.microsoft.com/en-us/microsoft-copilot-studio/knowledge-add-sharepoint](https://learn.microsoft.com/en-us/microsoft-copilot-studio/knowledge-add-sharepoint)
 [^knowledge-sources]: Add knowledge sources to Declarative Agents in Microsoft 365 Copilot, Microsoft Learn. Retrieved: 2025-12-18. [https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/agent-builder-add-knowledge](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/agent-builder-add-knowledge)
 [^bring-agents]: Bring your agents into Microsoft 365 Copilot, Microsoft Learn. Retrieved: 2025-05-19. [https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/bring-agents-to-copilot](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/bring-agents-to-copilot)
-[^byo-model]: Bring Your Own Model to Copilot Studio, Microsoft Learn. Retrieved: 2025-11-25. [https://learn.microsoft.com/en-us/microsoft-copilot-studio/advanced-generative-actions](https://learn.microsoft.com/en-us/microsoft-copilot-studio/advanced-generative-actions)
-[^agent-handoff]: Connect to a Microsoft Foundry agent (Preview), Microsoft Learn. Retrieved: 2025-12-03. [https://learn.microsoft.com/en-us/microsoft-copilot-studio/add-agent-foundry-agent](https://learn.microsoft.com/en-us/microsoft-copilot-studio/add-agent-foundry-agent)
-[^shared-knowledge]: Azure AI Search Overview, Microsoft Learn. Retrieved: 2025-12-12. [https://learn.microsoft.com/en-us/azure/search/](https://learn.microsoft.com/en-us/azure/search/)
+[^byo-model]: Upgrade agents to the GitHub Copilot harness (Preview), Microsoft Learn. Updated: 2026-10-05. [https://learn.microsoft.com/en-us/microsoft-copilot-studio/upgrade-to-github-copilot-from-standard-harness](https://learn.microsoft.com/en-us/microsoft-copilot-studio/upgrade-to-github-copilot-from-standard-harness)
+[^agent-handoff]: Connected agents overview (GitHub Copilot harness), Microsoft Learn. Updated: 2026-10-14. [https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-experience/authoring-add-other-agents](https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-experience/authoring-add-other-agents)
+[^shared-knowledge]: Connect to Foundry IQ, Microsoft Learn. Updated: 2026-09-16. [https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-experience/foundry-iq-connect](https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-experience/foundry-iq-connect)
 [^fabric-copilot]: Microsoft Fabric Copilot overview, Microsoft Learn. Retrieved: 2026-01-25. [https://learn.microsoft.com/en-us/fabric/fundamentals/copilot-fabric-overview](https://learn.microsoft.com/en-us/fabric/fundamentals/copilot-fabric-overview)
-[^fabric-iq]: Fabric IQ (Preview workload), Microsoft Learn. Verified: 2026-07-29. [https://learn.microsoft.com/en-us/fabric/iq/](https://learn.microsoft.com/en-us/fabric/iq/)
+[^fabric-iq]: Fabric IQ (Preview workload), Microsoft Learn. Updated: 2026-09-29. [https://learn.microsoft.com/en-us/fabric/iq/](https://learn.microsoft.com/en-us/fabric/iq/)
 [^fabric-onelake]: OneLake shortcuts, Microsoft Learn. Retrieved: 2026-01-08. [https://learn.microsoft.com/en-us/fabric/onelake/onelake-shortcuts](https://learn.microsoft.com/en-us/fabric/onelake/onelake-shortcuts)
-[^cosmos-mirroring]: Azure Cosmos DB mirroring in Fabric, Microsoft Learn. Retrieved: 2025-12-03. [https://learn.microsoft.com/en-us/fabric/mirroring/azure-cosmos-db](https://learn.microsoft.com/en-us/fabric/mirroring/azure-cosmos-db)
-[^translytical]: Translytical task flows (Preview), Microsoft Learn. Retrieved: 2026-03-24. [https://learn.microsoft.com/en-us/power-bi/create-reports/translytical-task-flow-overview](https://learn.microsoft.com/en-us/power-bi/create-reports/translytical-task-flow-overview)
-[^foundry-publish]: Foundry Agent Service overview, Microsoft Learn. Updated: 2026-07-09. [https://learn.microsoft.com/en-us/azure/foundry/agents/overview](https://learn.microsoft.com/en-us/azure/foundry/agents/overview)
+[^cosmos-mirroring]: Azure Cosmos DB mirroring in Fabric (GA), Microsoft Learn. [https://learn.microsoft.com/en-us/fabric/mirroring/azure-cosmos-db](https://learn.microsoft.com/en-us/fabric/mirroring/azure-cosmos-db)
+[^translytical]: Translytical task flows, Microsoft Learn. Updated: 2026-08-13. [https://learn.microsoft.com/en-us/power-bi/create-reports/translytical-task-flow-overview](https://learn.microsoft.com/en-us/power-bi/create-reports/translytical-task-flow-overview)
+[^foundry-publish]: Foundry Agent Service overview, Microsoft Learn. Updated: 2026-09-25. [https://learn.microsoft.com/en-us/azure/foundry/agents/overview](https://learn.microsoft.com/en-us/azure/foundry/agents/overview)
 [^foundry-publish-share]: Migrate legacy Agent Applications, Microsoft Learn. Updated: 2026-05-27. [https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/migrate-agent-applications](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/migrate-agent-applications)
-[^foundry-to-copilot]: Publish an agent to Microsoft 365 Copilot and Teams (Early Access Preview), Microsoft Learn. Updated: 2026-07-10. [https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/publish-copilot](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/publish-copilot)
+[^foundry-to-copilot]: Publish an agent to Microsoft 365 Copilot and Teams (GA), Microsoft Learn. Updated: 2026-09-28. [https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/publish-copilot](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/publish-copilot)
 [^foundry-agent-evaluation]: Evaluate your AI agents, Microsoft Learn. [https://learn.microsoft.com/en-us/azure/foundry/observability/how-to/evaluate-agent](https://learn.microsoft.com/en-us/azure/foundry/observability/how-to/evaluate-agent)
 [^foundry-iq-overview]: Foundry IQ overview, Microsoft Learn. [https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/what-is-foundry-iq](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/what-is-foundry-iq)
 [^foundry-iq-connect]: Connect Foundry IQ to Foundry Agent Service, Microsoft Learn. [https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/foundry-iq-connect](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/foundry-iq-connect)

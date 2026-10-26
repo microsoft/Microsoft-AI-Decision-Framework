@@ -216,7 +216,7 @@ Microsoft's current name for the **hub-based** Foundry project experience, docum
 The current name for what was **Azure AI Services**. Same capability family (speech, vision, language, content understanding), new brand, now surfaced inside Microsoft Foundry. ⚠️ **Azure AI Search was *not* part of this rename.** It keeps its name and remains the retrieval engine underneath Foundry IQ.
 
 **Frontier (Copilot Frontier)**
-Early access program for experimental and preview Copilot features across web apps, desktop apps, and agents. Organizations enable access in the Microsoft 365 admin center under **Copilot** > **Settings** > **User access** > **Copilot Frontier**; by default, no users have access ([Manage Microsoft 365 Copilot scenarios in the Microsoft 365 admin center](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-page#user-access), retrieved 2026-03-16).
+Early access program for preview Microsoft 365 features and agents. Organizations enable access in the Microsoft 365 admin center under **Copilot** > **Settings** > **View all** > **Copilot Frontier**; the access setting defaults to **No access** ([Get started with the Microsoft Frontier Program](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/get-started-frontier?view=o365-worldwide#enroll-users-in-frontier), retrieved 2026-10-26).
 
 **Foundry Local**
 A component of Microsoft Foundry for running selected models locally on supported devices, enabling offline inference, lower latency, and reduced data egress. Availability varies by platform and model, so validate current Microsoft Learn guidance before production use ([Foundry Local overview](https://learn.microsoft.com/en-us/azure/foundry-local/what-is-foundry-local), retrieved 2026-06-08).

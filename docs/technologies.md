@@ -154,7 +154,7 @@ Government gets its own top rung. **Microsoft 365 G7** is the government counter
 
 - [Get started with Word, Excel, and PowerPoint Agents (Frontier)](https://learn.microsoft.com/en-us/microsoft-365/copilot/wordexcelppt-agents) (Retrieved: 2026-03-30)
 - [Frequently asked questions about Word, Excel, and PowerPoint Agents: Responsible AI FAQ](https://learn.microsoft.com/en-us/microsoft-365/copilot/faq-wordexcelppt-agents) (Retrieved: 2026-03-30)
-- [Manage Microsoft 365 Copilot scenarios in the Microsoft 365 admin center](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-page#user-access) (Retrieved: 2026-03-16)
+- [Configure Microsoft Copilot settings in the Microsoft 365 admin center](https://learn.microsoft.com/en-us/microsoft-365/copilot/configure-copilot-admin-center#configure-user-access) (Retrieved: 2026-03-16)
 - [Overview of Microsoft Agent 365](https://learn.microsoft.com/en-us/microsoft-agent-365/overview) (Retrieved: 2025-12-15)
 
 ---
@@ -611,7 +611,7 @@ Use Hosted Agents when that per-session isolation is worth the constraints. Othe
 - [What is Microsoft Entra Agent ID?](https://learn.microsoft.com/en-us/entra/agent-id/what-is-microsoft-entra-agent-id) (Re-verified: 2026-07-29)
 - [What's new in Microsoft Entra Agent ID](https://learn.microsoft.com/en-us/entra/agent-id/whats-new-agent-id) (Re-verified: 2026-07-29)
 - [Agent identities in Microsoft Entra Agent ID](https://learn.microsoft.com/en-us/entra/agent-id/agent-identities) (Retrieved: 2025-11-04)
-- [Manage Microsoft 365 Copilot scenarios in the Microsoft 365 admin center](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-page#user-access) (Retrieved: 2026-03-16)
+- [Configure Microsoft Copilot settings in the Microsoft 365 admin center](https://learn.microsoft.com/en-us/microsoft-365/copilot/configure-copilot-admin-center#configure-user-access) (Retrieved: 2026-03-16)
 
 ---
 

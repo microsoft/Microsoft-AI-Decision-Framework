@@ -264,6 +264,7 @@ flowchart TD
     style MkChat fill:#004578,color:#fff
     style MkStd fill:#004578,color:#fff
     style MkGH fill:#004578,color:#fff
+    style MkCustomer fill:#004578,color:#fff
     style MkWF fill:#004578,color:#fff
     style BOwner fill:#8c5e00,color:#fff
     style BCode fill:#004578,color:#fff

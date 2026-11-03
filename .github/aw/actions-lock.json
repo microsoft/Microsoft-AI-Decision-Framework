@@ -14,6 +14,11 @@
       "repo": "github/gh-aw-actions/setup",
       "version": "v0.89.21",
       "sha": "924af5fdc64061cfbf66fb584c8b07e2ac230c60"
+    },
+    "lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8": {
+      "repo": "lycheeverse/lychee-action",
+      "version": "e7477775783ea5526144ba13e8db5eec57747ce8",
+      "sha": "e7477775783ea5526144ba13e8db5eec57747ce8"
     }
   }
 }

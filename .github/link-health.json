@@ -11,6 +11,11 @@
   },
   "botProtected": {
     "_note": "Hosts that block curl (Cloudflare interstitial, CDN throttling) but serve the cited page to a real browser. Verified alive on the date shown. Do not treat a 403/429/503 from these as rot without a browser-level second opinion.",
+    "https://partner.microsoft.com/en-us/blog/article/ai-at-work-marketing-moment-sept-2026": {
+      "lastVerified": "2026-11-03",
+      "curlStatus": "SSL certificate not trusted in the CI crawler",
+      "note": "The live article was retrieved and read on 2026-11-03, including the October correction moving CSP default-on usage-based billing to December 1, 2026. A crawler TLS trust failure is not a confirmed dead page. Preserve certificate verification; never skip a 404/410."
+    },
     "https://doi.org/10.7551/mitpress/1020.001.0001": {
       "lastVerified": "2026-10-19",
       "curlStatus": "403",

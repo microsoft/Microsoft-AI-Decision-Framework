@@ -103,7 +103,7 @@ Rollout timing is not a migration deadline. Use these labels to decide what you 
 | Cowork App skill | **Preview**, Frontier only | No rollout completion date stated as of 2026-10-14 | [Builder Loop](#builder-loop-quick-reference) | Pilot with eligible Frontier users; test sharing and source access separately |
 | Copilot Studio apps | **Preview**, rolling out gradually | Learn says the feature might not be available in your environment yet | [Builder Loop](#builder-loop-quick-reference) | Check your environment and admin settings; code view is read-only |
 | Copilot Code | **Frontier preview** on Learn ([10-page docset](https://learn.microsoft.com/en-us/copilot/code/overview), updated 2026-10-14) | Live in Frontier preview; UBB overview lists `Code (Copilot license required)` | [Full rollout statements]({{ '/docs/technologies#the-new-copilot-app-september-2026-read-the-status-column-first' | relative_url }}) | Confirm unified app opt-in, Windows Beta channel, and spending policy for your cohort |
-| Copilot Studio harness upgrade tool | **Preview** ([Learn](https://learn.microsoft.com/en-us/microsoft-copilot-studio/upgrade-to-github-copilot-from-standard-harness)) | Published 2026-10-05 | Copilot Studio | Creates a copy on the GitHub Copilot harness, consumes Copilot Credits, and skips knowledge sources, Power Fx, and child agents |
+| Copilot Studio harness upgrade tool | **Preview** ([Learn](https://learn.microsoft.com/en-us/microsoft-copilot-studio/upgrade-to-github-copilot-from-standard-harness)) | Published 2026-10-05 | Copilot Studio | Creates a copy on the Microsoft Copilot harness, consumes Copilot Credits, and skips knowledge sources, Power Fx, and child agents |
 | Business Applications in Work IQ | **Public preview** ([Learn](https://learn.microsoft.com/en-us/power-apps/maker/data-platform/business-applications-work-iq)) | Default-on Sept 30, 2026 (new environments) and **November 2026** (existing environments) | Work IQ | Supersedes standalone Dataverse intelligence |
 | Power Apps vibe | **Preview**; its overview recommends Cowork and Studio app building *"moving forward"* | No retirement date stated in the overview as of 2026-10-14 | Copilot Cowork or Copilot Studio app building | Weigh the recommendation before new work. Conversion creates a separate code app |
 | Foundry routines | **GA on Learn** ([GA readiness table](https://learn.microsoft.com/en-us/azure/foundry/concepts/general-availability) and [how-to](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/use-routines)) | GA on Learn 2026-09-09; blog announcement 2026-09-24 | Foundry Agent Service | Use for timer, recurring, and event triggers; the reminder tool and .NET SDK packages remain preview |
@@ -145,7 +145,7 @@ Where can your agent appear? Match build platform to distribution surface.
 | **Multiple Channels** | M365 Agents SDK | Deliver one agent across Microsoft 365 Copilot, Teams, web, email, SMS, and other channels |
 | **Power Platform** | Copilot Studio, AI Builder | Integrated with low-code Power Apps/Power Automate workloads |
 | **Enterprise Workflows** | Azure Logic Apps **agentic workflows** with an **agent loop** (Consumption **explicitly in preview**; Standard carries no preview banner on the agent loop, but Microsoft never states Standard is GA and some Standard capabilities are marked preview; check the exact capability), MCP Server | Workflow automation that needs autonomous/conversational agent patterns with Easy Auth guardrails |
-| **Data Grounding / RAG** | Microsoft IQ: Foundry IQ (mixed GA/Preview), Work IQ (**APIs and Work IQ MCP GA**; MCP `retrieve` tool and Studio/Foundry integrations **Preview**), Fabric IQ (**Preview** workload; Chat, Cowork, and Fabric IQ MCP **GA**), Web IQ (Limited Access); Copilot connectors (external data into M365); Microsoft 365 Copilot Search API (Preview) for OneDrive hybrid semantic+lexical search[^search-api-qr] | Match the grounding layer to the data domain: enterprise documents (Foundry IQ), work context (Work IQ), business semantics (Fabric IQ), public web (Web IQ), external content (Connectors), or hybrid OneDrive search (Search API) |
+| **Data Grounding / RAG** | Microsoft IQ: Foundry IQ (mixed GA/Preview), Work IQ (**APIs, Work IQ MCP, and Studio integration GA**; MCP `retrieve` tool and Foundry integration **Preview**), Fabric IQ (**Preview** workload; Chat, Cowork, and Fabric IQ MCP **GA**), Web IQ (Limited Access); Copilot connectors (external data into M365); Microsoft 365 Copilot Search API (Preview) for OneDrive hybrid semantic+lexical search[^search-api-qr] | Match the grounding layer to the data domain: enterprise documents (Foundry IQ), work context (Work IQ), business semantics (Fabric IQ), public web (Web IQ), external content (Connectors), or hybrid OneDrive search (Search API) |
 | **Developer Tools** | GitHub Copilot in the IDE; **Copilot cloud agent** (async, renamed from "coding agent"); MCP servers | IDE and development workflow integration. Note: GitHub App-based Copilot Extensions were deprecated **2025-11-10** with **MCP servers** as the migration target; client-side VS Code Copilot Extensions remain supported |
 
 **Sources:**
@@ -225,7 +225,7 @@ Where can your agent appear? Match build platform to distribution surface.
 
 Teams SDK and M365 Agents SDK coexist with differentiated fit: Teams SDK for Teams-native collaborative experiences, M365 Agents SDK for broader multi-channel distribution and custom orchestration portability.
 
-| **Tool / Mode** | **Copilot Studio (standard harness)** | **Copilot Studio (GitHub Copilot harness)** | **Teams SDK** | **M365 Agents SDK** |
+| **Tool / Mode** | **Copilot Studio (standard harness)** | **Copilot Studio (Microsoft Copilot harness)** | **Teams SDK** | **M365 Agents SDK** |
 | --- | --- | --- | --- | --- |
 | **Primary Use Case** | Structured conversational flows with deterministic branch control | Reasoning-heavy agents and workflows that complete multi-step business processes | Collaborative agents inside Teams | Pro-code agents running across M365 and third-party channels |
 | **Orchestration** | Topics plus generative orchestration | Enhanced orchestration runtime reasoning over instructions, knowledge, tools, memory, and skills | Built-in Teams AI action planner | Bring your own orchestration (Semantic Kernel, LangChain, custom) |
@@ -237,7 +237,7 @@ Teams SDK and M365 Agents SDK coexist with differentiated fit: Teams SDK for Tea
 | **Status** | GA | GA (2026-08-03) | GA | GA |
 
 {: .note }
-> **The harness is chosen at creation and an agent cannot move between harnesses.** Microsoft states that agents created on the GitHub Copilot harness *"can't be transferred to the standard harness, and vice versa."* Reuse works best *within* a harness: on the GitHub Copilot harness, **skills** export as Markdown packages and import into other agents there. Skills are specific to that harness, so what carries across all three is more basic, namely instructions, knowledge sources, and connectors. See [Technologies]({{ '/docs/technologies' | relative_url }}) for the full comparison.
+> **Do not assume an agent moves between harnesses.** The standard-to-Microsoft Copilot harness upgrade tool is **Preview** and creates a copy, not an in-place transfer. Skills export and import within the Microsoft Copilot harness; shared concepts do not establish portability between runtimes. For customer support over voice and chat, also evaluate the **Customer Conversation harness (Public Preview)**. See [Harness fit]({{ '/docs/feature-comparison#copilot-studio-harness-fit' | relative_url }}) for the interaction choices and [Technologies]({{ '/docs/technologies' | relative_url }}) for migration limits.
 
 {: .note }
 > Feature maturity can change quickly for Studio orchestration components and channel capabilities. Reconfirm per-feature GA/Preview in current Microsoft Learn release notes before rollout.
@@ -296,6 +296,17 @@ One agent, four handoffs. This is the relay race a developer's work actually run
 | **3. Behavior as config** | Custom agents (`.md` with YAML front matter) + **`AGENTS.md`** agent instructions | Custom agents GA for cloud agent, VS Code, and Visual Studio; Public Preview for JetBrains/Eclipse/Xcode | Version your agent's personality and rules alongside the code. GitHub's own caveat: agent instructions are *"currently not supported by all Copilot features"* |
 | **4. Embed it in your product** | **GitHub Copilot SDK** | **GA**: Python, TypeScript, Go, .NET, Java, Rust | Wraps the Copilot CLI engine over JSON-RPC. BYOK to OpenAI, Microsoft Foundry, or Anthropic; Entra/managed identity works via `bearerTokenProvider` composition with the Azure Identity SDK |
 | **5. Run it under governance** | **Microsoft Foundry Hosted Agents** | See the [Hosted Agent constraint card]({{ '/docs/technologies#the-hosted-agent-constraint-card' | relative_url }}) | Managed endpoint, scaling, identity, and observability for your own agent container |
+
+**Choose the coordination layer separately:**
+
+| Need | Path | Status / boundary |
+| :--- | :--- | :--- |
+| Let the runtime choose models and a single/cascade/critique pattern | Copilot Fusion | **GA**; formerly auto model selection and HydraFusion experiences |
+| Coordinate an ongoing goal across repositories and sessions | Copilot projects | **Public Preview** in the GitHub Copilot app |
+| Repeat a reviewed task in GitHub Actions, including public repositories | GitHub Agentic Workflows | **GA**; Markdown compiles into Actions YAML with safe outputs |
+| Trigger the cloud agent from repository events, schedules, or API calls | Copilot automations | Eligible plans; **private/internal repositories only** |
+
+Sources and purchase-path exceptions: [Developer Agent Comparison]({{ '/docs/feature-comparison#coordinate-work-select-models-or-automate-a-repository' | relative_url }}) (Verified: 2026-11-03). GitHub Enterprise also has a sales-assisted AI-credit purchase path without a separate Copilot subscription; do not assume the subscription route is the only one.
 
 {: .warning }
 > **The seam that bites: Foundry Hosted agents support Python and C# only.**
@@ -413,10 +424,10 @@ Grounding is not one product. It is a shelf of stores with different shapes, dif
 | **Simple (Q&A)** | Static lookup, single-turn answers, basic RAG | Search or classic RAG first; add an agent only for action, adaptation, or open-ended reasoning |
 | **Moderate (Task Execution)** | Multi-turn, 1-5 actions, simple branching | Declarative Agents with API plugins; Foundry Prompt Agents when Foundry-managed configuration fits |
 | **Complex (Workflows)** | Sequential workflows, conditional logic | Declarative Agents + Power Automate, Agent Framework workflows |
-| **Advanced (Multi-Agent)** | Agent-to-agent delegation, parallel execution | Copilot Studio multi-agent (outbound A2A on standard harness is **GA**; GitHub Copilot harness connected agents span Studio, Foundry, A2A, and M365 SDK; What's New still lists "Connect other agents" as **Preview**); Foundry A2A (**v1.0 GA; v0.3 Preview** and served by default when no version header is sent) for direct delegation; Agent Framework (**GA core**) for code-first orchestration |
+| **Advanced (Multi-Agent)** | Agent-to-agent delegation, parallel execution | Copilot Studio multi-agent (outbound A2A on standard harness is **GA**; Microsoft Copilot harness connected agents span Studio, Foundry, A2A, and M365 SDK; What's New still lists "Connect other agents" as **Preview**); Foundry A2A (**v1.0 GA; v0.3 Preview** and served by default when no version header is sent) for direct delegation; Agent Framework (**GA core**) for code-first orchestration |
 | **Expert (Custom Reasoning)** | Custom orchestration logic, model selection | Custom engine agents with Microsoft 365 Agents SDK, Teams SDK, or Microsoft Foundry Agent Service |
 
-**Component fit heuristic (Copilot Studio, GitHub Copilot harness):**
+**Component fit heuristic (Copilot Studio, Microsoft Copilot harness):**
 
 - If behavior is always true, use **Instructions**.
 - If behavior is scenario-specific and repeatable, use a **Skill**.

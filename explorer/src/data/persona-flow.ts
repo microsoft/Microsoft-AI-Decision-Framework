@@ -12,11 +12,12 @@ const nodes: Node<NodeData>[] = [
 
   // Business maker
   { id: 'Maker', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'What are you making?', category: 'question', branch: 'persona' } },
-  { id: 'MkHarness', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'Which Studio harness?\n(fixed at creation)', category: 'question', branch: 'persona', description: 'Agents cannot move between harnesses. Default to Standard; take the GitHub Copilot harness when you can name the wall: long-running, coordination-heavy, reasoning-intensive.' } },
+  { id: 'MkHarness', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'Which Studio harness?\n(fixed at creation)', category: 'question', branch: 'persona', description: 'Agents cannot move between harnesses. Default to Standard; take the Microsoft Copilot harness when you can name the wall: long-running, coordination-heavy, reasoning-intensive.' } },
   { id: 'MkChat', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'Copilot chat harness:\nextend Microsoft Copilot', category: 'recommendation', branch: 'persona', status: 'unstated', color: '#1e3a5f', docsUrl: `${BASE}/technologies#copilot-studio`, description: 'Internal publishing only. Learn states no explicit status label (updated 2026-10-01).' } },
   { id: 'MkStd', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'Standard harness:\nrule-based, predictable', category: 'recommendation', branch: 'persona', color: '#1e3a5f', docsUrl: `${BASE}/technologies#copilot-studio`, description: 'Billing starts after publish.' } },
-  { id: 'MkGH', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'GitHub Copilot harness:\nreasoning-heavy', category: 'recommendation', branch: 'persona', color: '#1e3a5f', docsUrl: `${BASE}/technologies#copilot-studio`, description: 'GA per Copilot Studio blog (2026-08-03 / 2026-09-02). Consumes Copilot Credits from first build, test, and evaluation.' } },
-  { id: 'MkWF', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'Copilot Studio workflows\nor agent flows', category: 'recommendation', branch: 'persona', status: 'unstated', color: '#1e3a5f', docsUrl: `${BASE}/technologies#copilot-studio`, description: 'Agent flows on the standard harness are GA; Workflows on the GitHub Copilot harness carry no page-level preview banner (updated 2026-10-12), while specific nodes such as the Copilot node are Preview.' } },
+  { id: 'MkGH', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'Microsoft Copilot harness:\nreasoning-heavy', category: 'recommendation', branch: 'persona', color: '#1e3a5f', docsUrl: `${BASE}/technologies#copilot-studio`, description: 'GA per Copilot Studio blog (2026-08-03 / 2026-09-02). Consumes Copilot Credits from first build, test, and evaluation.' } },
+  { id: 'MkCustomer', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'Customer Conversation\nharness: voice and chat', category: 'recommendation', branch: 'persona', status: 'preview', color: '#1e3a5f', docsUrl: `${BASE}/feature-comparison#copilot-studio-harness-fit`, description: 'Public Preview. Customer Assist Agents combine predictable topics, specialist agents, and human escalation for customer support. Uses Copilot Credits.' } },
+  { id: 'MkWF', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'Copilot Studio workflows\nor agent flows', category: 'recommendation', branch: 'persona', status: 'unstated', color: '#1e3a5f', docsUrl: `${BASE}/technologies#copilot-studio`, description: 'Agent flows on the standard harness are GA; Workflows on the Microsoft Copilot harness carry no page-level preview banner (updated 2026-10-12), while specific nodes such as the Copilot node are Preview.' } },
 
   // Business builder (describe an app)
   { id: 'BBuy', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'Does a list, workbook,\nor SaaS already solve it?', category: 'question', branch: 'persona' } },
@@ -25,7 +26,7 @@ const nodes: Node<NodeData>[] = [
   { id: 'BWho', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'Who will use it?', category: 'question', branch: 'persona' } },
   { id: 'BCode', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'Copilot Code', category: 'recommendation', branch: 'persona', status: 'preview', color: '#1e3a5f', docsUrl: 'https://learn.microsoft.com/en-us/copilot/code/overview', description: 'Frontier preview on Learn (10-page docset, updated 2026-10-14). Separate tab in the Microsoft Copilot app; billed in Copilot Credits.' } },
   { id: 'BCowork', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'Cowork App skill', category: 'recommendation', branch: 'persona', status: 'preview', color: '#1e3a5f', docsUrl: `${BASE}/technologies#microsoft-365-copilot`, description: 'Frontier preview. Test app data and connected data with an account that lacks source access before sharing.' } },
-  { id: 'BStudio', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'Copilot Studio apps', category: 'recommendation', branch: 'persona', status: 'preview', color: '#1e3a5f', docsUrl: `${BASE}/technologies#copilot-studio`, description: 'Preview, rolling out gradually. Code view is read-only; bills from creation on the GitHub Copilot harness.' } },
+  { id: 'BStudio', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'Copilot Studio apps', category: 'recommendation', branch: 'persona', status: 'preview', color: '#1e3a5f', docsUrl: `${BASE}/technologies#copilot-studio`, description: 'Preview, rolling out gradually. Code view is read-only; bills from creation on the Microsoft Copilot harness.' } },
   { id: 'BHand', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'Same repo: GitHub Copilot\n+ Managed Runtime CLI', category: 'recommendation', branch: 'persona', status: 'preview', color: '#4c1d95', docsUrl: `${BASE}/technologies#copilot-managed-runtime`, description: 'Promotion without the rewrite on Copilot Managed Runtime (Preview). Bind your own GitHub repository at creation to keep branch policies and PR reviews.' } },
   { id: 'BVibe', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'Power Apps vibe\n(forks on handoff)', category: 'recommendation', branch: 'persona', status: 'preview', color: '#1e3a5f', docsUrl: 'https://learn.microsoft.com/en-us/power-apps/vibe/overview', description: 'Preview. Its overview recommends Cowork and Copilot Studio app building moving forward; converting to a code app creates a separate, disconnected app.' } },
   { id: 'BCust', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'Customers? Settle hosting\nand sign-in first', category: 'warning', branch: 'persona' } },
@@ -72,6 +73,7 @@ const edges: Edge<EdgeData>[] = [
   { id: 'e-mkh-chat', source: 'MkHarness', target: 'MkChat', label: 'Employee answers in Copilot', data: { variant: 'default' } },
   { id: 'e-mkh-std', source: 'MkHarness', target: 'MkStd', label: 'Short, bounded, explicit', data: { variant: 'default' } },
   { id: 'e-mkh-gh', source: 'MkHarness', target: 'MkGH', label: 'Long-running, reasoning', data: { variant: 'default' } },
+  { id: 'e-mkh-customer', source: 'MkHarness', target: 'MkCustomer', label: 'Customer support: voice and chat', data: { variant: 'default' } },
 
   // Business builder
   { id: 'e-bbuy-yes', source: 'BBuy', target: 'BBuyOut', label: 'Yes', data: { variant: 'yes' } },
@@ -118,4 +120,3 @@ export const personaFlow: FlowDefinition = {
   nodes,
   edges,
 };
-

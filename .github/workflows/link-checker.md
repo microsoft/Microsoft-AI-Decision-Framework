@@ -55,7 +55,7 @@ network:
 
 tools:
   edit:
-  bash: ["cat", "jq", "grep", "find", "awk", "sed", "head", "tail", "wc"]
+  bash: ["cat", "jq", "grep", "find", "awk", "sed", "head", "tail", "wc", "sha256sum"]
 
 safe-outputs:
   create-pull-request:
@@ -64,8 +64,9 @@ safe-outputs:
     draft: true
     fallback-as-issue: true   # Microsoft org may block PR creation by Actions.
   create-issue:
-    title-prefix: "[Maintenance] Broken links needing review"
+    title-prefix: "[Maintenance] Broken links needing review "
     labels: [documentation, needs-triage]
+    deduplicate-by-title: true
     max: 1
   noop:
     report-as-issue: false
@@ -111,6 +112,8 @@ Heuristic: if the lychee status is `Timeout`, `403`, or `429` **and** the host m
 
 **A `404` or `410` is never a rate limit.** These patterns cover bot-blocking, which presents as `Timeout`, `403`, or `429` only. A `404` from any host on this list, including Azure pricing and Microsoft Learn, is a real dead link and must be reported. Microsoft retires and re-parents documentation URLs constantly, so this is the single most likely source of genuine rot in this repository. Never skip a `404` because of the hostname.
 
+Read `.github/link-health.json` before reporting environmental failures. For an exact URL in `botProtected` verified within the last 30 days, classify a matching documented crawler or TLS trust failure as **Skip**, not confirmed rot. Do not extend an exception to the whole host, disable certificate verification, or skip a `404`/`410`. Once the verification is older than 30 days, report the failure for renewed review. Include the verification date and reason in the Skipped section.
+
 When you skip a link for this reason, mention it in the report's "Skipped" section with a one-line note like `azure.microsoft.com pricing: known CI rate-limiting, link verified canonical`. That keeps the audit trail honest.
 
 ## Phase 3: Execute
@@ -121,8 +124,9 @@ When you skip a link for this reason, mention it in the report's "Skipped" secti
    - **Auto-fixed** table: file, old URL → new URL, reason
    - **Needs review** table: file, URL, status code, your best guess (or "no clear replacement")
    - Skipped count
-3. If you have **nothing** to auto-fix (zero high-confidence changes), call `create-issue` instead of opening an empty PR.
+3. If you have **nothing** to auto-fix but have **Needs review** items, call `create-issue` instead of opening an empty PR. Use the title `Link check <fingerprint>`, where the fingerprint is the first 12 hexadecimal characters of the SHA-256 of the sorted, unique Needs review URLs, one URL per line with a final newline. Do not put counts, dates, status messages, or prose in the title. Identical unresolved URL sets then deduplicate across runs without hiding new failures.
 4. If the org blocks Actions-created PRs, `fallback-as-issue: true` converts the PR into an issue automatically, with no extra work needed.
+5. If every failure is **Skip**, call `noop` with the skipped count and reasons. Do not open an empty review issue.
 
 ## Guardrails
 

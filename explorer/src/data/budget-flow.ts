@@ -36,7 +36,7 @@ const edges: Edge<EdgeData>[] = [
   { id: 'e-seat-full', source: 'SeatQ', target: 'S_Full', label: 'Frequent users', data: { variant: 'default' } },
   { id: 'e-seat-chat', source: 'SeatQ', target: 'S_Chat', label: 'Occasional users', data: { variant: 'default' } },
   { id: 'e-full-meter', source: 'S_Full', target: 'MeterQ', label: 'Advanced work adds a meter', data: { variant: 'default' } },
-  { id: 'e-meter-harness', source: 'MeterQ', target: 'M_Harness', label: 'Studio, GitHub Copilot harness', data: { variant: 'default' } },
+  { id: 'e-meter-harness', source: 'MeterQ', target: 'M_Harness', label: 'Studio, Microsoft Copilot harness', data: { variant: 'default' } },
   { id: 'e-meter-std', source: 'MeterQ', target: 'M_Std', label: 'Studio, standard harness', data: { variant: 'default' } },
   { id: 'e-meter-ubb', source: 'MeterQ', target: 'M_UBB', label: 'Cowork, Code, Autopilot, Work IQ API', data: { variant: 'default' } },
   { id: 'e-meter-app', source: 'MeterQ', target: 'M_App', label: 'Apps on Managed Runtime', data: { variant: 'default' } },

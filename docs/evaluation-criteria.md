@@ -89,7 +89,7 @@ Architects must speak the language of finance. You need to capture Total Cost of
 
 | Wallet | Unit and rate | Where it drains | What catches teams out |
 | :--- | :--- | :--- | :--- |
-| **Copilot Credits** | Pay-as-you-go at **US$0.01 per credit**; also sold in capacity packs | The Microsoft 365 plane: Copilot Studio, agent actions, and metered Copilot experiences | Credit rates vary by feature, so "cost per conversation" is not a number Microsoft publishes. On Copilot Studio's GitHub Copilot harness, billing covers *"using, building, testing, and evaluating agents"*, so a pilot has a cost before it has a user |
+| **Copilot Credits** | Pay-as-you-go at **US$0.01 per credit**; also sold in capacity packs | The Microsoft 365 plane: Copilot Studio, agent actions, and metered Copilot experiences | Credit rates vary by feature, so "cost per conversation" is not a number Microsoft publishes. On Copilot Studio's Microsoft Copilot harness, billing covers *"using, building, testing, and evaluating agents"*, so a pilot has a cost before it has a user |
 | **GitHub AI credits** | **1 credit = US$0.01.** Each Copilot Business license adds **1,900 per month**; Enterprise **3,900** | The developer plane: agents, model requests, and agentic workflows | Included credits are pooled at the billing entity, not reserved per user. Unused credits do not carry over |
 | **Azure meters (and Fabric CUs)** | Per-token, **PTU** per hour, batch, priority processing; **Fabric Capacity Units (F2 to F8192)** | The platform plane: models, tools, hosting, and any grounding that lives in Fabric | Idle provisioned capacity and retries are invisible in a demo and very visible in month three |
 

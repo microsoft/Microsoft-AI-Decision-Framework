@@ -196,8 +196,8 @@ Read these before you read any product page. They are the maps; everything below
   - [Custom engine agents overview](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/overview-custom-engine-agent)
   - [Copilot Studio documentation](https://learn.microsoft.com/en-us/microsoft-copilot-studio/)
   - [Computer Use (GA)](https://learn.microsoft.com/en-us/microsoft-copilot-studio/computer-use)
-  - **Verified feature status:** **GitHub Copilot harness GA (2026-08-03)**, the default for new agents · generative orchestration **GA** (default *within the standard harness*) · computer use **GA (May 2026)** · agent-to-agent (A2A) **GA (April 2026)** on the standard harness · Foundry IQ integration **GA per Oct 7 blog** · harness upgrade tool **Preview (2026-10-05)**. Connected agents on the GitHub Copilot harness (Studio, Foundry, A2A, M365 Agents SDK, updated 2026-10-14) carry **Preview** in the What's New feed and no banner on the how-to pages.
-  - [Work IQ in Copilot Studio (Preview)](https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-experience/add-work-iq)
+  - **Verified feature status:** **Microsoft Copilot harness GA (2026-08-03)**, the default for new agents · generative orchestration **GA** (default *within the standard harness*) · computer use **GA (May 2026)** · agent-to-agent (A2A) **GA (April 2026)** on the standard harness · Foundry IQ integration **GA per Oct 7 blog** · harness upgrade tool **Preview (2026-10-05)**. Connected agents on the Microsoft Copilot harness (Studio, Foundry, A2A, M365 Agents SDK, updated 2026-10-14) carry **Preview** in the What's New feed and no banner on the how-to pages.
+  - [Work IQ in Copilot Studio (GA)](https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-experience/add-work-iq)
   - [Custom MCP server creation](https://learn.microsoft.com/en-us/microsoft-copilot-studio/mcp-create-new-server)
   - [Connect to existing MCP server](https://learn.microsoft.com/en-us/microsoft-copilot-studio/mcp-add-existing-server-to-agent)
   - [Copilot Studio Kit](https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/kit-overview)
@@ -305,11 +305,11 @@ Read these before you read any product page. They are the maps; everything below
   - [Connect Foundry IQ to Foundry Agent Service](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/foundry-iq-connect)
   - [Foundry IQ FAQ](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/foundry-iq-faq)
 
-- **Work IQ** (APIs **GA 2026-06-16** and **Work IQ MCP GA**; MCP `retrieve` tool, Studio/Foundry integrations, and Business Applications in Work IQ are **Preview**)
+- **Work IQ** (APIs **GA 2026-06-16** and **Work IQ MCP / Studio integration GA**; MCP `retrieve` tool, Foundry integration, and Business Applications in Work IQ are **Preview**)
   - [Work IQ API overview](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/work-iq/api-overview): four API domains (Chat, Context, Tools, Workspaces), billed in Copilot Credits, **Entra delegated auth only (app-only is not supported)**
   - [Announcing the new Work IQ APIs](https://www.microsoft.com/en-us/copilot/blog/2026/06/02/announcing-the-new-work-iq-apis/)
   - [Agent 365 tooling servers overview (Work IQ MCP GA)](https://learn.microsoft.com/en-us/microsoft-agent-365/tooling-servers-overview)
-  - [Work IQ in Copilot Studio (Preview)](https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-experience/add-work-iq)
+  - [Work IQ in Copilot Studio (GA)](https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-experience/add-work-iq)
   - [Business Applications in Work IQ (Preview)](https://learn.microsoft.com/en-us/power-apps/maker/data-platform/business-applications-work-iq)
   - [Work IQ CLI (GA)](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/work-iq/cli)
 
@@ -334,6 +334,13 @@ Read these before you read any product page. They are the maps; everything below
 
 ### Developer Plane (GitHub)
 {: .no_toc }
+
+- **Universe 2026: coordinate completed work**
+  - [Official announcement](https://github.blog/news-insights/company-news/github-universe-2026-evolving-every-layer-of-the-stack/): session continuity, code review Max, and the sales-assisted enterprise AI-credit purchase path.
+  - [Copilot Fusion](https://docs.github.com/en/copilot/concepts/models/copilot-fusion) ([GA announcement](https://github.blog/changelog/2026-10-28-route-and-orchestrate-models-with-github-copilot-fusion/)): model routing and orchestration, not a new foundation model.
+  - [Copilot projects](https://docs.github.com/en/copilot/how-tos/github-copilot-app/working-with-projects): **Public Preview**, goal-based work across repositories, sessions, and artifacts.
+  - [GitHub Agentic Workflows GA](https://github.blog/changelog/2026-10-28-github-agentic-workflows-generally-available/): Markdown compiled into Actions, including public repositories. Distinguish from [Copilot automations](https://docs.github.com/en/copilot/concepts/agent-capabilities/agent-powered-workflows-and-operations/about-automations), restricted to private/internal repositories.
+  - [Local sandboxing GA](https://github.blog/changelog/2026-10-07-local-sandboxing-for-github-copilot-now-generally-available/): tool isolation in supported clients, independent of model choice.
 
 - **Agents on GitHub**: "Agent HQ" is the GitHub Universe 2025 *vision brand*; the shipped surfaces are the Agents page and enterprise AI Controls.
   - [Copilot cloud agent](https://docs.github.com/en/copilot/concepts/copilot-surfaces/copilot-on-github): renamed from "coding agent." **GA on paid plans including Student; not available on Copilot Free**

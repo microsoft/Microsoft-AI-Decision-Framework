@@ -15,8 +15,8 @@ const nodes: Node<NodeData>[] = [
 
   // Column 2: Work IQ
   { id: 'WIQ', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'Work IQ\nMail, meetings, chats', description: 'Permissions are inherited: Entra delegated authentication only, and app-only is not supported.', category: 'recommendation', branch: 'iq-layer', color: '#4c1d95' } },
-  { id: 'WIQ_GA', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'GA\nWork IQ APIs and MCP', description: 'Chat, Context, Tools, and Workspaces APIs (GA per the Microsoft announcement for 2026-06-16). Work IQ MCP is GA per the Agent 365 tooling page. Do not start new work on the per-workload MCP servers (Mail, Calendar, Teams, and others); they are legacy.', category: 'reference', branch: 'iq-layer' } },
-  { id: 'WIQ_Preview', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'retrieve tool, Copilot\nStudio, Foundry tool,\nBusiness Applications', description: 'The MCP retrieve tool, Work IQ in Copilot Studio, and Work IQ in Foundry are Preview. Business Applications in Work IQ is on by default for new environments from 2026-09-30 and for existing environments from November 2026 (EEA, EU, and government exceptions).', category: 'reference', branch: 'iq-layer', status: 'preview' } },
+  { id: 'WIQ_GA', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'GA\nWork IQ APIs, MCP,\nCopilot Studio integration', description: 'Chat, Context, Tools, and Workspaces APIs (GA per the Microsoft announcement for 2026-06-16). Work IQ MCP is GA per the Agent 365 tooling page. Work IQ in Copilot Studio is GA per Learn, updated 2026-10-22; Business apps workloads remain Preview. Do not start new work on the per-workload MCP servers (Mail, Calendar, Teams, and others); they are legacy.', category: 'reference', branch: 'iq-layer' } },
+  { id: 'WIQ_Preview', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'retrieve tool, Foundry tool,\nBusiness Applications', description: 'The MCP retrieve tool and Work IQ in Foundry are Preview. Business Applications in Work IQ is on by default for new environments from 2026-09-30 and for existing environments from November 2026 (EEA, EU, and government exceptions).', category: 'reference', branch: 'iq-layer', status: 'preview' } },
   { id: 'License2', position: { x: 0, y: 0 }, type: 'decision', data: { label: 'Copilot Credits\nAPI access independent\nof Copilot licensing', description: 'Usage-based: a fixed component for Tools and a variable one for Chat and Context. Custom and third-party agents are usage-billed even for licensed users. The Foundry quickstart still lists a Copilot license per calling user, so verify your surface.', category: 'outcome', branch: 'iq-layer' } },
 
   // Column 3: Fabric IQ
@@ -76,4 +76,3 @@ export const iqLayerFlow: FlowDefinition = {
   nodes,
   edges,
 };
-

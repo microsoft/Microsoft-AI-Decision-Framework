@@ -755,7 +755,7 @@ The [Microsoft IQ hub](https://learn.microsoft.com/en-us/microsoft-iq/) lists *"
 
 - [Microsoft IQ documentation](https://learn.microsoft.com/en-us/microsoft-iq/) (Retrieved: 2026-06-08)
 - [Web IQ product page](https://www.microsoft.com/en-us/WebIQ) (Retrieved: 2026-06-08)
-- [Announcing Microsoft Web IQ](https://blogs.bing.com/search/2026/6/Announcing-Microsoft-Web-IQ/) (Published: 2026-06)
+- [Announcing Microsoft Web IQ](https://blogs.bing.com/webiq/2026/6/announcing-microsoft-web-iq/) (Published: 2026-06)
 
 ---
 

@@ -295,7 +295,7 @@ flowchart TD
 {: .no_toc }
 
 {: .note }
-> **`P1` is a node id, not a taxonomy.** Microsoft does **not** use "1P/3P" as documented terminology. The documented ownership taxonomy is the **Agent Registry four types**: **Microsoft agents** ("built and maintained by Microsoft") · **External partner-built agents** ("built by trusted non-Microsoft developers") · **Published by your org** ("custom agents approved and published by your organization… might be referred to as LOB agents") · **Shared by creator** ("created and shared by individual users or developers at your organization"). Learn those four; map the slang once if you must. ([Agent Registry](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/agent-registry))
+> **`P1` is a node id, not a taxonomy.** Microsoft does **not** use "1P/3P" as documented terminology. The documented ownership taxonomy is the **Agent Registry four types**: **Microsoft agents** ("built and maintained by Microsoft") · **External partner-built agents** ("built by trusted non-Microsoft developers") · **Published by your org** ("custom agents approved and published by your organization… might be referred to as LOB agents") · **Shared by creator** ("created and shared by individual users or developers at your organization"). Learn those four; map the slang once if you must. ([Agent Registry](https://learn.microsoft.com/en-us/microsoft-agent-365/admin/agent-registry-overview))
 
 **Last Validated:** October 14, 2026
 
@@ -520,7 +520,7 @@ Work IQ, Fabric IQ, Web IQ, and Foundry IQ knowledge bases are validated once, i
 {: .no_toc }
 
 - [`VECTOR_SEARCH` T-SQL reference](https://learn.microsoft.com/en-us/sql/t-sql/functions/vector-search-transact-sql): GA on Azure SQL Database, SQL database in Fabric, and SQL MI (Always-up-to-date); Preview on SQL Server 2025 and SQL MI (SQL Server 2025 update policy). Page updated 2026-09-29
-- [Azure AI Search tiers](https://learn.microsoft.com/en-us/azure/search/search-sku-tier), [cost management](https://learn.microsoft.com/en-us/azure/search/search-sku-manage-costs), and [reliability](https://learn.microsoft.com/en-us/azure/search/search-reliability) (replica requirements for the SLA); list prices from the Azure Retail Prices API, East US, checked 2026-10-14
+- [Azure AI Search tiers](https://learn.microsoft.com/en-us/azure/search/search-sku-tier), [cost management](https://learn.microsoft.com/en-us/azure/search/search-sku-manage-costs), and [reliability](https://learn.microsoft.com/en-us/azure/reliability/reliability-ai-search) (replica requirements for the SLA); list prices from the Azure Retail Prices API, East US, checked 2026-10-14
 - [Copilot extensibility cost considerations](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/cost-considerations) (updated 2026-09-30)
 
 ---
@@ -1347,7 +1347,7 @@ Read the qualifier, not the brand. Every layer has a production path and Preview
 - [Work IQ overview](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/work-iq/), [Work IQ API overview](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/work-iq/api-overview), [Announcing the new Work IQ APIs](https://www.microsoft.com/en-us/copilot/blog/2026/06/02/announcing-the-new-work-iq-apis/), [Agent 365 tooling servers](https://learn.microsoft.com/en-us/microsoft-agent-365/tooling-servers-overview), [Work IQ MCP overview](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/work-iq/mcp/overview), and [Work IQ MCP Foundry quickstart](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/work-iq/mcp/quickstart/foundry)
 - [Business Applications in Work IQ default settings](https://learn.microsoft.com/en-us/power-platform/admin/business-applications-work-iq/default-settings) and [Dataverse intelligence](https://learn.microsoft.com/en-us/power-apps/maker/data-platform/data-platform-intelligence)
 - [Fabric IQ](https://learn.microsoft.com/en-us/fabric/iq/overview), [Fabric data agent](https://learn.microsoft.com/en-us/fabric/data-science/concept-data-agent), [Fabric IQ MCP](https://learn.microsoft.com/en-us/fabric/iq/connectors/fabric-iq-mcp), [Power BI in Copilot Chat](https://learn.microsoft.com/en-us/fabric/iq/connectors/microsoft-365-copilot-overview), [Fabric IQ in Cowork](https://learn.microsoft.com/en-us/fabric/iq/connectors/cowork-overview), [Ontology MCP](https://learn.microsoft.com/en-us/fabric/iq/ontology/how-to-use-ontology-mcp-server), [data agent in Foundry (retiring)](https://learn.microsoft.com/en-us/fabric/data-science/data-agent-foundry), and [data agent via Fabric IQ in Foundry](https://learn.microsoft.com/en-us/fabric/data-science/data-agent-foundry-fabric-iq)
-- [Web IQ product page](https://www.microsoft.com/en-us/WebIQ), [Web IQ announcement](https://blogs.bing.com/search/2026/6/Announcing-Microsoft-Web-IQ/), and [Foundry web search tool](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/tools/web-search)
+- [Web IQ product page](https://www.microsoft.com/en-us/WebIQ), [Web IQ announcement](https://blogs.bing.com/webiq/2026/6/announcing-microsoft-web-iq/), and [Foundry web search tool](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/tools/web-search)
 
 ---
 

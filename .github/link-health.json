@@ -1,12 +1,47 @@
 {
-  "lastRun": "2026-10-26",
+  "lastRun": "2026-11-09",
   "urls": {
-    "https://github.com/microsoft/agent-governance-toolkit/blob/main/CHANGELOG.md": {
-      "firstFailed": "2026-10-26",
+    "https://aka.ms/agent/migrate/tool": {
+      "firstFailed": "2026-11-09",
       "failCount": 1,
       "lastStatus": "429",
       "state": "suspect",
-      "note": "Was: AGT changelog citations in feature-comparison.md, resources.md, and technologies.md. First strike; GitHub rate limiting is not confirmed rot."
+      "note": "Foundry Assistants migration tool in implementation-patterns.md, quick-reference.md, resources.md, and technologies.md. The short link resolves to GitHub, which returned 429; preserve the indirection."
+    },
+    "https://web.archive.org/web/20040411012949/http://www.shirky.com/writings/situated_software.html": {
+      "firstFailed": "2026-11-09",
+      "failCount": 1,
+      "lastStatus": "429",
+      "state": "suspect",
+      "note": "Clay Shirky's situated software essay in agentic-engineering.md. Wayback returned 429; previously read via Web Fetch."
+    },
+    "https://web.archive.org/web/20210110184321/https://netflixtechblog.com/how-we-build-code-at-netflix-c5d9bd727f15": {
+      "firstFailed": "2026-11-09",
+      "failCount": 1,
+      "lastStatus": "429",
+      "state": "suspect",
+      "note": "Netflix paved-road example in glossary.md. Wayback returned 429; previously read via Web Fetch."
+    },
+    "https://m365admin.handsontek.net/microsoft-copilot-evolving-copilot-pricing-model-new-finops-capabilities-ai/": {
+      "firstFailed": "2026-11-09",
+      "failCount": 1,
+      "lastStatus": "403",
+      "state": "suspect",
+      "note": "Third-party republication of a Copilot pricing Message Center notice in technologies.md. Host returned 403; previous botProtected verification remains recorded below."
+    },
+    "https://m365admin.handsontek.net/microsoft-copilot-new-ways-work-across-microsoft-copilot-microsoft-365/": {
+      "firstFailed": "2026-11-09",
+      "failCount": 1,
+      "lastStatus": "403",
+      "state": "suspect",
+      "note": "Third-party republication of a Microsoft Copilot Message Center notice in technologies.md. Host returned 403; previous botProtected verification remains recorded below."
+    },
+    "https://doi.org/10.7551/mitpress/1020.001.0001": {
+      "firstFailed": "2026-11-09",
+      "failCount": 1,
+      "lastStatus": "403",
+      "state": "suspect",
+      "note": "Bonnie Nardi's end-user computing book in glossary.md. The DOI target returned 403; previous botProtected verification remains recorded below."
     }
   },
   "botProtected": {

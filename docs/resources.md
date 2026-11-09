@@ -121,7 +121,7 @@ Treat it as a reading list with a shelf life. Microsoft Learn stamps every page 
 **Key Resources:**
 
 - [Security for Microsoft Copilot](https://learn.microsoft.com/en-us/microsoft-365/copilot/security-microsoft-copilot)
-- [M365 Copilot admin guide](https://learn.microsoft.com/en-us/microsoft-365/copilot/enablement-resources)
+- [M365 Copilot admin guide](https://learn.microsoft.com/en-us/copilot/adopt/enablement-resources)
 - [Integrated apps management](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/test-and-deploy-microsoft-365-apps)
 - [Graph connectors administration](https://learn.microsoft.com/en-us/microsoft-365/copilot/connectors/deployment-overview)
 - [Agent Registry in the Microsoft 365 admin center](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/agent-registry?view=o365-worldwide) (Updated: 2026-01-23)
@@ -315,7 +315,7 @@ Read these before you read any product page. They are the maps; everything below
 
 - **Web IQ (Limited Access)**
   - [Web IQ product page](https://www.microsoft.com/en-us/WebIQ)
-  - [Announcing Microsoft Web IQ](https://blogs.bing.com/search/2026/6/Announcing-Microsoft-Web-IQ/)
+  - [Announcing Microsoft Web IQ](https://blogs.bing.com/webiq/2026/6/announcing-microsoft-web-iq/)
 
 - **Microsoft IQ**
   - [Microsoft IQ overview](https://learn.microsoft.com/en-us/microsoft-iq/)

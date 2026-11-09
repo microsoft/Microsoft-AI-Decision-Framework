@@ -418,7 +418,7 @@ Read the terms as well as the rates. These vehicles carry fixed terms and defaul
 * [Microsoft 365 Copilot extensibility overview](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/overview) (Accessed: 2026-07-28)
 * [Microsoft 365 Copilot extensibility planning guide](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/planning-guide) (Accessed: 2026-07-28)
 * [Microsoft 365 agents admin guide](https://learn.microsoft.com/en-us/microsoft-365/copilot/agent-essentials/m365-agents-admin-guide) (Accessed: 2026-07-28)
-* [Agent Registry (publisher types)](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/agent-registry) (Accessed: 2026-07-28)
+* [Agent Registry (publisher types)](https://learn.microsoft.com/en-us/microsoft-agent-365/admin/agent-registry-overview) (Accessed: 2026-07-28)
 * [Copilot Cowork is now generally available](https://www.microsoft.com/en-us/copilot/blog/2026/06/16/copilot-cowork-is-now-generally-available/) (Published: 2026-06-16)
 * [Announcing the new Work IQ APIs](https://www.microsoft.com/en-us/copilot/blog/2026/06/02/announcing-the-new-work-iq-apis/) (Published: 2026-06-02)
 * [Agent 365 tooling servers overview (Work IQ MCP)](https://learn.microsoft.com/en-us/microsoft-agent-365/tooling-servers-overview) (Updated: 2026-10-13)

@@ -73,9 +73,9 @@ Quick view of core platforms (M365 Copilot, Studio, Foundry, Agent Framework, Lo
 | Predictable, structured business processes | Standard harness | GA; explicit rule-based control |
 | Reasoning-heavy tasks across tools and files | Microsoft Copilot harness | GA; formerly GitHub Copilot harness |
 | Resolve customer issues over voice and chat | Customer Conversation harness | **Public Preview**; Customer Assist Agents combine specialist agents, defined topics, and human escalation |
-| Extend answers inside Microsoft Copilot | Copilot chat harness / declarative agent | Still named in the extension guide; internal publishing, with no explicit status label on that page |
+| Extend answers inside Microsoft Copilot | Copilot chat harness / declarative agent | The current harness overview does not name a Copilot chat harness; see the declarative-agent guidance for the extension path |
 
-Sources: [Harness overview](https://learn.microsoft.com/en-us/microsoft-copilot-studio/harnesses-overview), [Customer Conversation overview (preview)](https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-experience/overview-customer-conversation), and [Microsoft Copilot extension guide](https://learn.microsoft.com/en-us/microsoft-copilot-studio/microsoft-365-copilot-extend-with-agents). **Checked:** November 3, 2026. A shared component name is not a cross-harness migration guarantee.
+Sources: [Harness overview](https://learn.microsoft.com/en-us/microsoft-copilot-studio/harnesses-overview), [Customer Conversation overview (preview)](https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-experience/overview-customer-conversation), and [Declarative agents for Microsoft 365 Copilot](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/overview-declarative-agent). **Checked:** November 9, 2026. A shared component name is not a cross-harness migration guarantee.
 
 ## Developer Agent Comparison
 {: .tech-heading }

@@ -604,7 +604,7 @@ flowchart TD
 | **3 Reasoning** | Managed: Copilot Studio Microsoft Copilot harness, Foundry Prompt Agent. Code-owned: Agent Framework, M365 Agents SDK | Harness GA per the 2026-08-03 announcement (memory, apps, and hooks carry their own Preview labels). Agent Framework: Python (`1.21.0`) and C#/.NET (`1.25.0`) GA; **Go (`0.1.1`) is Public Preview** | Tool accuracy, state recovery, latency budget, evaluation thresholds, runtime ownership |
 | **4 Autonomous** | Agent Framework; Copilot Studio connected agents; Foundry A2A | Agent Framework GA core. Connected agents **Preview** (release feed 2026-10-06; the Foundry side enables the Activity protocol with `Foundry-Features: AgentEndpoints=V1Preview`). Foundry A2A **v1.0 GA; v0.3 Preview** (served by default if no version header is sent). Hosted Agents only when the [constraint card]({{ '/docs/technologies#the-hosted-agent-constraint-card' | relative_url }}) fits. Foundry Workflows retires 2026-12-01: do not route here | Bounded autonomy, isolation, stop conditions, escalation, protocol direction, end-to-end observability |
 
-**Harness is the Copilot Studio lever.** The extension guide points the Copilot chat harness at grounded answers; the standard harness fits "well-defined and rule-based" agents; the Microsoft Copilot harness fits "reasoning-heavy" work. The **Customer Conversation harness (Public Preview)** adds the customer voice/chat path. The harness also sets the billing model (see Budget & Timeline).
+**Harness is the Copilot Studio lever.** The standard harness fits "well-defined and rule-based" agents; the Microsoft Copilot harness fits "reasoning-heavy" work. The **Customer Conversation harness (Preview)** adds the customer voice/chat path. The current harness overview does not name a Copilot chat harness, which by itself establishes neither retirement nor migration. The harness also sets the billing model (see Budget & Timeline).
 
 **Runway is an anchor, not a clock.** The labels say days, weeks, or months. [Evaluation Criteria §4]({{ '/docs/evaluation-criteria#4-time-to-production-the-runway' | relative_url }}) lists what must already be true.
 
@@ -1245,7 +1245,7 @@ Check the complete schedule of passed and upcoming retirements in **[Quick Refer
 | **Deprecated** | Date announced; migrate | Classic agents, standalone Python/.NET `azure-ai-agents`, Foundry Workflows (2026-12-01), Foundry Fabric tool (2026-11-06) |
 | **Retired** | Date passed; remove dependencies | Assistants API (2026-08-26), `azure-ai-inference` (2026-08-26), GitHub Models (2026-07-30), Bot Framework (2025-12-31) |
 
-Models are a lifecycle surface of their own. GA Foundry models retire 18 months after launch (12 months for Anthropic, DeepSeek, Fireworks, and Mistral). Dates are not extendable, Provisioned deployments are not auto-upgraded, and inference returns `410 Gone` after retirement. Read the date from the Models API, not from a diagram.
+Models are a lifecycle surface of their own. The standard GA lifecycle is 18 months, though some publishers use 12 months and Grok models starting at 4.7 have a six-month minimum. Fine-tuned models have separate schedules, and security or compliance issues can trigger emergency retirement. Dates are not extendable, Provisioned deployments are not auto-upgraded, and inference returns `410 Gone` after retirement. Check the Models API and retirement schedule for your model, not a diagram.
 
 #### Sources: Lifecycle Check
 {: .no_toc }
@@ -1254,7 +1254,7 @@ Models are a lifecycle surface of their own. GA Foundry models retire 18 months 
 - [Foundry Workflows retirement](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/workflow) (updated 2026-10-08) and [Foundry Fabric tool retirement](https://learn.microsoft.com/en-us/fabric/data-science/data-agent-foundry) (updated 2026-10-14)
 - [Azure Cache for Redis retirement FAQ](https://learn.microsoft.com/en-us/azure/azure-cache-for-redis/retirement-faq) (verified 2026-11-03)
 - [GitHub Models retirement notice](https://docs.github.com/en/github-models) (updated 2026-07-30)
-- [Foundry Models lifecycle and support policy](https://learn.microsoft.com/en-us/azure/foundry/concepts/model-lifecycle-retirement) (updated 2026-07-24)
+- [Foundry Models lifecycle and support policy](https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirements) (verified 2026-11-09)
 - [Agent 365 Frontier documentation](https://learn.microsoft.com/en-us/microsoft-agent-365/frontier) (updated 2026-09-30)
 
 ---

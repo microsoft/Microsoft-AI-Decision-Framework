@@ -56,7 +56,7 @@ Pick wrong and you import the wrong assumptions with it: a productivity licensin
 
 **Before you argue about architecture, win the argument about value.**
 
-A business only has four doors that AI can meaningfully walk through. **We call them The Four Doors;** Microsoft's Cloud Adoption Framework names the same four as *business-value quadrants*, split by who feels the impact: two point inward at how you run, two point outward at how you grow. The quadrants are Microsoft's; the doorway framing is ours. If your use case can't be pushed cleanly through one of them, it isn't an architecture problem yet. It's a funding problem, and no technology choice will rescue it.
+**We call these The Four Doors:** a way to ask where AI creates value before asking what to build. Two point inward at how you run, two point outward at how you grow. Microsoft's current transformation-pattern guidance starts with related business motivations and treats innovation separately; it does not present this four-door model. If you cannot explain the value your use case creates, it isn't an architecture problem yet. It's a funding problem, and no technology choice will rescue it.
 
 | Door | Impact | The question it answers |
 | :--- | :--- | :--- |
@@ -65,7 +65,7 @@ A business only has four doors that AI can meaningfully walk through. **We call 
 | **Reinvent customer engagement** | Customer | Where does the customer wait, repeat themselves, or give up? |
 | **Accelerate innovation** | Customer | What could we offer that we simply couldn't staff or scale before? |
 
-Notice what the doors have in common: not one of them names a product. That's the point. Outcome first, use case second, technology last. The bucket tells you *which conversation* you're in; the door tells you *whether the conversation deserves a budget*. You need both answers before anyone opens a portal. ([CAF: AI agent business strategy](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/business-strategy-plan))
+Notice what the doors have in common: not one of them names a product. That's the point. Outcome first, use case second, technology last. The bucket tells you *which conversation* you're in; the door tells you *whether the conversation deserves a budget*. You need both answers before anyone opens a portal. See Microsoft's related [transformation-pattern guidance](https://learn.microsoft.com/en-us/agents/adoption-patterns/choose-pattern#start-from-intent-not-technology) and [CAF's AI agent adoption strategy](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/executive-strategy).
 
 The same framework is refreshingly blunt about when the answer is *no agent at all*: a structured, predictable task belongs in regular code or non-generative AI, and static knowledge retrieval belongs in classic RAG. The cheapest AI decision you will ever make is the one where you decide you don't need it.
 
@@ -230,7 +230,7 @@ That gap is our job. Microsoft's docs answer *"what does this product do?"* extr
 | :--- | :--- | :--- |
 | [Agents hub](https://learn.microsoft.com/en-us/agents/): Plan → Design → Adopt → Improve | The deepest agent-specific catalog Microsoft has: agent archetypes, an agentic maturity model, adoption patterns, and Center of Excellence guidance | Read it for depth on any single agent concept; we point at it rather than duplicate it |
 | [CAF: AI adoption](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai/strategy) | The six-stage organizational loop: Strategy → Plan → Ready → Govern → Secure → Manage | "Where This Sits," above |
-| [CAF: AI agents](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/) | Plan → Govern & secure → Build → Manage, plus use-case scoring and business-value quadrants | "The Four Doors," above; the scoring gates in the Decision Framework |
+| [CAF: AI agent adoption strategy](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/executive-strategy) | Organizational readiness, architecture and governance, and operational standards for adopting agents | The scoring gates and agent lifecycle in the Decision Framework |
 | [Well-Architected Framework: AI workloads](https://learn.microsoft.com/en-us/azure/well-architected/ai/) | Design areas for AI workloads once you've chosen. Note there is **no separate WAF service guide for agents**; CAF routes agent teams here | Evaluation Criteria and Implementation Patterns |
 | [BXT / Business Envisioning](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/business-envisioning) and [Capability Envisioning](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/capability-envisioning) | Deciding whether an idea deserves to exist at all: Shelve, Research, Incubate, Accelerate to MVP | Phase 1 gate in the Decision Framework. *(Both pages are ISV-scoped and last updated in September 2024 and January 2025; the methodology holds, the product references don't.)* |
 | [Azure Architecture Center](https://learn.microsoft.com/en-us/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-chat) | Reference architectures and the complexity spectrum: direct model call → single agent with tools → multi-agent orchestration | Implementation Patterns |

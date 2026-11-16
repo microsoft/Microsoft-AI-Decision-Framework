@@ -267,10 +267,10 @@ This isn't a technical guide. It's the human foundation that makes every technic
 If you'd rather start from Microsoft's own high-level decision tree, these are the two most useful diagrams. Read them first if you like, then come back for the parts they leave out.
 
 ![Prioritize AI agent use cases](images/prioritize-agent-use-cases.png)
-*CAF criteria to rank agent use cases by impact, feasibility, and desirability (Microsoft Learn, accessed 2025-12-09).* [(Reference)](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/business-strategy-plan)
+*CAF criteria to rank agent use cases by impact, feasibility, and desirability (Microsoft Learn, accessed 2025-12-09).* [(Reference)](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/organizational-readiness#2-prioritization)
 
 ![AI agent decision tree](images/ai-agent-decision-tree.svg)
-*CAF technology plan decision tree for choosing SaaS vs custom agents (Microsoft Learn, accessed 2025-12-09).* [(Reference)](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/technology-solutions-plan-strategy)
+*CAF technology plan decision tree for choosing SaaS vs custom agents (Microsoft Learn, accessed 2025-12-09).* [(Reference)](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/executive-strategy#ai-agent-decision-tree-and-architecture)
 
 {: .warning }
 > **What a simplified tree cannot tell you.** It will not surface governance requirements, data boundaries, network isolation, permission models, action safety, cost at scale, or what happens the Tuesday your agent does something surprising. Those are exactly the questions that decide whether a pilot becomes a platform, and they are why the rest of this framework exists.

@@ -195,7 +195,7 @@ Before you choose approaches, confirm whether the problem truly requires an agen
 - **Structured, predictable work** → deterministic code or non‑generative AI
 - **Static knowledge retrieval** → classic RAG without tool execution or multi‑step reasoning
 
-Agents introduce nondeterminism, latency, and cost. Use them only when reasoning or tool orchestration is required. See [When not to use AI agents](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/business-strategy-plan#when-not-to-use-ai-agents).[^whennotagents]
+Agents introduce nondeterminism, latency, and cost. Use them only when reasoning or tool orchestration is required. See [When not to use AI agents](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/executive-strategy#2-when-should-we-use-ai-agents).[^whennotagents]
 
 ---
 

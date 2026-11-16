@@ -124,7 +124,7 @@ Not every AI problem needs an agent. Microsoft’s AI agent guidance explicitly 
 * **Structured and predictable tasks:** Use deterministic code or non‑generative AI when the workflow is rule‑based and predictable.
 * **Static knowledge retrieval:** Use classic RAG for single‑turn question answering or summarization from a fixed index. If there’s no tool execution or multi‑step reasoning, an agent is overkill.
 
-See [When not to use AI agents](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/business-strategy-plan#when-not-to-use-ai-agents).
+See [When not to use AI agents](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/executive-strategy#2-when-should-we-use-ai-agents).
 ### The Right Tool for the Step: Deterministic Code Is Not the Expensive Option Anymore
 
 Even *inside* an agent architecture, not every step deserves an LLM call. State machines, rule engines, and well‑written `if/else` code give you what language models fundamentally lack: **predictability, observability, and recoverability**.

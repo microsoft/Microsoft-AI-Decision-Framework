@@ -27,7 +27,7 @@ description: "Fast lookup table for Microsoft AI technologies"
 
 ## CAF Agent Adoption Quick Cues
 
-- **Phases in one line:** Plan for agents (business + tech + org + data), Govern & secure agents (responsible AI, controls, environment prep), Build agents (single vs multi, orchestrate, secure process), Manage agents (integrate, monitor, retire). [CAF AI agent adoption](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/).
+- **Adoption areas in one line:** Organizational readiness establishes ownership and priorities; architecture and governance set standards and controls; operational standards cover evaluation, monitoring, and lifecycle management. [CAF AI agent adoption strategy](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/executive-strategy).
 - **When not to use an agent:** Highly deterministic workflows or static Q&A/content generation → use code or plain RAG. [Business plan](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/business-strategy-plan).
 - **SaaS vs build:** Use SaaS agents when they meet requirements; if not, prototype on Foundry or Copilot Studio before committing to custom builds. [Technology plan](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/technology-solutions-plan-strategy).
 - **Single vs multi:** Start single; go multi-agent only for hard security/compliance boundaries, distinct owning teams, or planned modular growth. [Single vs multiple](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/single-agent-multiple-agents).

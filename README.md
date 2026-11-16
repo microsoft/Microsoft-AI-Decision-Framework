@@ -56,7 +56,7 @@ Pick wrong and you import the wrong assumptions with it: a productivity licensin
 
 **Before you argue about architecture, win the argument about value.**
 
-A business only has four doors that AI can meaningfully walk through. **We call them The Four Doors;** Microsoft's Cloud Adoption Framework names the same four as *business-value quadrants*, split by who feels the impact: two point inward at how you run, two point outward at how you grow. The quadrants are Microsoft's; the doorway framing is ours. If your use case can't be pushed cleanly through one of them, it isn't an architecture problem yet. It's a funding problem, and no technology choice will rescue it.
+**We call these The Four Doors:** a way to ask where AI creates value before asking what to build. Two point inward at how you run, two point outward at how you grow. Microsoft's current transformation-pattern guidance starts with related business motivations and treats innovation separately; it does not present this four-door model. If you cannot explain the value your use case creates, it isn't an architecture problem yet. It's a funding problem, and no technology choice will rescue it.
 
 | Door | Impact | The question it answers |
 | :--- | :--- | :--- |
@@ -65,7 +65,7 @@ A business only has four doors that AI can meaningfully walk through. **We call 
 | **Reinvent customer engagement** | Customer | Where does the customer wait, repeat themselves, or give up? |
 | **Accelerate innovation** | Customer | What could we offer that we simply couldn't staff or scale before? |
 
-Notice what the doors have in common: not one of them names a product. That's the point. Outcome first, use case second, technology last. The bucket tells you *which conversation* you're in; the door tells you *whether the conversation deserves a budget*. You need both answers before anyone opens a portal. ([CAF: AI agent business strategy](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/business-strategy-plan))
+Notice what the doors have in common: not one of them names a product. That's the point. Outcome first, use case second, technology last. The bucket tells you *which conversation* you're in; the door tells you *whether the conversation deserves a budget*. You need both answers before anyone opens a portal. See Microsoft's related [transformation-pattern guidance](https://learn.microsoft.com/en-us/agents/adoption-patterns/choose-pattern#start-from-intent-not-technology) and [CAF's AI agent adoption strategy](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/executive-strategy).
 
 The same framework is refreshingly blunt about when the answer is *no agent at all*: a structured, predictable task belongs in regular code or non-generative AI, and static knowledge retrieval belongs in classic RAG. The cheapest AI decision you will ever make is the one where you decide you don't need it.
 

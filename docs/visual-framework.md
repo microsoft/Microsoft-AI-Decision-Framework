@@ -182,7 +182,7 @@ flowchart TD
 #### Sources: Complete Decision Flow
 {: .no_toc }
 
-- [When not to use AI agents](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/business-strategy-plan#when-not-to-use-ai-agents) (CAF intake gate)
+- [When not to use AI agents](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/executive-strategy#2-when-should-we-use-ai-agents) (CAF intake gate)
 - [Harnesses in Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/harnesses-overview) (updated 2026-10-01) and [Copilot Studio what's new](https://learn.microsoft.com/en-us/microsoft-copilot-studio/whats-new) (updated 2026-10-06)
 - [Automate agents with routines](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/use-routines) (updated 2026-10-07) and [New Foundry portal GA readiness table](https://learn.microsoft.com/en-us/azure/foundry/concepts/general-availability) (updated 2026-09-23)
 - [Logic Apps agentic workflows concepts](https://learn.microsoft.com/en-us/azure/logic-apps/agent-workflows-concepts) (updated 2026-09-16)

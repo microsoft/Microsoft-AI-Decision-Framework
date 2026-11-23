@@ -284,7 +284,7 @@ This framework builds on:
 - [CAF: AI agent adoption](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/) (plan, govern and secure, build, manage)
 - [CAF: AI strategy](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai/strategy)
 - [Microsoft Agents hub](https://learn.microsoft.com/en-us/agents/) (Plan, Design, Adopt, Improve)
-- [M365 Copilot extensibility guidance](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/agents-overview)
+- [M365 Copilot extensibility guidance](https://learn.microsoft.com/en-us/plugins/agents-overview)
 - Microsoft's earlier [Business Envisioning / BXT](https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/isv/business-envisioning) guidance, for the intake scorecard
 
 ---

@@ -120,7 +120,7 @@ Treat it as a reading list with a shelf life. Microsoft Learn stamps every page 
 
 **Key Resources:**
 
-- [Security for Microsoft Copilot](https://learn.microsoft.com/en-us/microsoft-365/copilot/security-microsoft-copilot)
+- [Security for Microsoft Copilot](https://learn.microsoft.com/en-us/copilot/plan/security-microsoft-copilot)
 - [M365 Copilot admin guide](https://learn.microsoft.com/en-us/copilot/adopt/enablement-resources)
 - [Integrated apps management](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/test-and-deploy-microsoft-365-apps)
 - [Graph connectors administration](https://learn.microsoft.com/en-us/microsoft-365/copilot/connectors/deployment-overview)
@@ -165,8 +165,8 @@ Read these before you read any product page. They are the maps; everything below
 - **Microsoft 365 Copilot**
   - [Extensibility overview](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/)
   - [Adoption resources](https://adoption.microsoft.com/en-us/copilot/)
-  - [Security posture](https://learn.microsoft.com/en-us/microsoft-365/copilot/security-microsoft-copilot)
-  - [Privacy and data safeguards](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-privacy)
+  - [Security posture](https://learn.microsoft.com/en-us/copilot/plan/security-microsoft-copilot)
+  - [Privacy and data safeguards](https://learn.microsoft.com/en-us/copilot/plan/microsoft-365-copilot-privacy)
   - [Wave 3: Powering Frontier Transformation](https://www.microsoft.com/en-us/copilot/blog/2026/03/09/powering-frontier-transformation-with-copilot-and-agents/)
   - [Copilot Cowork announcement (March 2026)](https://www.microsoft.com/en-us/copilot/blog/2026/03/09/copilot-cowork-a-new-way-of-getting-work-done/): superseded by the GA announcement below
   - [Copilot Cowork is now generally available](https://www.microsoft.com/en-us/copilot/blog/2026/06/16/copilot-cowork-is-now-generally-available/): **GA worldwide 2026-06-16**; requires a Microsoft 365 Copilot USL plus Copilot Credits. ("Cowork 1" is announced only; do not plan against it.)
@@ -192,7 +192,7 @@ Read these before you read any product page. They are the maps; everything below
 
 - **Copilot Studio**
   - [What's new in Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/whats-new#notable-changes)
-  - [Declarative agents](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/overview-declarative-agent)
+  - [Declarative agents](https://learn.microsoft.com/en-us/plugins/overview-declarative-agent)
   - [Custom engine agents overview](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/overview-custom-engine-agent)
   - [Copilot Studio documentation](https://learn.microsoft.com/en-us/microsoft-copilot-studio/)
   - [Computer Use (GA)](https://learn.microsoft.com/en-us/microsoft-copilot-studio/computer-use)
@@ -242,7 +242,7 @@ Read these before you read any product page. They are the maps; everything below
 - **The new Copilot, and how it is billed**
   - [Introducing the new Copilot with Home, Code and Autopilot](https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/): Jared Spataro's Official Microsoft Blog post (2026-09-25), with feature-by-feature rollout statements
   - [Copilot requirements](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-copilot-requirements): the Microsoft 365 Copilot and Copilot Chat naming update
-  - [Understanding the USL and UBB](https://learn.microsoft.com/en-us/microsoft-365/copilot/user-subscription-license-usage-based-billing): metered usage builds on the required subscription
+  - [Understanding the USL and UBB](https://learn.microsoft.com/en-us/copilot/plan/user-subscription-license-usage-based-billing): metered usage builds on the required subscription
   - [UBB overview](https://learn.microsoft.com/en-us/microsoft-365/copilot/usage-based-billing-overview-copilot-credits) and [spending policies](https://learn.microsoft.com/en-us/microsoft-365/copilot/usage-based-billing-manage-copilot-credits): documented services, P3 billing, limits, and prepaid-credit precedence
   - [What is an autopilot in Microsoft Foundry?](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/autopilot-overview) and [Build your first autopilot](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/agent-365): the identity-based definition and the Frontier preview build path, not proof of the Copilot product's architecture
   - [Microsoft IQ](https://learn.microsoft.com/en-us/microsoft-iq/): the hub lists four capabilities; [What is Foundry IQ?](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/what-is-foundry-iq) lists three workloads
@@ -278,7 +278,7 @@ Read these before you read any product page. They are the maps; everything below
 {: .no_toc }
 
 - **Microsoft Graph**
-  - [Graph Connectors](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/overview-copilot-connector)
+  - [Graph Connectors](https://learn.microsoft.com/en-us/plugins/overview-copilot-connector)
   - [Graph API Reference](https://learn.microsoft.com/en-us/graph/overview)
 
 - **Azure AI Search** (name unchanged; it is the retrieval engine underneath Foundry IQ)

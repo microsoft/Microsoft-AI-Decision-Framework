@@ -542,15 +542,15 @@ The Assistants API is on a documented sunset path toward the Foundry Agents Serv
 {: .warning }
 > **The sunset date has passed.** Learn's [classic navigation guide](https://learn.microsoft.com/en-us/azure/foundry/how-to/navigate-from-classic) (updated 2026-09-14) confirms **August 26, 2026** as the Assistants API sunset date (alongside the `azure-ai-inference` SDK retirement). If you still have workloads on the Assistants API, treat migration to the Foundry Agent Service and Responses API as an immediate cutover.
 
-The good news: you don't have to do this alone, and you don't have to do it by hand.
+The good news: you have a documented manual path and options for assistance. Plan for hands-on migration and testing.
 
 **Approach: Three Migration Paths**
 
 Choose the path that matches your team's velocity and codebase complexity. All three lead to the same destination: the Foundry Agents Service and Responses API.
 
-1. **Automated migration tool:** Microsoft provides a dedicated [migration tool](https://aka.ms/agent/migrate/tool) that inventories your existing Assistants API usage (threads, runs, assistant definitions) and automates structural conversion. Start here. It handles the mechanical translation: Threads become Conversations, Runs become Responses, Assistants become Agents (new), so your team can focus on testing business logic rather than rewriting boilerplate.[^agents-migrate]
+1. **Automated migration tool:** The [migration guide](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/migrate) describes a tool that translates agent definitions and thread, message, and run creation code. It does not migrate historical runs, threads, or messages. The tool link returned 404 when checked on 2026-11-23; verify its availability before relying on it, and use the manual path if needed.[^agents-migrate]
 
-2. **Copilot-cloud-agent-assisted migration:** For the parts the migration tool doesn't cover (custom orchestration logic, error handling, business rules wired into tool call loops), use the **Copilot cloud agent** (renamed from "coding agent," GA on all paid plans) to accelerate the rewrite. Write the mapping rules once into **`AGENTS.md`** and a repo-scoped **custom agent** (`.github/agents/*.md`) so the same conventions apply across every PR instead of every prompt. Assign the migration as a GitHub Issue, let the cloud agent open a PR with the refactored code, and review the diff. For large codebases, this turns weeks of manual rewriting into days of review.[^agents-migrate]
+2. **Copilot-cloud-agent-assisted migration:** Whether or not the migration tool is available, use the **Copilot cloud agent** (renamed from "coding agent," GA on all paid plans) to help rewrite code, including custom orchestration logic, error handling, and business rules wired into tool call loops. Write the mapping rules once into **`AGENTS.md`** and a repo-scoped **custom agent** (`.github/agents/*.md`) so the same conventions apply across every PR instead of every prompt. Assign the migration as a GitHub Issue, let the cloud agent open a PR with the refactored code, and review and test the diff.[^agents-migrate]
 
 3. **Manual migration with the mapping guide:** For teams that prefer full control or have highly customized orchestration, use the official [migration guide](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/migrate) as your reference. The key API primitive changes are straightforward:[^agents-migrate]
 
@@ -562,7 +562,7 @@ Choose the path that matches your team's velocity and codebase complexity. All t
 
 4. **Update SDK packages:** Install `azure-ai-projects` 2.x (replaces 1.x) and initialize the `AIProjectClient` pointing to your Foundry project endpoint. The standalone `azure-ai-agents` package is deprecated, so remove it and use `AIProjectClient` in `azure-ai-projects` as the single entry point. Ensure the SDK version matches the portal experience. Mixing 1.x SDK with new portal (or vice versa) causes errors.[^agents-migrate]
 
-5. **Test and validate.** The new agents support all existing tools (file search, code interpreter, function calling) plus capabilities the Assistants API never had: MCP tool calling, image generation, browser automation (Preview), background mode for long-running operations, and durable streams for disconnect/reconnect resilience. Run integration tests against the new endpoint before cutting over.[^agents-migrate][^responses-api]
+5. **Test and validate.** Check the [migration guide's tool availability table](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/migrate#agent-tool-availability) before cutting over. File search, code interpreter, and function calling carry over, but Azure Functions, Connected Agents, and Deep Research do not. Choose replacements where needed and run integration tests against the new endpoint.[^agents-migrate][^responses-api]
 
 **What you gain by migrating:**
 
@@ -573,9 +573,9 @@ Choose the path that matches your team's velocity and codebase complexity. All t
 
 **Trade-offs:**
 
-- This is a breaking API change, not a configuration update. The migration tool and GitHub Copilot reduce the effort, but they don't eliminate testing.
+- This is a breaking API change, not a configuration update. Assistance can reduce the effort, but it doesn't eliminate testing.
 - Tool call loop management is now explicit rather than runtime-managed. This gives you more control but requires updating orchestration logic that previously relied on the Assistants API runtime to drive loops automatically.
-- The migration tool automates structure but not custom business logic. Plan for manual validation of complex workflows even when using automated paths.
+- If the migration tool is available, its code translation still leaves historical state and complex workflows to address. Plan for manual validation even when using automated paths.
 
 **Signals this fits:**
 
@@ -588,7 +588,6 @@ Choose the path that matches your team's velocity and codebase complexity. All t
 **Sources:**
 
 - [Migrate to the new agents developer experience](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/migrate)[^agents-migrate]
-- [Migration tool](https://aka.ms/agent/migrate/tool)
 - [Use the Azure OpenAI Responses API](https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/responses)[^responses-api]
 - [Migrate legacy Agent Applications](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/migrate-agent-applications)[^foundry-publish-share]
 

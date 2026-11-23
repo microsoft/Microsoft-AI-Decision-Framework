@@ -393,7 +393,7 @@ Read these before you read any product page. They are the maps; everything below
   - [Migrate from the Foundry (classic) portal](https://learn.microsoft.com/en-us/azure/foundry/how-to/navigate-from-classic)
   - [Migrate to the new agents developer experience](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/migrate)
   - [Migrate classic agents to new agents](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/migrate#migrate-classic-agents-to-new-agents)
-  - [Migration tool (automated)](https://aka.ms/agent/migrate/tool)
+  - The migration guide above describes an automated tool, but its link returned 404 on 2026-11-23. Verify availability before relying on it.
   - [Responses API how-to](https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/responses)
   - [New Microsoft Foundry portal GA overview](https://learn.microsoft.com/en-us/azure/foundry/concepts/general-availability)
   - [Voice Live overview](https://learn.microsoft.com/en-us/azure/ai-services/speech-service/voice-live)

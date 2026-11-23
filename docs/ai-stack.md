@@ -446,7 +446,7 @@ Read the terms as well as the rates. These vehicles carry fixed terms and defaul
 * [Manage security and compliance for Microsoft Copilot Managed Runtime](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/apps/security-compliance) (Accessed: 2026-09-25)
 * [Microsoft Copilot Managed Runtime: Enterprise code execution for Microsoft 365](https://www.microsoft.com/en-us/copilot/blog/copilot-studio/build-where-you-want-run-with-confidence-now-microsoft-hosts-and-manages-the-code-created-by-copilot/) (Published: 2026-09-25)
 * [Copilot Studio apps overview](https://learn.microsoft.com/en-us/microsoft-copilot-studio/apps-experience/apps-overview) (Accessed: 2026-09-25)
-* [Use Copilot Cowork (Build apps with the App skill)](https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/use-cowork) (Accessed: 2026-09-25)
+* [Use Copilot Cowork (Build apps with the App skill)](https://learn.microsoft.com/en-us/copilot/cowork/use-cowork) (Accessed: 2026-09-25)
 * [Overview of the new Power Apps vibe experience](https://learn.microsoft.com/en-us/power-apps/vibe/overview) (Accessed: 2026-09-25)
 * [Convert a vibe app to a code app](https://learn.microsoft.com/en-us/power-apps/vibe/convert-vibe-to-code) (Accessed: 2026-09-25)
 * [Migrating the GitHub Copilot runtime to Rust, using Copilot](https://github.blog/ai-and-ml/generative-ai/migrating-the-github-copilot-runtime-to-rust-using-copilot/) (Published: 2026-09-16; Updated: 2026-09-23)

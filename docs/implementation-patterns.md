@@ -148,7 +148,7 @@ Read the trade-off before the diagram. The architecture is the easy part.
 
 - [Add SharePoint as a knowledge source](https://learn.microsoft.com/en-us/microsoft-copilot-studio/knowledge-add-sharepoint)[^knowledge-sharepoint]
 - [Add knowledge sources to Declarative Agents](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/agent-builder-add-knowledge)[^knowledge-sources]
-- [Microsoft 365 Copilot connectors overview](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/overview-copilot-connector)[^graph-connectors]
+- [Microsoft 365 Copilot connectors overview](https://learn.microsoft.com/en-us/plugins/overview-copilot-connector)[^graph-connectors]
 - [Declarative Agents for Microsoft 365 Copilot overview](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/overview-declarative-agent)[^declarative-agents]
 - [Plugins for Microsoft 365 Copilot](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/overview-plugins)[^api-plugins]
 - [Add custom Copilot Studio agents to Microsoft 365](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/publish)[^studio-publish]
@@ -255,7 +255,7 @@ Read the trade-off before the diagram. The architecture is the easy part.
 **Approach:**
 
 1.  **Start:** Build the core agent in **Copilot Studio** to handle standard intents, FAQs, and simple flows.
-2.  **Enhance (Harness & Reasoning):** When the agent outgrows rule-based flows, either start on or upgrade a copy to the **Microsoft Copilot harness** (GA; the [upgrade tool](https://learn.microsoft.com/en-us/microsoft-copilot-studio/upgrade-to-github-copilot-from-standard-harness) is Preview, consumes Copilot Credits, and skips knowledge sources, Power Fx, and child agents) to gain enhanced reasoning, skills, memory (Preview), and native model selection.[^byo-model]
+2.  **Enhance (Harness & Reasoning):** When the agent outgrows rule-based flows, either start on or upgrade a copy to the **Microsoft Copilot harness** (GA; the [upgrade tool](https://learn.microsoft.com/en-us/microsoft-copilot-studio/upgrade-to-microsoft-copilot-from-standard-harness) is Preview, consumes Copilot Credits, and skips knowledge sources, Power Fx, and child agents) to gain enhanced reasoning, skills, memory (Preview), and native model selection.[^byo-model]
 3.  **Extend (Orchestration):** Identify complex, multi-step tasks that require advanced planning or custom code. Build these as **Microsoft Foundry Agent Service**, **A2A**, or **M365 Agents SDK** agents.
 4.  **Connect:** Use Copilot Studio's **connected agents** (Preview) to delegate specific tasks to a Microsoft Foundry, A2A, M365 Agents SDK, or specialist Copilot Studio agent, then return the result to the user.[^agent-handoff]
 5.  **Share:** Point both the Copilot Studio agent and the Microsoft Foundry agent to the same **Foundry IQ** knowledge base (Studio integration GA per the 2026-10-07 blog) or **Azure AI Search** index so they share a governed knowledge layer.[^shared-knowledge]
@@ -282,7 +282,7 @@ Read the trade-off before the diagram. The architecture is the easy part.
 
 **Sources:**
 
-*   [Upgrade agents to the Microsoft Copilot harness (Preview)](https://learn.microsoft.com/en-us/microsoft-copilot-studio/upgrade-to-github-copilot-from-standard-harness) and [Model availability](https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-experience/authoring-agent-model-availability)[^byo-model]
+*   [Upgrade agents to the Microsoft Copilot harness (Preview)](https://learn.microsoft.com/en-us/microsoft-copilot-studio/upgrade-to-microsoft-copilot-from-standard-harness) and [Model availability](https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-experience/authoring-agent-model-availability)[^byo-model]
 *   [Connected agents overview (Microsoft Copilot harness)](https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-experience/authoring-add-other-agents) and [Connect to a Microsoft Foundry agent](https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-experience/add-agent-foundry)[^agent-handoff]
 *   [Connect to Foundry IQ](https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-experience/foundry-iq-connect) and [Azure AI Search Overview](https://learn.microsoft.com/en-us/azure/search/)[^shared-knowledge]
 
@@ -437,7 +437,7 @@ There is a moment in every successful developer-loop experiment where the tool s
 
 **Sources:**
 
-- [GitHub Copilot SDK](https://github.com/github/copilot-sdk)
+- [GitHub Copilot SDK](https://github.com/microsoft/copilot-sdk)
 - [Microsoft Foundry Agent Service overview](https://learn.microsoft.com/en-us/azure/foundry/agents/overview) (Hosted agents: Python and C# only)
 
 **Status:** Copilot SDK **GA**; Foundry Hosted agents have mixed maturity and a hard language limit
@@ -685,7 +685,7 @@ Choose the path that matches your team's velocity and codebase complexity. All t
 [^agent-azure-agent]: Microsoft Foundry Agents integration, Microsoft Learn. Retrieved: 2026-03-20. [https://learn.microsoft.com/en-us/agent-framework/integrations/by-component/model-providers/microsoft-foundry](https://learn.microsoft.com/en-us/agent-framework/integrations/by-component/model-providers/microsoft-foundry)
 [^agent-transparency]: Foundry Agent Service transparency note, Microsoft Learn. Retrieved: 2026-02-27. [https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/agents/transparency-note?view=foundry#capabilities](https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/agents/transparency-note?view=foundry#capabilities)
 [^agui-integration]: AG-UI integration with Agent Framework, Microsoft Learn. Preview, Updated: 2025-11-07. [https://learn.microsoft.com/en-us/agent-framework/integrations/by-component/ui/ag-ui/](https://learn.microsoft.com/en-us/agent-framework/integrations/by-component/ui/ag-ui/)
-[^graph-connectors]: Microsoft 365 Copilot connectors overview (external data indexing into Microsoft 365), Microsoft Learn. Retrieved: 2026-02-25. [https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/overview-copilot-connector](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/overview-copilot-connector)
+[^graph-connectors]: Microsoft 365 Copilot connectors overview (external data indexing into Microsoft 365), Microsoft Learn. Retrieved: 2026-02-25. [https://learn.microsoft.com/en-us/plugins/overview-copilot-connector](https://learn.microsoft.com/en-us/plugins/overview-copilot-connector)
 [^declarative-agents]: Declarative Agents for Microsoft 365 Copilot overview, Microsoft Learn. Retrieved: 2025-12-01. [https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/overview-declarative-agent](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/overview-declarative-agent)
 [^knowledge-sharepoint]: Add SharePoint as a knowledge source in Copilot Studio, Microsoft Learn. Retrieved: 2026-01-12. [https://learn.microsoft.com/en-us/microsoft-copilot-studio/knowledge-add-sharepoint](https://learn.microsoft.com/en-us/microsoft-copilot-studio/knowledge-add-sharepoint)
 [^knowledge-sources]: Add knowledge sources to Declarative Agents in Microsoft 365 Copilot, Microsoft Learn. Retrieved: 2025-12-18. [https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/agent-builder-add-knowledge](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/agent-builder-add-knowledge)
